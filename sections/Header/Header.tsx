@@ -11,20 +11,12 @@ import { HEADER_HEIGHT_DESKTOP, HEADER_HEIGHT_MOBILE, NAVBAR_HEIGHT_MOBILE, SEAR
 import { useDevice } from "@deco/deco/hooks";
 import { type LoadingFallbackProps } from "@deco/deco";
 import { Desktop } from "../../components/header/desktop.tsx";
+import { Items } from "../../components/header/Menu.types.ts";
 export interface Logo {
     src: ImageWidget;
     alt: string;
     width?: number;
     height?: number;
-}
-
-interface Submenu {
-  item: string
-}
-
-interface Items {
-  menuItem: string
-  submenu: Submenu[]
 }
 
 export interface SectionProps {
@@ -84,12 +76,15 @@ const Mobile = ({ logo, searchbar, navItems, loading }: Props) => (<>
       <Bag />
     </div>
   </>);
+
 function Header({ alerts = [], logo = {
     src: "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/986b61d4-3847-4867-93c8-b550cb459cc7",
     width: 100,
     height: 16,
     alt: "Logo",
 }, ...props }: Props) {
+
+  console.log({props: props.navItems})
     const device = useDevice();
     return (<header style={{
             height: device === "desktop"

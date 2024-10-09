@@ -7,6 +7,7 @@ import { SEARCHBAR_POPUP_ID } from "../../constants.ts";
 import Icon from "../ui/Icon.tsx";
 import Bag from "./Bag.tsx";
 import NavItem from "./NavItem.tsx";
+import { Items } from "./Menu.types.ts";
 
 export interface Logo {
     src: ImageWidget;
@@ -14,16 +15,6 @@ export interface Logo {
     width?: number;
     height?: number;
 }
-
-interface Submenu {
-    item: string
-  }
-  
-  interface Items {
-    menuItem: string
-    submenu: Submenu[]
-  }
-
 
 export interface SectionProps {
     alerts?: HTMLWidget[];

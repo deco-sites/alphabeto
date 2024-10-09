@@ -21,13 +21,37 @@
     {
       "submenu": [
         {
-          "item": "Uedw"
+          "item": [
+            {
+              "item": "Bebe",
+              "href": "/",
+              "highlight": true
+            },
+            {
+              "item": "Body",
+              "href": "/"
+            }
+          ],
+          "highlight": false
         },
         {
-          "item": "Submenu Teste"
+          "item": [
+            {
+              "item": "Teste",
+              "href": "/",
+              "highlight": true
+            },
+            {
+              "item": "tetse",
+              "href": " /w",
+              "highlight": false
+            }
+          ],
+          "seeAll": true
         }
       ],
-      "menuItem": "Teste Menu Item"
+      "menuItem": "Item 1",
+      "href": "/"
     }
   ]
 }
