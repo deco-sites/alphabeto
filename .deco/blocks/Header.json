@@ -16,54 +16,18 @@
     "width": 160,
     "height": 40
   },
+  "loading": "eager",
   "navItems": [
     {
-      "children": [
+      "submenu": [
         {
-          "image": [],
-          "children": [],
-          "name": "Hello"
+          "item": "Uedw"
         },
         {
-          "image": [],
-          "children": [],
-          "name": "World"
+          "item": "Submenu Teste"
         }
       ],
-      "@type": "SiteNavigationElement",
-      "url": "/deals",
-      "name": "Deals"
-    },
-    {
-      "@type": "SiteNavigationElement",
-      "url": "/valentines-day",
-      "name": "Valentine's Day",
-      "children": []
-    },
-    {
-      "@type": "SiteNavigationElement",
-      "url": "/women",
-      "name": "Women",
-      "children": []
-    },
-    {
-      "@type": "SiteNavigationElement",
-      "url": "/men",
-      "name": "Men",
-      "children": []
-    },
-    {
-      "@type": "SiteNavigationElement",
-      "url": "/clearance",
-      "name": "Clearance",
-      "children": []
-    },
-    {
-      "@type": "SiteNavigationElement",
-      "url": "/activities",
-      "name": "Activities",
-      "children": []
+      "menuItem": "Teste Menu Item"
     }
-  ],
-  "loading": "eager"
+  ]
 }
