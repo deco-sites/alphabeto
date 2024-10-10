@@ -1,27 +1,24 @@
-import type { SiteNavigationElement } from "apps/commerce/types.ts";
 import Image from "apps/website/components/Image.tsx";
 import {
   HEADER_HEIGHT_DESKTOP,
   NAVBAR_HEIGHT_DESKTOP,
 } from "../../constants.ts";
+import { Items } from "./Menu.types.ts";
 
-function NavItem({ item }: { item: SiteNavigationElement }) {
-  const { url, name, children } = item;
-  const image = item?.image?.[0];
-
+function NavItem({href, menuItem, image, submenu}: Items) {
   return (
     <li
       class="group flex items-center pr-5"
       style={{ height: NAVBAR_HEIGHT_DESKTOP }}
     >
       <a
-        href={url}
+        href={href}
         class="group-hover:underline text-sm font-medium"
       >
-        {name}
+        {menuItem}
       </a>
 
-      {children && children.length > 0 &&
+      {submenu && submenu.length > 0 &&
         (
           <div
             class="fixed hidden hover:flex group-hover:flex bg-base-100 z-40 items-start justify-center gap-6 border-t-2 border-b-2 border-base-200 w-screen"
@@ -31,28 +28,28 @@ function NavItem({ item }: { item: SiteNavigationElement }) {
               marginTop: HEADER_HEIGHT_DESKTOP,
             }}
           >
-            {image?.url && (
+            {image && (
               <Image
                 class="p-6"
-                src={image.url}
-                alt={image.alternateName}
+                src={image}
+                alt={menuItem}
                 width={300}
                 height={332}
                 loading="lazy"
               />
             )}
             <ul class="flex items-start justify-start gap-6 container">
-              {children.map((node) => (
+              {submenu.map((node) => (
                 <li class="p-6 pl-0">
-                  <a class="hover:underline" href={node.url}>
+                  {/* <a class="hover:underline" href={node.url}>
                     <span>{node.name}</span>
-                  </a>
+                  </a> */}
 
                   <ul class="flex flex-col gap-1 mt-4">
-                    {node.children?.map((leaf) => (
+                    {node.item?.map((leaf) => (
                       <li>
-                        <a class="hover:underline" href={leaf.url}>
-                          <span class="text-xs">{leaf.name}</span>
+                        <a class="hover:underline" href={leaf.href}>
+                          <span class="text-xs">{leaf.item}</span>
                         </a>
                       </li>
                     ))}

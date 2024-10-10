@@ -8,40 +8,44 @@ import Icon from "../ui/Icon.tsx";
 import Bag from "./Bag.tsx";
 import NavItem from "./NavItem.tsx";
 import { Items } from "./Menu.types.ts";
+import { headerMenuContent } from "./content.ts";
 
 export interface Logo {
-    src: ImageWidget;
-    alt: string;
-    width?: number;
-    height?: number;
+  src: ImageWidget;
+  alt: string;
+  width?: number;
+  height?: number;
 }
 
 export interface SectionProps {
-    alerts?: HTMLWidget[];
-    /**
-     * @title Navigation items
-     * @description Navigation items used both on mobile and desktop menus
-     */
-    navItems?: Items[] | null;
-    /**
-     * @title Searchbar
-     * @description Searchbar configuration
-     */
-    searchbar: SearchbarProps;
-    /** @title Logo */
-    logo: Logo;
-    /**
-     * @description Usefull for lazy loading hidden elements, like hamburguer menus etc
-     * @hide true */
-    loading?: "eager" | "lazy";
+  alerts?: HTMLWidget[];
+  /**
+   * @title Navigation items
+   * @description Navigation items used both on mobile and desktop menus
+   */
+  navItems?: Items[] | null;
+  /**
+   * @title Searchbar
+   * @description Searchbar configuration
+   */
+  searchbar: SearchbarProps;
+  /** @title Logo */
+  logo: Logo;
+  /**
+   * @description Usefull for lazy loading hidden elements, like hamburguer menus etc
+   * @hide true */
+  loading?: "eager" | "lazy";
 }
 
-export const Desktop = ({ navItems, logo, searchbar, loading }: SectionProps) => (
+export const Desktop = ({
+  navItems,
+  logo,
+  searchbar,
+  loading,
+}: SectionProps) => (
   <>
-    <Modal>
-      <div
-        class="absolute top-0 bg-base-100 container"
-      >
+    <Modal id={SEARCHBAR_POPUP_ID}>
+      <div class="absolute top-0 bg-base-100 container">
         {loading === "lazy" ? (
           <div class="flex justify-center items-center">
             <span class="loading loading-spinner" />
@@ -53,7 +57,21 @@ export const Desktop = ({ navItems, logo, searchbar, loading }: SectionProps) =>
     </Modal>
 
     <div class="flex flex-col gap-4 pt-5 container border-b border-gray-300">
-      <div class="grid grid-cols-3 place-items-center">
+      <div class="flex justify-between">
+        <div class="flex justify-between items-center">
+          <ul class="flex">
+            {navItems?.map((item) => (
+              <NavItem
+                href={item.href}
+                menuItem={item.menuItem}
+                image={item.image}
+                submenu={item.submenu}
+              />
+            ))}
+          </ul>
+          <div>{/* ship to */}</div>
+        </div>
+
         <div class="place-self-start">
           <a href="/" aria-label="Store logo">
             <Image
@@ -77,15 +95,6 @@ export const Desktop = ({ navItems, logo, searchbar, loading }: SectionProps) =>
         <div class="flex gap-4 place-self-end">
           <Bag />
         </div>
-      </div>
-
-      <div class="flex justify-between items-center">
-        <ul class="flex">
-          {/* {navItems?.slice(0, 10).map((item) => (
-            <NavItem item={item} />
-          ))} */}
-        </ul>
-        <div>{/* ship to */}</div>
       </div>
     </div>
   </>

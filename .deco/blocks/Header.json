@@ -19,38 +19,58 @@
   "loading": "eager",
   "navItems": [
     {
+      "submenu": [],
+      "menuItem": "Novidades",
+      "href": "/"
+    },
+    {
+      "submenu": [],
+      "menuItem": "Vestidos",
+      "href": "/"
+    },
+    {
+      "submenu": [],
+      "menuItem": "Meninas",
+      "href": "/"
+    },
+    {
       "submenu": [
         {
           "item": [
             {
-              "item": "Bebe",
+              "item": "Bebê (3 a 18 meses)",
               "href": "/",
               "highlight": true
             },
             {
-              "item": "Body",
+              "item": "Body e Polo",
               "href": "/"
-            }
-          ],
-          "highlight": false
-        },
-        {
-          "item": [
-            {
-              "item": "Teste",
-              "href": "/",
-              "highlight": true
             },
             {
-              "item": "tetse",
-              "href": " /w",
-              "highlight": false
+              "item": "Bermuda",
+              "href": "/"
+            },
+            {
+              "item": "Calça",
+              "href": "/"
+            },
+            {
+              "item": "Casaco",
+              "href": "/"
+            },
+            {
+              "item": "Conjunto",
+              "href": "/"
+            },
+            {
+              "item": "Jardineira e Macacão",
+              "href": "/"
             }
           ],
           "seeAll": true
         }
       ],
-      "menuItem": "Item 1",
+      "menuItem": "Meninos",
       "href": "/"
     }
   ]

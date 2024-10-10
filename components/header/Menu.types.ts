@@ -1,4 +1,4 @@
-import type { ImageWidget } from "apps/admin/widgets.ts";
+import type { ImageWidget as Image } from "apps/admin/widgets.ts";
 
 interface Item {
     item: string
@@ -14,6 +14,6 @@ interface Submenu {
 export interface Items {
     menuItem: string
     href: string
-    image?: ImageWidget
+    image?: Image
     submenu?: Submenu[]
 }

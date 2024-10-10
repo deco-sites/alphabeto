@@ -1,5 +1,4 @@
 import type { HTMLWidget, ImageWidget } from "apps/admin/widgets.ts";
-import type { SiteNavigationElement } from "apps/commerce/types.ts";
 import Image from "apps/website/components/Image.tsx";
 import Alert from "../../components/header/Alert.tsx";
 import Bag from "../../components/header/Bag.tsx";
@@ -10,8 +9,8 @@ import Icon from "../../components/ui/Icon.tsx";
 import { HEADER_HEIGHT_DESKTOP, HEADER_HEIGHT_MOBILE, NAVBAR_HEIGHT_MOBILE, SEARCHBAR_DRAWER_ID, SIDEMENU_CONTAINER_ID, SIDEMENU_DRAWER_ID, } from "../../constants.ts";
 import { useDevice } from "@deco/deco/hooks";
 import { type LoadingFallbackProps } from "@deco/deco";
-import { Desktop } from "../../components/header/desktop.tsx";
 import { Items } from "../../components/header/Menu.types.ts";
+import { Desktop } from "../../components/header/HeaderDesktop.tsx";
 export interface Logo {
     src: ImageWidget;
     alt: string;
@@ -86,7 +85,8 @@ function Header({ alerts = [], logo = {
 
   console.log({props: props.navItems})
     const device = useDevice();
-    return (<header style={{
+    return (
+    <header style={{
             height: device === "desktop"
                 ? HEADER_HEIGHT_DESKTOP
                 : HEADER_HEIGHT_MOBILE,
