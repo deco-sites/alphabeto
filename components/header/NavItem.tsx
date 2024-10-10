@@ -30,18 +30,14 @@ function NavItem({ href, menuItem, image, submenu }: Items) {
         >
           <div className="container flex justify-between">
             <div className="w-full">
-              <h5>{menuItem}</h5>
+              <h5 className="base-400 decoration-dashed decoration-base-200">{menuItem}</h5>
               <ul class="flex items-start justify-start gap-6">
                 {submenu.map((node) => {
                   console.log({ node });
                   return (
                     <li class="p-6 pl-0">
                       <ul
-                        class={`mt-4 ${
-                          node.item?.length > 5
-                            ? "grid grid-cols-2 gap-2"
-                            : "flex flex-col gap-1"
-                        }`}
+                        class="mt-4"
                       >
                         {node.item?.map((leaf) => (
                           <li>

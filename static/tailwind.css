@@ -4886,6 +4886,12 @@ details.collapse summary::-webkit-details-marker {
 .line-through {
   text-decoration-line: line-through;
 }
+.decoration-base-200 {
+  text-decoration-color: var(--fallback-b2,oklch(var(--b2)/1));
+}
+.decoration-dashed {
+  text-decoration-style: dashed;
+}
 .opacity-0 {
   opacity: 0;
 }
