@@ -150,5 +150,23 @@
       "href": "/",
       "menuItem": "Bazar"
     }
+  ],
+  "links": [
+    {
+      "href": "/",
+      "title": "Fale com as fadinhas"
+    },
+    {
+      "title": "Troca fácil",
+      "href": "/"
+    },
+    {
+      "title": "Seja um franqueado",
+      "href": "/"
+    },
+    {
+      "title": "Seja um revendedor",
+      "href": " /"
+    }
   ]
 }

@@ -1,6 +1,6 @@
 import type { HTMLWidget, ImageWidget } from "apps/admin/widgets.ts";
 import Image from "apps/website/components/Image.tsx";
-import Alert from "../../components/header/Alert.tsx";
+import Links from "../../components/header/Links.tsx";
 import Bag from "../../components/header/Bag.tsx";
 import Searchbar, {
   type SearchbarProps,
@@ -19,6 +19,7 @@ import { useDevice } from "@deco/deco/hooks";
 import { type LoadingFallbackProps } from "@deco/deco";
 import { Items } from "../../components/header/Menu.types.ts";
 import { Desktop } from "../../components/header/HeaderDesktop.tsx";
+
 export interface Logo {
   src: ImageWidget;
   alt: string;
@@ -26,8 +27,13 @@ export interface Logo {
   height?: number;
 }
 
+export interface LinksProps {
+  title: string
+  href: string
+}
+
 export interface SectionProps {
-  alerts?: HTMLWidget[];
+  links?: LinksProps[];
   /**
    * @title Navigation items
    * @description Navigation items used both on mobile and desktop menus
@@ -128,14 +134,8 @@ const Mobile = ({ logo, searchbar, loading }: Props) => (
 );
 
 function Header({
-  alerts = [],
-  logo = {
-    src:
-      "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/986b61d4-3847-4867-93c8-b550cb459cc7",
-    width: 100,
-    height: 16,
-    alt: "Logo",
-  },
+  links = [],
+  logo,
   ...props
 }: Props) {
   console.log({ props: props.navItems });
@@ -149,7 +149,7 @@ function Header({
       }}
     >
       <div class="bg-base-100 fixed w-full z-40">
-        {alerts.length > 0 && <Alert alerts={alerts} />}
+        {links.length > 0 && <Links links={links} />}
         {device === "desktop"
           ? <Desktop logo={logo} {...props} />
           : <Mobile logo={logo} {...props} />}
