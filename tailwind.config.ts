@@ -9,11 +9,11 @@ export default {
       container: {
         center: true,
         screens: {
-          desktop: '95rem',
+          desktop: "95rem",
         },
         padding: {
-          desktop: '2.5rem',
-          mobile: '1.25rem',
+          desktop: "2.5rem",
+          mobile: "1.25rem",
         },
       },
     },
@@ -29,15 +29,15 @@ export default {
         },
       },
     },
-    
+
     screens: {
-      'mobile': {max: '1023px'},
+      "mobile": { max: "1023px" },
       // => @media (max-width: 1023px) { ... }
 
-      'tablet': '680px',
+      "tablet": "680px",
       // => @media (min-width: 680px) { ... }
 
-      'desk': '1024px',
+      "desk": "1024px",
       // => @media (min-width: 1024px) { ... }
     },
   },

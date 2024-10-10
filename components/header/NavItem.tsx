@@ -1,8 +1,5 @@
 import Image from "apps/website/components/Image.tsx";
-import {
-  HEADER_HEIGHT_DESKTOP,
-  NAVBAR_HEIGHT_DESKTOP,
-} from "../../constants.ts";
+import { NAVBAR_HEIGHT_DESKTOP } from "../../constants.ts";
 import { Items } from "./Menu.types.ts";
 
 function NavItem({ href, menuItem, image, submenu }: Items) {
@@ -56,9 +53,11 @@ function NavItem({ href, menuItem, image, submenu }: Items) {
                         </ul>
                       </li>
 
-                      {/* {
+                      {
+                        /* {
                         node.seeAll && <a href={href}></a>
-                      } */}
+                      } */
+                      }
                     </>
                   );
                 })}

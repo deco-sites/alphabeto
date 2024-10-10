@@ -8,7 +8,7 @@ const serviceWorkerScript = () =>
     () =>
       navigator &&
       navigator.serviceWorker &&
-      navigator.serviceWorker.register("/sw.js")
+      navigator.serviceWorker.register("/sw.js"),
   );
 export default defineApp(async (_req, ctx) => {
   const revision = await Context.active().release?.revision();
@@ -74,9 +74,7 @@ export default defineApp(async (_req, ctx) => {
             __html: `
               @font-face {
               font-family: "BeccaPerry";
-              src: url(${
-              asset("/fonts/BeccaPerry.ttf")
-            }) format('truetype');
+              src: url(${asset("/fonts/BeccaPerry.ttf")}) format('truetype');
               font-weight: 500;
               font-display: swap;
               font-style: normal;

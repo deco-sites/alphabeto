@@ -1,15 +1,10 @@
 import { HTMLWidget, ImageWidget } from "apps/admin/widgets.ts";
-import Searchbar, { SearchbarProps } from "../search/Searchbar/Form.tsx";
-import Modal from "../ui/Modal.tsx";
-import { SiteNavigationElement } from "apps/commerce/types.ts";
+import { SearchbarProps } from "../search/Searchbar/Form.tsx";
 import Image from "apps/website/components/Image.tsx";
-import { SEARCHBAR_POPUP_ID } from "../../constants.ts";
-import Icon from "../ui/Icon.tsx";
 import Bag from "./Bag.tsx";
 import NavItem from "./NavItem.tsx";
 import { Items } from "./Menu.types.ts";
-import { headerMenuContent } from "./content.ts";
-import { Wishlist } from "./Wishlist.tsx"; 
+import { Wishlist } from "./Wishlist.tsx";
 import SignIn from "./SignIn.tsx";
 import { Search } from "./Search.tsx";
 
@@ -44,7 +39,7 @@ export const Desktop = ({
   navItems,
   logo,
   searchbar,
-  loading
+  loading,
 }: SectionProps) => (
   <>
     <div class="flex flex-col gap-4 pt-5 container border-b border-gray-300">
