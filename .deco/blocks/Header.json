@@ -129,7 +129,8 @@
         }
       ],
       "menuItem": "Meninos",
-      "href": "/"
+      "href": "/",
+      "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/55a0da1a-8b38-40f1-a1f3-b044c848fffc/image-20.png"
     },
     {
       "submenu": [],
