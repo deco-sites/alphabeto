@@ -28,9 +28,9 @@ function NavItem({ href, menuItem, image, submenu }: Items) {
             marginTop: "128px",
           }}
         >
-          <div className="container">
-            <div>
-              <span>{menuItem}</span>
+          <div className="container flex justify-between">
+            <div className="w-full">
+              <h5>{menuItem}</h5>
               <ul class="flex items-start justify-start gap-6">
                 {submenu.map((node) => {
                   console.log({ node });
