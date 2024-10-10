@@ -68,6 +68,19 @@
             }
           ],
           "seeAll": true
+        },
+        {
+          "item": [
+            {
+              "item": "Criança  (2 a 8 anos)",
+              "href": "/",
+              "highlight": true
+            },
+            {
+              "item": "Acessório",
+              "href": "/"
+            }
+          ]
         }
       ],
       "menuItem": "Meninos",
