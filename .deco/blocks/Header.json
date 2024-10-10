@@ -85,6 +85,21 @@
       ],
       "menuItem": "Meninos",
       "href": "/"
+    },
+    {
+      "submenu": [],
+      "menuItem": "Combos",
+      "href": "/"
+    },
+    {
+      "submenu": [],
+      "menuItem": "Basiquinho",
+      "href": "/"
+    },
+    {
+      "submenu": [],
+      "href": "/",
+      "menuItem": "Bazar"
     }
   ]
 }
