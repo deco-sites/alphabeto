@@ -79,8 +79,53 @@
             {
               "item": "Acessório",
               "href": "/"
+            },
+            {
+              "item": "Camiseta e Regata",
+              "href": "/"
+            },
+            {
+              "item": "Camisa e Polo",
+              "href": "/"
+            },
+            {
+              "item": "Body",
+              "href": "/"
+            },
+            {
+              "item": "Bermuda",
+              "href": "/"
+            },
+            {
+              "item": "Casaco",
+              "href": "/"
+            },
+            {
+              "item": "Moda Praia",
+              "href": "/"
+            },
+            {
+              "item": "Jardineira e Macacão",
+              "href": "/"
+            },
+            {
+              "item": "Calça",
+              "href": "/"
+            },
+            {
+              "item": "Conjunto",
+              "href": "/"
+            },
+            {
+              "item": "Pijama",
+              "href": "/"
+            },
+            {
+              "item": "Meia e Galocha",
+              "href": "/"
             }
-          ]
+          ],
+          "seeAll": true
         }
       ],
       "menuItem": "Meninos",

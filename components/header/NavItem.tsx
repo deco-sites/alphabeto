@@ -8,12 +8,13 @@ import { Items } from "./Menu.types.ts";
 function NavItem({href, menuItem, image, submenu}: Items) {
   return (
     <li
-      class="group flex items-center pr-5"
+      class="group flex items-center pr-5 text-base-200"
       style={{ height: NAVBAR_HEIGHT_DESKTOP }}
     >
       <a
         href={href}
-        class="group-hover:underline text-sm font-medium"
+        class="group-hover:border-b-4 border-[#70D1E8] text-base-200 text-sm font-medium flex items-center"
+        style={{ height: NAVBAR_HEIGHT_DESKTOP }}
       >
         {menuItem}
       </a>
@@ -21,11 +22,11 @@ function NavItem({href, menuItem, image, submenu}: Items) {
       {submenu && submenu.length > 0 &&
         (
           <div
-            class="fixed hidden hover:flex group-hover:flex bg-base-100 z-40 items-start justify-center gap-6 border-t-2 border-b-2 border-base-200 w-screen"
+            class="fixed hidden hover:flex group-hover:flex bg-base-100 z-40 items-start justify-center gap-6 w-screen"
             style={{
               top: "0px",
               left: "0px",
-              marginTop: HEADER_HEIGHT_DESKTOP,
+              marginTop: '128px',
             }}
           >
             {image && (
@@ -48,7 +49,7 @@ function NavItem({href, menuItem, image, submenu}: Items) {
                   <ul class="flex flex-col gap-1 mt-4">
                     {node.item?.map((leaf) => (
                       <li>
-                        <a class="hover:underline" href={leaf.href}>
+                        <a class="hover:underline text-base-200" href={leaf.href}>
                           <span class="text-xs">{leaf.item}</span>
                         </a>
                       </li>
