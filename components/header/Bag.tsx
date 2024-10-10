@@ -1,5 +1,6 @@
 import { MINICART_DRAWER_ID } from "../../constants.ts";
 import { useId } from "../../sdk/useId.ts";
+import { IconBag } from "../Icons/IconBag.tsx";
 import Icon from "../ui/Icon.tsx";
 import { useScript } from "@deco/deco/hooks";
 const onLoad = (id: string) =>
@@ -24,11 +25,10 @@ function Bag() {
       <label class="indicator" for={MINICART_DRAWER_ID} aria-label="open cart">
         <span
           id={id}
-          class="hidden indicator-item badge badge-primary badge-sm font-thin"
         />
 
-        <span class="btn btn-square btn-sm btn-ghost no-animation">
-          <Icon id="shopping_bag" />
+        <span>
+          <IconBag />
         </span>
       </label>
       <script

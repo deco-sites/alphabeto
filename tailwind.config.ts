@@ -17,6 +17,7 @@ export default {
         },
       },
     },
+
     extend: {
       animation: {
         sliding: "sliding 30s linear infinite",

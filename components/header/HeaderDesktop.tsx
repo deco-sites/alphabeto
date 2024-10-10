@@ -9,6 +9,9 @@ import Bag from "./Bag.tsx";
 import NavItem from "./NavItem.tsx";
 import { Items } from "./Menu.types.ts";
 import { headerMenuContent } from "./content.ts";
+import { Wishlist } from "./Wishlist.tsx"; 
+import SignIn from "./SignIn.tsx";
+import { Search } from "./Search.tsx";
 
 export interface Logo {
   src: ImageWidget;
@@ -41,23 +44,11 @@ export const Desktop = ({
   navItems,
   logo,
   searchbar,
-  loading,
+  loading
 }: SectionProps) => (
   <>
-    <Modal id={SEARCHBAR_POPUP_ID}>
-      <div class="absolute top-0 bg-base-100 container">
-        {loading === "lazy" ? (
-          <div class="flex justify-center items-center">
-            <span class="loading loading-spinner" />
-          </div>
-        ) : (
-          <Searchbar {...searchbar} />
-        )}
-      </div>
-    </Modal>
-
     <div class="flex flex-col gap-4 pt-5 container border-b border-gray-300">
-      <div class="flex justify-between">
+      <div class="flex justify-between items-center">
         <div class="flex justify-between items-center">
           <ul class="flex">
             {navItems?.map((item) => (
@@ -72,7 +63,7 @@ export const Desktop = ({
           <div>{/* ship to */}</div>
         </div>
 
-        <div class="place-self-start">
+        <div>
           <a href="/" aria-label="Store logo">
             <Image
               src={logo.src}
@@ -83,16 +74,11 @@ export const Desktop = ({
           </a>
         </div>
 
-        <label
-          for={SEARCHBAR_POPUP_ID}
-          class="input input-bordered flex items-center gap-2 w-full"
-          aria-label="search icon button"
-        >
-          <Icon id="search" />
-          <span class="text-base-400 truncate">Search products, brands...</span>
-        </label>
+        <Search searchbar={searchbar} loading={loading} />
 
-        <div class="flex gap-4 place-self-end">
+        <div class="flex gap-4">
+          <Wishlist />
+          <SignIn variant="desktop" />
           <Bag />
         </div>
       </div>

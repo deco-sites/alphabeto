@@ -31,7 +31,7 @@
     "base-300": "#FCFCFC",
     "base-400": "#676767",
     "base-content": "#212121",
-    "primary-content": "#FCFCFC",
+    "primary-content": "#F5F4F1",
     "secondary-content": "#FCFCFC",
     "tertiary-content": "#FCFCFC",
     "neutral-content": "#FCFCFC",
@@ -39,5 +39,14 @@
     "warning-content": "#FCFCFC",
     "error-content": "#FCFCFC",
     "info-content": "#FCFCFC"
+  },
+  "font": {
+    "__resolveType": "website/loaders/fonts/googleFonts.ts",
+    "fonts": [
+      {
+        "variations": [],
+        "family": "Quicksand"
+      }
+    ]
   }
 }

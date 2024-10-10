@@ -28,44 +28,48 @@ function NavItem({ href, menuItem, image, submenu }: Items) {
             marginTop: "128px",
           }}
         >
-          <div className="container flex justify-between">
+          <div className="container flex justify-between gap-9 !pr-0">
             <div className="w-full">
-              <h5 className="base-400 decoration-dashed decoration-base-200">{menuItem}</h5>
+              <h5 className="text-[#676767] font-['BeccaPerry'] pb-[13px] leading-[38px] text-[32px] border-b border-base-200 border-dashed">
+                {menuItem}
+              </h5>
               <ul class="flex items-start justify-start gap-6">
                 {submenu.map((node) => {
-                  console.log({ node });
                   return (
-                    <li class="p-6 pl-0">
-                      <ul
-                        class="mt-4"
-                      >
-                        {node.item?.map((leaf) => (
-                          <li>
-                            <a
-                              class={`hover:underline ${
-                                leaf.highlight
-                                  ? "text-base-200"
-                                  : "text-base-content"
-                              }`}
-                              href={leaf.href}
-                            >
-                              <span class="text-xs">{leaf.item}</span>
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
+                    <>
+                      <li class="p-6 pl-0">
+                        <ul class="mt-4">
+                          {node.item?.map((leaf) => (
+                            <li>
+                              <a
+                                class={`hover:underline ${
+                                  leaf.highlight
+                                    ? "text-base-200"
+                                    : "text-base-content"
+                                }`}
+                                href={leaf.href}
+                              >
+                                <span class="text-xs">{leaf.item}</span>
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+
+                      {/* {
+                        node.seeAll && <a href={href}></a>
+                      } */}
+                    </>
                   );
                 })}
               </ul>
             </div>
             {image && (
               <Image
-                class="p-6"
                 src={image}
                 alt={menuItem}
-                width={300}
-                height={332}
+                width={279}
+                height={377}
                 loading="lazy"
               />
             )}

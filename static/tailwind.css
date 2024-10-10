@@ -1646,6 +1646,42 @@ html {
   z-index: 3;
   opacity: 1;
 }
+.swap {
+  position: relative;
+  display: inline-grid;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  place-content: center;
+  cursor: pointer;
+}
+.swap > * {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-property: transform, opacity;
+}
+.swap input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.swap .swap-on,
+.swap .swap-indeterminate,
+.swap input:indeterminate ~ .swap-on {
+  opacity: 0;
+}
+.swap input:checked ~ .swap-off,
+.swap-active .swap-off,
+.swap input:indeterminate ~ .swap-off {
+  opacity: 0;
+}
+.swap input:checked ~ .swap-on,
+.swap-active .swap-on,
+.swap input:indeterminate ~ .swap-indeterminate {
+  opacity: 1;
+}
 .tabs {
   display: grid;
   align-items: flex-end;
@@ -1773,18 +1809,6 @@ input.tab:checked + .tab-content,
   border-width: 4px;
   --tw-border-opacity: 1;
   border-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-border-opacity)));
-}
-.badge-primary {
-  --tw-border-opacity: 1;
-  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity)));
-  --tw-bg-opacity: 1;
-  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity)));
-  --tw-text-opacity: 1;
-  color: var(--fallback-pc,oklch(var(--pc)/var(--tw-text-opacity)));
-}
-.badge-outline.badge-primary {
-  --tw-text-opacity: 1;
-  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
 }
 .btm-nav > *:where(.\!active) {
   border-top-width: 2px !important;
@@ -3222,13 +3246,6 @@ details.collapse summary::-webkit-details-marker {
 .artboard.phone {
   width: 320px;
 }
-.badge-sm {
-  height: 1rem;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  padding-left: 0.438rem;
-  padding-right: 0.438rem;
-}
 .btm-nav-xs > *:where(.\!active) {
   border-top-width: 1px !important;
 }
@@ -4009,6 +4026,9 @@ details.collapse summary::-webkit-details-marker {
 .max-w-\[200px\] {
   max-width: 200px;
 }
+.max-w-\[243px\] {
+  max-width: 243px;
+}
 .max-w-\[2px\] {
   max-width: 2px;
 }
@@ -4246,9 +4266,6 @@ details.collapse summary::-webkit-details-marker {
 .place-self-start {
   place-self: start;
 }
-.place-self-end {
-  place-self: end;
-}
 .self-center {
   align-self: center;
 }
@@ -4365,6 +4382,9 @@ details.collapse summary::-webkit-details-marker {
 .border-t-\[1px\] {
   border-top-width: 1px;
 }
+.border-dashed {
+  border-style: dashed;
+}
 .border-none {
   border-style: none;
 }
@@ -4437,6 +4457,10 @@ details.collapse summary::-webkit-details-marker {
 .bg-primary {
   --tw-bg-opacity: 1;
   background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity)));
+}
+.bg-primary-content {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-pc,oklch(var(--pc)/var(--tw-bg-opacity)));
 }
 .bg-secondary {
   --tw-bg-opacity: 1;
@@ -4586,6 +4610,9 @@ details.collapse summary::-webkit-details-marker {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
+.\!pr-0 {
+  padding-right: 0px !important;
+}
 .pb-1 {
   padding-bottom: 0.25rem;
 }
@@ -4597,6 +4624,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .pb-4 {
   padding-bottom: 1rem;
+}
+.pb-\[13px\] {
+  padding-bottom: 13px;
 }
 .pb-\[15px\] {
   padding-bottom: 15px;
@@ -4655,6 +4685,9 @@ details.collapse summary::-webkit-details-marker {
 .text-end {
   text-align: end;
 }
+.font-\[\'BeccaPerry\'\] {
+  font-family: 'BeccaPerry';
+}
 .\!text-sm {
   font-size: 0.875rem !important;
   line-height: 1.25rem !important;
@@ -4700,6 +4733,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .text-\[24px\] {
   font-size: 24px;
+}
+.text-\[32px\] {
+  font-size: 32px;
 }
 .text-\[40px\] {
   font-size: 40px;
@@ -4803,6 +4839,9 @@ details.collapse summary::-webkit-details-marker {
 .leading-\[22px\] {
   line-height: 22px;
 }
+.leading-\[38px\] {
+  line-height: 38px;
+}
 .tracking-\[-2\.4px\] {
   letter-spacing: -2.4px;
 }
@@ -4823,6 +4862,10 @@ details.collapse summary::-webkit-details-marker {
 .text-\[\#667781\] {
   --tw-text-opacity: 1;
   color: rgb(102 119 129 / var(--tw-text-opacity));
+}
+.text-\[\#676767\] {
+  --tw-text-opacity: 1;
+  color: rgb(103 103 103 / var(--tw-text-opacity));
 }
 .text-accent {
   --tw-text-opacity: 1;
@@ -4885,12 +4928,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .line-through {
   text-decoration-line: line-through;
-}
-.decoration-base-200 {
-  text-decoration-color: var(--fallback-b2,oklch(var(--b2)/1));
-}
-.decoration-dashed {
-  text-decoration-style: dashed;
 }
 .opacity-0 {
   opacity: 0;

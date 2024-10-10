@@ -1,5 +1,6 @@
 import { clx } from "../../sdk/clx.ts";
 import { useId } from "../../sdk/useId.ts";
+import { IconUser } from "../Icons/IconUser.tsx";
 import Icon from "../ui/Icon.tsx";
 import { useScript } from "@deco/deco/hooks";
 const onLoad = (containerID: string) => {
@@ -25,15 +26,10 @@ function SignIn({ variant }: {
   return (
     <div id={id}>
       <a
-        class={clx(
-          "btn btn-sm font-thin btn-ghost no-animation",
-          variant === "mobile" && "btn-square",
-        )}
         href="/login"
         aria-label="Login"
       >
-        <Icon id="account_circle" />
-        {variant === "desktop" && <span>Sign in</span>}
+        <IconUser />
       </a>
       <a
         class={clx(

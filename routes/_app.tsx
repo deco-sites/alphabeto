@@ -3,9 +3,13 @@ import { defineApp } from "$fresh/server.ts";
 import { useScript } from "@deco/deco/hooks";
 import { Context } from "@deco/deco";
 const serviceWorkerScript = () =>
-  addEventListener("load", () =>
-    navigator && navigator.serviceWorker &&
-    navigator.serviceWorker.register("/sw.js"));
+  addEventListener(
+    "load",
+    () =>
+      navigator &&
+      navigator.serviceWorker &&
+      navigator.serviceWorker.register("/sw.js")
+  );
 export default defineApp(async (_req, ctx) => {
   const revision = await Context.active().release?.revision();
   return (
@@ -27,6 +31,99 @@ export default defineApp(async (_req, ctx) => {
 
         {/* Web Manifest */}
         <link rel="manifest" href={asset("/site.webmanifest")} />
+
+        <link
+          rel="preload"
+          type="text/css"
+          href={asset("/fonts/BeccaPerry.ttf")}
+        />
+
+        <link
+          rel="preload"
+          type="text/css"
+          href={asset("/fonts/BeccaPerry.ttf")}
+        />
+
+        <link
+          rel="preload"
+          type="text/css"
+          href={asset("/fonts/Quicksand-Regular.woff")}
+        />
+
+        <link
+          rel="preload"
+          type="text/css"
+          href={asset("/fonts/Quicksand-Medium.woff")}
+        />
+
+        <link
+          rel="preload"
+          type="text/css"
+          href={asset("/fonts/Quicksand-SemiBold.woff")}
+        />
+
+        <link
+          rel="preload"
+          type="text/css"
+          href={asset("/fonts/Quicksand-Bold.woff")}
+        />
+
+        <style
+          type="text/css"
+          dangerouslySetInnerHTML={{
+            __html: `
+              @font-face {
+              font-family: "BeccaPerry";
+              src: url(${
+              asset("/fonts/BeccaPerry.ttf")
+            }) format('truetype');
+              font-weight: 500;
+              font-display: swap;
+              font-style: normal;
+            }
+
+            @font-face {
+              font-family: "Quicksand";
+              src: url(${
+              asset("/fonts/Quicksand-Regular.ttf")
+            }) format('truetype');
+              font-weight: 400;
+              font-display: swap;
+              font-style: normal;
+            }
+
+            @font-face {
+              font-family: "Quicksand";
+              src: url(${
+              asset("/fonts/Quicksand-Medium.ttf")
+            }) format('truetype');
+              font-weight: 500;
+              font-display: swap;
+              font-style: normal;
+            }
+
+            @font-face {
+              font-family: "Quicksand";
+              src: url(${
+              asset("/fonts/Quicksand-SemiBold.ttf")
+            }) format('truetype');
+              font-weight: 600;
+              font-display: swap;
+              font-style: normal;
+            }
+
+            @font-face {
+              font-family: "Quicksand";
+              src: url(${
+              asset("/fonts/Quicksand-Bold.ttf")
+            }) format('truetype');
+              font-weight: 700;
+              font-display: swap;
+              font-style: normal;
+            }
+            `,
+          }}
+        />
       </Head>
 
       {/* Rest of Preact tree */}
