@@ -53,7 +53,15 @@
         "title": "Featured Products",
         "cta": "/mono",
         "products": {
-          "__resolveType": "Product List Loader"
+          "__resolveType": "Product List Loader",
+          "page": 1,
+          "pagesize": 7,
+          "props": {
+            "sort": "price:desc",
+            "fuzzy": "automatic",
+            "query": "vestidos",
+            "count": 10
+          }
         }
       }
     },

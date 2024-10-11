@@ -1,3 +1,5 @@
 {
-  "__resolveType": "website/sections/Rendering/Lazy.tsx"
+  "__resolveType": "website/sections/Rendering/Lazy.tsx",
+  "section": {},
+  "loading": "eager"
 }
