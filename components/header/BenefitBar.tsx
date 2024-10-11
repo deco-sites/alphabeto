@@ -1,6 +1,7 @@
 import Slider from "../../components/ui/Slider.tsx";
 import type { HTMLWidget } from "apps/admin/widgets.ts";
 import { useId } from "../../sdk/useId.ts";
+import { IconArrowRight } from "../Icons/IconArrowRight.tsx";
 
 export interface BenefitBarProps {
   benefits?: HTMLWidget[];
@@ -11,11 +12,16 @@ export interface BenefitBarProps {
   interval?: number;
 }
 
-function BenefitBar({ benefits = [], interval = 5 }: BenefitBarProps) {
+export function BenefitBar({ benefits = [], interval}: BenefitBarProps) {
   const id = useId();
+
+  console.log({benefits})
 
   return (
     <div id={id}>
+        <Slider.NextButton class="bg-base-200" disabled={false}>
+        <IconArrowRight />
+      </Slider.NextButton>
       <Slider class="carousel carousel-center w-screen gap-6 bg-secondary text-secondary-content text-sm/4">
         {benefits.map((benefits, index) => (
           <Slider.Item index={index} class="carousel-item">
@@ -25,9 +31,13 @@ function BenefitBar({ benefits = [], interval = 5 }: BenefitBarProps) {
             />
           </Slider.Item>
         ))}
-      </Slider>
 
-      <Slider.JS rootId={id} interval={interval && interval * 1e3} />
+      </Slider>
+      <Slider.NextButton class="bg-base-200" disabled={false}>
+        <IconArrowRight />
+      </Slider.NextButton>
+
+      <Slider.JS infinite rootId={id} interval={interval && interval * 1e3} />
     </div>
   );
 }

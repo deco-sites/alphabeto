@@ -19,7 +19,7 @@ import { useDevice } from "@deco/deco/hooks";
 import { type LoadingFallbackProps } from "@deco/deco";
 import { Items } from "../../components/header/Menu.types.ts";
 import { Desktop } from "../../components/header/HeaderDesktop.tsx";
-import { BenefitBarProps } from "../../components/header/BenefitBar.tsx";
+import BenefitBar, { BenefitBarProps } from "../../components/header/BenefitBar.tsx";
 
 export interface Logo {
   src: ImageWidget;
@@ -140,6 +140,7 @@ const Mobile = ({ logo, searchbar, loading }: Props) => (
 function Header({
   links = [],
   logo,
+  benefits,
   ...props
 }: Props) {
   console.log({ props: props.navItems });
@@ -157,6 +158,10 @@ function Header({
         {device === "desktop"
           ? <Desktop logo={logo} {...props} />
           : <Mobile logo={logo} {...props} />}
+        
+        {benefits?.benefits && benefits.benefits.length > 0 && 
+          <BenefitBar benefits={benefits.benefits} interval={benefits.interval} />
+        }
       </div>
     </header>
   );

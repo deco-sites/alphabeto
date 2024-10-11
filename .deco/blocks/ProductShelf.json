@@ -1,0 +1,8 @@
+{
+  "__resolveType": "site/sections/Product/ProductShelf.tsx",
+  "products": {
+    "__resolveType": "vtex/loaders/workflow/products.ts",
+    "page": 3,
+    "pagesize": 1
+  }
+}

@@ -1,1 +1,18 @@
-{"__resolveType":"site/apps/deco/vtex.ts"}
+{
+  "__resolveType": "site/apps/deco/vtex.ts",
+  "salesChannel": 1,
+  "defaultSegment": {
+    "channelPrivacy": "public"
+  },
+  "platform": "vtex",
+  "account": "alphabeto",
+  "publicUrl": "https://www.alphabeto.com/",
+  "appKey": {
+    "__resolveType": "website/loaders/secret.ts",
+    "encrypted": "ba507a9159f200e9796b16e5b946641b0d8e92d16b5418b114a3269dad0879e6"
+  },
+  "appToken": {
+    "__resolveType": "website/loaders/secret.ts",
+    "encrypted": "6716da1adfbaf5d584767b2f0ee1c00dca86aa9f6971cf47c6ae56d33b42f8c7a01a8ce9e512dbc4f2728f588807f897f1a1323382dc36a758ea7d5702dbeb72d482ca25d1901626a91a5068a81e251524d0b5c8b359a800cfd2aeb7980cc97c0e7e92163c0e058bbd9749a37bff51bb770c11439037b969147252d8ac7211e144c1cacb69749b5b16943b6ab6eecf0a"
+  }
+}
