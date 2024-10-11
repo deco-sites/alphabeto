@@ -1,4 +1,4 @@
-import type { HTMLWidget, ImageWidget } from "apps/admin/widgets.ts";
+import type { ImageWidget } from "apps/admin/widgets.ts";
 import Image from "apps/website/components/Image.tsx";
 import Links from "../../components/header/Links.tsx";
 import Bag from "../../components/header/Bag.tsx";
@@ -28,8 +28,8 @@ export interface Logo {
 }
 
 export interface LinksProps {
-  title: string
-  href: string
+  title: string;
+  href: string;
 }
 
 export interface SectionProps {

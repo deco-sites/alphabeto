@@ -32,13 +32,16 @@ export default {
 
     screens: {
       "mobile": { max: "1023px" },
-      // => @media (max-width: 1023px) { ... }
+      // =< @media (max-width: 1023px) { ... }
 
       "tablet": "680px",
       // => @media (min-width: 680px) { ... }
 
       "desk": "1024px",
       // => @media (min-width: 1024px) { ... }
+
+      "desk-small": { max: "1200px" },
+      // =< @media (min-width: 1200px) { ... }
     },
   },
 };

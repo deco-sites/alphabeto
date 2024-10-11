@@ -1,11 +1,14 @@
 import Image from "apps/website/components/Image.tsx";
-import { NAVBAR_HEIGHT_DESKTOP } from "../../constants.ts";
+import {
+  HEADER_HEIGHT_DESKTOP,
+  NAVBAR_HEIGHT_DESKTOP,
+} from "../../constants.ts";
 import { Items } from "./Menu.types.ts";
 
 function NavItem({ href, menuItem, image, submenu }: Items) {
   return (
     <li
-      class="group flex items-center pr-5 text-base-200"
+      class="group flex items-center text-base-200"
       style={{ height: NAVBAR_HEIGHT_DESKTOP }}
     >
       <a
@@ -22,7 +25,7 @@ function NavItem({ href, menuItem, image, submenu }: Items) {
           style={{
             top: "0px",
             left: "0px",
-            marginTop: "128px",
+            marginTop: HEADER_HEIGHT_DESKTOP,
           }}
         >
           <div className="container flex justify-between gap-9 !pr-0">

@@ -7,6 +7,7 @@ import { Items } from "./Menu.types.ts";
 import { Wishlist } from "./Wishlist.tsx";
 import SignIn from "./SignIn.tsx";
 import { Search } from "./Search.tsx";
+import { Offers } from "./Offers.tsx";
 
 export interface Logo {
   src: ImageWidget;
@@ -43,23 +44,20 @@ export const Desktop = ({
 }: SectionProps) => (
   <>
     <div class="flex flex-col gap-4 pt-5 container border-b border-gray-300">
-      <div class="flex justify-between items-center">
-        <div class="flex justify-between items-center">
-          <ul class="flex">
-            {navItems?.map((item) => (
-              <NavItem
-                href={item.href}
-                menuItem={item.menuItem}
-                image={item.image}
-                submenu={item.submenu}
-              />
-            ))}
-          </ul>
-          <div>{/* ship to */}</div>
-        </div>
+      <div class="flex justify-between gap-x-2.5 items-center">
+        <ul class="flex gap-x-6 desk-small:gap-x-3">
+          {navItems?.map((item) => (
+            <NavItem
+              href={item.href}
+              menuItem={item.menuItem}
+              image={item.image}
+              submenu={item.submenu}
+            />
+          ))}
+        </ul>
 
         <div>
-          <a href="/" aria-label="Store logo">
+          <a href="/" aria-label="Logo Alphabeto">
             <Image
               src={logo.src}
               alt={logo.alt}
@@ -69,12 +67,15 @@ export const Desktop = ({
           </a>
         </div>
 
-        <Search searchbar={searchbar} loading={loading} />
+        <div class="flex items-center gap-x-5 desk-small:gap-x-3">
+          <Offers />
+          <Search searchbar={searchbar} loading={loading} />
 
-        <div class="flex gap-4">
-          <Wishlist />
-          <SignIn variant="desktop" />
-          <Bag />
+          <div class="flex gap-4">
+            <Wishlist />
+            <SignIn variant="desktop" />
+            <Bag />
+          </div>
         </div>
       </div>
     </div>

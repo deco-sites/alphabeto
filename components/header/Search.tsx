@@ -24,7 +24,7 @@ export function Search({ searchbar, loading }: SearchProps) {
       </Modal>
       <label
         for={SEARCHBAR_POPUP_ID}
-        class="max-w-[243px] bg-primary-content h-10 cursor-pointer rounded-lg flex items-center px-2 justify-between gap-2 w-full"
+        class="w-[243px] desk-small:w-[150px] bg-primary-content h-10 cursor-pointer rounded-lg flex items-center px-2 justify-between gap-2"
         aria-label="search icon button"
       >
         <span class="text-base-400 truncate text-xs">
