@@ -28,7 +28,7 @@ export function Search({ searchbar, loading }: SearchProps) {
         aria-label="search icon button"
       >
         <span class="text-base-400 truncate text-xs">
-          Search products, brands...
+          {searchbar.placeholder}
         </span>
         <IconSearch />
       </label>

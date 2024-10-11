@@ -13,7 +13,7 @@ function NavItem({ href, menuItem, image, submenu }: Items) {
     >
       <a
         href={href}
-        class="group-hover:border-b-4 border-[#70D1E8] text-base-200 text-sm font-medium flex items-center"
+        class="group-hover:border-b-4 border-[#70D1E8] text-base-200 text-[13px] font-bold flex items-center"
         style={{ height: NAVBAR_HEIGHT_DESKTOP }}
       >
         {menuItem}
@@ -30,37 +30,37 @@ function NavItem({ href, menuItem, image, submenu }: Items) {
         >
           <div className="container flex justify-between gap-9 !pr-0">
             <div className="w-full">
-              <h5 className="text-[#676767] font-['BeccaPerry'] pb-[13px] leading-[38px] text-[32px] border-b border-base-200 border-dashed">
+              <h5 className="text-[#676767] leading-[38px] font-['BeccaPerry'] pb-[17px] leading-[38px] text-[32px] border-b border-base-200 border-dashed">
                 {menuItem}
               </h5>
               <ul class="flex items-start justify-start gap-6">
                 {submenu.map((node) => {
                   return (
                     <>
-                      <li class="p-6 pl-0">
+                      <li class="pb-6">
                         <ul class="mt-4">
                           {node.item?.map((leaf) => (
                             <li>
                               <a
-                                class={`hover:underline ${
-                                  leaf.highlight
-                                    ? "text-base-200"
-                                    : "text-base-content"
-                                }`}
+                                class={`text-[13px] inline-block
+                                  ${
+                                    leaf.highlight
+                                      ? "text-base-200 mb-5 font-bold mb-2 hover:text-[#D6DE23]"
+                                      : "text-accent mb-3 hover:text-base-200"
+                                  }
+                                `}
                                 href={leaf.href}
                               >
-                                <span class="text-xs">{leaf.item}</span>
+                                <span>{leaf.item}</span>
                               </a>
                             </li>
                           ))}
                         </ul>
                       </li>
 
-                      {
-                        /* {
+                      {/* {
                         node.seeAll && <a href={href}></a>
-                      } */
-                      }
+                      } */}
                     </>
                   );
                 })}

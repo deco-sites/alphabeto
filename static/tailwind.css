@@ -3756,6 +3756,9 @@ details.collapse summary::-webkit-details-marker {
 .mb-2 {
   margin-bottom: 0.5rem;
 }
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
 .mb-5 {
   margin-bottom: 1.25rem;
 }
@@ -4647,14 +4650,14 @@ details.collapse summary::-webkit-details-marker {
 .pb-4 {
   padding-bottom: 1rem;
 }
-.pb-\[13px\] {
-  padding-bottom: 13px;
+.pb-6 {
+  padding-bottom: 1.5rem;
 }
 .pb-\[15px\] {
   padding-bottom: 15px;
 }
-.pl-0 {
-  padding-left: 0px;
+.pb-\[17px\] {
+  padding-bottom: 17px;
 }
 .pl-1 {
   padding-left: 0.25rem;
@@ -4925,6 +4928,10 @@ details.collapse summary::-webkit-details-marker {
 .text-secondary {
   --tw-text-opacity: 1;
   color: var(--fallback-s,oklch(var(--s)/var(--tw-text-opacity)));
+}
+.text-secondary-content {
+  --tw-text-opacity: 1;
+  color: var(--fallback-sc,oklch(var(--sc)/var(--tw-text-opacity)));
 }
 .text-success {
   --tw-text-opacity: 1;
@@ -5279,18 +5286,24 @@ details.collapse summary::-webkit-details-marker {
   color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity))) !important;
 }
 
+.hover\:text-\[\#D6DE23\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(214 222 35 / var(--tw-text-opacity));
+}
+
 .hover\:text-accent-content:hover {
   --tw-text-opacity: 1;
   color: var(--fallback-ac,oklch(var(--ac)/var(--tw-text-opacity)));
 }
 
+.hover\:text-base-200:hover {
+  --tw-text-opacity: 1;
+  color: var(--fallback-b2,oklch(var(--b2)/var(--tw-text-opacity)));
+}
+
 .hover\:text-neutral:hover {
   --tw-text-opacity: 1;
   color: var(--fallback-n,oklch(var(--n)/var(--tw-text-opacity)));
-}
-
-.hover\:underline:hover {
-  text-decoration-line: underline;
 }
 
 .focus\:outline-none:focus {

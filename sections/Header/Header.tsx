@@ -19,6 +19,7 @@ import { useDevice } from "@deco/deco/hooks";
 import { type LoadingFallbackProps } from "@deco/deco";
 import { Items } from "../../components/header/Menu.types.ts";
 import { Desktop } from "../../components/header/HeaderDesktop.tsx";
+import { BenefitBarProps } from "../../components/header/BenefitBar.tsx";
 
 export interface Logo {
   src: ImageWidget;
@@ -34,6 +35,7 @@ export interface LinksProps {
 
 export interface SectionProps {
   links?: LinksProps[];
+
   /**
    * @title Navigation items
    * @description Navigation items used both on mobile and desktop menus
@@ -50,6 +52,8 @@ export interface SectionProps {
    * @description Usefull for lazy loading hidden elements, like hamburguer menus etc
    * @hide true */
   loading?: "eager" | "lazy";
+
+  benefits?: BenefitBarProps;
 }
 type Props = Omit<SectionProps, "alert">;
 

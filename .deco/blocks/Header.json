@@ -1,7 +1,7 @@
 {
   "__resolveType": "site/sections/Header/Header.tsx",
   "searchbar": {
-    "placeholder": "What are you looking for?",
+    "placeholder": "O que está buscando?",
     "loader": {
       "__resolveType": "resolved",
       "data": {
@@ -168,5 +168,13 @@
       "title": "Seja um revendedor",
       "href": " /"
     }
-  ]
+  ],
+  "benefits": {
+    "alerts": [],
+    "benefits": [
+      "<p>Frete fixo de R$ 9,90</p>",
+      "<p>Item 2</p>"
+    ],
+    "interval": 5
+  }
 }

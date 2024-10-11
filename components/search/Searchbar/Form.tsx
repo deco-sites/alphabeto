@@ -61,8 +61,10 @@ const script = (formId: string, name: string, popupId: string) => {
 };
 const Suggestions = import.meta.resolve("./Suggestions.tsx");
 export default function Searchbar(
-  { placeholder = "What are you looking for?", loader }: SearchbarProps,
+  { placeholder, loader }: SearchbarProps,
 ) {
+
+  console.log({placeholder})
   const slot = useId();
   return (
     <div
