@@ -63,8 +63,7 @@ const Suggestions = import.meta.resolve("./Suggestions.tsx");
 export default function Searchbar(
   { placeholder, loader }: SearchbarProps,
 ) {
-
-  console.log({placeholder})
+  console.log({ placeholder });
   const slot = useId();
   return (
     <div

@@ -1,4 +1,4 @@
-export function IconArrowRight() {
+export function IconArrowLeft() {
   return (
     <svg
       width="20"
@@ -8,7 +8,7 @@ export function IconArrowRight() {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M7.5 15L12.5 10L7.5 5"
+        d="M12.5 15L7.5 10L12.5 5"
         stroke="#FCFCFC"
         stroke-width="2"
         stroke-linecap="round"

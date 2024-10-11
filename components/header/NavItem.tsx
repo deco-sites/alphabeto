@@ -44,10 +44,10 @@ function NavItem({ href, menuItem, image, submenu }: Items) {
                               <a
                                 class={`text-[13px] inline-block
                                   ${
-                                    leaf.highlight
-                                      ? "text-base-200 mb-5 font-bold mb-2 hover:text-[#D6DE23]"
-                                      : "text-accent mb-3 hover:text-base-200"
-                                  }
+                                  leaf.highlight
+                                    ? "text-base-200 mb-5 font-bold mb-2 hover:text-[#D6DE23]"
+                                    : "text-accent mb-3 hover:text-base-200"
+                                }
                                 `}
                                 href={leaf.href}
                               >
@@ -58,9 +58,11 @@ function NavItem({ href, menuItem, image, submenu }: Items) {
                         </ul>
                       </li>
 
-                      {/* {
+                      {
+                        /* {
                         node.seeAll && <a href={href}></a>
-                      } */}
+                      } */
+                      }
                     </>
                   );
                 })}
