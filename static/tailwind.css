@@ -4407,6 +4407,9 @@ details.collapse summary::-webkit-details-marker {
 .border-b {
   border-bottom-width: 1px;
 }
+.border-b-\[1px\] {
+  border-bottom-width: 1px;
+}
 .border-t {
   border-top-width: 1px;
 }
@@ -4426,6 +4429,10 @@ details.collapse summary::-webkit-details-marker {
 .border-\[\#C9CFCF\] {
   --tw-border-opacity: 1;
   border-color: rgb(201 207 207 / var(--tw-border-opacity));
+}
+.border-\[\#FF859A\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 133 154 / var(--tw-border-opacity));
 }
 .border-base-100 {
   --tw-border-opacity: 1;
@@ -4898,6 +4905,10 @@ details.collapse summary::-webkit-details-marker {
 .text-\[\#676767\] {
   --tw-text-opacity: 1;
   color: rgb(103 103 103 / var(--tw-text-opacity));
+}
+.text-\[\#FF859A\] {
+  --tw-text-opacity: 1;
+  color: rgb(255 133 154 / var(--tw-text-opacity));
 }
 .text-accent {
   --tw-text-opacity: 1;
