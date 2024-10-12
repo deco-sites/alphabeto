@@ -1,5 +1,5 @@
 import { AppContext } from "../../apps/site.ts";
-import { MINICART_DRAWER_ID, MINICART_FORM_ID } from "../../constants.ts";
+import { MINICART_FORM_ID } from "../../constants.ts";
 import { clx } from "../../sdk/clx.ts";
 import { formatPrice } from "../../sdk/format.ts";
 import { useComponent } from "../../sections/Component.tsx";

@@ -1,8 +1,8 @@
 import { type ComponentChildren } from "preact";
 import { clx } from "../../sdk/clx.ts";
 import { useId } from "../../sdk/useId.ts";
-import Icon from "./Icon.tsx";
 import { useScript } from "@deco/deco/hooks";
+import { IconCloseDrawer } from "../Icons/IconCloseDrawer.tsx";
 export interface Props {
   open?: boolean;
   class?: string;
@@ -68,15 +68,15 @@ function Aside({ title, drawer, children }: {
   return (
     <div
       data-aside
-      class="bg-base-100 grid grid-rows-[auto_1fr] h-full divide-y"
+      class="bg-secondary-content grid grid-rows-[auto_1fr] h-full divide-y"
       style={{ maxWidth: "100vw" }}
     >
-      <div class="flex justify-between items-center">
-        <h1 class="px-4 py-3">
-          <span class="font-medium text-2xl">{title}</span>
-        </h1>
-        <label for={drawer} aria-label="X" class="btn btn-ghost">
-          <Icon id="close" />
+      <div class="flex justify-between items-center px-6 h-[50px] border-b-[1px] border-primary border-dashed">
+        <h3>
+          <span class="font-bold text-sm text-primary">{title}</span>
+        </h3>
+        <label for={drawer} aria-label="X" class="py-1 pl-1 cursor-pointer">
+          <IconCloseDrawer />
         </label>
       </div>
       {children}

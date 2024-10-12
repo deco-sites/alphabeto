@@ -7,7 +7,6 @@ import { useComponent } from "../sections/Component.tsx";
 import { type Item } from "./minicart/Item.tsx";
 import CartProvider, { type Minicart } from "./minicart/Minicart.tsx";
 import Drawer from "./ui/Drawer.tsx";
-import type { SectionProps } from "deco/types.ts";
 import UserProvider from "./user/Provider.tsx";
 import WishlistProvider, { type Wishlist } from "./wishlist/Provider.tsx";
 import { useScript } from "@deco/deco/hooks";
@@ -313,12 +312,12 @@ export default function Session(
         id={MINICART_DRAWER_ID}
         class="drawer-end z-50"
         aside={
-          <Drawer.Aside title="My Bag" drawer={MINICART_DRAWER_ID}>
+          <Drawer.Aside title="Minha sacola" drawer={MINICART_DRAWER_ID}>
             <div
-              class="h-full flex flex-col bg-base-100 items-center justify-center overflow-auto"
+              class="h-full flex flex-col bg-base-100 items-center justify-center overflow-auto border-none"
               style={{
-                minWidth: "calc(min(100vw, 425px))",
-                maxWidth: "425px",
+                minWidth: "calc(min(100vw, 375px))",
+                maxWidth: "375px",
               }}
             >
               <CartProvider cart={minicart!} minicartEmpty={empty} />
