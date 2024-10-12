@@ -30,7 +30,17 @@
       "minicart": null,
       "wishlist": null,
       "mode": "lazy",
-      "user": null
+      "user": null,
+      "title": "Sua sacola está vazia",
+      "icon": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/1bcbfb72-2ff3-445a-9149-f6e4d0c9cb61/shopping-bag.svg",
+      "itemsTitle": "Veja nossos favoritos",
+      "items": [
+        {
+          "label": "Vestidos",
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/aea6c9ac-7cf0-42cf-ac71-99e0dd37bf25/Frame-66.png",
+          "href": "/vestidos"
+        }
+      ]
     }
   ],
   "routes": [

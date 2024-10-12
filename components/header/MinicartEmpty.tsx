@@ -1,19 +1,10 @@
-import type { ImageWidget as Image } from "apps/admin/widgets.ts";
+import { MinicartEmptyProps } from "../Session.tsx";
 
-interface Item {
-    image: Image
-    label: string
-    href: string
+interface Props {
+  content: MinicartEmptyProps | null;
 }
 
-export interface MinicartEmptyProps {
-    title: string;
-    icon?: Image;
-    itemsTitle: string
-    items: Item[]
-}
-
-export function MinicartEmpty(props: MinicartEmptyProps) {
-    console.log({props})
-    return <h1>Empty</h1>
+export function MinicartEmpty(props: Props) {
+  console.log({ props });
+  return <h1>Empty</h1>;
 }

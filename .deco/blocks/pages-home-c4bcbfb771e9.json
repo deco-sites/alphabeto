@@ -50,17 +50,14 @@
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
         "__resolveType": "site/sections/Product/ProductShelf.tsx",
-        "title": "Featured Products",
-        "cta": "/mono",
         "products": {
-          "__resolveType": "Product List Loader",
-          "page": 1,
-          "pagesize": 7,
+          "__resolveType": "vtex/loaders/workflow/products.ts",
+          "page": 3,
+          "pagesize": 1,
           "props": {
-            "sort": "price:desc",
-            "fuzzy": "automatic",
-            "query": "vestidos",
-            "count": 10
+            "sort": "OrderByPriceDESC",
+            "term": "vestido",
+            "count": 7
           }
         }
       }
@@ -114,66 +111,6 @@
           "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/cf96d47f-564f-40da-ad94-7acac5f39327",
           "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/4d5c3212-3f75-4d50-89f3-970815748b43"
         }
-      }
-    },
-    {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Product/ProductShelfTabbed.tsx",
-        "title": "Hottest Deals",
-        "tabs": [
-          {
-            "products": {
-              "__resolveType": "shopify/loaders/ProductList.ts",
-              "props": {
-                "sort": "",
-                "query": "hat and bag",
-                "count": 10
-              },
-              "filters": {
-                "tags": [],
-                "productTypes": [],
-                "productVendors": [],
-                "variantOptions": []
-              }
-            },
-            "title": "Accessories"
-          },
-          {
-            "products": {
-              "__resolveType": "shopify/loaders/ProductList.ts",
-              "props": {
-                "sort": "",
-                "query": "Shirts",
-                "count": 10
-              },
-              "filters": {
-                "tags": [],
-                "productTypes": [],
-                "productVendors": [],
-                "variantOptions": []
-              }
-            },
-            "title": "Fashion"
-          },
-          {
-            "products": {
-              "__resolveType": "shopify/loaders/ProductList.ts",
-              "props": {
-                "sort": "",
-                "query": "stickers",
-                "count": 10
-              },
-              "filters": {
-                "tags": [],
-                "productTypes": [],
-                "productVendors": [],
-                "variantOptions": []
-              }
-            },
-            "title": "Stickers"
-          }
-        ]
       }
     },
     {

@@ -56,9 +56,14 @@ function NavItem({ href, menuItem, image, submenu }: Items) {
                             </li>
                           ))}
                         </ul>
-                        {
-                          node.seeAll && <a class="text-[13px] border-b-[1px] border-[#FF859A] text-[#FF859A] font-bold inline-block" href={href}>Ver mais</a>
-                        }
+                        {node.seeAll && (
+                          <a
+                            class="text-[13px] border-b-[1px] border-[#FF859A] text-[#FF859A] font-bold inline-block"
+                            href={href}
+                          >
+                            Ver mais
+                          </a>
+                        )}
                       </li>
                     </>
                   );

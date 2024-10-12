@@ -1,3 +1,4 @@
+import type { ImageWidget as Image } from "apps/admin/widgets.ts";
 import { Head } from "$fresh/runtime.ts";
 import { type Person } from "apps/commerce/types.ts";
 import { type AppContext } from "../apps/site.ts";
@@ -6,6 +7,7 @@ import { useComponent } from "../sections/Component.tsx";
 import { type Item } from "./minicart/Item.tsx";
 import CartProvider, { type Minicart } from "./minicart/Minicart.tsx";
 import Drawer from "./ui/Drawer.tsx";
+import type { SectionProps } from "deco/types.ts";
 import UserProvider from "./user/Provider.tsx";
 import WishlistProvider, { type Wishlist } from "./wishlist/Provider.tsx";
 import { useScript } from "@deco/deco/hooks";
@@ -229,7 +231,7 @@ const sdk = () => {
   };
 };
 export const action = async (
-  _props: unknown,
+  _props: MinicartEmptyProps,
   _req: Request,
   ctx: AppContext,
 ) => {
@@ -245,21 +247,52 @@ export const action = async (
     user,
   };
 };
-export const loader = (_props: unknown, _req: Request, _ctx: AppContext) => {
+
+interface Items {
+  image: Image;
+  label: string;
+  href: string;
+}
+
+export interface MinicartEmptyProps {
+  title: string;
+  icon?: Image;
+  itemsTitle: string;
+  items: Items[];
+}
+
+export const loader = (
+  props: MinicartEmptyProps,
+  _req: Request,
+  _ctx: AppContext,
+) => {
   return {
+    ...props,
+    minicartEmpty: {
+      title: props.title,
+      icon: props.icon,
+      itemsTitle: props.itemsTitle,
+      items: props.items,
+    },
     mode: "lazy",
   };
 };
-interface Props {
+
+export interface Props {
   minicart?: Minicart | null;
+  minicartEmpty: MinicartEmptyProps;
   wishlist?: Wishlist | null;
   user?: Person | null;
   mode?: "eager" | "lazy";
 }
+
+let empty: MinicartEmptyProps | null;
+
 export default function Session(
-  { minicart, wishlist, user, mode = "lazy" }: Props,
+  { minicart, wishlist, user, mode = "lazy", minicartEmpty }: Props,
 ) {
   if (mode === "lazy") {
+    empty = minicartEmpty;
     return (
       <>
         <Head>
@@ -272,6 +305,7 @@ export default function Session(
       </>
     );
   }
+
   return (
     <>
       {/* Minicart Drawer */}
@@ -287,7 +321,7 @@ export default function Session(
                 maxWidth: "425px",
               }}
             >
-              <CartProvider cart={minicart!} />
+              <CartProvider cart={minicart!} minicartEmpty={empty} />
             </div>
           </Drawer.Aside>
         }

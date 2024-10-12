@@ -145,7 +145,6 @@ function Header({
   benefits,
   ...props
 }: Props) {
-  console.log({ props: props.navItems });
   const device = useDevice();
   return (
     <header
