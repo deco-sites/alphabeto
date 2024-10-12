@@ -20,6 +20,7 @@ import { Props as SuggestionProps } from "./Suggestions.tsx";
 import { useScript } from "@deco/deco/hooks";
 import { asResolved } from "@deco/deco";
 import { type Resolved } from "@deco/deco";
+import { IconSearch } from "../../Icons/IconSearch.tsx";
 // When user clicks on the search button, navigate it to
 export const ACTION = "/s";
 // Querystring param used when navigating the user
@@ -63,28 +64,29 @@ const Suggestions = import.meta.resolve("./Suggestions.tsx");
 export default function Searchbar(
   { placeholder, loader }: SearchbarProps,
 ) {
-  console.log({ placeholder });
   const slot = useId();
   return (
     <div
-      class="w-full grid gap-8 px-4 py-6"
+      class="w-full grid gap-8 container"
       style={{ gridTemplateRows: "min-content auto" }}
     >
-      <form id={SEARCHBAR_INPUT_FORM_ID} action={ACTION} class="join">
+      <form id={SEARCHBAR_INPUT_FORM_ID} action={ACTION} class="join bg-primary-content mt-5 rounded-lg">
         <button
           type="submit"
-          class="btn join-item btn-square no-animation"
+          class="join-item no-animation w-10 flex justify-center items-center"
           aria-label="Search"
           for={SEARCHBAR_INPUT_FORM_ID}
           tabIndex={-1}
         >
-          <span class="loading loading-spinner loading-xs hidden [.htmx-request_&]:inline" />
-          <Icon id="search" class="inline [.htmx-request_&]:hidden" />
+          <span class="loading text-primary loading-spinner loading-xs hidden [.htmx-request_&]:inline" />
+          <span class="inline [.htmx-request_&]:hidden">
+            <IconSearch  />
+          </span>
         </button>
         <input
           autoFocus
           tabIndex={0}
-          class="input input-bordered join-item flex-grow"
+          class="join-item flex-grow bg-transparent h-10"
           name={NAME}
           placeholder={placeholder}
           autocomplete="off"

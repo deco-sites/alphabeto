@@ -12,7 +12,7 @@ export function Search({ searchbar, loading }: SearchProps) {
   return (
     <>
       <Modal id={SEARCHBAR_POPUP_ID}>
-        <div class="absolute top-0 bg-base-100 container">
+        <div class="absolute top-[30px] bg-base-100 w-full">
           {loading === "lazy"
             ? (
               <div class="flex justify-center items-center">

@@ -3654,6 +3654,9 @@ details.collapse summary::-webkit-details-marker {
 .top-4 {
   top: 1rem;
 }
+.top-\[30px\] {
+  top: 30px;
+}
 .top-\[41px\] {
   top: 41px;
 }
@@ -4184,6 +4187,9 @@ details.collapse summary::-webkit-details-marker {
 .grid-cols-6 {
   grid-template-columns: repeat(6, minmax(0, 1fr));
 }
+.grid-cols-\[230px_1fr\] {
+  grid-template-columns: 230px 1fr;
+}
 .grid-cols-\[32px_1fr_32px\] {
   grid-template-columns: 32px 1fr 32px;
 }
@@ -4271,6 +4277,9 @@ details.collapse summary::-webkit-details-marker {
 .gap-\[16px\] {
   gap: 16px;
 }
+.gap-\[22px\] {
+  gap: 22px;
+}
 .gap-\[2px\] {
   gap: 2px;
 }
@@ -4326,9 +4335,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .overflow-y-auto {
   overflow-y: auto;
-}
-.overflow-x-hidden {
-  overflow-x: hidden;
 }
 .overflow-y-hidden {
   overflow-y: hidden;
@@ -4543,6 +4549,9 @@ details.collapse summary::-webkit-details-marker {
   --tw-bg-opacity: 1;
   background-color: rgb(30 41 59 / var(--tw-bg-opacity));
 }
+.bg-transparent {
+  background-color: transparent;
+}
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -4675,10 +4684,6 @@ details.collapse summary::-webkit-details-marker {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
 }
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
 .py-\[10px\] {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -4736,9 +4741,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .pt-5 {
   padding-top: 1.25rem;
-}
-.pt-6 {
-  padding-top: 1.5rem;
 }
 .pt-\[130px\] {
   padding-top: 130px;
