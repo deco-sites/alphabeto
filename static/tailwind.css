@@ -3982,6 +3982,9 @@ details.collapse summary::-webkit-details-marker {
 .w-\[522px\] {
   width: 522px;
 }
+.w-\[calc\(100\%-48px\)\] {
+  width: calc(100% - 48px);
+}
 .w-auto {
   width: auto;
 }
@@ -4504,6 +4507,10 @@ details.collapse summary::-webkit-details-marker {
   --tw-bg-opacity: 1;
   background-color: var(--fallback-s,oklch(var(--s)/var(--tw-bg-opacity)));
 }
+.bg-secondary-content {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-sc,oklch(var(--sc)/var(--tw-bg-opacity)));
+}
 .bg-slate-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(241 245 249 / var(--tw-bg-opacity));
@@ -4709,6 +4716,9 @@ details.collapse summary::-webkit-details-marker {
 .pt-6 {
   padding-top: 1.5rem;
 }
+.pt-\[130px\] {
+  padding-top: 130px;
+}
 .text-left {
   text-align: left;
 }
@@ -4772,6 +4782,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .text-\[24px\] {
   font-size: 24px;
+}
+.text-\[2rem\] {
+  font-size: 2rem;
 }
 .text-\[32px\] {
   font-size: 32px;
