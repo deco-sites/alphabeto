@@ -68,7 +68,7 @@ function Aside({ title, drawer, children }: {
   return (
     <div
       data-aside
-      class="bg-secondary-content grid grid-rows-[auto_1fr] h-full divide-y"
+      class="bg-secondary-content grid grid-rows-[auto_1fr] h-full divide-y mobile:w-full"
       style={{ maxWidth: "100vw" }}
     >
       <div class="flex justify-between items-center px-6 h-[50px] border-b-[1px] border-primary border-dashed">

@@ -6,7 +6,7 @@ interface Item {
   highlight?: boolean;
 }
 
-interface Submenu {
+export interface Submenu {
   item: Item[];
   seeAll?: boolean;
 }

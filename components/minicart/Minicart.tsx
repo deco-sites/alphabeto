@@ -117,7 +117,6 @@ export default function Cart(
   },
 ) {
   const count = items.length;
-  console.log({ minicartEmpty });
   return (
     <>
       <form

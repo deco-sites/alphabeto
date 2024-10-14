@@ -68,7 +68,7 @@ function Suggestions(
           <span class="font-bold text-[13px] text-primary" role="heading" aria-level={3}>
             Produtos sugeridos
           </span>
-          <Slider class="carousel">
+          <Slider class="carousel grid grid-cols-2 w-fit gap-6">
             {products.map((product, index) => (
               <Slider.Item
                 index={index}
