@@ -6,11 +6,14 @@ interface Props {
 }
 
 export function MenuMobileDetails({ submenu }: Props) {
-    console.log(submenu)
+  console.log(submenu);
   return (
     <div class="px-6">
       {submenu?.map((item, index) => (
-        <details key={index} className="collapse rounded-none border-b-[1px] border-primary border-dashed">
+        <details
+          key={index}
+          className="collapse rounded-none border-b-[1px] border-primary border-dashed"
+        >
           <summary className="text-xs text-accent py-4 font-bold !flex justify-between items-center">
             {item.item[0]?.item || "Item"}
             <IconArrowRightDropdown />
@@ -29,8 +32,8 @@ export function MenuMobileDetails({ submenu }: Props) {
               );
             })}
 
-            {
-                item.seeAll && 
+            {item.seeAll &&
+              (
                 <a
                   key={item.item[0]?.item}
                   href={item.item[0]?.href}
@@ -38,7 +41,7 @@ export function MenuMobileDetails({ submenu }: Props) {
                 >
                   Ver mais
                 </a>
-            }
+              )}
           </div>
         </details>
       ))}

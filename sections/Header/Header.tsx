@@ -1,21 +1,19 @@
 import type { ImageWidget } from "apps/admin/widgets.ts";
 import Links from "../../components/header/Links.tsx";
-import Searchbar, {
-  type SearchbarProps,
-} from "../../components/search/Searchbar/Form.tsx";
+import { type SearchbarProps } from "../../components/search/Searchbar/Form.tsx";
 
+import { type LoadingFallbackProps } from "@deco/deco";
+import { useDevice } from "@deco/deco/hooks";
+import BenefitBar, {
+  BenefitBarProps,
+} from "../../components/header/BenefitBar.tsx";
+import { Desktop } from "../../components/header/HeaderDesktop.tsx";
+import { Mobile } from "../../components/header/HeaderMobile.tsx";
+import { Items } from "../../components/header/Menu.types.ts";
 import {
   HEADER_HEIGHT_DESKTOP,
   HEADER_HEIGHT_MOBILE,
 } from "../../constants.ts";
-import { useDevice } from "@deco/deco/hooks";
-import { type LoadingFallbackProps } from "@deco/deco";
-import { Items } from "../../components/header/Menu.types.ts";
-import { Desktop } from "../../components/header/HeaderDesktop.tsx";
-import { Mobile } from "../../components/header/HeaderMobile.tsx";
-import BenefitBar, {
-  BenefitBarProps,
-} from "../../components/header/BenefitBar.tsx";
 
 export interface Logo {
   src: ImageWidget;
@@ -53,12 +51,7 @@ export interface SectionProps {
 }
 export type Props = Omit<SectionProps, "alert">;
 
-function Header({
-  links = [],
-  logo,
-  benefits,
-  ...props
-}: Props) {
+function Header({ links = [], logo, benefits, ...props }: Props) {
   const device = useDevice();
 
   return (
@@ -75,20 +68,18 @@ function Header({
           ? <Desktop logo={logo} {...props} />
           : <Mobile logo={logo} {...props} />}
 
-        {benefits?.benefits && benefits.benefits.length > 0 &&
-          (
-            <BenefitBar
-              benefits={benefits.benefits}
-              interval={benefits.interval}
-            />
-          )}
+        {benefits?.benefits && benefits.benefits.length > 0 && (
+          <BenefitBar
+            benefits={benefits.benefits}
+            interval={benefits.interval}
+          />
+        )}
       </div>
-
     </header>
   );
 }
 export const LoadingFallback = (props: LoadingFallbackProps<Props>) => (
   // deno-lint-ignore no-explicit-any
-  <Header {...props as any} loading="lazy" />
+  <Header {...(props as any)} loading="lazy" />
 );
 export default Header;

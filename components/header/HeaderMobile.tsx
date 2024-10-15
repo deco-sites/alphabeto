@@ -1,16 +1,15 @@
 import Image from "apps/website/components/Image.tsx";
+import Bag from "../../components/header/Bag.tsx";
 import Drawer from "../../components/ui/Drawer.tsx";
 import { Props } from "../../sections/Header/Header.tsx";
-import Bag from "../../components/header/Bag.tsx";
 
 import {
   NAVBAR_HEIGHT_MOBILE,
   SEARCHBAR_DRAWER_ID,
-  SIDEMENU_CONTAINER_ID,
   SIDEMENU_DRAWER_ID,
 } from "../../constants.ts";
-import Searchbar from "../search/Searchbar/Form.tsx";
 import { IconCloseDrawer } from "../Icons/IconCloseDrawer.tsx";
+import Searchbar from "../search/Searchbar/Form.tsx";
 import { MenuMobile } from "./MenuMobile.tsx";
 
 export function Mobile({ logo, searchbar, loading, navItems }: Props) {
@@ -21,13 +20,13 @@ export function Mobile({ logo, searchbar, loading, navItems }: Props) {
         aside={
           <Drawer.Aside title="Search" drawer={SEARCHBAR_DRAWER_ID}>
             <div class="w-screen overflow-y-auto">
-              {loading === "lazy" ? (
-                <div class="h-full w-full flex items-center justify-center">
-                  <span class="loading loading-spinner" />
-                </div>
-              ) : (
-                <Searchbar {...searchbar} />
-              )}
+              {loading === "lazy"
+                ? (
+                  <div class="h-full w-full flex items-center justify-center">
+                    <span class="loading loading-spinner" />
+                  </div>
+                )
+                : <Searchbar {...searchbar} />}
             </div>
           </Drawer.Aside>
         }
@@ -55,10 +54,10 @@ export function Mobile({ logo, searchbar, loading, navItems }: Props) {
           class="btn btn-square btn-sm btn-ghost"
           aria-label="open menu"
         >
-          <IconCloseDrawer  />
+          <IconCloseDrawer />
         </label>
 
-        {logo && (  
+        {logo && (
           <a
             href="/"
             class="flex-grow inline-flex items-center justify-center"
@@ -84,5 +83,5 @@ export function Mobile({ logo, searchbar, loading, navItems }: Props) {
         <Bag />
       </div>
     </>
-  );    
+  );
 }

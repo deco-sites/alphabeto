@@ -46,7 +46,11 @@ function Suggestions(
     >
       <div class="gap-4 grid grid-cols-[230px_1fr]">
         <div class="flex flex-col gap-6">
-          <span class="font-bold text-[13px] text-primary" role="heading" aria-level={3}>
+          <span
+            class="font-bold text-[13px] text-primary"
+            role="heading"
+            aria-level={3}
+          >
             Sugestões
           </span>
           <ul class="flex flex-col gap-3">
@@ -56,16 +60,22 @@ function Suggestions(
                 <a
                   href={`${ACTION}?${NAME}=${term}`}
                 >
-                  <span dangerouslySetInnerHTML={{ __html: term }} class="text-accent text-[13px] font-medium capitalize" />
+                  <span
+                    dangerouslySetInnerHTML={{ __html: term }}
+                    class="text-accent text-[13px] font-medium capitalize"
+                  />
                 </a>
               </li>
             ))}
           </ul>
         </div>
 
-
         <div class="flex flex-col gap-[22px] overflow-hidden">
-          <span class="font-bold text-[13px] text-primary" role="heading" aria-level={3}>
+          <span
+            class="font-bold text-[13px] text-primary"
+            role="heading"
+            aria-level={3}
+          >
             Produtos sugeridos
           </span>
           <Slider class="carousel grid grid-cols-2 w-fit gap-6">

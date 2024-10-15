@@ -1,6 +1,6 @@
 import type { ImageWidget as Image } from "apps/admin/widgets.ts";
 
-interface Item {
+export interface Item {
   item: string;
   href: string;
   highlight?: boolean;

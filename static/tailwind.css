@@ -3894,6 +3894,10 @@ details.collapse summary::-webkit-details-marker {
 .h-\[52px\] {
   height: 52px;
 }
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
 .h-full {
   height: 100%;
 }
@@ -3909,6 +3913,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .max-h-\[215px\] {
   max-height: 215px;
+}
+.max-h-\[224px\] {
+  max-height: 224px;
 }
 .max-h-\[250px\] {
   max-height: 250px;
@@ -4295,6 +4302,9 @@ details.collapse summary::-webkit-details-marker {
 .gap-\[4px\] {
   gap: 4px;
 }
+.gap-\[60px\] {
+  gap: 60px;
+}
 .gap-\[6px\] {
   gap: 6px;
 }
@@ -4398,6 +4408,9 @@ details.collapse summary::-webkit-details-marker {
 .rounded-none {
   border-radius: 0px;
 }
+.rounded-sm {
+  border-radius: 0.125rem;
+}
 .rounded-l {
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
@@ -4437,11 +4450,17 @@ details.collapse summary::-webkit-details-marker {
 .border-b {
   border-bottom-width: 1px;
 }
+.border-b-4 {
+  border-bottom-width: 4px;
+}
 .border-b-\[1px\] {
   border-bottom-width: 1px;
 }
 .border-t {
   border-top-width: 1px;
+}
+.border-t-4 {
+  border-top-width: 4px;
 }
 .border-t-\[1px\] {
   border-top-width: 1px;
@@ -4451,10 +4470,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .border-none {
   border-style: none;
-}
-.border-\[\#70D1E8\] {
-  --tw-border-opacity: 1;
-  border-color: rgb(112 209 232 / var(--tw-border-opacity));
 }
 .border-\[\#C9CFCF\] {
   --tw-border-opacity: 1;
@@ -4732,6 +4747,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .pr-4 {
   padding-right: 1rem;
+}
+.pr-\[60px\] {
+  padding-right: 60px;
 }
 .pt-1 {
   padding-top: 0.25rem;
@@ -5453,13 +5471,14 @@ details.collapse summary::-webkit-details-marker {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.group:hover .group-hover\:border-b-4 {
-  border-bottom-width: 4px;
-}
-
 .group:hover .group-hover\:border-primary {
   --tw-border-opacity: 1;
   border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity)));
+}
+
+.group:hover .group-hover\:border-b-\[\#70D1E8\] {
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(112 209 232 / var(--tw-border-opacity));
 }
 
 .group:hover .group-hover\:opacity-100 {
