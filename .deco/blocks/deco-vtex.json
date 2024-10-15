@@ -5,7 +5,7 @@
   },
   "platform": "vtex",
   "account": "alphabeto",
-  "publicUrl": "https://www.alphabeto.com/",
+  "publicUrl": "https://www.alphabeto.com.br/",
   "appKey": {
     "__resolveType": "website/loaders/secret.ts",
     "encrypted": "ba507a9159f200e9796b16e5b946641b0d8e92d16b5418b114a3269dad0879e6"

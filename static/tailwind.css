@@ -3807,6 +3807,9 @@ details.collapse summary::-webkit-details-marker {
 .mt-8 {
   margin-top: 2rem;
 }
+.mt-\[30px\] {
+  margin-top: 30px;
+}
 .mt-\[5px\] {
   margin-top: 5px;
 }
@@ -3878,6 +3881,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .h-\[174px\] {
   height: 174px;
+}
+.h-\[18px\] {
+  height: 18px;
 }
 .h-\[210px\] {
   height: 210px;
@@ -3980,11 +3986,17 @@ details.collapse summary::-webkit-details-marker {
 .w-\[10px\] {
   width: 10px;
 }
+.w-\[18px\] {
+  width: 18px;
+}
 .w-\[243px\] {
   width: 243px;
 }
 .w-\[287px\] {
   width: 287px;
+}
+.w-\[30px\] {
+  width: 30px;
 }
 .w-\[316px\] {
   width: 316px;
@@ -4199,6 +4211,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .grid-cols-6 {
   grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.grid-cols-\[1fr_110px_1fr\] {
+  grid-template-columns: 1fr 110px 1fr;
 }
 .grid-cols-\[230px_1fr\] {
   grid-template-columns: 230px 1fr;
@@ -4475,6 +4490,10 @@ details.collapse summary::-webkit-details-marker {
   --tw-border-opacity: 1;
   border-color: rgb(201 207 207 / var(--tw-border-opacity));
 }
+.border-\[\#F7E0BF\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(247 224 191 / var(--tw-border-opacity));
+}
 .border-\[\#FF859A\] {
   --tw-border-opacity: 1;
   border-color: rgb(255 133 154 / var(--tw-border-opacity));
@@ -4505,6 +4524,10 @@ details.collapse summary::-webkit-details-marker {
 }
 .border-transparent {
   border-color: transparent;
+}
+.border-b-secondary {
+  --tw-border-opacity: 1;
+  border-bottom-color: var(--fallback-s,oklch(var(--s)/var(--tw-border-opacity)));
 }
 .bg-\[\#0D1717\] {
   --tw-bg-opacity: 1;
@@ -4588,6 +4611,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .bg-center {
   background-position: center;
+}
+.stroke-primary {
+  stroke: var(--fallback-p,oklch(var(--p)/1));
 }
 .object-contain {
   -o-object-fit: contain;
@@ -4736,6 +4762,9 @@ details.collapse summary::-webkit-details-marker {
 .pb-\[17px\] {
   padding-bottom: 17px;
 }
+.pb-\[30px\] {
+  padding-bottom: 30px;
+}
 .pl-1 {
   padding-left: 0.25rem;
 }
@@ -4772,6 +4801,9 @@ details.collapse summary::-webkit-details-marker {
 .pt-\[130px\] {
   padding-top: 130px;
 }
+.pt-\[23px\] {
+  padding-top: 23px;
+}
 .text-left {
   text-align: left;
 }
@@ -4786,6 +4818,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .text-end {
   text-align: end;
+}
+.font-\[\#676767\] {
+  font-family: #676767;
 }
 .font-\[\'BeccaPerry\'\] {
   font-family: 'BeccaPerry';
@@ -5502,6 +5537,13 @@ details.collapse summary::-webkit-details-marker {
 
   .mobile\:w-full {
     width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .desk\:block {
+    display: block;
   }
 }
 
