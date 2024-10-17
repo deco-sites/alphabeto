@@ -31,36 +31,41 @@
       "wishlist": null,
       "mode": "lazy",
       "user": null,
-      "title": "Sua sacola está vazia",
-      "icon": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/1bcbfb72-2ff3-445a-9149-f6e4d0c9cb61/shopping-bag.svg",
-      "itemsTitle": "Veja nossos favoritos",
-      "items": [
-        {
-          "label": "Vestidos",
-          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/aea6c9ac-7cf0-42cf-ac71-99e0dd37bf25/Frame-66.png",
-          "href": "/vestidos"
-        },
-        {
-          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/08d5eb1b-e19c-471d-8450-13c12e732cc3/Frame-66-(1).png",
-          "label": "Conjuntos",
-          "href": "/conjuntos"
-        },
-        {
-          "label": "Camisetas",
-          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/328c1a31-b2c4-4723-8fb2-ead716297325/Frame-66-(2).png",
-          "href": "/camisetas"
-        },
-        {
-          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/c760f851-d707-44f5-aeca-8837066738de/Group-14127.png",
-          "label": "Acessórios",
-          "href": "/acessorios"
-        },
-        {
-          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/527c7a07-ee48-4e4b-ab7c-aab874fb225f/Frame-66-(3).png",
-          "label": "Bonecas",
-          "href": "/bonecas"
-        }
-      ]
+      "minicartEmpty": {
+        "title": "Sua sacola está vazia",
+        "icon": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/1bcbfb72-2ff3-445a-9149-f6e4d0c9cb61/shopping-bag.svg",
+        "itemsTitle": "Veja nossos favoritos",
+        "items": [
+          {
+            "label": "Vestidos",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/aea6c9ac-7cf0-42cf-ac71-99e0dd37bf25/Frame-66.png",
+            "href": "/vestidos"
+          },
+          {
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/08d5eb1b-e19c-471d-8450-13c12e732cc3/Frame-66-(1).png",
+            "label": "Conjuntos",
+            "href": "/conjuntos"
+          },
+          {
+            "label": "Camisetas",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/328c1a31-b2c4-4723-8fb2-ead716297325/Frame-66-(2).png",
+            "href": "/camisetas"
+          },
+          {
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/c760f851-d707-44f5-aeca-8837066738de/Group-14127.png",
+            "label": "Acessórios",
+            "href": "/acessorios"
+          },
+          {
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/527c7a07-ee48-4e4b-ab7c-aab874fb225f/Frame-66-(3).png",
+            "label": "Bonecas",
+            "href": "/bonecas"
+          }
+        ]
+      },
+      "freeShippingBarSettings": {
+        "target": 0
+      }
     }
   ],
   "routes": [

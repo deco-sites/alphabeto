@@ -3,11 +3,11 @@ import { type Minicart } from "../../components/minicart/Minicart.tsx";
 import { usePlatform } from "../../sdk/usePlatform.tsx";
 
 import linx from "../../sdk/cart/linx/submit.ts";
-import vnda from "../../sdk/cart/vnda/submit.ts";
-import wake from "../../sdk/cart/wake/submit.ts";
-import vtex from "../../sdk/cart/vtex/submit.ts";
-import shopify from "../../sdk/cart/shopify/submit.ts";
 import nuvemshop from "../../sdk/cart/nuvemshop/submit.ts";
+import shopify from "../../sdk/cart/shopify/submit.ts";
+import vnda from "../../sdk/cart/vnda/submit.ts";
+import vtex from "../../sdk/cart/vtex/submit.ts";
+import wake from "../../sdk/cart/wake/submit.ts";
 
 const actions: Record<string, CartSubmitActions> = {
   vtex: vtex as CartSubmitActions,
@@ -24,12 +24,14 @@ interface CartForm {
   action: string | null;
   platformCart: unknown;
   addToCart: unknown;
+  sellerCode: string | null;
 }
 
 export interface CartSubmitActions<AC = unknown> {
   addToCart?: (props: CartForm, req: Request, ctx: AC) => Promise<Minicart>;
   setQuantity?: (props: CartForm, req: Request, ctx: AC) => Promise<Minicart>;
   setCoupon?: (props: CartForm, req: Request, ctx: AC) => Promise<Minicart>;
+  setSellerCode?: (props: CartForm, req: Request, ctx: AC) => Promise<Minicart>;
 }
 
 const safeParse = (payload: string | null) => {
@@ -48,11 +50,14 @@ const cartFrom = (form: FormData) => {
     platformCart: null,
     action: null,
     addToCart: null,
+    sellerCode: null,
   };
 
   for (const [name, value] of form.entries()) {
     if (name === "coupon") {
       cart.coupon = value.toString();
+    } else if (name === "sellerCode") {
+      cart.sellerCode = value.toString();
     } else if (name === "action") {
       cart.action = value.toString();
     } else if (name === "platform-cart") {
@@ -68,25 +73,16 @@ const cartFrom = (form: FormData) => {
   return cart;
 };
 
-async function action(
-  _props: unknown,
-  req: Request,
-  ctx: AppContext,
-): Promise<Minicart> {
-  const { setQuantity, setCoupon, addToCart } = actions[usePlatform()];
+async function action(_props: unknown, req: Request, ctx: AppContext): Promise<Minicart> {
+  const { setQuantity, setCoupon, addToCart, setSellerCode } = actions[usePlatform()];
 
   const form = cartFrom(await req.formData());
 
-  const handler = form.action === "set-coupon"
-    ? setCoupon
-    : form.action === "add-to-cart"
-    ? addToCart
-    : setQuantity;
+  const handler = form.action === "set-coupon" ? setCoupon : form.action === "add-to-cart" ? addToCart : form.action === "set-seller-code" ? setSellerCode : setQuantity;
 
   if (!handler) {
     throw new Error(`Unsupported action on platform ${usePlatform()}`);
   }
-
   return await handler(form, req, ctx);
 }
 

@@ -36,7 +36,7 @@ export function MenuMobile({ navItems, otherLinks }: Props) {
               <Drawer
                 id={item.menuItem}
                 aside={
-                  <Drawer.Aside title={item.menuItem} drawer={item.menuItem}>
+                  <Drawer.Aside title={item.menuItem} drawer={item.menuItem} class="max-w-[calc(100vw_-_20px)]">
                     <div class="overflow-y-auto bg-base-100">
                       <MenuMobileDetails submenu={item.submenu} />
                     </div>

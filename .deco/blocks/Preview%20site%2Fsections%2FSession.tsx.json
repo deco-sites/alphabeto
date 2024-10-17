@@ -1,4 +1,9 @@
 {
   "__resolveType": "site/sections/Session.tsx",
-  "items": []
+  "items": [],
+  "minicartEmptyItems": [],
+  "minicartEmpty": {
+    "items": []
+  },
+  "freeShippingBarSettings": {}
 }

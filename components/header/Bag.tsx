@@ -1,7 +1,9 @@
+// Lines commented in this file is reponsible to add number to cart icon
+
 import { MINICART_DRAWER_ID } from "../../constants.ts";
-import { useId } from "../../sdk/useId.ts";
+// import { useId } from "../../sdk/useId.ts";
 import { IconBag } from "../Icons/IconBag.tsx";
-import { useScript } from "@deco/deco/hooks";
+/** 
 const onLoad = (id: string) =>
   window.STOREFRONT.CART.subscribe((sdk) => {
     const counter = document.getElementById(id);
@@ -17,23 +19,20 @@ const onLoad = (id: string) =>
     }
     counter.innerText = count > 9 ? "9+" : count.toString();
   });
+  */
 function Bag() {
-  const id = useId();
+  // const id = useId();
   return (
     <>
-      <label class="indicator" for={MINICART_DRAWER_ID} aria-label="open cart">
-        <span
-          id={id}
-        />
-
+      <label class="indicator" for={MINICART_DRAWER_ID} aria-label="open cart" className="cursor-pointer">
+        {/* { <span id={id} />} */}
         <span>
           <IconBag />
         </span>
       </label>
-      <script
-        type="module"
-        dangerouslySetInnerHTML={{ __html: useScript(onLoad, id) }}
-      />
+      {/* Lines bellow is reponsible to add number to cart icon
+      <script type="module" dangerouslySetInnerHTML={{ __html: useScript(onLoad, id) }} />
+       */}
     </>
   );
 }
