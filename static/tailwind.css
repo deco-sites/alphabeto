@@ -4352,6 +4352,9 @@ details.collapse summary::-webkit-details-marker {
 .gap-\[22px\] {
   gap: 22px;
 }
+.gap-\[25px\] {
+  gap: 25px;
+}
 .gap-\[2px\] {
   gap: 2px;
 }
