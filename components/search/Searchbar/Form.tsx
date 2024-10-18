@@ -8,19 +8,15 @@
  * Note that this is the most performatic way to perform a search, since
  * no JavaScript is shipped to the browser!
  */
+import { asResolved, type Resolved } from "@deco/deco";
+import { useScript } from "@deco/deco/hooks";
 import { Suggestion } from "apps/commerce/types.ts";
-import {
-  SEARCHBAR_INPUT_FORM_ID,
-  SEARCHBAR_POPUP_ID,
-} from "../../../constants.ts";
+import { SEARCHBAR_INPUT_FORM_ID, SEARCHBAR_POPUP_ID } from "../../../constants.ts";
 import { useId } from "../../../sdk/useId.ts";
 import { useComponent } from "../../../sections/Component.tsx";
+import { IconSearch } from "../../Icons/IconSearch.tsx";
 import Icon from "../../ui/Icon.tsx";
 import { Props as SuggestionProps } from "./Suggestions.tsx";
-import { useScript } from "@deco/deco/hooks";
-import { asResolved } from "@deco/deco";
-import { type Resolved } from "@deco/deco";
-import { IconSearch } from "../../Icons/IconSearch.tsx";
 // When user clicks on the search button, navigate it to
 export const ACTION = "/s";
 // Querystring param used when navigating the user
@@ -36,6 +32,7 @@ export interface SearchbarProps {
   loader: Resolved<Suggestion | null>;
 }
 const script = (formId: string, name: string, popupId: string) => {
+  console.log("OI");
   const form = document.getElementById(formId) as HTMLFormElement | null;
   const input = form?.elements.namedItem(name) as HTMLInputElement | null;
   form?.addEventListener("submit", () => {
@@ -61,27 +58,12 @@ const script = (formId: string, name: string, popupId: string) => {
   });
 };
 const Suggestions = import.meta.resolve("./Suggestions.tsx");
-export default function Searchbar(
-  { placeholder, loader }: SearchbarProps,
-) {
+export default function Searchbar({ placeholder, loader }: SearchbarProps) {
   const slot = useId();
   return (
-    <div
-      class="w-full grid gap-8 container"
-      style={{ gridTemplateRows: "min-content auto" }}
-    >
-      <form
-        id={SEARCHBAR_INPUT_FORM_ID}
-        action={ACTION}
-        class="join bg-primary-content mt-5 rounded-lg"
-      >
-        <button
-          type="submit"
-          class="join-item no-animation w-10 flex justify-center items-center"
-          aria-label="Search"
-          for={SEARCHBAR_INPUT_FORM_ID}
-          tabIndex={-1}
-        >
+    <div class="w-full grid gap-8 container" style={{ gridTemplateRows: "min-content auto" }}>
+      <form id={SEARCHBAR_INPUT_FORM_ID} action={ACTION} class="join bg-primary-content mt-5 rounded-lg">
+        <button type="submit" class="join-item no-animation w-10 flex justify-center items-center" aria-label="Search" for={SEARCHBAR_INPUT_FORM_ID} tabIndex={-1}>
           <span class="loading text-primary loading-spinner loading-xs hidden [.htmx-request_&]:inline" />
           <span class="inline [.htmx-request_&]:hidden">
             <IconSearch />
@@ -95,19 +77,17 @@ export default function Searchbar(
           placeholder={placeholder}
           autocomplete="off"
           hx-target={`#${slot}`}
-          hx-post={loader && useComponent<SuggestionProps>(Suggestions, {
-            loader: asResolved(loader),
-          })}
+          hx-post={
+            loader &&
+            useComponent<SuggestionProps>(Suggestions, {
+              loader: asResolved(loader),
+            })
+          }
           hx-trigger={`input changed delay:300ms, ${NAME}`}
           hx-indicator={`#${SEARCHBAR_INPUT_FORM_ID}`}
           hx-swap="innerHTML"
         />
-        <label
-          type="button"
-          class="join-item btn btn-ghost btn-square hidden sm:inline-flex no-animation"
-          for={SEARCHBAR_POPUP_ID}
-          aria-label="Toggle searchbar"
-        >
+        <label type="button" class="join-item btn btn-ghost btn-square hidden sm:inline-flex no-animation" for={SEARCHBAR_POPUP_ID} aria-label="Toggle searchbar">
           <Icon id="close" />
         </label>
       </form>
@@ -119,12 +99,7 @@ export default function Searchbar(
       <script
         type="module"
         dangerouslySetInnerHTML={{
-          __html: useScript(
-            script,
-            SEARCHBAR_INPUT_FORM_ID,
-            NAME,
-            SEARCHBAR_POPUP_ID,
-          ),
+          __html: useScript(script, SEARCHBAR_INPUT_FORM_ID, NAME, SEARCHBAR_POPUP_ID),
         }}
       />
     </div>

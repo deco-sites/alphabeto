@@ -1,4 +1,5 @@
 import { useScript } from "@deco/deco/hooks";
+import { useSignal } from "@preact/signals";
 import { MINICART_DRAWER_ID, MINICART_FORM_ID } from "../../constants.ts";
 import { formatPrice } from "../../sdk/format.ts";
 import { IconCheveronsUp } from "../Icons/IconChevronsUp.tsx";
@@ -36,6 +37,8 @@ export default function MinicartFooter(props: Props) {
       storefront: { total, subtotal, coupon, locale, currency, enableCoupon = true, checkoutHref },
     },
   } = props;
+  const openSeller = useSignal(false);
+  console.log("Olá Mundo");
   return (
     <footer class="w-full">
       <div className="top-5 relative z-0 flex justify-center">
@@ -51,7 +54,7 @@ export default function MinicartFooter(props: Props) {
             {formatPrice(subtotal, currency, locale)}
           </output>
         </div>
-        <Seller />
+        <Seller openSeller={openSeller} />
         {enableCoupon && <Coupon coupon={coupon} />}
         <Shipping cep={""} />
         {/* Total */}

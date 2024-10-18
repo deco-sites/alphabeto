@@ -10,7 +10,7 @@ export default function Shipping({ cep }: Props) {
   return (
     <div class="flex justify-between items-center flex-col mt-5 mb-5">
       <div className="flex justify-between w-full items-center ">
-        <span class="text-xs leading-[18px] font-bold text-[#676767]">Código do Vendedor</span>
+        <span class="text-xs leading-[18px] font-bold text-[#676767]">CEP de entrega</span>
         <button type="button" className="cursor-pointer">
           <IconMinus className="w-[18px] h-[18px]" strokeClassName="stroke-primary" strokeWidth={3} />
         </button>
