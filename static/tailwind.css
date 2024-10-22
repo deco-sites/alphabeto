@@ -3791,8 +3791,14 @@ details.collapse summary::-webkit-details-marker {
 .ml-1 {
   margin-left: 0.25rem;
 }
+.ml-10 {
+  margin-left: 2.5rem;
+}
 .ml-2 {
   margin-left: 0.5rem;
+}
+.mr-10 {
+  margin-right: 2.5rem;
 }
 .mr-2 {
   margin-right: 0.5rem;
@@ -4472,9 +4478,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .rounded-none {
   border-radius: 0px;
-}
-.rounded-sm {
-  border-radius: 0.125rem;
 }
 .rounded-l {
   border-top-left-radius: 0.25rem;
