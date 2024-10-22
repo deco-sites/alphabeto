@@ -11,25 +11,19 @@ interface SearchProps {
 export function Search({ searchbar, loading }: SearchProps) {
   return (
     <>
-      <Modal id={SEARCHBAR_POPUP_ID}>
+      <Modal id={SEARCHBAR_POPUP_ID} className="!bg-transparent">
         <div class="absolute top-[30px] bg-base-100 w-full">
-          {loading === "lazy"
-            ? (
-              <div class="flex justify-center items-center">
-                <span class="loading loading-spinner" />
-              </div>
-            )
-            : <Searchbar {...searchbar} />}
+          {loading === "lazy" ? (
+            <div class="flex justify-center items-center">
+              <span class="loading loading-spinner" />
+            </div>
+          ) : (
+            <Searchbar {...searchbar} />
+          )}
         </div>
       </Modal>
-      <label
-        for={SEARCHBAR_POPUP_ID}
-        class="w-[243px] desk-small:w-[150px] bg-primary-content h-10 cursor-pointer rounded-lg flex items-center px-2 justify-between gap-2"
-        aria-label="search icon button"
-      >
-        <span class="text-base-400 truncate text-xs">
-          {searchbar.placeholder}
-        </span>
+      <label for={SEARCHBAR_POPUP_ID} class="w-[243px] desk-small:w-[150px] bg-primary-content h-10 cursor-pointer rounded-lg flex items-center px-2 justify-between gap-2" aria-label="search icon button">
+        <span class="text-base-400 truncate text-xs">{searchbar.placeholder}</span>
         <IconSearch />
       </label>
     </>

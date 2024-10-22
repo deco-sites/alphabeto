@@ -62,7 +62,7 @@ export default function Searchbar({ placeholder, loader }: SearchbarProps) {
   const slot = useId();
   return (
     <div class="w-full grid gap-8 container" style={{ gridTemplateRows: "min-content auto" }}>
-      <form id={SEARCHBAR_INPUT_FORM_ID} action={ACTION} class="join bg-primary-content mt-5 rounded-lg">
+      <form id={SEARCHBAR_INPUT_FORM_ID} action={ACTION} class="join bg-[#f5f4f1] mt-5 rounded-lg">
         <button type="submit" class="join-item no-animation w-10 flex justify-center items-center" aria-label="Search" for={SEARCHBAR_INPUT_FORM_ID} tabIndex={-1}>
           <span class="loading text-primary loading-spinner loading-xs hidden [.htmx-request_&]:inline" />
           <span class="inline [.htmx-request_&]:hidden">
