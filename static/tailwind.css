@@ -3341,6 +3341,33 @@ details.collapse summary::-webkit-details-marker {
   border-radius: 9999px;
   padding: 0px;
 }
+.card-side {
+  align-items: stretch;
+  flex-direction: row;
+}
+.card-side :where(figure:first-child) {
+  overflow: hidden;
+  border-start-start-radius: inherit;
+  border-start-end-radius: unset;
+  border-end-start-radius: inherit;
+  border-end-end-radius: unset;
+}
+.card-side :where(figure:last-child) {
+  overflow: hidden;
+  border-start-start-radius: unset;
+  border-start-end-radius: inherit;
+  border-end-start-radius: unset;
+  border-end-end-radius: inherit;
+}
+.card-side figure > * {
+  max-width: unset;
+}
+:where(.card-side figure > *) {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .drawer-open > .drawer-toggle {
   display: none;
 }
@@ -3896,6 +3923,9 @@ details.collapse summary::-webkit-details-marker {
 .h-8 {
   height: 2rem;
 }
+.h-\[102px\] {
+  height: 102px;
+}
 .h-\[10px\] {
   height: 10px;
 }
@@ -4053,6 +4083,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .w-\[522px\] {
   width: 522px;
+}
+.w-\[73px\] {
+  width: 73px;
 }
 .w-\[calc\(100\%-48px\)\] {
   width: calc(100% - 48px);
