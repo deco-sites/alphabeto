@@ -3617,6 +3617,9 @@ details.collapse summary::-webkit-details-marker {
 .left-0 {
   left: 0px;
 }
+.left-10 {
+  left: 2.5rem;
+}
 .left-2 {
   left: 0.5rem;
 }
@@ -3631,6 +3634,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .right-1 {
   right: 0.25rem;
+}
+.right-10 {
+  right: 2.5rem;
 }
 .right-2 {
   right: 0.5rem;
@@ -3791,14 +3797,8 @@ details.collapse summary::-webkit-details-marker {
 .ml-1 {
   margin-left: 0.25rem;
 }
-.ml-10 {
-  margin-left: 2.5rem;
-}
 .ml-2 {
   margin-left: 0.5rem;
-}
-.mr-10 {
-  margin-right: 2.5rem;
 }
 .mr-2 {
   margin-right: 0.5rem;
@@ -3982,8 +3982,8 @@ details.collapse summary::-webkit-details-marker {
 .min-h-\[42px\] {
   min-height: 42px;
 }
-.min-h-\[660px\] {
-  min-height: 660px;
+.min-h-\[450px\] {
+  min-height: 450px;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -4726,6 +4726,10 @@ details.collapse summary::-webkit-details-marker {
   padding-left: 0px;
   padding-right: 0px;
 }
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -4733,6 +4737,10 @@ details.collapse summary::-webkit-details-marker {
 .px-2\.5 {
   padding-left: 0.625rem;
   padding-right: 0.625rem;
+}
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 .px-4 {
   padding-left: 1rem;
@@ -4801,6 +4809,10 @@ details.collapse summary::-webkit-details-marker {
 .py-\[10px\] {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+.py-\[6px\] {
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 .\!pr-0 {
   padding-right: 0px !important;
@@ -5562,9 +5574,9 @@ details.collapse summary::-webkit-details-marker {
 .disabled\:\!bg-transparent:disabled {
   background-color: transparent !important;
 }
-.disabled\:bg-base-100:disabled {
+.disabled\:bg-primary:disabled {
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity)));
 }
 .disabled\:\!text-error:disabled {
   --tw-text-opacity: 1 !important;
@@ -5629,8 +5641,20 @@ details.collapse summary::-webkit-details-marker {
 }
 @media (min-width: 1024px) {
 
+  .desk\:relative {
+    position: relative;
+  }
+
+  .desk\:top-7 {
+    top: 1.75rem;
+  }
+
   .desk\:block {
     display: block;
+  }
+
+  .desk\:flex {
+    display: flex;
   }
 
   .desk\:w-full {

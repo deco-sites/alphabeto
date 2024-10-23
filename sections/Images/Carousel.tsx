@@ -46,15 +46,8 @@ export interface Props {
   interval?: number;
 }
 
-function BannerItem(
-  { image, lcp }: { image: Banner; lcp?: boolean },
-) {
-  const {
-    alt,
-    mobile,
-    desktop,
-    action,
-  } = image;
+function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
+  const { alt, mobile, desktop, action } = image;
   const params = { promotion_name: image.alt };
 
   const selectPromotionEvent = useSendEvent({
@@ -74,29 +67,6 @@ function BannerItem(
       aria-label={action?.label}
       class="relative block overflow-y-hidden w-full"
     >
-      {action && (
-        <div
-          class={clx(
-            "absolute h-full w-full top-0 left-0",
-            "flex flex-col justify-center items-center",
-            "px-5 sm:px-0",
-            "sm:left-40 sm:items-start sm:max-w-96",
-          )}
-        >
-          <span class="text-7xl font-bold text-base-100">
-            {action.title}
-          </span>
-          <span class="font-normal text-base text-base-100 pt-4 pb-12">
-            {action.subTitle}
-          </span>
-          <button
-            class="btn btn-primary btn-outline border-0 bg-base-100 min-w-[180px]"
-            aria-label={action.label}
-          >
-            {action.label}
-          </button>
-        </div>
-      )}
       <Picture preload={lcp} {...viewPromotionEvent}>
         <Source
           media="(max-width: 767px)"
@@ -132,9 +102,9 @@ function Carousel({ images = [], preload, interval }: Props) {
       class={clx(
         "grid",
         "grid-rows-[1fr_32px_1fr_64px]",
-        "grid-cols-[32px_1fr_32px] min-h-[660px]",
+        "grid-cols-[32px_1fr_32px] min-h-[450px]",
         "sm:grid-cols-[112px_1fr_112px] sm:min-h-min",
-        "w-screen",
+        "w-screen"
       )}
     >
       <div class="col-span-full row-span-full">
@@ -147,18 +117,18 @@ function Carousel({ images = [], preload, interval }: Props) {
         </Slider>
       </div>
 
-      <div class="sm:flex ml-10 items-center justify-center z-10 col-start-1 row-start-2">
+      <div class="hidden desk:flex relative top-5 left-10 items-center justify-center z-10 col-start-1 row-start-2">
         <Slider.PrevButton
-          class="btn btn-neutral btn-outline btn-circle no-animation btn-sm"
+          class="btn btn-neutral btn-outline btn-circle no-animation btn-sm h-10 w-10 bg-white text-primary border-none"
           disabled={false}
         >
           <Icon id="chevron-right" class="rotate-180" />
         </Slider.PrevButton>
       </div>
 
-      <div class="sm:flex mr-10 items-center justify-center z-10 col-start-3 row-start-2">
+      <div class="hidden desk:flex relative top-5 right-10 items-center justify-center z-10 col-start-3 row-start-2">
         <Slider.NextButton
-          class="btn btn-neutral btn-outline btn-circle no-animation btn-sm"
+          class="btn btn-neutral btn-outline btn-circle no-animation btn-sm h-10 w-10 bg-white text-primary border-none"
           disabled={false}
         >
           <Icon id="chevron-right" />
@@ -169,6 +139,7 @@ function Carousel({ images = [], preload, interval }: Props) {
         class={clx(
           "col-span-full row-start-4 z-10",
           "carousel justify-center gap-3",
+          "desk:relative desk:top-7"
         )}
       >
         {images.map((_, index) => (
@@ -176,11 +147,10 @@ function Carousel({ images = [], preload, interval }: Props) {
             <Slider.Dot
               index={index}
               class={clx(
-                "bg-black opacity-20 h-3 w-3 no-animation rounded-full",
-                "disabled:w-8 disabled:bg-base-100 disabled:opacity-100 transition-[width]",
+                "bg-secondary opacity-20 h-3 w-3 no-animation rounded-full",
+                "disabled:w-8 disabled:bg-primary disabled:opacity-100 transition-[width]"
               )}
-            >
-            </Slider.Dot>
+            ></Slider.Dot>
           </li>
         ))}
       </ul>

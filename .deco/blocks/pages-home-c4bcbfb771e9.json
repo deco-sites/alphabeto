@@ -11,15 +11,15 @@
       "__resolveType": "site/sections/Images/Carousel.tsx",
       "images": [
         {
-          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/5b022a01-ba88-46fe-86ae-93ae644605b7",
-          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/88b2ad41-be6d-4640-b9fe-c58942362f0f",
-          "alt": "Shoes",
+          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ee0d4d2d-8c88-4620-9286-79b8aa597be4/Banner-principal.png",
+          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/be67e2a0-9b4d-4a0c-ad24-7c0e2548cbe8/Banner-principal-(1).png",
           "action": {
             "title": "Skate into Adventure",
             "subTitle": "Top-quality roller skate shoes for all levels. ",
             "href": "/s?q=shoes&page=0",
             "label": "Grab Yours Now!"
-          }
+          },
+          "alt": "Children"
         },
         {
           "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/d26304f4-355b-48d0-b649-e24b9cbf0ded",
@@ -45,6 +45,66 @@
         }
       ],
       "preload": true
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/BenefitsBar/BenefitsBar.tsx",
+        "items": [
+          {
+            "borderColor": "#FF8300",
+            "backgroundColor": "#FCF3E6",
+            "mainColor": "#FF8300",
+            "imageUrl": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/4afcd983-510b-4e38-9bf4-4e40c52c42a1/Troca-facil.svg",
+            "imageAlt": "Troca Fácil",
+            "title": "Troca Fácil",
+            "message": "<p style=\"text-align: justify\">Precisa trocar? É fácil e rapidinho :) <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"/\"><span style=\"color: #ff8300\">Clique aqui</span></a></p>",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/4afcd983-510b-4e38-9bf4-4e40c52c42a1/Troca-facil.svg"
+          },
+          {
+            "mainColor": "#70D1E8",
+            "backgroundColor": "#F3FDFF",
+            "imageUrl": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/df88c2f5-e977-44fa-864a-600930a7d7e5/sem-juros.svg",
+            "imageAlt": "Sem Juros",
+            "message": "<p>Parcelinhas minímas de R$50,00</p>",
+            "title": "Até 6x sem juros",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/df88c2f5-e977-44fa-864a-600930a7d7e5/sem-juros.svg"
+          },
+          {
+            "mainColor": "#FF859A",
+            "backgroundColor": "#FFEDF0",
+            "imageUrl": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/2586e2b7-8a61-4050-9321-acf0097abdbc/primeira-compra.svg",
+            "imageAlt": "Primeira Compra",
+            "title": "Primeira Compra",
+            "message": "<p><span>Ganhe 10% de presente com o cupom BEMVINDO10.</span></p>",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/2586e2b7-8a61-4050-9321-acf0097abdbc/primeira-compra.svg"
+          },
+          {
+            "mainColor": "#D6DE23",
+            "backgroundColor": "#F9FAE5",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/b106d86e-a147-4b78-9393-559120630fa3/cashback.svg",
+            "imageAlt": "Cashback",
+            "title": "Ganhe 15% de cashback",
+            "message": "<p><span>E resgate na sua próxima compra.</span></p>"
+          },
+          {
+            "mainColor": "#C5A6CD",
+            "backgroundColor": "#FDF5FF",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/e45cb70f-a412-4371-8124-53eb2b94370b/app.svg",
+            "imageAlt": "App",
+            "title": "Baixe o app",
+            "message": "<p><span>Ganhe 15% de presente na sua primeira compra.</span></p>"
+          },
+          {
+            "mainColor": "#FF8300",
+            "backgroundColor": "#F7E0BF",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/be59f3c5-5e04-4d1e-aeb2-b57bc53255c1/retirada.svg",
+            "imageAlt": "Retirada",
+            "title": "Retirada na loja",
+            "message": "<p><span>Compre e retire na loja mais próxima.</span></p>"
+          }
+        ]
+      }
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
