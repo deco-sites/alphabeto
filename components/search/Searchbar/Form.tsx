@@ -10,8 +10,10 @@
  */
 import { asResolved, type Resolved } from "@deco/deco";
 import { useScript } from "@deco/deco/hooks";
+import { ImageWidget } from "apps/admin/widgets.ts";
 import { Suggestion } from "apps/commerce/types.ts";
 import { SEARCHBAR_INPUT_FORM_ID, SEARCHBAR_POPUP_ID } from "../../../constants.ts";
+import { clx } from "../../../sdk/clx.ts";
 import { useId } from "../../../sdk/useId.ts";
 import { useComponent } from "../../../sections/Component.tsx";
 import { IconSearch } from "../../Icons/IconSearch.tsx";
@@ -30,9 +32,24 @@ export interface SearchbarProps {
   placeholder?: string;
   /** @description Loader to run when suggesting new elements */
   loader: Resolved<Suggestion | null>;
+
+  /**
+   *  @title Banner
+   * @description Banner image to display on the search bar results
+   */
+  banner?: ImageWidget;
+  /**
+   *  @title Banner Mobile
+   * @description Banner image to display on the search bar results for mobile screens
+   */
+  bannerMobile?: ImageWidget;
+  /**
+   * @title Banner Alternative Text
+   * @description Banner image alternative text to people with disabilities
+   */
+  bannerAlt?: string;
 }
 const script = (formId: string, name: string, popupId: string) => {
-  console.log("OI");
   const form = document.getElementById(formId) as HTMLFormElement | null;
   const input = form?.elements.namedItem(name) as HTMLInputElement | null;
   form?.addEventListener("submit", () => {
@@ -58,10 +75,10 @@ const script = (formId: string, name: string, popupId: string) => {
   });
 };
 const Suggestions = import.meta.resolve("./Suggestions.tsx");
-export default function Searchbar({ placeholder, loader }: SearchbarProps) {
+export default function Searchbar({ placeholder, loader, banner, bannerAlt, bannerMobile }: SearchbarProps) {
   const slot = useId();
   return (
-    <div class="w-full grid gap-8 container" style={{ gridTemplateRows: "min-content auto" }}>
+    <div className={clx("flex flex-col gap-[22px] px-5 overflow-y-auto max-h-dvh", "desk:gap-8 desk:max-w-[95rem] desk:w-full desk:mx-auto desk:px-10")}>
       <form id={SEARCHBAR_INPUT_FORM_ID} action={ACTION} class="join bg-[#f5f4f1] mt-5 rounded-lg">
         <button type="submit" class="join-item no-animation w-10 flex justify-center items-center" aria-label="Search" for={SEARCHBAR_INPUT_FORM_ID} tabIndex={-1}>
           <span class="loading text-primary loading-spinner loading-xs hidden [.htmx-request_&]:inline" />
@@ -81,14 +98,17 @@ export default function Searchbar({ placeholder, loader }: SearchbarProps) {
             loader &&
             useComponent<SuggestionProps>(Suggestions, {
               loader: asResolved(loader),
+              banner,
+              bannerAlt,
+              bannerMobile,
             })
           }
           hx-trigger={`input changed delay:300ms, ${NAME}`}
           hx-indicator={`#${SEARCHBAR_INPUT_FORM_ID}`}
           hx-swap="innerHTML"
         />
-        <label type="button" class="join-item btn btn-ghost btn-square hidden sm:inline-flex no-animation" for={SEARCHBAR_POPUP_ID} aria-label="Toggle searchbar">
-          <Icon id="close" />
+        <label type="button" class="join-item btn btn-ghost btn-square sm:inline-flex no-animation text-[#676767] min-h-10 h-10 w-10" for={SEARCHBAR_POPUP_ID} aria-label="Toggle searchbar">
+          <Icon id="close-search" />
         </label>
       </form>
 

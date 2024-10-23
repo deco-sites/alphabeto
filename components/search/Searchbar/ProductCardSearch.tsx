@@ -53,8 +53,8 @@ function ProductCardSearch({ product, preload, itemListName, index, class: _clas
   });
 
   return (
-    <div {...event} class={clx("card card-side group text-sm gap-1", _class)}>
-      <figure class={clx("relative bg-base-200", "rounded border border-transparent", "group-hover:border-primary", "w-[73px] h-[102px]")} style={{ aspectRatio: ASPECT_RATIO }}>
+    <div {...event} class={clx("card card-side text-sm gap-1", _class)}>
+      <figure class={clx("relative", "rounded border border-transparent", "w-[73px] min-w-[73px] h-[102px]")} style={{ aspectRatio: ASPECT_RATIO }}>
         {/* Product Images */}
         <a href={relativeUrl} aria-label="view product" class={clx("absolute top-0 left-0", "grid grid-cols-1 grid-rows-1", "w-full", !inStock && "opacity-70")}>
           <Image src={front.url!} alt={front.alternateName} width={WIDTH} height={HEIGHT} style={{ aspectRatio: ASPECT_RATIO }} class={clx("object-cover", "rounded w-full", "col-span-full row-span-full")} sizes="(max-width: 640px) 50vw, 20vw" preload={preload} loading={preload ? "eager" : "lazy"} decoding="async" />
@@ -63,7 +63,7 @@ function ProductCardSearch({ product, preload, itemListName, index, class: _clas
       </figure>
 
       <a href={relativeUrl} className="">
-        <span class="font-bold text-accent text-xs leading-[18px]">{title}</span>
+        <span class="font-bold text-base-content lg:text-accent text-xs leading-[18px]">{title}</span>
 
         <div class="flex items-center gap-[5px] pt-4">
           {Boolean(listPrice) && (
