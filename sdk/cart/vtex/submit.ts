@@ -9,7 +9,7 @@ const actions: CartSubmitActions<AppContext> = {
     const response = (await ctx.invoke(
       "vtex/actions/cart/addItems.ts",
       // @ts-expect-error I don't know how to fix this
-      addToCart
+      addToCart,
     )) as Cart;
     const skuInformation = await loadSizes(response, ctx);
 
@@ -25,7 +25,9 @@ const actions: CartSubmitActions<AppContext> = {
     return cartFrom(response, req.url, skuInformation);
   },
   setCoupon: async ({ coupon }, req, ctx) => {
-    const response = (await ctx.invoke("vtex/actions/cart/updateCoupons.ts", { text: coupon ?? undefined })) as Cart;
+    const response = (await ctx.invoke("vtex/actions/cart/updateCoupons.ts", {
+      text: coupon ?? undefined,
+    })) as Cart;
     const skuInformation = await loadSizes(response, ctx);
 
     return cartFrom(response, req.url, skuInformation);

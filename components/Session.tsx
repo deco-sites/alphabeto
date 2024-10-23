@@ -5,7 +5,10 @@ import { type AppContext } from "../apps/site.ts";
 import { MINICART_DRAWER_ID } from "../constants.ts";
 import { useComponent } from "../sections/Component.tsx";
 import { type Item } from "./minicart/Item.tsx";
-import CartProvider, { type Minicart, MinicartSettings } from "./minicart/Minicart.tsx";
+import CartProvider, {
+  type Minicart,
+  MinicartSettings,
+} from "./minicart/Minicart.tsx";
 import Drawer from "./ui/Drawer.tsx";
 import UserProvider from "./user/Provider.tsx";
 import WishlistProvider, { type Wishlist } from "./wishlist/Provider.tsx";
@@ -26,18 +29,27 @@ export interface SDK {
     getQuantity: (itemId: string) => number | undefined;
     setQuantity: (itemId: string, quantity: number) => boolean;
     addToCart: (item: Item, platformProps: unknown) => boolean;
-    subscribe: (cb: (sdk: SDK["CART"]) => void, opts?: boolean | AddEventListenerOptions) => void;
+    subscribe: (
+      cb: (sdk: SDK["CART"]) => void,
+      opts?: boolean | AddEventListenerOptions,
+    ) => void;
     dispatch: (form: HTMLFormElement) => void;
   };
   USER: {
     getUser: () => Person | null;
-    subscribe: (cb: (sdk: SDK["USER"]) => void, opts?: boolean | AddEventListenerOptions) => void;
+    subscribe: (
+      cb: (sdk: SDK["USER"]) => void,
+      opts?: boolean | AddEventListenerOptions,
+    ) => void;
     dispatch: (person: Person) => void;
   };
   WISHLIST: {
     toggle: (productID: string, productGroupID: string) => boolean;
     inWishlist: (productID: string) => boolean;
-    subscribe: (cb: (sdk: SDK["WISHLIST"]) => void, opts?: boolean | AddEventListenerOptions) => void;
+    subscribe: (
+      cb: (sdk: SDK["WISHLIST"]) => void,
+      opts?: boolean | AddEventListenerOptions,
+    ) => void;
     dispatch: (form: HTMLFormElement) => void;
   };
 }
@@ -46,16 +58,28 @@ const sdk = () => {
   const target = new EventTarget();
   const createCartSDK = (): SDK["CART"] => {
     let form: HTMLFormElement | null = null;
-    const getCart = (): Cart => form && JSON.parse(decodeURIComponent(form.querySelector<HTMLInputElement>('input[name="storefront-cart"]')?.value || "[]"));
+    const getCart = (): Cart =>
+      form &&
+      JSON.parse(
+        decodeURIComponent(
+          form.querySelector<HTMLInputElement>('input[name="storefront-cart"]')
+            ?.value || "[]",
+        ),
+      );
     const sdk: SDK["CART"] = {
       getCart,
-      getQuantity: (itemId) => form?.querySelector<HTMLInputElement>(`[data-item-id="${itemId}"] input[type="number"]`)?.valueAsNumber,
+      getQuantity: (itemId) =>
+        form?.querySelector<HTMLInputElement>(
+          `[data-item-id="${itemId}"] input[type="number"]`,
+        )?.valueAsNumber,
       setQuantity: (itemId, quantity) => {
-        const input = form?.querySelector<HTMLInputElement>(`[data-item-id="${itemId}"] input[type="number"]`);
+        const input = form?.querySelector<HTMLInputElement>(
+          `[data-item-id="${itemId}"] input[type="number"]`,
+        );
         const item = getCart()?.items.find(
           (item) =>
             // deno-lint-ignore no-explicit-any
-            (item as any).item_id === itemId
+            (item as any).item_id === itemId,
         );
         if (!input || !item) {
           return false;
@@ -63,7 +87,9 @@ const sdk = () => {
         input.value = quantity.toString();
         if (input.validity.valid) {
           window.DECO.events.dispatch({
-            name: item.quantity < input.valueAsNumber ? "add_to_cart" : "remove_from_cart",
+            name: item.quantity < input.valueAsNumber
+              ? "add_to_cart"
+              : "remove_from_cart",
             params: { items: [{ ...item, quantity }] },
           });
           input.dispatchEvent(new Event("change", { bubbles: true }));
@@ -71,8 +97,12 @@ const sdk = () => {
         return true;
       },
       addToCart: (item, platformProps) => {
-        const input = form?.querySelector<HTMLInputElement>('input[name="add-to-cart"]');
-        const button = form?.querySelector<HTMLButtonElement>(`button[name="action"][value="add-to-cart"]`);
+        const input = form?.querySelector<HTMLInputElement>(
+          'input[name="add-to-cart"]',
+        );
+        const button = form?.querySelector<HTMLButtonElement>(
+          `button[name="action"][value="add-to-cart"]`,
+        );
         if (!input || !button) {
           return false;
         }
@@ -112,19 +142,18 @@ const sdk = () => {
         sendEvent(e.currentTarget as HTMLElement | null);
       }
       // Only available on newer safari versions
-      const handleView =
-        typeof IntersectionObserver !== "undefined"
-          ? new IntersectionObserver((items) => {
-              for (const item of items) {
-                const { isIntersecting, target } = item;
-                if (!isIntersecting) {
-                  continue;
-                }
-                handleView!.unobserve(target);
-                sendEvent(target);
-              }
-            })
-          : null;
+      const handleView = typeof IntersectionObserver !== "undefined"
+        ? new IntersectionObserver((items) => {
+          for (const item of items) {
+            const { isIntersecting, target } = item;
+            if (!isIntersecting) {
+              continue;
+            }
+            handleView!.unobserve(target);
+            sendEvent(target);
+          }
+        })
+        : null;
       document.body.addEventListener("htmx:load", (e) =>
         (
           e as unknown as {
@@ -147,8 +176,7 @@ const sdk = () => {
               handleView?.observe(node);
               return;
             }
-          })
-      );
+          }));
     });
   };
   const createUserSDK = () => {
@@ -175,8 +203,10 @@ const sdk = () => {
           console.error("Missing wishlist Provider");
           return false;
         }
-        form.querySelector<HTMLInputElement>('input[name="product-id"]')!.value = productID;
-        form.querySelector<HTMLInputElement>('input[name="product-group-id"]')!.value = productGroupID;
+        form.querySelector<HTMLInputElement>('input[name="product-id"]')!
+          .value = productID;
+        form.querySelector<HTMLInputElement>('input[name="product-group-id"]')!
+          .value = productGroupID;
         form.querySelector<HTMLButtonElement>("button")?.click();
         return true;
       },
@@ -187,8 +217,12 @@ const sdk = () => {
       },
       dispatch: (f: HTMLFormElement) => {
         form = f;
-        const script = f.querySelector<HTMLScriptElement>('script[type="application/json"]');
-        const wishlist: Wishlist | null = script ? JSON.parse(script.innerText) : null;
+        const script = f.querySelector<HTMLScriptElement>(
+          'script[type="application/json"]',
+        );
+        const wishlist: Wishlist | null = script
+          ? JSON.parse(script.innerText)
+          : null;
         productIDs = new Set(wishlist?.productIDs);
         target.dispatchEvent(new Event("wishlist"));
       },
@@ -208,9 +242,13 @@ export const action = async (
     minicartSettings: MinicartSettings;
   },
   _req: Request,
-  ctx: AppContext
+  ctx: AppContext,
 ) => {
-  const [minicart, wishlist, user] = await Promise.all([ctx.invoke("site/loaders/minicart.ts"), ctx.invoke("site/loaders/wishlist.ts"), ctx.invoke("site/loaders/user.ts")]);
+  const [minicart, wishlist, user] = await Promise.all([
+    ctx.invoke("site/loaders/minicart.ts"),
+    ctx.invoke("site/loaders/wishlist.ts"),
+    ctx.invoke("site/loaders/user.ts"),
+  ]);
   return {
     mode: "eager",
     minicart,
@@ -220,7 +258,11 @@ export const action = async (
   };
 };
 
-export const loader = ({ minicartEmpty, freeShippingBarSettings, ...otherProps }: MinicartSettings, _req: Request, _ctx: AppContext) => {
+export const loader = (
+  { minicartEmpty, freeShippingBarSettings, ...otherProps }: MinicartSettings,
+  _req: Request,
+  _ctx: AppContext,
+) => {
   return {
     ...otherProps,
     minicartClientSettings: {
@@ -239,12 +281,17 @@ export interface Props {
   mode?: "eager" | "lazy";
 }
 
-export default function Session({ minicart, wishlist, user, mode = "lazy", ...props }: Props) {
+export default function Session(
+  { minicart, wishlist, user, mode = "lazy", ...props }: Props,
+) {
   if (mode === "lazy") {
     return (
       <>
         <Head>
-          <script type="module" dangerouslySetInnerHTML={{ __html: useScript(sdk) }} />
+          <script
+            type="module"
+            dangerouslySetInnerHTML={{ __html: useScript(sdk) }}
+          />
         </Head>
         <div
           hx-trigger="load"
@@ -263,9 +310,16 @@ export default function Session({ minicart, wishlist, user, mode = "lazy", ...pr
         id={MINICART_DRAWER_ID}
         class="drawer-end z-50"
         aside={
-          <Drawer.Aside title="Minha sacola" drawer={MINICART_DRAWER_ID} class="max-w-full desk:max-w-[375px] desk:w-full">
+          <Drawer.Aside
+            title="Minha sacola"
+            drawer={MINICART_DRAWER_ID}
+            class="max-w-full desk:max-w-[375px] desk:w-full"
+          >
             <div className="h-full flex flex-col bg-base-100 items-center justify-center overflow-auto border-none w-full">
-              <CartProvider cart={minicart!} minicartSettings={props.minicartClientSettings} />
+              <CartProvider
+                cart={minicart!}
+                minicartSettings={props.minicartClientSettings}
+              />
             </div>
           </Drawer.Aside>
         }

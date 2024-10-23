@@ -3,10 +3,15 @@ import { Minicart } from "../../../../components/minicart/Minicart.tsx";
 import { Cart } from "../types.ts";
 import { SkuInformationData } from "./loadSizes.ts";
 
-export const cartFrom = (form: Cart, url: string, skuInformation: Record<string, SkuInformationData>): Minicart => {
+export const cartFrom = (
+  form: Cart,
+  url: string,
+  skuInformation: Record<string, SkuInformationData>,
+): Minicart => {
   const { items, totalizers } = form ?? { items: [] };
   const total = totalizers?.find((item) => item.id === "Items")?.value || 0;
-  const discounts = (totalizers?.find((item) => item.id === "Discounts")?.value || 0) * -1;
+  const discounts =
+    (totalizers?.find((item) => item.id === "Discounts")?.value || 0) * -1;
   const locale = form?.clientPreferencesData.locale ?? "pt-BR";
   const currency = form?.storePreferencesData.currencyCode ?? "BRL";
   const coupon = form?.marketingData?.coupon ?? undefined;

@@ -4,11 +4,16 @@ import { type SearchbarProps } from "../../components/search/Searchbar/Form.tsx"
 
 import { type LoadingFallbackProps } from "@deco/deco";
 import { useDevice } from "@deco/deco/hooks";
-import BenefitBar, { BenefitBarProps } from "../../components/header/BenefitBar.tsx";
+import BenefitBar, {
+  BenefitBarProps,
+} from "../../components/header/BenefitBar.tsx";
 import { Desktop } from "../../components/header/HeaderDesktop.tsx";
 import { Mobile } from "../../components/header/HeaderMobile.tsx";
 import { Items } from "../../components/header/Menu.types.ts";
-import { HEADER_HEIGHT_DESKTOP, HEADER_HEIGHT_MOBILE } from "../../constants.ts";
+import {
+  HEADER_HEIGHT_DESKTOP,
+  HEADER_HEIGHT_MOBILE,
+} from "../../constants.ts";
 
 export interface Logo {
   src: ImageWidget;
@@ -50,7 +55,9 @@ function Header({ links = [], logo, benefits, ...props }: Props) {
   const device = useDevice();
   const RenderBenefits = () => {
     if (benefits?.benefits && benefits.benefits.length > 0) {
-      return <BenefitBar benefits={benefits.benefits} interval={benefits.interval} />;
+      return (
+        <BenefitBar benefits={benefits.benefits} interval={benefits.interval} />
+      );
     }
     return null;
   };
@@ -59,13 +66,17 @@ function Header({ links = [], logo, benefits, ...props }: Props) {
   return (
     <header
       style={{
-        height: device === "desktop" ? HEADER_HEIGHT_DESKTOP : HEADER_HEIGHT_MOBILE,
+        height: device === "desktop"
+          ? HEADER_HEIGHT_DESKTOP
+          : HEADER_HEIGHT_MOBILE,
       }}
     >
       <div class="bg-base-100 fixed w-full z-40">
         {device === "mobile" && <RenderBenefits />}
         {showLinks && <Links links={links} />}
-        {device === "desktop" ? <Desktop logo={logo} {...props} /> : <Mobile logo={logo} {...props} links={links} />}
+        {device === "desktop"
+          ? <Desktop logo={logo} {...props} />
+          : <Mobile logo={logo} {...props} links={links} />}
         {device === "desktop" && <RenderBenefits />}
       </div>
     </header>

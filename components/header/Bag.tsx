@@ -3,7 +3,7 @@
 import { MINICART_DRAWER_ID } from "../../constants.ts";
 // import { useId } from "../../sdk/useId.ts";
 import { IconBag } from "../Icons/IconBag.tsx";
-/** 
+/**
 const onLoad = (id: string) =>
   window.STOREFRONT.CART.subscribe((sdk) => {
     const counter = document.getElementById(id);
@@ -24,15 +24,22 @@ function Bag() {
   // const id = useId();
   return (
     <>
-      <label class="indicator" for={MINICART_DRAWER_ID} aria-label="open cart" className="cursor-pointer">
+      <label
+        class="indicator"
+        for={MINICART_DRAWER_ID}
+        aria-label="open cart"
+        className="cursor-pointer"
+      >
         {/* { <span id={id} />} */}
         <span>
           <IconBag />
         </span>
       </label>
-      {/* Lines bellow is reponsible to add number to cart icon
+      {
+        /* Lines bellow is reponsible to add number to cart icon
       <script type="module" dangerouslySetInnerHTML={{ __html: useScript(onLoad, id) }} />
-       */}
+       */
+      }
     </>
   );
 }

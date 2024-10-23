@@ -11,7 +11,10 @@
 import { asResolved, type Resolved } from "@deco/deco";
 import { useScript } from "@deco/deco/hooks";
 import { Suggestion } from "apps/commerce/types.ts";
-import { SEARCHBAR_INPUT_FORM_ID, SEARCHBAR_POPUP_ID } from "../../../constants.ts";
+import {
+  SEARCHBAR_INPUT_FORM_ID,
+  SEARCHBAR_POPUP_ID,
+} from "../../../constants.ts";
 import { useId } from "../../../sdk/useId.ts";
 import { useComponent } from "../../../sections/Component.tsx";
 import { IconSearch } from "../../Icons/IconSearch.tsx";
@@ -61,9 +64,22 @@ const Suggestions = import.meta.resolve("./Suggestions.tsx");
 export default function Searchbar({ placeholder, loader }: SearchbarProps) {
   const slot = useId();
   return (
-    <div class="w-full grid gap-[25px] container" style={{ gridTemplateRows: "min-content auto" }}>
-      <form id={SEARCHBAR_INPUT_FORM_ID} action={ACTION} class="join bg-primary-content mt-5 rounded-lg">
-        <button type="submit" class="join-item no-animation w-10 flex justify-center items-center" aria-label="Search" for={SEARCHBAR_INPUT_FORM_ID} tabIndex={-1}>
+    <div
+      class="w-full grid gap-8 container"
+      style={{ gridTemplateRows: "min-content auto" }}
+    >
+      <form
+        id={SEARCHBAR_INPUT_FORM_ID}
+        action={ACTION}
+        class="join bg-[#f5f4f1] mt-5 rounded-lg"
+      >
+        <button
+          type="submit"
+          class="join-item no-animation w-10 flex justify-center items-center"
+          aria-label="Search"
+          for={SEARCHBAR_INPUT_FORM_ID}
+          tabIndex={-1}
+        >
           <span class="loading text-primary loading-spinner loading-xs hidden [.htmx-request_&]:inline" />
           <span class="inline [.htmx-request_&]:hidden">
             <IconSearch />
@@ -77,17 +93,20 @@ export default function Searchbar({ placeholder, loader }: SearchbarProps) {
           placeholder={placeholder}
           autocomplete="off"
           hx-target={`#${slot}`}
-          hx-post={
-            loader &&
+          hx-post={loader &&
             useComponent<SuggestionProps>(Suggestions, {
               loader: asResolved(loader),
-            })
-          }
+            })}
           hx-trigger={`input changed delay:300ms, ${NAME}`}
           hx-indicator={`#${SEARCHBAR_INPUT_FORM_ID}`}
           hx-swap="innerHTML"
         />
-        <label type="button" class="join-item btn btn-ghost btn-square hidden sm:inline-flex no-animation" for={SEARCHBAR_POPUP_ID} aria-label="Toggle searchbar">
+        <label
+          type="button"
+          class="join-item btn btn-ghost btn-square hidden sm:inline-flex no-animation"
+          for={SEARCHBAR_POPUP_ID}
+          aria-label="Toggle searchbar"
+        >
           <Icon id="close" />
         </label>
       </form>
@@ -99,7 +118,12 @@ export default function Searchbar({ placeholder, loader }: SearchbarProps) {
       <script
         type="module"
         dangerouslySetInnerHTML={{
-          __html: useScript(script, SEARCHBAR_INPUT_FORM_ID, NAME, SEARCHBAR_POPUP_ID),
+          __html: useScript(
+            script,
+            SEARCHBAR_INPUT_FORM_ID,
+            NAME,
+            SEARCHBAR_POPUP_ID,
+          ),
         }}
       />
     </div>

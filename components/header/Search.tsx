@@ -11,7 +11,7 @@ interface SearchProps {
 export function Search({ searchbar, loading }: SearchProps) {
   return (
     <>
-      <Modal id={SEARCHBAR_POPUP_ID}>
+      <Modal id={SEARCHBAR_POPUP_ID} className="!bg-transparent">
         <div class="absolute top-[30px] bg-base-100 w-full">
           {loading === "lazy"
             ? (

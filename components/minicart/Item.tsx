@@ -37,17 +37,28 @@ function CartItem({ item, index, locale, currency }: Props) {
       class="grid grid-rows-1 gap-1"
       style={{ gridTemplateColumns: "auto 1fr" }}
     >
-      <Image alt={name} src={changeImageSizeUrl(image, 144, 204)} style={{ aspectRatio: "72 / 102" }} width={144} height={204} class="h-full object-contain max-w-[72px]" />
+      <Image
+        alt={name}
+        src={changeImageSizeUrl(image, 144, 204)}
+        style={{ aspectRatio: "72 / 102" }}
+        width={144}
+        height={204}
+        class="h-full object-contain max-w-[72px]"
+      />
 
       {/* Info */}
       <div class="flex flex-col">
         {/* Name and Remove button */}
         <div class="flex justify-between items-center">
-          <legend className="text-[#676767] text-xs font-bold leading-[18px] mb-1">{name}</legend>
-          {/* This code is commented because the remove button is not present in the design
+          <legend className="text-[#676767] text-xs font-bold leading-[18px] mb-1">
+            {name}
+          </legend>
+          {
+            /* This code is commented because the remove button is not present in the design
           <button class={clx(isGift && "hidden", "btn btn-ghost btn-square no-animation")} hx-on:click={useScript(removeItemHandler)}>
             <Icon id="trash" size={24} />
-          </button> */}
+          </button> */
+          }
         </div>
         {/* Color and Size */}
         <div className="text-[#676767] text-xs leading-[18px] flex gap-3 mb-[17px]">
@@ -59,14 +70,26 @@ function CartItem({ item, index, locale, currency }: Props) {
           <div className="flex items-center gap-[5px]">
             {Boolean(listPrice) && (
               <>
-                <span class="line-through text-xs leading-[14.4px] font-semibold text-[#c5c5c5]">{formatPrice(listPrice, currency, locale)}</span>
-                <span class="text-sm leading-[14.4px] font-semibold text-primary">•</span>
+                <span class="line-through text-xs leading-[14.4px] font-semibold text-[#c5c5c5]">
+                  {formatPrice(listPrice, currency, locale)}
+                </span>
+                <span class="text-sm leading-[14.4px] font-semibold text-primary">
+                  •
+                </span>
               </>
             )}
-            <span class="text-sm leading-[16.8px] font-bold text-primary">{isGift ? "Grátis" : formatPrice(price, currency, locale)}</span>
+            <span class="text-sm leading-[16.8px] font-bold text-primary">
+              {isGift ? "Grátis" : formatPrice(price, currency, locale)}
+            </span>
           </div>
           <div class={clx(isGift && "hidden")}>
-            <QuantitySelector min={0} max={QUANTITY_MAX_VALUE} value={quantity} name={`item::${index}`} small />
+            <QuantitySelector
+              min={0}
+              max={QUANTITY_MAX_VALUE}
+              value={quantity}
+              name={`item::${index}`}
+              small
+            />
           </div>
         </div>
       </div>

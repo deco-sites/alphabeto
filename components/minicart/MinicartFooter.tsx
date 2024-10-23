@@ -34,7 +34,15 @@ interface SellerTooglerSettings {
 export default function MinicartFooter(props: Props) {
   const {
     cart: {
-      storefront: { total, subtotal, coupon, locale, currency, enableCoupon = true, checkoutHref },
+      storefront: {
+        total,
+        subtotal,
+        coupon,
+        locale,
+        currency,
+        enableCoupon = true,
+        checkoutHref,
+      },
     },
   } = props;
   const openSeller = useSignal(false);
@@ -43,7 +51,10 @@ export default function MinicartFooter(props: Props) {
     <footer class="w-full">
       <div className="top-5 relative z-0 flex justify-center">
         <button className="btn-circle btn-secondary-content bg-secondary-content w-10 h-10 pt-[5px] flex justify-center">
-          <IconCheveronsUp className="w-3 h-3" strokeClassName="stroke-primary" />
+          <IconCheveronsUp
+            className="w-3 h-3"
+            strokeClassName="stroke-primary"
+          />
         </button>
       </div>
       <div className="bg-secondary-content z-10 relative px-6">
@@ -68,11 +79,21 @@ export default function MinicartFooter(props: Props) {
         </div>
 
         <div class="flex gap-4 items-center py-5">
-          <label for={MINICART_DRAWER_ID} className="text-[13px] leading-[19.5px] font-bold underline text-[#676767] cursor-pointer w-1/2">
+          <label
+            for={MINICART_DRAWER_ID}
+            className="text-[13px] leading-[19.5px] font-bold underline text-[#676767] cursor-pointer w-1/2"
+          >
             Continuar Comprando
           </label>
-          <ButtonAnchor styleType={ButtonType.Primary} href={checkoutHref} className="h-11 w-1/2" hx-on:click={useScript(sendBeginCheckoutEvent)}>
-            <span class="[.minicartContent.htmx-request_&]:hidden">Finalizar Compra</span>
+          <ButtonAnchor
+            styleType={ButtonType.Primary}
+            href={checkoutHref}
+            className="h-11 w-1/2"
+            hx-on:click={useScript(sendBeginCheckoutEvent)}
+          >
+            <span class="[.minicartContent.htmx-request_&]:hidden">
+              Finalizar Compra
+            </span>
             <span class="[.minicartContent.htmx-request_&]:inline hidden loading loading-spinner" />
           </ButtonAnchor>
         </div>

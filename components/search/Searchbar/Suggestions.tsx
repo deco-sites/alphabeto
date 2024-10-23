@@ -1,11 +1,10 @@
+import { type Resolved } from "@deco/deco";
 import { Suggestion } from "apps/commerce/types.ts";
 import type { AppContext } from "../../../apps/site.ts";
 import { clx } from "../../../sdk/clx.ts";
 import { ComponentProps } from "../../../sections/Component.tsx";
-import ProductCard from "../../product/ProductCard.tsx";
-import Slider from "../../ui/Slider.tsx";
 import { ACTION, NAME } from "./Form.tsx";
-import { type Resolved } from "@deco/deco";
+import ProductCardSearch from "./ProductCardSearch.tsx";
 export interface Props {
   /**
    * @title Suggestions Integration
@@ -14,24 +13,28 @@ export interface Props {
   loader: Resolved<Suggestion | null>;
 }
 export const action = async (props: Props, req: Request, ctx: AppContext) => {
-  const { loader: { __resolveType, ...loaderProps } } = props;
+  const {
+    loader: { __resolveType, ...loaderProps },
+  } = props;
   const form = await req.formData();
   const query = `${form.get(NAME ?? "q")}`;
   // @ts-expect-error This is a dynamic resolved loader
-  const suggestion = await ctx.invoke(__resolveType, {
+  const suggestion = (await ctx.invoke(__resolveType, {
     ...loaderProps,
     query,
-  }) as Suggestion | null;
+  })) as Suggestion | null;
   return { suggestion };
 };
 export const loader = async (props: Props, req: Request, ctx: AppContext) => {
-  const { loader: { __resolveType, ...loaderProps } } = props;
+  const {
+    loader: { __resolveType, ...loaderProps },
+  } = props;
   const query = new URL(req.url).searchParams.get(NAME ?? "q");
   // @ts-expect-error This is a dynamic resolved loader
-  const suggestion = await ctx.invoke(__resolveType, {
+  const suggestion = (await ctx.invoke(__resolveType, {
     ...loaderProps,
     query,
-  }) as Suggestion | null;
+  })) as Suggestion | null;
   return { suggestion };
 };
 function Suggestions(
@@ -44,10 +47,10 @@ function Suggestions(
     <div
       class={clx(`overflow-y-scroll`, !hasProducts && !hasTerms && "hidden")}
     >
-      <div class="gap-4 grid grid-cols-[230px_1fr]">
-        <div class="flex flex-col gap-6">
+      <div class="gap-11 grid grid-cols-[185px_1fr]">
+        <div class="flex flex-col gap-5 border-r border-dashed border-secundary">
           <span
-            class="font-bold text-[13px] text-primary"
+            class="font-bold text-[13px] text-primary leading-[19.5px]"
             role="heading"
             aria-level={3}
           >
@@ -57,12 +60,10 @@ function Suggestions(
             {searches.map(({ term }) => (
               <li>
                 {/* TODO @gimenes: use name and action from searchbar form */}
-                <a
-                  href={`${ACTION}?${NAME}=${term}`}
-                >
+                <a href={`${ACTION}?${NAME}=${term}`}>
                   <span
                     dangerouslySetInnerHTML={{ __html: term }}
-                    class="text-accent text-[13px] font-medium capitalize"
+                    class="text-accent text-[13px] leading-[19.5px] font-medium capitalize hover:text-primary"
                   />
                 </a>
               </li>
@@ -70,28 +71,25 @@ function Suggestions(
           </ul>
         </div>
 
-        <div class="flex flex-col gap-[22px] overflow-hidden">
+        <div class="flex flex-col gap-5 overflow-hidden">
           <span
-            class="font-bold text-[13px] text-primary"
+            class="font-bold text-[13px] text-primary leading-[19.5px]"
             role="heading"
             aria-level={3}
           >
             Produtos sugeridos
           </span>
-          <Slider class="carousel grid grid-cols-2 w-fit gap-6">
-            {products.map((product, index) => (
-              <Slider.Item
-                index={index}
-                class="carousel-item first:ml-4 last:mr-4 min-w-[200px] max-w-[200px]"
-              >
-                <ProductCard
+          <ul class="grid grid-cols-2 w-fit gap-y-[25px] gap-x-[57px]">
+            {products
+              ? products.map((product, index) => (
+                <ProductCardSearch
                   product={product}
                   index={index}
                   itemListName="Suggeestions"
                 />
-              </Slider.Item>
-            ))}
-          </Slider>
+              ))
+              : null}
+          </ul>
         </div>
       </div>
     </div>

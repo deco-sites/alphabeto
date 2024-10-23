@@ -5,7 +5,9 @@ import { clx } from "../../sdk/clx.ts";
 import { useComponent } from "../../sections/Component.tsx";
 
 import MinicartFooter from "../../islands/MinicartFooter.tsx";
-import FreeShippingProgressBar, { FreeShippingSettings } from "./FreeShippingProgressBar.tsx";
+import FreeShippingProgressBar, {
+  FreeShippingSettings,
+} from "./FreeShippingProgressBar.tsx";
 import CartItem, { Item } from "./Item.tsx";
 import { MinicartEmpty, MinicartEmptyProps } from "./MinicartEmpty.tsx";
 export interface Minicart {
@@ -50,10 +52,14 @@ const onLoad = (formID: string) => {
       }
       // Disable addToCart button interactivity
       document.querySelectorAll("div[data-cart-item]").forEach((container) => {
-        container?.querySelectorAll("button").forEach((node) => (node.disabled = true));
-        container?.querySelectorAll("input").forEach((node) => (node.disabled = true));
+        container?.querySelectorAll("button").forEach((
+          node,
+        ) => (node.disabled = true));
+        container?.querySelectorAll("input").forEach((
+          node,
+        ) => (node.disabled = true));
       });
-    }
+    },
   );
 };
 
@@ -67,9 +73,11 @@ export const action = async (
     minicartSettings: MinicartSettings;
   },
   req: Request,
-  ctx: AppContext
+  ctx: AppContext,
 ): Promise<any> => {
-  const cart = req.method === "PATCH" ? await ctx.invoke("site/loaders/minicart.ts") : await ctx.invoke("site/actions/minicart/submit.ts");
+  const cart = req.method === "PATCH"
+    ? await ctx.invoke("site/loaders/minicart.ts")
+    : await ctx.invoke("site/actions/minicart/submit.ts");
   return { cart, minicartSettings: props.minicartSettings };
 };
 
@@ -78,10 +86,17 @@ export function ErrorFallback() {
     <div class="flex flex-col flex-grow justify-center items-center overflow-hidden w-full gap-2">
       <div class="flex flex-col gap-1 p-6 justify-center items-center">
         <span class="font-semibold">Error while updating cart</span>
-        <span class="text-sm text-center">Click in the button below to retry or refresh the page</span>
+        <span class="text-sm text-center">
+          Click in the button below to retry or refresh the page
+        </span>
       </div>
 
-      <button class="btn btn-primary" hx-patch={useComponent(import.meta.url)} hx-swap="outerHTML" hx-target="closest div">
+      <button
+        class="btn btn-primary"
+        hx-patch={useComponent(import.meta.url)}
+        hx-swap="outerHTML"
+        hx-target="closest div"
+      >
         Retry
       </button>
     </div>
@@ -125,36 +140,64 @@ export default function Cart(props: Props) {
         <button hidden name="action" value="add-to-cart" />
 
         {/* This contains the STOREFRONT cart. */}
-        <input type="hidden" name="storefront-cart" value={encodeURIComponent(JSON.stringify({ coupon, currency, value: total, items }))} />
+        <input
+          type="hidden"
+          name="storefront-cart"
+          value={encodeURIComponent(
+            JSON.stringify({ coupon, currency, value: total, items }),
+          )}
+        />
 
         {/* This contains the platformCart cart from the commerce platform. Integrations usually use this value, like GTM, pixels etc */}
-        <input type="hidden" name="platform-cart" value={encodeURIComponent(JSON.stringify(platformCart))} />
+        <input
+          type="hidden"
+          name="platform-cart"
+          value={encodeURIComponent(JSON.stringify(platformCart))}
+        />
 
-        <div class={clx("flex flex-col flex-grow justify-center items-center overflow-hidden w-full", "[.minicartContent.htmx-request_&]:pointer-events-none [.minicartContent.htmx-request_&]:opacity-60 [.minicartContent.htmx-request_&]:cursor-wait transition-opacity duration-300")}>
-          {count === 0 ? (
-            <MinicartEmpty content={minicartSettings?.minicartEmpty} />
-          ) : (
-            <>
-              {/* Free Shipping Bar */}
-              {Boolean(minicartSettings?.freeShippingBarSettings?.target) && (
-                <div class="px-2 py-5 w-full">
-                  <FreeShippingProgressBar total={total} locale={locale} currency={currency} settings={minicartSettings?.freeShippingBarSettings} />
-                </div>
-              )}
-
-              {/* Cart Items */}
-              <ul role="list" class="mt-6 pl-6 mr-6 pr-[15px] flex-grow overflow-y-auto flex flex-col gap-5 w-full customizeScroll">
-                {items.map((item, index) => (
-                  <li>
-                    <CartItem item={item} index={index} locale={locale} currency={currency} />
-                  </li>
-                ))}
-              </ul>
-
-              {/* Cart Footer */}
-              <MinicartFooter {...props} />
-            </>
+        <div
+          class={clx(
+            "flex flex-col flex-grow justify-center items-center overflow-hidden w-full",
+            "[.minicartContent.htmx-request_&]:pointer-events-none [.minicartContent.htmx-request_&]:opacity-60 [.minicartContent.htmx-request_&]:cursor-wait transition-opacity duration-300",
           )}
+        >
+          {count === 0
+            ? <MinicartEmpty content={minicartSettings?.minicartEmpty} />
+            : (
+              <>
+                {/* Free Shipping Bar */}
+                {Boolean(minicartSettings?.freeShippingBarSettings?.target) && (
+                  <div class="px-2 py-5 w-full">
+                    <FreeShippingProgressBar
+                      total={total}
+                      locale={locale}
+                      currency={currency}
+                      settings={minicartSettings?.freeShippingBarSettings}
+                    />
+                  </div>
+                )}
+
+                {/* Cart Items */}
+                <ul
+                  role="list"
+                  class="mt-6 pl-6 mr-6 pr-[15px] flex-grow overflow-y-auto flex flex-col gap-5 w-full customizeScroll"
+                >
+                  {items.map((item, index) => (
+                    <li>
+                      <CartItem
+                        item={item}
+                        index={index}
+                        locale={locale}
+                        currency={currency}
+                      />
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Cart Footer */}
+                <MinicartFooter {...props} />
+              </>
+            )}
         </div>
       </form>
       <script
