@@ -39,3 +39,17 @@ export function ButtonAnchor(props: ButtonAnchorProps) {
     </a>
   );
 }
+
+type ButtonLabelProps = JSX.IntrinsicElements["label"] & {
+  styleType?: ButtonType;
+  textStyles?: TextStyles;
+};
+
+export function ButtonLabel(props: ButtonLabelProps) {
+  const { styleType = ButtonType.Primary, className, children, textStyles = TextStyles.Small, ...rest } = props;
+  return (
+    <label className={clx("btn", styleType, textStyles, "rounded-lg", className ?? "")} {...rest}>
+      {children}
+    </label>
+  );
+}
