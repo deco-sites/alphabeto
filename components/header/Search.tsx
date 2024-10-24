@@ -1,10 +1,10 @@
 import { SEARCHBAR_POPUP_ID } from "../../constants.ts";
 import { IconSearch } from "../Icons/IconSearch.tsx";
-import Searchbar, { SearchbarProps } from "../search/Searchbar/Form.tsx";
+import Searchbar, { SearchBarComponentProps } from "../search/Searchbar/Form.tsx";
 import Modal from "../ui/Modal.tsx";
 
 interface SearchProps {
-  searchbar: SearchbarProps;
+  searchbar: SearchBarComponentProps;
   loading?: "eager" | "lazy";
 }
 

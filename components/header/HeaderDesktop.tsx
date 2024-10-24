@@ -1,6 +1,6 @@
 import { HTMLWidget, ImageWidget } from "apps/admin/widgets.ts";
 import Image from "apps/website/components/Image.tsx";
-import { SearchbarProps } from "../search/Searchbar/Form.tsx";
+import { SearchBarComponentProps } from "../search/Searchbar/Form.tsx";
 import Bag from "./Bag.tsx";
 import { Items } from "./Menu.types.ts";
 import NavItem from "./NavItem.tsx";
@@ -27,7 +27,7 @@ export interface SectionProps {
    * @title Searchbar
    * @description Searchbar configuration
    */
-  searchbar: SearchbarProps;
+  searchbar: SearchBarComponentProps;
   /** @title Logo */
   logo: Logo;
   /**

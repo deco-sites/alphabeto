@@ -1,5 +1,6 @@
 import { useDevice } from "@deco/deco/hooks";
 import { Product } from "apps/commerce/types.ts";
+import { groupArrayItens } from "../../../sdk/arrayUtils.ts";
 import { clx } from "../../../sdk/clx.ts";
 import { useId } from "../../../sdk/useId.ts";
 import Slider from "../../ui/Slider.tsx";
@@ -8,20 +9,12 @@ interface Props {
   products: Product[];
 }
 
-const groupArray = (array: Product[], groupSize: number) => {
-  const grouped = [];
-  for (let i = 0; i < array.length; i += groupSize) {
-    grouped.push(array.slice(i, i + groupSize));
-  }
-  return grouped;
-};
-
 export default function RenderProductsResults({ products }: Props) {
   const device = useDevice();
   if (device === "desktop") {
     return <ul class="grid grid-cols-2 w-fit gap-y-[25px] gap-x-[57px]">{products ? products.map((product, index) => <ProductCardSearch product={product} index={index} itemListName="Suggeestions" />) : null}</ul>;
   }
-  const groupedProducts = groupArray(products, 2);
+  const groupedProducts = groupArrayItens(products, 2);
   const sliderId = useId();
   return (
     <div id={sliderId}>

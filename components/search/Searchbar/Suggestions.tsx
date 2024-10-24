@@ -66,7 +66,7 @@ function Suggestions({ suggestion, banner, bannerAlt, bannerMobile }: ComponentP
   return (
     <div class={clx(`pb-5 desk:pb-8`, !hasProducts && !hasTerms && "hidden")}>
       <div class="desk:gap-11 desk:grid desk:grid-cols-[185px_1fr_443px]">
-        <div class="flex flex-col gap-5 border-b desk:border-r border-dashed border-secundary pb-5 desk:pr-[13px]">
+        <div class="flex flex-col gap-5 border-b desk:border-r desk:border-b-0 border-dashed border-secundary pb-5 desk:pr-[13px]">
           <span class="font-bold text-[13px] text-primary leading-[19.5px]" role="heading" aria-level={3}>
             Sugestões
           </span>

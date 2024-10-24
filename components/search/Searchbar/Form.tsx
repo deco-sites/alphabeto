@@ -19,10 +19,12 @@ import { useComponent } from "../../../sections/Component.tsx";
 import { IconSearch } from "../../Icons/IconSearch.tsx";
 import Icon from "../../ui/Icon.tsx";
 import { Props as SuggestionProps } from "./Suggestions.tsx";
+import TopSearchs from "./TopSearchs.tsx";
 // When user clicks on the search button, navigate it to
 export const ACTION = "/s";
 // Querystring param used when navigating the user
 export const NAME = "q";
+
 export interface SearchbarProps {
   /**
    * @title Placeholder
@@ -48,7 +50,22 @@ export interface SearchbarProps {
    * @description Banner image alternative text to people with disabilities
    */
   bannerAlt?: string;
+  /**
+   * @title Top Search
+   * @description Loader to run when most searched items are requested
+   */
+  topSearch: Resolved<Suggestion>;
+  /**
+   * @title Most Seller Terms
+   * @description List of most searched terms
+   */
+  mostSellerTerms: string[];
 }
+
+export interface SearchBarComponentProps extends Omit<SearchbarProps, "topSearch"> {
+  topSearch: Suggestion;
+}
+
 const script = (formId: string, name: string, popupId: string) => {
   const form = document.getElementById(formId) as HTMLFormElement | null;
   const input = form?.elements.namedItem(name) as HTMLInputElement | null;
@@ -75,7 +92,8 @@ const script = (formId: string, name: string, popupId: string) => {
   });
 };
 const Suggestions = import.meta.resolve("./Suggestions.tsx");
-export default function Searchbar({ placeholder, loader, banner, bannerAlt, bannerMobile }: SearchbarProps) {
+
+export default function Searchbar({ placeholder, loader, banner, bannerAlt, bannerMobile, topSearch, mostSellerTerms }: SearchBarComponentProps) {
   const slot = useId();
   return (
     <div className={clx("flex flex-col gap-[22px] px-5 overflow-y-auto max-h-dvh", "desk:gap-8 desk:max-w-[95rem] desk:w-full desk:mx-auto desk:px-10")}>
@@ -113,7 +131,9 @@ export default function Searchbar({ placeholder, loader, banner, bannerAlt, bann
       </form>
 
       {/* Suggestions slot */}
-      <div id={slot} />
+      <div id={slot}>
+        <TopSearchs suggestion={topSearch} mostSellerTerms={mostSellerTerms} />
+      </div>
 
       {/* Send search events as the user types */}
       <script
