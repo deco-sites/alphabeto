@@ -1,11 +1,11 @@
 import { HTMLWidget, ImageWidget } from "apps/admin/widgets.ts";
 import Image from "apps/website/components/Image.tsx";
-import { SearchbarProps } from "../search/Searchbar/Form.tsx";
+import { SearchBarComponentProps } from "../search/Searchbar/Form.tsx";
 import Bag from "./Bag.tsx";
 import GeolocationOffers from "./GeolocationOffers.tsx";
 import { Items } from "./Menu.types.ts";
 import NavItem from "./NavItem.tsx";
-import { Search } from "./Search.tsx";
+import { SearchDesktop } from "./Search.tsx";
 import { SignInDesktop } from "./SignIn.tsx";
 import { Wishlist } from "./Wishlist.tsx";
 
@@ -27,7 +27,7 @@ export interface SectionProps {
    * @title Searchbar
    * @description Searchbar configuration
    */
-  searchbar: SearchbarProps;
+  searchbar: SearchBarComponentProps;
   /** @title Logo */
   logo: Logo;
   /**
@@ -54,7 +54,7 @@ export const Desktop = ({ navItems, logo, searchbar, loading }: SectionProps) =>
 
         <div class="flex items-center gap-x-5 desk-small:gap-x-3">
           <GeolocationOffers />
-          <Search searchbar={searchbar} loading={loading} />
+          <SearchDesktop searchbar={searchbar} loading={loading} />
 
           <div class="flex gap-4">
             <Wishlist />

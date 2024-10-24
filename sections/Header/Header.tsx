@@ -4,11 +4,14 @@ import { type SearchbarProps } from "../../components/search/Searchbar/Form.tsx"
 
 import { type LoadingFallbackProps } from "@deco/deco";
 import { useDevice } from "@deco/deco/hooks";
+import { Suggestion } from "apps/commerce/types.ts";
+import { AppContext } from "../../apps/site.ts";
 import BenefitBar, { BenefitBarProps } from "../../components/header/BenefitBar.tsx";
 import { Desktop } from "../../components/header/HeaderDesktop.tsx";
 import { Mobile } from "../../components/header/HeaderMobile.tsx";
 import { Items } from "../../components/header/Menu.types.ts";
 import { HEADER_HEIGHT_DESKTOP, HEADER_HEIGHT_MOBILE } from "../../constants.ts";
+import { ComponentProps } from "../Component.tsx";
 
 export interface Logo {
   src: ImageWidget;
@@ -17,6 +20,7 @@ export interface Logo {
   height?: number;
 }
 
+/**@title {{title}} */
 export interface LinksProps {
   title: string;
   href: string;
@@ -44,7 +48,30 @@ export interface SectionProps {
 
   benefits?: BenefitBarProps;
 }
-export type Props = Omit<SectionProps, "alert">;
+
+export const loader = async (props: SectionProps, _req: Request, ctx: AppContext) => {
+  const {
+    searchbar: {
+      topSearch: { __resolveType, ...topSearchProps },
+      ...otherSearchProps
+    },
+    ...otherProps
+  } = props;
+
+  const topSearchResult = (await ctx.invoke(__resolveType, {
+    ...topSearchProps,
+  })) as Suggestion;
+
+  return {
+    ...otherProps,
+    searchbar: {
+      ...otherSearchProps,
+      topSearch: topSearchResult,
+    },
+  };
+};
+
+export type Props = ComponentProps<typeof loader>;
 
 function Header({ links = [], logo, benefits, ...props }: Props) {
   const device = useDevice();
