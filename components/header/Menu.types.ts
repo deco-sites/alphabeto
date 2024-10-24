@@ -1,5 +1,6 @@
 import type { ImageWidget as Image } from "apps/admin/widgets.ts";
 
+/** @title {{item}} */
 export interface Item {
   item: string;
   href: string;
@@ -11,6 +12,7 @@ export interface Submenu {
   seeAll?: boolean;
 }
 
+/** @title {{menuItem}} */
 export interface Items {
   menuItem: string;
   href: string;

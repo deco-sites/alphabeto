@@ -63,9 +63,7 @@
           }
         ]
       },
-      "freeShippingBarSettings": {
-        "target": 0
-      }
+      "freeShippingBarSettings": {}
     }
   ],
   "routes": [
