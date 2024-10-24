@@ -4,10 +4,10 @@ import { MINICART_FORM_ID } from "../../constants.ts";
 import { clx } from "../../sdk/clx.ts";
 import { useComponent } from "../../sections/Component.tsx";
 
+import MinicartFooter from "../../islands/MinicartFooter.tsx";
 import FreeShippingProgressBar, { FreeShippingSettings } from "./FreeShippingProgressBar.tsx";
 import CartItem, { Item } from "./Item.tsx";
 import { MinicartEmpty, MinicartEmptyProps } from "./MinicartEmpty.tsx";
-import MinicartFooter from "./MinicartFooter.tsx";
 export interface Minicart {
   /** Cart from the ecommerce platform */
   platformCart: Record<string, unknown>;
