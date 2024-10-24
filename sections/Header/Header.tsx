@@ -5,6 +5,7 @@ import { type SearchbarProps } from "../../components/search/Searchbar/Form.tsx"
 import { type LoadingFallbackProps } from "@deco/deco";
 import { useDevice } from "@deco/deco/hooks";
 import { Suggestion } from "apps/commerce/types.ts";
+import { Secret } from "apps/website/loaders/secret.ts";
 import { AppContext } from "../../apps/site.ts";
 import BenefitBar, { BenefitBarProps } from "../../components/header/BenefitBar.tsx";
 import { Desktop } from "../../components/header/HeaderDesktop.tsx";
@@ -26,30 +27,43 @@ export interface LinksProps {
   href: string;
 }
 
-export interface SectionProps {
+export interface HeaderSectionProps {
+  /**
+   * @title Links
+   * @description Links used on the top of Header Desktop and Inside the mobile menu
+   */
   links?: LinksProps[];
-
   /**
    * @title Navigation items
    * @description Navigation items used both on mobile and desktop menus
    */
-  navItems?: Items[] | null;
+  navItems?: Items[];
+  /**
+   * @title Benefits
+   * @description Benefits Slider used on the header
+   **/
+  benefits?: BenefitBarProps;
+  /** @title Logo */
+  logo: Logo;
   /**
    * @title Searchbar
    * @description Searchbar configuration
    */
   searchbar: SearchbarProps;
-  /** @title Logo */
-  logo: Logo;
+
+  /**
+   * @title Google Maps API Key
+   * @description Google Maps API Key to use on the Geolocation Offers component
+   */
+  googleMapsApiKey: Secret;
+
   /**
    * @description Usefull for lazy loading hidden elements, like hamburguer menus etc
    * @hide true */
   loading?: "eager" | "lazy";
-
-  benefits?: BenefitBarProps;
 }
 
-export const loader = async (props: SectionProps, _req: Request, ctx: AppContext) => {
+export const loader = async (props: HeaderSectionProps, _req: Request, ctx: AppContext) => {
   const {
     searchbar: {
       topSearch: { __resolveType, ...topSearchProps },
@@ -61,19 +75,21 @@ export const loader = async (props: SectionProps, _req: Request, ctx: AppContext
   const topSearchResult = (await ctx.invoke(__resolveType, {
     ...topSearchProps,
   })) as Suggestion;
-
+  console.log("Loader", props.googleMapsApiKey.get());
   return {
     ...otherProps,
     searchbar: {
       ...otherSearchProps,
       topSearch: topSearchResult,
     },
+    googleMapsApiKey: props.googleMapsApiKey.get() ?? "",
   };
 };
 
 export type Props = ComponentProps<typeof loader>;
 
-function Header({ links = [], logo, benefits, ...props }: Props) {
+function Header({ links = [], logo, benefits, googleMapsApiKey, ...props }: Props) {
+  console.log("Header", { googleMapsApiKey });
   const device = useDevice();
   const RenderBenefits = () => {
     if (benefits?.benefits && benefits.benefits.length > 0) {
@@ -92,7 +108,7 @@ function Header({ links = [], logo, benefits, ...props }: Props) {
       <div class="bg-base-100 fixed w-full z-40">
         {device === "mobile" && <RenderBenefits />}
         {showLinks && <Links links={links} />}
-        {device === "desktop" ? <Desktop logo={logo} {...props} /> : <Mobile logo={logo} {...props} links={links} />}
+        {device === "desktop" ? <Desktop logo={logo} {...props} googleMapsApiKey={googleMapsApiKey} /> : <Mobile logo={logo} {...props} links={links} googleMapsApiKey={googleMapsApiKey} />}
         {device === "desktop" && <RenderBenefits />}
       </div>
     </header>
