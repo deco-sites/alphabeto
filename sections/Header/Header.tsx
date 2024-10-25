@@ -75,7 +75,9 @@ export const loader = async (props: HeaderSectionProps, _req: Request, ctx: AppC
   const topSearchResult = (await ctx.invoke(__resolveType, {
     ...topSearchProps,
   })) as Suggestion;
-  console.log("Loader", props.googleMapsApiKey.get());
+
+  const cep = await ctx.invoke("site/loaders/geolocation.ts");
+
   return {
     ...otherProps,
     searchbar: {
@@ -83,13 +85,13 @@ export const loader = async (props: HeaderSectionProps, _req: Request, ctx: AppC
       topSearch: topSearchResult,
     },
     googleMapsApiKey: props.googleMapsApiKey.get() ?? "",
+    cep,
   };
 };
 
 export type Props = ComponentProps<typeof loader>;
 
-function Header({ links = [], logo, benefits, googleMapsApiKey, ...props }: Props) {
-  console.log("Header", { googleMapsApiKey });
+function Header({ links = [], logo, benefits, googleMapsApiKey, cep, ...props }: Props) {
   const device = useDevice();
   const RenderBenefits = () => {
     if (benefits?.benefits && benefits.benefits.length > 0) {
@@ -108,7 +110,7 @@ function Header({ links = [], logo, benefits, googleMapsApiKey, ...props }: Prop
       <div class="bg-base-100 fixed w-full z-40">
         {device === "mobile" && <RenderBenefits />}
         {showLinks && <Links links={links} />}
-        {device === "desktop" ? <Desktop logo={logo} {...props} googleMapsApiKey={googleMapsApiKey} /> : <Mobile logo={logo} {...props} links={links} googleMapsApiKey={googleMapsApiKey} />}
+        {device === "desktop" ? <Desktop logo={logo} {...props} cep={cep} googleMapsApiKey={googleMapsApiKey} /> : <Mobile logo={logo} {...props} cep={cep} links={links} googleMapsApiKey={googleMapsApiKey} />}
         {device === "desktop" && <RenderBenefits />}
       </div>
     </header>
