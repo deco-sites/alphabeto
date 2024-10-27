@@ -5443,12 +5443,13 @@ details.collapse summary::-webkit-details-marker {
 }
 
 /* width */
-::-webkit-scrollbar {
-  width: 5px;
-}
 
 .customizeScroll {
   scrollbar-gutter: stable both-edges;
+}
+
+.customizeScroll::-webkit-scrollbar {
+  width: 5px;
 }
 
 /* Track */
