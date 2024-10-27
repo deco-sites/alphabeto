@@ -18,6 +18,7 @@ export const ids = {
   GEOLOCATION_OFFERS_MODAL_CONTENT_ID: "modal-gelocation-offers-content",
   GEOLOCATION_OFFERS_MODAL_LABEL_OPEN_ID: "modal-gelocation-offers-label-open",
   GEOLOCATION_OFFERS_MODAL_REPLACE_WRAPPER: "modal-geolocation-replace-wrapper",
+  GEOLOCATION_OFFERS_FORM_BUTTON_ID: "modal-gelocation-offers-button",
 };
 
 interface GoogleGeoPosition {
@@ -144,7 +145,7 @@ export const loader = async (props: Props, req: Request, ctx: AppContext) => {
       const headers = new Headers();
       headers.append("content-type", "application/json");
       headers.append("Cookie", `vtex_session=${sessionCookie}; vtex_segment=${segmentCookie}`);
-      const sessionResponse = await fetch(`https://alphabeto.myvtex.com/api/sessions`, {
+      await fetch(`https://alphabeto.myvtex.com/api/sessions`, {
         method: "PUT",
         body: JSON.stringify({
           public: {
@@ -193,6 +194,8 @@ export default function GeolocationOffers(props: Props) {
               })}
               hx-target={`#${ids.GEOLOCATION_OFFERS_MODAL_REPLACE_WRAPPER}`}
               hx-swap="outterHTML"
+              hx-disabled-elt={`this, #${ids.GEOLOCATION_OFFERS_FORM_BUTTON_ID}`}
+              hx-indicator={`#${ids.GEOLOCATION_OFFERS_MODAL_CONTENT_ID}`}
             >
               <label for={ids.GEOLOCATION_CEP_INPUT_ID} className="text-[#676767] text-xs leading-[18px] mb-1 font-bold">
                 CEP
@@ -206,8 +209,9 @@ export default function GeolocationOffers(props: Props) {
                 <ButtonLabel styleType={ButtonType.Tertiary} type="button" for={ids.GEOLOCATION_OFFERS_MODAL_ID} className="h-11" aria-label="Close Geolocation Offer Modal">
                   cancelar
                 </ButtonLabel>
-                <Button className="h-11" type="submit" for={ids.GEOLOCATION_OFFERS_FORM_ID}>
-                  continuar
+                <Button className="h-11" type="submit" for={ids.GEOLOCATION_OFFERS_FORM_ID} id={ids.GEOLOCATION_OFFERS_FORM_BUTTON_ID}>
+                  <span class="[.htmx-request_&]:hidden">continuar</span>
+                  <span class="[.htmx-request_&]:inline hidden loading loading-spinner" />
                 </Button>
               </div>
             </form>
