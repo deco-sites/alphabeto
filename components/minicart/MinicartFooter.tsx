@@ -1,4 +1,5 @@
 import { useSignal, useSignalEffect } from "@preact/signals";
+import { IconCheveronsDown } from "site/components/Icons/IconChevronsDown.tsx";
 import { MINICART_DRAWER_ID, MINICART_FORM_ID } from "../../constants.ts";
 import { formatPrice } from "../../sdk/format.ts";
 import { IconCheveronsUp } from "../Icons/IconChevronsUp.tsx";
@@ -28,6 +29,18 @@ export default function MinicartFooter(props: Props) {
   const openSeller = useSignal(state?.openSeller ?? false);
   const openCoupon = useSignal(state?.openCoupon ?? false);
   const openShipping = useSignal(state?.openShipping ?? false);
+  const hasOneOpenned = openSeller.value || openCoupon.value || openShipping.value;
+  const toogleAll = () => {
+    if (hasOneOpenned) {
+      openSeller.value = false;
+      openCoupon.value = false;
+      openShipping.value = false;
+    } else {
+      openSeller.value = true;
+      openCoupon.value = true;
+      openShipping.value = true;
+    }
+  };
 
   const sendBeginCheckoutEvent = () => {
     window.DECO.events.dispatch({
@@ -53,8 +66,8 @@ export default function MinicartFooter(props: Props) {
   return (
     <footer class="w-full">
       <div className="top-5 relative z-0 flex justify-center">
-        <button className="btn-circle btn-secondary-content bg-secondary-content w-10 h-10 pt-[5px] flex justify-center">
-          <IconCheveronsUp className="w-3 h-3" strokeClassName="stroke-primary" />
+        <button type="button" onClick={toogleAll} className="btn-circle btn-secondary-content bg-secondary-content w-10 h-10 pt-[5px] flex justify-center">
+          {hasOneOpenned ? <IconCheveronsDown className="w-3 h-3" strokeClassName="stroke-primary" /> : <IconCheveronsUp className="w-3 h-3" strokeClassName="stroke-primary" />}
         </button>
       </div>
       <div className="bg-secondary-content z-10 relative px-6">
