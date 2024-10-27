@@ -102,6 +102,7 @@ async function action(_props: unknown, req: Request, ctx: AppContext): Promise<M
   if (!handler) {
     throw new Error(`Unsupported action on platform ${usePlatform()}`);
   }
+
   return await handler(form, req, ctx);
 }
 

@@ -7,9 +7,9 @@ import { useComponent } from "site/sections/Component.tsx";
 import FreeShippingProgressBar, { FreeShippingSettings } from "site/components/minicart/FreeShippingProgressBar.tsx";
 import CartItem, { Item } from "site/components/minicart/Item.tsx";
 import { MinicartEmpty, MinicartEmptyProps } from "site/components/minicart/MinicartEmpty.tsx";
+import { MiniCartError } from "site/components/minicart/MinicartError.ts";
 import { ButtonAnchor, ButtonType } from "site/components/ui/Button.tsx";
 import MinicartFooter from "site/islands/MinicartFooter.tsx";
-import { findValuesByKey, removeCircularRefs } from "site/sdk/objectUtils.ts";
 
 export interface Minicart {
   /** Cart from the ecommerce platform */
@@ -73,6 +73,21 @@ export interface Props {
   };
 }
 
+const errorMessages = {
+  SELLER_CODE_NOT_FOUND: {
+    title: "Código do vendedor não encontrado",
+    description: "O código do vendedor que você digitou não foi encontrado. Tente novamente!",
+  },
+  COUPON_NOT_FOUND: {
+    title: "Cupom não encontrado",
+    description: "O cupom que você digitou não foi encontrado. Tente novamente!",
+  },
+  GENERIC: {
+    title: "Ocorreu um erro ao atualizar o carrinho",
+    description: "Tente novamente!",
+  },
+};
+
 export const action = async (
   props: {
     minicartSettings: MinicartSettings;
@@ -85,31 +100,24 @@ export const action = async (
   req: Request,
   ctx: AppContext
 ): Promise<Props> => {
-  const cart = req.method === "PATCH" ? await ctx.invoke("site/loaders/minicart.ts") : await ctx.invoke("site/actions/minicart/submit.ts");
-  return { cart, minicartSettings: props.minicartSettings, state: props.state };
+  try {
+    const cart = req.method === "PATCH" ? await ctx.invoke("site/loaders/minicart.ts") : await ctx.invoke("site/actions/minicart/submit.ts");
+    return { cart, minicartSettings: props.minicartSettings, state: props.state };
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      if (error.message in errorMessages) {
+        throw new MiniCartError(error.message, props);
+      }
+    }
+    throw new MiniCartError("GENERIC", props);
+  }
 };
 
-export function ErrorFallback({ error }: { error?: Error }, componentsInfo: unknown) {
+export function ErrorFallback({ error }: { error?: MiniCartError }) {
   const errorMessage = error?.message ?? "GENERIC";
-  const messages = {
-    SELLER_CODE_NOT_FOUND: {
-      title: "Código do vendedor não encontrado",
-      description: "O código do vendedor que você digitou não foi encontrado. Tente novamente!",
-    },
-    COUPON_NOT_FOUND: {
-      title: "Cupom não encontrado",
-      description: "O cupom que você digitou não foi encontrado. Tente novamente!",
-    },
-    GENERIC: {
-      title: "Ocorreu um erro ao atualizar o carrinho",
-      description: "Tente novamente!",
-    },
-  };
-  const message = messages[errorMessage as keyof typeof messages] ?? messages.GENERIC;
-  const removedCircurlar = removeCircularRefs(componentsInfo);
-  const freeShippingBarSettings = findValuesByKey<FreeShippingSettings>(removedCircurlar, "freeShippingBarSettings")[0];
-  const minicartEmpty = findValuesByKey<MinicartEmptyProps>(removedCircurlar, "minicartEmpty")[0];
-  const reloadPage = minicartEmpty?.title == null;
+  const props = error?.props as Props | undefined;
+  const message = errorMessages[errorMessage as keyof typeof errorMessages] ?? errorMessages.GENERIC;
+  const reloadPage = props == null;
 
   return (
     <div class="flex flex-col flex-grow justify-center items-center overflow-hidden w-full gap-2">
@@ -126,7 +134,7 @@ export function ErrorFallback({ error }: { error?: Error }, componentsInfo: unkn
           styleType={ButtonType.Primary}
           class="btn btn-primary"
           hx-patch={useComponent(import.meta.url, {
-            minicartSettings: { minicartEmpty, freeShippingBarSettings },
+            ...props,
           })}
           hx-swap="outerHTML"
           hx-target="closest div"
