@@ -28,7 +28,7 @@ export const cartFrom = (form: Cart, url: string, skuInformation: Record<string,
         };
       }),
 
-      total: (total - discounts) / 100,
+      total: (total + shippingValue - discounts) / 100,
       subtotal: total / 100,
       discounts: discounts / 100,
       coupon: coupon,
