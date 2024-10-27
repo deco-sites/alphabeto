@@ -1,6 +1,6 @@
 import { LinksProps } from "../../sections/Header/Header.tsx";
 import { IconArrowRightDrawer } from "../Icons/IconArrowRightDrawer.tsx";
-import Drawer from "../ui/Drawer.tsx";
+import Drawer from "../ui/Drawer/index.tsx";
 import { Items } from "./Menu.types.ts";
 import { MenuMobileDetails } from "./MenuMobileDetails.tsx";
 import { SignInMobile } from "./SignIn.tsx";

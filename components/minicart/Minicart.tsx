@@ -1,13 +1,16 @@
 import { useScript } from "@deco/deco/hooks";
-import { AppContext } from "../../apps/site.ts";
-import { MINICART_FORM_ID } from "../../constants.ts";
-import { clx } from "../../sdk/clx.ts";
-import { useComponent } from "../../sections/Component.tsx";
+import { AppContext } from "site/apps/site.ts";
+import { MINICART_FORM_ID } from "site/constants.ts";
+import { clx } from "site/sdk/clx.ts";
+import { useComponent } from "site/sections/Component.tsx";
 
-import MinicartFooter from "../../islands/MinicartFooter.tsx";
-import FreeShippingProgressBar, { FreeShippingSettings } from "./FreeShippingProgressBar.tsx";
-import CartItem, { Item } from "./Item.tsx";
-import { MinicartEmpty, MinicartEmptyProps } from "./MinicartEmpty.tsx";
+import FreeShippingProgressBar, { FreeShippingSettings } from "site/components/minicart/FreeShippingProgressBar.tsx";
+import CartItem, { Item } from "site/components/minicart/Item.tsx";
+import { MinicartEmpty, MinicartEmptyProps } from "site/components/minicart/MinicartEmpty.tsx";
+import { ButtonAnchor, ButtonType } from "site/components/ui/Button.tsx";
+import MinicartFooter from "site/islands/MinicartFooter.tsx";
+import { findValuesByKey, removeCircularRefs } from "site/sdk/objectUtils.ts";
+
 export interface Minicart {
   /** Cart from the ecommerce platform */
   platformCart: Record<string, unknown>;
@@ -22,6 +25,9 @@ export interface Minicart {
     currency: string;
     enableCoupon?: boolean;
     checkoutHref: string;
+    sellerCode?: string;
+    cep?: string;
+    shippingValue?: number;
   };
 }
 const onLoad = (formID: string) => {
@@ -60,30 +66,77 @@ const onLoad = (formID: string) => {
 export interface Props {
   cart: Minicart;
   minicartSettings: MinicartSettings;
+  state?: {
+    openSeller?: boolean;
+    openCoupon?: boolean;
+    openShipping?: boolean;
+  };
 }
 
 export const action = async (
   props: {
     minicartSettings: MinicartSettings;
+    state: {
+      openSeller: boolean;
+      openCoupon: boolean;
+      openShipping: boolean;
+    };
   },
   req: Request,
   ctx: AppContext
-): Promise<any> => {
+): Promise<Props> => {
   const cart = req.method === "PATCH" ? await ctx.invoke("site/loaders/minicart.ts") : await ctx.invoke("site/actions/minicart/submit.ts");
-  return { cart, minicartSettings: props.minicartSettings };
+  return { cart, minicartSettings: props.minicartSettings, state: props.state };
 };
 
-export function ErrorFallback() {
+export function ErrorFallback({ error }: { error?: Error }, componentsInfo: unknown) {
+  const errorMessage = error?.message ?? "GENERIC";
+  const messages = {
+    SELLER_CODE_NOT_FOUND: {
+      title: "Código do vendedor não encontrado",
+      description: "O código do vendedor que você digitou não foi encontrado. Tente novamente!",
+    },
+    COUPON_NOT_FOUND: {
+      title: "Cupom não encontrado",
+      description: "O cupom que você digitou não foi encontrado. Tente novamente!",
+    },
+    GENERIC: {
+      title: "Ocorreu um erro ao atualizar o carrinho",
+      description: "Tente novamente!",
+    },
+  };
+  const message = messages[errorMessage as keyof typeof messages] ?? messages.GENERIC;
+  const removedCircurlar = removeCircularRefs(componentsInfo);
+  const freeShippingBarSettings = findValuesByKey<FreeShippingSettings>(removedCircurlar, "freeShippingBarSettings")[0];
+  const minicartEmpty = findValuesByKey<MinicartEmptyProps>(removedCircurlar, "minicartEmpty")[0];
+  const reloadPage = minicartEmpty?.title == null;
+
   return (
     <div class="flex flex-col flex-grow justify-center items-center overflow-hidden w-full gap-2">
       <div class="flex flex-col gap-1 p-6 justify-center items-center">
-        <span class="font-semibold">Error while updating cart</span>
-        <span class="text-sm text-center">Click in the button below to retry or refresh the page</span>
+        <span class="font-semibold">{message.title}</span>
+        <span class="text-sm text-center">{message.description}</span>
       </div>
-
-      <button class="btn btn-primary" hx-patch={useComponent(import.meta.url)} hx-swap="outerHTML" hx-target="closest div">
-        Retry
-      </button>
+      {reloadPage ? (
+        <ButtonAnchor styleType={ButtonType.Primary} hx-on:click={useScript(() => window.location.reload())}>
+          Recarregar Site
+        </ButtonAnchor>
+      ) : (
+        <ButtonAnchor
+          styleType={ButtonType.Primary}
+          class="btn btn-primary"
+          hx-patch={useComponent(import.meta.url, {
+            minicartSettings: { minicartEmpty, freeShippingBarSettings },
+          })}
+          hx-swap="outerHTML"
+          hx-target="closest div"
+          hx-indicator="this"
+          hx-disabled-elt="this"
+        >
+          <span class="[.htmx-request_&]:hidden">Recarregar Carrinho</span>
+          <span class="[.htmx-request_&]:inline hidden loading loading-spinner" />
+        </ButtonAnchor>
+      )}
     </div>
   );
 }
@@ -108,13 +161,18 @@ export default function Cart(props: Props) {
         class="contents minicartContent"
         id={MINICART_FORM_ID}
         hx-sync="this:replace"
-        hx-trigger="submit, change delay:300ms"
+        hx-trigger="submit, change from:.input-qtd delay:300ms"
         hx-target="this"
         hx-swap="outerHTML"
         hx-indicator="this"
-        hx-disabled-elt="this"
+        hx-disabled-elt="this, .minicartCheckout"
         hx-post={useComponent(import.meta.url, {
           minicartSettings: minicartSettings,
+          state: {
+            openSeller: props.state?.openSeller ?? false,
+            openCoupon: props.state?.openCoupon ?? false,
+            openShipping: props.state?.openShipping ?? false,
+          },
         })}
       >
         {/* Button to submit the form */}

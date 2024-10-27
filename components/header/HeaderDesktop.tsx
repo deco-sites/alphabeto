@@ -1,13 +1,13 @@
 import Image from "apps/website/components/Image.tsx";
-import { Logo } from "../../sections/Header/Header.tsx";
-import { SearchBarComponentProps } from "../search/Searchbar/Form.tsx";
-import Bag from "./Bag.tsx";
-import GeolocationOffers from "./GeolocationOffers/index.tsx";
-import { Items } from "./Menu.types.ts";
-import NavItem from "./NavItem.tsx";
-import { SearchDesktop } from "./Search.tsx";
-import { SignInDesktop } from "./SignIn.tsx";
-import { Wishlist } from "./Wishlist.tsx";
+import Bag from "site/components/header/Bag.tsx";
+import GeolocationOffers from "site/components/header/GeolocationOffers/index.tsx";
+import { Items } from "site/components/header/Menu.types.ts";
+import NavItem from "site/components/header/NavItem.tsx";
+import { SearchDesktop } from "site/components/header/Search.tsx";
+import { SignInDesktop } from "site/components/header/SignIn.tsx";
+import { Wishlist } from "site/components/header/Wishlist.tsx";
+import { SearchBarComponentProps } from "site/components/search/Searchbar/Form.tsx";
+import { Logo } from "site/sections/Header/Header.tsx";
 
 export interface SectionProps {
   navItems?: Items[];

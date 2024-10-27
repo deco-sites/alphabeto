@@ -1,8 +1,9 @@
 import { useScript } from "@deco/deco/hooks";
 import { type ComponentChildren } from "preact";
-import { clx } from "../../sdk/clx.ts";
-import { useId } from "../../sdk/useId.ts";
-import { IconCloseDrawer } from "../Icons/IconCloseDrawer.tsx";
+import { clx } from "../../../sdk/clx.ts";
+import { useId } from "../../../sdk/useId.ts";
+import { IconCloseDrawer } from "../../Icons/IconCloseDrawer.tsx";
+
 export interface Props {
   open?: boolean;
   class?: string;
@@ -23,6 +24,7 @@ const script = (id: string) => {
   };
   addEventListener("keydown", handler);
 };
+
 function Drawer({ children, aside, open, class: _class = "", id = useId() }: Props) {
   return (
     <>
@@ -36,11 +38,11 @@ function Drawer({ children, aside, open, class: _class = "", id = useId() }: Pro
           {aside}
         </aside>
       </div>
-      <script type="module" dangerouslySetInnerHTML={{ __html: useScript(script, id) }} />
+      <script dangerouslySetInnerHTML={{ __html: useScript(script, id) }} />
     </>
   );
 }
-function Aside({ title, drawer, children, maxWidth, class: _class = "" }: { title: string; drawer: string; children: ComponentChildren; maxWidth?: string; class?: string }) {
+function Aside({ title, drawer, children, class: _class = "" }: { title: string; drawer: string; children: ComponentChildren; maxWidth?: string; class?: string }) {
   return (
     <div data-aside class={clx("bg-secondary-content grid grid-rows-[auto_1fr] h-full divide-y mobile:w-full", _class)}>
       <div class="flex justify-between items-center px-6 h-[50px] border-b-[1px] border-primary border-dashed">

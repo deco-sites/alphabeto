@@ -1,7 +1,7 @@
 import Image from "apps/website/components/Image.tsx";
 import Bag from "../../components/header/Bag.tsx";
-import Drawer from "../../components/ui/Drawer.tsx";
 import { Props } from "../../sections/Header/Header.tsx";
+import Drawer from "../ui/Drawer/index.tsx";
 import { SearchMobile } from "./Search.tsx";
 
 import { NAVBAR_HEIGHT_MOBILE, SIDEMENU_DRAWER_ID } from "../../constants.ts";
