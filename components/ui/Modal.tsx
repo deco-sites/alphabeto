@@ -31,7 +31,10 @@ function Modal({ children, open, id = useId(), className }: Props) {
           Close
         </label>
       </div>
-      <script type="module" dangerouslySetInnerHTML={{ __html: useScript(script, id) }} />
+      <script
+        type="module"
+        dangerouslySetInnerHTML={{ __html: useScript(script, id) }}
+      />
     </>
   );
 }

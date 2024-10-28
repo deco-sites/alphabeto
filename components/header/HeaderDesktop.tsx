@@ -18,19 +18,31 @@ export interface SectionProps {
   cep?: string;
 }
 
-export const Desktop = ({ navItems, logo, searchbar, loading, googleMapsApiKey, cep }: SectionProps) => (
+export const Desktop = (
+  { navItems, logo, searchbar, loading, googleMapsApiKey, cep }: SectionProps,
+) => (
   <>
     <div class="flex flex-col gap-4 pt-5 container border-b border-gray-300">
       <div class="flex justify-between gap-x-2.5 items-center">
         <ul class="flex gap-x-6 desk-small:gap-x-3">
           {navItems?.map((item) => (
-            <NavItem href={item.href} menuItem={item.menuItem} image={item.image} submenu={item.submenu} />
+            <NavItem
+              href={item.href}
+              menuItem={item.menuItem}
+              image={item.image}
+              submenu={item.submenu}
+            />
           ))}
         </ul>
 
         <div>
           <a href="/" aria-label="Logo Alphabeto">
-            <Image src={logo.src} alt={logo.alt} width={logo.width || 100} height={logo.height || 23} />
+            <Image
+              src={logo.src}
+              alt={logo.alt}
+              width={logo.width || 100}
+              height={logo.height || 23}
+            />
           </a>
         </div>
 

@@ -58,7 +58,12 @@ export const loader = async (props: Props, req: Request, ctx: AppContext) => {
   return { suggestion, ...otherProps };
 };
 
-function Suggestions({ suggestion, banner, bannerAlt, bannerMobile }: ComponentProps<typeof loader, typeof action>) {
+function Suggestions(
+  { suggestion, banner, bannerAlt, bannerMobile }: ComponentProps<
+    typeof loader,
+    typeof action
+  >,
+) {
   const { products = [], searches = [] } = suggestion ?? {};
   const hasProducts = Boolean(products?.length);
   const hasTerms = Boolean(searches.length);
@@ -67,7 +72,11 @@ function Suggestions({ suggestion, banner, bannerAlt, bannerMobile }: ComponentP
     <div class={clx(`pb-5 desk:pb-8`, !hasProducts && !hasTerms && "hidden")}>
       <div class="desk:gap-11 desk:grid desk:grid-cols-[185px_1fr_443px]">
         <div class="flex flex-col gap-5 border-b desk:border-r desk:border-b-0 border-dashed border-secundary pb-5 desk:pr-[13px]">
-          <span class="font-bold text-[13px] text-primary leading-[19.5px]" role="heading" aria-level={3}>
+          <span
+            class="font-bold text-[13px] text-primary leading-[19.5px]"
+            role="heading"
+            aria-level={3}
+          >
             Sugestões
           </span>
           <ul class="flex flex-col gap-3">
@@ -75,23 +84,47 @@ function Suggestions({ suggestion, banner, bannerAlt, bannerMobile }: ComponentP
               <li>
                 {/* TODO @gimenes: use name and action from searchbar form */}
                 <a href={`${ACTION}?${NAME}=${term}`}>
-                  <span dangerouslySetInnerHTML={{ __html: term }} class="text-accent text-[13px] leading-[19.5px] font-medium capitalize hover:text-primary" />
+                  <span
+                    dangerouslySetInnerHTML={{ __html: term }}
+                    class="text-accent text-[13px] leading-[19.5px] font-medium capitalize hover:text-primary"
+                  />
                 </a>
               </li>
             ))}
           </ul>
         </div>
         <div class="flex flex-col gap-5 overflow-hidden pt-5 pb-6 desk:pt-0 desk:pb-0">
-          <span class="font-bold text-[13px] text-primary leading-[19.5px]" role="heading" aria-level={3}>
+          <span
+            class="font-bold text-[13px] text-primary leading-[19.5px]"
+            role="heading"
+            aria-level={3}
+          >
             Produtos
           </span>
           <RenderProductsResults products={products ?? []} />
         </div>
         {hasBanner && (
           <Picture preload={false} className="flex justify-center">
-            <Source media="(max-width: 767px)" fetchPriority={"auto"} src={bannerMobile as string} width={335} height={132} />
-            <Source media="(min-width: 768px)" fetchPriority={"auto"} src={banner as string} width={443} height={295} />
-            <img class="w-[335px] h-[132px] desk:w-[443px] desk:h-[295px] object-cover" loading={"lazy"} src={banner as string} alt={bannerAlt} />
+            <Source
+              media="(max-width: 767px)"
+              fetchPriority={"auto"}
+              src={bannerMobile as string}
+              width={335}
+              height={132}
+            />
+            <Source
+              media="(min-width: 768px)"
+              fetchPriority={"auto"}
+              src={banner as string}
+              width={443}
+              height={295}
+            />
+            <img
+              class="w-[335px] h-[132px] desk:w-[443px] desk:h-[295px] object-cover"
+              loading={"lazy"}
+              src={banner as string}
+              alt={bannerAlt}
+            />
           </Picture>
         )}
       </div>

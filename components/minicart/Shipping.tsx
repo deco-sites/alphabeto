@@ -24,7 +24,8 @@ export default function Shipping({ cep, openShipping, shippingValue }: Props) {
       event.stopPropagation();
       buttonSibling.click();
     } else {
-      const mask = (value: string) => value.replace(/\D/g, "").replace(/(\d{5})(\d{3})?/, "$1-$2");
+      const mask = (value: string) =>
+        value.replace(/\D/g, "").replace(/(\d{5})(\d{3})?/, "$1-$2");
       target.value = mask(target.value);
     }
   };
@@ -32,46 +33,92 @@ export default function Shipping({ cep, openShipping, shippingValue }: Props) {
   return (
     <div class="flex justify-between items-center flex-col mt-5">
       <div className="flex justify-between w-full items-center ">
-        <span class="text-xs leading-[18px] font-bold text-[#676767]">CEP de Entrega</span>
+        <span class="text-xs leading-[18px] font-bold text-[#676767]">
+          CEP de Entrega
+        </span>
         <button
           type="button"
           onClick={() => {
             openShipping.value = !openShipping.value;
           }}
         >
-          {openShipping.value ? <IconMinus className="w-[18px] h-[18px] toogle-minus-icon" strokeClassName="stroke-primary" strokeWidth={3} /> : <IconPlus className="w-[18px] h-[18px] toogle-minus-icon" strokeClassName="stroke-primary" strokeWidth={3} />}
+          {openShipping.value
+            ? (
+              <IconMinus
+                className="w-[18px] h-[18px] toogle-minus-icon"
+                strokeClassName="stroke-primary"
+                strokeWidth={3}
+              />
+            )
+            : (
+              <IconPlus
+                className="w-[18px] h-[18px] toogle-minus-icon"
+                strokeClassName="stroke-primary"
+                strokeWidth={3}
+              />
+            )}
         </button>
       </div>
-      {hideInput.value ? (
-        <div className={clx("transition-[height] w-full overflow-hidden", openShipping.value ? "h-[60px]" : "h-0")}>
-          <div className="flex justify-between w-full pt-5">
-            <span className="text-sm font-bold text-[#676767]">Frete:</span>
-            <div className="flex flex-col items-end text-[#676767]">
-              <span className="text-sm">
-                {cep} <span className="font-bold">| {formatPrice(shippingValue)}</span>
-              </span>
-              <button
-                type="button"
-                className="text-xs underline text-[#e7e7e7e] pt-1"
-                onClick={() => {
-                  hideInput.value = false;
-                }}
-              >
-                Alterar CEP
-              </button>
+      {hideInput.value
+        ? (
+          <div
+            className={clx(
+              "transition-[height] w-full overflow-hidden",
+              openShipping.value ? "h-[60px]" : "h-0",
+            )}
+          >
+            <div className="flex justify-between w-full pt-5">
+              <span className="text-sm font-bold text-[#676767]">Frete:</span>
+              <div className="flex flex-col items-end text-[#676767]">
+                <span className="text-sm">
+                  {cep}{" "}
+                  <span className="font-bold">
+                    | {formatPrice(shippingValue)}
+                  </span>
+                </span>
+                <button
+                  type="button"
+                  className="text-xs underline text-[#e7e7e7e] pt-1"
+                  onClick={() => {
+                    hideInput.value = false;
+                  }}
+                >
+                  Alterar CEP
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      ) : (
-        <div className={clx("transition-[height] w-full overflow-hidden", openShipping.value ? "h-[54px]" : "h-0")}>
-          <div className="flex gap-[5px] w-full pt-[10px]">
-            <Input form={MINICART_FORM_ID} name="cep" type="text" className="flex-1 h-11" value={cep} placeholder={"Digite o CEP"} onKeyDown={onKeyDown} />
-            <Button className="min-w-[107px] h-11 min-h-11" styleType={ButtonType.Tertiary} textStyles={TextStyles.Small} form={MINICART_FORM_ID} name="action" value="set-shipping">
-              Adicionar
-            </Button>
+        )
+        : (
+          <div
+            className={clx(
+              "transition-[height] w-full overflow-hidden",
+              openShipping.value ? "h-[54px]" : "h-0",
+            )}
+          >
+            <div className="flex gap-[5px] w-full pt-[10px]">
+              <Input
+                form={MINICART_FORM_ID}
+                name="cep"
+                type="text"
+                className="flex-1 h-11"
+                value={cep}
+                placeholder={"Digite o CEP"}
+                onKeyDown={onKeyDown}
+              />
+              <Button
+                className="min-w-[107px] h-11 min-h-11"
+                styleType={ButtonType.Tertiary}
+                textStyles={TextStyles.Small}
+                form={MINICART_FORM_ID}
+                name="action"
+                value="set-shipping"
+              >
+                Adicionar
+              </Button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
     </div>
   );
 }

@@ -68,44 +68,94 @@ function PageResult(props: SectionProps<typeof loader>) {
   const infinite = layout?.pagination !== "pagination";
   return (
     <div class="grid grid-flow-row grid-cols-1 place-items-center">
-      <div class={clx("pb-2 sm:pb-10", (!prevPageUrl || partial === "hideLess") && "hidden")}>
-        <a rel="prev" class="btn btn-ghost" hx-swap="outerHTML show:parent:top" hx-get={partialPrev}>
+      <div
+        class={clx(
+          "pb-2 sm:pb-10",
+          (!prevPageUrl || partial === "hideLess") && "hidden",
+        )}
+      >
+        <a
+          rel="prev"
+          class="btn btn-ghost"
+          hx-swap="outerHTML show:parent:top"
+          hx-get={partialPrev}
+        >
           <span class="inline [.htmx-request_&]:hidden">Show Less</span>
           <span class="loading loading-spinner hidden [.htmx-request_&]:block" />
         </a>
       </div>
 
-      <div data-product-list class={clx("grid items-center", "grid-cols-2 gap-2", "sm:grid-cols-4 sm:gap-10", "w-full")}>
+      <div
+        data-product-list
+        class={clx(
+          "grid items-center",
+          "grid-cols-2 gap-2",
+          "sm:grid-cols-4 sm:gap-10",
+          "w-full",
+        )}
+      >
         {products?.map((product, index) => (
-          <ProductCard key={`product-card-${product.productID}`} product={product} preload={index === 0} index={offset + index} class="h-full min-w-[160px] max-w-[300px]" />
+          <ProductCard
+            key={`product-card-${product.productID}`}
+            product={product}
+            preload={index === 0}
+            index={offset + index}
+            class="h-full min-w-[160px] max-w-[300px]"
+          />
         ))}
       </div>
 
       <div class={clx("pt-2 sm:pt-10 w-full", "")}>
-        {infinite ? (
-          <div class="flex justify-center [&_section]:contents">
-            <a rel="next" class={clx("btn btn-ghost", (!nextPageUrl || partial === "hideMore") && "hidden")} hx-swap="outerHTML show:parent:top" hx-get={partialNext}>
-              <span class="inline [.htmx-request_&]:hidden">Show More</span>
-              <span class="loading loading-spinner hidden [.htmx-request_&]:block" />
-            </a>
-          </div>
-        ) : (
-          <div class={clx("join", infinite && "hidden")}>
-            <a rel="prev" aria-label="previous page link" href={prevPageUrl ?? "#"} disabled={!prevPageUrl} class="btn btn-ghost join-item">
-              <Icon id="chevron-right" class="rotate-180" />
-            </a>
-            <span class="btn btn-ghost join-item">Page {zeroIndexedOffsetPage + 1}</span>
-            <a rel="next" aria-label="next page link" href={nextPageUrl ?? "#"} disabled={!nextPageUrl} class="btn btn-ghost join-item">
-              <Icon id="chevron-right" />
-            </a>
-          </div>
-        )}
+        {infinite
+          ? (
+            <div class="flex justify-center [&_section]:contents">
+              <a
+                rel="next"
+                class={clx(
+                  "btn btn-ghost",
+                  (!nextPageUrl || partial === "hideMore") && "hidden",
+                )}
+                hx-swap="outerHTML show:parent:top"
+                hx-get={partialNext}
+              >
+                <span class="inline [.htmx-request_&]:hidden">Show More</span>
+                <span class="loading loading-spinner hidden [.htmx-request_&]:block" />
+              </a>
+            </div>
+          )
+          : (
+            <div class={clx("join", infinite && "hidden")}>
+              <a
+                rel="prev"
+                aria-label="previous page link"
+                href={prevPageUrl ?? "#"}
+                disabled={!prevPageUrl}
+                class="btn btn-ghost join-item"
+              >
+                <Icon id="chevron-right" class="rotate-180" />
+              </a>
+              <span class="btn btn-ghost join-item">
+                Page {zeroIndexedOffsetPage + 1}
+              </span>
+              <a
+                rel="next"
+                aria-label="next page link"
+                href={nextPageUrl ?? "#"}
+                disabled={!nextPageUrl}
+                class="btn btn-ghost join-item"
+              >
+                <Icon id="chevron-right" />
+              </a>
+            </div>
+          )}
       </div>
     </div>
   );
 }
 const setPageQuerystring = (page: string, id: string) => {
-  const element = document.getElementById(id)?.querySelector("[data-product-list]");
+  const element = document.getElementById(id)?.querySelector(
+    "[data-product-list]",
+  );
   if (!element) {
     return;
   }
@@ -115,7 +165,10 @@ const setPageQuerystring = (page: string, id: string) => {
     for (let it = 0; it < entries.length; it++) {
       if (entries[it].isIntersecting) {
         url.searchParams.set("page", page);
-      } else if (typeof history.state?.prevPage === "string" && history.state?.prevPage !== page) {
+      } else if (
+        typeof history.state?.prevPage === "string" &&
+        history.state?.prevPage !== page
+      ) {
         url.searchParams.set("page", history.state.prevPage);
       }
     }
@@ -156,75 +209,83 @@ function Result(props: SectionProps<typeof loader>) {
       {page.pageInfo.recordPerPage} of {page.pageInfo.records} results
     </span>
   );
-  const sortBy = sortOptions.length > 0 && <Sort sortOptions={sortOptions} url={url} />;
+  const sortBy = sortOptions.length > 0 && (
+    <Sort sortOptions={sortOptions} url={url} />
+  );
   return (
     <>
       <div id={container} {...viewItemListEvent} class="w-full">
-        {partial ? (
-          <PageResult {...props} />
-        ) : (
-          <div class="container flex flex-col gap-4 sm:gap-5 w-full py-4 sm:py-5 px-5 sm:px-0">
-            <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
+        {partial
+          ? <PageResult {...props} />
+          : (
+            <div class="container flex flex-col gap-4 sm:gap-5 w-full py-4 sm:py-5 px-5 sm:px-0">
+              <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
 
-            {device === "mobile" && (
-              <Drawer
-                id={controls}
-                aside={
-                  <div class="bg-base-100 flex flex-col h-full divide-y overflow-y-hidden">
-                    <div class="flex justify-between items-center">
-                      <h1 class="px-4 py-3">
-                        <span class="font-medium text-2xl">Filters</span>
-                      </h1>
-                      <label class="btn btn-ghost" for={controls}>
-                        <Icon id="close" />
-                      </label>
+              {device === "mobile" && (
+                <Drawer
+                  id={controls}
+                  aside={
+                    <div class="bg-base-100 flex flex-col h-full divide-y overflow-y-hidden">
+                      <div class="flex justify-between items-center">
+                        <h1 class="px-4 py-3">
+                          <span class="font-medium text-2xl">Filters</span>
+                        </h1>
+                        <label class="btn btn-ghost" for={controls}>
+                          <Icon id="close" />
+                        </label>
+                      </div>
+                      <div class="flex-grow overflow-auto">
+                        <Filters filters={filters} />
+                      </div>
                     </div>
-                    <div class="flex-grow overflow-auto">
-                      <Filters filters={filters} />
+                  }
+                >
+                  <div class="flex sm:hidden justify-between items-end">
+                    <div class="flex flex-col">
+                      {results}
+                      {sortBy}
                     </div>
+
+                    <label class="btn btn-ghost" for={controls}>
+                      Filters
+                    </label>
                   </div>
-                }
-              >
-                <div class="flex sm:hidden justify-between items-end">
-                  <div class="flex flex-col">
-                    {results}
-                    {sortBy}
-                  </div>
-
-                  <label class="btn btn-ghost" for={controls}>
-                    Filters
-                  </label>
-                </div>
-              </Drawer>
-            )}
-
-            <div class="grid place-items-center grid-cols-1 sm:grid-cols-[250px_1fr]">
-              {device === "desktop" && (
-                <aside class="place-self-start flex flex-col gap-9">
-                  <span class="text-base font-semibold h-12 flex items-center">Filters</span>
-
-                  <Filters filters={filters} />
-                </aside>
+                </Drawer>
               )}
 
-              <div class="flex flex-col gap-9">
+              <div class="grid place-items-center grid-cols-1 sm:grid-cols-[250px_1fr]">
                 {device === "desktop" && (
-                  <div class="flex justify-between items-center">
-                    {results}
-                    <div>{sortBy}</div>
-                  </div>
+                  <aside class="place-self-start flex flex-col gap-9">
+                    <span class="text-base font-semibold h-12 flex items-center">
+                      Filters
+                    </span>
+
+                    <Filters filters={filters} />
+                  </aside>
                 )}
-                <PageResult {...props} />
+
+                <div class="flex flex-col gap-9">
+                  {device === "desktop" && (
+                    <div class="flex justify-between items-center">
+                      {results}
+                      <div>{sortBy}</div>
+                    </div>
+                  )}
+                  <PageResult {...props} />
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
       </div>
 
       <script
         type="module"
         dangerouslySetInnerHTML={{
-          __html: useScript(setPageQuerystring, `${pageInfo.currentPage}`, container),
+          __html: useScript(
+            setPageQuerystring,
+            `${pageInfo.currentPage}`,
+            container,
+          ),
         }}
       />
     </>

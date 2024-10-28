@@ -9,7 +9,10 @@ export function MenuMobileDetails({ submenu }: Props) {
   return (
     <div class="px-6">
       {submenu?.map((item, index) => (
-        <details key={index} className="collapse rounded-none border-b border-secondary border-dashed group">
+        <details
+          key={index}
+          className="collapse rounded-none border-b border-secondary border-dashed group"
+        >
           <summary className="text-xs text-accent py-4 font-bold !flex justify-between items-center">
             {item.item[0]?.item || "Item"}
             <IconArrowRightDropdown />
@@ -18,14 +21,22 @@ export function MenuMobileDetails({ submenu }: Props) {
             {item.item.map((subItem) => {
               if (subItem.highlight) return null;
               return (
-                <a key={subItem.href} href={subItem.href} className={`block text-accent font-medium text-[13px] mb-5`}>
+                <a
+                  key={subItem.href}
+                  href={subItem.href}
+                  className={`block text-accent font-medium text-[13px] mb-5`}
+                >
                   {subItem.item}
                 </a>
               );
             })}
 
             {item.seeAll && (
-              <a key={item.item[0]?.item} href={item.item[0]?.href} className={`block font-bold underline text-primary text-[13px] mb-4`}>
+              <a
+                key={item.item[0]?.item}
+                href={item.item[0]?.href}
+                className={`block font-bold underline text-primary text-[13px] mb-4`}
+              >
                 Ver mais
               </a>
             )}

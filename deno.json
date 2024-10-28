@@ -59,7 +59,14 @@
     "reload": "deno cache -r https://deco.cx/run"
   },
   "githooks": { "pre-commit": "check" },
-  "exclude": ["node_modules", "static/", "README.md", "_fresh", "**/_fresh/*", ".deco"],
+  "exclude": [
+    "node_modules",
+    "static/",
+    "README.md",
+    "_fresh",
+    "**/_fresh/*",
+    ".deco"
+  ],
   "lint": {
     "rules": { "exclude": ["no-window"], "tags": ["fresh", "recommended"] }
   },

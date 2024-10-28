@@ -30,10 +30,22 @@ interface CartFormData {
 
 export interface CartSubmitActions<AC = unknown> {
   addToCart?: (props: CartFormData, req: Request, ctx: AC) => Promise<Minicart>;
-  setQuantity?: (props: CartFormData, req: Request, ctx: AC) => Promise<Minicart>;
+  setQuantity?: (
+    props: CartFormData,
+    req: Request,
+    ctx: AC,
+  ) => Promise<Minicart>;
   setCoupon?: (props: CartFormData, req: Request, ctx: AC) => Promise<Minicart>;
-  setSellerCode?: (props: CartFormData, req: Request, ctx: AC) => Promise<Minicart>;
-  setShipping?: (props: CartFormData, req: Request, ctx: AC) => Promise<Minicart>;
+  setSellerCode?: (
+    props: CartFormData,
+    req: Request,
+    ctx: AC,
+  ) => Promise<Minicart>;
+  setShipping?: (
+    props: CartFormData,
+    req: Request,
+    ctx: AC,
+  ) => Promise<Minicart>;
 }
 
 const safeParse = (payload: string | null) => {
@@ -90,13 +102,21 @@ const formActionsToCartActions: Record<string, keyof CartSubmitActions> = {
   "set-shipping": "setShipping",
 };
 
-async function action(_props: unknown, req: Request, ctx: AppContext): Promise<Minicart> {
+async function action(
+  _props: unknown,
+  req: Request,
+  ctx: AppContext,
+): Promise<Minicart> {
   const platformActions = actions[usePlatform()] as CartSubmitActions;
 
   const form = cartFrom((await req.formData()) as unknown as FormData);
   const action = form.action as string | null;
 
-  const decoActionName = action === null ? "setQuantity" : action in formActionsToCartActions ? formActionsToCartActions[action] : "setQuantity";
+  const decoActionName = action === null
+    ? "setQuantity"
+    : action in formActionsToCartActions
+    ? formActionsToCartActions[action]
+    : "setQuantity";
   const handler = platformActions[decoActionName];
 
   if (!handler) {

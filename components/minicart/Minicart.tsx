@@ -4,9 +4,14 @@ import { MINICART_FORM_ID } from "site/constants.ts";
 import { clx } from "site/sdk/clx.ts";
 import { useComponent } from "site/sections/Component.tsx";
 
-import FreeShippingProgressBar, { FreeShippingSettings } from "site/components/minicart/FreeShippingProgressBar.tsx";
+import FreeShippingProgressBar, {
+  FreeShippingSettings,
+} from "site/components/minicart/FreeShippingProgressBar.tsx";
 import CartItem, { Item } from "site/components/minicart/Item.tsx";
-import { MinicartEmpty, MinicartEmptyProps } from "site/components/minicart/MinicartEmpty.tsx";
+import {
+  MinicartEmpty,
+  MinicartEmptyProps,
+} from "site/components/minicart/MinicartEmpty.tsx";
 import { MiniCartError } from "site/components/minicart/MinicartError.ts";
 import { ButtonAnchor, ButtonType } from "site/components/ui/Button.tsx";
 import MinicartFooter from "site/islands/MinicartFooter.tsx";
@@ -56,10 +61,14 @@ const onLoad = (formID: string) => {
       }
       // Disable addToCart button interactivity
       document.querySelectorAll("div[data-cart-item]").forEach((container) => {
-        container?.querySelectorAll("button").forEach((node) => (node.disabled = true));
-        container?.querySelectorAll("input").forEach((node) => (node.disabled = true));
+        container?.querySelectorAll("button").forEach((
+          node,
+        ) => (node.disabled = true));
+        container?.querySelectorAll("input").forEach((
+          node,
+        ) => (node.disabled = true));
       });
-    }
+    },
   );
 };
 
@@ -76,11 +85,13 @@ export interface Props {
 const errorMessages = {
   SELLER_CODE_NOT_FOUND: {
     title: "Código do vendedor não encontrado",
-    description: "O código do vendedor que você digitou não foi encontrado. Tente novamente!",
+    description:
+      "O código do vendedor que você digitou não foi encontrado. Tente novamente!",
   },
   COUPON_NOT_FOUND: {
     title: "Cupom não encontrado",
-    description: "O cupom que você digitou não foi encontrado. Tente novamente!",
+    description:
+      "O cupom que você digitou não foi encontrado. Tente novamente!",
   },
   GENERIC: {
     title: "Ocorreu um erro ao atualizar o carrinho",
@@ -98,11 +109,17 @@ export const action = async (
     };
   },
   req: Request,
-  ctx: AppContext
+  ctx: AppContext,
 ): Promise<Props> => {
   try {
-    const cart = req.method === "PATCH" ? await ctx.invoke("site/loaders/minicart.ts") : await ctx.invoke("site/actions/minicart/submit.ts");
-    return { cart, minicartSettings: props.minicartSettings, state: props.state };
+    const cart = req.method === "PATCH"
+      ? await ctx.invoke("site/loaders/minicart.ts")
+      : await ctx.invoke("site/actions/minicart/submit.ts");
+    return {
+      cart,
+      minicartSettings: props.minicartSettings,
+      state: props.state,
+    };
   } catch (error: unknown) {
     if (error instanceof Error) {
       if (error.message in errorMessages) {
@@ -116,7 +133,8 @@ export const action = async (
 export function ErrorFallback({ error }: { error?: MiniCartError }) {
   const errorMessage = error?.message ?? "GENERIC";
   const props = error?.props as Props | undefined;
-  const message = errorMessages[errorMessage as keyof typeof errorMessages] ?? errorMessages.GENERIC;
+  const message = errorMessages[errorMessage as keyof typeof errorMessages] ??
+    errorMessages.GENERIC;
   const reloadPage = props == null;
 
   return (
@@ -125,26 +143,31 @@ export function ErrorFallback({ error }: { error?: MiniCartError }) {
         <span class="font-semibold">{message.title}</span>
         <span class="text-sm text-center">{message.description}</span>
       </div>
-      {reloadPage ? (
-        <ButtonAnchor styleType={ButtonType.Primary} hx-on:click={useScript(() => window.location.reload())}>
-          Recarregar Site
-        </ButtonAnchor>
-      ) : (
-        <ButtonAnchor
-          styleType={ButtonType.Primary}
-          class="btn btn-primary"
-          hx-patch={useComponent(import.meta.url, {
-            ...props,
-          })}
-          hx-swap="outerHTML"
-          hx-target="closest div"
-          hx-indicator="this"
-          hx-disabled-elt="this"
-        >
-          <span class="[.htmx-request_&]:hidden">Recarregar Carrinho</span>
-          <span class="[.htmx-request_&]:inline hidden loading loading-spinner" />
-        </ButtonAnchor>
-      )}
+      {reloadPage
+        ? (
+          <ButtonAnchor
+            styleType={ButtonType.Primary}
+            hx-on:click={useScript(() => window.location.reload())}
+          >
+            Recarregar Site
+          </ButtonAnchor>
+        )
+        : (
+          <ButtonAnchor
+            styleType={ButtonType.Primary}
+            class="btn btn-primary"
+            hx-patch={useComponent(import.meta.url, {
+              ...props,
+            })}
+            hx-swap="outerHTML"
+            hx-target="closest div"
+            hx-indicator="this"
+            hx-disabled-elt="this"
+          >
+            <span class="[.htmx-request_&]:hidden">Recarregar Carrinho</span>
+            <span class="[.htmx-request_&]:inline hidden loading loading-spinner" />
+          </ButtonAnchor>
+        )}
     </div>
   );
 }
@@ -191,36 +214,64 @@ export default function Cart(props: Props) {
         <button hidden name="action" value="add-to-cart" />
 
         {/* This contains the STOREFRONT cart. */}
-        <input type="hidden" name="storefront-cart" value={encodeURIComponent(JSON.stringify({ coupon, currency, value: total, items }))} />
+        <input
+          type="hidden"
+          name="storefront-cart"
+          value={encodeURIComponent(
+            JSON.stringify({ coupon, currency, value: total, items }),
+          )}
+        />
 
         {/* This contains the platformCart cart from the commerce platform. Integrations usually use this value, like GTM, pixels etc */}
-        <input type="hidden" name="platform-cart" value={encodeURIComponent(JSON.stringify(platformCart))} />
+        <input
+          type="hidden"
+          name="platform-cart"
+          value={encodeURIComponent(JSON.stringify(platformCart))}
+        />
 
-        <div class={clx("flex flex-col flex-grow justify-center items-center overflow-hidden w-full", "[.minicartContent.htmx-request_&]:pointer-events-none [.minicartContent.htmx-request_&]:opacity-60 [.minicartContent.htmx-request_&]:cursor-wait transition-opacity duration-300")}>
-          {count === 0 ? (
-            <MinicartEmpty content={minicartSettings?.minicartEmpty} />
-          ) : (
-            <>
-              {/* Free Shipping Bar */}
-              {Boolean(minicartSettings?.freeShippingBarSettings?.target) && (
-                <div class="px-2 py-5 w-full">
-                  <FreeShippingProgressBar total={total} locale={locale} currency={currency} settings={minicartSettings?.freeShippingBarSettings} />
-                </div>
-              )}
-
-              {/* Cart Items */}
-              <ul role="list" class="mt-6 pl-6 mr-6 pr-[15px] flex-grow overflow-y-auto flex flex-col gap-5 w-full customizeScroll">
-                {items.map((item, index) => (
-                  <li>
-                    <CartItem item={item} index={index} locale={locale} currency={currency} />
-                  </li>
-                ))}
-              </ul>
-
-              {/* Cart Footer */}
-              <MinicartFooter {...props} />
-            </>
+        <div
+          class={clx(
+            "flex flex-col flex-grow justify-center items-center overflow-hidden w-full",
+            "[.minicartContent.htmx-request_&]:pointer-events-none [.minicartContent.htmx-request_&]:opacity-60 [.minicartContent.htmx-request_&]:cursor-wait transition-opacity duration-300",
           )}
+        >
+          {count === 0
+            ? <MinicartEmpty content={minicartSettings?.minicartEmpty} />
+            : (
+              <>
+                {/* Free Shipping Bar */}
+                {Boolean(minicartSettings?.freeShippingBarSettings?.target) && (
+                  <div class="px-2 py-5 w-full">
+                    <FreeShippingProgressBar
+                      total={total}
+                      locale={locale}
+                      currency={currency}
+                      settings={minicartSettings?.freeShippingBarSettings}
+                    />
+                  </div>
+                )}
+
+                {/* Cart Items */}
+                <ul
+                  role="list"
+                  class="mt-6 pl-6 mr-6 pr-[15px] flex-grow overflow-y-auto flex flex-col gap-5 w-full customizeScroll"
+                >
+                  {items.map((item, index) => (
+                    <li>
+                      <CartItem
+                        item={item}
+                        index={index}
+                        locale={locale}
+                        currency={currency}
+                      />
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Cart Footer */}
+                <MinicartFooter {...props} />
+              </>
+            )}
         </div>
       </form>
       <script

@@ -12,7 +12,10 @@ import { asResolved, type Resolved } from "@deco/deco";
 import { useScript } from "@deco/deco/hooks";
 import { ImageWidget } from "apps/admin/widgets.ts";
 import { Suggestion } from "apps/commerce/types.ts";
-import { SEARCHBAR_INPUT_FORM_ID, SEARCHBAR_POPUP_ID } from "../../../constants.ts";
+import {
+  SEARCHBAR_INPUT_FORM_ID,
+  SEARCHBAR_POPUP_ID,
+} from "../../../constants.ts";
 import { clx } from "../../../sdk/clx.ts";
 import { useId } from "../../../sdk/useId.ts";
 import { useComponent } from "../../../sections/Component.tsx";
@@ -63,7 +66,8 @@ export interface SearchbarProps {
   topSearch: Resolved<Suggestion>;
 }
 
-export interface SearchBarComponentProps extends Omit<SearchbarProps, "topSearch"> {
+export interface SearchBarComponentProps
+  extends Omit<SearchbarProps, "topSearch"> {
   topSearch: Suggestion;
 }
 
@@ -94,12 +98,37 @@ const script = (formId: string, name: string, popupId: string) => {
 };
 const Suggestions = import.meta.resolve("./Suggestions.tsx");
 
-export default function Searchbar({ placeholder, loader, banner, bannerAlt, bannerMobile, topSearch, mostSellerTerms }: SearchBarComponentProps) {
+export default function Searchbar(
+  {
+    placeholder,
+    loader,
+    banner,
+    bannerAlt,
+    bannerMobile,
+    topSearch,
+    mostSellerTerms,
+  }: SearchBarComponentProps,
+) {
   const slot = useId();
   return (
-    <div className={clx("flex flex-col gap-[22px] px-5 overflow-y-auto max-h-dvh", "desk:gap-8 desk:max-w-[95rem] desk:w-full desk:mx-auto desk:px-10")}>
-      <form id={SEARCHBAR_INPUT_FORM_ID} action={ACTION} class="join bg-[#f5f4f1] mt-5 rounded-lg">
-        <button type="submit" class="join-item no-animation w-10 flex justify-center items-center" aria-label="Search" for={SEARCHBAR_INPUT_FORM_ID} tabIndex={-1}>
+    <div
+      className={clx(
+        "flex flex-col gap-[22px] px-5 overflow-y-auto max-h-dvh",
+        "desk:gap-8 desk:max-w-[95rem] desk:w-full desk:mx-auto desk:px-10",
+      )}
+    >
+      <form
+        id={SEARCHBAR_INPUT_FORM_ID}
+        action={ACTION}
+        class="join bg-[#f5f4f1] mt-5 rounded-lg"
+      >
+        <button
+          type="submit"
+          class="join-item no-animation w-10 flex justify-center items-center"
+          aria-label="Search"
+          for={SEARCHBAR_INPUT_FORM_ID}
+          tabIndex={-1}
+        >
           <span class="loading text-primary loading-spinner loading-xs hidden [.htmx-request_&]:inline" />
           <span class="inline [.htmx-request_&]:hidden">
             <IconSearch />
@@ -113,20 +142,23 @@ export default function Searchbar({ placeholder, loader, banner, bannerAlt, bann
           placeholder={placeholder}
           autocomplete="off"
           hx-target={`#${slot}`}
-          hx-post={
-            loader &&
+          hx-post={loader &&
             useComponent<SuggestionProps>(Suggestions, {
               loader: asResolved(loader),
               banner,
               bannerAlt,
               bannerMobile,
-            })
-          }
+            })}
           hx-trigger={`input changed delay:300ms, ${NAME}`}
           hx-indicator={`#${SEARCHBAR_INPUT_FORM_ID}`}
           hx-swap="innerHTML"
         />
-        <label type="button" class="join-item btn btn-ghost btn-square sm:inline-flex no-animation text-[#676767] min-h-10 h-10 w-10" for={SEARCHBAR_POPUP_ID} aria-label="Toggle searchbar">
+        <label
+          type="button"
+          class="join-item btn btn-ghost btn-square sm:inline-flex no-animation text-[#676767] min-h-10 h-10 w-10"
+          for={SEARCHBAR_POPUP_ID}
+          aria-label="Toggle searchbar"
+        >
           <Icon id="close-search" />
         </label>
       </form>
@@ -140,7 +172,12 @@ export default function Searchbar({ placeholder, loader, banner, bannerAlt, bann
       <script
         type="module"
         dangerouslySetInnerHTML={{
-          __html: useScript(script, SEARCHBAR_INPUT_FORM_ID, NAME, SEARCHBAR_POPUP_ID),
+          __html: useScript(
+            script,
+            SEARCHBAR_INPUT_FORM_ID,
+            NAME,
+            SEARCHBAR_POPUP_ID,
+          ),
         }}
       />
     </div>

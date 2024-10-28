@@ -19,13 +19,16 @@ async function loader(_props: unknown, req: Request, _ctx: AppContext) {
       };
     };
   }
-  const response = await fetch("https://alphabeto.myvtex.com/api/sessions?items=public.postalCode", {
-    method: "GET",
-    headers: {
-      "content-type": "application/json",
-      cookie: `vtex_session=${sessionCookie}; vtex_segment=${segmentCookie}`,
+  const response = await fetch(
+    "https://alphabeto.myvtex.com/api/sessions?items=public.postalCode",
+    {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        cookie: `vtex_session=${sessionCookie}; vtex_segment=${segmentCookie}`,
+      },
     },
-  });
+  );
   const data = (await response.json()) as VtexSessionResponse;
   const cep = data?.namespaces?.public?.postalCode?.value;
   if (!cep) return undefined;
