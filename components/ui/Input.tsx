@@ -18,3 +18,18 @@ export default function Input(props: InputProps) {
     </input>
   );
 }
+
+export function RadioInput(props: InputProps) {
+  const { className, ...rest } = props;
+  return (
+    <input
+      {...rest}
+      type="radio"
+      className={clx(
+        "radio radio-primary radio-xs",
+        className?.toString() ?? "",
+      )}
+    >
+    </input>
+  );
+}

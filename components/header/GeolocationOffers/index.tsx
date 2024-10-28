@@ -213,7 +213,7 @@ export default function GeolocationOffers(props: Props) {
             >
               <Icon id="close" size={20} />
             </label>
-            <h3 className="text-[#676767] text-[25px] leading-[30px] font-['BeccaPerry'] text-center mb-[10px]">
+            <h3 className="text-[#676767] text-[25px] leading-[30px] font-beccaPerry text-center mb-[10px]">
               Quer <span className="text-primary">ofertas?</span>
             </h3>
             <p className="text-[#7e7f88] text-xs leading-[18px] text-center w-[295px]">

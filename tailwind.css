@@ -75,3 +75,10 @@
 .customizeScroll::-webkit-scrollbar-thumb:hover {
   background: #d6de23;
 }
+
+.radio:not(:checked) {
+  background-color: white;
+}
+.radio:checked {
+  box-shadow: 0 0 0 4px white inset, 0 0 0 4px white inset;
+}

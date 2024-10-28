@@ -28,6 +28,9 @@ export default {
           "100%": { transform: "translateX(-50%)" },
         },
       },
+      fontFamily: {
+        "beccaPerry": ["BeccaPerry", "sans-serif"],
+      },
     },
 
     screens: {
@@ -42,6 +45,10 @@ export default {
 
       "desk-small": { max: "1200px" },
       // =< @media (min-width: 1200px) { ... }
+
+      "max-1330": {
+        max: "1330px",
+      },
     },
   },
 };

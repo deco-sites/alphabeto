@@ -79,7 +79,7 @@ function NavItem({ href, menuItem, image, submenu }: Items) {
         >
           <div className="container flex justify-between gap-9 !pr-0">
             <div className="w-full pt-[23px]">
-              <h5 className="text-[#676767] font-['BeccaPerry'] pb-[17px] leading-[38px] text-[32px] border-b border-[#F7E0BF] border-dashed">
+              <h5 className="text-[#676767] font-beccaPerry pb-[17px] leading-[38px] text-[32px] border-b border-[#F7E0BF] border-dashed">
                 {menuItem}
               </h5>
               <ul class="flex items-start justify-start gap-[60px]">
