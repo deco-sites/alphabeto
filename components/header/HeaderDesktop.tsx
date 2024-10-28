@@ -1,42 +1,24 @@
-import { HTMLWidget, ImageWidget } from "apps/admin/widgets.ts";
 import Image from "apps/website/components/Image.tsx";
-import { SearchBarComponentProps } from "../search/Searchbar/Form.tsx";
-import Bag from "./Bag.tsx";
-import { Items } from "./Menu.types.ts";
-import NavItem from "./NavItem.tsx";
-import { Offers } from "./Offers.tsx";
-import { SearchDesktop } from "./Search.tsx";
-import { SignInDesktop } from "./SignIn.tsx";
-import { Wishlist } from "./Wishlist.tsx";
-
-export interface Logo {
-  src: ImageWidget;
-  alt: string;
-  width?: number;
-  height?: number;
-}
+import Bag from "site/components/header/Bag.tsx";
+import GeolocationOffers from "site/components/header/GeolocationOffers/index.tsx";
+import { Items } from "site/components/header/Menu.types.ts";
+import NavItem from "site/components/header/NavItem.tsx";
+import { SearchDesktop } from "site/components/header/Search.tsx";
+import { SignInDesktop } from "site/components/header/SignIn.tsx";
+import { Wishlist } from "site/components/header/Wishlist.tsx";
+import { SearchBarComponentProps } from "site/components/search/Searchbar/Form.tsx";
+import { Logo } from "site/sections/Header/Header.tsx";
 
 export interface SectionProps {
-  alerts?: HTMLWidget[];
-  /**
-   * @title Navigation items
-   * @description Navigation items used both on mobile and desktop menus
-   */
-  navItems?: Items[] | null;
-  /**
-   * @title Searchbar
-   * @description Searchbar configuration
-   */
+  navItems?: Items[];
   searchbar: SearchBarComponentProps;
-  /** @title Logo */
   logo: Logo;
-  /**
-   * @description Usefull for lazy loading hidden elements, like hamburguer menus etc
-   * @hide true */
   loading?: "eager" | "lazy";
+  googleMapsApiKey: string;
+  cep?: string;
 }
 
-export const Desktop = ({ navItems, logo, searchbar, loading }: SectionProps) => (
+export const Desktop = ({ navItems, logo, searchbar, loading, googleMapsApiKey, cep }: SectionProps) => (
   <>
     <div class="flex flex-col gap-4 pt-5 container border-b border-gray-300">
       <div class="flex justify-between gap-x-2.5 items-center">
@@ -53,7 +35,7 @@ export const Desktop = ({ navItems, logo, searchbar, loading }: SectionProps) =>
         </div>
 
         <div class="flex items-center gap-x-5 desk-small:gap-x-3">
-          <Offers />
+          <GeolocationOffers googleMapsApiKey={googleMapsApiKey} cep={cep} />
           <SearchDesktop searchbar={searchbar} loading={loading} />
 
           <div class="flex gap-4">

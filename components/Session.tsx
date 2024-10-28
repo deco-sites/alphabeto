@@ -1,17 +1,22 @@
 import { Head } from "$fresh/runtime.ts";
 import { useScript } from "@deco/deco/hooks";
 import { type Person } from "apps/commerce/types.ts";
+import * as Htmx from "npm:htmx.org";
+import { MINICART_DRAWER_ID } from "site/constants.ts";
 import { type AppContext } from "../apps/site.ts";
-import { MINICART_DRAWER_ID } from "../constants.ts";
 import { useComponent } from "../sections/Component.tsx";
 import { type Item } from "./minicart/Item.tsx";
 import CartProvider, { type Minicart, MinicartSettings } from "./minicart/Minicart.tsx";
-import Drawer from "./ui/Drawer.tsx";
+import Drawer from "./ui/Drawer/index.tsx";
 import UserProvider from "./user/Provider.tsx";
 import WishlistProvider, { type Wishlist } from "./wishlist/Provider.tsx";
+
 declare global {
+  const htmx: typeof Htmx;
+
   interface Window {
     STOREFRONT: SDK;
+    htmx: typeof Htmx;
   }
 }
 export interface Cart {

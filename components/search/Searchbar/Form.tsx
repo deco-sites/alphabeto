@@ -32,9 +32,11 @@ export interface SearchbarProps {
    * @default What are you looking for?
    */
   placeholder?: string;
-  /** @description Loader to run when suggesting new elements */
-  loader: Resolved<Suggestion | null>;
-
+  /**
+   * @title Most Seller Terms
+   * @description List of most searched terms
+   */
+  mostSellerTerms: string[];
   /**
    *  @title Banner
    * @description Banner image to display on the search bar results
@@ -50,16 +52,15 @@ export interface SearchbarProps {
    * @description Banner image alternative text to people with disabilities
    */
   bannerAlt?: string;
+  /** @title SearchBar Loader
+   * @description Loader to run when suggesting new elements
+   */
+  loader: Resolved<Suggestion | null>;
   /**
-   * @title Top Search
+   * @title Top Search Loader
    * @description Loader to run when most searched items are requested
    */
   topSearch: Resolved<Suggestion>;
-  /**
-   * @title Most Seller Terms
-   * @description List of most searched terms
-   */
-  mostSellerTerms: string[];
 }
 
 export interface SearchBarComponentProps extends Omit<SearchbarProps, "topSearch"> {

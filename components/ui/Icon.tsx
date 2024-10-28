@@ -1,7 +1,7 @@
 import { asset } from "$fresh/runtime.ts";
 import type { JSX } from "preact";
 
-export type AvailableIcons = "search" | "shopping_bag" | "menu" | "account_circle" | "close" | "chevron-right" | "favorite" | "home_pin" | "call" | "local_shipping" | "pan_zoom" | "share" | "sell" | "check-circle" | "error" | "trash" | "close-search";
+export type AvailableIcons = "search" | "shopping_bag" | "menu" | "account_circle" | "close" | "chevron-right" | "favorite" | "home_pin" | "call" | "local_shipping" | "pan_zoom" | "share" | "sell" | "check-circle" | "error" | "trash" | "location_pin" | "close-search";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

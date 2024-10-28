@@ -37,7 +37,8 @@
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
     "daisyui": "npm:daisyui@4.6.0",
-    "@deco/dev": "jsr:@deco/dev@1.102.0"
+    "@deco/dev": "jsr:@deco/dev@1.102.0",
+    "site/": "./"
   },
   "tasks": {
     "start": "deno run -A --unstable-http --env https://deco.cx/run -- deno task dev",
@@ -58,14 +59,7 @@
     "reload": "deno cache -r https://deco.cx/run"
   },
   "githooks": { "pre-commit": "check" },
-  "exclude": [
-    "node_modules",
-    "static/",
-    "README.md",
-    "_fresh",
-    "**/_fresh/*",
-    ".deco"
-  ],
+  "exclude": ["node_modules", "static/", "README.md", "_fresh", "**/_fresh/*", ".deco"],
   "lint": {
     "rules": { "exclude": ["no-window"], "tags": ["fresh", "recommended"] }
   },
