@@ -6,7 +6,6 @@ interface Props {
 }
 
 export function MenuMobileDetails({ submenu }: Props) {
-  console.log(submenu);
   return (
     <div class="px-6">
       {submenu?.map((item, index) => (

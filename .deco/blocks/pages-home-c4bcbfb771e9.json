@@ -107,20 +107,18 @@
       }
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Product/ProductShelf.tsx",
-        "products": {
-          "__resolveType": "vtex/loaders/workflow/products.ts",
-          "page": 3,
-          "pagesize": 1,
-          "props": {
-            "sort": "OrderByPriceDESC",
-            "term": "vestido",
-            "count": 7
-          }
+      "__resolveType": "site/sections/Product/ProductShelf.tsx",
+      "products": {
+        "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+        "page": 3,
+        "pagesize": 1,
+        "props": {
+          "sort": "price:desc",
+          "collection": "773",
+          "count": 16
         }
-      }
+      },
+      "title": "Nossos Queridinhos"
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",

@@ -8,16 +8,39 @@ export enum ButtonType {
     "btn-primary btn-outline bg-white hover:bg-primary hover:text-white",
 }
 
+const disabledClasses =
+  "disabled:bg-[#C5C5C5] disabled:border-[#C5C5C5] disabled:text-[#676767] [&[disabled]]:bg-[#C5C5C5] [&[disabled]]:border-[#C5C5C5] [&[disabled]]:text-[#676767]";
+
 export enum TextStyles {
   Small = "text-[14px]",
   Regular = "text-[15px]",
   Large = "text-[16px]",
 }
 
-type ButtonProps = JSX.IntrinsicElements["button"] & {
-  styleType?: ButtonType;
-  textStyles?: TextStyles;
+const makeFinalClass = (
+  styleType: ButtonType,
+  textStyles: TextStyles,
+  classNames: string,
+) => {
+  return clx(
+    "btn",
+    styleType,
+    textStyles,
+    "rounded-lg",
+    disabledClasses,
+    classNames,
+  );
 };
+
+type ButtonProps =
+  & React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  >
+  & {
+    styleType?: ButtonType;
+    textStyles?: TextStyles;
+  };
 
 export default function Button(props: ButtonProps) {
   const {
@@ -29,12 +52,10 @@ export default function Button(props: ButtonProps) {
   } = props;
   return (
     <button
-      className={clx(
-        "btn",
+      className={makeFinalClass(
         styleType,
         textStyles,
-        "rounded-lg",
-        className ?? "",
+        className?.toString() ?? "",
       )}
       {...rest}
     >
@@ -43,10 +64,15 @@ export default function Button(props: ButtonProps) {
   );
 }
 
-type ButtonAnchorProps = JSX.IntrinsicElements["a"] & {
-  styleType?: ButtonType;
-  textStyles?: TextStyles;
-};
+type ButtonAnchorProps =
+  & React.DetailedHTMLProps<
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    HTMLAnchorElement
+  >
+  & {
+    styleType?: ButtonType;
+    textStyles?: TextStyles;
+  };
 
 export function ButtonAnchor(props: ButtonAnchorProps) {
   const {
@@ -58,16 +84,46 @@ export function ButtonAnchor(props: ButtonAnchorProps) {
   } = props;
   return (
     <a
-      className={clx(
-        "btn",
+      className={makeFinalClass(
         styleType,
         textStyles,
-        "rounded-lg",
-        className ?? "",
+        className?.toString() ?? "",
       )}
       {...rest}
     >
       {children}
     </a>
+  );
+}
+
+type ButtonLabelProps =
+  & React.DetailedHTMLProps<
+    React.LabelHTMLAttributes<HTMLLabelElement>,
+    HTMLLabelElement
+  >
+  & {
+    styleType?: ButtonType;
+    textStyles?: TextStyles;
+  };
+
+export function ButtonLabel(props: ButtonLabelProps) {
+  const {
+    styleType = ButtonType.Primary,
+    className,
+    children,
+    textStyles = TextStyles.Small,
+    ...rest
+  } = props;
+  return (
+    <label
+      className={makeFinalClass(
+        styleType,
+        textStyles,
+        className?.toString() ?? "",
+      )}
+      {...rest}
+    >
+      {children}
+    </label>
   );
 }

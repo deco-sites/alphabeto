@@ -1,1 +1,1 @@
-export { action, default, loader } from "../components/Session.tsx";
+export { action, default, loader } from "site/components/Session.tsx";

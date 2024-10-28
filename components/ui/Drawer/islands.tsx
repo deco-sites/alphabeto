@@ -1,8 +1,7 @@
-import { useScript } from "@deco/deco/hooks";
 import { type ComponentChildren } from "preact";
-import { clx } from "../../sdk/clx.ts";
-import { useId } from "../../sdk/useId.ts";
-import { IconCloseDrawer } from "../Icons/IconCloseDrawer.tsx";
+import { clx } from "../../../sdk/clx.ts";
+import { useId } from "../../../sdk/useId.ts";
+import { IconCloseDrawer } from "../../Icons/IconCloseDrawer.tsx";
 export interface Props {
   open?: boolean;
   class?: string;
@@ -10,20 +9,8 @@ export interface Props {
   aside: ComponentChildren;
   id?: string;
 }
-const script = (id: string) => {
-  const handler = (e: KeyboardEvent) => {
-    if (e.key !== "Escape" && e.keyCode !== 27) {
-      return;
-    }
-    const input = document.getElementById(id) as HTMLInputElement | null;
-    if (!input) {
-      return;
-    }
-    input.checked = false;
-  };
-  addEventListener("keydown", handler);
-};
-function Drawer(
+
+function DrawerForIslands(
   { children, aside, open, class: _class = "", id = useId() }: Props,
 ) {
   return (
@@ -51,15 +38,11 @@ function Drawer(
           {aside}
         </aside>
       </div>
-      <script
-        type="module"
-        dangerouslySetInnerHTML={{ __html: useScript(script, id) }}
-      />
     </>
   );
 }
 function Aside(
-  { title, drawer, children, maxWidth, class: _class = "" }: {
+  { title, drawer, children, class: _class = "" }: {
     title: string;
     drawer: string;
     children: ComponentChildren;
@@ -87,5 +70,5 @@ function Aside(
     </div>
   );
 }
-Drawer.Aside = Aside;
-export default Drawer;
+DrawerForIslands.Aside = Aside;
+export default DrawerForIslands;

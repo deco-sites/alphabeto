@@ -1,14 +1,16 @@
 import { SEARCHBAR_POPUP_ID } from "../../constants.ts";
 import { IconSearch } from "../Icons/IconSearch.tsx";
-import Searchbar, { SearchbarProps } from "../search/Searchbar/Form.tsx";
+import Searchbar, {
+  SearchBarComponentProps,
+} from "../search/Searchbar/Form.tsx";
 import Modal from "../ui/Modal.tsx";
 
 interface SearchProps {
-  searchbar: SearchbarProps;
+  searchbar: SearchBarComponentProps;
   loading?: "eager" | "lazy";
 }
 
-export function Search({ searchbar, loading }: SearchProps) {
+export function SearchDesktop({ searchbar, loading }: SearchProps) {
   return (
     <>
       <Modal id={SEARCHBAR_POPUP_ID} className="!bg-transparent">
@@ -30,6 +32,31 @@ export function Search({ searchbar, loading }: SearchProps) {
         <span class="text-base-400 truncate text-xs">
           {searchbar.placeholder}
         </span>
+        <IconSearch />
+      </label>
+    </>
+  );
+}
+
+export function SearchMobile({ searchbar, loading }: SearchProps) {
+  return (
+    <>
+      <Modal id={SEARCHBAR_POPUP_ID} className="!bg-transparent">
+        <div class="absolute top-0 bg-base-100 w-full">
+          {loading === "lazy"
+            ? (
+              <div class="flex justify-center items-center">
+                <span class="loading loading-spinner" />
+              </div>
+            )
+            : <Searchbar {...searchbar} />}
+        </div>
+      </Modal>
+      <label
+        for={SEARCHBAR_POPUP_ID}
+        class="btn btn-square btn-sm btn-ghost w-fit"
+        aria-label="search icon button"
+      >
         <IconSearch />
       </label>
     </>

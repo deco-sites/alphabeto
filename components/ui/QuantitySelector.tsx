@@ -16,12 +16,17 @@ const onClick = (delta: number) => {
   input.dispatchEvent(new Event("change", { bubbles: true }));
 };
 
-type QuantitySelectorProps = JSX.IntrinsicElements["input"] & {
+type InputProps = React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>;
+
+type QuantitySelectorProps = InputProps & {
   small?: boolean;
 };
 
 function QuantitySelector(
-  { id = useId(), disabled, small, ...props }: QuantitySelectorProps,
+  { id = useId(), disabled, className, ...props }: QuantitySelectorProps,
 ) {
   return (
     <div class="join w-full h-5 flex gap-[2px]">
@@ -50,6 +55,7 @@ function QuantitySelector(
           class={clx(
             "input w-[29px] h-[18px] font-bold text-[#676767] text-xs leading-[18px] p-0 border-none text-center flex-grow [appearance:textfield]",
             "invalid:input-error",
+            className?.toString(),
           )}
           disabled={disabled}
           inputMode="numeric"

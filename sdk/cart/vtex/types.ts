@@ -1,2 +1,6 @@
-import type a from "apps/vtex/loaders/cart.ts";
-export type Cart = Awaited<ReturnType<typeof a>>;
+import { OrderForm } from "apps/vtex/utils/types.ts";
+export interface Cart extends Omit<OrderForm, "openTextField"> {
+  openTextField?: {
+    value: string;
+  };
+}
