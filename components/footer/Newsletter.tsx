@@ -27,14 +27,15 @@ const beforeFormSubmit = (formId: string) => {
 };
 
 const afterFormSubmit = async (formId: string) => {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   const form = document.getElementById(formId) as HTMLFormElement;
   form.reset();
   const submitButton = form.querySelector(
     "button[type=submit]",
   ) as HTMLButtonElement;
   submitButton.disabled = false;
-  submitButton.innerText = "Enviar";
+  const span = submitButton.querySelector(".textSpan") as HTMLSpanElement;
+  span.innerHTML = "Enviar";
   const inputs = form.querySelectorAll("input");
   inputs.forEach((input) => {
     input.disabled = false;
@@ -91,6 +92,12 @@ export default function Newsletter(props: Props) {
     allowedTags: ["span", "strong"],
   });
 
+  const texts: Record<typeof formState, string> = {
+    idle: "Enviar",
+    success: "Enviado",
+    error: "Erro",
+  };
+
   return (
     <div className="bg-secondary-content ">
       <div className="flex flex-col desk:flex-row p-5 desk:p-10 items-center gap-[30px] justify-between mx-auto max-w-[1440px] relative">
@@ -111,10 +118,10 @@ export default function Newsletter(props: Props) {
           className="flex flex-col desk:grid grid-cols-2  grid-rows-2 gap-4 desk:mr-[99px] max-1330:mr-0  w-full desk:w-auto"
           id={formId}
           hx-post={useComponent(import.meta.url, props)}
-          hx-target={`#${submitButtonWrapperId}`}
-          hx-swap="outerHTML"
+          hx-target={`#${submitButtonWrapperId} .textSpan`}
+          hx-swap="innerHTML"
           hx-indicator={`#${submitButtonWrapperId}`}
-          hx-select={`#${submitButtonWrapperId}`}
+          hx-select={`#${submitButtonWrapperId} .textSpan`}
           {...{
             "hx-on::before-send": useScript(beforeFormSubmit, formId),
             "hx-on::after-settle": useScript(afterFormSubmit, formId),
@@ -188,27 +195,17 @@ export default function Newsletter(props: Props) {
                 </div>
               </div>
             </div>
-            <div id={submitButtonWrapperId}>
-              {formState === "idle"
-                ? (
-                  <Button
-                    className="h-11 px-5"
-                    type="submit"
-                  >
-                    <span class="[.htmx-request_&]:hidden">Enviar</span>
-                    <span class="[.htmx-request_&]:inline hidden loading loading-spinner" />
-                  </Button>
-                )
-                : (
-                  <Button
-                    className="h-11 px-5"
-                    disabled
-                    type="submit"
-                  >
-                    {formState === "success" ? "Enviado" : "Erro"}
-                  </Button>
-                )}
-            </div>
+
+            <Button
+              className="h-11 px-5 w-full desk:w-auto"
+              type="submit"
+              id={submitButtonWrapperId}
+            >
+              <span class="[.htmx-request_&]:hidden textSpan">
+                {texts[formState]}
+              </span>
+              <span class="[.htmx-request_&]:inline hidden loading loading-spinner" />
+            </Button>
           </div>
         </form>
         <NewsletterStarsOne className="absolute top-[51px] left-[429px] hidden desk:block max-1240:left-[310px]" />
