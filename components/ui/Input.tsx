@@ -11,7 +11,7 @@ export default function Input(props: InputProps) {
     <input
       {...rest}
       className={clx(
-        "input rounded-lg !outline-none border-secondary focus:border-primary text-xs leading-[18px] text-[#676767] font-medium pl-[10px]",
+        "input rounded-lg !outline-none border-secondary focus:border-primary text-xs leading-[18px] text-[#676767] font-medium pl-[10px] disabled:border-[#D8D7D5] disabled:bg-transparent disabled:text-[#D8D7D5]",
         className?.toString() ?? "",
       )}
     >

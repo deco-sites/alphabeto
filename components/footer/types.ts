@@ -29,6 +29,8 @@ export interface Column {
 export interface Newsletter {
   title: RichText;
   description?: string;
+  /** @hide true */
+  formState?: "idle" | "success" | "error";
 }
 
 export interface Card {

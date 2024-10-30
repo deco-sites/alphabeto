@@ -49,6 +49,9 @@ export default {
       "max-1330": {
         max: "1330px",
       },
+      "max-1240": {
+        max: "1240px",
+      },
     },
   },
 };

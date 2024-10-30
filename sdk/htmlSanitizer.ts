@@ -26,15 +26,12 @@ export const sanitizeHTMLCode = (html: string, opitions: SanitizeOptions) => {
 
   if (opitions.removeWrapperTag) {
     result = removeWrapperTag(result);
-    console.log(result);
   }
   if (opitions.removeAttributes) {
     result = removeAttributes(result);
-    console.log(result);
   }
   if (opitions.allowedTags) {
     result = keepAllowedTags(result, opitions.allowedTags);
-    console.log(result);
   }
   return result;
 };
