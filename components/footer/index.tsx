@@ -1,4 +1,5 @@
 import { useDevice } from "@deco/deco/hooks";
+import CopyrightRow from "site/components/footer/CopyrightRow.tsx";
 import MenusAndCardDesktop from "site/components/footer/MenusAndCardDesktop.tsx";
 import MenusAndCardMobile from "site/components/footer/MenusAndCardMobile.tsx";
 import Newsletter from "site/components/footer/Newsletter.tsx";
@@ -24,6 +25,11 @@ export default function Footer(props: Props) {
             columns={props.columns}
           />
         )}
+      <CopyrightRow
+        cardFlags={props.cardFlags}
+        copyright={props.copyright}
+        tecnologiesLogo={props.tecnologiesLogo}
+      />
     </div>
   );
 }
