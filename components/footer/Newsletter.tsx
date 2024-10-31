@@ -100,7 +100,7 @@ export default function Newsletter(props: Props) {
 
   return (
     <div className="bg-secondary-content ">
-      <div className="flex flex-col desk:flex-row p-5 desk:p-10 items-center gap-[30px] justify-between mx-auto max-w-[1440px] relative">
+      <div className="flex flex-col desk:flex-row py-5 desk:py-10 items-center gap-[30px] justify-between container relative">
         <div className="desk:max-w-[422px] flex flex-col max-1240:max-w-[300px]">
           <h3
             dangerouslySetInnerHTML={{

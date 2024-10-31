@@ -2,13 +2,426 @@
   "__resolveType": "site/sections/Footer/Footer.tsx",
   "newsletter": {
     "title": "<p><span>Fique por </span><span>dentro</span><span> das novidades da <strong>Alphabeto!</strong></span></p>",
-    "description": "Saiba mais sobre os lançamentos, as estampas mais divertidas e detalhes que encantam!"
+    "description": "Saiba mais sobre os lançamentos, as estampas mais divertidas e detalhes que encantam!",
+    "formState": "idle"
   },
-  "columns": [],
+  "columns": [
+    {
+      "menus": [
+        {
+          "itens": [
+            {
+              "href": "/marca",
+              "title": "Mundo Alphabeto"
+            },
+            {
+              "title": "Encontre nossas lojas",
+              "href": "/lojas"
+            },
+            {
+              "title": "Faça Parte",
+              "href": "/faca-parte"
+            }
+          ],
+          "title": "Intitucional"
+        }
+      ],
+      "socialLogos": []
+    },
+    {
+      "menus": [
+        {
+          "itens": [
+            {
+              "title": "Acompanhe seu pedido",
+              "href": "/account#/orders"
+            },
+            {
+              "title": "Minha conta",
+              "href": "/account"
+            }
+          ],
+          "title": "Pedidos"
+        },
+        {
+          "itens": [
+            {
+              "title": "Faça a sua boneca",
+              "href": "/mini-me"
+            }
+          ],
+          "title": "Presentes"
+        }
+      ],
+      "socialLogos": []
+    },
+    {
+      "menus": [
+        {
+          "itens": [
+            {
+              "title": "Resgate seu cashback",
+              "href": "/regulamento-cashback"
+            },
+            {
+              "title": "Termos de uso cashback",
+              "href": "/termos-e-condicoes"
+            },
+            {
+              "title": "Termos e condições",
+              "href": "/termos-e-condicoes"
+            },
+            {
+              "title": "Privacidade e segurança",
+              "href": "/privacidade"
+            },
+            {
+              "title": "Formas de entrega",
+              "href": "/formas-entrega"
+            },
+            {
+              "title": "Trocas e devoluções",
+              "href": "/trocas-devolucao"
+            },
+            {
+              "title": "Procon",
+              "href": "http://www.procon.rj.gov.br/",
+              "openInNewTab": true
+            }
+          ],
+          "title": "Ajuda"
+        }
+      ],
+      "socialLogos": []
+    },
+    {
+      "menus": [
+        {
+          "itens": [
+            {
+              "title": "Fale com as fadinhas",
+              "href": "/central-atendimento"
+            },
+            {
+              "title": "Perguntas frequentes ",
+              "href": "/duvidas-frequentes"
+            },
+            {
+              "title": "E-mail: sac@alphabeto.com",
+              "href": "malito:sac@alphabeto.com",
+              "openInNewTab": false
+            },
+            {
+              "title": "Whatsapp: (21) 99942-2795",
+              "href": "https://api.whatsapp.com/send/?phone=5521999422795&text&type=phone_number&app_absent=0",
+              "openInNewTab": true
+            },
+            {
+              "title": "Contato: privacidade@alphabeto.com",
+              "href": "malito:privacidade@alphabeto.com"
+            }
+          ],
+          "title": "Fale conosco"
+        }
+      ],
+      "socialLogos": [
+        {
+          "title": "Instagram",
+          "logo": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/c5470252-25f8-4e79-ac45-525ce9692923/instagram.svg",
+          "url": "https://www.instagram.com/lojaalphabeto/"
+        },
+        {
+          "title": "Facebook",
+          "logo": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/9ff8b37a-125e-41ed-9f0b-5a954d7eef6e/facebook.svg",
+          "url": "https://www.facebook.com/lojaalphabeto"
+        },
+        {
+          "title": "YouTube",
+          "logo": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/3f32ee3c-6b0d-4c35-b527-27724e32ec40/youtube.svg",
+          "url": "https://www.youtube.com/user/alphabetooficial"
+        },
+        {
+          "url": "https://www.linkedin.com/company/lojaalphabeto",
+          "logo": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/a9468de9-05d9-4919-a8d1-814a9bb95500/linkedin.svg",
+          "title": "Linkedin"
+        },
+        {
+          "title": "Spotify",
+          "logo": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/68d3dcab-b457-4892-8efe-9bad60286d3c/spotify.svg",
+          "url": "https://open.spotify.com/user/vmd1xaqfgbfza8xp9cf6hjnla"
+        }
+      ]
+    }
+  ],
   "card": {
-    "button": {},
-    "image": {}
+    "button": {
+      "text": "Montar minha boneca",
+      "href": "/mini-me"
+    },
+    "image": {
+      "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/aabde690-2705-4cad-8fed-7581caaebf15/mini-me-footer-card-mobi.png",
+      "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/90fd39dd-9090-4264-95fa-0409f2c28c4f/mini-me-footer-card-desk.png",
+      "alt": " Menina sorridente segura boneca de cabelos amarelos e vestido azul, em frente a fundo azul claro com detalhes geométricos."
+    },
+    "title": "Faça a sua boneca",
+    "description": "A brincadeira começa bem antes de receber o presente! Customize sua Mini me do seu jeitinho!",
+    "badge": "Mini me"
   },
-  "tecnologiesLogo": {},
-  "cardFlags": []
+  "tecnologiesLogo": {
+    "econverse": {
+      "0": "h",
+      "1": "t",
+      "2": "t",
+      "3": "p",
+      "4": "s",
+      "5": ":",
+      "6": "/",
+      "7": "/",
+      "8": "d",
+      "9": "e",
+      "10": "c",
+      "11": "o",
+      "12": "-",
+      "13": "s",
+      "14": "i",
+      "15": "t",
+      "16": "e",
+      "17": "s",
+      "18": "-",
+      "19": "a",
+      "20": "s",
+      "21": "s",
+      "22": "e",
+      "23": "t",
+      "24": "s",
+      "25": ".",
+      "26": "s",
+      "27": "3",
+      "28": ".",
+      "29": "s",
+      "30": "a",
+      "31": "-",
+      "32": "e",
+      "33": "a",
+      "34": "s",
+      "35": "t",
+      "36": "-",
+      "37": "1",
+      "38": ".",
+      "39": "a",
+      "40": "m",
+      "41": "a",
+      "42": "z",
+      "43": "o",
+      "44": "n",
+      "45": "a",
+      "46": "w",
+      "47": "s",
+      "48": ".",
+      "49": "c",
+      "50": "o",
+      "51": "m",
+      "52": "/",
+      "53": "a",
+      "54": "l",
+      "55": "p",
+      "56": "h",
+      "57": "a",
+      "58": "b",
+      "59": "e",
+      "60": "t",
+      "61": "o",
+      "62": "/",
+      "63": "7",
+      "64": "3",
+      "65": "1",
+      "66": "2",
+      "67": "8",
+      "68": "3",
+      "69": "0",
+      "70": "e",
+      "71": "-",
+      "72": "3",
+      "73": "4",
+      "74": "9",
+      "75": "e",
+      "76": "-",
+      "77": "4",
+      "78": "d",
+      "79": "9",
+      "80": "0",
+      "81": "-",
+      "82": "8",
+      "83": "9",
+      "84": "d",
+      "85": "9",
+      "86": "-",
+      "87": "2",
+      "88": "5",
+      "89": "8",
+      "90": "4",
+      "91": "5",
+      "92": "8",
+      "93": "0",
+      "94": "d",
+      "95": "0",
+      "96": "d",
+      "97": "7",
+      "98": "3",
+      "99": "/",
+      "100": "e",
+      "101": "c",
+      "102": "o",
+      "103": "n",
+      "104": "v",
+      "105": "e",
+      "106": "r",
+      "107": "s",
+      "108": "e",
+      "109": ".",
+      "110": "s",
+      "111": "v",
+      "112": "g",
+      "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/7312830e-349e-4d90-89d9-2584580d0d73/econverse.svg",
+      "url": "https://www.econverse.com.br/"
+    },
+    "vtex": {
+      "0": "h",
+      "1": "t",
+      "2": "t",
+      "3": "p",
+      "4": "s",
+      "5": ":",
+      "6": "/",
+      "7": "/",
+      "8": "d",
+      "9": "e",
+      "10": "c",
+      "11": "o",
+      "12": "-",
+      "13": "s",
+      "14": "i",
+      "15": "t",
+      "16": "e",
+      "17": "s",
+      "18": "-",
+      "19": "a",
+      "20": "s",
+      "21": "s",
+      "22": "e",
+      "23": "t",
+      "24": "s",
+      "25": ".",
+      "26": "s",
+      "27": "3",
+      "28": ".",
+      "29": "s",
+      "30": "a",
+      "31": "-",
+      "32": "e",
+      "33": "a",
+      "34": "s",
+      "35": "t",
+      "36": "-",
+      "37": "1",
+      "38": ".",
+      "39": "a",
+      "40": "m",
+      "41": "a",
+      "42": "z",
+      "43": "o",
+      "44": "n",
+      "45": "a",
+      "46": "w",
+      "47": "s",
+      "48": ".",
+      "49": "c",
+      "50": "o",
+      "51": "m",
+      "52": "/",
+      "53": "a",
+      "54": "l",
+      "55": "p",
+      "56": "h",
+      "57": "a",
+      "58": "b",
+      "59": "e",
+      "60": "t",
+      "61": "o",
+      "62": "/",
+      "63": "8",
+      "64": "8",
+      "65": "6",
+      "66": "3",
+      "67": "f",
+      "68": "9",
+      "69": "4",
+      "70": "d",
+      "71": "-",
+      "72": "9",
+      "73": "c",
+      "74": "5",
+      "75": "5",
+      "76": "-",
+      "77": "4",
+      "78": "3",
+      "79": "5",
+      "80": "c",
+      "81": "-",
+      "82": "a",
+      "83": "4",
+      "84": "4",
+      "85": "e",
+      "86": "-",
+      "87": "2",
+      "88": "9",
+      "89": "8",
+      "90": "a",
+      "91": "2",
+      "92": "2",
+      "93": "0",
+      "94": "1",
+      "95": "c",
+      "96": "3",
+      "97": "d",
+      "98": "7",
+      "99": "/",
+      "100": "v",
+      "101": "t",
+      "102": "e",
+      "103": "x",
+      "104": ".",
+      "105": "s",
+      "106": "v",
+      "107": "g",
+      "url": "https://vtex.com/",
+      "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/8863f94d-9c55-435c-a44e-298a2201c3d7/vtex.svg"
+    }
+  },
+  "cardFlags": [
+    {
+      "title": "Visa",
+      "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/6d922ffa-f80b-4081-98d6-fea215301026/visa.svg"
+    },
+    {
+      "title": "MasterCard",
+      "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/eede3cad-6853-4626-8793-e7d310bb0413/mastercard.svg"
+    },
+    {
+      "title": "Dinners Club"
+    },
+    {
+      "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/69596a10-a73d-4985-984a-ed50a29bf0a9/elo.svg",
+      "title": "Elo"
+    },
+    {
+      "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/00c5bc36-08de-4834-80f2-c9f28f802bda/ame.svg",
+      "title": "Ame"
+    },
+    {
+      "title": "PIX",
+      "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/d0309547-35a6-4b9f-bad2-09aec8b815f3/pix.svg"
+    }
+  ],
+  "copyright": "Copyright {{year}} - Todos os Direitos Reservados J.M.F. COMERCIO DE ROUPAS LTDA CNPJ: 10.657.141/0027-74 "
 }

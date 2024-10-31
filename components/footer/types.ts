@@ -5,13 +5,14 @@ export interface Item {
   title: string;
   /** @title URL */
   href: string;
+  openInNewTab?: boolean;
 }
 
 /** @title {{title}} */
 export interface Menu {
   title: string;
   /** @title URL */
-  href: string;
+  href?: string;
   itens: Item[];
 }
 
@@ -19,6 +20,8 @@ export interface Menu {
 export interface SocialLogo {
   title: string;
   logo: ImageWidget;
+  /** @title URL */
+  url: string;
 }
 
 export interface Column {
@@ -33,23 +36,38 @@ export interface Newsletter {
   formState?: "idle" | "success" | "error";
 }
 
+export interface CardImage {
+  desktop: ImageWidget;
+  mobile: ImageWidget;
+  /** @title Alternative Text */
+  alt: string;
+}
+
+export interface CardButton {
+  text: string;
+  /** @title URL */
+  href: string;
+}
+
 export interface Card {
   title: string;
   badge?: string;
   description: string;
-  button: {
-    text: string;
-    href: string;
-  };
-  image: {
-    desktop: ImageWidget;
-    mobile: ImageWidget;
-  };
+  button: CardButton;
+  image: CardImage;
 }
 
 export interface TecnologiesLogo {
-  econverse: ImageWidget;
-  vtex: ImageWidget;
+  econverse: {
+    image: ImageWidget;
+    /** @title URL */
+    url: string;
+  };
+  vtex: {
+    image: ImageWidget;
+    /** @title URL */
+    url: string;
+  };
 }
 /** @title {{title}} */
 export interface CardFlag {
