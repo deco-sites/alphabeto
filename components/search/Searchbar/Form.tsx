@@ -112,7 +112,7 @@ export default function Searchbar(
   const slot = useId();
   return (
     <div
-      className={clx(
+      class={clx(
         "flex flex-col gap-[22px] px-5 overflow-y-auto max-h-dvh",
         "desk:gap-8 desk:max-w-[95rem] desk:w-full desk:mx-auto desk:px-10",
       )}

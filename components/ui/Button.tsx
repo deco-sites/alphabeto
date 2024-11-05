@@ -54,7 +54,6 @@ const makeFinalClass = (
   }: MakeFinalClassParam,
 ) => {
   const { common, hover, notHover } = typeClasses[styleType];
-  const classNames = className?.toString();
   return clx(
     "btn",
     common,
@@ -62,7 +61,7 @@ const makeFinalClass = (
     textStyles,
     "rounded-lg",
     disabledClasses,
-    classNames,
+    className?.toString(),
   );
 };
 
@@ -80,14 +79,14 @@ type ButtonProps =
   & CommomButtonProps;
 
 export default function Button(props: ButtonProps) {
-  const finalClassName = makeFinalClass(
+  const finalclass = makeFinalClass(
     props,
   );
 
   return (
     <button
       {...props}
-      className={finalClassName}
+      class={finalclass}
     >
       {props.children}
     </button>
@@ -102,13 +101,13 @@ type ButtonAnchorProps =
   & CommomButtonProps;
 
 export function ButtonAnchor(props: ButtonAnchorProps) {
-  const finalClassName = makeFinalClass(
+  const finalclass = makeFinalClass(
     props,
   );
   return (
     <a
       {...props}
-      className={finalClassName}
+      class={finalclass}
     >
       {props.children}
     </a>
@@ -123,13 +122,13 @@ type ButtonLabelProps =
   & CommomButtonProps;
 
 export function ButtonLabel(props: ButtonLabelProps) {
-  const finalClassName = makeFinalClass(
+  const finalclass = makeFinalClass(
     props,
   );
   return (
     <label
       {...props}
-      className={finalClassName}
+      class={finalclass}
     >
       {props.children}
     </label>

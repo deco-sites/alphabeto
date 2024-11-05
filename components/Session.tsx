@@ -320,7 +320,7 @@ export default function Session(
             drawer={MINICART_DRAWER_ID}
             class="max-w-full desk:max-w-[375px] desk:w-full"
           >
-            <div className="h-full flex flex-col bg-base-100 items-center justify-center overflow-auto border-none w-full">
+            <div class="h-full flex flex-col bg-base-100 items-center justify-center overflow-auto border-none w-full">
               <CartProvider
                 cart={minicart!}
                 minicartSettings={props.minicartClientSettings}

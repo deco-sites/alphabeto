@@ -92,7 +92,7 @@ function TopSearchsMobile({ suggestion, mostSellerTerms }: Props) {
       >
         Mais Procurados
       </span>
-      <div className="flex justify-between">
+      <div class="flex justify-between">
         {columns.map((column, index) => (
           <ul key={index} class="flex flex-col gap-3 min-w-[133px]">
             {column.map(({ content, hightlight }) => {

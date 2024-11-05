@@ -19,10 +19,10 @@ function Menu(props: MenuProps) {
     : props.title;
 
   return (
-    <ul className="flex flex-col text-[13px] leading-[19.5px] gap-3">
-      <li className="text-primary font-bold mb-2">{titleContent}</li>
+    <ul class="flex flex-col text-[13px] leading-[19.5px] gap-3">
+      <li class="text-primary font-bold mb-2">{titleContent}</li>
       {props.itens.map((item) => (
-        <li className="text-base-content hover:text-primary">
+        <li class="text-base-content hover:text-primary">
           <a href={item.href} target={item.openInNewTab ? "_blank" : "_self"}>
             {item.title}
           </a>
@@ -35,13 +35,13 @@ function Menu(props: MenuProps) {
 function Column(props: ColumnProps) {
   return (
     <div>
-      <nav className="flex flex-col gap-[50px]">
+      <nav class="flex flex-col gap-[50px]">
         {props.menus.map((menu) => <Menu {...menu} />)}
       </nav>
       {props.socialLogos?.length != null && (
-        <nav className="flex gap-[10px] mt-8">
+        <nav class="flex gap-[10px] mt-8">
           {props.socialLogos.map((socialLogo) => (
-            <a href={socialLogo.url} target="_blank" className="block w-5 h-5">
+            <a href={socialLogo.url} target="_blank" class="block w-5 h-5">
               <Image
                 src={socialLogo.logo}
                 width={20}
@@ -58,14 +58,14 @@ function Column(props: ColumnProps) {
 
 export default function MenusAndCardDesktop(props: Props) {
   return (
-    <div className="relative">
-      <div className="flex items-center justify-between container gap-4 pt-[30px] pb-7 px-10">
-        <div className="flex max-w-[871px] w-full justify-between gap-4">
+    <div class="relative">
+      <div class="flex items-center justify-between container gap-4 pt-[30px] pb-7 px-10">
+        <div class="flex max-w-[871px] w-full justify-between gap-4">
           {props.columns.map((column) => <Column {...column} />)}
         </div>
         <Card {...props.card} />
       </div>
-      <div className="flex gap-3 absolute left-[max(40px,_calc(((100vw_-_95rem)_/_2)_+_40px))] bottom-4">
+      <div class="flex gap-3 absolute left-[max(40px,_calc(((100vw_-_95rem)_/_2)_+_40px))] bottom-4">
         <a href={props.tecnologiesLogo.econverse.url} target="_blank">
           <Image
             src={props.tecnologiesLogo.econverse.image}

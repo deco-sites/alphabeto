@@ -84,32 +84,32 @@ export default function MinicartFooter(props: Props) {
 
   return (
     <footer class="w-full">
-      <div className="top-5 relative z-0 flex justify-center">
+      <div class="top-5 relative z-0 flex justify-center">
         <button
           type="button"
           onClick={toogleAll}
-          className="btn-circle btn-secondary-content bg-secondary-content w-10 h-10 pt-[5px] flex justify-center"
+          class="btn-circle btn-secondary-content bg-secondary-content w-10 h-10 pt-[5px] flex justify-center"
         >
           {hasOneOpenned
             ? (
               <IconCheveronsDown
-                className="w-3 h-3"
-                strokeClassName="stroke-primary"
+                class="w-3 h-3"
+                strokeclass="stroke-primary"
               />
             )
             : (
               <IconCheveronsUp
-                className="w-3 h-3"
-                strokeClassName="stroke-primary"
+                class="w-3 h-3"
+                strokeclass="stroke-primary"
               />
             )}
         </button>
       </div>
-      <div className="bg-secondary-content z-10 relative px-6">
+      <div class="bg-secondary-content z-10 relative px-6">
         {/* Subtotal */}
         <div class="border-b border-secondary border-dashed pt-5 pb-[10px] flex w-full justify-between text-xs leading-[18px] text-[#676767]">
           <span>Subtotal</span>
-          <output form={MINICART_FORM_ID} className="font-bold">
+          <output form={MINICART_FORM_ID} class="font-bold">
             {formatPrice(subtotal, currency, locale)}
           </output>
         </div>
@@ -133,14 +133,14 @@ export default function MinicartFooter(props: Props) {
         <div class="flex gap-4 items-center py-5">
           <label
             for={MINICART_DRAWER_ID}
-            className="text-[13px] leading-[19.5px] font-bold underline text-[#676767] cursor-pointer w-1/2"
+            class="text-[13px] leading-[19.5px] font-bold underline text-[#676767] cursor-pointer w-1/2"
           >
             Continuar Comprando
           </label>
           <ButtonAnchor
             styleType={ButtonType.Primary}
             href={checkoutHref}
-            className="h-11 w-1/2 minicartCheckout"
+            class="h-11 w-1/2 minicartCheckout"
             hx-on:click={sendBeginCheckoutEvent}
           >
             <span class="[.minicartContent.htmx-request_&]:hidden">

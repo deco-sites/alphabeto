@@ -1,11 +1,11 @@
 interface Props {
-  className?: string;
-  strokeClassName?: string;
+  class?: string;
+  strokeclass?: string;
   strokeWidth?: number;
 }
 
 export function IconCheveronsDown(
-  { className, strokeClassName, strokeWidth }: Props,
+  { class: className, strokeclass, strokeWidth }: Props,
 ) {
   return (
     <svg
@@ -14,18 +14,18 @@ export function IconCheveronsDown(
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      class={className}
     >
       <path
         d="M7 13L12 18L17 13"
-        className={strokeClassName}
+        class={strokeclass}
         stroke-width={strokeWidth ?? "2"}
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M7 6L12 11L17 6"
-        className={strokeClassName}
+        class={strokeclass}
         stroke-width={strokeWidth ?? "2"}
         stroke-linecap="round"
         stroke-linejoin="round"

@@ -1,15 +1,17 @@
 interface NewsletterStarsProps {
-  className?: string;
+  class?: string;
 }
 
-export const NewsletterStarsOne = ({ className }: NewsletterStarsProps) => (
+export const NewsletterStarsOne = (
+  { class: className }: NewsletterStarsProps,
+) => (
   <svg
     width="43"
     height="79"
     viewBox="0 0 43 79"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={className}
+    class={className}
   >
     <path
       d="M1.35655 21.3572C0.875112 21.3066 0.421447 21.2374 0 21.1532C0.439821 21.1532 0.8928 21.2234 1.35655 21.3572C8.43216 22.1002 21.5064 18.8153 26.4615 0C27.5641 7.93245 32.4154 24.0618 43 25.1194C35.7231 29.306 21.1692 39.53 21.1692 46.9337C17.2473 38.8895 8.14712 23.3155 1.35655 21.3572Z"
@@ -22,14 +24,16 @@ export const NewsletterStarsOne = ({ className }: NewsletterStarsProps) => (
   </svg>
 );
 
-export const NewsletterStarsTwo = ({ className }: NewsletterStarsProps) => (
+export const NewsletterStarsTwo = (
+  { class: className }: NewsletterStarsProps,
+) => (
   <svg
     width="30"
     height="32"
     viewBox="0 0 30 32"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={className}
+    class={className}
   >
     <path
       d="M0.91828 14.4387C0.592384 14.4045 0.285287 14.3577 0 14.3008C0.297725 14.3008 0.604357 14.3482 0.91828 14.4387C5.70792 14.941 14.5582 12.7202 17.9124 0C18.6588 5.36278 21.9427 16.2671 29.1077 16.9821C24.1818 19.8125 14.3299 26.7245 14.3299 31.7298C11.6751 26.2915 5.51497 15.7626 0.91828 14.4387Z"
@@ -38,14 +42,16 @@ export const NewsletterStarsTwo = ({ className }: NewsletterStarsProps) => (
   </svg>
 );
 
-export const NewsletterStarsThree = ({ className }: NewsletterStarsProps) => (
+export const NewsletterStarsThree = (
+  { class: className }: NewsletterStarsProps,
+) => (
   <svg
     width="58"
     height="44"
     viewBox="0 0 58 44"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={className}
+    class={className}
   >
     <path
       d="M39.5994 32.5561C39.3867 32.5334 39.1862 32.5025 39 32.4648C39.1943 32.4648 39.3945 32.4962 39.5994 32.5561C42.7258 32.8885 48.5028 31.4187 50.6923 23C51.1795 26.5493 53.3231 33.7662 58 34.2394C54.7846 36.1127 48.3538 40.6873 48.3538 44C46.6209 40.4007 42.5999 33.4323 39.5994 32.5561Z"

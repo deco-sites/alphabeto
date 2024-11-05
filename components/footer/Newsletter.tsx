@@ -99,23 +99,23 @@ export default function Newsletter(props: Props) {
   };
 
   return (
-    <div className="bg-secondary-content ">
-      <div className="flex flex-col desk:flex-row py-5 desk:py-10 items-center gap-[30px] justify-between container relative">
-        <div className="desk:max-w-[422px] flex flex-col max-1240:max-w-[300px]">
+    <div class="bg-secondary-content ">
+      <div class="flex flex-col desk:flex-row py-5 desk:py-10 items-center gap-[30px] justify-between container relative">
+        <div class="desk:max-w-[422px] flex flex-col max-1240:max-w-[300px]">
           <h3
             dangerouslySetInnerHTML={{
               __html: sanitizedCode,
             }}
-            className="text-[28px] desk:text-[40px] leading-8 desk:leading-[48px] text-center desk:text-left font-medium text-[#676767] font-beccaPerry [&_strong]:text-primary [&_strong]:font-medium"
+            class="text-[28px] desk:text-[40px] leading-8 desk:leading-[48px] text-center desk:text-left font-medium text-[#676767] font-beccaPerry [&_strong]:text-primary [&_strong]:font-medium"
           />
           {props.description && (
-            <p className="text-[13px] leading-[19.5px] desk:font-medium text-[#7E7F88] pt-4 desk:text-base max-w-[371px] text-center desk:text-left">
+            <p class="text-[13px] leading-[19.5px] desk:font-medium text-[#7E7F88] pt-4 desk:text-base max-w-[371px] text-center desk:text-left">
               {props.description}
             </p>
           )}
         </div>
         <form
-          className="flex flex-col desk:grid grid-cols-2  grid-rows-2 gap-4 desk:mr-[99px] max-1330:mr-0  w-full desk:w-auto"
+          class="flex flex-col desk:grid grid-cols-2  grid-rows-2 gap-4 desk:mr-[99px] max-1330:mr-0  w-full desk:w-auto"
           id={formId}
           hx-post={useComponent(import.meta.url, props)}
           hx-target={`#${submitButtonWrapperId} .textSpan`}
@@ -145,13 +145,13 @@ export default function Newsletter(props: Props) {
             placeholder="Nome da criança"
             required
           />
-          <div className="flex flex-col desk:flex-row justify-between gap-9">
+          <div class="flex flex-col desk:flex-row justify-between gap-9">
             <div>
-              <span className="text-xs leading-[14.4px] text-[#676767] font-semibold block">
+              <span class="text-xs leading-[14.4px] text-[#676767] font-semibold block">
                 Tenho Interresse em:
               </span>
-              <div className="flex gap-[14px] pt-[14px]">
-                <div className="flex items-center">
+              <div class="flex gap-[14px] pt-[14px]">
+                <div class="flex items-center">
                   <RadioInput
                     name="interest"
                     value="boys"
@@ -159,13 +159,13 @@ export default function Newsletter(props: Props) {
                     required
                   />
                   <label
-                    className="text-xs leading-[14.4px] text-[#676767] font-medium pl-1"
+                    class="text-xs leading-[14.4px] text-[#676767] font-medium pl-1"
                     htmlFor="boysInterest"
                   >
                     Meninos
                   </label>
                 </div>
-                <div className="flex items-center">
+                <div class="flex items-center">
                   <RadioInput
                     name="interest"
                     value="girls"
@@ -173,13 +173,13 @@ export default function Newsletter(props: Props) {
                     required
                   />
                   <label
-                    className="text-xs leading-[14.4px] text-[#676767] font-medium pl-1"
+                    class="text-xs leading-[14.4px] text-[#676767] font-medium pl-1"
                     htmlFor="girlsInterest"
                   >
                     Meninas
                   </label>
                 </div>
-                <div className="flex items-center">
+                <div class="flex items-center">
                   <RadioInput
                     name="interest"
                     value="any"
@@ -187,7 +187,7 @@ export default function Newsletter(props: Props) {
                     required
                   />
                   <label
-                    className="text-xs leading-[14.4px] text-[#676767] font-medium pl-1"
+                    class="text-xs leading-[14.4px] text-[#676767] font-medium pl-1"
                     htmlFor="anyInterest"
                   >
                     Ambos
@@ -197,7 +197,7 @@ export default function Newsletter(props: Props) {
             </div>
 
             <Button
-              className="h-11 px-5 w-full desk:w-auto"
+              class="h-11 px-5 w-full desk:w-auto"
               type="submit"
               id={submitButtonWrapperId}
             >
@@ -208,9 +208,9 @@ export default function Newsletter(props: Props) {
             </Button>
           </div>
         </form>
-        <NewsletterStarsOne className="absolute top-[51px] left-[429px] hidden desk:block max-1240:left-[310px]" />
-        <NewsletterStarsTwo className="absolute right-[85px] bottom-[45px] hidden desk:block max-1330:bottom-6" />
-        <NewsletterStarsThree className="absolute block desk:hidden top-[57px] right-[10px]" />
+        <NewsletterStarsOne class="absolute top-[51px] left-[429px] hidden desk:block max-1240:left-[310px]" />
+        <NewsletterStarsTwo class="absolute right-[85px] bottom-[45px] hidden desk:block max-1330:bottom-6" />
+        <NewsletterStarsThree class="absolute block desk:hidden top-[57px] right-[10px]" />
       </div>
     </div>
   );

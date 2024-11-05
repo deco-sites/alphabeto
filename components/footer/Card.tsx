@@ -6,7 +6,7 @@ export function Card(props: CardProps) {
   const { image } = props;
 
   return (
-    <article className="bg-primary flex text-white gap-[10px] items-center p-[10px] desk:p-5 rounded-2xl">
+    <article class="bg-primary flex text-white gap-[10px] items-center p-[10px] desk:p-5 rounded-2xl">
       <Picture>
         <Source
           media="(max-width: 1023px)"
@@ -23,26 +23,26 @@ export function Card(props: CardProps) {
         <img
           src={image.mobile}
           alt={image.alt}
-          className="rounded-md"
+          class="rounded-md"
         />
       </Picture>
       <div>
         {props.badge && (
-          <span className="text-xs leading-[18px] font-bold">
+          <span class="text-xs leading-[18px] font-bold">
             {props.badge}
           </span>
         )}
-        <h3 className="font-beccaPerry text-xl leading-6 font-medium">
+        <h3 class="font-beccaPerry text-xl leading-6 font-medium">
           {props.title}
         </h3>
-        <p className="text-xs leading-[18px] max-w-[158px] desk:max-w-[187px] mt-[10px]  mb-[14px]">
+        <p class="text-xs leading-[18px] max-w-[158px] desk:max-w-[187px] mt-[10px]  mb-[14px]">
           {props.description}
         </p>
         <ButtonAnchor
           styleType={ButtonType.Secondary}
           href={props.button.href}
           disableHover
-          className="text-xs leading-[18px] mobile:px-3 min-h-[35px] h-[35px]"
+          class="text-xs leading-[18px] mobile:px-3 min-h-[35px] h-[35px]"
         >
           {props.button.text}
         </ButtonAnchor>

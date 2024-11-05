@@ -23,7 +23,7 @@ export default function Coupon({ coupon, openCoupon }: Props) {
 
   return (
     <div class="flex justify-between items-center flex-col mt-5">
-      <div className="flex justify-between w-full items-center ">
+      <div class="flex justify-between w-full items-center ">
         <span class="text-xs leading-[18px] font-bold text-[#676767]">
           Cupom de desconto
         </span>
@@ -36,15 +36,15 @@ export default function Coupon({ coupon, openCoupon }: Props) {
           {openCoupon.value
             ? (
               <IconMinus
-                className="w-[18px] h-[18px] toogle-minus-icon"
-                strokeClassName="stroke-primary"
+                class="w-[18px] h-[18px] toogle-minus-icon"
+                strokeclass="stroke-primary"
                 strokeWidth={3}
               />
             )
             : (
               <IconPlus
-                className="w-[18px] h-[18px] toogle-minus-icon"
-                strokeClassName="stroke-primary"
+                class="w-[18px] h-[18px] toogle-minus-icon"
+                strokeclass="stroke-primary"
                 strokeWidth={3}
               />
             )}
@@ -53,25 +53,25 @@ export default function Coupon({ coupon, openCoupon }: Props) {
       {coupon
         ? (
           <div
-            className={clx(
+            class={clx(
               "transition-[height] w-full overflow-hidden",
               openCoupon.value ? "h-[60px]" : "h-0",
             )}
           >
-            <div className="flex justify-between w-full pt-5">
-              <span className="text-sm font-bold text-[#676767]">Cupom:</span>
-              <div className="flex flex-col items-end text-[#676767]">
-                <span className="text-sm">{coupon}</span>
+            <div class="flex justify-between w-full pt-5">
+              <span class="text-sm font-bold text-[#676767]">Cupom:</span>
+              <div class="flex flex-col items-end text-[#676767]">
+                <span class="text-sm">{coupon}</span>
                 <input
                   type="hidden"
                   form={MINICART_FORM_ID}
-                  className="hidden"
+                  class="hidden"
                   name="coupon"
                   value=""
                 />
                 <button
                   form={MINICART_FORM_ID}
-                  className="text-xs underline text-[#e7e7e7e] pt-1"
+                  class="text-xs underline text-[#e7e7e7e] pt-1"
                   name="action"
                   value="set-coupon"
                 >
@@ -83,23 +83,23 @@ export default function Coupon({ coupon, openCoupon }: Props) {
         )
         : (
           <div
-            className={clx(
+            class={clx(
               "transition-[height] w-full overflow-hidden",
               openCoupon.value ? "h-[54px]" : "h-0",
             )}
           >
-            <div className="flex gap-[5px] w-full pt-[10px]">
+            <div class="flex gap-[5px] w-full pt-[10px]">
               <Input
                 form={MINICART_FORM_ID}
                 name="coupon"
                 type="text"
-                className="flex-1 h-11"
+                class="flex-1 h-11"
                 value={coupon ?? ""}
                 placeholder={"Digite o cupom"}
                 onKeyDown={onKeyDown}
               />
               <Button
-                className="min-w-[107px] h-11 min-h-11"
+                class="min-w-[107px] h-11 min-h-11"
                 styleType={ButtonType.Tertiary}
                 textStyles={TextStyles.Small}
                 form={MINICART_FORM_ID}

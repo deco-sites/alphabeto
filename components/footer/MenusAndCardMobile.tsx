@@ -54,7 +54,7 @@ function Menu(props: ExtendedMenuProps) {
   const titleContent = props.href
     ? (
       <a
-        className="text-[13px] leading-[19.5px] font-bold text-primary"
+        class="text-[13px] leading-[19.5px] font-bold text-primary"
         href={props.href}
         target="_blank"
       >
@@ -62,27 +62,27 @@ function Menu(props: ExtendedMenuProps) {
       </a>
     )
     : (
-      <span className="text-[13px] leading-[19.5px] font-bold text-primary">
+      <span class="text-[13px] leading-[19.5px] font-bold text-primary">
         {props.title}
       </span>
     );
 
   return (
-    <nav className="mb-4 border-b border-dashed border-secondary" id={props.id}>
-      <button className="flex justify-between mb-4 w-full">
+    <nav class="mb-4 border-b border-dashed border-secondary" id={props.id}>
+      <button class="flex justify-between mb-4 w-full">
         {titleContent}
-        <div className="text-[#D6DE23] ">
-          <Icon className="block" id="plus" size={20} />
-          <Icon className="hidden" id="minus" size={20} />
+        <div class="text-[#D6DE23] ">
+          <Icon class="block" id="plus" size={20} />
+          <Icon class="hidden" id="minus" size={20} />
         </div>
       </button>
 
       <ul
-        className="flex flex-col text-[12px] leading-[18px] gap-4 transition-[height] duration-200 ease-linear overflow-hidden"
+        class="flex flex-col text-[12px] leading-[18px] gap-4 transition-[height] duration-200 ease-linear overflow-hidden"
         style={{ height: 0 }}
       >
         {props.itens.map((item) => (
-          <li className="text-[#676767] hover:text-primary first:mt-1 last:mb-4">
+          <li class="text-[#676767] hover:text-primary first:mt-1 last:mb-4">
             <a href={item.href} target={item.openInNewTab ? "_blank" : "_self"}>
               {item.title}
             </a>
@@ -104,12 +104,12 @@ export default function MenusAndCardMobile(props: Props) {
     .flat();
 
   return (
-    <div className="container pt-5 pb-[9px]">
+    <div class="container pt-5 pb-[9px]">
       <Card {...props.card} />
       {allSocialLogos.length != null && (
-        <nav className="flex gap-[10px] mt-[22px] justify-center">
+        <nav class="flex gap-[10px] mt-[22px] justify-center">
           {allSocialLogos.map((socialLogo) => (
-            <a href={socialLogo.url} target="_blank" className="block w-5 h-5">
+            <a href={socialLogo.url} target="_blank" class="block w-5 h-5">
               <Image
                 src={socialLogo.logo}
                 width={20}
@@ -121,7 +121,7 @@ export default function MenusAndCardMobile(props: Props) {
         </nav>
       )}
 
-      <div className="mt-[30px]">
+      <div class="mt-[30px]">
         {allMenus.map((menu) => <Menu {...menu} />)}
         <script
           type="module"
