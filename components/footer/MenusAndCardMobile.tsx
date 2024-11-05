@@ -32,10 +32,11 @@ const handleToogle = (menus: ExtendedMenuProps[]) => {
       const hiddenIcon = menuElement.querySelector(".hidden");
       if (!visibleIcon || !hiddenIcon) return;
       const operation = itens.style.height === "0px" ? "open" : "close";
-      visibleIcon.classList.toggle("block");
-      visibleIcon.classList.toggle("hidden");
-      hiddenIcon.classList.toggle("block");
-      hiddenIcon.classList.toggle("hidden");
+      visibleIcon.classList.remove("block");
+      visibleIcon.classList.add("hidden");
+
+      hiddenIcon.classList.add("block");
+      hiddenIcon.classList.remove("hidden");
 
       if (operation === "close") {
         itens.style.height = "0px";
