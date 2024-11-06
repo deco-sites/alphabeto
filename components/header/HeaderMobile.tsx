@@ -54,7 +54,7 @@ export function Mobile({ logo, searchbar, loading, navItems, links }: Props) {
             />
           </a>
         )}
-        <div className="self-center flex justify-end items-center gap-5">
+        <div class="self-center flex justify-end items-center gap-5">
           <SearchMobile searchbar={searchbar} loading={loading} />
           <Bag />
         </div>

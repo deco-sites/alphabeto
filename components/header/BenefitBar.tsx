@@ -20,7 +20,7 @@ export function BenefitBar({ benefits = [], interval }: BenefitBarProps) {
     <div id={id} class="bg-base-200 h-[30px] items-center flex">
       <div class="flex items-center max-w-[854px] w-full justify-between mx-auto absolute left-[50%] -translate-x-1/2">
         <Slider.PrevButton
-          className="bg-base-200 hidden desk:block"
+          class="bg-base-200 hidden desk:block"
           disabled={false}
         >
           <IconArrowLeft />

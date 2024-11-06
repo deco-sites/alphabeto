@@ -104,7 +104,7 @@ function Suggestions(
           <RenderProductsResults products={products ?? []} />
         </div>
         {hasBanner && (
-          <Picture preload={false} className="flex justify-center">
+          <Picture preload={false} class="flex justify-center">
             <Source
               media="(max-width: 767px)"
               fetchPriority={"auto"}

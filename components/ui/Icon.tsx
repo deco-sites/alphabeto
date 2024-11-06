@@ -19,7 +19,9 @@ export type AvailableIcons =
   | "error"
   | "trash"
   | "location_pin"
-  | "close-search";
+  | "close-search"
+  | "plus"
+  | "minus";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

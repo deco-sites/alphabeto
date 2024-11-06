@@ -32,7 +32,7 @@ export default function Shipping({ cep, openShipping, shippingValue }: Props) {
 
   return (
     <div class="flex justify-between items-center flex-col mt-5">
-      <div className="flex justify-between w-full items-center ">
+      <div class="flex justify-between w-full items-center ">
         <span class="text-xs leading-[18px] font-bold text-[#676767]">
           CEP de Entrega
         </span>
@@ -45,15 +45,15 @@ export default function Shipping({ cep, openShipping, shippingValue }: Props) {
           {openShipping.value
             ? (
               <IconMinus
-                className="w-[18px] h-[18px] toogle-minus-icon"
-                strokeClassName="stroke-primary"
+                class="w-[18px] h-[18px] toogle-minus-icon"
+                strokeclass="stroke-primary"
                 strokeWidth={3}
               />
             )
             : (
               <IconPlus
-                className="w-[18px] h-[18px] toogle-minus-icon"
-                strokeClassName="stroke-primary"
+                class="w-[18px] h-[18px] toogle-minus-icon"
+                strokeclass="stroke-primary"
                 strokeWidth={3}
               />
             )}
@@ -62,23 +62,23 @@ export default function Shipping({ cep, openShipping, shippingValue }: Props) {
       {hideInput.value
         ? (
           <div
-            className={clx(
+            class={clx(
               "transition-[height] w-full overflow-hidden",
               openShipping.value ? "h-[60px]" : "h-0",
             )}
           >
-            <div className="flex justify-between w-full pt-5">
-              <span className="text-sm font-bold text-[#676767]">Frete:</span>
-              <div className="flex flex-col items-end text-[#676767]">
-                <span className="text-sm">
+            <div class="flex justify-between w-full pt-5">
+              <span class="text-sm font-bold text-[#676767]">Frete:</span>
+              <div class="flex flex-col items-end text-[#676767]">
+                <span class="text-sm">
                   {cep}{" "}
-                  <span className="font-bold">
+                  <span class="font-bold">
                     | {formatPrice(shippingValue)}
                   </span>
                 </span>
                 <button
                   type="button"
-                  className="text-xs underline text-[#e7e7e7e] pt-1"
+                  class="text-xs underline text-[#e7e7e7e] pt-1"
                   onClick={() => {
                     hideInput.value = false;
                   }}
@@ -91,23 +91,23 @@ export default function Shipping({ cep, openShipping, shippingValue }: Props) {
         )
         : (
           <div
-            className={clx(
+            class={clx(
               "transition-[height] w-full overflow-hidden",
               openShipping.value ? "h-[54px]" : "h-0",
             )}
           >
-            <div className="flex gap-[5px] w-full pt-[10px]">
+            <div class="flex gap-[5px] w-full pt-[10px]">
               <Input
                 form={MINICART_FORM_ID}
                 name="cep"
                 type="text"
-                className="flex-1 h-11"
+                class="flex-1 h-11"
                 value={cep}
                 placeholder={"Digite o CEP"}
                 onKeyDown={onKeyDown}
               />
               <Button
-                className="min-w-[107px] h-11 min-h-11"
+                class="min-w-[107px] h-11 min-h-11"
                 styleType={ButtonType.Tertiary}
                 textStyles={TextStyles.Small}
                 form={MINICART_FORM_ID}

@@ -45,18 +45,18 @@ function CartItem({ item, index, locale, currency }: Props) {
       <div class="flex flex-col">
         {/* Name and Remove button */}
         <div class="flex justify-between items-center">
-          <legend className="text-[#676767] text-xs font-bold leading-[18px] mb-1">
+          <legend class="text-[#676767] text-xs font-bold leading-[18px] mb-1">
             {name}
           </legend>
         </div>
         {/* Color and Size */}
-        <div className="text-[#676767] text-xs leading-[18px] flex gap-3 mb-[17px]">
-          <span className="capitalize">Cor: {item.color.toLowerCase()}</span>
+        <div class="text-[#676767] text-xs leading-[18px] flex gap-3 mb-[17px]">
+          <span class="capitalize">Cor: {item.color.toLowerCase()}</span>
           <span>Tamanho: {item.size}</span>
         </div>
         {/* Price Block  And Quantity Selector*/}
         <div class="flex items-center gap-2 justify-between">
-          <div className="flex items-center gap-[5px]">
+          <div class="flex items-center gap-[5px]">
             {Boolean(listPrice) && (
               <>
                 <span class="line-through text-xs leading-[14.4px] font-semibold text-[#c5c5c5]">
@@ -75,7 +75,7 @@ function CartItem({ item, index, locale, currency }: Props) {
             <QuantitySelector
               min="0"
               max={String(QUANTITY_MAX_VALUE)}
-              className="input-qtd"
+              class="input-qtd"
               value={quantity}
               name={`item::${index}`}
               small

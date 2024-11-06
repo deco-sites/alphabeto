@@ -9,21 +9,21 @@ export function IconMenuDrawerOpen() {
     >
       <path
         d="M2.5 10H17.5"
-        className="stroke-primary"
+        class="stroke-primary"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M2.5 5H17.5"
-        className="stroke-primary"
+        class="stroke-primary"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M2.5 15H17.5"
-        className="stroke-primary"
+        class="stroke-primary"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"

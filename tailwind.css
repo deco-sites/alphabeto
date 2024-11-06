@@ -28,10 +28,12 @@
   width: 100%;
   margin-right: auto;
   margin-left: auto;
-  padding: 0 40px;
+  padding-left: 40px;
+  padding-right: 40px;
 
   @media (max-width: 1024px) {
-    padding: 0 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
@@ -74,4 +76,11 @@
 /* Handle on hover */
 .customizeScroll::-webkit-scrollbar-thumb:hover {
   background: #d6de23;
+}
+
+.radio:not(:checked) {
+  background-color: white;
+}
+.radio:checked {
+  box-shadow: 0 0 0 4px white inset, 0 0 0 4px white inset;
 }
