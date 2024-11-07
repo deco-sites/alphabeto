@@ -11,7 +11,6 @@ const mapItemCategoriesToAnalyticsCategories = (
 export const itemToAnalyticsItem = (
   item: OrderForm["items"][number] & { coupon?: string },
   index: number,
-  url: string,
 ) => ({
   affiliation: item.seller,
   item_id: item.id,

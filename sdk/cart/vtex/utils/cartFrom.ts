@@ -28,7 +28,7 @@ export const cartFrom = (
         const detailUrl = new URL(item.detailUrl, url).href;
         const skuInfo = skuInformation[item.id];
         return {
-          ...itemToAnalyticsItem({ ...item, detailUrl, coupon }, index, url),
+          ...itemToAnalyticsItem({ ...item, detailUrl, coupon }, index),
           image: item.imageUrl,
           ...skuInfo,
           listPrice: item.listPrice / 100,
