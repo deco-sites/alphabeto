@@ -1,8 +1,16 @@
 {
   "data": {
-    "__resolveType": "shopify/loaders/ProductListingPage.ts",
-    "count": 12
+    "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+    "count": 28,
+    "sort": "release:desc",
+    "fuzzy": "automatic",
+    "pageOffset": 1,
+    "selectedFacets": []
   },
-  "extensions": [],
+  "extensions": [
+    {
+      "__resolveType": "vtex/loaders/product/extensions/listingPage.ts"
+    }
+  ],
   "__resolveType": "commerce/loaders/product/extensions/listingPage.ts"
 }

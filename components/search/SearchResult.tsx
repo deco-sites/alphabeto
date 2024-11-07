@@ -28,13 +28,14 @@ export interface Props {
   /** @hidden */
   partial?: "hideMore" | "hideLess";
 }
-function NotFound() {
-  return (
-    <div class="w-full flex justify-center items-center py-10">
-      <span>Not Found!</span>
-    </div>
-  );
-}
+
+export const loader = (props: Props, req: Request) => {
+  return {
+    ...props,
+    url: req.url,
+  };
+};
+
 const useUrlRebased = (overrides: string | undefined, base: string) => {
   let url: string | undefined = undefined;
   if (overrides) {
@@ -48,6 +49,39 @@ const useUrlRebased = (overrides: string | undefined, base: string) => {
   }
   return url;
 };
+
+const setPageQuerystring = (page: string, id: string) => {
+  const element = document.getElementById(id)?.querySelector(
+    "[data-product-list]",
+  );
+  if (!element) {
+    return;
+  }
+  new IntersectionObserver((entries) => {
+    const url = new URL(location.href);
+    const prevPage = url.searchParams.get("page");
+    for (let it = 0; it < entries.length; it++) {
+      if (entries[it].isIntersecting) {
+        url.searchParams.set("page", page);
+      } else if (
+        typeof history.state?.prevPage === "string" &&
+        history.state?.prevPage !== page
+      ) {
+        url.searchParams.set("page", history.state.prevPage);
+      }
+    }
+    history.replaceState({ prevPage }, "", url.href);
+  }).observe(element);
+};
+
+function NotFound() {
+  return (
+    <div class="w-full flex justify-center items-center py-10">
+      <span>Not Found!</span>
+    </div>
+  );
+}
+
 function PageResult(props: SectionProps<typeof loader>) {
   const { layout, startingPage = 0, url, partial } = props;
   const page = props.page!;
@@ -152,29 +186,7 @@ function PageResult(props: SectionProps<typeof loader>) {
     </div>
   );
 }
-const setPageQuerystring = (page: string, id: string) => {
-  const element = document.getElementById(id)?.querySelector(
-    "[data-product-list]",
-  );
-  if (!element) {
-    return;
-  }
-  new IntersectionObserver((entries) => {
-    const url = new URL(location.href);
-    const prevPage = url.searchParams.get("page");
-    for (let it = 0; it < entries.length; it++) {
-      if (entries[it].isIntersecting) {
-        url.searchParams.set("page", page);
-      } else if (
-        typeof history.state?.prevPage === "string" &&
-        history.state?.prevPage !== page
-      ) {
-        url.searchParams.set("page", history.state.prevPage);
-      }
-    }
-    history.replaceState({ prevPage }, "", url.href);
-  }).observe(element);
-};
+
 function Result(props: SectionProps<typeof loader>) {
   const container = useId();
   const controls = useId();
@@ -212,6 +224,7 @@ function Result(props: SectionProps<typeof loader>) {
   const sortBy = sortOptions.length > 0 && (
     <Sort sortOptions={sortOptions} url={url} />
   );
+
   return (
     <>
       <div id={container} {...viewItemListEvent} class="w-full">
@@ -297,10 +310,5 @@ function SearchResult({ page, ...props }: SectionProps<typeof loader>) {
   }
   return <Result {...props} page={page} />;
 }
-export const loader = (props: Props, req: Request) => {
-  return {
-    ...props,
-    url: req.url,
-  };
-};
+
 export default SearchResult;
