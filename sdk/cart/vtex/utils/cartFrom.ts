@@ -1,4 +1,4 @@
-import { itemToAnalyticsItem } from "apps/vtex/hooks/useCart.ts";
+import { itemToAnalyticsItem } from "site/sdk/cart/vtex/utils/useCartCustom.ts";
 import { Minicart } from "../../../../components/minicart/Minicart.tsx";
 import { Cart } from "../types.ts";
 import { SkuInformationData } from "./loadSizes.ts";
@@ -28,7 +28,7 @@ export const cartFrom = (
         const detailUrl = new URL(item.detailUrl, url).href;
         const skuInfo = skuInformation[item.id];
         return {
-          ...itemToAnalyticsItem({ ...item, detailUrl, coupon }, index),
+          ...itemToAnalyticsItem({ ...item, detailUrl, coupon }, index, url),
           image: item.imageUrl,
           ...skuInfo,
           listPrice: item.listPrice / 100,
