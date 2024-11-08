@@ -107,53 +107,78 @@
       }
     },
     {
-      "__resolveType": "site/sections/Product/ProductShelf.tsx",
-      "products": {
-        "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
-        "page": 3,
-        "pagesize": 1,
-        "props": {
-          "sort": "price:desc",
-          "collection": "773",
-          "count": 16
+      "__resolveType": "site/sections/TabLayout/TabLayout.tsx",
+      "title": "Favoritos da Semana",
+      "description": "Conheça os novos queridinhos da alphabeto",
+      "tabs": [
+        {
+          "section": {
+            "__resolveType": "site/sections/Product/ProductShelf.tsx",
+            "products": {
+              "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+              "props": {
+                "sort": "price:desc",
+                "collection": "768",
+                "count": 16
+              }
+            }
+          },
+          "label": "Meninos",
+          "title": "Menino",
+          "products": {
+            "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+            "props": {
+              "sort": "price:desc",
+              "collection": "768",
+              "count": 8
+            },
+            "page": 5,
+            "pagesize": 1
+          },
+          "tabIndex": 0
+        },
+        {
+          "section": {
+            "__resolveType": "site/sections/Product/ProductShelf.tsx",
+            "products": {
+              "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+              "props": {
+                "sort": "price:desc",
+                "collection": "769",
+                "count": 16
+              }
+            },
+            "title": "Meninas"
+          },
+          "label": "Meninas",
+          "title": "Meninas",
+          "products": {
+            "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+            "props": {
+              "sort": "price:desc",
+              "collection": "769",
+              "similars": true,
+              "count": 8
+            },
+            "page": 4
+          },
+          "tabIndex": 1
+        },
+        {
+          "section": {
+            "__resolveType": "site/sections/Product/ProductShelf.tsx",
+            "products": {
+              "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+              "props": {
+                "sort": "price:desc"
+              }
+            }
+          },
+          "label": "Bebês",
+          "title": "Bebês"
         }
-      },
-      "title": "Nossos Queridinhos"
-    },
-    {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Category/CategoryGrid.tsx",
-        "title": "Departments",
-        "cta": "/all",
-        "items": [
-          {
-            "label": "Men",
-            "href": "/men",
-            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/38c33c9f-14a1-4048-973b-dc2a75caf1fa"
-          },
-          {
-            "href": "/women",
-            "label": "Women",
-            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/f6bea2b8-b248-4b42-9246-6e924a0acc8b"
-          },
-          {
-            "href": "/kids",
-            "label": "Kids",
-            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/1b0ecaa2-9a13-4de2-bf17-5196948ed128"
-          },
-          {
-            "href": "/accessories",
-            "label": "Accessories",
-            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/92129655-fe40-4b29-8fdb-e7f71e67a5d1"
-          },
-          {
-            "href": "/home-and-living",
-            "label": "Home & Living",
-            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/d0433c00-cd26-4638-b519-0cb64b9f82e8"
-          }
-        ]
-      }
+      ],
+      "activeTab": 0
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
@@ -168,26 +193,6 @@
         "images": {
           "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/cf96d47f-564f-40da-ad94-7acac5f39327",
           "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/4d5c3212-3f75-4d50-89f3-970815748b43"
-        }
-      }
-    },
-    {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Newsletter/Newsletter.tsx",
-        "label": "Sign up",
-        "placeholder": "Email address",
-        "empty": {
-          "title": "Get top deals, latest trends, and more.",
-          "description": "Receive our news and promotions in advance. Enjoy and get 10% off your first purchase. For more information click here."
-        },
-        "success": {
-          "title": "Thank you for subscribing!",
-          "description": "You’re now signed up to receive the latest news, trends, and exclusive promotions directly to your inbox. Stay tuned!"
-        },
-        "failed": {
-          "title": "Oops!. Something went wrong!",
-          "description": "Something went wrong. Please try again. If the problem persists, please contact us."
         }
       }
     },
