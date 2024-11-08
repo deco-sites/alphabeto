@@ -33,15 +33,14 @@ export default function TabLayout(
 
         <div>
           {tabs.map((tab, index) => (
-              <button
-                hx-post={useSection({ props: { activeTab: index } })}
-                hx-swap="outerHTML"
-                hx-target="closest section"
-              >
-                {tab.label}
-              </button>
-            )
-          )}
+            <button
+              hx-post={useSection({ props: { activeTab: index } })}
+              hx-swap="outerHTML"
+              hx-target="closest section"
+            >
+              {tab.label}
+            </button>
+          ))}
         </div>
 
         <div id={shelfId}>

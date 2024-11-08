@@ -104,7 +104,7 @@ function Carousel({ images = [], preload, interval }: Props) {
         "grid-rows-[1fr_32px_1fr_64px]",
         "grid-cols-[32px_1fr_32px] min-h-[450px]",
         "sm:grid-cols-[112px_1fr_112px] sm:min-h-min",
-        "w-full"
+        "w-full",
       )}
     >
       <div class="col-span-full row-span-full">
@@ -139,7 +139,7 @@ function Carousel({ images = [], preload, interval }: Props) {
         class={clx(
           "col-span-full row-start-4 z-10",
           "carousel justify-center gap-3",
-          "desk:relative desk:top-7"
+          "desk:relative desk:top-7",
         )}
       >
         {images.map((_, index) => (
@@ -148,9 +148,10 @@ function Carousel({ images = [], preload, interval }: Props) {
               index={index}
               class={clx(
                 "bg-secondary opacity-20 h-3 w-3 no-animation rounded-full",
-                "disabled:w-8 disabled:bg-primary disabled:opacity-100 transition-[width]"
+                "disabled:w-8 disabled:bg-primary disabled:opacity-100 transition-[width]",
               )}
-            ></Slider.Dot>
+            >
+            </Slider.Dot>
           </li>
         ))}
       </ul>
