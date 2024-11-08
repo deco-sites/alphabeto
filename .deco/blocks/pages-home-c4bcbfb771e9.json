@@ -118,8 +118,35 @@
               "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
               "props": {
                 "sort": "price:desc",
+                "collection": "769",
+                "count": 8
+              }
+            }
+          },
+          "label": "Meninas",
+          "title": "Meninas",
+          "products": {
+            "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+            "props": {
+              "sort": "price:desc",
+              "collection": "769",
+              "count": 8,
+              "similars": true
+            },
+            "page": 4
+          },
+          "tabIndex": 1,
+          "backgroundColor": "#FF859A"
+        },
+        {
+          "section": {
+            "__resolveType": "site/sections/Product/ProductShelf.tsx",
+            "products": {
+              "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+              "props": {
+                "sort": "price:desc",
                 "collection": "768",
-                "count": 16
+                "count": 8
               }
             }
           },
@@ -135,7 +162,8 @@
             "page": 5,
             "pagesize": 1
           },
-          "tabIndex": 0
+          "tabIndex": 0,
+          "backgroundColor": "#70D1E8"
         },
         {
           "section": {
@@ -144,38 +172,14 @@
               "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
               "props": {
                 "sort": "price:desc",
-                "collection": "769",
-                "count": 16
-              }
-            },
-            "title": "Meninas"
-          },
-          "label": "Meninas",
-          "title": "Meninas",
-          "products": {
-            "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
-            "props": {
-              "sort": "price:desc",
-              "collection": "769",
-              "similars": true,
-              "count": 8
-            },
-            "page": 4
-          },
-          "tabIndex": 1
-        },
-        {
-          "section": {
-            "__resolveType": "site/sections/Product/ProductShelf.tsx",
-            "products": {
-              "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
-              "props": {
-                "sort": "price:desc"
+                "collection": "670",
+                "count": 8
               }
             }
           },
           "label": "Bebês",
-          "title": "Bebês"
+          "title": "Bebês",
+          "backgroundColor": "#D6DE23"
         }
       ],
       "activeTab": 0

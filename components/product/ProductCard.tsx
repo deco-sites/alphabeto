@@ -183,7 +183,7 @@ function ProductCard({
               <li>
                 <a href={link} class="cursor-pointer">
                   <input
-                    class="hidden peer"
+                    class="peer"
                     type="radio"
                     name={`${id}-${firstSkuVariations?.[0]}`}
                     checked={link === relativeUrl}

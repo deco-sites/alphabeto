@@ -29,8 +29,6 @@ function ProductSlider({ products, itemListName }: Props) {
                 index={index}
                 class={clx(
                   "carousel-item",
-                  "first:pl-5 first:sm:pl-0",
-                  "last:pr-5 last:sm:pr-0",
                 )}
               >
                 <ProductCard
@@ -45,13 +43,13 @@ function ProductSlider({ products, itemListName }: Props) {
         </div>
 
         <div class="col-start-1 col-span-1 row-start-1 row-span-1 z-10 self-center p-2 relative bottom-[15%]">
-          <Slider.PrevButton class="hidden sm:flex disabled:invisible btn btn-outline btn-sm btn-circle no-animation">
+          <Slider.PrevButton class="flex disabled:invisible btn btn-outline btn-sm btn-circle">
             <Icon id="chevron-right" class="rotate-180" />
           </Slider.PrevButton>
         </div>
 
         <div class="col-start-3 col-span-1 row-start-1 row-span-1 z-10 self-center p-2 relative bottom-[15%]">
-          <Slider.NextButton class="hidden sm:flex disabled:invisible btn btn-outline btn-sm btn-circle no-animation">
+          <Slider.NextButton class="flex disabled:invisible btn btn-outline btn-sm btn-circle">
             <Icon id="chevron-right" />
           </Slider.NextButton>
         </div>
