@@ -55,13 +55,13 @@ function WishlistButton({ item, variant = "full" }: Props) {
         aria-label="Add to wishlist"
         hx-on:click={useScript(onClick, productID, productGroupID)}
         class={clx(
-          "btn no-animation",
+          "btn no-animation rounded-full !bg-white shadow-[0px_2px_10px_0px_#3B3B3B1A] w-10 h-10 hover:opacity-90",
           variant === "icon"
             ? "btn-circle btn-ghost btn-sm"
             : "btn-primary btn-outline gap-2 w-full",
         )}
       >
-        <Icon id="favorite" class="[.htmx-request_&]:hidden" fill="none" />
+        <Icon id="favorite" class="[.htmx-request_&]:hidden w-5 text-[#FF859A]" fill="#FF859A" />
         {variant === "full" && (
           <span class="[.htmx-request_&]:hidden">Add to wishlist</span>
         )}

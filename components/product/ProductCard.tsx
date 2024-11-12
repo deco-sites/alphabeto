@@ -11,6 +11,7 @@ import WishlistButton from "../wishlist/WishlistButton.tsx";
 import AddToCartButton from "./AddToCartButton.tsx";
 import { Ring } from "./ProductVariantSelector.tsx";
 import { useId } from "../../sdk/useId.ts";
+import { QuickViewButton } from "site/components/product/quickview/QuickView.tsx";
 
 interface Props {
   product: Product;
@@ -26,8 +27,8 @@ interface Props {
   class?: string;
 }
 
-const WIDTH = 287;
-const HEIGHT = 287;
+const WIDTH = 466;
+const HEIGHT = 466;
 const ASPECT_RATIO = `${WIDTH} / ${HEIGHT}`;
 
 function ProductCard({
@@ -79,7 +80,7 @@ function ProductCard({
     >
       <figure
         class={clx(
-          "relative bg-base-200",
+          "relative bg-base-200 h-[466px]",
           "rounded border border-transparent",
           "group-hover:border-primary",
         )}
@@ -93,6 +94,7 @@ function ProductCard({
             "absolute top-0 left-0",
             "grid grid-cols-1 grid-rows-1",
             "w-full",
+            "transform transition-transform duration-300 hover:scale-110",
             !inStock && "opacity-70",
           )}
         >
@@ -103,7 +105,7 @@ function ProductCard({
             height={HEIGHT}
             style={{ aspectRatio: ASPECT_RATIO }}
             class={clx(
-              "object-cover",
+              "object-cover h-[466px]",
               "rounded w-full",
               "col-span-full row-span-full",
             )}
@@ -119,7 +121,7 @@ function ProductCard({
             height={HEIGHT}
             style={{ aspectRatio: ASPECT_RATIO }}
             class={clx(
-              "object-cover",
+              "object-cover h-[466px]",
               "rounded w-full",
               "col-span-full row-span-full",
               "transition-opacity opacity-0 lg:group-hover:opacity-100",
@@ -131,29 +133,19 @@ function ProductCard({
         </a>
 
         {/* Wishlist button */}
-        <div class="absolute top-0 left-0 w-full flex items-center justify-between">
-          {/* Notify Me */}
-          <span
-            class={clx(
-              "text-sm/4 font-normal text-black bg-error bg-opacity-15 text-center rounded-badge px-2 py-1",
-              inStock && "opacity-0",
-            )}
-          >
-            Notify me
-          </span>
-
+        <div class="absolute top-0 left-0 flex items-center justify-between">
           {/* Discounts */}
           <span
             class={clx(
-              "text-sm/4 font-normal text-black bg-primary bg-opacity-15 text-center rounded-badge px-2 py-1",
+              "bg-[url(https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/c8bb9397-459e-4c62-a325-ab0147648a3b/discountBackground.svg)] p-[10px] text-white text-center bg-cover bg-no-repeat h-[50px] w-[55px] flex items-center justify-center font-medium text-[11px] m-4",
               (percent < 1 || !inStock) && "opacity-0",
             )}
           >
-            {percent} % off
+            {percent}% off
           </span>
         </div>
 
-        <div class="absolute bottom-0 right-0">
+        <div class="absolute top-0 right-0 m-[14px]">
           <WishlistButton item={item} variant="icon" />
         </div>
       </figure>
@@ -200,7 +192,7 @@ function ProductCard({
       <div>
         {inStock
           ? (
-            <AddToCartButton
+            <QuickViewButton
               product={product}
               seller={seller}
               item={item}

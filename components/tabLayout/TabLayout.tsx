@@ -34,16 +34,16 @@ export default function TabLayout(
           <p class="text-[#676767] text-base font-medium">{description}</p>
         </span>
 
-        <div class="flex justify-between gap-6">
+        <div class="flex justify-between gap-6 items-center">
           {tabs.map((tab, index) => (
             <button
-              hx-post={useSection({ props: { activeTab: index } })}
               style={{
                 background: activeTab === index
                   ? `${currentTab.backgroundColor} !important`
                   : "#F7F7F7",
                 color: activeTab === index ? "#FFF" : "#676767",
               }}
+              hx-post={useSection({ props: { activeTab: index } })}
               hx-swap="outerHTML"
               hx-target="closest section"
               class="max-w-40 h-11 px-10 flex items-center justify-center rounded-lg hover:!bg-[#F7E0BF] text-xl font-bold"
