@@ -3,8 +3,10 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import * as $_app from "./routes/_app.tsx";
+import * as $Map from "./islands/Map.tsx";
 import * as $MinicartFooter from "./islands/MinicartFooter.tsx";
 import * as $Notify from "./islands/Notify.tsx";
+import * as $formsNossasLojas from "./islands/formsNossasLojas.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -12,8 +14,10 @@ const manifest = {
     "./routes/_app.tsx": $_app,
   },
   islands: {
+    "./islands/Map.tsx": $Map,
     "./islands/MinicartFooter.tsx": $MinicartFooter,
     "./islands/Notify.tsx": $Notify,
+    "./islands/formsNossasLojas.tsx": $formsNossasLojas,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

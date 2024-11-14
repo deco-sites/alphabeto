@@ -10,6 +10,7 @@ export type AvailableIcons =
   | "chevron-right"
   | "favorite"
   | "home_pin"
+  | "home_icon"
   | "call"
   | "local_shipping"
   | "pan_zoom"

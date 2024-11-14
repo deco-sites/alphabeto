@@ -1,0 +1,42 @@
+{
+  "name": "Nossas Lojas",
+  "path": "/nossas-lojas",
+  "sections": [
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Header"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Breadcrumb/Breadcrumb.tsx",
+      "route": "Nossas Lojas",
+      "root": "HOME"
+    },
+    {
+      "__resolveType": "site/sections/NossasLojas/NossasLojas.tsx",
+      "title": "Encontre uma loja perto de você!",
+      "paragraph": "<p>Em cada loja você vai encontrar detalhes do Mundo Mágico da Alphabeto em cada cantinho. Tudo preparado com muito carinho para receber você e a criançada com muita alegria no nosso universo alegre e colorido. Ah, sempre tem um balão divertido pra criançada começar a brincadeira.</p>",
+      "items": [
+        {
+          "paragraph": "<p>Em cada loja você vai encontrar detalhes do Mundo Mágico da Alphabeto em cada cantinho. Tudo preparado com muito carinho para receber você e a criançada com muita alegria no nosso universo alegre e colorido. Ah, sempre tem um balão divertido pra criançada começar a brincadeira.</p>",
+          "title": "Encontre uma loja perto de você!"
+        }
+      ],
+      "apiKey": {
+        "__resolveType": "website/loaders/secret.ts",
+        "encrypted": "c023ddfdc61ad47d330a2fc127ae49613294c20e534dcd1e3418027db2d56e061de4731f74558a8bdf6fe577663527ce"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer"
+      }
+    }
+  ],
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
+  "__resolveType": "website/pages/Page.tsx"
+}
