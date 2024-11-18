@@ -21,6 +21,7 @@ export type AvailableIcons =
   | "trash"
   | "location_pin"
   | "close-search"
+  | "logo_store"
   | "plus"
   | "minus";
 
