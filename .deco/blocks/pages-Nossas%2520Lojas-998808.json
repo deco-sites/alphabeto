@@ -25,7 +25,8 @@
       ],
       "apiKey": {
         "__resolveType": "website/loaders/secret.ts",
-        "encrypted": "c023ddfdc61ad47d330a2fc127ae49613294c20e534dcd1e3418027db2d56e061de4731f74558a8bdf6fe577663527ce"
+        "encrypted": "0bb9088851f809ab67eb0416474dd8ecac774558aa52006e414eb59cd74ae01cf0e04c3341174e6964b0a5bb06d97cd1",
+        "name": "GOOGLE_MAPS_API_KEY"
       }
     },
     {
