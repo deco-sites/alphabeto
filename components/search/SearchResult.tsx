@@ -2,16 +2,22 @@ import { type SectionProps } from "@deco/deco";
 import { useDevice, useScript, useSection } from "@deco/deco/hooks";
 import type { ProductListingPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import ProductCard from "../../components/product/ProductCard.tsx";
-import Filters from "../../components/search/Filters.tsx";
-import Icon from "../../components/ui/Icon.tsx";
-import { clx } from "../../sdk/clx.ts";
-import { useId } from "../../sdk/useId.ts";
-import { useOffer } from "../../sdk/useOffer.ts";
-import { useSendEvent } from "../../sdk/useSendEvent.ts";
-import Breadcrumb from "../ui/Breadcrumb.tsx";
-import Drawer from "../ui/Drawer/index.tsx";
-import Sort from "./Sort.tsx";
+import ProductCard from "site/components/product/ProductCard.tsx";
+import CategoryBanner, {
+  Props as BannerProps,
+} from "site/components/search/CategoryBanner.tsx";
+import Filters from "site/components/search/Filters.tsx";
+import SortDesktop from "site/components/search/Sort/SortDesktop.tsx";
+import SortMobile from "site/components/search/Sort/SortMobile.tsx";
+import Breadcrumb, {
+  BreadcrumbOverride,
+} from "site/components/ui/Breadcrumb.tsx";
+import Drawer from "site/components/ui/Drawer/index.tsx";
+import Icon from "site/components/ui/Icon.tsx";
+import { clx } from "site/sdk/clx.ts";
+import { useId } from "site/sdk/useId.ts";
+import { useOffer } from "site/sdk/useOffer.ts";
+import { useSendEvent } from "site/sdk/useSendEvent.ts";
 export interface Layout {
   /**
    * @title Pagination
@@ -20,12 +26,26 @@ export interface Layout {
   pagination?: "show-more" | "pagination";
 }
 export interface Props {
-  /** @title Integration */
-  page: ProductListingPage | null;
+  /**
+   * @title SEO Settings
+   * @description The SEO Settings for this page
+   */
+  seo: {
+    /** @title Banner Settings */
+    banner?: BannerProps;
+    /** @title Breadcrumb Override */
+    breadcrumb?: BreadcrumbOverride[];
+  };
+  /** @title Visual Configuration */
   layout?: Layout;
+  /** @title Integration to Ecommerce Plataform */
+  page: ProductListingPage | null;
   /** @description 0 for ?page=0 as your first page */
   startingPage?: 0 | 1;
-  /** @hidden */
+  /**
+   * @title Partial Otimization
+   * @hide
+   */
   partial?: "hideMore" | "hideLess";
 }
 
@@ -124,7 +144,7 @@ function PageResult(props: SectionProps<typeof loader>) {
         class={clx(
           "grid items-center",
           "grid-cols-2 gap-2",
-          "sm:grid-cols-4 sm:gap-10",
+          "desk:grid-cols-4 desk:gap-10",
           "w-full",
         )}
       >
@@ -221,9 +241,12 @@ function Result(props: SectionProps<typeof loader>) {
       {page.pageInfo.recordPerPage} of {page.pageInfo.records} results
     </span>
   );
-  const sortBy = sortOptions.length > 0 && (
-    <Sort sortOptions={sortOptions} url={url} />
-  );
+  const SortBy = () => {
+    if (sortOptions.length === 0) return null;
+    if (device === "desktop") {
+      return <SortDesktop sortOptions={sortOptions} url={url} />;
+    } else return <SortMobile sortOptions={sortOptions} url={url} />;
+  };
 
   return (
     <>
@@ -231,8 +254,13 @@ function Result(props: SectionProps<typeof loader>) {
         {partial
           ? <PageResult {...props} />
           : (
-            <div class="container flex flex-col gap-4 sm:gap-5 w-full py-4 sm:py-5 px-5 sm:px-0">
-              <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
+            <div class="container flex flex-col gap-5 desk:gap-5 w-full py-5 px-5">
+              <Breadcrumb
+                itemListElement={breadcrumb?.itemListElement}
+                breadcrumbOverride={props.seo.breadcrumb}
+              />
+
+              {props.seo.banner && <CategoryBanner {...props.seo.banner} />}
 
               {device === "mobile" && (
                 <Drawer
@@ -256,7 +284,7 @@ function Result(props: SectionProps<typeof loader>) {
                   <div class="flex sm:hidden justify-between items-end">
                     <div class="flex flex-col">
                       {results}
-                      {sortBy}
+                      <SortBy />
                     </div>
 
                     <label class="btn btn-ghost" for={controls}>
@@ -266,24 +294,17 @@ function Result(props: SectionProps<typeof loader>) {
                 </Drawer>
               )}
 
-              <div class="grid place-items-center grid-cols-1 sm:grid-cols-[250px_1fr]">
+              <div class="grid place-items-center grid-cols-1 desk:grid-cols-[265px_1fr] desk:gap-20 mt-5">
                 {device === "desktop" && (
                   <aside class="place-self-start flex flex-col gap-9">
-                    <span class="text-base font-semibold h-12 flex items-center">
-                      Filters
-                    </span>
-
+                    <div>
+                      <SortBy />
+                    </div>
                     <Filters filters={filters} />
                   </aside>
                 )}
 
                 <div class="flex flex-col gap-9">
-                  {device === "desktop" && (
-                    <div class="flex justify-between items-center">
-                      {results}
-                      <div>{sortBy}</div>
-                    </div>
-                  )}
                   <PageResult {...props} />
                 </div>
               </div>

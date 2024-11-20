@@ -1,5 +1,5 @@
-import { ProductListingPage } from "apps/commerce/types.ts";
 import { useScript } from "@deco/deco/hooks";
+import { ProductListingPage } from "apps/commerce/types.ts";
 const SORT_QUERY_PARAM = "sort";
 const PAGE_QUERY_PARAM = "page";
 export type Props = Pick<ProductListingPage, "sortOptions"> & {
@@ -21,7 +21,7 @@ const labels: Record<string, string> = {
   "release:desc": "Lançamento",
   "discount:desc": "Maior desconto",
 };
-function Sort({ sortOptions, url }: Props) {
+function SortMobile({ sortOptions, url }: Props) {
   const current = getUrl(
     url,
     new URL(url).searchParams.get(SORT_QUERY_PARAM) ?? "",
@@ -54,4 +54,4 @@ function Sort({ sortOptions, url }: Props) {
     </>
   );
 }
-export default Sort;
+export default SortMobile;

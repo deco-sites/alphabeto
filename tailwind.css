@@ -84,3 +84,17 @@
 .radio:checked {
   box-shadow: 0 0 0 4px white inset, 0 0 0 4px white inset;
 }
+
+.breadcrumbs > ul > li + *:before,
+.breadcrumbs > ol > li + *:before {
+  content: "|";
+  height: auto;
+  width: auto;
+  transform: unset;
+  border-top: unset;
+  border-right: unset;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 120%;
+  color: #353535;
+}
