@@ -18,7 +18,11 @@ interface StoreInfo {
           longitude: number
         },
     },
-    businessHours: string[]
+    businessHours: {
+        dayOfWeek: string,
+        openingTime: number,
+        closingTime: number,
+    }
   }
 
 interface Stores {
@@ -89,9 +93,9 @@ export default function FormsNossasLojas({ stores }: Stores){
                             {days.map((index) => (
                                 <p class="font-regular text-[12px] text-[#7E7F88]" key={index}><b>{index}: </b> 
                                 {
-                                index == 'Domingo' ? `${store.businessHours}h às ${store.businessHours}h` 
+                                index == 'Domingo' ? `${store.businessHours.openingTime}h às ${store.businessHours.closingTime}h` 
                                 : 
-                                `${store.businessHours}h às ${store.businessHours}h`
+                                `${store.businessHours.openingTime}h às ${store.businessHours.closingTime}h`
                                 }
                                 </p>
                             ))
@@ -130,9 +134,9 @@ export default function FormsNossasLojas({ stores }: Stores){
                             {days.map((index) => (
                                 <p class="font-regular text-[12px] text-[#7E7F88]" key={index}><b>{index}: </b> 
                                 {
-                                index == 'Domingo' ? `${store.businessHours}h às ${store.businessHours}h` 
+                                index == 'Domingo' ? `${store.businessHours.openingTime}h às ${store.businessHours.closingTime}h` 
                                 : 
-                                `${store.businessHours}h às ${store.businessHours}h`
+                                `${store.businessHours.openingTime}h às ${store.businessHours.closingTime}h`
                                 }
                                 </p>
                             ))
