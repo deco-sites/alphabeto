@@ -61,7 +61,11 @@ function WishlistButton({ item, variant = "full" }: Props) {
             : "btn-primary btn-outline gap-2 w-full",
         )}
       >
-        <Icon id="favorite" class="[.htmx-request_&]:hidden w-5 text-[#FF859A]" fill="#FF859A" />
+        <Icon
+          id="favorite"
+          class="[.htmx-request_&]:hidden w-5 text-[#FF859A]"
+          fill="#FF859A"
+        />
         {variant === "full" && (
           <span class="[.htmx-request_&]:hidden">Add to wishlist</span>
         )}

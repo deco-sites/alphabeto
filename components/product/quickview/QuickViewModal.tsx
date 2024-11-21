@@ -1,107 +1,91 @@
 import { useScript } from "@deco/deco/hooks";
+import { useId } from "site/sdk/useId.ts";
 
-const toggleDrawer = () => {
-  const drawer = document.getElementById("drawer-right-example");
-  if (drawer?.classList.contains("translate-x-full")) {
-    drawer?.classList.remove("translate-x-full");
-    drawer?.classList.add("translate-x-0");
-  } else {
-    drawer?.classList.remove("translate-x-0");
-    drawer?.classList.add("translate-x-full");
-  }
+const script = (id: string, showButtonId: string) => {
+  const togglebutton = document.getElementById(showButtonId);
 
-  addEventListener("click", toggleDrawer)
-}
+  const toggleDrawer = () => {
+    const drawer = document.getElementById(id);
+    const delayedSection = document.getElementById("imagesModal");
 
-function QuickViewModal() {
+    if (drawer?.classList.contains("translate-x-full")) {
+      // Abre o modal
+      drawer?.classList.remove("translate-x-full");
+      drawer?.classList.add("translate-x-0");
+
+      setTimeout(() => {
+        delayedSection?.classList.remove("translate-x-full");
+        delayedSection?.classList.remove("right-0");
+        delayedSection?.classList.add("translate-x-0");
+        delayedSection?.classList.add("right-[365px]");
+      }, 300);
+    } else {
+      // Fecha o modal e reseta a seção atrasada
+      drawer?.classList.remove("translate-x-0");
+      drawer?.classList.add("translate-x-full");
+
+      delayedSection?.classList.remove("translate-x-0");
+      delayedSection?.classList.add("translate-x-full");
+    }
+  };
+
+  // Detecta clique fora do modal para fechá-lo
+  const handleClickOutside = (event: MouseEvent) => {
+    const drawer = document.getElementById(id);
+    const delayedSection = document.getElementById("imagesModal");
+
+    if (drawer && !drawer.contains(event.target as Node)) {
+      drawer?.classList.remove("translate-x-0");
+      drawer?.classList.add("translate-x-full");
+
+      delayedSection?.classList.remove("translate-x-0");
+      delayedSection?.classList.add("translate-x-full");
+      delayedSection?.classList.remove("right-[365px]");
+      delayedSection?.classList.add("right-0");
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+  togglebutton?.addEventListener("click", toggleDrawer);
+};
+
+function QuickViewModal({ children }: any) {
+  const modalId = useId();
+  const showButtonId = useId();
+
   return (
     <>
       <div class="text-center">
         <button
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          class="bg-[#FF8300] hover:bg-[#F7E0BF] rounded-lg min-w-[300px] w-full font-bold text-white text-sm px-5 py-2.5 mb-2 lg:absolute "
           type="button"
-          hx-on="click: toggleDrawer()"
+          id={showButtonId}
         >
-          Show right drawer
+          quickview
         </button>
       </div>
+      {/* Product Info */}
       <div
-        id="drawer-right-example"
-        class="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-80 dark:bg-gray-800"
-        aria-labelledby="drawer-right-label"
+        id={modalId}
+        class="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-[375px] shadow-[0px_-4px_20px_0px_#3B3B3B26]"
       >
-        <h5
-          id="drawer-right-label"
-          class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400"
-        >
-          Right drawer
-        </h5>
-        <button
-          type="button"
-          hx-on="click: toggleDrawer()"
-          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white"
-        >
-          <svg
-            class="w-3 h-3"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 14 14"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-            />
-          </svg>
-          <span class="sr-only">Close menu</span>
-        </button>
-        <p class="mb-6 text-sm text-gray-500 dark:text-gray-400">
-          Supercharge your hiring by taking advantage of our{" "}
-          <a
-            href="#"
-            class="text-blue-600 underline font-medium dark:text-blue-500 hover:no-underline"
-          >
-            limited-time sale
-          </a>{" "}
-          for Flowbite Docs + Job Board. Unlimited access to over 190K
-          top-ranked candidates and the #1 design job board.
-        </p>
-        <div class="grid grid-cols-2 gap-4">
-          <a
-            href="#"
-            class="px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-          >
-            Learn more
-          </a>
-          <a
-            href="#"
-            class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-          >
-            Get access{" "}
-            <svg
-              class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 14 10"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M1 5h12m0 0L9 1m4 4L9 9"
-              />
-            </svg>
-          </a>
-        </div>
+        <label class="modal-backdrop" for={modalId}>
+          Close
+        </label>
+        {children}
+      </div>
+      {/* Product Images */}
+      <div
+        id="imagesModal"
+        class="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-[375px]"
+      >
+        <p>Images</p>
       </div>
       <script
         type="module"
-        dangerouslySetInnerHTML={{ __html: useScript(toggleDrawer) }}
+        dangerouslySetInnerHTML={{
+          __html: useScript(script, modalId, showButtonId),
+        }}
       />
     </>
   );

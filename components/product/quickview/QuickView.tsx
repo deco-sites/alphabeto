@@ -11,21 +11,13 @@ export interface Props extends JSX.HTMLAttributes<HTMLButtonElement> {
 
 export function QuickViewButton(props: Props) {
   const { product } = props;
-  const QUICKVIEW_ID = useId();
+  console.log(props);
 
   return (
-    <>
-      <QuickViewModal id={QUICKVIEW_ID} className="!bg-transparent transform-none">
-        <div class="bg-base-100 w-full">
-          <p>{product.name}</p>
-        </div>
-      </QuickViewModal>
-      <label
-        for={QUICKVIEW_ID}
-        class="w-[243px] desk-small:w-[150px] bg-primary-content h-10 cursor-pointer rounded-lg flex items-center px-2 justify-between gap-2"
-      >
-        QuickView
-      </label>
-    </>
+    <QuickViewModal>
+      <div>
+        <p>{product.name}</p>
+      </div>
+    </QuickViewModal>
   );
 }

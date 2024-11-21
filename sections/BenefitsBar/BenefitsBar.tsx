@@ -28,7 +28,7 @@ function BenefitsBar({ items, interval }: BenefitsBar) {
     <div>
       <Slider
         style={{
-          gridTemplateColumns: `repeat(${items.length}, 213px)`,
+          gridTemplateColumns: `repeat(${items.length}, 1fr)`,
         }}
         class="px-10 max-w-full mt-5 grid gap-4 mb-[50px] carousel carousel-center w-screen justify-between"
       >
@@ -39,7 +39,7 @@ function BenefitsBar({ items, interval }: BenefitsBar) {
               backgroundColor: item.backgroundColor,
               borderColor: item.mainColor,
             }}
-            class={`border-dashed border rounded-2xl px-3 py-[6px] flex gap-[5px] items-center carousel-item`}
+            class={`min-w-[213px] border-dashed border rounded-2xl px-3 py-[6px] flex gap-[5px] items-center carousel-item`}
           >
             <img src={item.image} alt={item.imageAlt} />
             <div>
