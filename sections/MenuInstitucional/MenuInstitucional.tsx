@@ -53,11 +53,11 @@ export default function MenuInstitucional(
                                     {label}
                                 </a>
                                 <Icon 
-                                id={`${currentPath === route ? 
-                                "chevron-right-institutional-hover" 
-                                : "chevron-right-institutional" }`} 
+                                id="chevron-right-institutional" 
                                 width="16" 
-                                height="16"/>
+                                height="16"
+                                class={`${currentPath === route ? "text-[#FF8300]" : "text-[#7E7F88]"}`}
+                                />
                             </li>
                         ))}
                 </section>
@@ -75,11 +75,11 @@ export default function MenuInstitucional(
                                 class="text-[12px] font-regular">
                                 {label}</a>
                                 <Icon 
-                                id={`${currentPath === route ? 
-                                "chevron-right-institutional-hover" 
-                                : "chevron-right-institutional" }`} 
+                                id="chevron-right-institutional" 
                                 width="16" 
-                                height="16"/>
+                                height="16"
+                                class={`${currentPath === route ? "text-[#FF8300]" : "text-[#7E7F88]"}`}
+                                />
                             </li>
                         ))}
                 </section>

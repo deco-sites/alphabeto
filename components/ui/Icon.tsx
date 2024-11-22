@@ -9,8 +9,6 @@ export type AvailableIcons =
   | "close"
   | "chevron-right"
   | "chevron-right-institutional"
-  | "chevron-right-institutional-hover"
-  | "chevron-right-institutional-menu"
   | "chevron-up"
   | "favorite"
   | "home_pin"

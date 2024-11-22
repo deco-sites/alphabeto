@@ -24,7 +24,7 @@ export default function MenuInstitutionalMobile({ links, label }: Menu) {
             >
                 {label}{" "}
                 <Icon
-                    id="chevron-right-institutional-menu"
+                    id="chevron-right-institutional"
                     width="16"
                     height="16"
                     style={{
@@ -33,6 +33,7 @@ export default function MenuInstitutionalMobile({ links, label }: Menu) {
                             : "rotate(0deg)",
                         transition: "transform 0.3s",
                     }}
+                    class="text-[#D6DE23]"
                 />
             </button>
             {navigation && (
