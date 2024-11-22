@@ -9,6 +9,39 @@
       }
     },
     {
+      "__resolveType": "site/sections/MenuInstitucional/MenuInstitutionalMobile.tsx",
+      "links": [
+        {
+          "route": "/politicas-de-privacidade",
+          "label": "Políticas de privacidade"
+        },
+        {
+          "route": "/troca-e-devolucao",
+          "label": "Troca e devolução"
+        },
+        {
+          "route": "/termos-e-condicoes",
+          "label": "Termos e condições"
+        },
+        {
+          "route": "/formas-de-pagamento",
+          "label": "Formas de pagamento"
+        },
+        {
+          "route": "/formas-de-entrega",
+          "label": "Formas de entrega"
+        },
+        {
+          "route": "/fale-conosco",
+          "label": "Fale conosco"
+        },
+        {
+          "route": "/duvidas-frequentes",
+          "label": "Dúvidas frequentes"
+        }
+      ]
+    },
+    {
       "__resolveType": "site/sections/MenuInstitucional/MenuInstitucional.tsx",
       "institutionalTitle": "Ajuda",
       "supportTitle": "Fale Conosco",

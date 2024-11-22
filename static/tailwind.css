@@ -3703,6 +3703,9 @@ details.collapse summary::-webkit-details-marker {
 .left-4 {
   left: 1rem;
 }
+.left-\[20px\] {
+  left: 20px;
+}
 .left-\[40px\] {
   left: 40px;
 }
@@ -3736,6 +3739,9 @@ details.collapse summary::-webkit-details-marker {
 .right-\[14px\] {
   right: 14px;
 }
+.right-\[40px\] {
+  right: 40px;
+}
 .right-\[85px\] {
   right: 85px;
 }
@@ -3757,6 +3763,9 @@ details.collapse summary::-webkit-details-marker {
 .top-\[14px\] {
   top: 14px;
 }
+.top-\[184px\] {
+  top: 184px;
+}
 .top-\[220px\] {
   top: 220px;
 }
@@ -3774,6 +3783,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .top-\[70px\] {
   top: 70px;
+}
+.top-\[80\%\] {
+  top: 80%;
 }
 .z-0 {
   z-index: 0;
@@ -4088,6 +4100,12 @@ details.collapse summary::-webkit-details-marker {
 .h-\[3px\] {
   height: 3px;
 }
+.h-\[40px\] {
+  height: 40px;
+}
+.h-\[44px\] {
+  height: 44px;
+}
 .h-\[50px\] {
   height: 50px;
 }
@@ -4255,6 +4273,9 @@ details.collapse summary::-webkit-details-marker {
 .w-\[400px\] {
   width: 400px;
 }
+.w-\[40px\] {
+  width: 40px;
+}
 .w-\[4px\] {
   width: 4px;
 }
@@ -4263,6 +4284,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .w-\[73px\] {
   width: 73px;
+}
+.w-\[90\%\] {
+  width: 90%;
 }
 .w-\[calc\(100\%-48px\)\] {
   width: calc(100% - 48px);
@@ -4698,6 +4722,15 @@ details.collapse summary::-webkit-details-marker {
 .rounded-\[3px\] {
   border-radius: 3px;
 }
+.rounded-\[4px\] {
+  border-radius: 4px;
+}
+.rounded-\[50\%\] {
+  border-radius: 50%;
+}
+.rounded-\[5px\] {
+  border-radius: 5px;
+}
 .rounded-\[6px\] {
   border-radius: 6px;
 }
@@ -4721,6 +4754,10 @@ details.collapse summary::-webkit-details-marker {
 }
 .rounded-none {
   border-radius: 0px;
+}
+.rounded-b-\[5px\] {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 .rounded-l {
   border-top-left-radius: 0.25rem;
@@ -4766,6 +4803,12 @@ details.collapse summary::-webkit-details-marker {
 }
 .border-b-\[1px\] {
   border-bottom-width: 1px;
+}
+.border-l {
+  border-left-width: 1px;
+}
+.border-r {
+  border-right-width: 1px;
 }
 .border-t {
   border-top-width: 1px;
@@ -4840,6 +4883,10 @@ details.collapse summary::-webkit-details-marker {
   --tw-bg-opacity: 1;
   background-color: rgb(201 207 207 / var(--tw-bg-opacity));
 }
+.bg-\[\#D6DE23\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(214 222 35 / var(--tw-bg-opacity));
+}
 .bg-\[\#F6F6F6\] {
   --tw-bg-opacity: 1;
   background-color: rgb(246 246 246 / var(--tw-bg-opacity));
@@ -4851,6 +4898,10 @@ details.collapse summary::-webkit-details-marker {
 .bg-\[\#FDF6ED\] {
   --tw-bg-opacity: 1;
   background-color: rgb(253 246 237 / var(--tw-bg-opacity));
+}
+.bg-\[\#FFFFFF\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 .bg-\[\#f5f4f1\] {
   --tw-bg-opacity: 1;
@@ -4979,6 +5030,9 @@ details.collapse summary::-webkit-details-marker {
 .p-\[10px\] {
   padding: 10px;
 }
+.p-\[8px\] {
+  padding: 8px;
+}
 .px-0 {
   padding-left: 0px;
   padding-right: 0px;
@@ -5014,6 +5068,10 @@ details.collapse summary::-webkit-details-marker {
 .px-8 {
   padding-left: 2rem;
   padding-right: 2rem;
+}
+.px-\[10px\] {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .px-\[12px\] {
   padding-left: 12px;
@@ -5062,6 +5120,10 @@ details.collapse summary::-webkit-details-marker {
 .py-\[10px\] {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+.py-\[13px\] {
+  padding-top: 13px;
+  padding-bottom: 13px;
 }
 .py-\[14px\] {
   padding-top: 14px;
@@ -5837,6 +5899,9 @@ details.collapse summary::-webkit-details-marker {
 .first\:mt-1:first-child {
   margin-top: 0.25rem;
 }
+.first\:mt-\[10px\]:first-child {
+  margin-top: 10px;
+}
 .first\:pl-5:first-child {
   padding-left: 1.25rem;
 }
@@ -6034,8 +6099,20 @@ details.collapse summary::-webkit-details-marker {
 }
 @media (max-width: 1023px) {
 
-  .mobile\:ml-\[40px\] {
-    margin-left: 40px;
+  .mobile\:left-\[20px\] {
+    left: 20px;
+  }
+
+  .mobile\:ml-\[20px\] {
+    margin-left: 20px;
+  }
+
+  .mobile\:block {
+    display: block;
+  }
+
+  .mobile\:flex {
+    display: flex;
   }
 
   .mobile\:hidden {
@@ -6055,8 +6132,8 @@ details.collapse summary::-webkit-details-marker {
     padding-right: 0.75rem;
   }
 
-  .mobile\:pt-\[40px\] {
-    padding-top: 40px;
+  .mobile\:pt-\[80px\] {
+    padding-top: 80px;
   }
 
   .mobile\:text-center {

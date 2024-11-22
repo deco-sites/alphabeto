@@ -1,4 +1,5 @@
 import type { RichText } from "apps/admin/widgets.ts";
+import ScrollButton from "site/islands/ScrollButton.tsx";
 
 /**@title {{ title }}*/
 interface PolicyProps {
@@ -18,7 +19,7 @@ interface ItemsProps {
 
 export default function Policy({ items }: ItemsProps) {
     return (
-        <div class="mb-[100px] ml-[25%] mobile:ml-[40px] mobile:pt-[40px]">
+        <div class="mb-[100px] ml-[25%] mobile:ml-[20px] mobile:pt-[80px]">
             {items.map((content, index) => (
                 <div key={index} class="mb-[40px] pr-[40px]">
                     <section class="flex flex-col mb-[20px]">
@@ -30,6 +31,7 @@ export default function Policy({ items }: ItemsProps) {
                     </section>
                 </div>
             ))}
+            <ScrollButton/>
         </div>
     );
 }

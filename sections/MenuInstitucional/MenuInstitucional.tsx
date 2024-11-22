@@ -38,7 +38,7 @@ export default function MenuInstitucional(
     }: ReturnType<typeof loader>,
 ) {
     return (
-        <div class="mobile:hidden block absolute top-[220px] left-[40px] list-none">
+        <div class="mobile:hidden block absolute top-[220px] left-[40px] mobile:left-[20px] list-none">
             <section>
                 <div class="mb-[20px]">
                     <h3 class="font-bold text-[#FF8300] text-[14px]">{institutionalTitle}</h3>

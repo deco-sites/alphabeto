@@ -15,7 +15,7 @@ export default function Breadcrumb(
     { root, showText, path, route }: BreadcrumbProps,
 ) {
     return (
-        <div class="flex justify-between w-[100%] mt-[20px] ml-[40px] mb-[40px]">
+        <div class="flex justify-between w-[90%] mt-[20px] ml-[40px] mb-[40px] mobile:ml-[20px]">
             <span class="flex items-center">
                 <Icon id="home_icon" width="14px" height="14px" />
                 <p class="text-[#353535] text-[12px] font-medium">
