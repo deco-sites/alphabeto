@@ -4667,9 +4667,6 @@ details.collapse summary::-webkit-details-marker {
 .rounded-none {
   border-radius: 0px;
 }
-.rounded-sm {
-  border-radius: 0.125rem;
-}
 .rounded-l {
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
@@ -5361,6 +5358,10 @@ details.collapse summary::-webkit-details-marker {
 .text-\[\#D6DE23\] {
   --tw-text-opacity: 1;
   color: rgb(214 222 35 / var(--tw-text-opacity));
+}
+.text-\[\#FF8300\] {
+  --tw-text-opacity: 1;
+  color: rgb(255 131 0 / var(--tw-text-opacity));
 }
 .text-\[\#FF859A\] {
   --tw-text-opacity: 1;

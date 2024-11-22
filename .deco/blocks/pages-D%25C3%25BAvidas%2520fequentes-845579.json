@@ -1,0 +1,31 @@
+{
+  "name": "Dúvidas fequentes",
+  "path": "/duvidas-frequentes",
+  "sections": [
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Header"
+      }
+    },
+    {
+      "__resolveType": "site/sections/DuvidasFrequentes/DuvidasFrequentes.tsx",
+      "questions": [
+        {
+          "question": "Pedido veio com embalagem aberta, posso trocar?",
+          "answer": "<p><span>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</span></p>"
+        }
+      ]
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer"
+      }
+    }
+  ],
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
+  "__resolveType": "website/pages/Page.tsx"
+}
