@@ -30,15 +30,20 @@
             "desktop": 4
           },
           "variant": "aside",
-          "pagination": "show-more"
+          "pagination": "show-more",
+          "filters": {
+            "color": {
+              "__resolveType": "Saved Colors"
+            }
+          },
+          "filter": {
+            "__resolveType": "Saved Colors"
+          }
         },
-        "startingPage": 1
-      }
-    },
-    {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Newsletter/Newsletter.tsx"
+        "startingPage": 1,
+        "seo": {
+          "banner": {}
+        }
       }
     },
     {

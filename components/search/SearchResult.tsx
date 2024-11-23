@@ -6,7 +6,9 @@ import ProductCard from "site/components/product/ProductCard.tsx";
 import CategoryBanner, {
   Props as BannerProps,
 } from "site/components/search/CategoryBanner.tsx";
-import Filters from "site/components/search/Filters.tsx";
+import Filters, {
+  FilterSettings,
+} from "site/components/search/Filters/index.tsx";
 import SortDesktop from "site/components/search/Sort/SortDesktop.tsx";
 import SortMobile from "site/components/search/Sort/SortMobile.tsx";
 import Breadcrumb, {
@@ -18,12 +20,18 @@ import { clx } from "site/sdk/clx.ts";
 import { useId } from "site/sdk/useId.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
+
 export interface Layout {
   /**
    * @title Pagination
    * @description Format of the pagination
    */
   pagination?: "show-more" | "pagination";
+  /**
+   * @title Filters
+   * @description Settings About The Filters
+   */
+  filter?: FilterSettings;
 }
 export interface Props {
   /**
@@ -62,9 +70,9 @@ const useUrlRebased = (overrides: string | undefined, base: string) => {
     const temp = new URL(overrides, base);
     const final = new URL(base);
     final.pathname = temp.pathname;
-    for (const [key, value] of temp.searchParams.entries()) {
+    temp.searchParams.forEach((value, key) => {
       final.searchParams.set(key, value);
-    }
+    });
     url = final.href;
   }
   return url;
@@ -247,6 +255,9 @@ function Result(props: SectionProps<typeof loader>) {
       return <SortDesktop sortOptions={sortOptions} url={url} />;
     } else return <SortMobile sortOptions={sortOptions} url={url} />;
   };
+  const filterSettings = props.layout?.filter || {
+    colors: [],
+  };
 
   return (
     <>
@@ -276,7 +287,11 @@ function Result(props: SectionProps<typeof loader>) {
                         </label>
                       </div>
                       <div class="flex-grow overflow-auto">
-                        <Filters filters={filters} />
+                        <Filters
+                          filters={filters}
+                          settings={filterSettings}
+                          url={url}
+                        />
                       </div>
                     </div>
                   }
@@ -294,13 +309,17 @@ function Result(props: SectionProps<typeof loader>) {
                 </Drawer>
               )}
 
-              <div class="grid place-items-center grid-cols-1 desk:grid-cols-[265px_1fr] desk:gap-20 mt-5">
+              <div class="grid grid-cols-1 desk:grid-cols-[265px_1fr] desk:gap-20 mt-5">
                 {device === "desktop" && (
                   <aside class="place-self-start flex flex-col gap-9">
                     <div>
                       <SortBy />
                     </div>
-                    <Filters filters={filters} />
+                    <Filters
+                      filters={filters}
+                      settings={filterSettings}
+                      url={url}
+                    />
                   </aside>
                 )}
 

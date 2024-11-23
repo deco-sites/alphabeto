@@ -8,6 +8,8 @@ export type AvailableIcons =
   | "account_circle"
   | "close"
   | "chevron-right"
+  | "chevron-left"
+  | "chevron-down"
   | "favorite"
   | "home_pin"
   | "call"
