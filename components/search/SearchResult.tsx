@@ -14,6 +14,11 @@ import SortMobile from "site/components/search/Sort/SortMobile.tsx";
 import Breadcrumb, {
   BreadcrumbOverride,
 } from "site/components/ui/Breadcrumb.tsx";
+import {
+  ButtonAnchor,
+  ButtonType,
+  TextStyles,
+} from "site/components/ui/Button.tsx";
 import Drawer from "site/components/ui/Drawer/index.tsx";
 import Icon from "site/components/ui/Icon.tsx";
 import { clx } from "site/sdk/clx.ts";
@@ -136,15 +141,17 @@ function PageResult(props: SectionProps<typeof loader>) {
           (!prevPageUrl || partial === "hideLess") && "hidden",
         )}
       >
-        <a
+        <ButtonAnchor
           rel="prev"
-          class="btn btn-ghost"
+          styleType={ButtonType.Secondary}
+          textStyles={TextStyles.Small}
+          class={"border border-primary h-11"}
           hx-swap="outerHTML show:parent:top"
           hx-get={partialPrev}
         >
-          <span class="inline [.htmx-request_&]:hidden">Show Less</span>
+          <span class="inline [.htmx-request_&]:hidden">Ver anterior</span>
           <span class="loading loading-spinner hidden [.htmx-request_&]:block" />
-        </a>
+        </ButtonAnchor>
       </div>
 
       <div
@@ -171,18 +178,20 @@ function PageResult(props: SectionProps<typeof loader>) {
         {infinite
           ? (
             <div class="flex justify-center [&_section]:contents">
-              <a
+              <ButtonAnchor
                 rel="next"
+                styleType={ButtonType.Secondary}
+                textStyles={TextStyles.Small}
                 class={clx(
-                  "btn btn-ghost",
+                  "border border-primary h-11",
                   (!nextPageUrl || partial === "hideMore") && "hidden",
                 )}
                 hx-swap="outerHTML show:parent:top"
                 hx-get={partialNext}
               >
-                <span class="inline [.htmx-request_&]:hidden">Show More</span>
+                <span class="inline [.htmx-request_&]:hidden">Ver mais</span>
                 <span class="loading loading-spinner hidden [.htmx-request_&]:block" />
-              </a>
+              </ButtonAnchor>
             </div>
           )
           : (
