@@ -46,8 +46,8 @@
     <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
   </symbol>
   <symbol id="home-breadcrumb" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M1.75 5.25L7 1.16667L12.25 5.25V11.6667C12.25 11.9761 12.1271 12.2728 11.9083 12.4916C11.6895 12.7104 11.3928 12.8333 11.0833 12.8333H2.91667C2.60725 12.8333 2.3105 12.7104 2.09171 12.4916C1.87292 12.2728 1.75 11.9761 1.75 11.6667V5.25Z" stroke="#FF8300" stroke-linecap="round" stroke-linejoin="round" />
-    <path d="M5.25 12.8333V7H8.75V12.8333" stroke="#FF8300" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M1.75 5.25L7 1.16667L12.25 5.25V11.6667C12.25 11.9761 12.1271 12.2728 11.9083 12.4916C11.6895 12.7104 11.3928 12.8333 11.0833 12.8333H2.91667C2.60725 12.8333 2.3105 12.7104 2.09171 12.4916C1.87292 12.2728 1.75 11.9761 1.75 11.6667V5.25Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M5.25 12.8333V7H8.75V12.8333" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
   </symbol>
   <symbol id="cat_sort_orders:desc" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clip-path="url(#clip0_175_10510)">
@@ -119,5 +119,22 @@
   </symbol>
   <symbol id="cat_sort_name:desc" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M14.1054 4C14.3587 4 14.5987 4.09333 14.8254 4.28C15.0654 4.45333 15.1854 4.68667 15.1854 4.98C15.1854 5.19333 15.1121 5.40667 14.9654 5.62L6.82539 16.2L6.64539 16.08H13.9654C14.2454 16.08 14.4787 16.1667 14.6654 16.34C14.8654 16.5133 14.9654 16.7467 14.9654 17.04C14.9654 17.3067 14.8654 17.5333 14.6654 17.72C14.4787 17.9067 14.2454 18 13.9654 18H4.90539C4.61206 18 4.35872 17.9 4.14539 17.7C3.94539 17.4867 3.84539 17.2533 3.84539 17C3.84539 16.7867 3.92539 16.58 4.08539 16.38L12.2254 5.8L12.3854 5.92H5.60539C5.32539 5.92 5.08539 5.83333 4.88539 5.66C4.69872 5.47333 4.60539 5.23333 4.60539 4.94C4.60539 4.66 4.69872 4.43333 4.88539 4.26C5.08539 4.08667 5.32539 4 5.60539 4H14.1054Z" fill="currentColor" />
+  </symbol>
+  <symbol id="sort" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2.66536 8H9.33203" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M2.66536 4L13.332 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M2.66536 12H5.33203" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+  </symbol>
+
+  <symbol id="filter" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M13.9987 13.333H9.33203" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M6.6569 13.333H1.99023" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M13.9902 8H7.99023" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M5.32357 8H1.99023" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M13.9896 2.66699H10.6562" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M7.99023 2.66699L1.99023 2.66699" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M9.33203 15.333V11.333" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M5.32422 10V6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M10.6562 4.66699V0.666992" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
   </symbol>
 </svg>

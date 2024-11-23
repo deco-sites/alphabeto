@@ -1,41 +1,60 @@
 import { useScript } from "@deco/deco/hooks";
 import { FilterToggle, FilterToggleValue } from "apps/commerce/types.ts";
-import { parseRange } from "apps/commerce/utils/filters.ts";
+import { FilterMobileLogics } from "site/components/search/Filters/BottomFilterBar.tsx";
 import Icon from "site/components/ui/Icon.tsx";
 import { CheckboxInput } from "site/components/ui/Input.tsx";
 import { clx } from "site/sdk/clx.ts";
-import { formatPrice } from "site/sdk/format.ts";
 
 const SHOW_QUANTITY = false;
 const ITENS_TO_SCROLL = 5;
 const CALCULATED_MAX_HEIGHT = (21 * ITENS_TO_SCROLL) +
     ((ITENS_TO_SCROLL - 1) * 10);
 
-function handleCheckboxChange() {
-    event?.preventDefault();
-    event?.stopPropagation();
-    const target = event?.currentTarget as HTMLInputElement;
-    target.parentElement?.click();
+declare global {
+    interface Window {
+        FILTER_LOGICS: FilterMobileLogics;
+    }
+}
+
+function handleButtonPress() {
+    const target = event?.currentTarget as HTMLButtonElement;
+    const url = target.getAttribute("data-url");
+    const key = target.getAttribute("data-value-key");
+    const value = target.getAttribute("data-value-name");
+    const selected = target.getAttribute("data-selected") === "true";
+    if (!key || !value || !url) return;
+    window.FILTER_LOGICS.filterChange(key, value, url, selected);
+    const input = target.querySelector("input");
+    if (!input) return;
+    input.checked = !selected;
+    target.setAttribute("data-selected", String(!selected));
+}
+
+interface FilterItem {
+    toogleValue: FilterToggleValue;
+    keyValue: string;
 }
 
 function Item(
-    { url, selected, label, quantity, value }: FilterToggleValue,
+    { toogleValue: { selected, label, quantity, value, url }, keyValue }:
+        FilterItem,
 ) {
     return (
-        <a
-            href={url}
-            rel="nofollow"
-            class="flex items-center gap-2"
+        <button
+            data-url={url}
+            data-selected={String(selected)}
+            data-value-key={keyValue}
             data-value-name={value}
+            class="flex items-center gap-2"
+            hx-on:click={useScript(handleButtonPress)}
         >
             <CheckboxInput
                 checked={selected}
-                hx-on:change={useScript(handleCheckboxChange)}
             />
-            <span class="text-xs leading-[18px] text-[#7E7F88]">
+            <span class="text-xs leading-[18px] text-[#7E7F88] text-left">
                 {label} {SHOW_QUANTITY && quantity > 0 && `(${quantity})`}
             </span>
-        </a>
+        </button>
     );
 }
 
@@ -43,7 +62,7 @@ export function handleKeyInputSearch() {
     const target = event?.currentTarget as HTMLInputElement;
     const value = target.value.trim();
     const items = target.parentElement?.nextElementSibling?.querySelectorAll(
-        "a",
+        "button",
     );
     if (!items) return;
     const fullNormalize = (str: string) =>
@@ -67,7 +86,7 @@ export function handleKeyInputSearch() {
 
 export function RenderSearchInput() {
     return (
-        <div class="flex items-center rounded-lg w-full gap-2 p-2.5 mt-5 bg-[#F6F6F6]">
+        <div class="flex items-center rounded-lg w-full gap-2 p-2.5 mt-4 desk:mt-5 bg-[#F6F6F6]">
             <input
                 type="text"
                 class="w-full h-5 text-xs leading-[18px] text-[#676767] bg-transparent focus:outline-none"
@@ -81,12 +100,13 @@ export function RenderSearchInput() {
 
 export default function ShowItemWithCheckboxes({ key, values }: FilterToggle) {
     const showInputAndScroll = values.length > ITENS_TO_SCROLL;
+
     return (
         <>
             {showInputAndScroll && <RenderSearchInput />}
             <ul
                 class={clx(
-                    `flex gap-2.5 flex-col mt-5`,
+                    `flex gap-2.5 flex-col mt-4 desk:mt-5`,
                     showInputAndScroll
                         ? `max-h-[var(--maxHeight)] overflow-y-auto customizeScroll`
                         : "",
@@ -94,19 +114,7 @@ export default function ShowItemWithCheckboxes({ key, values }: FilterToggle) {
                 style={{ "--maxHeight": `${CALCULATED_MAX_HEIGHT}px` }}
             >
                 {values.map((item) => {
-                    if (key === "price") {
-                        const range = parseRange(item.value);
-                        return range && (
-                            <Item
-                                {...item}
-                                label={`${formatPrice(range.from)} - ${
-                                    formatPrice(range.to)
-                                }`}
-                            />
-                        );
-                    }
-
-                    return <Item {...item} />;
+                    return <Item toogleValue={item} keyValue={key} />;
                 })}
             </ul>
         </>

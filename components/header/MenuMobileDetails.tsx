@@ -22,7 +22,7 @@ export function MenuMobileDetails({ submenu }: Props) {
               if (subItem.highlight) return null;
               return (
                 <a
-                  key={subItem.href}
+                  key={subItem.item}
                   href={subItem.href}
                   class={`block text-accent font-medium text-[13px] mb-5`}
                 >

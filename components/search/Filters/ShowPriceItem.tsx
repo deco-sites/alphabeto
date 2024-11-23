@@ -1,6 +1,13 @@
 import { FilterToggle } from "apps/commerce/types.ts";
 import { useCallback } from "preact/hooks";
+import { FilterMobileLogics } from "site/components/search/Filters/BottomFilterBar.tsx";
 import MultiRangeSlider from "site/components/ui/MultiRangeSlider.tsx";
+
+declare global {
+    interface Window {
+        FILTER_LOGICS: FilterMobileLogics;
+    }
+}
 
 export interface Props {
     filterToogle: FilterToggle;
@@ -19,24 +26,19 @@ export default function ShowPriceItem(props: Props) {
     const max = currentPrice ? currentPrice.split(":")[1] : maxPrice;
 
     const changeUrl = useCallback((min: number, max: number) => {
-        const firstUrl = values[0].url;
-        const urlObject = new URL(firstUrl, window.location.href);
-        urlObject.searchParams.set("filter.price", `${min}:${max}`);
-        window.location.href = urlObject.toString();
+        window.FILTER_LOGICS.updatePriceFilter(min, max, values[0].url);
     }, [values]);
 
     return (
         <div>
-            <div>
-                <MultiRangeSlider
-                    maxVal={max}
-                    minVal={min}
-                    max={maxPrice}
-                    min={minPrice}
-                    step="0.01"
-                    onChange={changeUrl}
-                />
-            </div>
+            <MultiRangeSlider
+                maxVal={max}
+                minVal={min}
+                max={maxPrice}
+                min={minPrice}
+                step="0.01"
+                onChange={changeUrl}
+            />
         </div>
     );
 }

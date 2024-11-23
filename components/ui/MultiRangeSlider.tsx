@@ -75,7 +75,6 @@ function dRange(
             if (matchs[0] && matchs[1]) {
                 const valueW1 = parseFloat(removeCurrency(matchs[0][0]));
                 const valueW2 = parseFloat(removeCurrency(matchs[1][0]));
-                console.log(valueW1, valueW2);
                 ri[0].value = valueW1.toString();
                 ri[1].value = valueW2.toString();
                 update_dRange();
@@ -172,8 +171,8 @@ export default function MultiRangeSlider(props: MultiRangeSliderProps) {
 
     return (
         <div id={id}>
-            <div class="double-range">
-                <div class="range-slider">
+            <div class="double-range max-w-[calc(100vw_-_20px_-_-48px)] lg:max-w-[255px]">
+                <div class="range-slider  max-w-[calc(100vw_-_20px_-_-48px)] lg:max-w-[255px]">
                     <span class="range-fill"></span>
                 </div>
                 <div class="range-input">
@@ -198,7 +197,7 @@ export default function MultiRangeSlider(props: MultiRangeSliderProps) {
                     <span>{formatBRL(parseFloat(min))}</span>
                     <span>{formatBRL(parseFloat(max))}</span>
                 </div>
-                <div class="text-input flex gap-3">
+                <div class="text-input max-w-[calc(100vw_-_20px_-_-48px)] lg:max-w-[255px] gap-3 grid grid-cols-2">
                     <div class="flex flex-col">
                         <label
                             for="min"
@@ -208,7 +207,7 @@ export default function MultiRangeSlider(props: MultiRangeSliderProps) {
                         </label>
                         <input
                             id="min"
-                            class="bg-[#F5F4F1] rounded outline-none max-w-[106.5px] text-[#676767] text-xs leading-[18px] h-9 flex items-center pl-3 before:content-['R$']"
+                            class="bg-[#F5F4F1] rounded w-full outline-none text-[#676767] text-xs leading-[18px] h-9 flex items-center pl-3 before:content-['R$']"
                             name="min"
                             value={formatBRL(parseFloat(minVal))}
                         />
@@ -222,7 +221,7 @@ export default function MultiRangeSlider(props: MultiRangeSliderProps) {
                         </label>
                         <input
                             id="max"
-                            class="bg-[#F5F4F1] rounded outline-none max-w-[106.5px] text-[#676767] text-xs leading-[18px] h-9 flex items-center pl-3 before:content-['R$']"
+                            class="bg-[#F5F4F1] rounded outline-none w-full text-[#676767] text-xs leading-[18px] h-9 flex items-center pl-3 before:content-['R$']"
                             name="max"
                             value={formatBRL(parseFloat(maxVal))}
                         />

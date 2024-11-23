@@ -277,34 +277,32 @@ function Result(props: SectionProps<typeof loader>) {
                 <Drawer
                   id={controls}
                   aside={
-                    <div class="bg-base-100 flex flex-col h-full divide-y overflow-y-hidden">
-                      <div class="flex justify-between items-center">
-                        <h1 class="px-4 py-3">
-                          <span class="font-medium text-2xl">Filters</span>
-                        </h1>
-                        <label class="btn btn-ghost" for={controls}>
-                          <Icon id="close" />
-                        </label>
-                      </div>
-                      <div class="flex-grow overflow-auto">
+                    <Drawer.Aside
+                      title="Filtro"
+                      drawer={controls}
+                      class="max-w-[calc(100vw_-_20px)]"
+                    >
+                      <div class="h-full flex flex-col bg-base-100 items-center justify-center border-none w-full">
                         <Filters
                           filters={filters}
                           settings={filterSettings}
                           url={url}
                         />
                       </div>
-                    </div>
+                    </Drawer.Aside>
                   }
                 >
-                  <div class="flex sm:hidden justify-between items-end">
+                  <div class="grid grid-cols-2">
+                    <label
+                      class="flex bg-[#FDF6ED] rounded-[4px_0px_0px_4px] text-xs font-bold leading-[18px] text-[#676767] gap-2.5 h-10 items-center justify-center"
+                      for={controls}
+                    >
+                      <Icon id="filter" size={16} className="text-primary" />
+                      Filtros
+                    </label>
                     <div class="flex flex-col">
-                      {results}
                       <SortBy />
                     </div>
-
-                    <label class="btn btn-ghost" for={controls}>
-                      Filters
-                    </label>
                   </div>
                 </Drawer>
               )}
@@ -345,7 +343,7 @@ function Result(props: SectionProps<typeof loader>) {
   );
 }
 function SearchResult({ page, ...props }: SectionProps<typeof loader>) {
-  if (!page) {
+  if (!page || !page.products || page.products.length === 0) {
     return <NotFound />;
   }
   return <Result {...props} page={page} />;

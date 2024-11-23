@@ -1,57 +1,42 @@
 import { useScript } from "@deco/deco/hooks";
-import { ProductListingPage } from "apps/commerce/types.ts";
-const SORT_QUERY_PARAM = "sort";
-const PAGE_QUERY_PARAM = "page";
-export type Props = Pick<ProductListingPage, "sortOptions"> & {
-  url: string;
-};
-const getUrl = (href: string, value: string) => {
-  const url = new URL(href);
-  url.searchParams.delete(PAGE_QUERY_PARAM);
-  url.searchParams.set(SORT_QUERY_PARAM, value);
-  return url.href;
-};
-const labels: Record<string, string> = {
-  "relevance:desc": "Relevância",
-  "price:desc": "Maior Preço",
-  "price:asc": "Menor Preço",
-  "orders:desc": "Mais vendidos",
-  "name:desc": "Nome - de Z a A",
-  "name:asc": "Nome - de A a Z",
-  "release:desc": "Lançamento",
-  "discount:desc": "Maior desconto",
-};
-function SortMobile({ sortOptions, url }: Props) {
-  const current = getUrl(
-    url,
-    new URL(url).searchParams.get(SORT_QUERY_PARAM) ?? "",
-  );
-  const options = sortOptions?.map(({ value, label }) => ({
-    value: getUrl(url, value),
-    label,
-  }));
+import { Props, useSortData } from "site/components/search/Sort/common.ts";
+import Icon from "site/components/ui/Icon.tsx";
+import { CheckboxInput } from "site/components/ui/Input.tsx";
+import Modal from "site/components/ui/Modal.tsx";
+import { useId } from "site/sdk/useId.ts";
+
+function SortMobile(props: Props) {
+  const { options } = useSortData(props);
+  const id = useId();
   return (
-    <>
-      <label for="sort" class="sr-only">Sort by</label>
-      <select
-        name="sort"
-        class="select w-full max-w-sm rounded-lg"
-        hx-on:change={useScript(() => {
-          const select = event!.currentTarget as HTMLSelectElement;
-          window.location.href = select.value;
-        })}
+    <div>
+      <label
+        for={id}
+        class="flex bg-[#FDF6ED] rounded-[0px_4px_4px_0px] text-xs font-bold leading-[18px] text-[#676767] gap-2.5 h-10 items-center justify-center"
       >
-        {options.map(({ value, label }) => (
-          <option
-            label={labels[label] ?? label}
-            value={value}
-            selected={value === current}
-          >
-            {label}
-          </option>
-        ))}
-      </select>
-    </>
+        <Icon id="sort" size={16} className="text-primary" />
+        Ordernar por
+      </label>
+      <Modal id={id}>
+        <div class="flex flex-col bg-white rounded-lg p-5 gap-2.5 absolute top-1/2 left-1/2 -translate-x-2/4 -translate-y-2/4">
+          {options.map(({ isCurrent, textLabel, value }) => (
+            <a
+              class="flex gap-2.5 items-center text-xs font-bold leading-[18px] text-[#676767]"
+              href={value}
+            >
+              <CheckboxInput
+                checked={isCurrent}
+                hx-on:change={useScript((value) => {
+                  event?.preventDefault();
+                  window.location.href = value;
+                }, value)}
+              />
+              {textLabel}
+            </a>
+          ))}
+        </div>
+      </Modal>
+    </div>
   );
 }
 export default SortMobile;
