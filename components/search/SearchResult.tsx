@@ -43,7 +43,7 @@ export interface Props {
    * @title SEO Settings
    * @description The SEO Settings for this page
    */
-  seo: {
+  seoComponents: {
     /** @title Banner Settings */
     banner?: BannerProps;
     /** @title Breadcrumb Override */
@@ -274,13 +274,15 @@ function Result(props: SectionProps<typeof loader>) {
         {partial
           ? <PageResult {...props} />
           : (
-            <div class="container flex flex-col gap-5 desk:gap-5 w-full py-5 px-5">
+            <div class="container flex flex-col gap-5 desk:gap-5 w-full pt-5 pb-20 desk:pb-[100px] px-5">
               <Breadcrumb
                 itemListElement={breadcrumb?.itemListElement}
-                breadcrumbOverride={props.seo.breadcrumb}
+                breadcrumbOverride={props.seoComponents.breadcrumb}
               />
 
-              {props.seo.banner && <CategoryBanner {...props.seo.banner} />}
+              {props.seoComponents.banner && (
+                <CategoryBanner {...props.seoComponents.banner} />
+              )}
 
               {device === "mobile" && (
                 <Drawer

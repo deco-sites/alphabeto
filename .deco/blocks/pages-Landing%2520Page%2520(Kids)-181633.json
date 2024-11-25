@@ -52,7 +52,7 @@
           }
         },
         "startingPage": 1,
-        "seo": {
+        "seoComponents": {
           "banner": {
             "title": "Conjuntinhos",
             "subtitle": "Meninas",
@@ -79,6 +79,63 @@
           ]
         }
       }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Category/CategoryBottomBanner.tsx",
+        "text": "<h2>Os melhores conjuntinhos</h2><p></p><p>Lorem ipsum dolor sit amet consectetur. Urna massa diam feugiat eleifend integer mattis. Mauris pharetra sed pellentesque in tristique. Dolor pellentesque nunc tempus risus libero elementum. Tellus nisi pharetra tortor sociis cursus odio. Tempor placerat in consequat in amet. Adipiscing et a condimentum libero senectus nisi. Elementum pretium metus a cursus. Senectus auctor pellentesque feugiat neque augue faucibus sed. Aliquam suspendisse platea eget amet.</p><p></p><h2><span>Tecidos direto da fábrica</span></h2><p></p><p><span>Lorem ipsum dolor sit amet consectetur. Urna massa diam feugiat eleifend integer mattis. Mauris pharetra sed pellentesque in tristique. Dolor pellentesque nunc tempus risus libero elementum. Tellus nisi pharetra tortor sociis cursus odio. Tempor placerat in consequat in amet. Adipiscing et a condimentum libero senectus nisi. Elementum pretium metus a cursus. Senectus auctor pellentesque feugiat neque augue faucibus sed. Aliquam suspendisse platea eget amet.</span></p>",
+        "image": {
+          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/96259462-e7ec-4338-bfc5-331a32b622aa/image_categoria.png",
+          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ac67ce29-d4e2-4950-8ea4-d0b8b2433519/image_categoria_mob.png",
+          "alt": "A imagem mostra duas meninas sorridentes posando em frente a um fundo laranja vibrante com um grande círculo texturizado rosa ao centro. A menina à esquerda usa uma roupa colorida com estampas divertidas, jaqueta clara e tiara. A menina à direita veste blusa preta e saia rosa. O ambiente é alegre e lúdico."
+        }
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Content/FAQ.tsx",
+        "title": "Dúvidas frequentes",
+        "description": "<p><span>Ainda está com dúvida? Nos mande um e-mail e logo entraremos em contato com você o mais rápido possível. </span><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"/central-atendimento\"><span>Fale conosco!</span></a></p>",
+        "enableJSONLD": true,
+        "questions": [
+          {
+            "title": "Pedido veio com embalagem aberta, posso trocar?",
+            "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
+          },
+          {
+            "title": "Quais os métodos de pagamento?",
+            "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
+          },
+          {
+            "title": "Comprei o produto errado, posso realizar a troca?",
+            "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
+          },
+          {
+            "title": "Comprar com o combo saí mais barato?",
+            "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
+          },
+          {
+            "title": "Ganho descontos se comprar mais de um?",
+            "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
+          },
+          {
+            "title": "Como utilizo meu código promocional?",
+            "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
+          },
+          {
+            "title": "Posso tomar todos os dias?",
+            "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
