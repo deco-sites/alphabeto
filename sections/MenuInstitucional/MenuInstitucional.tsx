@@ -1,4 +1,5 @@
 import Icon from "site/components/ui/Icon.tsx";
+import MenuInstitutionalMobile from "site/islands/MenuInstitutionalMobile.tsx";
 
 /**@title Menu */
 interface MenuProps {
@@ -10,21 +11,25 @@ interface MenuProps {
     institutionalLinks: LinkProps[];
     /**@title Rotas suporte*/
     supportLinks: LinkProps[];
+    /**@title Menu Mobile*/
+    links: LinkProps[]
 }
 
 /**@title Rota: {{ label }}*/
 interface LinkProps {
     /**@title Rota*/
-    route?: string;
+    route: string;
     /**@title Etiqueta*/
-    label?: string;
+    label: string;
 }
 
 export const loader = (menu: MenuProps, req: Request) => {
     const currentPath = new URL(req.url).pathname;
+    const matchingLink = menu.links?.find((link) => link.route === currentPath)
     return {
         ...menu,
         currentPath,
+        label: matchingLink ? matchingLink.label : "Menu",
     };
 };
 
@@ -35,9 +40,14 @@ export default function MenuInstitucional(
         institutionalLinks,
         supportLinks,
         currentPath,
+        links, 
+        label
     }: ReturnType<typeof loader>,
 ) {
+
     return (
+        <>
+        <MenuInstitutionalMobile links={links} label={label} />
         <div class="mobile:hidden block absolute top-[220px] left-[40px] mobile:left-[20px] list-none">
             <section>
                 <div class="mb-[20px]">
@@ -83,5 +93,7 @@ export default function MenuInstitucional(
                 </section>
             </section>
         </div>
+        </>
     );
 }
+

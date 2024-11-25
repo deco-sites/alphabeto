@@ -1,23 +1,23 @@
 import { useState } from "preact/hooks";
 import Icon from "site/components/ui/Icon.tsx";
 
-interface Menu {
-    links: Link[];
+interface MenuProps {
+    links: LinkProps[];
     label: string;
 }
 
-interface Link {
+interface LinkProps {
     /**@title Rota */
     route: string;
     /**@title Rota */
     label: string;
 }
 
-export default function MenuInstitutionalMobile({ links, label }: Menu) {
+export default function MenuInstitutionalMobile({ links, label }: MenuProps) {
     const [navigation, setNavigation] = useState(false);
 
     return (
-        <div class="hidden mobile:block absolute top-[184px] left-[20px] bg-[#FFFFFF] w-[90%] rounded-[5px]">
+        <div class="hidden z-10 mobile:block absolute top-[184px] left-[20px] bg-[#FFFFFF] w-[90%] rounded-[5px]">
             <button
                 class="hidden w-full text-left mobile:flex justify-between items-center h-[44px] py-[13px] px-[10px] font-bold text-[12px] leading-[18px] text-[#676767] rounded-[4px] border border-[#F7E0BF]"
                 onClick={() => setNavigation(!navigation)}

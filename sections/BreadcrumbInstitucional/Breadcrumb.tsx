@@ -18,7 +18,7 @@ export default function Breadcrumb(
         <div class="flex justify-between w-[90%] mt-[20px] ml-[40px] mb-[40px] mobile:ml-[20px]">
             <span class="flex items-center">
                 <Icon id="home_icon" width="14px" height="14px" />
-                <p class="text-[#353535] text-[12px] font-medium">
+                <div class="flex text-[#353535] text-[12px] font-medium">
                     <b class="text-[12px] text-[#FF8300] font-medium ml-[4px] mr-[8px]">
                         {root}
                     </b>
@@ -33,7 +33,7 @@ export default function Breadcrumb(
                         )}
                     <p class="text-[#353535] text-[12px]">|</p>
                     <p class="text-[#353535] text-[12px] ml-[8px]">{route}</p>
-                </p>
+                </div>
             </span>
         </div>
     );

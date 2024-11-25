@@ -9,7 +9,41 @@
       }
     },
     {
-      "__resolveType": "site/sections/MenuInstitucional/MenuInstitutionalMobile.tsx",
+      "__resolveType": "site/sections/MenuInstitucional/MenuInstitucional.tsx",
+      "institutionalTitle": "Ajuda",
+      "supportTitle": "Fale Conosco",
+      "institutionalLinks": [
+        {
+          "label": "Políticas de privacidade",
+          "route": "/politicas-de-privacidade"
+        },
+        {
+          "label": "Troca e devolução",
+          "route": "/troca-e-devolucao"
+        },
+        {
+          "label": "Termos e condições",
+          "route": "/termos-e-condicoes"
+        },
+        {
+          "label": "Formas de pagamento",
+          "route": "/formas-de-pagamento"
+        },
+        {
+          "route": "/formas-de-entrega",
+          "label": "Formas de entrega"
+        }
+      ],
+      "supportLinks": [
+        {
+          "label": "Fale conosco",
+          "route": "/fale-conosco"
+        },
+        {
+          "route": "/duvidas-frequentes",
+          "label": "Dúvidas frequentes"
+        }
+      ],
       "links": [
         {
           "route": "/politicas-de-privacidade",
@@ -34,42 +68,6 @@
         {
           "route": "/fale-conosco",
           "label": "Fale conosco"
-        },
-        {
-          "route": "/duvidas-frequentes",
-          "label": "Dúvidas frequentes"
-        }
-      ]
-    },
-    {
-      "__resolveType": "site/sections/MenuInstitucional/MenuInstitucional.tsx",
-      "institutionalTitle": "Ajuda",
-      "supportTitle": "Fale Conosco",
-      "institutionalLinks": [
-        {
-          "label": "Políticas de privacidade",
-          "route": "/politicas-de-privacidade"
-        },
-        {
-          "label": "Troca e devolução",
-          "route": "/troca-e-devolucao"
-        },
-        {
-          "label": "Termos e condições",
-          "route": "/termos-e-condicoes"
-        },
-        {
-          "label": "Formas de pagamento"
-        },
-        {
-          "route": "/formas-de-entrega",
-          "label": "Formas de entrega"
-        }
-      ],
-      "supportLinks": [
-        {
-          "label": "Fale conosco",
-          "route": "/fale-conosco"
         },
         {
           "route": "/duvidas-frequentes",
