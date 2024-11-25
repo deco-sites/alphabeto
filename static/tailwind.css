@@ -3703,12 +3703,6 @@ details.collapse summary::-webkit-details-marker {
 .left-4 {
   left: 1rem;
 }
-.left-\[20px\] {
-  left: 20px;
-}
-.left-\[40px\] {
-  left: 40px;
-}
 .left-\[429px\] {
   left: 429px;
 }
@@ -3762,12 +3756,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .top-\[14px\] {
   top: 14px;
-}
-.top-\[184px\] {
-  top: 184px;
-}
-.top-\[220px\] {
-  top: 220px;
 }
 .top-\[30px\] {
   top: 30px;
@@ -3935,9 +3923,6 @@ details.collapse summary::-webkit-details-marker {
 .ml-2 {
   margin-left: 0.5rem;
 }
-.ml-\[25\%\] {
-  margin-left: 25%;
-}
 .ml-\[40px\] {
   margin-left: 40px;
 }
@@ -3994,6 +3979,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .mt-\[30px\] {
   margin-top: 30px;
+}
+.mt-\[44px\] {
+  margin-top: 44px;
 }
 .mt-\[5px\] {
   margin-top: 5px;
@@ -4284,9 +4272,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .w-\[73px\] {
   width: 73px;
-}
-.w-\[90\%\] {
-  width: 90%;
 }
 .w-\[calc\(100\%-48px\)\] {
   width: calc(100% - 48px);
@@ -5201,9 +5186,6 @@ details.collapse summary::-webkit-details-marker {
 .pr-\[18px\] {
   padding-right: 18px;
 }
-.pr-\[40px\] {
-  padding-right: 40px;
-}
 .pr-\[60px\] {
   padding-right: 60px;
 }
@@ -5393,9 +5375,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .uppercase {
   text-transform: uppercase;
-}
-.lowercase {
-  text-transform: lowercase;
 }
 .capitalize {
   text-transform: capitalize;
@@ -6099,16 +6078,12 @@ details.collapse summary::-webkit-details-marker {
 }
 @media (max-width: 1023px) {
 
-  .mobile\:left-\[20px\] {
-    left: 20px;
+  .mobile\:ml-0 {
+    margin-left: 0px;
   }
 
-  .mobile\:ml-\[20px\] {
-    margin-left: 20px;
-  }
-
-  .mobile\:block {
-    display: block;
+  .mobile\:mt-\[20px\] {
+    margin-top: 20px;
   }
 
   .mobile\:flex {
@@ -6123,6 +6098,10 @@ details.collapse summary::-webkit-details-marker {
     width: 100%;
   }
 
+  .mobile\:flex-col {
+    flex-direction: column;
+  }
+
   .mobile\:flex-col-reverse {
     flex-direction: column-reverse;
   }
@@ -6130,10 +6109,6 @@ details.collapse summary::-webkit-details-marker {
   .mobile\:px-3 {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
-  }
-
-  .mobile\:pt-\[80px\] {
-    padding-top: 80px;
   }
 
   .mobile\:text-center {

@@ -17,9 +17,9 @@ export default function MenuInstitutionalMobile({ links, label }: MenuProps) {
     const [navigation, setNavigation] = useState(false);
 
     return (
-        <div class="hidden z-10 mobile:block absolute top-[184px] left-[20px] bg-[#FFFFFF] w-[90%] rounded-[5px]">
+        <div class="hidden z-10 mobile:flex flex-col bg-[#FFFFFF] rounded-[5px]">
             <button
-                class="hidden w-full text-left mobile:flex justify-between items-center h-[44px] py-[13px] px-[10px] font-bold text-[12px] leading-[18px] text-[#676767] rounded-[4px] border border-[#F7E0BF]"
+                class="hidden text-left mobile:flex container justify-between items-center h-[44px] py-[13px] font-bold text-[12px] leading-[18px] text-[#676767] rounded-[4px] border border-[#F7E0BF]"
                 onClick={() => setNavigation(!navigation)}
             >
                 {label}{" "}
@@ -37,7 +37,7 @@ export default function MenuInstitutionalMobile({ links, label }: MenuProps) {
                 />
             </button>
             {navigation && (
-                <div className="flex flex-col items-center justify-start text-left w-[100%] bg-[#FFFFFF] py-0 px-[10px] rounded-b-[5px] border-b border-r border-l border-[#F7E0BF]">
+                <div className="flex flex-col absolute mt-[44px] items-center justify-start text-left w-[100%] bg-[#FFFFFF] py-0 px-[10px] rounded-b-[5px] border-b border-r border-l border-[#F7E0BF]">
                     {links &&
                         links.map((link, index) => (
                             <a

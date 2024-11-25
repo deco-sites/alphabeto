@@ -40,15 +40,15 @@ export default function MenuInstitucional(
         institutionalLinks,
         supportLinks,
         currentPath,
+        label,
         links, 
-        label
     }: ReturnType<typeof loader>,
 ) {
 
     return (
         <>
         <MenuInstitutionalMobile links={links} label={label} />
-        <div class="mobile:hidden block absolute top-[220px] left-[40px] mobile:left-[20px] list-none">
+        <div class="block list-none mobile:hidden">
             <section>
                 <div class="mb-[20px]">
                     <h3 class="font-bold text-[#FF8300] text-[14px]">{institutionalTitle}</h3>

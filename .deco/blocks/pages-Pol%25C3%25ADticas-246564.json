@@ -9,73 +9,6 @@
       }
     },
     {
-      "__resolveType": "site/sections/MenuInstitucional/MenuInstitucional.tsx",
-      "institutionalTitle": "Ajuda",
-      "supportTitle": "Fale Conosco",
-      "institutionalLinks": [
-        {
-          "label": "Políticas de privacidade",
-          "route": "/politicas-de-privacidade"
-        },
-        {
-          "label": "Troca e devolução",
-          "route": "/troca-e-devolucao"
-        },
-        {
-          "label": "Termos e condições",
-          "route": "/termos-e-condicoes"
-        },
-        {
-          "label": "Formas de pagamento",
-          "route": "/formas-de-pagamento"
-        },
-        {
-          "route": "/formas-de-entrega",
-          "label": "Formas de entrega"
-        }
-      ],
-      "supportLinks": [
-        {
-          "label": "Fale conosco",
-          "route": "/fale-conosco"
-        },
-        {
-          "route": "/duvidas-frequentes",
-          "label": "Dúvidas frequentes"
-        }
-      ],
-      "links": [
-        {
-          "route": "/politicas-de-privacidade",
-          "label": "Políticas de privacidade"
-        },
-        {
-          "route": "/troca-e-devolucao",
-          "label": "Troca e devolução"
-        },
-        {
-          "route": "/termos-e-condicoes",
-          "label": "Termos e condições"
-        },
-        {
-          "route": "/formas-de-pagamento",
-          "label": "Formas de pagamento"
-        },
-        {
-          "route": "/formas-de-entrega",
-          "label": "Formas de entrega"
-        },
-        {
-          "route": "/fale-conosco",
-          "label": "Fale conosco"
-        },
-        {
-          "route": "/duvidas-frequentes",
-          "label": "Dúvidas frequentes"
-        }
-      ]
-    },
-    {
       "__resolveType": "site/sections/BreadcrumbInstitucional/Breadcrumb.tsx",
       "root": "HOME",
       "path": "Ajuda",
@@ -112,7 +45,74 @@
           "paragraph": "<p><span>Lorem ipsum dolor sit amet consectetur. Bibendum tellus iaculis volutpat fringilla proin tincidunt nulla libero mattis. Enim suscipit sed sem eu in. Volutpat adipiscing vulputate vestibulum elementum. Ultrices massa ac quam elit pretium tempus nec cursus. Nunc pellentesque lacus sit vulputate tellus massa sit tempor viverra. Arcu rhoncus dictum tristique purus. A feugiat non cursus nunc interdum ultrices nibh suspendisse. Diam et facilisis faucibus tristique nunc. Suspendisse urna vulputate et lectus commodo facilisi magna amet. Convallis tempor habitant pulvinar elementum nec sit tempor massa etiam.</span></p>",
           "title": "Modificações de nossa política de privacidade "
         }
-      ]
+      ],
+      "Menu": {
+        "__resolveType": "site/sections/MenuInstitucional/MenuInstitucional.tsx",
+        "institutionalTitle": "Ajuda",
+        "supportTitle": "Fale conosco",
+        "institutionalLinks": [
+          {
+            "label": "Políticas de privacidade",
+            "route": "/politicas-de-privacidade"
+          },
+          {
+            "label": "Troca e devolução",
+            "route": "/troca-e-devolucao"
+          },
+          {
+            "label": "Termos e condições",
+            "route": "/termos-e-condicoes"
+          },
+          {
+            "label": "Formas de pagamento",
+            "route": "/formas-de-pagamento"
+          },
+          {
+            "route": "/formas-de-entrega",
+            "label": "Formas de entrega"
+          }
+        ],
+        "supportLinks": [
+          {
+            "route": "/fale-conosco",
+            "label": "Fale conosco"
+          },
+          {
+            "route": "/duvidas-frequentes",
+            "label": "Dúvidas frequentes"
+          }
+        ],
+        "links": [
+          {
+            "route": "/politicas-de-privacidade",
+            "label": "Políticas de privacidade"
+          },
+          {
+            "route": "/troca-e-devolucao",
+            "label": "Troca e devolução"
+          },
+          {
+            "route": "/termos-e-condicoes",
+            "label": "Termos e condições"
+          },
+          {
+            "route": "/formas-de-pagamento",
+            "label": "Formas de pagamento"
+          },
+          {
+            "route": "/formas-de-entrega",
+            "label": "Formas de entrega"
+          },
+          {
+            "route": "/fale-conosco",
+            "label": "Fale conosco"
+          },
+          {
+            "route": "/duvidas-frequentes",
+            "label": "Dúvidas frequentes"
+          }
+        ]
+      }
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
