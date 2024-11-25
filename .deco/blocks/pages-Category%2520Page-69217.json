@@ -41,7 +41,7 @@
           }
         },
         "startingPage": 1,
-        "seo": {
+        "seoComponents": {
           "banner": {}
         }
       }
