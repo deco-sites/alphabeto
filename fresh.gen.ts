@@ -2,12 +2,12 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $_app from "./routes/_app.tsx";
+import type { Manifest } from "$fresh/server.ts";
 import * as $MenuInstitutionalMobile from "./islands/MenuInstitutionalMobile.tsx";
 import * as $MinicartFooter from "./islands/MinicartFooter.tsx";
 import * as $Notify from "./islands/Notify.tsx";
 import * as $ScrollButton from "./islands/ScrollButton.tsx";
-import type { Manifest } from "$fresh/server.ts";
+import * as $_app from "./routes/_app.tsx";
 
 const manifest = {
   routes: {
