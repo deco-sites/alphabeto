@@ -7,7 +7,7 @@ import * as $MinicartFooter from "./islands/MinicartFooter.tsx";
 import * as $MultiRangeSlider from "./islands/MultiRangeSlider.tsx";
 import * as $Notify from "./islands/Notify.tsx";
 import * as $ShowPriceItem from "./islands/ShowPriceItem.tsx";
-import { type Manifest } from "$fresh/server.ts";
+import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
