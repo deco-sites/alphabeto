@@ -1,4 +1,4 @@
-import { itemToAnalyticsItem } from "site/sdk/cart/vtex/utils/useCartCustom.ts";
+import { itemToAnalyticsItem } from "apps/vtex/hooks/useCart.ts";
 import { Minicart } from "../../../../components/minicart/Minicart.tsx";
 import { Cart } from "../types.ts";
 import { SkuInformationData } from "./loadSizes.ts";
