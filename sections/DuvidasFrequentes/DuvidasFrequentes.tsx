@@ -1,5 +1,6 @@
 import { RichText } from "apps/admin/widgets.ts";
 import FaqDuvidasFrequentes from "../../islands/FaqDuvidasFrequentes.tsx";
+import { Section } from "@deco/deco/blocks";
 
 /**@title {{ question }}*/
 interface DuvidasProps {
@@ -11,17 +12,14 @@ interface DuvidasProps {
 
 interface Perguntas {
     questions: DuvidasProps[],
-    title: string,
-    paragraph: RichText
+    
+    Menu: Section;
 } 
 
-export default function DuvidasFrequentes({ questions, title, paragraph }: Perguntas){
+export default function DuvidasFrequentes({ Menu: { Component: MenuInstitucional, props }, questions }: Perguntas){
     return(
-        <div>
-            <div>
-                <h1>{title}</h1>
-                <p dangerouslySetInnerHTML={{ __html: paragraph }}/>
-            </div>
+        <div class="container">
+            <MenuInstitucional {...props}/>
             <FaqDuvidasFrequentes questions={questions}/>
         </div>
     )
