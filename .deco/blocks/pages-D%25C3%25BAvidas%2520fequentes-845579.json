@@ -9,15 +9,6 @@
       }
     },
     {
-      "__resolveType": "site/sections/DuvidasFrequentes/DuvidasFrequentes.tsx",
-      "questions": [
-        {
-          "question": "Pedido veio com embalagem aberta, posso trocar?",
-          "answer": "<p><span>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</span></p>"
-        }
-      ]
-    },
-    {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
         "__resolveType": "Footer"

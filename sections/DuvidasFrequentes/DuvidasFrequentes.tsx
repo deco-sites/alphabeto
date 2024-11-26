@@ -1,30 +1,28 @@
 import { RichText } from "apps/admin/widgets.ts";
-import Icon from "site/components/ui/Icon.tsx";
+import FaqDuvidasFrequentes from "../../islands/FaqDuvidasFrequentes.tsx";
 
+/**@title {{ question }}*/
 interface DuvidasProps {
+    /**@title Pergunta*/
     question: string;
+    /**@title Resposta*/
     answer: RichText;
 }
 
 interface Perguntas {
-    questions: DuvidasProps[]
+    questions: DuvidasProps[],
+    title: string,
+    paragraph: RichText
 } 
 
-export default function DuvidasFrequentes({ questions }: Perguntas){
+export default function DuvidasFrequentes({ questions, title, paragraph }: Perguntas){
     return(
         <div>
-            {questions?.map(({ question, answer }, index) => (
-                    <div key={index}>
-                        <span class="flex items-center">
-                            {question}
-                            <Icon id="plus" class="text-[#FF8300]"/>
-                        </span>
-                        <span>
-                        <p dangerouslySetInnerHTML={{  __html: answer }}/>
-                        </span>
-                    </div>
-                ))
-            }
+            <div>
+                <h1>{title}</h1>
+                <p dangerouslySetInnerHTML={{ __html: paragraph }}/>
+            </div>
+            <FaqDuvidasFrequentes questions={questions}/>
         </div>
     )
 }
