@@ -26,4 +26,4 @@ query getStores($latitude: Float, $longitude: Float, $filterByTag: String) {
       }
     }
   }
-  `
+  `;

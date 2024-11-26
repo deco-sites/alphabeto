@@ -9,9 +9,14 @@
       }
     },
     {
-      "__resolveType": "site/sections/Breadcrumb/Breadcrumb.tsx",
-      "route": "Nossas Lojas",
-      "root": "HOME"
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/BreadcrumbInstitucional/Breadcrumb.tsx",
+        "root": "HOME",
+        "path": "Ajuda",
+        "showText": false,
+        "route": "Nossas Lojas"
+      }
     },
     {
       "__resolveType": "site/sections/NossasLojas/NossasLojas.tsx",

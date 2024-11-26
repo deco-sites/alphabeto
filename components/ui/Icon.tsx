@@ -8,6 +8,8 @@ export type AvailableIcons =
   | "account_circle"
   | "close"
   | "chevron-right"
+  | "chevron-right-institutional"
+  | "chevron-up"
   | "favorite"
   | "home_pin"
   | "home_icon"
@@ -23,7 +25,8 @@ export type AvailableIcons =
   | "close-search"
   | "logo_store"
   | "plus"
-  | "minus";
+  | "minus"
+  | "whatsappIcon";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

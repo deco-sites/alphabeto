@@ -4,10 +4,12 @@
 
 import * as $_app from "./routes/_app.tsx";
 import * as $Map from "./islands/Map.tsx";
+import * as $MenuInstitutionalMobile from "./islands/MenuInstitutionalMobile.tsx";
 import * as $MinicartFooter from "./islands/MinicartFooter.tsx";
 import * as $Notify from "./islands/Notify.tsx";
+import * as $ScrollButton from "./islands/ScrollButton.tsx";
 import * as $formsNossasLojas from "./islands/formsNossasLojas.tsx";
-import { type Manifest } from "$fresh/server.ts";
+import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
@@ -15,8 +17,10 @@ const manifest = {
   },
   islands: {
     "./islands/Map.tsx": $Map,
+    "./islands/MenuInstitutionalMobile.tsx": $MenuInstitutionalMobile,
     "./islands/MinicartFooter.tsx": $MinicartFooter,
     "./islands/Notify.tsx": $Notify,
+    "./islands/ScrollButton.tsx": $ScrollButton,
     "./islands/formsNossasLojas.tsx": $formsNossasLojas,
   },
   baseUrl: import.meta.url,
