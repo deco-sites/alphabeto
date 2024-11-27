@@ -51,7 +51,7 @@ function CartItem({ item, index, locale, currency }: Props) {
         </div>
         {/* Color and Size */}
         <div className="text-[#676767] text-xs leading-[18px] flex gap-3 mb-[17px]">
-          <span className="capitalize">Cor: {item.color.toLowerCase()}</span>
+          <span className="capitalize">Cor: {item.color?.toLowerCase()}</span>
           <span>Tamanho: {item.size}</span>
         </div>
         {/* Price Block  And Quantity Selector*/}

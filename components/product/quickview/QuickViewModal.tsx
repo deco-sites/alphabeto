@@ -1,4 +1,6 @@
 import { useScript } from "@deco/deco/hooks";
+import { Product } from "apps/vtex/utils/types.ts";
+import { ImageObject } from "apps/commerce/types.ts";
 import { useId } from "site/sdk/useId.ts";
 
 const script = (id: string, showButtonId: string) => {
@@ -29,12 +31,19 @@ const script = (id: string, showButtonId: string) => {
     }
   };
 
-  // Detecta clique fora do modal para fechá-lo
   const handleClickOutside = (event: MouseEvent) => {
     const drawer = document.getElementById(id);
     const delayedSection = document.getElementById("imagesModal");
+    const togglebutton = document.getElementById(showButtonId);
 
-    if (drawer && !drawer.contains(event.target as Node)) {
+    if (
+      drawer &&
+      delayedSection &&
+      togglebutton &&
+      !drawer.contains(event.target as Node) &&
+      !delayedSection.contains(event.target as Node) &&
+      event.target !== togglebutton
+    ) {
       drawer?.classList.remove("translate-x-0");
       drawer?.classList.add("translate-x-full");
 
@@ -49,9 +58,15 @@ const script = (id: string, showButtonId: string) => {
   togglebutton?.addEventListener("click", toggleDrawer);
 };
 
-function QuickViewModal({ children }: any) {
+interface QuickViewModalProps {
+  children: React.ReactNode,
+  images: ImageObject[] | null | undefined
+}
+
+function QuickViewModal({ children, images }: QuickViewModalProps) {
   const modalId = useId();
   const showButtonId = useId();
+  console.log(images)
 
   return (
     <>
@@ -67,7 +82,7 @@ function QuickViewModal({ children }: any) {
       {/* Product Info */}
       <div
         id={modalId}
-        class="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-[375px] shadow-[0px_-4px_20px_0px_#3B3B3B26]"
+        class="fixed top-0 right-0 z-50 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-[375px] shadow-[0px_-4px_20px_0px_#3B3B3B26]"
       >
         <label class="modal-backdrop" for={modalId}>
           Close
@@ -79,7 +94,6 @@ function QuickViewModal({ children }: any) {
         id="imagesModal"
         class="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-[375px]"
       >
-        <p>Images</p>
       </div>
       <script
         type="module"
