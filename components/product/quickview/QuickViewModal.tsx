@@ -59,14 +59,14 @@ const script = (id: string, showButtonId: string) => {
 };
 
 interface QuickViewModalProps {
-  children: React.ReactNode,
-  images: ImageObject[] | null | undefined
+  children: React.ReactNode;
+  images: ImageObject[] | null | undefined;
 }
 
 function QuickViewModal({ children, images }: QuickViewModalProps) {
   const modalId = useId();
   const showButtonId = useId();
-  console.log(images)
+  console.log(images);
 
   return (
     <>

@@ -23,7 +23,8 @@ export function QuickViewButton(props: Props) {
         {product.description}
         {product?.additionalProperty
           ?.filter(
-            (property) => property.name === 'Cor' || property.name === 'Tamanho'
+            (property) =>
+              property.name === "Cor" || property.name === "Tamanho",
           )
           .map((property, index) => (
             <div key={index}>
