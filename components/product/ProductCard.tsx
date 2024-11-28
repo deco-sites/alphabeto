@@ -8,10 +8,9 @@ import { useOffer } from "../../sdk/useOffer.ts";
 import { useSendEvent } from "../../sdk/useSendEvent.ts";
 import { useVariantPossibilities } from "../../sdk/useVariantPossiblities.ts";
 import WishlistButton from "../wishlist/WishlistButton.tsx";
-import AddToCartButton from "./AddToCartButton.tsx";
 import { Ring } from "./ProductVariantSelector.tsx";
 import { useId } from "../../sdk/useId.ts";
-import { QuickViewButton } from "site/components/product/quickview/QuickView.tsx";
+import QuickView from "site/components/product/quickview/QuickView.tsx";
 
 interface Props {
   product: Product;
@@ -192,17 +191,10 @@ function ProductCard({
       <div>
         {inStock
           ? (
-            <QuickViewButton
+            <QuickView
               product={product}
               seller={seller}
               item={item}
-              class={clx(
-                "btn",
-                "btn-outline justify-start border-none !text-sm !font-medium px-0 no-animation w-full",
-                "hover:!bg-transparent",
-                "disabled:!bg-transparent disabled:!opacity-50",
-                "btn-primary hover:!text-primary disabled:!text-primary",
-              )}
             />
           )
           : (
