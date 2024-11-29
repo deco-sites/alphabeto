@@ -3,11 +3,20 @@ import { useScript } from "@deco/deco/hooks";
 import { JSX } from "preact";
 import { useId } from "site/sdk/useId.ts";
 import { useVariantPossibilities } from "site/sdk/useVariantPossiblities.ts";
+import { useOffer } from "site/sdk/useOffer.ts";
+import AddToCartButton from "site/components/product/AddToCartButton.tsx";
+import { clx } from "site/sdk/clx.ts";
+
+export interface ColorItem {
+  name: string;
+  hexadecimals: string[]
+}
 
 export interface Props extends JSX.HTMLAttributes<HTMLButtonElement> {
   product: Product;
   seller: string;
   item: AnalyticsItem;
+  colorMap?: ColorItem[];
 }
 
 const script = (id: string, showButtonId: string, imagesModalId: string) => {
@@ -69,7 +78,7 @@ const script = (id: string, showButtonId: string, imagesModalId: string) => {
   })
 };
 
-function QuickView({ product }: Props) {
+function QuickView({ product, seller, item, colorMap }: Props) {
   const modalId = useId();
   const showButtonId = useId();
   const imagesModalId = useId();
@@ -79,6 +88,8 @@ function QuickView({ product }: Props) {
   const firstSkuVariations = Object.entries(possibilities)?.[0];
   const variants = Object.entries(firstSkuVariations?.[1] ?? {});
 
+  const { listPrice, price, installments } = useOffer(product.offers);
+
   const getColorStyle = (colorName: string) => {
     const colorsMap: Record<string, string> = {
       ROSA: "#FFC0CB",
@@ -87,7 +98,9 @@ function QuickView({ product }: Props) {
       AZUL: "#0000FF"
     };
     return colorsMap[colorName.toUpperCase()] || null;
-  };  
+  };
+
+  console.log(colorMap)
 
   return (
     <>
@@ -111,10 +124,14 @@ function QuickView({ product }: Props) {
             X
           </label>
         </div>
-        <div>
+        <div className={"py-10 px-6"}>
           <p className={"text-[20px] font-bold leading-6 text-[#676767]"}>{product.name}</p>
-          <div>
-            <p><strong>{product.offers?.highPrice}</strong> - {product.offers?.lowPrice}</p>
+          <div className={"mt-3"}>
+            <p className="text-[#676767] text-xs leading-[14px font-medium]">REF: {product.sku}</p>
+          </div>
+          <div className={"mt-[30px]"}>
+            <p className={"text-[#C5C5C5] text-sm leading-5 font-bold"}>{listPrice}<strong className={"font-bold ml-[5px] text-lg text-[#FF8300] leading-6"}>• {price}</strong></p>
+            <p className={"text-[#676767] font-medium text-xs mt-[5px] leading-[18px]"}>{installments}</p>
           </div>
           <p className={"text-xs font-medium leading-[18px] text-[##7E7F88]"}>{product.description}</p>
           {product?.additionalProperty
@@ -128,33 +145,57 @@ function QuickView({ product }: Props) {
               </div>
             ))}
 
-          {variants.map(([colorName, url], index) => (
-            <a
-              key={index}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                textDecoration: "none"
-              }}
-            >
-              <div
+          <div>
+            {product?.additionalProperty
+              ?.filter(
+                (property) =>
+                  property.name === "Cor",
+              )
+              .map((property, index) => (
+                <p key={index}>Selecione a cor: {property.value}</p>
+              ))}
+
+            {variants.map(([colorName, url], index) => (
+              <a
+                key={index}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
-                  width: "30px",
-                  height: "30px",
-                  backgroundColor: getColorStyle(colorName),
-                  borderRadius: "50%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
-                  cursor: "pointer",
-                  transition: "transform 0.2s"
+                  textDecoration: "none"
                 }}
-                title={colorName}
-              />
-            </a>
-          ))}
+              >
+                <div
+                  style={{
+                    width: "30px",
+                    height: "30px",
+                    backgroundColor: getColorStyle(colorName),
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
+                    cursor: "pointer",
+                    transition: "transform 0.2s"
+                  }}
+                  title={colorName}
+                />
+              </a>
+            ))}
+          </div>
+          
+          <AddToCartButton
+            product={product}
+            seller={seller}
+            item={item}
+            class={clx(
+              "btn",
+              "btn-outline justify-start border-none !text-sm !font-medium px-0 no-animation w-full",
+              "hover:!bg-transparent",
+              "disabled:!bg-transparent disabled:!opacity-50",
+              "btn-primary hover:!text-primary disabled:!text-primary",
+            )}
+          />
         </div>
       </div>
       {/* Product Images */}
@@ -169,7 +210,7 @@ function QuickView({ product }: Props) {
               src={image.url}
               alt={image.alternateName || "Image"}
               title={image.name || "Image"}
-              className="rounded-md max-w-[327px]"
+              className="rounded-md w-full"
             />
           </div>
         ))}
