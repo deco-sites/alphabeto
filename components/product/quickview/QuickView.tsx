@@ -2,6 +2,7 @@ import { AnalyticsItem, Product } from "apps/commerce/types.ts";
 import { useScript } from "@deco/deco/hooks";
 import { JSX } from "preact";
 import { useId } from "site/sdk/useId.ts";
+import { useVariantPossibilities } from "site/sdk/useVariantPossiblities.ts";
 
 export interface Props extends JSX.HTMLAttributes<HTMLButtonElement> {
   product: Product;
@@ -73,6 +74,21 @@ function QuickView({ product }: Props) {
   const showButtonId = useId();
   const imagesModalId = useId();
 
+  const hasVariant = product.isVariantOf?.hasVariant ?? [];
+  const possibilities = useVariantPossibilities(hasVariant, product);
+  const firstSkuVariations = Object.entries(possibilities)?.[0];
+  const variants = Object.entries(firstSkuVariations?.[1] ?? {});
+
+  const getColorStyle = (colorName: string) => {
+    const colorsMap: Record<string, string> = {
+      ROSA: "#FFC0CB",
+      VERDE: "#008000",
+      CORAL: "#FF7F50",
+      AZUL: "#0000FF"
+    };
+    return colorsMap[colorName.toUpperCase()] || null;
+  };  
+
   return (
     <>
       <div className="text-center">
@@ -104,13 +120,41 @@ function QuickView({ product }: Props) {
           {product?.additionalProperty
             ?.filter(
               (property) =>
-                property.name === "Cor" || property.name === "Tamanho",
+                property.name === "Tamanho",
             )
             .map((property, index) => (
               <div key={index}>
                 <p>{property.name}: {property.value}</p>
               </div>
             ))}
+
+          {variants.map(([colorName, url], index) => (
+            <a
+              key={index}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                textDecoration: "none"
+              }}
+            >
+              <div
+                style={{
+                  width: "30px",
+                  height: "30px",
+                  backgroundColor: getColorStyle(colorName),
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
+                  cursor: "pointer",
+                  transition: "transform 0.2s"
+                }}
+                title={colorName}
+              />
+            </a>
+          ))}
         </div>
       </div>
       {/* Product Images */}
