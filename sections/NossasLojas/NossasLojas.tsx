@@ -1,3 +1,4 @@
+// deno-lint-ignore-file
 import { Secret } from "apps/website/loaders/secret.ts";
 import { type RichText } from "apps/admin/widgets.ts";
 
@@ -30,17 +31,13 @@ interface MasterDataResponse {
 
 export async function loader({ items, apiKey }: ContentProps, _req: Request, ctx: AppContext){
     
-    try {
-        const masterdataStoreNumbers = await ctx.invoke.vtex.loaders.masterdata.searchDocuments({
-            acronym: "SM",
-            fields:"store_id,whatsapp",
-            where: "store_id is not null"
-        })
-    } catch(e){
-        console.log(e)
-    }
+     // @deno-ignore
+    const masterdataStoreNumbers = await ctx.invoke.site.loaders.searchDocuments({
+        acronym: "SM",
+        fields:"store_id,whatsapp",
+        where: "active=true"
+    }) as unknown as MasterDataResponse[]
 
-    const masterdataStoreNumbers = []
     const { io } = await ctx.invoke.vtex.loaders.config()
 
     const response = await io.query<Data,{}>({ 
