@@ -133,7 +133,19 @@ function QuickView({ product, seller, item, colorMap }: Props) {
             <p className={"text-[#C5C5C5] text-sm leading-5 font-bold"}>{listPrice}<strong className={"font-bold ml-[5px] text-lg text-[#FF8300] leading-6"}>• {price}</strong></p>
             <p className={"text-[#676767] font-medium text-xs mt-[5px] leading-[18px]"}>{installments}</p>
           </div>
-          <p className={"text-xs font-medium leading-[18px] text-[##7E7F88]"}>{product.description}</p>
+          <p
+            className={
+              "text-xs font-medium leading-[18px] text-[#7E7F88] line-clamp-3"
+            }
+          >
+            {product.description} 
+          </p>
+          <a
+            href={product?.url}
+            className="text-[#FF8300] font-bold underline relative text-xs -top-5 left-64 bg-white p-1"
+          >
+            Veja mais
+          </a>
           {product?.additionalProperty
             ?.filter(
               (property) =>
@@ -183,7 +195,7 @@ function QuickView({ product, seller, item, colorMap }: Props) {
               </a>
             ))}
           </div>
-          
+
           <AddToCartButton
             product={product}
             seller={seller}

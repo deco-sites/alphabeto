@@ -3635,6 +3635,9 @@ details.collapse summary::-webkit-details-marker {
 .relative {
   position: relative;
 }
+.-top-5 {
+  top: -1.25rem;
+}
 .bottom-0 {
   bottom: 0px;
 }
@@ -3661,6 +3664,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .left-4 {
   left: 1rem;
+}
+.left-64 {
+  left: 16rem;
 }
 .left-\[50\%\] {
   left: 50%;
@@ -3901,6 +3907,12 @@ details.collapse summary::-webkit-details-marker {
 }
 .box-border {
   box-sizing: border-box;
+}
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 .block {
   display: block;
@@ -5302,9 +5314,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .tracking-\[-3px\] {
   letter-spacing: -3px;
-}
-.text-\[\#\#7E7F88\] {
-  color: ##7E7F88;
 }
 .text-\[\#057EB5\] {
   --tw-text-opacity: 1;
