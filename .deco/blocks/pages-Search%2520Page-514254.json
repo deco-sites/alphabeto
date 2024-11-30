@@ -43,6 +43,10 @@
         "startingPage": 1,
         "seoContent": {
           "banner": {}
+        },
+        "seoComponents": {
+          "banner": {},
+          "breadcrumb": []
         }
       }
     },
