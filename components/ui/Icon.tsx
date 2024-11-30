@@ -24,7 +24,8 @@ export type AvailableIcons =
   | "location_pin"
   | "close-search"
   | "plus"
-  | "minus";
+  | "minus"
+  | "cashback-coin";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

@@ -40,4 +40,21 @@
 	<symbol id="minus" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 	</symbol>
+	<symbol id="cashback-coin" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<g clip-path="url(#clip0_29_528)">
+			<path d="M6.15625 6.40625C6.15625 7.64944 6.65011 8.84175 7.52919 9.72081C8.40825 10.5999 9.60056 11.0938 10.8438 11.0938C12.0869 11.0938 13.2793 10.5999 14.1583 9.72081C15.0374 8.84175 15.5312 7.64944 15.5312 6.40625C15.5312 5.16305 15.0374 3.97076 14.1583 3.09169C13.2793 2.21261 12.0869 1.71875 10.8438 1.71875C9.60056 1.71875 8.40825 2.21261 7.52919 3.09169C6.65011 3.97076 6.15625 5.16305 6.15625 6.40625Z" stroke="currentColor" stroke-width="1.11551" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M4.98438 10.0575C4.98439 10.225 5.03459 10.3887 5.1285 10.5274C5.22241 10.6661 5.35573 10.7734 5.51125 10.8356L6.80125 11.3519C6.98191 11.4246 7.13164 11.5579 7.22477 11.7289C7.31788 11.8999 7.34862 12.098 7.31169 12.2892C7.27475 12.4804 7.17239 12.6527 7.02224 12.7767C6.87209 12.9007 6.68348 12.9686 6.48875 12.9687H5.21875" stroke="currentColor" stroke-width="1.11551" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M6.15625 13.9062V12.9688" stroke="currentColor" stroke-width="1.11551" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M4.30068 6.79184C3.59737 7.09426 2.97884 7.56431 2.49914 8.161C2.01944 8.75763 1.69317 9.46269 1.54887 10.2146C1.40456 10.9664 1.44661 11.7421 1.67132 12.474C1.89604 13.2059 2.29658 13.8715 2.83795 14.4129C3.37932 14.9542 4.04504 15.3546 4.77691 15.5793C5.50879 15.8039 6.28454 15.8459 7.03637 15.7015C7.78819 15.5571 8.49325 15.2308 9.08987 14.751C9.68644 14.2713 10.1564 13.6527 10.4588 12.9493" stroke="currentColor" stroke-width="1.11551" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M11.7807 4.53125H10.51C10.3153 4.53139 10.1267 4.59927 9.97654 4.72327C9.82642 4.84727 9.7241 5.01964 9.6871 5.21084C9.65016 5.40203 9.68091 5.60012 9.77404 5.77114C9.86716 5.94216 10.0169 6.07544 10.1975 6.14812L11.4875 6.66438C11.6682 6.73706 11.8179 6.87034 11.911 7.04136C12.0042 7.21238 12.0349 7.41047 11.998 7.60169C11.961 7.79287 11.8587 7.96525 11.7085 8.08925C11.5584 8.21325 11.3698 8.28113 11.175 8.28125H9.90566" stroke="currentColor" stroke-width="1.11551" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M10.8438 4.53125V3.59375" stroke="currentColor" stroke-width="1.11551" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M10.8438 9.21875V8.28125" stroke="currentColor" stroke-width="1.11551" stroke-linecap="round" stroke-linejoin="round"/>
+		</g>
+		<defs>
+			<clipPath id="clip0_29_528">
+				<rect width="17" height="15.5" fill="transparent" transform="translate(0 0.75)"/>
+			</clipPath>
+		</defs>
+	</symbol>
+
 </svg>

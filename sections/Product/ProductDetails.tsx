@@ -4,12 +4,19 @@ import ProductInfo from "site/components/product/ProductInfo.tsx";
 import Breadcrumb from "site/components/ui/Breadcrumb.tsx";
 import Section from "site/components/ui/Section.tsx";
 
+export interface PDPSettings {
+  cashbackPercentage: number;
+}
+
 export interface Props {
-  /** @title Integration */
+  /** @title Settings */
+  settings: PDPSettings;
+
+  /** @title Ecommerce Plataform Integration Settings */
   page: ProductDetailsPage | null;
 }
 
-export default function ProductDetails({ page }: Props) {
+export default function ProductDetails({ page, settings }: Props) {
   /**
    * Rendered when a not found is returned by any of the loaders run on this page
    */
@@ -31,7 +38,7 @@ export default function ProductDetails({ page }: Props) {
       <Breadcrumb itemListElement={page.breadcrumbList.itemListElement} />
       <div class="flex mobile:flex-col gap-4 justify-between">
         <ProductImages page={page} />
-        <ProductInfo page={page} />
+        <ProductInfo page={page} settings={settings} />
       </div>
     </div>
   );

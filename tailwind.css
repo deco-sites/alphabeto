@@ -84,3 +84,19 @@
 .radio:checked {
   box-shadow: 0 0 0 4px white inset, 0 0 0 4px white inset;
 }
+
+.triangle-cashback {
+  --r:1px; /* border radius */
+
+  height: 13px;
+  aspect-ratio: cos(30deg);
+  --_g:calc(tan(60deg)*var(--r)) right var(--r),#000 98%,#0000 101%;
+  -webkit-mask:
+    conic-gradient(from 240deg at calc(200% - 3*var(--r)/2),#000 60deg,#0000 0)
+     100% 0/calc(100% - 3*var(--r)/2) 100% no-repeat,
+    radial-gradient(var(--r) at calc(2*var(--r)) 50%,#000 98%,#0000 101%),
+    radial-gradient(var(--r) at top    var(--_g)),
+    radial-gradient(var(--r) at bottom var(--_g));
+  clip-path: polygon(0 50%,100% 100%,100% 0);
+  background: #D6DE23;
+}

@@ -29,6 +29,9 @@
         "__resolveType": "site/sections/Product/ProductDetails.tsx",
         "page": {
           "__resolveType": "PDP Loader"
+        },
+        "settings": {
+          "cashbackPercentage": 15
         }
       }
     },

@@ -1,6 +1,8 @@
+import { useScriptAsDataURI } from "@deco/deco/hooks";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import { clx } from "../../sdk/clx.ts";
+import ProductCashback from "site/components/product/ProductCashback.tsx";
+import { PDPSettings } from "site/sections/Product/ProductDetails.tsx";
 import { formatPrice } from "../../sdk/format.ts";
 import { useId } from "../../sdk/useId.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
@@ -13,9 +15,10 @@ import ProductSelector from "./ProductVariantSelector.tsx";
 
 interface Props {
   page: ProductDetailsPage | null;
+  settings: PDPSettings;
 }
 
-function ProductInfo({ page }: Props) {
+function ProductInfo({ page, settings }: Props) {
   const id = useId();
 
   if (page === null) {
@@ -32,11 +35,10 @@ function ProductInfo({ page }: Props) {
     listPrice,
     seller = "1",
     availability,
+    installments,
   } = useOffer(offers);
 
-  const percent = listPrice && price
-    ? Math.round(((listPrice - price) / listPrice) * 100)
-    : 0;
+  const referenceCode = isVariantOf?.model;
 
   const breadcrumb = {
     ...breadcrumbList,
@@ -70,36 +72,57 @@ function ProductInfo({ page }: Props) {
       variant?.name?.toLowerCase() !== "default title",
   ) ?? false;
 
+  const hasListPrice = listPrice && listPrice > price;
+
   return (
     <div
       {...viewItemEvent}
       class="flex flex-col desk:max-w-[min(33.33vw,480px)]"
       id={id}
     >
-      {/* Price tag */}
-      <span
-        class={clx(
-          "text-sm/4 font-normal text-black bg-primary bg-opacity-15 text-center rounded-badge px-2 py-1",
-          percent < 1 && "opacity-0",
-          "w-fit",
-        )}
-      >
-        {percent} % off
-      </span>
-
       {/* Product Name */}
-      <span class={clx("text-3xl font-semibold", "pt-4")}>
+      <span
+        class={"text-[#676767] text-[22px] mobile:leading-[26px] desk:text-3xl font-bold"}
+      >
         {title}
       </span>
 
-      {/* Prices */}
-      <div class="flex gap-3 pt-1">
-        <span class="text-3xl font-semibold text-base-400">
-          {formatPrice(price, offers?.priceCurrency)}
+      <div class="flex gap-[15px] mt-3">
+        {/** Reference Code */}
+        <span class="text-xs leading-[18px] desk:leading-[14px] text-[#676767]">
+          REF: {referenceCode}
         </span>
-        <span class="line-through text-sm font-medium text-gray-400">
-          {formatPrice(listPrice, offers?.priceCurrency)}
-        </span>
+      </div>
+
+      <div class="mt-5 desk:mt-[30px] flex gap-6 items-center">
+        <div>
+          {/* Prices */}
+          <div class="flex items-center">
+            {hasListPrice && (
+              <>
+                <span class="line-through text-[#C5C5C5] text-xs leading-[14px] desk:text-sm desk:leading-4 font-semibold">
+                  {formatPrice(listPrice, offers?.priceCurrency)}
+                </span>
+                <span class="desk:text-sm desk:leading-4 font-semibold text-primary mx-[5px]">
+                  •
+                </span>
+              </>
+            )}
+            <span class="text-xl leading-6 font-bold text-primary">
+              {formatPrice(price, offers?.priceCurrency)}
+            </span>
+          </div>
+          {/* Installments */}
+          {installments && (
+            <span class="text-xs leading-[18px] desk:leading-[14px] text-[#676767] font-bold mt-[5px] block">
+              Em até {installments}
+            </span>
+          )}
+        </div>
+        <ProductCashback
+          product={product}
+          percentage={settings.cashbackPercentage}
+        />
       </div>
 
       {/* Sku Selector */}
@@ -148,6 +171,12 @@ function ProductInfo({ page }: Props) {
           )}
         </span>
       </div>
+      <script
+        src={useScriptAsDataURI(
+          (data: unknown) => console.log(data),
+          installments,
+        )}
+      />
     </div>
   );
 }
