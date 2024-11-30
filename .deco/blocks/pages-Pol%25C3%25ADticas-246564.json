@@ -1,0 +1,128 @@
+{
+  "name": "Políticas",
+  "path": "/politicas-de-privacidade",
+  "sections": [
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Header"
+      }
+    },
+    {
+      "__resolveType": "site/sections/BreadcrumbInstitucional/Breadcrumb.tsx",
+      "root": "HOME",
+      "path": "Ajuda",
+      "route": "Políticas de privacidade ",
+      "showText": true
+    },
+    {
+      "__resolveType": "site/sections/Policy/Policy.tsx",
+      "items": [
+        {
+          "title": "Políticas de privacidade",
+          "subtitle": "Lorem",
+          "paragraph": "<p><span>Lorem ipsum dolor sit amet consectetur. Integer nisi tristique quis sit ornare orci massa viverra tellus. Sed libero aenean vitae pellentesque eget. Risus ultrices fames sit arcu tempus mi id vivamus. Erat elementum erat id fermentum sed nibh in maecenas. In sed duis pulvinar nam ac porta lectus. Purus risus blandit montes lacus et nibh feugiat tristique laoreet. Lacus ut ultricies donec fermentum montes viverra. Donec fames consectetur id adipiscing turpis volutpat convallis consectetur. Dictum lectus sit iaculis nam mattis. Faucibus volutpat amet donec ut. Cras dictumst blandit ullamcorper sapien risus quam.<br>Luctus sit cursus ipsum aliquam eu scelerisque. Nunc morbi amet id proin vitae ut. Dolor nibh tristique blandit cursus tincidunt. Aliquam aliquam massa sit platea pellentesque. Augue quam et amet sit vel elementum egestas enim sed. Ullamcorper diam luctus gravida nunc purus. Ligula non elit in erat duis condimentum urna diam adipiscing.<br>Arcu laoreet et tempus sed ac faucibus massa ultricies tellus. Vestibulum tempor viverra viverra id sociis lacus ut ac. Ornare vitae ut egestas praesent mi consectetur. Mauris ultricies sed neque fermentum mollis dolor aliquet mi. Ullamcorper varius feugiat a urna. Natoque adipiscing nam adipiscing volutpat sed mauris adipiscing sollicitudin gravida. Odio pellentesque curabitur ornare sit. Tristique mollis condimentum euismod bibendum gravida amet.<br>Elementum odio velit semper duis quis tempor praesent consequat pharetra. Blandit nec felis ut elit tempus arcu nibh mauris. Sed leo fermentum nisl lectus varius consectetur. Non odio consequat vitae accumsan ac nisl vitae et volutpat. Sed maecenas fames lobortis diam vitae mus in nunc. Egestas odio donec lacus nam sit tempor. Sed diam viverra libero fringilla. Nibh enim sit diam id. Id sed risus pulvinar tellus quis fringilla. Scelerisque augue aliquam senectus turpis elit ut habitasse.</span></p>"
+        },
+        {
+          "title": "Endereço de IP:",
+          "subtitle": "Lorem ipsum dolor sit amet consectetur.",
+          "paragraph": "<ul><li><p>Lorem ipsum dolor sit amet consectetur. Integer nisi tristique quis sit ornare orci massa viverra tellus. Sed libero aenean vitae pellentesque eget. Risus ultrices fames sit arcu tempus mi id vivamus. Erat elementum erat id fermentum sed nibh in maecenas. In sed duis pulvinar nam ac porta lectus.</p></li><li><p>Purus risus blandit montes lacus et nibh feugiat tristique laoreet. Lacus ut ultricies donec fermentum montes viverra. Donec fames consectetur id adipiscing turpis volutpat convallis consectetur.</p></li><li><p>Dictum lectus sit iaculis nam mattis. Faucibus volutpat amet donec ut. Cras dictumst blandit ullamcorper sapien risus quam.</p></li><li><p>Luctus sit cursus ipsum aliquam eu scelerisque. Nunc morbi amet id proin vitae ut. Dolor nibh tristique blandit cursus tincidunt. Aliquam aliquam massa sit platea pellentesque. Augue quam et amet sit vel elementum egestas enim sed. Ullamcorper diam luctus gravida nunc purus. Ligula non elit in erat duis condimentum urna diam adipiscing.</p></li></ul><p></p><p></p><ul><li><p><img src=\"https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/6e2559fb-5888-4281-9e1f-4a082c42e7e4/Espaco-para-banner.png\"></p></li></ul>"
+        },
+        {
+          "title": "Cookies:",
+          "subtitle": "Lorem ipsum dolor sit amet consectetur.",
+          "paragraph": "<ol><li><p>Lorem ipsum dolor sit amet consectetur. Integer nisi tristique quis sit ornare orci massa viverra tellus. Sed libero aenean vitae pellentesque eget. Risus ultrices fames sit arcu tempus mi id vivamus. Erat elementum erat id fermentum sed nibh in maecenas. In sed duis pulvinar nam ac porta lectus.</p></li><li><p>Purus risus blandit montes lacus et nibh feugiat tristique laoreet. Lacus ut ultricies donec fermentum montes viverra. Donec fames consectetur id adipiscing turpis volutpat convallis consectetur.</p></li><li><p>Dictum lectus sit iaculis nam mattis. Faucibus volutpat amet donec ut. Cras dictumst blandit ullamcorper sapien risus quam.</p></li><li><p>Luctus sit cursus ipsum aliquam eu scelerisque. Nunc morbi amet id proin vitae ut. Dolor nibh tristique blandit cursus tincidunt. Aliquam aliquam massa sit platea pellentesque. Augue quam et amet sit vel elementum egestas enim sed. Ullamcorper diam luctus gravida nunc purus. Ligula non elit in erat duis condimentum urna diam adipiscing.</p></li></ol>"
+        },
+        {
+          "title": "Obtenção e uso das informações",
+          "paragraph": "<p><span>Lorem ipsum dolor sit amet consectetur. Bibendum tellus iaculis volutpat fringilla proin tincidunt nulla libero mattis. Enim suscipit sed sem eu in. Volutpat adipiscing vulputate vestibulum elementum. Ultrices massa ac quam elit pretium tempus nec cursus. Nunc pellentesque lacus sit vulputate tellus massa sit tempor viverra. Arcu rhoncus dictum tristique purus. A feugiat non cursus nunc interdum ultrices nibh suspendisse. Diam et facilisis faucibus tristique nunc. Suspendisse urna vulputate et lectus commodo facilisi magna amet. Convallis tempor habitant pulvinar elementum nec sit tempor massa etiam.</span></p>"
+        },
+        {
+          "paragraph": "<p><span>Lorem ipsum dolor sit amet consectetur. Bibendum tellus iaculis volutpat fringilla proin tincidunt nulla libero mattis. Enim suscipit sed sem eu in. Volutpat adipiscing vulputate vestibulum elementum. Ultrices massa ac quam elit pretium tempus nec cursus. Nunc pellentesque lacus sit vulputate tellus massa sit tempor viverra. Arcu rhoncus dictum tristique purus. A feugiat non cursus nunc interdum ultrices nibh suspendisse. Diam et facilisis faucibus tristique nunc. Suspendisse urna vulputate et lectus commodo facilisi magna amet. Convallis tempor habitant pulvinar elementum nec sit tempor massa etiam.</span></p>",
+          "title": "Envio de comunicados e mensagens publicitárias"
+        },
+        {
+          "paragraph": "<p><span>Lorem ipsum dolor sit amet consectetur. Bibendum tellus iaculis volutpat fringilla proin tincidunt nulla libero mattis. Enim suscipit sed sem eu in. Volutpat adipiscing vulputate vestibulum elementum. Ultrices massa ac quam elit pretium tempus nec cursus. Nunc pellentesque lacus sit vulputate tellus massa sit tempor viverra. Arcu rhoncus dictum tristique purus. A feugiat non cursus nunc interdum ultrices nibh suspendisse. Diam et facilisis faucibus tristique nunc. Suspendisse urna vulputate et lectus commodo facilisi magna amet. Convallis tempor habitant pulvinar elementum nec sit tempor massa etiam.</span></p>",
+          "title": "Modificações de nossa política de privacidade "
+        }
+      ],
+      "Menu": {
+        "__resolveType": "site/sections/MenuInstitucional/MenuInstitucional.tsx",
+        "institutionalTitle": "Ajuda",
+        "supportTitle": "Fale conosco",
+        "institutionalLinks": [
+          {
+            "label": "Políticas de privacidade",
+            "route": "/politicas-de-privacidade"
+          },
+          {
+            "label": "Troca e devolução",
+            "route": "/troca-e-devolucao"
+          },
+          {
+            "label": "Termos e condições",
+            "route": "/termos-e-condicoes"
+          },
+          {
+            "label": "Formas de pagamento",
+            "route": "/formas-de-pagamento"
+          },
+          {
+            "route": "/formas-de-entrega",
+            "label": "Formas de entrega"
+          }
+        ],
+        "supportLinks": [
+          {
+            "route": "/fale-conosco",
+            "label": "Fale conosco"
+          },
+          {
+            "route": "/duvidas-frequentes",
+            "label": "Dúvidas frequentes"
+          }
+        ],
+        "links": [
+          {
+            "route": "/politicas-de-privacidade",
+            "label": "Políticas de privacidade"
+          },
+          {
+            "route": "/troca-e-devolucao",
+            "label": "Troca e devolução"
+          },
+          {
+            "route": "/termos-e-condicoes",
+            "label": "Termos e condições"
+          },
+          {
+            "route": "/formas-de-pagamento",
+            "label": "Formas de pagamento"
+          },
+          {
+            "route": "/formas-de-entrega",
+            "label": "Formas de entrega"
+          },
+          {
+            "route": "/fale-conosco",
+            "label": "Fale conosco"
+          },
+          {
+            "route": "/duvidas-frequentes",
+            "label": "Dúvidas frequentes"
+          }
+        ]
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer"
+      }
+    }
+  ],
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
+  "__resolveType": "website/pages/Page.tsx"
+}
