@@ -71,7 +71,11 @@ function ProductInfo({ page }: Props) {
   ) ?? false;
 
   return (
-    <div {...viewItemEvent} class="flex flex-col" id={id}>
+    <div
+      {...viewItemEvent}
+      class="flex flex-col desk:max-w-[min(33.33vw,480px)]"
+      id={id}
+    >
       {/* Price tag */}
       <span
         class={clx(

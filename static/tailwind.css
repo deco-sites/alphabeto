@@ -3676,6 +3676,12 @@ details.collapse summary::-webkit-details-marker {
 .bottom-0 {
   bottom: 0px;
 }
+.bottom-2 {
+  bottom: 0.5rem;
+}
+.bottom-2\.5 {
+  bottom: 0.625rem;
+}
 .bottom-4 {
   bottom: 1rem;
 }
@@ -4122,6 +4128,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .max-h-\[110px\] {
   max-height: 110px;
+}
+.max-h-\[126\.67vw\] {
+  max-height: 126.67vw;
 }
 .max-h-\[148px\] {
   max-height: 148px;
@@ -5878,6 +5887,40 @@ details.collapse summary::-webkit-details-marker {
   --tooltip-color: var(--fallback-er,oklch(var(--er)/1));
   --tooltip-text-color: var(--fallback-erc,oklch(var(--erc)/1));
 }
+@media (max-width: 1023px) {
+
+  .mobile\:carousel {
+    display: inline-flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .mobile\:carousel-item {
+    box-sizing: content-box;
+    display: flex;
+    flex: none;
+    scroll-snap-align: start;
+  }
+
+  .mobile\:carousel-center .carousel-item {
+    scroll-snap-align: center;
+  }
+
+  .carousel-center .mobile\:carousel-item {
+    scroll-snap-align: center;
+  }
+
+  .carousel-end .mobile\:carousel-item {
+    scroll-snap-align: end;
+  }
+
+  .mobile\:carousel::-webkit-scrollbar {
+    display: none;
+  }
+}
 .first\:mt-1:first-child {
   margin-top: 0.25rem;
 }
@@ -6153,6 +6196,10 @@ details.collapse summary::-webkit-details-marker {
     height: 295px;
   }
 
+  .desk\:max-h-\[min\(44\.68vw\2c 658px\)\] {
+    max-height: min(44.68vw,658px);
+  }
+
   .desk\:w-\[443px\] {
     width: 443px;
   }
@@ -6181,6 +6228,10 @@ details.collapse summary::-webkit-details-marker {
     max-width: 95rem;
   }
 
+  .desk\:max-w-\[min\(33\.33vw\2c 480px\)\] {
+    max-width: min(33.33vw,480px);
+  }
+
   .desk\:grid-cols-\[185px_1fr_443px\] {
     grid-template-columns: 185px 1fr 443px;
   }
@@ -6191,6 +6242,10 @@ details.collapse summary::-webkit-details-marker {
 
   .desk\:gap-11 {
     gap: 2.75rem;
+  }
+
+  .desk\:gap-3 {
+    gap: 0.75rem;
   }
 
   .desk\:gap-8 {

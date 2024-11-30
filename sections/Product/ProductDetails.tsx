@@ -1,9 +1,8 @@
 import { ProductDetailsPage } from "apps/commerce/types.ts";
-import ImageGallerySlider from "../../components/product/Gallery.tsx";
-import ProductInfo from "../../components/product/ProductInfo.tsx";
-import Breadcrumb from "../../components/ui/Breadcrumb.tsx";
-import Section from "../../components/ui/Section.tsx";
-import { clx } from "../../sdk/clx.ts";
+import ProductImages from "site/components/product/ProductImages.tsx";
+import ProductInfo from "site/components/product/ProductInfo.tsx";
+import Breadcrumb from "site/components/ui/Breadcrumb.tsx";
+import Section from "site/components/ui/Section.tsx";
 
 export interface Props {
   /** @title Integration */
@@ -28,22 +27,11 @@ export default function ProductDetails({ page }: Props) {
   }
 
   return (
-    <div class="container flex flex-col gap-4 sm:gap-5 w-full py-4 sm:py-5 px-5 sm:px-0">
+    <div class="container">
       <Breadcrumb itemListElement={page.breadcrumbList.itemListElement} />
-
-      <div
-        class={clx(
-          "container grid",
-          "grid-cols-1 gap-2 py-0",
-          "sm:grid-cols-5 sm:gap-6",
-        )}
-      >
-        <div class="sm:col-span-3">
-          <ImageGallerySlider page={page} />
-        </div>
-        <div class="sm:col-span-2">
-          <ProductInfo page={page} />
-        </div>
+      <div class="flex mobile:flex-col gap-4 justify-between">
+        <ProductImages page={page} />
+        <ProductInfo page={page} />
       </div>
     </div>
   );
