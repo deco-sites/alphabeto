@@ -15,6 +15,7 @@ export type AvailableIcons =
   | "favorite"
   | "home_pin"
   | "home_icon"
+  | "home_icon"
   | "call"
   | "local_shipping"
   | "pan_zoom"
