@@ -28,7 +28,10 @@ export default function ProductSizebay({ sizebay }: Props) {
   if (!sizebay) return null;
 
   return (
-    <div id={containersId} class="flex gap-[30px] items-center">
+    <div
+      id={containersId}
+      class="flex gap-[30px] items-center mb-10 desk:mb-[30px]"
+    >
       <div>
         <Modal
           id={vfrModalId}

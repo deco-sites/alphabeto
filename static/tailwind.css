@@ -871,21 +871,6 @@ html {
 .carousel-end .carousel-item {
   scroll-snap-align: end;
 }
-.\!checkbox {
-  flex-shrink: 0 !important;
-  --chkbg: var(--fallback-bc,oklch(var(--bc)/1)) !important;
-  --chkfg: var(--fallback-b1,oklch(var(--b1)/1)) !important;
-  height: 1.5rem !important;
-  width: 1.5rem !important;
-  cursor: pointer !important;
-  -webkit-appearance: none !important;
-     -moz-appearance: none !important;
-          appearance: none !important;
-  border-radius: var(--rounded-btn, 0.5rem) !important;
-  border-width: 1px !important;
-  border-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-border-opacity))) !important;
-  --tw-border-opacity: 0.2 !important;
-}
 .checkbox {
   flex-shrink: 0;
   --chkbg: var(--fallback-bc,oklch(var(--bc)/1));
@@ -2185,41 +2170,14 @@ input.tab:checked + .tab-content,
 .carousel::-webkit-scrollbar {
   display: none;
 }
-.\!checkbox:focus {
-  box-shadow: none !important;
-}
 .checkbox:focus {
   box-shadow: none;
-}
-.\!checkbox:focus-visible {
-  outline-style: solid !important;
-  outline-width: 2px !important;
-  outline-offset: 2px !important;
-  outline-color: var(--fallback-bc,oklch(var(--bc)/1)) !important;
 }
 .checkbox:focus-visible {
   outline-style: solid;
   outline-width: 2px;
   outline-offset: 2px;
   outline-color: var(--fallback-bc,oklch(var(--bc)/1));
-}
-.\!checkbox:checked,
-  .\!checkbox[checked="true"],
-  .\!checkbox[aria-checked="true"] {
-  background-repeat: no-repeat !important;
-  animation: checkmark var(--animation-input, 0.2s) ease-out !important;
-  background-color: var(--chkbg) !important;
-  background-image: linear-gradient(-45deg, transparent 65%, var(--chkbg) 65.99%),
-      linear-gradient(45deg, transparent 75%, var(--chkbg) 75.99%),
-      linear-gradient(-45deg, var(--chkbg) 40%, transparent 40.99%),
-      linear-gradient(
-        45deg,
-        var(--chkbg) 30%,
-        var(--chkfg) 30.99%,
-        var(--chkfg) 40%,
-        transparent 40.99%
-      ),
-      linear-gradient(-45deg, var(--chkfg) 50%, var(--chkbg) 50.99%) !important;
 }
 .checkbox:checked,
   .checkbox[checked="true"],
@@ -2239,33 +2197,6 @@ input.tab:checked + .tab-content,
       ),
       linear-gradient(-45deg, var(--chkfg) 50%, var(--chkbg) 50.99%);
 }
-.\!checkbox:checked,
-  .\!checkbox[checked="true"],
-  .\!checkbox[aria-checked="true"] {
-  background-repeat: no-repeat !important;
-  animation: checkmark var(--animation-input, 0.2s) ease-out !important;
-  background-color: var(--chkbg) !important;
-  background-image: linear-gradient(-45deg, transparent 65%, var(--chkbg) 65.99%),
-      linear-gradient(45deg, transparent 75%, var(--chkbg) 75.99%),
-      linear-gradient(-45deg, var(--chkbg) 40%, transparent 40.99%),
-      linear-gradient(
-        45deg,
-        var(--chkbg) 30%,
-        var(--chkfg) 30.99%,
-        var(--chkfg) 40%,
-        transparent 40.99%
-      ),
-      linear-gradient(-45deg, var(--chkfg) 50%, var(--chkbg) 50.99%) !important;
-}
-.\!checkbox:indeterminate {
-  --tw-bg-opacity: 1 !important;
-  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity))) !important;
-  background-repeat: no-repeat !important;
-  animation: checkmark var(--animation-input, 0.2s) ease-out !important;
-  background-image: linear-gradient(90deg, transparent 80%, var(--chkbg) 80%),
-      linear-gradient(-90deg, transparent 80%, var(--chkbg) 80%),
-      linear-gradient(0deg, var(--chkbg) 43%, var(--chkfg) 43%, var(--chkfg) 57%, var(--chkbg) 57%) !important;
-}
 .checkbox:indeterminate {
   --tw-bg-opacity: 1;
   background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
@@ -2274,13 +2205,6 @@ input.tab:checked + .tab-content,
   background-image: linear-gradient(90deg, transparent 80%, var(--chkbg) 80%),
       linear-gradient(-90deg, transparent 80%, var(--chkbg) 80%),
       linear-gradient(0deg, var(--chkbg) 43%, var(--chkfg) 43%, var(--chkfg) 57%, var(--chkbg) 57%);
-}
-.\!checkbox:disabled {
-  cursor: not-allowed !important;
-  border-color: transparent !important;
-  --tw-bg-opacity: 1 !important;
-  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity))) !important;
-  opacity: 0.2 !important;
 }
 .checkbox:disabled {
   cursor: not-allowed;
@@ -4101,6 +4025,9 @@ details.collapse summary::-webkit-details-marker {
 .h-\[210px\] {
   height: 210px;
 }
+.h-\[22px\] {
+  height: 22px;
+}
 .h-\[30px\] {
   height: 30px;
 }
@@ -4217,6 +4144,9 @@ details.collapse summary::-webkit-details-marker {
 .w-10 {
   width: 2.5rem;
 }
+.w-11 {
+  width: 2.75rem;
+}
 .w-11\/12 {
   width: 91.666667%;
 }
@@ -4258,6 +4188,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .w-\[197px\] {
   width: 197px;
+}
+.w-\[22px\] {
+  width: 22px;
 }
 .w-\[243px\] {
   width: 243px;
@@ -4541,6 +4474,9 @@ details.collapse summary::-webkit-details-marker {
 .grid-cols-6 {
   grid-template-columns: repeat(6, minmax(0, 1fr));
 }
+.grid-cols-\[127px\2c 1fr\] {
+  grid-template-columns: 127px 1fr;
+}
 .grid-cols-\[1fr_110px_1fr\] {
   grid-template-columns: 1fr 110px 1fr;
 }
@@ -4648,6 +4584,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .gap-\[16px\] {
   gap: 16px;
+}
+.gap-\[18px\] {
+  gap: 18px;
 }
 .gap-\[22px\] {
   gap: 22px;
@@ -5515,6 +5454,10 @@ details.collapse summary::-webkit-details-marker {
 .tracking-\[-3px\] {
   letter-spacing: -3px;
 }
+.\!text-\[\#212121\] {
+  --tw-text-opacity: 1 !important;
+  color: rgb(33 33 33 / var(--tw-text-opacity)) !important;
+}
 .text-\[\#057EB5\] {
   --tw-text-opacity: 1;
   color: rgb(5 126 181 / var(--tw-text-opacity));
@@ -6280,14 +6223,6 @@ details.collapse summary::-webkit-details-marker {
   background-color: rgb(13 23 23 / var(--tw-bg-opacity));
 }
 
-.peer:checked ~ .peer-checked\:flex {
-  display: flex;
-}
-
-.peer:checked ~ .peer-checked\:hidden {
-  display: none;
-}
-
 @media (max-width: 1023px) {
 
   .mobile\:ml-0 {
@@ -6431,6 +6366,10 @@ details.collapse summary::-webkit-details-marker {
 
   .desk\:max-w-\[min\(33\.33vw\2c 480px\)\] {
     max-width: min(33.33vw,480px);
+  }
+
+  .desk\:grid-cols-\[133px\2c 1fr\] {
+    grid-template-columns: 133px 1fr;
   }
 
   .desk\:grid-cols-\[185px_1fr_443px\] {

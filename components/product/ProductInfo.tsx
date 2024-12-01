@@ -86,6 +86,7 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
       id={id}
     >
       <ProductAgeRangeIndicator product={product} />
+      <WishlistButton item={item} />
       {/* Product Name */}
       <span
         class={"text-[#676767] text-[22px] mobile:leading-[26px] desk:text-3xl font-bold"}
@@ -142,23 +143,17 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
 
       <ProductSizebay sizebay={sizebaySettings} />
 
-      {/* Add to Cart and Favorites button */}
-      <div class="mt-4 sm:mt-10 flex flex-col gap-2">
-        {availability === "https://schema.org/InStock"
-          ? (
-            <>
-              <AddToCartButton
-                item={item}
-                seller={seller}
-                product={product}
-                class="btn btn-primary no-animation"
-                disabled={false}
-              />
-              <WishlistButton item={item} />
-            </>
-          )
-          : <OutOfStock productID={productID} />}
-      </div>
+      {availability === "https://schema.org/InStock"
+        ? (
+          <AddToCartButton
+            item={item}
+            seller={seller}
+            product={product}
+            class="btn btn-primary no-animation"
+            disabled={false}
+          />
+        )
+        : <OutOfStock productID={productID} />}
 
       {/* Shipping Simulation */}
       <div class="mt-8">
