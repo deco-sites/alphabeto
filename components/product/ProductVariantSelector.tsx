@@ -1,55 +1,99 @@
+import { useScriptAsDataURI, useSection } from "@deco/deco/hooks";
 import type { Product } from "apps/commerce/types.ts";
+import { uppercaseFirstLetter } from "site/sdk/stringUtils.ts";
 import { clx } from "../../sdk/clx.ts";
 import { relative } from "../../sdk/url.ts";
 import { useId } from "../../sdk/useId.ts";
 import { useVariantPossibilities } from "../../sdk/useVariantPossiblities.ts";
-import { useSection } from "@deco/deco/hooks";
+
 interface Props {
   product: Product;
 }
 const colors: Record<string, string | undefined> = {
-  "White": "white",
-  "Black": "black",
-  "Gray": "gray",
-  "Blue": "#99CCFF",
-  "Green": "#aad1b5",
-  "Yellow": "#F1E8B0",
-  "DarkBlue": "#4E6E95",
-  "LightBlue": "#bedae4",
-  "DarkGreen": "#446746",
-  "LightGreen": "#aad1b5",
-  "DarkYellow": "#c6b343",
-  "LightYellow": "#F1E8B0",
+  "roxo": "#8A2BE2",
 };
-const useStyles = (value: string, checked: boolean) => {
-  if (colors[value]) {
-    return clx(
-      "border border-base-300 rounded-full",
-      "w-12 h-12 block",
-      "border border-[#C9CFCF] rounded-full",
-      "ring-2 ring-offset-2",
-      checked ? "ring-primary" : "ring-transparent",
-    );
+
+const useStyles = (
+  value: string,
+  checked: boolean,
+  name: string,
+  isAvailable: boolean,
+) => {
+  if (colors[value.toLowerCase()] && name.toLowerCase() === "cor") {
+    return {
+      bg: colors[value.toLowerCase()],
+      class: clx(
+        "btn rounded-full w-6 h-6 max-h-6 min-h-6 p-0",
+        "ring-1 ring-offset-2",
+        checked ? "ring-primary" : "ring-transparent",
+        checked === false && isAvailable === false ? "diagonal-line" : "",
+      ),
+    };
   }
-  return clx(
-    "btn btn-ghost border-[#C9CFCF] hover:bg-base-200 hover:border-[#C9CFCF] w-12 h-12",
-    "ring-2 ring-offset-2",
-    checked ? "ring-primary" : "ring-transparent border-[#C9CFCF]",
+  return {
+    class: clx(
+      "btn  text-xs leading-[14px] font-medium rounded-full px-[9px] min-w-6 h-6 max-h-6 min-h-6 p-0",
+      "ring-1 ring-offset-2",
+      checked
+        ? "ring-primary bg-primary border-primary text-white"
+        : "ring-transparent bg-transparent border-[#5A5B61] text-[#5A5B61] hover:bg-primary hover:border-primary hover:text-white",
+      checked === false && isAvailable === false ? "diagonal-line" : "",
+    ),
+  };
+};
+
+const isAvailable = (url: string, product: Product) => {
+  return Boolean(
+    product.isVariantOf?.hasVariant.find((variant) => variant.url === url)
+      ?.offers?.offers.find((offer) =>
+        offer.availability.toLowerCase().includes("instock")
+      ),
   );
 };
-export const Ring = ({ value, checked = false, class: _class }: {
-  value: string;
-  checked?: boolean;
-  class?: string;
-}) => {
-  const color = colors[value];
-  const styles = clx(useStyles(value, checked), _class);
+
+export const Ring = (
+  { value, checked = false, class: _class, name, isAvailable }: {
+    value: string;
+    checked?: boolean;
+    class?: string;
+    name: string;
+    isAvailable: boolean;
+  },
+) => {
+  const { class: className, bg } = useStyles(value, checked, name, isAvailable);
   return (
-    <span style={{ backgroundColor: color }} class={styles}>
-      {color ? null : value}
+    <span style={{ backgroundColor: bg }} class={clx(className, _class)}>
+      {bg ? null : value}
     </span>
   );
 };
+
+function VariantLabel({ variantName, possibilities, product }: {
+  variantName: string;
+  possibilities: ReturnType<typeof useVariantPossibilities>;
+  product: Product;
+}) {
+  let selectedValue = Object.entries(possibilities[variantName])
+    .filter(([_, link]) => link === product.url)[0]?.[0] ?? "";
+
+  const labelsMap = {
+    "cor": "Selecione a cor",
+    "tamanho": "Selecione o tamanho",
+  };
+  const selectedLabelOrDefault =
+    labelsMap[variantName.toLowerCase() as keyof typeof labelsMap] ??
+      variantName;
+  if (variantName.toLowerCase() === "cor") {
+    selectedValue = uppercaseFirstLetter(selectedValue.toLowerCase());
+  }
+
+  return (
+    <span class="text-xs leading-[14px] text-[#353535]">
+      <span class="font-bold">{selectedLabelOrDefault}:</span> {selectedValue}
+    </span>
+  );
+}
+
 function VariantSelector({ product }: Props) {
   const { url, isVariantOf } = product;
   const hasVariant = isVariantOf?.hasVariant ?? [];
@@ -64,15 +108,19 @@ function VariantSelector({ product }: Props) {
   }
   return (
     <ul
-      class="flex flex-col gap-4"
+      class="flex flex-col gap-[30px]"
       hx-target="closest section"
       hx-swap="outerHTML"
       hx-sync="this:replace"
     >
       {filteredNames.map((name) => (
-        <li class="flex flex-col gap-2">
-          <span class="text-sm">{name}</span>
-          <ul class="flex flex-row gap-4">
+        <li class="flex flex-col gap-3">
+          <VariantLabel
+            variantName={name}
+            possibilities={possibilities}
+            product={product}
+          />
+          <ul class="flex flex-row gap-2.5">
             {Object.entries(possibilities[name])
               .filter(([value]) => value)
               .map(([value, link]) => {
@@ -93,18 +141,23 @@ function VariantSelector({ product }: Props) {
                       />
                       <div
                         class={clx(
-                          "col-start-1 row-start-1 col-span-1 row-span-1",
+                          "col-start-1 row-start-1 col-span-1 row-span-1 relative z-20",
                           "[.htmx-request_&]:opacity-0 transition-opacity",
                         )}
                       >
-                        <Ring value={value} checked={checked} />
+                        <Ring
+                          value={value}
+                          checked={checked}
+                          name={name}
+                          isAvailable={isAvailable(link ?? "", product)}
+                        />
                       </div>
                       {/* Loading spinner */}
                       <div
                         class={clx(
                           "col-start-1 row-start-1 col-span-1 row-span-1",
                           "opacity-0 [.htmx-request_&]:opacity-100 transition-opacity",
-                          "flex justify-center items-center",
+                          "flex justify-center items-center relative z-10",
                         )}
                       >
                         <span class="loading loading-sm loading-spinner" />
@@ -116,6 +169,12 @@ function VariantSelector({ product }: Props) {
           </ul>
         </li>
       ))}
+      <script
+        src={useScriptAsDataURI(
+          (data: unknown) => console.log(data),
+          product,
+        )}
+      />
     </ul>
   );
 }

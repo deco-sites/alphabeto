@@ -1,7 +1,8 @@
-import { useScriptAsDataURI } from "@deco/deco/hooks";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
+import ProductAgeRangeIndicator from "site/components/product/ProductAgeRangeIndicator.tsx";
 import ProductCashback from "site/components/product/ProductCashback.tsx";
+import ProductSmallDescription from "site/components/product/ProductSmallDescription.tsx";
 import { PDPSettings } from "site/sections/Product/ProductDetails.tsx";
 import { formatPrice } from "../../sdk/format.ts";
 import { useId } from "../../sdk/useId.ts";
@@ -80,6 +81,7 @@ function ProductInfo({ page, settings }: Props) {
       class="flex flex-col desk:max-w-[min(33.33vw,480px)]"
       id={id}
     >
+      <ProductAgeRangeIndicator product={product} />
       {/* Product Name */}
       <span
         class={"text-[#676767] text-[22px] mobile:leading-[26px] desk:text-3xl font-bold"}
@@ -94,7 +96,7 @@ function ProductInfo({ page, settings }: Props) {
         </span>
       </div>
 
-      <div class="mt-5 desk:mt-[30px] flex gap-6 items-center">
+      <div class="mt-5 desk:mt-[30px] flex gap-6 items-center mb-10 desk:mb-[30px]">
         <div>
           {/* Prices */}
           <div class="flex items-center">
@@ -124,6 +126,8 @@ function ProductInfo({ page, settings }: Props) {
           percentage={settings.cashbackPercentage}
         />
       </div>
+
+      <ProductSmallDescription product={product} />
 
       {/* Sku Selector */}
       {hasValidVariants && (
@@ -171,12 +175,6 @@ function ProductInfo({ page, settings }: Props) {
           )}
         </span>
       </div>
-      <script
-        src={useScriptAsDataURI(
-          (data: unknown) => console.log(data),
-          installments,
-        )}
-      />
     </div>
   );
 }

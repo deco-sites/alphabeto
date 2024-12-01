@@ -100,3 +100,18 @@
   clip-path: polygon(0 50%,100% 100%,100% 0);
   background: #D6DE23;
 }
+
+.diagonal-line{
+  position: relative;
+}
+
+.diagonal-line::before {
+  content: "";
+  position: absolute;
+  width: 1px; /* Largura da linha */
+  height: 136%; /* Altura da linha */
+  background-color: #676767; /* Cor da linha */
+  transform: rotate(45deg); /* Rotação para criar a linha diagonal */
+  top: -4px;
+  left: 50%;
+}

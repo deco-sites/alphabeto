@@ -3790,6 +3790,9 @@ details.collapse summary::-webkit-details-marker {
 .z-10 {
   z-index: 10;
 }
+.z-20 {
+  z-index: 20;
+}
 .z-40 {
   z-index: 40;
 }
@@ -3899,6 +3902,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+.mb-2\.5 {
+  margin-bottom: 0.625rem;
 }
 .mb-3 {
   margin-bottom: 0.75rem;
@@ -4136,6 +4142,9 @@ details.collapse summary::-webkit-details-marker {
 .h-px {
   height: 1px;
 }
+.max-h-6 {
+  max-height: 1.5rem;
+}
 .max-h-\[110px\] {
   max-height: 110px;
 }
@@ -4177,6 +4186,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .min-h-5 {
   min-height: 1.25rem;
+}
+.min-h-6 {
+  min-height: 1.5rem;
 }
 .min-h-\[100px\] {
   min-height: 100px;
@@ -4314,6 +4326,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .w-screen {
   width: 100vw;
+}
+.min-w-6 {
+  min-width: 1.5rem;
 }
 .min-w-\[100px\] {
   min-width: 100px;
@@ -4595,6 +4610,9 @@ details.collapse summary::-webkit-details-marker {
 .gap-2 {
   gap: 0.5rem;
 }
+.gap-2\.5 {
+  gap: 0.625rem;
+}
 .gap-3 {
   gap: 0.75rem;
 }
@@ -4841,9 +4859,9 @@ details.collapse summary::-webkit-details-marker {
 .border-none {
   border-style: none;
 }
-.border-\[\#C9CFCF\] {
+.border-\[\#5A5B61\] {
   --tw-border-opacity: 1;
-  border-color: rgb(201 207 207 / var(--tw-border-opacity));
+  border-color: rgb(90 91 97 / var(--tw-border-opacity));
 }
 .border-\[\#F7E0BF\] {
   --tw-border-opacity: 1;
@@ -4860,10 +4878,6 @@ details.collapse summary::-webkit-details-marker {
 .border-base-200 {
   --tw-border-opacity: 1;
   border-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity)));
-}
-.border-base-300 {
-  --tw-border-opacity: 1;
-  border-color: var(--fallback-b3,oklch(var(--b3)/var(--tw-border-opacity)));
 }
 .border-gray-300 {
   --tw-border-opacity: 1;
@@ -5019,6 +5033,9 @@ details.collapse summary::-webkit-details-marker {
 .p-1 {
   padding: 0.25rem;
 }
+.p-1\.5 {
+  padding: 0.375rem;
+}
 .p-10 {
   padding: 2.5rem;
 }
@@ -5092,6 +5109,10 @@ details.collapse summary::-webkit-details-marker {
 .px-\[12px\] {
   padding-left: 12px;
   padding-right: 12px;
+}
+.px-\[9px\] {
+  padding-left: 9px;
+  padding-right: 9px;
 }
 .py-0 {
   padding-top: 0px;
@@ -5496,6 +5517,10 @@ details.collapse summary::-webkit-details-marker {
   --tw-text-opacity: 1;
   color: rgb(53 53 53 / var(--tw-text-opacity));
 }
+.text-\[\#5A5B61\] {
+  --tw-text-opacity: 1;
+  color: rgb(90 91 97 / var(--tw-text-opacity));
+}
 .text-\[\#616B6B\] {
   --tw-text-opacity: 1;
   color: rgb(97 107 107 / var(--tw-text-opacity));
@@ -5646,11 +5671,6 @@ details.collapse summary::-webkit-details-marker {
 .ring-1 {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-}
-.ring-2 {
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 .ring-base-content {
@@ -5805,6 +5825,21 @@ details.collapse summary::-webkit-details-marker {
     radial-gradient(var(--r) at bottom var(--_g));
   clip-path: polygon(0 50%,100% 100%,100% 0);
   background: #D6DE23;
+}
+
+.diagonal-line{
+  position: relative;
+}
+
+.diagonal-line::before {
+  content: "";
+  position: absolute;
+  width: 1px; /* Largura da linha */
+  height: 136%; /* Altura da linha */
+  background-color: #676767; /* Cor da linha */
+  transform: rotate(45deg); /* Rotação para criar a linha diagonal */
+  top: -4px;
+  left: 50%;
 }
 
 .invalid\:input-error:invalid {
@@ -6020,11 +6055,6 @@ details.collapse summary::-webkit-details-marker {
 
 .hover\:rounded:hover {
   border-radius: 0.25rem;
-}
-
-.hover\:border-\[\#C9CFCF\]:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(201 207 207 / var(--tw-border-opacity));
 }
 
 .hover\:border-primary:hover {
@@ -6324,6 +6354,10 @@ details.collapse summary::-webkit-details-marker {
   .desk\:mx-auto {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .desk\:mb-\[30px\] {
+    margin-bottom: 30px;
   }
 
   .desk\:mr-\[99px\] {

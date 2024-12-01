@@ -88,9 +88,6 @@ export default function ProductImages({ page }: Props) {
             />
           </Slider.Item>
         ))}
-        <script
-          src={useScriptAsDataURI((data: unknown) => console.log(data), page)}
-        />
       </Slider>
       <div class="absolute bottom-2.5 flex gap-1 left-1/2 -translate-x-1/2 desk:hidden">
         {dots}
