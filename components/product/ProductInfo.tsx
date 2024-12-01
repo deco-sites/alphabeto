@@ -1,8 +1,11 @@
+import { useScriptAsDataURI } from "@deco/deco/hooks";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import ProductAgeRangeIndicator from "site/components/product/ProductAgeRangeIndicator.tsx";
 import ProductCashback from "site/components/product/ProductCashback.tsx";
+import ProductSizebay from "site/components/product/ProductSizebay.tsx";
 import ProductSmallDescription from "site/components/product/ProductSmallDescription.tsx";
+import { SizeBaySettings } from "site/loaders/sizebay.ts";
 import { PDPSettings } from "site/sections/Product/ProductDetails.tsx";
 import { formatPrice } from "../../sdk/format.ts";
 import { useId } from "../../sdk/useId.ts";
@@ -17,9 +20,10 @@ import ProductSelector from "./ProductVariantSelector.tsx";
 interface Props {
   page: ProductDetailsPage | null;
   settings: PDPSettings;
+  sizebaySettings: SizeBaySettings;
 }
 
-function ProductInfo({ page, settings }: Props) {
+function ProductInfo({ page, settings, sizebaySettings }: Props) {
   const id = useId();
 
   if (page === null) {
@@ -131,10 +135,12 @@ function ProductInfo({ page, settings }: Props) {
 
       {/* Sku Selector */}
       {hasValidVariants && (
-        <div class="mt-4 sm:mt-8">
+        <div class="mt-[30px] mb-5">
           <ProductSelector product={product} />
         </div>
       )}
+
+      <ProductSizebay sizebay={sizebaySettings} />
 
       {/* Add to Cart and Favorites button */}
       <div class="mt-4 sm:mt-10 flex flex-col gap-2">
@@ -175,6 +181,11 @@ function ProductInfo({ page, settings }: Props) {
           )}
         </span>
       </div>
+      <script
+        src={useScriptAsDataURI((data: unknown) => {
+          console.log(data);
+        }, sizebaySettings)}
+      />
     </div>
   );
 }

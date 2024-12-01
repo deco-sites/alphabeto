@@ -1,4 +1,5 @@
 import { ProductDetailsPage } from "apps/commerce/types.ts";
+import { AppContext } from "site/apps/site.ts";
 import ProductImages from "site/components/product/ProductImages.tsx";
 import ProductInfo from "site/components/product/ProductInfo.tsx";
 import Breadcrumb from "site/components/ui/Breadcrumb.tsx";
@@ -16,7 +17,19 @@ export interface Props {
   page: ProductDetailsPage | null;
 }
 
-export default function ProductDetails({ page, settings }: Props) {
+export async function loader(props: Props, _req: Request, ctx: AppContext) {
+  const sizebaySettings = await ctx.invoke.site.loaders.sizebay({
+    productUrl: props.page?.product.url,
+  });
+  return {
+    ...props,
+    sizebaySettings,
+  };
+}
+
+export default function ProductDetails(
+  { page, settings, sizebaySettings }: Awaited<ReturnType<typeof loader>>,
+) {
   /**
    * Rendered when a not found is returned by any of the loaders run on this page
    */
@@ -38,7 +51,11 @@ export default function ProductDetails({ page, settings }: Props) {
       <Breadcrumb itemListElement={page.breadcrumbList.itemListElement} />
       <div class="flex mobile:flex-col gap-4 justify-between">
         <ProductImages page={page} />
-        <ProductInfo page={page} settings={settings} />
+        <ProductInfo
+          page={page}
+          settings={settings}
+          sizebaySettings={sizebaySettings}
+        />
       </div>
     </div>
   );

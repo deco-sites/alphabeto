@@ -1,4 +1,4 @@
-import { useScriptAsDataURI, useSection } from "@deco/deco/hooks";
+import { useSection } from "@deco/deco/hooks";
 import type { Product } from "apps/commerce/types.ts";
 import { uppercaseFirstLetter } from "site/sdk/stringUtils.ts";
 import { clx } from "../../sdk/clx.ts";
@@ -169,12 +169,6 @@ function VariantSelector({ product }: Props) {
           </ul>
         </li>
       ))}
-      <script
-        src={useScriptAsDataURI(
-          (data: unknown) => console.log(data),
-          product,
-        )}
-      />
     </ul>
   );
 }
