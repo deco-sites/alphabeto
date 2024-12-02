@@ -29,28 +29,32 @@ interface HomeToCategoryBannerProps {
   items: HomeToCategoryBannerItem[];
 }
 
-export default function HomeToCategoryBanner({ title, items }: HomeToCategoryBannerProps) {
+export default function HomeToCategoryBanner(
+  { title, items }: HomeToCategoryBannerProps,
+) {
   const device = useDevice();
   const isDesktop = device === "desktop";
 
   return (
     <div className={"desk:px-10 mt-[100px] mobile:px-4 w-full"}>
       <h2
-        className={
-          "font-['BeccaPerry'] text-[40px] leading-[48px] font-medium text-[#676767] text-center mb-10"
-        }
+        className={"font-['BeccaPerry'] text-[40px] leading-[48px] font-medium text-[#676767] text-center mb-10"}
       >
         {title}
       </h2>
-      <Slider className={"flex justify-between gap-4 max-w-full carousel carousel-center overflow-scroll"} >
+      <Slider
+        className={"flex justify-between gap-4 max-w-full carousel carousel-center overflow-scroll"}
+      >
         {items.map((item, index) => {
-          const image =
-            isDesktop || !item.image.mobile?.src
-              ? item.image.desktop
-              : item.image.mobile;
+          const image = isDesktop || !item.image.mobile?.src
+            ? item.image.desktop
+            : item.image.mobile;
 
           return (
-            <Slider.Item index={index} className={"min-w-[335px] carousel-item"}>
+            <Slider.Item
+              index={index}
+              className={"min-w-[335px] carousel-item"}
+            >
               <div className={"relative"}>
                 <img
                   className={"rounded-lg"}
@@ -59,7 +63,13 @@ export default function HomeToCategoryBanner({ title, items }: HomeToCategoryBan
                   width={image.width}
                   height={image.height}
                 />
-                <a style={{ background: item.buttonColor }} className={"absolute top-[400px] w-full right-[20%] max-w-[243px] flex items-center justify-center rounded-full font-['BeccaPerry'] text-white desk:text-[40px] mobile:text-[28px] font-medium"} href={item.categoryLink}>{item.buttonText}</a>
+                <a
+                  style={{ background: item.buttonColor }}
+                  className={"absolute top-[400px] w-full right-[20%] max-w-[243px] flex items-center justify-center rounded-full font-['BeccaPerry'] text-white desk:text-[40px] mobile:text-[28px] font-medium"}
+                  href={item.categoryLink}
+                >
+                  {item.buttonText}
+                </a>
               </div>
             </Slider.Item>
           );

@@ -38,27 +38,26 @@ export default function TabLayout(
           {tabs.map((tab, index) => (
             <button
               style={{
-                background:
-                  activeTab === index
-                    ? `${currentTab.backgroundColor} !important`
-                    : "#F7F7F7",
+                background: activeTab === index
+                  ? `${currentTab.backgroundColor} !important`
+                  : "#F7F7F7",
                 color: activeTab === index ? "#FFF" : "#676767",
               }}
               hx-post={useSection({ props: { activeTab: index } })}
               hx-swap="outerHTML"
               hx-target="closest section"
-              class={`max-w-40 h-11 desk:px-10 mobile:px-0 desk:rounded-lg flex items-center justify-center mobile:w-full hover:!bg-[#F7E0BF] text-xl mobile:text-sm font-bold ${index === 0
+              class={`max-w-40 h-11 desk:px-10 mobile:px-0 desk:rounded-lg flex items-center justify-center mobile:w-full hover:!bg-[#F7E0BF] text-xl mobile:text-sm font-bold ${
+                index === 0
                   ? "mobile:rounded-l-lg"
                   : index === tabs.length - 1
-                    ? "mobile:rounded-r-lg"
-                    : "mobile:rounded-none"
-                }`}
+                  ? "mobile:rounded-r-lg"
+                  : "mobile:rounded-none"
+              }`}
             >
               {tab.label}
             </button>
           ))}
         </div>
-
       </div>
       <div id={shelfId}>
         <currentTab.section.Component {...currentTab.section.props} />

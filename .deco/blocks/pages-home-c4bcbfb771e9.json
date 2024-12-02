@@ -631,6 +631,27 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
+        "__resolveType": "site/sections/InteractiveBanner/InteractiveBanner.tsx",
+        "backgroundBannerImage": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/fb6b684e-53d2-4e06-b21f-3d910c3eb349/Frame-18.png",
+        "discountMessage": "<p><span style=\"color: #fb8300; font-size: 80pt\">10% OFF</span> <span style=\"font-size: 40pt\">na primeira compra</span></p>",
+        "cupom": "BEMVINDO10",
+        "discountBackground": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/28b868ab-ae26-4271-a2fe-90df69b82674/Frame-29.png",
+        "products": [
+          {
+            "previewImage": {
+              "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/6d6a437f-7892-4ddb-9d24-57dd47465dfa/Frame-31.png",
+              "alt": "Preview produto"
+            },
+            "productId": 61544,
+            "xPosition": 615,
+            "yPosition": 237
+          }
+        ]
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
         "__resolveType": "Footer"
       }
     }

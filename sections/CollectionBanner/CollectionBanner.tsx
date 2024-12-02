@@ -27,28 +27,32 @@ interface CollectionBannerProps {
   items: CollectionBannerItem[];
 }
 
-export default function CollectionBanner({ title, items }: CollectionBannerProps) {
+export default function CollectionBanner(
+  { title, items }: CollectionBannerProps,
+) {
   const device = useDevice();
   const isDesktop = device === "desktop";
 
   return (
     <div className={"desk:px-10 mt-[100px] mobile:px-4 w-full"}>
       <h2
-        className={
-          "font-['BeccaPerry'] text-[40px] leading-[48px] font-medium text-[#676767] text-center mb-10"
-        }
+        className={"font-['BeccaPerry'] text-[40px] leading-[48px] font-medium text-[#676767] text-center mb-10"}
       >
         {title}
       </h2>
-      <Slider className={"flex justify-between gap-4 max-w-full carousel carousel-center overflow-scroll"} >
+      <Slider
+        className={"flex justify-between gap-4 max-w-full carousel carousel-center overflow-scroll"}
+      >
         {items.map((item, index) => {
-          const image =
-            isDesktop || !item.image.mobile?.src
-              ? item.image.desktop
-              : item.image.mobile;
+          const image = isDesktop || !item.image.mobile?.src
+            ? item.image.desktop
+            : item.image.mobile;
 
           return (
-            <Slider.Item index={index} className={"min-w-[335px] carousel-item"}>
+            <Slider.Item
+              index={index}
+              className={"min-w-[335px] carousel-item"}
+            >
               <div>
                 <img
                   className={"rounded-lg"}
