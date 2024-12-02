@@ -30,7 +30,7 @@ function BenefitsBar({ items, interval }: BenefitsBar) {
         style={{
           gridTemplateColumns: `repeat(${items.length}, 1fr)`,
         }}
-        class="px-10 max-w-full mt-5 grid gap-4 mb-[50px] carousel carousel-center w-screen justify-between"
+        class="desk:px-10 mobile:px-4 max-w-full mt-5 grid gap-4 mb-[50px] carousel carousel-center w-screen justify-between"
       >
         {items.map((item, index) => (
           <Slider.Item

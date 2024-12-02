@@ -3635,6 +3635,9 @@ details.collapse summary::-webkit-details-marker {
 .relative {
   position: relative;
 }
+.-top-2 {
+  top: -0.5rem;
+}
 .-top-5 {
   top: -1.25rem;
 }
@@ -3692,6 +3695,9 @@ details.collapse summary::-webkit-details-marker {
 .right-\[14px\] {
   right: 14px;
 }
+.right-\[20\%\] {
+  right: 20%;
+}
 .right-\[375px\] {
   right: 375px;
 }
@@ -3715,6 +3721,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .top-\[30px\] {
   top: 30px;
+}
+.top-\[400px\] {
+  top: 400px;
 }
 .top-\[41px\] {
   top: 41px;
@@ -3824,6 +3833,10 @@ details.collapse summary::-webkit-details-marker {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+.my-\[30px\] {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
 .-mt-12 {
   margin-top: -3rem;
 }
@@ -3875,6 +3888,9 @@ details.collapse summary::-webkit-details-marker {
 .mr-6 {
   margin-right: 1.5rem;
 }
+.mr-\[3px\] {
+  margin-right: 3px;
+}
 .mt-10 {
   margin-top: 2.5rem;
 }
@@ -3895,6 +3911,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .mt-8 {
   margin-top: 2rem;
+}
+.mt-\[100px\] {
+  margin-top: 100px;
 }
 .mt-\[30px\] {
   margin-top: 30px;
@@ -4096,6 +4115,9 @@ details.collapse summary::-webkit-details-marker {
 .min-h-screen {
   min-height: 100vh;
 }
+.w-0 {
+  width: 0px;
+}
 .w-1\/2 {
   width: 50%;
 }
@@ -4152,9 +4174,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .w-\[316px\] {
   width: 316px;
-}
-.w-\[328px\] {
-  width: 328px;
 }
 .w-\[330px\] {
   width: 330px;
@@ -4236,8 +4255,8 @@ details.collapse summary::-webkit-details-marker {
 .min-w-\[213px\] {
   min-width: 213px;
 }
-.min-w-\[300px\] {
-  min-width: 300px;
+.min-w-\[335px\] {
+  min-width: 335px;
 }
 .min-w-\[400px\] {
   min-width: 400px;
@@ -4265,6 +4284,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .max-w-\[139px\] {
   max-width: 139px;
+}
+.max-w-\[243px\] {
+  max-width: 243px;
 }
 .max-w-\[2px\] {
   max-width: 2px;
@@ -4316,6 +4338,10 @@ details.collapse summary::-webkit-details-marker {
 }
 .max-w-\[calc\(100vw_-_20px\)\] {
   max-width: calc(100vw - 20px);
+}
+.max-w-fit {
+  max-width: -moz-fit-content;
+  max-width: fit-content;
 }
 .max-w-full {
   max-width: 100%;
@@ -4581,6 +4607,9 @@ details.collapse summary::-webkit-details-marker {
 .overflow-hidden {
   overflow: hidden;
 }
+.overflow-scroll {
+  overflow: scroll;
+}
 .overflow-x-auto {
   overflow-x: auto;
 }
@@ -4682,8 +4711,17 @@ details.collapse summary::-webkit-details-marker {
 .border-b-4 {
   border-bottom-width: 4px;
 }
+.border-b-8 {
+  border-bottom-width: 8px;
+}
 .border-b-\[1px\] {
   border-bottom-width: 1px;
+}
+.border-l-8 {
+  border-left-width: 8px;
+}
+.border-r-8 {
+  border-right-width: 8px;
 }
 .border-t {
   border-top-width: 1px;
@@ -4743,9 +4781,19 @@ details.collapse summary::-webkit-details-marker {
 .border-transparent {
   border-color: transparent;
 }
+.border-b-\[\#D6DE23\] {
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(214 222 35 / var(--tw-border-opacity));
+}
 .border-b-secondary {
   --tw-border-opacity: 1;
   border-bottom-color: var(--fallback-s,oklch(var(--s)/var(--tw-border-opacity)));
+}
+.border-l-transparent {
+  border-left-color: transparent;
+}
+.border-r-transparent {
+  border-right-color: transparent;
 }
 .\!bg-transparent {
   background-color: transparent !important;
@@ -4765,6 +4813,14 @@ details.collapse summary::-webkit-details-marker {
 .bg-\[\#C9CFCF\] {
   --tw-bg-opacity: 1;
   background-color: rgb(201 207 207 / var(--tw-bg-opacity));
+}
+.bg-\[\#D6DE23\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(214 222 35 / var(--tw-bg-opacity));
+}
+.bg-\[\#F7E0BF\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(247 224 191 / var(--tw-bg-opacity));
 }
 .bg-\[\#FDF6ED\] {
   --tw-bg-opacity: 1;
@@ -4903,13 +4959,12 @@ details.collapse summary::-webkit-details-marker {
 .p-\[10px\] {
   padding: 10px;
 }
+.p-\[5px\] {
+  padding: 5px;
+}
 .px-0 {
   padding-left: 0px;
   padding-right: 0px;
-}
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
 }
 .px-2 {
   padding-left: 0.5rem;
@@ -4994,6 +5049,10 @@ details.collapse summary::-webkit-details-marker {
 .py-\[10px\] {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+.py-\[13px\] {
+  padding-top: 13px;
+  padding-bottom: 13px;
 }
 .py-\[6px\] {
   padding-top: 6px;
@@ -5273,6 +5332,9 @@ details.collapse summary::-webkit-details-marker {
 .leading-\[14\.4px\] {
   line-height: 14.4px;
 }
+.leading-\[14px\] {
+  line-height: 14px;
+}
 .leading-\[150\%\] {
   line-height: 150%;
 }
@@ -5308,6 +5370,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .leading-\[38px\] {
   line-height: 38px;
+}
+.leading-\[48px\] {
+  line-height: 48px;
 }
 .tracking-\[-2\.4px\] {
   letter-spacing: -2.4px;
@@ -5798,13 +5863,13 @@ details.collapse summary::-webkit-details-marker {
   --tw-text-opacity: 1 !important;
   color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity))) !important;
 }
-.hover\:\!text-primary:hover {
-  --tw-text-opacity: 1 !important;
-  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity))) !important;
-}
 .hover\:text-\[\#D6DE23\]:hover {
   --tw-text-opacity: 1;
   color: rgb(214 222 35 / var(--tw-text-opacity));
+}
+.hover\:text-\[\#FF8300\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 131 0 / var(--tw-text-opacity));
 }
 .hover\:text-\[\#d6de23\]:hover {
   --tw-text-opacity: 1;
@@ -5872,16 +5937,9 @@ details.collapse summary::-webkit-details-marker {
   --tw-text-opacity: 1 !important;
   color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity))) !important;
 }
-.disabled\:\!text-primary:disabled {
-  --tw-text-opacity: 1 !important;
-  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity))) !important;
-}
 .disabled\:text-\[\#676767\]:disabled {
   --tw-text-opacity: 1;
   color: rgb(103 103 103 / var(--tw-text-opacity));
-}
-.disabled\:\!opacity-50:disabled {
-  opacity: 0.5 !important;
 }
 .disabled\:\!opacity-75:disabled {
   opacity: 0.75 !important;
@@ -5929,11 +5987,78 @@ details.collapse summary::-webkit-details-marker {
 }
 @media (max-width: 1023px) {
 
+  .mobile\:mt-4 {
+    margin-top: 1rem;
+  }
+
+  .mobile\:block {
+    display: block;
+  }
+
+  .mobile\:w-\[160px\] {
+    width: 160px;
+  }
+
   .mobile\:w-full {
     width: 100%;
   }
+
+  .mobile\:flex-col {
+    flex-direction: column;
+  }
+
+  .mobile\:justify-start {
+    justify-content: flex-start;
+  }
+
+  .mobile\:gap-0 {
+    gap: 0px;
+  }
+
+  .mobile\:rounded-none {
+    border-radius: 0px;
+  }
+
+  .mobile\:rounded-l-lg {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+  }
+
+  .mobile\:rounded-r-lg {
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
+
+  .mobile\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .mobile\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .mobile\:text-\[28px\] {
+    font-size: 28px;
+  }
+
+  .mobile\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+@media (min-width: 680px) {
+
+  .tablet\:w-\[328px\] {
+    width: 328px;
+  }
 }
 @media (min-width: 1024px) {
+
+  .desk\:absolute {
+    position: absolute;
+  }
 
   .desk\:relative {
     position: relative;
@@ -5943,9 +6068,17 @@ details.collapse summary::-webkit-details-marker {
     top: 1.75rem;
   }
 
+  .desk\:top-\[415px\] {
+    top: 415px;
+  }
+
   .desk\:mx-auto {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .desk\:mt-0 {
+    margin-top: 0px;
   }
 
   .desk\:block {
@@ -5960,12 +6093,24 @@ details.collapse summary::-webkit-details-marker {
     display: grid;
   }
 
+  .desk\:hidden {
+    display: none;
+  }
+
   .desk\:h-\[295px\] {
     height: 295px;
   }
 
+  .desk\:w-\[328px\] {
+    width: 328px;
+  }
+
   .desk\:w-\[443px\] {
     width: 443px;
+  }
+
+  .desk\:w-\[calc\(100\%-20px\)\] {
+    width: calc(100% - 20px);
   }
 
   .desk\:w-full {
@@ -5988,8 +6133,16 @@ details.collapse summary::-webkit-details-marker {
     gap: 2.75rem;
   }
 
+  .desk\:gap-6 {
+    gap: 1.5rem;
+  }
+
   .desk\:gap-8 {
     gap: 2rem;
+  }
+
+  .desk\:rounded-lg {
+    border-radius: 0.5rem;
   }
 
   .desk\:border-b-0 {
@@ -6019,6 +6172,14 @@ details.collapse summary::-webkit-details-marker {
 
   .desk\:pt-0 {
     padding-top: 0px;
+  }
+
+  .desk\:text-\[40px\] {
+    font-size: 40px;
+  }
+
+  .group:hover .desk\:group-hover\:block {
+    display: block;
   }
 }
 @media (max-width: 1200px) {
