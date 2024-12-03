@@ -5,7 +5,6 @@ import { useId } from "site/sdk/useId.ts";
 import { useVariantPossibilities } from "site/sdk/useVariantPossiblities.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import AddToCartButton from "site/components/product/AddToCartButton.tsx";
-import { clx } from "site/sdk/clx.ts";
 
 export interface ColorItem {
   name: string;
