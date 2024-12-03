@@ -3685,8 +3685,8 @@ details.collapse summary::-webkit-details-marker {
 .-top-5 {
   top: -1.25rem;
 }
-.-top-\[60px\] {
-  top: -60px;
+.-top-\[50px\] {
+  top: -50px;
 }
 .bottom-0 {
   bottom: 0px;
@@ -3730,8 +3730,8 @@ details.collapse summary::-webkit-details-marker {
 .left-\[50\%\] {
   left: 50%;
 }
-.left-\[calc\(100\%\+175px\)\] {
-  left: calc(100% + 175px);
+.left-\[calc\(100\%\+215px\)\] {
+  left: calc(100% + 215px);
 }
 .left-\[max\(40px\2c _calc\(\(\(100vw_-_95rem\)_\/_2\)_\+_40px\)\)\] {
   left: max(40px, calc(((100vw - 95rem) / 2) + 40px));
@@ -5127,6 +5127,9 @@ details.collapse summary::-webkit-details-marker {
 .bg-no-repeat {
   background-repeat: no-repeat;
 }
+.stroke-\[\#FF8300\] {
+  stroke: #FF8300;
+}
 .stroke-primary {
   stroke: var(--fallback-p,oklch(var(--p)/1));
 }
@@ -5449,6 +5452,10 @@ details.collapse summary::-webkit-details-marker {
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 .text-5xl {
   font-size: 3rem;
@@ -5912,7 +5919,7 @@ details.collapse summary::-webkit-details-marker {
      -moz-appearance: textfield;
           appearance: textfield;
 }
-  
+
 .container {
   max-width: 95rem;
   width: 100%;

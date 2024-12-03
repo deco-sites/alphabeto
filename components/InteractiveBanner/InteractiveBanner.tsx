@@ -1,4 +1,4 @@
-import { ImageWidget, RichText } from "apps/admin/widgets.ts";
+import { ImageWidget } from "apps/admin/widgets.ts";
 import { Product } from "apps/commerce/types.ts";
 import { LoadingFallbackProps } from "@deco/deco";
 
@@ -15,7 +15,7 @@ interface InteractiveBannerProduct {
 interface InteractiveBannerProps {
   backgroundBannerImage: ImageWidget;
   products: InteractiveBannerProduct[];
-  discountMessage: RichText;
+  discountMessage: string;
   cupom: string;
   discountBackground: ImageWidget;
 }
@@ -64,7 +64,7 @@ export default function InteractiveBanner({
               </div>
 
               {/* Informações do produto ao hover */}
-              <div className="flex absolute -top-[60px] left-[calc(100%+175px)] transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white shadow-md text-center w-full min-w-[385px] rounded-lg p-[10px]">
+              <div className="flex absolute -top-[50px] left-[calc(100%+215px)] transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white shadow-md text-center w-full min-w-[385px] rounded-lg p-[10px]">
                 {/* Imagem do Produto */}
                 {productImage && (
                   <img
@@ -73,7 +73,7 @@ export default function InteractiveBanner({
                     className="w-auto max-h-[123px] object-cover rounded-md mb-2"
                   />
                 )}
-                <div className={"flex flex-col"}>
+                <div className={"flex flex-col items-start"}>
                   <h3 className="text-[#676767] max-w-[264px] w-full leading-[18px] font-bold text-xs">
                     {item.product[0]?.name || "Nome indisponível"}
                   </h3>
@@ -91,7 +91,7 @@ export default function InteractiveBanner({
                     )}
                   </div>
                   <a
-                    href="#"
+                    href={item.product[0].url}
                     className="text-[#FF8300] font-bold lowercase text-xs mt-4 inline-block underline"
                   >
                     ver produto
@@ -110,8 +110,9 @@ export default function InteractiveBanner({
       >
         <span
           className="text-lg font-medium mb-2"
-          dangerouslySetInnerHTML={{ __html: discountMessage }}
-        />
+        >
+          <strong className={"stroke-[#FF8300] text-4xl"}>{discountMessage}</strong> na sua primeira compra
+        </span>
         <span className="text-center">
           <p className="text-sm">
             Use o cupom <strong className="font-bold">{cupom}</strong>{" "}
