@@ -108,10 +108,11 @@ export default function InteractiveBanner({
         className="w-full py-6 bg-cover bg-center flex flex-col items-center text-white rounded-b-lg"
         style={{ backgroundImage: `url(${discountBackground})` }}
       >
-        <span
-          className="text-lg font-medium mb-2"
-        >
-          <strong className={"stroke-[#FF8300] text-4xl"}>{discountMessage}</strong> na sua primeira compra
+        <span className="text-lg font-medium mb-2">
+          <strong className={"stroke-[#FF8300] text-4xl"}>
+            {discountMessage}
+          </strong>{" "}
+          na sua primeira compra
         </span>
         <span className="text-center">
           <p className="text-sm">
