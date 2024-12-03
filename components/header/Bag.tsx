@@ -28,7 +28,7 @@ function Bag() {
         class="indicator"
         for={MINICART_DRAWER_ID}
         aria-label="open cart"
-        className="cursor-pointer"
+        class="cursor-pointer"
       >
         {/* { <span id={id} />} */}
         <span>

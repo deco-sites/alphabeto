@@ -13,7 +13,7 @@ interface SearchProps {
 export function SearchDesktop({ searchbar, loading }: SearchProps) {
   return (
     <>
-      <Modal id={SEARCHBAR_POPUP_ID} className="!bg-transparent">
+      <Modal id={SEARCHBAR_POPUP_ID} class="!bg-transparent">
         <div class="absolute top-[30px] bg-base-100 w-full">
           {loading === "lazy"
             ? (
@@ -41,7 +41,7 @@ export function SearchDesktop({ searchbar, loading }: SearchProps) {
 export function SearchMobile({ searchbar, loading }: SearchProps) {
   return (
     <>
-      <Modal id={SEARCHBAR_POPUP_ID} className="!bg-transparent">
+      <Modal id={SEARCHBAR_POPUP_ID} class="!bg-transparent">
         <div class="absolute top-0 bg-base-100 w-full">
           {loading === "lazy"
             ? (

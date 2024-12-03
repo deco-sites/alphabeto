@@ -26,7 +26,7 @@ type QuantitySelectorProps = InputProps & {
 };
 
 function QuantitySelector(
-  { id = useId(), disabled, className, ...props }: QuantitySelectorProps,
+  { id = useId(), disabled, class: className, ...props }: QuantitySelectorProps,
 ) {
   return (
     <div class="join w-full h-5 flex gap-[2px]">
@@ -37,8 +37,8 @@ function QuantitySelector(
         disabled={disabled}
       >
         <IconMinus
-          className="w-[10px] h-[10px]"
-          strokeClassName="stroke-primary"
+          class="w-[10px] h-[10px]"
+          strokeclass="stroke-primary"
           strokeWidth={6}
         />
       </button>
@@ -70,8 +70,8 @@ function QuantitySelector(
         disabled={disabled}
       >
         <IconPlus
-          className="w-[10px] h-[10px]"
-          strokeClassName="stroke-primary"
+          class="w-[10px] h-[10px]"
+          strokeclass="stroke-primary"
           strokeWidth={6}
         />
       </button>

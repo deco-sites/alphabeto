@@ -22,7 +22,7 @@ export const Desktop = (
   { navItems, logo, searchbar, loading, googleMapsApiKey, cep }: SectionProps,
 ) => (
   <>
-    <div class="flex flex-col gap-4 pt-5 container border-b border-gray-300">
+    <div class="flex flex-col gap-4 container border-b border-gray-300">
       <div class="flex justify-between gap-x-2.5 items-center">
         <ul class="flex gap-x-6 desk-small:gap-x-3">
           {navItems?.map((item) => (

@@ -16,9 +16,9 @@ function NavItem({ href, menuItem, image, submenu }: Items) {
     return (
       <>
         <li class="pb-6">
-          <ul className="mt-4 flex flex-col">
+          <ul class="mt-4 flex flex-col">
             {highlight && (
-              <li className="block h-fit pr-[60px]">
+              <li class="block h-fit pr-[60px]">
                 <a
                   class="text-base-200 mb-5 font-bold hover:text-[#D6DE23] block text-[13px]"
                   href={highlight.href}
@@ -27,9 +27,9 @@ function NavItem({ href, menuItem, image, submenu }: Items) {
                 </a>
               </li>
             )}
-            <div className="flex flex-col flex-wrap max-h-[224px]">
+            <div class="flex flex-col flex-wrap max-h-[224px]">
               {notHighlightItems?.map((leaf) => (
-                <li className="block h-fit pr-[60px]">
+                <li class="block h-fit pr-[60px]">
                   <a
                     class={`text-[13px] block text-accent mb-3 hover:text-base-200`}
                     href={leaf.href}
@@ -39,7 +39,7 @@ function NavItem({ href, menuItem, image, submenu }: Items) {
                 </li>
               ))}
               {seeAll && (
-                <li className="block h-fit">
+                <li class="block h-fit">
                   <a
                     class="text-[13px] border-b-[1px] border-[#FF859A] text-[#FF859A] font-bold block w-fit"
                     href={href}
@@ -77,9 +77,9 @@ function NavItem({ href, menuItem, image, submenu }: Items) {
             marginTop: HEADER_HEIGHT_DESKTOP,
           }}
         >
-          <div className="container flex justify-between gap-9 !pr-0">
-            <div className="w-full pt-[23px]">
-              <h5 className="text-[#676767] font-['BeccaPerry'] pb-[17px] leading-[38px] text-[32px] border-b border-[#F7E0BF] border-dashed">
+          <div class="container flex justify-between gap-9 !pr-0">
+            <div class="w-full pt-[23px]">
+              <h5 class="text-[#676767] font-beccaPerry pb-[17px] leading-[38px] text-[32px] border-b border-[#F7E0BF] border-dashed">
                 {menuItem}
               </h5>
               <ul class="flex items-start justify-start gap-[60px]">

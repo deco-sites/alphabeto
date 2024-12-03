@@ -100,7 +100,7 @@ function ProductInfo({ page }: Props) {
 
       {/* Sku Selector */}
       {hasValidVariants && (
-        <div className="mt-4 sm:mt-8">
+        <div class="mt-4 sm:mt-8">
           <ProductSelector product={product} />
         </div>
       )}

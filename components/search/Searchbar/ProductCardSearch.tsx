@@ -110,7 +110,7 @@ function ProductCardSearch(
         </a>
       </figure>
 
-      <a href={relativeUrl} className="">
+      <a href={relativeUrl} class="">
         <span class="font-bold text-base-content lg:text-accent text-xs leading-[18px]">
           {title}
         </span>

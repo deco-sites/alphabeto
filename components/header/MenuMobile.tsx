@@ -14,7 +14,7 @@ export function MenuMobile({ navItems, otherLinks }: Props) {
   const RenderOtherLinks = () => {
     if (otherLinks) {
       return (
-        <nav className="mt-[30px] flex flex-col gap-5">
+        <nav class="mt-[30px] flex flex-col gap-5">
           {otherLinks.map((item) => (
             <a
               href={item.href}

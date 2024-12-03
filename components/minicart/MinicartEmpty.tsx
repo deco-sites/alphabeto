@@ -23,7 +23,7 @@ export function MinicartEmpty({ content }: Props) {
     <div class="relative h-full w-full flex justify-center">
       <div class="pt-[130px] flex items-center flex-col gap-5">
         {content?.icon && <img src={content.icon} alt="Sacola" />}
-        <h4 class="font-['BeccaPerry'] text-[2rem] text-accent">
+        <h4 class="font-beccaPerry text-[2rem] text-accent">
           {content?.title}
         </h4>
       </div>

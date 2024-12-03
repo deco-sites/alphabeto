@@ -37,12 +37,12 @@ export default function InteractiveBanner({
         {products?.map((item, index) => {
           if (!item.product) return null;
 
-          const productImage =
-            typeof item.previewImage?.src === "string"
-              ? item.previewImage.src
-              : item.product[0]?.image && typeof item.product[0]?.image === "string"
-                ? item.product[0].image
-                : undefined;
+          const productImage = typeof item.previewImage?.src === "string"
+            ? item.previewImage.src
+            : item.product[0]?.image &&
+                typeof item.product[0]?.image === "string"
+            ? item.product[0].image
+            : undefined;
 
           const altText = item.previewImage?.alt || item.product[0]?.name;
           const offers = item.product[0]?.offers;
@@ -108,11 +108,13 @@ export default function InteractiveBanner({
         className="w-full py-6 bg-cover bg-center flex flex-col items-center text-white rounded-b-lg"
         style={{ backgroundImage: `url(${discountBackground})` }}
       >
-        <span className="text-lg font-medium mb-2" dangerouslySetInnerHTML={{ __html: discountMessage }} />
+        <span
+          className="text-lg font-medium mb-2"
+          dangerouslySetInnerHTML={{ __html: discountMessage }}
+        />
         <span className="text-center">
           <p className="text-sm">
-            Use o cupom{" "}
-            <strong className="font-bold">{cupom}</strong>{" "}
+            Use o cupom <strong className="font-bold">{cupom}</strong>{" "}
             na sua sacola
           </p>
         </span>
