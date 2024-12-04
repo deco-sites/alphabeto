@@ -138,7 +138,7 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
 
       {/* Sku Selector */}
       {hasValidVariants && (
-        <div class="mt-[30px] mb-5">
+        <div class="mt-4 sm:mt-8">
           <ProductSelector product={product} />
         </div>
       )}
