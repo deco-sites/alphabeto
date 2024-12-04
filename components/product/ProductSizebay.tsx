@@ -35,7 +35,7 @@ export default function ProductSizebay({ sizebay }: Props) {
       <div>
         <Modal
           id={vfrModalId}
-          class="absolute bg-secondary-content rounded-lg top-1/2 left-1/2 -translate-x-2/4 -translate-y-2/4"
+          class="fixed bg-secondary-content rounded-lg top-1/2 left-1/2 -translate-x-2/4 -translate-y-2/4"
         >
           <iframe
             src={sizebay.virtualFittingRoom}
@@ -58,7 +58,7 @@ export default function ProductSizebay({ sizebay }: Props) {
       <div>
         <Modal
           id={measurementChartModalId}
-          class="absolute bg-secondary-content rounded-lg top-1/2 left-1/2 -translate-x-2/4 -translate-y-2/4"
+          class="fixed bg-secondary-content rounded-lg top-1/2 left-1/2 -translate-x-2/4 -translate-y-2/4"
         >
           <iframe
             src={sizebay.measurementChart}

@@ -82,11 +82,13 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
   return (
     <div
       {...viewItemEvent}
-      class="flex flex-col desk:max-w-[min(33.33vw,480px)]"
+      class="flex flex-col desk:max-w-[min(33.33vw,480px)] desk:relative"
       id={id}
     >
       <ProductAgeRangeIndicator product={product} />
-      <WishlistButton item={item} />
+      <div class="absolute desk:top-0 desk:right-0 top-[18px] right-[18px]">
+        <WishlistButton item={item} />
+      </div>
       {/* Product Name */}
       <span
         class={"text-[#676767] text-[22px] mobile:leading-[26px] desk:text-3xl font-bold"}
@@ -156,11 +158,10 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
         : <OutOfStock productID={productID} />}
 
       {/* Shipping Simulation */}
-      <div class="mt-8">
-        <ShippingSimulationForm
-          items={[{ id: Number(product.sku), quantity: 1, seller: seller }]}
-        />
-      </div>
+
+      <ShippingSimulationForm
+        items={[{ id: Number(product.sku), quantity: 1, seller: seller }]}
+      />
 
       {/* Description card */}
       <div class="mt-4 sm:mt-6">

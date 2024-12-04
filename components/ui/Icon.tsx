@@ -27,7 +27,9 @@ export type AvailableIcons =
   | "minus"
   | "cashback-coin"
   | "hanger"
-  | "ruler";
+  | "ruler"
+  | "hearth-unfill"
+  | "hearth-fill";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

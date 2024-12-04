@@ -49,7 +49,7 @@ export default function ProductDetails(
   return (
     <div class="container">
       <Breadcrumb itemListElement={page.breadcrumbList.itemListElement} />
-      <div class="flex mobile:flex-col gap-4 justify-between">
+      <div class="flex mobile:flex-col gap-4 justify-between mobile:relative">
         <ProductImages page={page} />
         <ProductInfo
           page={page}

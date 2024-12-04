@@ -18,21 +18,15 @@
       }
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "Header"
-      }
+      "__resolveType": "Header"
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Product/ProductDetails.tsx",
-        "page": {
-          "__resolveType": "PDP Loader"
-        },
-        "settings": {
-          "cashbackPercentage": 15
-        }
+      "__resolveType": "site/sections/Product/ProductDetails.tsx",
+      "page": {
+        "__resolveType": "PDP Loader"
+      },
+      "settings": {
+        "cashbackPercentage": 15
       }
     },
     {
