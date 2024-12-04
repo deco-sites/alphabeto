@@ -21,3 +21,12 @@ export const NAVBAR_HEIGHT_MOBILE = "80px";
 export const HEADER_HEIGHT_DESKTOP = "141px";
 export const HEADER_HEIGHT_DESKTOP_WITHOUT_BENEFITS_BAR = "110px";
 export const NAVBAR_HEIGHT_DESKTOP = "80px";
+
+export const COMMON_HTML_TAGS_TO_ALLOW = [
+  "p",
+  "strong",
+  "em",
+  "b",
+  "i",
+  "a",
+];
