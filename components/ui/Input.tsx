@@ -33,3 +33,18 @@ export function RadioInput(props: InputProps) {
     </input>
   );
 }
+
+export function CheckboxInput(props: InputProps) {
+  const { class: className, ...rest } = props;
+  return (
+    <input
+      {...rest}
+      type="checkbox"
+      class={clx(
+        "checkbox checkbox-sm checked:[--chkbg:#D6DE23] [--chkfg:#FF8300] [--chkbg:#FF8300] border-[#FF8300] checked:border-[#D6DE23] rounded-[3px] disabled:border-[#676767] disabled:[--chkbg:#E8E7E5]",
+        className?.toString() ?? "",
+      )}
+    >
+    </input>
+  );
+}

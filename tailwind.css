@@ -85,33 +85,67 @@
   box-shadow: 0 0 0 4px white inset, 0 0 0 4px white inset;
 }
 
-.triangle-cashback {
-  --r:1px; /* border radius */
-
-  height: 13px;
-  aspect-ratio: cos(30deg);
-  --_g:calc(tan(60deg)*var(--r)) right var(--r),#000 98%,#0000 101%;
-  -webkit-mask:
-    conic-gradient(from 240deg at calc(200% - 3*var(--r)/2),#000 60deg,#0000 0)
-     100% 0/calc(100% - 3*var(--r)/2) 100% no-repeat,
-    radial-gradient(var(--r) at calc(2*var(--r)) 50%,#000 98%,#0000 101%),
-    radial-gradient(var(--r) at top    var(--_g)),
-    radial-gradient(var(--r) at bottom var(--_g));
-  clip-path: polygon(0 50%,100% 100%,100% 0);
-  background: #D6DE23;
+.breadcrumbs > ul > li + *:before,
+.breadcrumbs > ol > li + *:before {
+  content: "|";
+  height: auto;
+  width: auto;
+  transform: unset;
+  border-top: unset;
+  border-right: unset;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 120%;
+  color: #353535;
 }
 
-.diagonal-line{
+.double-range{
+  margin-top: 20px
+}
+.double-range .range-slider {
+  height: 3px;
+  position: relative;
+  background-color: #E8E7E5;
+  border-radius: 100px;
+}
+.double-range .range-fill {
+  height: 100%;
+  left: 30%;
+  right: 30%;
+  position: absolute;
+  border-radius: 5px;
+  background-color: #D6DE23;
+}
+.double-range .range-input {
   position: relative;
 }
-
-.diagonal-line::before {
-  content: "";
+.double-range .range-input input {
   position: absolute;
-  width: 1px; /* Largura da linha */
-  height: 136%; /* Altura da linha */
-  background-color: #676767; /* Cor da linha */
-  transform: rotate(45deg); /* Rotação para criar a linha diagonal */
-  top: -4px;
-  left: 50%;
+  width: 100%;
+  height: 5px;
+  top: -5px;
+  background: none;
+  pointer-events: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.double-range .range-input input::-webkit-slider-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background-color: #FF8300;
+  border: 5px solid #D6DE23;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+.double-range .range-input input::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background-color: #FF8300;
+  border: 5px solid #D6DE23;
+  pointer-events: auto;
+  -moz-appearance: none;
+  cursor: pointer;
 }

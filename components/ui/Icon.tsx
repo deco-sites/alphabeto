@@ -8,10 +8,13 @@ export type AvailableIcons =
   | "account_circle"
   | "close"
   | "chevron-right"
+  | "chevron-left"
+  | "chevron-down"
   | "chevron-right-institutional"
   | "chevron-up"
   | "favorite"
   | "home_pin"
+  | "home_icon"
   | "home_icon"
   | "call"
   | "local_shipping"
@@ -29,7 +32,22 @@ export type AvailableIcons =
   | "hanger"
   | "ruler"
   | "hearth-unfill"
-  | "hearth-fill";
+  | "hearth-fill"
+  | "home-breadcrumb"
+  | "cat_sort_orders:desc"
+  | "cat_sort_price:asc"
+  | "cat_sort_price:desc"
+  | "cat_sort_release:desc"
+  | "cat_sort_relevance:desc"
+  | "cat_sort_name:asc"
+  | "cat_sort_name:desc"
+  | "cat_sort_discount:desc"
+  | "sort"
+  | "filter"
+  | "stars-cat-1-desktop"
+  | "stars-cat-2-desktop"
+  | "stars-cat-1-mobile"
+  | "stars-cat-2-mobile";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

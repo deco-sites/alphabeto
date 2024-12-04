@@ -1,6 +1,6 @@
 import Image from "apps/website/components/Image.tsx";
 import {
-  HEADER_HEIGHT_DESKTOP,
+  HEADER_HEIGHT_DESKTOP_WITHOUT_BENEFITS_BAR,
   NAVBAR_HEIGHT_DESKTOP,
 } from "../../constants.ts";
 import { Item, Items, Submenu } from "./Menu.types.ts";
@@ -74,7 +74,7 @@ function NavItem({ href, menuItem, image, submenu }: Items) {
           style={{
             top: "0px",
             left: "0px",
-            marginTop: HEADER_HEIGHT_DESKTOP,
+            marginTop: HEADER_HEIGHT_DESKTOP_WITHOUT_BENEFITS_BAR,
           }}
         >
           <div class="container flex justify-between gap-9 !pr-0">
