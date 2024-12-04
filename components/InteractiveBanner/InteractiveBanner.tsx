@@ -15,7 +15,7 @@ interface InteractiveBannerProduct {
 interface InteractiveBannerProps {
   backgroundBannerImage: ImageWidget;
   products: InteractiveBannerProduct[];
-  discountMessage: string;
+  discountValue: number;
   cupom: string;
   discountBackground: ImageWidget;
 }
@@ -24,11 +24,11 @@ export default function InteractiveBanner({
   backgroundBannerImage,
   cupom,
   discountBackground,
-  discountMessage,
+  discountValue,
   products,
 }: InteractiveBannerProps) {
   return (
-    <div className={"desk:px-10 mobile:px-5 mt-[100px] container"}>
+    <div className={"desk:px-10 mobile:px-5 mt-[100px] container py-5 sm:py-10"}>
       {/* Banner principal com os produtos */}
       <div
         className="relative w-full h-[500px] bg-cover bg-center rounded-t-lg"
@@ -40,9 +40,9 @@ export default function InteractiveBanner({
           const productImage = typeof item.previewImage?.src === "string"
             ? item.previewImage.src
             : item.product[0]?.image &&
-                typeof item.product[0]?.image === "string"
-            ? item.product[0].image
-            : undefined;
+              typeof item.product[0]?.image === "string"
+              ? item.product[0].image
+              : undefined;
 
           const altText = item.previewImage?.alt || item.product[0]?.name;
           const offers = item.product[0]?.offers;
@@ -64,7 +64,7 @@ export default function InteractiveBanner({
               </div>
 
               {/* Informações do produto ao hover */}
-              <div className="flex absolute -top-[50px] left-[calc(100%+215px)] transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white shadow-md text-center w-full min-w-[385px] rounded-lg p-[10px]">
+              <div className="flex absolute -top-[50px] left-[calc(100%+215px)] transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white shadow-md text-center w-full min-w-[385px] rounded-lg p-[10px] gap-3">
                 {/* Imagem do Produto */}
                 {productImage && (
                   <img
@@ -105,18 +105,29 @@ export default function InteractiveBanner({
 
       {/* Banner de desconto */}
       <div
-        className="w-full py-6 bg-cover bg-center flex flex-col items-center text-white rounded-b-lg"
+        className="w-full py-5 bg-cover bg-center items-center text-white rounded-b-lg flex justify-center"
         style={{ backgroundImage: `url(${discountBackground})` }}
       >
-        <span className="text-lg font-medium mb-2">
-          <strong className={"stroke-[#FF8300] text-4xl"}>
-            {discountMessage}
-          </strong>{" "}
+        <span className="text-[40px] font-medium mb-2 font-['BeccaPerry'] text-[#FFF5FD] w-2/5 flex items-center leading-8 ">
+          <strong
+            style={{
+              WebkitTextStrokeColor: "#FF8300",
+              WebkitTextStrokeWidth: "1px",
+            }}
+            className={"text-[80px] font-medium"}
+          >
+            {discountValue}%
+          </strong>
+
+          <span className={"text-[80px] text-[#FF8300] font-medium mr-[33px]"}>
+            OFF{" "}
+          </span>
           na sua primeira compra
         </span>
         <span className="text-center">
-          <p className="text-sm">
-            Use o cupom <strong className="font-bold">{cupom}</strong>{" "}
+          <p className="flex flex-col text-[#FFF5FD] text-base font-bold leading-5 text-center">
+            Use o cupom
+            <strong className="border-[#D6DE23] border-2 border-dashed text-[#D6DE23] text-3xl leading-9 bg-[#FF8300] rounded-lg px-[10px] py-[5px]">{cupom}</strong>{" "}
             na sua sacola
           </p>
         </span>
