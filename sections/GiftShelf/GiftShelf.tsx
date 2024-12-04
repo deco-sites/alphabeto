@@ -20,10 +20,8 @@ export default function GiftShelf({ title, description, image, section }: GiftSh
         </h2>
         <p class="text-[#676767] text-base font-medium">{description}</p>
       </span>
-      <div className={"flex mt-10"}>
-        <div> 
-          <img className={"max-w-[608px]"} src={image?.src} alt={image?.alt} />
-        </div>
+      <div className={"flex mt-10 desk:flex-row mobile:flex-col mobile:items-center desk:items-start mobile:gap-10"}>
+        <img className={"desk:max-w-[608px] w-full"} src={image?.src} alt={image?.alt} />
         {<section.Component {...section.props} />}
       </div>
     </div>

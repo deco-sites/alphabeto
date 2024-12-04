@@ -695,8 +695,14 @@
                 ]
               }
             },
-            "xPosition": 47,
-            "yPosition": 44
+            "xPosition": {
+              "desktop": 90,
+              "mobile": 46
+            },
+            "yPosition": {
+              "desktop": 45,
+              "mobile": 45
+            }
           },
           {
             "product": {
@@ -707,8 +713,14 @@
                 ]
               }
             },
-            "xPosition": 34,
-            "yPosition": 82
+            "xPosition": {
+              "desktop": 31,
+              "mobile": 28
+            },
+            "yPosition": {
+              "desktop": 83,
+              "mobile": 83
+            }
           }
         ],
         "discountValue": 10
