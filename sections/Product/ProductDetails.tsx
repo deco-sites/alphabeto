@@ -1,16 +1,35 @@
 import { ProductDetailsPage } from "apps/commerce/types.ts";
-import ImageGallerySlider from "../../components/product/Gallery.tsx";
-import ProductInfo from "../../components/product/ProductInfo.tsx";
-import Breadcrumb from "../../components/ui/Breadcrumb.tsx";
-import Section from "../../components/ui/Section.tsx";
-import { clx } from "../../sdk/clx.ts";
+import { AppContext } from "site/apps/site.ts";
+import ProductImages from "site/components/product/ProductImages.tsx";
+import ProductInfo from "site/components/product/ProductInfo.tsx";
+import Breadcrumb from "site/components/ui/Breadcrumb.tsx";
+import Section from "site/components/ui/Section.tsx";
+
+export interface PDPSettings {
+  cashbackPercentage: number;
+}
 
 export interface Props {
-  /** @title Integration */
+  /** @title Settings */
+  settings: PDPSettings;
+
+  /** @title Ecommerce Plataform Integration Settings */
   page: ProductDetailsPage | null;
 }
 
-export default function ProductDetails({ page }: Props) {
+export async function loader(props: Props, _req: Request, ctx: AppContext) {
+  const sizebaySettings = await ctx.invoke.site.loaders.sizebay({
+    productUrl: props.page?.product.url,
+  });
+  return {
+    ...props,
+    sizebaySettings,
+  };
+}
+
+export default function ProductDetails(
+  { page, settings, sizebaySettings }: Awaited<ReturnType<typeof loader>>,
+) {
   /**
    * Rendered when a not found is returned by any of the loaders run on this page
    */
@@ -28,22 +47,15 @@ export default function ProductDetails({ page }: Props) {
   }
 
   return (
-    <div class="container flex flex-col gap-4 sm:gap-5 w-full py-4 sm:py-5 px-5 sm:px-0">
+    <div class="container">
       <Breadcrumb itemListElement={page.breadcrumbList.itemListElement} />
-
-      <div
-        class={clx(
-          "container grid",
-          "grid-cols-1 gap-2 py-0",
-          "sm:grid-cols-5 sm:gap-6",
-        )}
-      >
-        <div class="sm:col-span-3">
-          <ImageGallerySlider page={page} />
-        </div>
-        <div class="sm:col-span-2">
-          <ProductInfo page={page} />
-        </div>
+      <div class="flex mobile:flex-col gap-4 justify-between mobile:relative">
+        <ProductImages page={page} />
+        <ProductInfo
+          page={page}
+          settings={settings}
+          sizebaySettings={sizebaySettings}
+        />
       </div>
     </div>
   );

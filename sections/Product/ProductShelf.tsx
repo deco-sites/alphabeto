@@ -7,8 +7,13 @@ import Section, {
 import { useOffer } from "../../sdk/useOffer.ts";
 import { useSendEvent } from "../../sdk/useSendEvent.ts";
 import { type LoadingFallbackProps } from "@deco/deco";
+export interface ColorItem {
+  name: string;
+  hexadecimals: string[];
+}
 export interface Props extends SectionHeaderProps {
   products: Product[] | null;
+  colors?: ColorItem[];
 }
 export default function ProductShelf({ products, title, cta }: Props) {
   if (!products || products.length === 0) {

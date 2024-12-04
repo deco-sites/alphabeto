@@ -15,7 +15,6 @@ export type AvailableIcons =
   | "favorite"
   | "home_pin"
   | "home_icon"
-  | "home_icon"
   | "call"
   | "local_shipping"
   | "pan_zoom"
@@ -28,6 +27,11 @@ export type AvailableIcons =
   | "close-search"
   | "plus"
   | "minus"
+  | "cashback-coin"
+  | "hanger"
+  | "ruler"
+  | "hearth-unfill"
+  | "hearth-fill"
   | "home-breadcrumb"
   | "cat_sort_orders:desc"
   | "cat_sort_price:asc"
@@ -43,6 +47,7 @@ export type AvailableIcons =
   | "stars-cat-2-desktop"
   | "stars-cat-1-mobile"
   | "stars-cat-2-mobile";
+
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**
    * Symbol id from element to render. Take a look at `/static/icons.svg`.

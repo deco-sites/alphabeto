@@ -1,6 +1,12 @@
+import { useScriptAsDataURI } from "@deco/deco/hooks";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import { clx } from "../../sdk/clx.ts";
+import ProductAgeRangeIndicator from "site/components/product/ProductAgeRangeIndicator.tsx";
+import ProductCashback from "site/components/product/ProductCashback.tsx";
+import ProductSizebay from "site/components/product/ProductSizebay.tsx";
+import ProductSmallDescription from "site/components/product/ProductSmallDescription.tsx";
+import { SizeBaySettings } from "site/loaders/sizebay.ts";
+import { PDPSettings } from "site/sections/Product/ProductDetails.tsx";
 import { formatPrice } from "../../sdk/format.ts";
 import { useId } from "../../sdk/useId.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
@@ -13,9 +19,11 @@ import ProductSelector from "./ProductVariantSelector.tsx";
 
 interface Props {
   page: ProductDetailsPage | null;
+  settings: PDPSettings;
+  sizebaySettings: SizeBaySettings;
 }
 
-function ProductInfo({ page }: Props) {
+function ProductInfo({ page, settings, sizebaySettings }: Props) {
   const id = useId();
 
   if (page === null) {
@@ -32,11 +40,10 @@ function ProductInfo({ page }: Props) {
     listPrice,
     seller = "1",
     availability,
+    installments,
   } = useOffer(offers);
 
-  const percent = listPrice && price
-    ? Math.round(((listPrice - price) / listPrice) * 100)
-    : 0;
+  const referenceCode = isVariantOf?.model;
 
   const breadcrumb = {
     ...breadcrumbList,
@@ -70,33 +77,64 @@ function ProductInfo({ page }: Props) {
       variant?.name?.toLowerCase() !== "default title",
   ) ?? false;
 
-  return (
-    <div {...viewItemEvent} class="flex flex-col" id={id}>
-      {/* Price tag */}
-      <span
-        class={clx(
-          "text-sm/4 font-normal text-black bg-primary bg-opacity-15 text-center rounded-badge px-2 py-1",
-          percent < 1 && "opacity-0",
-          "w-fit",
-        )}
-      >
-        {percent} % off
-      </span>
+  const hasListPrice = listPrice && listPrice > price;
 
+  return (
+    <div
+      {...viewItemEvent}
+      class="flex flex-col desk:max-w-[min(33.33vw,480px)] desk:relative"
+      id={id}
+    >
+      <ProductAgeRangeIndicator product={product} />
+      <div class="absolute desk:top-0 desk:right-0 top-[18px] right-[18px]">
+        <WishlistButton item={item} />
+      </div>
       {/* Product Name */}
-      <span class={clx("text-3xl font-semibold", "pt-4")}>
+      <span
+        class={"text-[#676767] text-[22px] mobile:leading-[26px] desk:text-3xl font-bold"}
+      >
         {title}
       </span>
 
-      {/* Prices */}
-      <div class="flex gap-3 pt-1">
-        <span class="text-3xl font-semibold text-base-400">
-          {formatPrice(price, offers?.priceCurrency)}
-        </span>
-        <span class="line-through text-sm font-medium text-gray-400">
-          {formatPrice(listPrice, offers?.priceCurrency)}
+      <div class="flex gap-[15px] mt-3">
+        {/** Reference Code */}
+        <span class="text-xs leading-[18px] desk:leading-[14px] text-[#676767]">
+          REF: {referenceCode}
         </span>
       </div>
+
+      <div class="mt-5 desk:mt-[30px] flex gap-6 items-center mb-10 desk:mb-[30px]">
+        <div>
+          {/* Prices */}
+          <div class="flex items-center">
+            {hasListPrice && (
+              <>
+                <span class="line-through text-[#C5C5C5] text-xs leading-[14px] desk:text-sm desk:leading-4 font-semibold">
+                  {formatPrice(listPrice, offers?.priceCurrency)}
+                </span>
+                <span class="desk:text-sm desk:leading-4 font-semibold text-primary mx-[5px]">
+                  •
+                </span>
+              </>
+            )}
+            <span class="text-xl leading-6 font-bold text-primary">
+              {formatPrice(price, offers?.priceCurrency)}
+            </span>
+          </div>
+          {/* Installments */}
+          {installments && (
+            <span class="text-xs leading-[18px] desk:leading-[14px] text-[#676767] font-bold mt-[5px] block">
+              Em até {installments}
+            </span>
+          )}
+        </div>
+        <ProductCashback
+          product={product}
+          percentage={settings.cashbackPercentage}
+        />
+      </div>
+
+      <ProductSmallDescription product={product} />
 
       {/* Sku Selector */}
       {hasValidVariants && (
@@ -105,30 +143,25 @@ function ProductInfo({ page }: Props) {
         </div>
       )}
 
-      {/* Add to Cart and Favorites button */}
-      <div class="mt-4 sm:mt-10 flex flex-col gap-2">
-        {availability === "https://schema.org/InStock"
-          ? (
-            <>
-              <AddToCartButton
-                item={item}
-                seller={seller}
-                product={product}
-                class="btn btn-primary no-animation"
-                disabled={false}
-              />
-              <WishlistButton item={item} />
-            </>
-          )
-          : <OutOfStock productID={productID} />}
-      </div>
+      <ProductSizebay sizebay={sizebaySettings} />
+
+      {availability === "https://schema.org/InStock"
+        ? (
+          <AddToCartButton
+            item={item}
+            seller={seller}
+            product={product}
+            class="btn btn-primary no-animation"
+            disabled={false}
+          />
+        )
+        : <OutOfStock productID={productID} />}
 
       {/* Shipping Simulation */}
-      <div class="mt-8">
-        <ShippingSimulationForm
-          items={[{ id: Number(product.sku), quantity: 1, seller: seller }]}
-        />
-      </div>
+
+      <ShippingSimulationForm
+        items={[{ id: Number(product.sku), quantity: 1, seller: seller }]}
+      />
 
       {/* Description card */}
       <div class="mt-4 sm:mt-6">
@@ -144,6 +177,11 @@ function ProductInfo({ page }: Props) {
           )}
         </span>
       </div>
+      <script
+        src={useScriptAsDataURI((data: unknown) => {
+          console.log(data);
+        }, sizebaySettings)}
+      />
     </div>
   );
 }
