@@ -36,7 +36,7 @@ export default function HomeToCategoryBanner(
   const isDesktop = device === "desktop";
 
   return (
-    <div className={"desk:px-10 mt-[100px] mobile:px-4 w-full"}>
+    <div className={"desk:px-10 mt-[100px] mobile:px-4 w-full container"}>
       <h2
         className={"font-['BeccaPerry'] text-[40px] leading-[48px] font-medium text-[#676767] text-center mb-10"}
       >

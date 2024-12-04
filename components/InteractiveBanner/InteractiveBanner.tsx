@@ -28,7 +28,7 @@ export default function InteractiveBanner({
   products,
 }: InteractiveBannerProps) {
   return (
-    <div className={"desk:px-10 mobile:px-5 mt-[100px]"}>
+    <div className={"desk:px-10 mobile:px-5 mt-[100px] container"}>
       {/* Banner principal com os produtos */}
       <div
         className="relative w-full h-[500px] bg-cover bg-center rounded-t-lg"

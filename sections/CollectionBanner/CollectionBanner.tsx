@@ -34,7 +34,7 @@ export default function CollectionBanner(
   const isDesktop = device === "desktop";
 
   return (
-    <div className={"desk:px-10 mt-[100px] mobile:px-4 w-full"}>
+    <div className={"desk:px-10 mt-[100px] mobile:px-4 w-full container"}>
       <h2
         className={"font-['BeccaPerry'] text-[40px] leading-[48px] font-medium text-[#676767] text-center mb-10"}
       >
@@ -53,7 +53,7 @@ export default function CollectionBanner(
               index={index}
               className={"min-w-[335px] carousel-item"}
             >
-              <div>
+              <a href={item.categoryLink}>
                 <img
                   className={"rounded-lg"}
                   src={image.src}
@@ -61,7 +61,7 @@ export default function CollectionBanner(
                   width={image.width}
                   height={image.height}
                 />
-              </div>
+              </a>
             </Slider.Item>
           );
         })}

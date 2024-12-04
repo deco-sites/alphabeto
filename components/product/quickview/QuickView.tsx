@@ -88,19 +88,9 @@ function QuickView({ product, seller, item }: Props) {
 
   const { listPrice, price, installments } = useOffer(product.offers);
 
-  const getColorStyle = (colorName: string) => {
-    const colorsMap: Record<string, string> = {
-      ROSA: "#FFC0CB",
-      VERDE: "#008000",
-      CORAL: "#FF7F50",
-      AZUL: "#0000FF",
-    };
-    return colorsMap[colorName.toUpperCase()] || null;
-  };
-
   return (
     <>
-      <div className="text-center">
+      <div className="text-center flex justify-center">
         <button
           id={showButtonId}
           className="desk:hidden desk:group-hover:block mobile:block desk:absolute w-full bg-[#FF8300] hover:bg-[#F7E0BF] rounded-lg px-5 py-2.5 text-white font-bold text-sm transition desk:top-[415px] desk:w-[calc(100%-20px)] right-[10px  ] hover:text-[#FF8300]"
@@ -197,7 +187,8 @@ function QuickView({ product, seller, item }: Props) {
                 </p>
               ))}
 
-            {variants.map(([colorName, url], index) => (
+            {
+              /* {variants.map(([colorName, url], index) => (
               <a
                 key={index}
                 href={url}
@@ -211,7 +202,6 @@ function QuickView({ product, seller, item }: Props) {
                   style={{
                     width: "30px",
                     height: "30px",
-                    backgroundColor: getColorStyle(colorName),
                     borderRadius: "50%",
                     display: "flex",
                     alignItems: "center",
@@ -223,7 +213,8 @@ function QuickView({ product, seller, item }: Props) {
                   title={colorName}
                 />
               </a>
-            ))}
+            ))} */
+            }
           </div>
 
           <div>

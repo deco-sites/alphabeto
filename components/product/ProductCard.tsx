@@ -44,7 +44,8 @@ function ProductCard({
   const title = isVariantOf?.name ?? product.name;
   const [front, back] = images ?? [];
 
-  const { listPrice, price, seller = "1", availability } = useOffer(offers);
+  const { listPrice, price, seller = "1", availability, installments } =
+    useOffer(offers);
   const inStock = availability === "https://schema.org/InStock";
   const possibilities = useVariantPossibilities(hasVariant, product);
   const firstSkuVariations = Object.entries(possibilities)?.[0];
@@ -150,18 +151,30 @@ function ProductCard({
       </figure>
 
       <a href={relativeUrl} class="pt-5">
-        <span class="font-medium">
+        <span class="font-bold text-[#676767] text-sm leading-[21px] ">
           {title}
         </span>
 
-        <div class="flex gap-2 pt-2">
-          {listPrice && (
-            <span class="line-through font-normal text-gray-400">
-              {formatPrice(listPrice, offers?.priceCurrency)}
+        <div class="flex pt-2 flex-col">
+          <div class={"flex"}>
+            {listPrice && (
+              <>
+                <span class="line-through font-bold text-xs leading-[18px] text-[#C5C5C5]">
+                  {formatPrice(listPrice, offers?.priceCurrency)}
+                </span>
+                <span class={"mx-[5px] font-bold text-sm text-[#FF8300]"}>
+                  •
+                </span>
+              </>
+            )}
+            <span class="font-bold text-sm leading-[21px] text-[#FF8300]">
+              {formatPrice(price, offers?.priceCurrency)}
             </span>
-          )}
-          <span class="font-medium text-base-400">
-            {formatPrice(price, offers?.priceCurrency)}
+          </div>
+          <span
+            class={"text-[#676767] text-xs font-medium leading-[18px] mt-[5px]"}
+          >
+            {installments}
           </span>
         </div>
       </a>
@@ -174,7 +187,7 @@ function ProductCard({
               <li>
                 <a href={link} class="cursor-pointer">
                   <input
-                    class="peer"
+                    class="peer invisible"
                     type="radio"
                     name={`${id}-${firstSkuVariations?.[0]}`}
                     checked={link === relativeUrl}
@@ -208,7 +221,7 @@ function ProductCard({
                 "btn-error hover:!text-error disabled:!text-error",
               )}
             >
-              Sold out
+              Indisponível
             </a>
           )}
       </div>

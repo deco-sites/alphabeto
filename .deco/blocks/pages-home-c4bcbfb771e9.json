@@ -118,10 +118,24 @@
               "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
               "props": {
                 "sort": "price:desc",
-                "collection": "792",
+                "collection": "787",
                 "count": 8
               }
-            }
+            },
+            "colors": [
+              {
+                "hexadecimals": [
+                  "#f8ce49"
+                ],
+                "name": "amarelo"
+              },
+              {
+                "hexadecimals": [
+                  "#484848"
+                ],
+                "name": "anis"
+              }
+            ]
           },
           "label": "Meninas",
           "title": "Meninas",

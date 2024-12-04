@@ -3664,6 +3664,9 @@ details.collapse summary::-webkit-details-marker {
   white-space: nowrap;
   border-width: 0;
 }
+.invisible {
+  visibility: hidden;
+}
 .collapse {
   visibility: collapse;
 }
@@ -3892,6 +3895,10 @@ details.collapse summary::-webkit-details-marker {
 .mx-6 {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
+}
+.mx-\[5px\] {
+  margin-left: 5px;
+  margin-right: 5px;
 }
 .mx-auto {
   margin-left: auto;

@@ -25,8 +25,8 @@ export default function TabLayout(
   if (!currentTab.section) return null;
 
   return (
-    <div class="flex flex-col gap-10">
-      <div class="flex justify-between desk:px-10 mobile:px-4 mobile:flex-col">
+    <div class="flex flex-col gap-10 container">
+      <div class="flex justify-between mobile:px-4 mobile:flex-col">
         <span class="flex flex-col gap-4">
           <h2 class="font-['BeccaPerry'] text-[44px] font-medium text-[#676767]">
             {title}
