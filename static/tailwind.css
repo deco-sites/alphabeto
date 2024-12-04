@@ -5620,6 +5620,10 @@ details.collapse summary::-webkit-details-marker {
   --tw-text-opacity: 1;
   color: rgb(214 222 35 / var(--tw-text-opacity));
 }
+.text-\[\#F6D814\] {
+  --tw-text-opacity: 1;
+  color: rgb(246 216 20 / var(--tw-text-opacity));
+}
 .text-\[\#FF8300\] {
   --tw-text-opacity: 1;
   color: rgb(255 131 0 / var(--tw-text-opacity));
