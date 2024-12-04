@@ -1,4 +1,3 @@
-import { SignalLike } from "$fresh/src/types.ts";
 import { clx } from "../../sdk/clx.ts";
 
 export enum ButtonType {
@@ -6,6 +5,40 @@ export enum ButtonType {
   Secondary,
   Tertiary,
 }
+
+export enum TextStyles {
+  Small = "text-[14px]",
+  Regular = "text-[15px]",
+  Large = "text-[16px]",
+}
+interface CommomButtonProps {
+  styleType?: ButtonType;
+  textStyles?: TextStyles;
+  disableHover?: boolean;
+}
+
+type ButtonProps =
+  & React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  >
+  & CommomButtonProps;
+
+type ButtonAnchorProps =
+  & React.DetailedHTMLProps<
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    HTMLAnchorElement
+  >
+  & CommomButtonProps;
+
+type ButtonLabelProps =
+  & React.DetailedHTMLProps<
+    React.LabelHTMLAttributes<HTMLLabelElement>,
+    HTMLLabelElement
+  >
+  & CommomButtonProps;
+
+type ButtonsProps = ButtonProps | ButtonAnchorProps | ButtonLabelProps;
 
 export const typeClasses: Record<ButtonType, {
   common: string;
@@ -32,29 +65,19 @@ export const typeClasses: Record<ButtonType, {
 const disabledClasses =
   "disabled:bg-[#C5C5C5] disabled:border-[#C5C5C5] disabled:text-[#676767] [&[disabled]]:bg-[#C5C5C5] [&[disabled]]:border-[#C5C5C5] [&[disabled]]:text-[#676767]";
 
-export enum TextStyles {
-  Small = "text-[14px]",
-  Regular = "text-[15px]",
-  Large = "text-[16px]",
-}
-
-interface MakeFinalClassParam {
-  styleType?: ButtonType;
-  textStyles?: TextStyles;
-  className?: string | SignalLike<string | undefined> | undefined;
-  disableHover?: boolean;
-}
-
-const makeFinalClass = (
-  {
+function makeFinalProps<T extends ButtonsProps>(
+  props: T,
+) {
+  const {
     styleType = ButtonType.Primary,
     textStyles = TextStyles.Small,
     className,
     disableHover = false,
-  }: MakeFinalClassParam,
-) => {
+    class: moreClasses,
+    ...rest
+  } = props;
   const { common, hover, notHover } = typeClasses[styleType];
-  return clx(
+  const classNames = clx(
     "btn",
     common,
     disableHover ? notHover : hover,
@@ -62,73 +85,48 @@ const makeFinalClass = (
     "rounded-lg",
     disabledClasses,
     className?.toString(),
+    moreClasses?.toString(),
   );
-};
 
-interface CommomButtonProps {
-  styleType?: ButtonType;
-  textStyles?: TextStyles;
-  disableHover?: boolean;
+  return {
+    ...rest,
+    class: classNames,
+  };
 }
 
-type ButtonProps =
-  & React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  >
-  & CommomButtonProps;
-
 export default function Button(props: ButtonProps) {
-  const finalclass = makeFinalClass(
+  const finalProps = makeFinalProps(
     props,
   );
-
   return (
     <button
-      {...props}
-      class={finalclass}
+      {...finalProps}
     >
       {props.children}
     </button>
   );
 }
 
-type ButtonAnchorProps =
-  & React.DetailedHTMLProps<
-    React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    HTMLAnchorElement
-  >
-  & CommomButtonProps;
-
 export function ButtonAnchor(props: ButtonAnchorProps) {
-  const finalclass = makeFinalClass(
+  const finalProps = makeFinalProps(
     props,
   );
   return (
     <a
-      {...props}
-      class={finalclass}
+      {...finalProps}
     >
       {props.children}
     </a>
   );
 }
 
-type ButtonLabelProps =
-  & React.DetailedHTMLProps<
-    React.LabelHTMLAttributes<HTMLLabelElement>,
-    HTMLLabelElement
-  >
-  & CommomButtonProps;
-
 export function ButtonLabel(props: ButtonLabelProps) {
-  const finalclass = makeFinalClass(
+  const finalProps = makeFinalProps(
     props,
   );
   return (
     <label
-      {...props}
-      class={finalclass}
+      {...finalProps}
     >
       {props.children}
     </label>

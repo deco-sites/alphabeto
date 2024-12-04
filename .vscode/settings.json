@@ -12,5 +12,11 @@
   },
   "[typescript]": {
     "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+  "[tailwindcss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.associations": {
+    "*.svg": "html"
   }
 }

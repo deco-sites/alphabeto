@@ -2,30 +2,63 @@ import { type SectionProps } from "@deco/deco";
 import { useDevice, useScript, useSection } from "@deco/deco/hooks";
 import type { ProductListingPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import ProductCard from "../../components/product/ProductCard.tsx";
-import Filters from "../../components/search/Filters.tsx";
-import Icon from "../../components/ui/Icon.tsx";
-import { clx } from "../../sdk/clx.ts";
-import { useId } from "../../sdk/useId.ts";
-import { useOffer } from "../../sdk/useOffer.ts";
-import { useSendEvent } from "../../sdk/useSendEvent.ts";
-import Breadcrumb from "../ui/Breadcrumb.tsx";
-import Drawer from "../ui/Drawer/index.tsx";
-import Sort from "./Sort.tsx";
+import ProductCard from "site/components/product/ProductCard.tsx";
+import CategoryBanner, {
+  Props as BannerProps,
+} from "site/components/search/CategoryBanner.tsx";
+import Filters, {
+  FilterSettings,
+} from "site/components/search/Filters/index.tsx";
+import SortDesktop from "site/components/search/Sort/SortDesktop.tsx";
+import SortMobile from "site/components/search/Sort/SortMobile.tsx";
+import Breadcrumb, {
+  BreadcrumbOverride,
+} from "site/components/ui/Breadcrumb.tsx";
+import {
+  ButtonAnchor,
+  ButtonType,
+  TextStyles,
+} from "site/components/ui/Button.tsx";
+import Drawer from "site/components/ui/Drawer/index.tsx";
+import Icon from "site/components/ui/Icon.tsx";
+import { clx } from "site/sdk/clx.ts";
+import { useId } from "site/sdk/useId.ts";
+import { useOffer } from "site/sdk/useOffer.ts";
+import { useSendEvent } from "site/sdk/useSendEvent.ts";
+
 export interface Layout {
   /**
    * @title Pagination
    * @description Format of the pagination
    */
   pagination?: "show-more" | "pagination";
+  /**
+   * @title Filters
+   * @description Settings About The Filters
+   */
+  filter?: FilterSettings;
 }
 export interface Props {
-  /** @title Integration */
-  page: ProductListingPage | null;
+  /**
+   * @title SEO Settings
+   * @description The SEO Settings for this page
+   */
+  seoComponents: {
+    /** @title Banner Settings */
+    banner?: BannerProps;
+    /** @title Breadcrumb Override */
+    breadcrumb?: BreadcrumbOverride[];
+  };
+  /** @title Visual Configuration */
   layout?: Layout;
+  /** @title Integration to Ecommerce Plataform */
+  page: ProductListingPage | null;
   /** @description 0 for ?page=0 as your first page */
   startingPage?: 0 | 1;
-  /** @hidden */
+  /**
+   * @title Partial Otimization
+   * @hide
+   */
   partial?: "hideMore" | "hideLess";
 }
 
@@ -42,9 +75,9 @@ const useUrlRebased = (overrides: string | undefined, base: string) => {
     const temp = new URL(overrides, base);
     const final = new URL(base);
     final.pathname = temp.pathname;
-    for (const [key, value] of temp.searchParams.entries()) {
+    temp.searchParams.forEach((value, key) => {
       final.searchParams.set(key, value);
-    }
+    });
     url = final.href;
   }
   return url;
@@ -108,15 +141,17 @@ function PageResult(props: SectionProps<typeof loader>) {
           (!prevPageUrl || partial === "hideLess") && "hidden",
         )}
       >
-        <a
+        <ButtonAnchor
           rel="prev"
-          class="btn btn-ghost"
+          styleType={ButtonType.Secondary}
+          textStyles={TextStyles.Small}
+          class={"border border-primary h-11"}
           hx-swap="outerHTML show:parent:top"
           hx-get={partialPrev}
         >
-          <span class="inline [.htmx-request_&]:hidden">Show Less</span>
+          <span class="inline [.htmx-request_&]:hidden">Ver anterior</span>
           <span class="loading loading-spinner hidden [.htmx-request_&]:block" />
-        </a>
+        </ButtonAnchor>
       </div>
 
       <div
@@ -124,7 +159,7 @@ function PageResult(props: SectionProps<typeof loader>) {
         class={clx(
           "grid items-center",
           "grid-cols-2 gap-2",
-          "sm:grid-cols-4 sm:gap-10",
+          "desk:grid-cols-4 desk:gap-10",
           "w-full",
         )}
       >
@@ -143,18 +178,20 @@ function PageResult(props: SectionProps<typeof loader>) {
         {infinite
           ? (
             <div class="flex justify-center [&_section]:contents">
-              <a
+              <ButtonAnchor
                 rel="next"
+                styleType={ButtonType.Secondary}
+                textStyles={TextStyles.Small}
                 class={clx(
-                  "btn btn-ghost",
+                  "border border-primary h-11",
                   (!nextPageUrl || partial === "hideMore") && "hidden",
                 )}
                 hx-swap="outerHTML show:parent:top"
                 hx-get={partialNext}
               >
-                <span class="inline [.htmx-request_&]:hidden">Show More</span>
+                <span class="inline [.htmx-request_&]:hidden">Ver mais</span>
                 <span class="loading loading-spinner hidden [.htmx-request_&]:block" />
-              </a>
+              </ButtonAnchor>
             </div>
           )
           : (
@@ -221,9 +258,15 @@ function Result(props: SectionProps<typeof loader>) {
       {page.pageInfo.recordPerPage} of {page.pageInfo.records} results
     </span>
   );
-  const sortBy = sortOptions.length > 0 && (
-    <Sort sortOptions={sortOptions} url={url} />
-  );
+  const SortBy = () => {
+    if (sortOptions.length === 0) return null;
+    if (device === "desktop") {
+      return <SortDesktop sortOptions={sortOptions} url={url} />;
+    } else return <SortMobile sortOptions={sortOptions} url={url} />;
+  };
+  const filterSettings = props.layout?.filter || {
+    colors: [],
+  };
 
   return (
     <>
@@ -231,59 +274,65 @@ function Result(props: SectionProps<typeof loader>) {
         {partial
           ? <PageResult {...props} />
           : (
-            <div class="container flex flex-col gap-4 sm:gap-5 w-full py-4 sm:py-5 px-5 sm:px-0">
-              <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
+            <div class="container flex flex-col gap-5 desk:gap-5 w-full pt-5 pb-20 desk:pb-[100px] px-5">
+              <Breadcrumb
+                itemListElement={breadcrumb?.itemListElement}
+                breadcrumbOverride={props.seoComponents.breadcrumb}
+              />
+
+              {props.seoComponents.banner && (
+                <CategoryBanner {...props.seoComponents.banner} />
+              )}
 
               {device === "mobile" && (
                 <Drawer
                   id={controls}
                   aside={
-                    <div class="bg-base-100 flex flex-col h-full divide-y overflow-y-hidden">
-                      <div class="flex justify-between items-center">
-                        <h1 class="px-4 py-3">
-                          <span class="font-medium text-2xl">Filters</span>
-                        </h1>
-                        <label class="btn btn-ghost" for={controls}>
-                          <Icon id="close" />
-                        </label>
+                    <Drawer.Aside
+                      title="Filtro"
+                      drawer={controls}
+                      class="max-w-[calc(100vw_-_20px)]"
+                    >
+                      <div class="h-full flex flex-col bg-base-100 items-center justify-center border-none w-full">
+                        <Filters
+                          filters={filters}
+                          settings={filterSettings}
+                          url={url}
+                        />
                       </div>
-                      <div class="flex-grow overflow-auto">
-                        <Filters filters={filters} />
-                      </div>
-                    </div>
+                    </Drawer.Aside>
                   }
                 >
-                  <div class="flex sm:hidden justify-between items-end">
-                    <div class="flex flex-col">
-                      {results}
-                      {sortBy}
-                    </div>
-
-                    <label class="btn btn-ghost" for={controls}>
-                      Filters
+                  <div class="grid grid-cols-2">
+                    <label
+                      class="flex bg-[#FDF6ED] rounded-[4px_0px_0px_4px] text-xs font-bold leading-[18px] text-[#676767] gap-2.5 h-10 items-center justify-center"
+                      for={controls}
+                    >
+                      <Icon id="filter" size={16} className="text-primary" />
+                      Filtros
                     </label>
+                    <div class="flex flex-col">
+                      <SortBy />
+                    </div>
                   </div>
                 </Drawer>
               )}
 
-              <div class="grid place-items-center grid-cols-1 sm:grid-cols-[250px_1fr]">
+              <div class="grid grid-cols-1 desk:grid-cols-[265px_1fr] desk:gap-20 mt-5">
                 {device === "desktop" && (
                   <aside class="place-self-start flex flex-col gap-9">
-                    <span class="text-base font-semibold h-12 flex items-center">
-                      Filters
-                    </span>
-
-                    <Filters filters={filters} />
+                    <div>
+                      <SortBy />
+                    </div>
+                    <Filters
+                      filters={filters}
+                      settings={filterSettings}
+                      url={url}
+                    />
                   </aside>
                 )}
 
                 <div class="flex flex-col gap-9">
-                  {device === "desktop" && (
-                    <div class="flex justify-between items-center">
-                      {results}
-                      <div>{sortBy}</div>
-                    </div>
-                  )}
                   <PageResult {...props} />
                 </div>
               </div>
@@ -305,7 +354,7 @@ function Result(props: SectionProps<typeof loader>) {
   );
 }
 function SearchResult({ page, ...props }: SectionProps<typeof loader>) {
-  if (!page) {
+  if (!page || !page.products || page.products.length === 0) {
     return <NotFound />;
   }
   return <Result {...props} page={page} />;
