@@ -22,26 +22,26 @@
           "alt": "Children"
         },
         {
-          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/d26304f4-355b-48d0-b649-e24b9cbf0ded",
-          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/47a4d85a-1150-4e5d-abc2-5c642445ff12",
-          "alt": "Men",
+          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/1226ef79-c7e0-403c-b716-b6b9af3f2936",
+          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/f7ea4cbe-7498-4e64-9205-c741753edfcc",
+          "alt": "Woman",
           "action": {
-            "title": "Discover Fresh Looks",
-            "subTitle": "Modern men's clothing and accessories.",
-            "href": "/men",
-            "label": "Shop the Collection"
+            "title": "Embrace New Trends",
+            "subTitle": "Stylish clothes and accessories.",
+            "href": "/women",
+            "label": "Shop Now!"
           }
         },
         {
-          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/1226ef79-c7e0-403c-b716-b6b9af3f2936",
-          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/f7ea4cbe-7498-4e64-9205-c741753edfcc",
+          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/d26304f4-355b-48d0-b649-e24b9cbf0ded",
+          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/47a4d85a-1150-4e5d-abc2-5c642445ff12",
           "action": {
-            "label": "Shop Now!",
-            "href": "/women",
-            "title": "Embrace New Trends",
-            "subTitle": "Stylish clothes and accessories."
+            "label": "Shop the Collection",
+            "href": "/men",
+            "title": "Discover Fresh Looks",
+            "subTitle": "Modern men's clothing and accessories."
           },
-          "alt": "Woman"
+          "alt": "Men"
         }
       ],
       "preload": true
@@ -56,8 +56,8 @@
             "backgroundColor": "#FCF3E6",
             "mainColor": "#FF8300",
             "imageUrl": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/4afcd983-510b-4e38-9bf4-4e40c52c42a1/Troca-facil.svg",
-            "imageAlt": "Troca Fácil",
-            "title": "Troca Fácil",
+            "imageAlt": "Troca Teste",
+            "title": "Troca Teste",
             "message": "<p style=\"text-align: justify\">Precisa trocar? É fácil e rapidinho :) <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"/\"><span style=\"color: #ff8300\">Clique aqui</span></a></p>",
             "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/4afcd983-510b-4e38-9bf4-4e40c52c42a1/Troca-facil.svg"
           },
