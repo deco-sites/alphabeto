@@ -92,7 +92,7 @@ const useStyles = (value: string, checked: boolean) => {
   if (colors[value]) {
     return clx(
       "border border-base-300 rounded-full",
-      "w-12 h-12 block",
+      "w-5 h-5 block",
       "border border-[#C9CFCF] rounded-full",
       "ring-2 ring-offset-2",
       checked ? "ring-primary" : "ring-transparent",
@@ -113,7 +113,6 @@ export const Ring = ({ value, checked = false, class: _class }: {
     ? colors[value]?.join(", ") // Ou escolha apenas a primeira cor: colors[value][0]
     : colors[value];
   const styles = clx(useStyles(value, checked), _class);
-  console.log("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC", value)
 
   return (
     <span
