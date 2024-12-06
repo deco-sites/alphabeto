@@ -4,9 +4,11 @@ import ProductImages from "site/components/product/ProductImages.tsx";
 import ProductInfo from "site/components/product/ProductInfo.tsx";
 import Breadcrumb from "site/components/ui/Breadcrumb.tsx";
 import Section from "site/components/ui/Section.tsx";
+import { ExportedColorItem } from "site/loaders/savedColors.ts";
 
 export interface PDPSettings {
   cashbackPercentage: number;
+  colors: ExportedColorItem[];
 }
 
 export interface Props {
@@ -47,9 +49,9 @@ export default function ProductDetails(
   }
 
   return (
-    <div class="container">
+    <div class="container mt-5">
       <Breadcrumb itemListElement={page.breadcrumbList.itemListElement} />
-      <div class="flex mobile:flex-col gap-4 justify-between mobile:relative">
+      <div class="flex mobile:flex-col gap-4 justify-between mobile:relative mt-5">
         <ProductImages page={page} />
         <ProductInfo
           page={page}

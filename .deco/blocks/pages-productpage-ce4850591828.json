@@ -26,7 +26,10 @@
         "__resolveType": "PDP Loader"
       },
       "settings": {
-        "cashbackPercentage": 15
+        "cashbackPercentage": 15,
+        "colors": {
+          "__resolveType": "Saved Colors"
+        }
       }
     },
     {

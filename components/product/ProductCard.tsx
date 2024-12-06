@@ -4,13 +4,13 @@ import Image from "apps/website/components/Image.tsx";
 import { clx } from "../../sdk/clx.ts";
 import { formatPrice } from "../../sdk/format.ts";
 import { relative } from "../../sdk/url.ts";
+import { useId } from "../../sdk/useId.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
 import { useSendEvent } from "../../sdk/useSendEvent.ts";
 import { useVariantPossibilities } from "../../sdk/useVariantPossiblities.ts";
 import WishlistButton from "../wishlist/WishlistButton.tsx";
 import AddToCartButton from "./AddToCartButton.tsx";
 import { Ring } from "./ProductVariantSelector.tsx";
-import { useId } from "../../sdk/useId.ts";
 
 interface Props {
   product: Product;
@@ -154,7 +154,7 @@ function ProductCard({
         </div>
 
         <div class="absolute bottom-0 right-0">
-          <WishlistButton item={item} variant="icon" />
+          <WishlistButton item={item} />
         </div>
       </figure>
 
@@ -188,7 +188,13 @@ function ProductCard({
                     name={`${id}-${firstSkuVariations?.[0]}`}
                     checked={link === relativeUrl}
                   />
-                  <Ring value={value} checked={link === relativeUrl} />
+                  <Ring
+                    value={value}
+                    checked={link === relativeUrl}
+                    name={firstSkuVariations?.[0] ?? ""}
+                    isAvailable={true}
+                    colors={[]}
+                  />
                 </a>
               </li>
             ))}

@@ -1,13 +1,24 @@
 {
   "__resolveType": "site/loaders/savedColors.ts",
-  "settings": {
     "colors": [
-      {
+      { "name": "Amarelo",
         "hexadecimals": [
           "#f8ce49"
-        ],
-        "name": "Amarelo"
+        ]
+      }, {
+        "name": "Anis",
+        "hexadecimals":[
+          "#484848"
+        ]
+      }, {
+        "name": "Azul",
+        "hexadecimals":[
+          "#38BBD2"
+        ]
+      },
+      {
+        "name": "Jeans",
+        "hexadecimals":["#244f9c"]
       }
     ]
-  }
 }

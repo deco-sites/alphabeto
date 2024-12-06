@@ -5,6 +5,7 @@ import ProductAgeRangeIndicator from "site/components/product/ProductAgeRangeInd
 import ProductCashback from "site/components/product/ProductCashback.tsx";
 import ProductSizebay from "site/components/product/ProductSizebay.tsx";
 import ProductSmallDescription from "site/components/product/ProductSmallDescription.tsx";
+import ProductTextInfoDiscloujure from "site/components/product/ProductTextInfoDiscloujure.tsx";
 import { SizeBaySettings } from "site/loaders/sizebay.ts";
 import { PDPSettings } from "site/sections/Product/ProductDetails.tsx";
 import { formatPrice } from "../../sdk/format.ts";
@@ -16,7 +17,6 @@ import WishlistButton from "../wishlist/WishlistButton.tsx";
 import AddToCartButton from "./AddToCartButton.tsx";
 import OutOfStock from "./OutOfStock.tsx";
 import ProductSelector from "./ProductVariantSelector.tsx";
-
 interface Props {
   page: ProductDetailsPage | null;
   settings: PDPSettings;
@@ -34,7 +34,9 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
   const { productID, offers, isVariantOf } = product;
   const description = product.description || isVariantOf?.description;
   const title = isVariantOf?.name ?? product.name;
-
+  const characteristics = product.isVariantOf?.additionalProperty.find(
+    (property) => property.name?.toLowerCase() === "características",
+  )?.value;
   const {
     price = 0,
     listPrice,
@@ -139,7 +141,7 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
       {/* Sku Selector */}
       {hasValidVariants && (
         <div class="mt-[30px] mb-5">
-          <ProductSelector product={product} />
+          <ProductSelector product={product} colors={settings.colors} />
         </div>
       )}
 
@@ -164,23 +166,21 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
       />
 
       {/* Description card */}
-      <div class="mt-4 sm:mt-6">
-        <span class="text-sm">
-          {description && (
-            <details>
-              <summary class="cursor-pointer">Description</summary>
-              <div
-                class="ml-2 mt-2"
-                dangerouslySetInnerHTML={{ __html: description }}
-              />
-            </details>
-          )}
-        </span>
+      <div class="desk:mt-2.5">
+        <ProductTextInfoDiscloujure
+          title="Descrição"
+          content={description}
+          defaultOpen
+        />
+        <ProductTextInfoDiscloujure
+          title="Composição"
+          content={characteristics}
+        />
       </div>
       <script
         src={useScriptAsDataURI((data: unknown) => {
           console.log(data);
-        }, sizebaySettings)}
+        }, product)}
       />
     </div>
   );

@@ -6465,6 +6465,14 @@ details.collapse summary::-webkit-details-marker {
     margin-right: 99px;
   }
 
+  .desk\:mt-2 {
+    margin-top: 0.5rem;
+  }
+
+  .desk\:mt-2\.5 {
+    margin-top: 0.625rem;
+  }
+
   .desk\:mt-5 {
     margin-top: 1.25rem;
   }

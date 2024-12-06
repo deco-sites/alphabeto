@@ -1,5 +1,7 @@
 import { useSection } from "@deco/deco/hooks";
 import type { Product } from "apps/commerce/types.ts";
+import { ExportedColorItem } from "site/loaders/savedColors.ts";
+import { makeBackgroundFromHexadecimals } from "site/sdk/makeBackgroundFromHexadecimals.ts";
 import { uppercaseFirstLetter } from "site/sdk/stringUtils.ts";
 import { clx } from "../../sdk/clx.ts";
 import { relative } from "../../sdk/url.ts";
@@ -8,20 +10,23 @@ import { useVariantPossibilities } from "../../sdk/useVariantPossiblities.ts";
 
 interface Props {
   product: Product;
+  colors: ExportedColorItem[];
 }
-const colors: Record<string, string | undefined> = {
-  "roxo": "#8A2BE2",
-};
 
 const useStyles = (
   value: string,
   checked: boolean,
   name: string,
   isAvailable: boolean,
+  colors: ExportedColorItem[],
 ) => {
-  if (colors[value.toLowerCase()] && name.toLowerCase() === "cor") {
+  const hasColor = colors.find((color) =>
+    color.name.toLowerCase() === value.toLowerCase()
+  );
+
+  if (hasColor && name.toLowerCase() === "cor") {
     return {
-      bg: colors[value.toLowerCase()],
+      bg: makeBackgroundFromHexadecimals(hasColor.hexadecimals),
       class: clx(
         "btn rounded-full w-6 h-6 max-h-6 min-h-6 p-0",
         "ring-1 ring-offset-2",
@@ -52,17 +57,24 @@ const isAvailable = (url: string, product: Product) => {
 };
 
 export const Ring = (
-  { value, checked = false, class: _class, name, isAvailable }: {
+  { value, checked = false, class: _class, name, isAvailable, colors }: {
     value: string;
     checked?: boolean;
     class?: string;
     name: string;
     isAvailable: boolean;
+    colors: ExportedColorItem[];
   },
 ) => {
-  const { class: className, bg } = useStyles(value, checked, name, isAvailable);
+  const { class: className, bg } = useStyles(
+    value,
+    checked,
+    name,
+    isAvailable,
+    colors,
+  );
   return (
-    <span style={{ backgroundColor: bg }} class={clx(className, _class)}>
+    <span style={{ background: bg }} class={clx(className, _class)}>
       {bg ? null : value}
     </span>
   );
@@ -94,7 +106,7 @@ function VariantLabel({ variantName, possibilities, product }: {
   );
 }
 
-function VariantSelector({ product }: Props) {
+function VariantSelector({ product, colors }: Props) {
   const { url, isVariantOf } = product;
   const hasVariant = isVariantOf?.hasVariant ?? [];
   const possibilities = useVariantPossibilities(hasVariant, product);
@@ -150,6 +162,7 @@ function VariantSelector({ product }: Props) {
                           checked={checked}
                           name={name}
                           isAvailable={isAvailable(link ?? "", product)}
+                          colors={colors}
                         />
                       </div>
                       {/* Loading spinner */}
