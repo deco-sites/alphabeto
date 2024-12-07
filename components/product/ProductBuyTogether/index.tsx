@@ -1,8 +1,13 @@
+import { ProductDetailsPage } from "apps/commerce/types.ts";
 import ProductCard from "site/components/product/ProductBuyTogether/ProductCard.tsx";
 import ProductResume from "site/components/product/ProductBuyTogether/ProductResume.tsx";
 import Icon from "site/components/ui/Icon.tsx";
 
-export default function ProductBuyTogether() {
+interface Props {
+  page: ProductDetailsPage | null;
+}
+
+export default function ProductBuyTogether(_props: Props) {
   return (
     <div class="bg-[#FDF6ED] flex flex-col pb-5 desk:pb-10">
       <h2 class="font-beccaPerry text-[28px] leading-8 desk:text-[40px] desk:leading-[48px] text-[#212121] font-medium text-center mt-[22px] mb-[30px] desk:my-10">

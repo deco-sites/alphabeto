@@ -1,1 +1,1 @@
-export { default } from "site/components/product/ProductBuyTogether/index.tsx";
+export { default } from "site/islands/ProductBuyTogether.tsx";

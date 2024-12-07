@@ -4278,6 +4278,9 @@ details.collapse summary::-webkit-details-marker {
 .w-\[243px\] {
   width: 243px;
 }
+.w-\[252px\] {
+  width: 252px;
+}
 .w-\[287px\] {
   width: 287px;
 }
@@ -6496,6 +6499,10 @@ details.collapse summary::-webkit-details-marker {
     height: 2.25rem;
   }
 
+  .mobile\:min-h-\[545px\] {
+    min-height: 545px;
+  }
+
   .mobile\:w-\[32px\] {
     width: 32px;
   }
@@ -6552,6 +6559,11 @@ details.collapse summary::-webkit-details-marker {
     padding-right: 0.75rem;
   }
 
+  .mobile\:px-5 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
   .mobile\:text-center {
     text-align: center;
   }
@@ -6586,6 +6598,10 @@ details.collapse summary::-webkit-details-marker {
     position: relative;
   }
 
+  .desk\:left-10 {
+    left: 2.5rem;
+  }
+
   .desk\:left-4 {
     left: 1rem;
   }
@@ -6608,6 +6624,10 @@ details.collapse summary::-webkit-details-marker {
 
   .desk\:top-0 {
     top: 0px;
+  }
+
+  .desk\:top-1\/2 {
+    top: 50%;
   }
 
   .desk\:top-3 {
@@ -6760,12 +6780,21 @@ details.collapse summary::-webkit-details-marker {
     max-width: 422px;
   }
 
+  .desk\:max-w-\[480px\] {
+    max-width: 480px;
+  }
+
   .desk\:max-w-\[95rem\] {
     max-width: 95rem;
   }
 
   .desk\:max-w-\[min\(33\.33vw\2c 480px\)\] {
     max-width: min(33.33vw,480px);
+  }
+
+  .desk\:-translate-y-1\/2 {
+    --tw-translate-y: -50%;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .desk\:grid-cols-4 {
@@ -7047,11 +7076,17 @@ details.collapse summary::-webkit-details-marker {
 .\[\&\>h2\]\:text-\[25px\]>h2 {
   font-size: 25px;
 }
+.\[\&\>h2\]\:text-\[40px\]>h2 {
+  font-size: 40px;
+}
 .\[\&\>h2\]\:font-medium>h2 {
   font-weight: 500;
 }
 .\[\&\>h2\]\:leading-\[30px\]>h2 {
   line-height: 30px;
+}
+.\[\&\>h2\]\:leading-\[48px\]>h2 {
+  line-height: 48px;
 }
 .\[\&\>h2\]\:text-\[\#676767\]>h2 {
   --tw-text-opacity: 1;
@@ -7069,6 +7104,13 @@ details.collapse summary::-webkit-details-marker {
 }
 .\[\&\>p\:not\(\:last-child\)\]\:mb-\[60px\]>p:not(:last-child) {
   margin-bottom: 60px;
+}
+.\[\&\>p\]\:pt-5>p {
+  padding-top: 1.25rem;
+}
+.\[\&\>p\]\:text-sm>p {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 .\[\&\>p\]\:text-xs>p {
   font-size: 0.75rem;
