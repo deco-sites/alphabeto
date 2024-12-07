@@ -47,7 +47,10 @@ export type AvailableIcons =
   | "stars-cat-1-desktop"
   | "stars-cat-2-desktop"
   | "stars-cat-1-mobile"
-  | "stars-cat-2-mobile";
+  | "stars-cat-2-mobile"
+  | "eye"
+  | "refresh"
+  | "equals";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

@@ -12,9 +12,7 @@
         "jsonLD": {
           "__resolveType": "PDP Loader"
         },
-        "jsonLDs": [
-          {}
-        ]
+        "jsonLDs": [{}]
       }
     },
     {
@@ -33,10 +31,13 @@
       }
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Newsletter/Newsletter.tsx"
-      }
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "site/sections/Product/ProductBuyTogether.tsx"
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
@@ -47,3 +48,4 @@
   ],
   "__resolveType": "website/pages/Page.tsx"
 }
+

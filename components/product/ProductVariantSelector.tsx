@@ -18,10 +18,10 @@ const useStyles = (
   checked: boolean,
   name: string,
   isAvailable: boolean,
-  colors: ExportedColorItem[],
+  colors: ExportedColorItem[]
 ) => {
-  const hasColor = colors.find((color) =>
-    color.name.toLowerCase() === value.toLowerCase()
+  const hasColor = colors.find(
+    (color) => color.name.toLowerCase() === value.toLowerCase()
   );
 
   if (hasColor && name.toLowerCase() === "cor") {
@@ -31,7 +31,7 @@ const useStyles = (
         "btn rounded-full w-6 h-6 max-h-6 min-h-6 p-0",
         "ring-1 ring-offset-2",
         checked ? "ring-primary" : "ring-transparent",
-        checked === false && isAvailable === false ? "diagonal-line" : "",
+        checked === false && isAvailable === false ? "diagonal-line" : ""
       ),
     };
   }
@@ -42,36 +42,42 @@ const useStyles = (
       checked
         ? "ring-primary bg-primary border-primary text-white"
         : "ring-transparent bg-transparent border-[#5A5B61] text-[#5A5B61] hover:bg-primary hover:border-primary hover:text-white",
-      checked === false && isAvailable === false ? "diagonal-line" : "",
+      checked === false && isAvailable === false ? "diagonal-line" : ""
     ),
   };
 };
 
 const isAvailable = (url: string, product: Product) => {
   return Boolean(
-    product.isVariantOf?.hasVariant.find((variant) => variant.url === url)
+    product.isVariantOf?.hasVariant
+      .find((variant) => variant.url === url)
       ?.offers?.offers.find((offer) =>
         offer.availability.toLowerCase().includes("instock")
-      ),
+      )
   );
 };
 
-export const Ring = (
-  { value, checked = false, class: _class, name, isAvailable, colors }: {
-    value: string;
-    checked?: boolean;
-    class?: string;
-    name: string;
-    isAvailable: boolean;
-    colors: ExportedColorItem[];
-  },
-) => {
+export const Ring = ({
+  value,
+  checked = false,
+  class: _class,
+  name,
+  isAvailable,
+  colors,
+}: {
+  value: string;
+  checked?: boolean;
+  class?: string;
+  name: string;
+  isAvailable: boolean;
+  colors: ExportedColorItem[];
+}) => {
   const { class: className, bg } = useStyles(
     value,
     checked,
     name,
     isAvailable,
-    colors,
+    colors
   );
   return (
     <span style={{ background: bg }} class={clx(className, _class)}>
@@ -80,21 +86,27 @@ export const Ring = (
   );
 };
 
-function VariantLabel({ variantName, possibilities, product }: {
+function VariantLabel({
+  variantName,
+  possibilities,
+  product,
+}: {
   variantName: string;
   possibilities: ReturnType<typeof useVariantPossibilities>;
   product: Product;
 }) {
-  let selectedValue = Object.entries(possibilities[variantName])
-    .filter(([_, link]) => link === product.url)[0]?.[0] ?? "";
+  let selectedValue =
+    Object.entries(possibilities[variantName]).filter(
+      ([_, link]) => link === product.url
+    )[0]?.[0] ?? "";
 
   const labelsMap = {
-    "cor": "Selecione a cor",
-    "tamanho": "Selecione o tamanho",
+    cor: "Selecione a cor",
+    tamanho: "Selecione o tamanho",
   };
   const selectedLabelOrDefault =
     labelsMap[variantName.toLowerCase() as keyof typeof labelsMap] ??
-      variantName;
+    variantName;
   if (variantName.toLowerCase() === "cor") {
     selectedValue = uppercaseFirstLetter(selectedValue.toLowerCase());
   }
@@ -112,8 +124,9 @@ function VariantSelector({ product, colors }: Props) {
   const possibilities = useVariantPossibilities(hasVariant, product);
   const relativeUrl = relative(url);
   const id = useId();
-  const filteredNames = Object.keys(possibilities).filter((name) =>
-    name.toLowerCase() !== "title" && name.toLowerCase() !== "default title"
+  const filteredNames = Object.keys(possibilities).filter(
+    (name) =>
+      name.toLowerCase() !== "title" && name.toLowerCase() !== "default title"
   );
   if (filteredNames.length === 0) {
     return null;
@@ -132,7 +145,7 @@ function VariantSelector({ product, colors }: Props) {
             possibilities={possibilities}
             product={product}
           />
-          <ul class="flex flex-row gap-2.5">
+          <ul class="flex flex-row gap-2.5 flex-wrap">
             {Object.entries(possibilities[name])
               .filter(([value]) => value)
               .map(([value, link]) => {
@@ -154,7 +167,7 @@ function VariantSelector({ product, colors }: Props) {
                       <div
                         class={clx(
                           "col-start-1 row-start-1 col-span-1 row-span-1 relative z-20",
-                          "[.htmx-request_&]:opacity-0 transition-opacity",
+                          "[.htmx-request_&]:opacity-0 transition-opacity"
                         )}
                       >
                         <Ring
@@ -170,7 +183,7 @@ function VariantSelector({ product, colors }: Props) {
                         class={clx(
                           "col-start-1 row-start-1 col-span-1 row-span-1",
                           "opacity-0 [.htmx-request_&]:opacity-100 transition-opacity",
-                          "flex justify-center items-center relative z-10",
+                          "flex justify-center items-center relative z-10"
                         )}
                       >
                         <span class="loading loading-sm loading-spinner" />
