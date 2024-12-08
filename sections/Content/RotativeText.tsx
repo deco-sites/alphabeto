@@ -8,15 +8,15 @@ interface Props {
 
 type Item =
   | {
-    type: "icon";
-    icon: AvailableIcons;
-    color: string;
-  }
+      type: "icon";
+      icon: AvailableIcons;
+      color: string;
+    }
   | {
-    type: "text";
-    text: string;
-    color: string;
-  };
+      type: "text";
+      text: string;
+      color: string;
+    };
 
 const ITEMS_QTD = 10;
 const COLORS = ["#FF8300", "#70D1E8", "#D6DE23", "#FF859A"];
@@ -26,8 +26,8 @@ const ICONS: AvailableIcons[] = [
   "rotative_moon",
 ];
 
-const rotate = async (id: string) => {
-  window.addEventListener("load", () => {
+const rotate = (id: string) => {
+  globalThis.addEventListener("load", () => {
     const bar = document.getElementById(id);
     if (!bar) return;
     const VELOCITY = 2;
@@ -35,7 +35,6 @@ const rotate = async (id: string) => {
     let direction = 1; // 1 para frente, -1 para trás
 
     const maxTranslate = bar.scrollWidth - bar.clientWidth + 10;
-    console.log({ maxTranslate });
 
     const animate = () => {
       currentTranslate += VELOCITY * direction;
@@ -82,7 +81,7 @@ export default function RotativeText({ text }: Props) {
           }
           return (
             <span
-              class="w-full font-beccaPerry font-medium text-[40px] leading-[48px]"
+              class="font-beccaPerry font-medium text-[40px] leading-[48px]"
               key={index}
               style={{ color: item.color }}
             >
