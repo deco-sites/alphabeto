@@ -69,12 +69,12 @@ export default function Selector({ values, placeholder }: Props) {
       </button>
       <div
         data-items-container
-        class="transition-all bg-white absolute top-8 w-full z-10 overflow-hidden"
+        class="transition-all bg-white absolute top-8 w-full z-10 overflow-hidden border-x border-primary border-dashed"
         style={{
           height: "0px",
         }}
       >
-        <div class="border border-primary border-dashed border-t-0  mt-2">
+        <div class="border-b border-primary border-dashed mt-2">
           {values.map((value) => (
             <button
               class="h-10 flex items-center hover:bg-[#FDF6ED] px-3 cursor-pointer w-full"

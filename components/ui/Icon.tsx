@@ -50,7 +50,10 @@ export type AvailableIcons =
   | "stars-cat-2-mobile"
   | "eye"
   | "refresh"
-  | "equals";
+  | "equals"
+  | "rotative_sum"
+  | "rotative_star"
+  | "rotative_moon";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

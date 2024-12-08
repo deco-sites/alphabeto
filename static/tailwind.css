@@ -4355,6 +4355,9 @@ details.collapse summary::-webkit-details-marker {
 .min-w-10 {
   min-width: 2.5rem;
 }
+.min-w-12 {
+  min-width: 3rem;
+}
 .min-w-5 {
   min-width: 1.25rem;
 }
@@ -4411,6 +4414,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .max-w-7xl {
   max-width: 80rem;
+}
+.max-w-\[100dvw\] {
+  max-width: 100dvw;
 }
 .max-w-\[101px\] {
   max-width: 101px;
@@ -4936,6 +4942,10 @@ details.collapse summary::-webkit-details-marker {
 .border-\[0\.5px\] {
   border-width: 0.5px;
 }
+.border-x {
+  border-left-width: 1px;
+  border-right-width: 1px;
+}
 .border-b {
   border-bottom-width: 1px;
 }
@@ -4953,9 +4963,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .border-t {
   border-top-width: 1px;
-}
-.border-t-0 {
-  border-top-width: 0px;
 }
 .border-t-4 {
   border-top-width: 4px;
@@ -5681,6 +5688,9 @@ details.collapse summary::-webkit-details-marker {
 .leading-\[38px\] {
   line-height: 38px;
 }
+.leading-\[48px\] {
+  line-height: 48px;
+}
 .leading-\[8px\] {
   line-height: 8px;
 }
@@ -6024,6 +6034,14 @@ details.collapse summary::-webkit-details-marker {
   background: #d6de23;
 }
 
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .radio:not(:checked) {
   background-color: white;
 }
@@ -6045,13 +6063,13 @@ details.collapse summary::-webkit-details-marker {
   color: #353535;
 }
 
-.double-range{
-  margin-top: 20px
+.double-range {
+  margin-top: 20px;
 }
 .double-range .range-slider {
   height: 3px;
   position: relative;
-  background-color: #E8E7E5;
+  background-color: #e8e7e5;
   border-radius: 100px;
 }
 .double-range .range-fill {
@@ -6060,7 +6078,7 @@ details.collapse summary::-webkit-details-marker {
   right: 30%;
   position: absolute;
   border-radius: 5px;
-  background-color: #D6DE23;
+  background-color: #d6de23;
 }
 .double-range .range-input {
   position: relative;
@@ -6079,8 +6097,8 @@ details.collapse summary::-webkit-details-marker {
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background-color: #FF8300;
-  border: 5px solid #D6DE23;
+  background-color: #ff8300;
+  border: 5px solid #d6de23;
   pointer-events: auto;
   -webkit-appearance: none;
   cursor: pointer;
@@ -6089,8 +6107,8 @@ details.collapse summary::-webkit-details-marker {
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background-color: #FF8300;
-  border: 5px solid #D6DE23;
+  background-color: #ff8300;
+  border: 5px solid #d6de23;
   pointer-events: auto;
   -moz-appearance: none;
   cursor: pointer;
@@ -7178,3 +7196,4 @@ details.collapse summary::-webkit-details-marker {
 [data-aside].\[\[data-aside\]\&_section\]\:contents section {
   display: contents;
 }
+

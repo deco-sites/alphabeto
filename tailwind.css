@@ -78,6 +78,14 @@
   background: #d6de23;
 }
 
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .radio:not(:checked) {
   background-color: white;
 }
@@ -99,13 +107,13 @@
   color: #353535;
 }
 
-.double-range{
-  margin-top: 20px
+.double-range {
+  margin-top: 20px;
 }
 .double-range .range-slider {
   height: 3px;
   position: relative;
-  background-color: #E8E7E5;
+  background-color: #e8e7e5;
   border-radius: 100px;
 }
 .double-range .range-fill {
@@ -114,7 +122,7 @@
   right: 30%;
   position: absolute;
   border-radius: 5px;
-  background-color: #D6DE23;
+  background-color: #d6de23;
 }
 .double-range .range-input {
   position: relative;
@@ -133,8 +141,8 @@
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background-color: #FF8300;
-  border: 5px solid #D6DE23;
+  background-color: #ff8300;
+  border: 5px solid #d6de23;
   pointer-events: auto;
   -webkit-appearance: none;
   cursor: pointer;
@@ -143,9 +151,10 @@
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background-color: #FF8300;
-  border: 5px solid #D6DE23;
+  background-color: #ff8300;
+  border: 5px solid #d6de23;
   pointer-events: auto;
   -moz-appearance: none;
   cursor: pointer;
 }
+
