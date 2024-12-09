@@ -81,7 +81,7 @@ export default function ProductImages({ page }: Props) {
           >
             <Image
               width={427}
-              class="desk:max-h-[min(44.68vw,658px)] max-h-[126.67vw] w-full object-cover rounded-lg relative transition-all"
+              class="desk:max-h-[min(44.68vw,658px)] max-h-[126.67vw] desk:h-full w-full object-cover rounded-lg relative transition-all"
               height={658}
               src={image.url ?? ""}
               alt={image.alternateName}

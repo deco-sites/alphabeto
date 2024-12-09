@@ -8,8 +8,7 @@ import { makeBackgroundFromHexadecimals } from "site/sdk/makeBackgroundFromHexad
 
 const SHOW_QUANTITY = false;
 const ITENS_TO_SCROLL = 4;
-const CALCULATED_MAX_HEIGHT = (35 * ITENS_TO_SCROLL) +
-  ((ITENS_TO_SCROLL - 1) * 5);
+const CALCULATED_MAX_HEIGHT = 35 * ITENS_TO_SCROLL + (ITENS_TO_SCROLL - 1) * 5;
 
 interface ItemProps {
   filterToogleValue: FilterToggleValue;
@@ -48,13 +47,11 @@ function handleButtonPress() {
   target.setAttribute("data-selected", String(!selected));
 }
 
-function Item(
-  {
-    filterToogleValue: { url, selected, label, quantity, value },
-    hexadecimals,
-    keyValue,
-  }: ItemProps,
-) {
+function Item({
+  filterToogleValue: { url, selected, label, quantity, value },
+  hexadecimals,
+  keyValue,
+}: ItemProps) {
   return (
     <button
       data-url={url}
@@ -64,9 +61,7 @@ function Item(
       hx-on:click={useScript(handleButtonPress)}
       class={clx(
         "flex items-center px-2.5 py-[8.5px] gap-2.5 max-h-[35px] rounded min-h-[35px] max-w-[176px]",
-        selected
-          ? "border-[#D6DE23] border"
-          : "border-[#F5F4F1] border-[0.5px]",
+        selected ? "border-[#D6DE23] border" : "border-[#F5F4F1] border-[0.5px]"
       )}
     >
       <div
@@ -74,7 +69,7 @@ function Item(
           "w-[18px] h-[18px] rounded",
           !(hexadecimals && hexadecimals.length > 0)
             ? "border-primary border"
-            : "",
+            : ""
         )}
         style={{
           background: hexadecimals
@@ -91,20 +86,20 @@ function Item(
 
 function findColorItem(value: string, colors: ExportedColorItem[]) {
   const normalizeAll = (str: string) =>
-    str.toLowerCase().normalize("NFD").replace(
-      /[\u0300-\u036f]/g,
-      "",
-    );
+    str
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
 
   return colors.find((color) => {
     return normalizeAll(color.name).includes(normalizeAll(value));
   });
 }
 
-export default function ShowColorItem(
-  { filter: { values, key }, colorSettings: { colors } }: Props,
-) {
-  console.log({ colors });
+export default function ShowColorItem({
+  filter: { values, key },
+  colorSettings: { colors },
+}: Props) {
   const showInputAndScroll = values.length > ITENS_TO_SCROLL;
   return (
     <>
@@ -114,7 +109,7 @@ export default function ShowColorItem(
           `flex gap-[5px] flex-col mt-4 desk:mt-5`,
           showInputAndScroll
             ? `max-h-[var(--maxHeight)] overflow-y-auto customizeScroll`
-            : "",
+            : ""
         )}
         style={{ "--maxHeight": `${CALCULATED_MAX_HEIGHT}px` }}
       >

@@ -6758,6 +6758,10 @@ details.collapse summary::-webkit-details-marker {
     height: unset;
   }
 
+  .desk\:h-full {
+    height: 100%;
+  }
+
   .desk\:max-h-\[466px\] {
     max-height: 466px;
   }

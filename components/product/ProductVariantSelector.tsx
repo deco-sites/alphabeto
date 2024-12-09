@@ -18,10 +18,10 @@ const useStyles = (
   checked: boolean,
   name: string,
   isAvailable: boolean,
-  colors: ExportedColorItem[]
+  colors: ExportedColorItem[],
 ) => {
   const hasColor = colors.find(
-    (color) => color.name.toLowerCase() === value.toLowerCase()
+    (color) => color.name.toLowerCase() === value.toLowerCase(),
   );
 
   if (hasColor && name.toLowerCase() === "cor") {
@@ -31,7 +31,7 @@ const useStyles = (
         "btn rounded-full w-6 h-6 max-h-6 min-h-6 p-0",
         "ring-1 ring-offset-2",
         checked ? "ring-primary" : "ring-transparent",
-        checked === false && isAvailable === false ? "diagonal-line" : ""
+        checked === false && isAvailable === false ? "diagonal-line" : "",
       ),
     };
   }
@@ -42,7 +42,7 @@ const useStyles = (
       checked
         ? "ring-primary bg-primary border-primary text-white"
         : "ring-transparent bg-transparent border-[#5A5B61] text-[#5A5B61] hover:bg-primary hover:border-primary hover:text-white",
-      checked === false && isAvailable === false ? "diagonal-line" : ""
+      checked === false && isAvailable === false ? "diagonal-line" : "",
     ),
   };
 };
@@ -53,7 +53,7 @@ const isAvailable = (url: string, product: Product) => {
       .find((variant) => variant.url === url)
       ?.offers?.offers.find((offer) =>
         offer.availability.toLowerCase().includes("instock")
-      )
+      ),
   );
 };
 
@@ -77,7 +77,7 @@ export const Ring = ({
     checked,
     name,
     isAvailable,
-    colors
+    colors,
   );
   return (
     <span style={{ background: bg }} class={clx(className, _class)}>
@@ -95,10 +95,9 @@ function VariantLabel({
   possibilities: ReturnType<typeof useVariantPossibilities>;
   product: Product;
 }) {
-  let selectedValue =
-    Object.entries(possibilities[variantName]).filter(
-      ([_, link]) => link === product.url
-    )[0]?.[0] ?? "";
+  let selectedValue = Object.entries(possibilities[variantName]).filter(
+    ([_, link]) => link === product.url,
+  )[0]?.[0] ?? "";
 
   const labelsMap = {
     cor: "Selecione a cor",
@@ -106,7 +105,7 @@ function VariantLabel({
   };
   const selectedLabelOrDefault =
     labelsMap[variantName.toLowerCase() as keyof typeof labelsMap] ??
-    variantName;
+      variantName;
   if (variantName.toLowerCase() === "cor") {
     selectedValue = uppercaseFirstLetter(selectedValue.toLowerCase());
   }
@@ -126,7 +125,7 @@ function VariantSelector({ product, colors }: Props) {
   const id = useId();
   const filteredNames = Object.keys(possibilities).filter(
     (name) =>
-      name.toLowerCase() !== "title" && name.toLowerCase() !== "default title"
+      name.toLowerCase() !== "title" && name.toLowerCase() !== "default title",
   );
   if (filteredNames.length === 0) {
     return null;
@@ -151,11 +150,13 @@ function VariantSelector({ product, colors }: Props) {
               .map(([value, link]) => {
                 const relativeLink = relative(link);
                 const checked = relativeLink === relativeUrl;
+                console.log(relativeLink);
                 return (
                   <li>
                     <label
                       class="cursor-pointer grid grid-cols-1 grid-rows-1 place-items-center"
                       hx-get={useSection({ href: relativeLink })}
+                      hx-replace-url={relativeLink}
                     >
                       {/* Checkbox for radio button on the frontend */}
                       <input
@@ -167,7 +168,7 @@ function VariantSelector({ product, colors }: Props) {
                       <div
                         class={clx(
                           "col-start-1 row-start-1 col-span-1 row-span-1 relative z-20",
-                          "[.htmx-request_&]:opacity-0 transition-opacity"
+                          "[.htmx-request_&]:opacity-0 transition-opacity",
                         )}
                       >
                         <Ring
@@ -183,7 +184,7 @@ function VariantSelector({ product, colors }: Props) {
                         class={clx(
                           "col-start-1 row-start-1 col-span-1 row-span-1",
                           "opacity-0 [.htmx-request_&]:opacity-100 transition-opacity",
-                          "flex justify-center items-center relative z-10"
+                          "flex justify-center items-center relative z-10",
                         )}
                       >
                         <span class="loading loading-sm loading-spinner" />
