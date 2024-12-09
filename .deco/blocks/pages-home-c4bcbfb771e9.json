@@ -696,8 +696,8 @@
               }
             },
             "xPosition": {
-              "desktop": 90,
-              "mobile": 46
+              "mobile": 46,
+              "desktop": 95
             },
             "yPosition": {
               "desktop": 45,
@@ -714,8 +714,8 @@
               }
             },
             "xPosition": {
-              "desktop": 31,
-              "mobile": 28
+              "desktop": 20,
+              "mobile": 20
             },
             "yPosition": {
               "desktop": 83,

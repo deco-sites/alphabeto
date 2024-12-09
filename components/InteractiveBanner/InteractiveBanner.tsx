@@ -45,6 +45,7 @@ export default function InteractiveBanner({
           if (!item.product) return null;
 
           const isMobile = useDevice();
+          console.log(isMobile)
 
           const productImage =
             typeof item.previewImage?.src === "string"
@@ -57,47 +58,15 @@ export default function InteractiveBanner({
           const altText = item.previewImage?.alt || item.product[0]?.name;
           const offers = item.product[0]?.offers;
 
-          // Função para ajustar a posição da caixa
-          const adjustTooltipPosition = (event: MouseEvent) => {
-            // Afirma que event.currentTarget é um HTMLElement
-            const tooltip = (event.currentTarget as HTMLElement).querySelector(".tooltip-box") as HTMLElement;
-
-            if (!tooltip) return;
-
-            const rect = tooltip.getBoundingClientRect();
-            const newPosition = { left: "auto", top: "auto" };
-
-            // Ajustar posição se ultrapassar os limites da tela
-            if (rect.right > window.innerWidth) {
-              newPosition.left = `-${rect.width + 10}px`; // Reposiciona para o lado oposto
-            }
-
-            if (rect.left < 0) {
-              newPosition.left = "10px"; // Alinha com a borda esquerda
-            }
-
-            if (rect.bottom > window.innerHeight) {
-              newPosition.top = `-${rect.height + 10}px`; // Ajusta para cima
-            }
-
-            if (rect.top < 0) {
-              newPosition.top = "10px"; // Alinha com o topo
-            }
-
-            tooltip.style.left = newPosition.left;
-            tooltip.style.top = newPosition.top;
-          };
-
           return (
             <div
               key={index}
               className="absolute group"
               style={{
-                left: isMobile && item.xPosition.mobile ? `${item.xPosition.desktop}%` : `${item.xPosition.mobile}%`,
-                top: isMobile && item.yPosition.mobile ? `${item.yPosition.desktop}%` : `${item.yPosition.mobile}%`,
+                left: (isMobile === "mobile" || isMobile === "tablet" ) && item.xPosition.mobile ? `${item.xPosition.mobile}%` : `${item.xPosition.desktop}%`,
+                top: (isMobile === "mobile" || isMobile === "tablet" ) && item.yPosition.mobile ? `${item.yPosition.mobile}%` : `${item.yPosition.desktop}%`,
                 transform: "translate(-50%, -50%)", // Centraliza os círculos
               }}
-              onMouseEnter={adjustTooltipPosition} // Evento de hover
             >
               {/* Círculo com bolinha branca */}
               <div className="relative w-11 h-11 bg-transparent rounded-full overflow-hidden flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
@@ -107,7 +76,7 @@ export default function InteractiveBanner({
 
               {/* Informações do produto ao hover */}
               <div
-                className="tooltip-box flex absolute desk:-top-[50px] desk:left-[calc(100%+215px)] transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white shadow-md text-center w-full min-w-[280px] rounded-lg p-[10px] gap-3 left-[calc(100%)]"
+                className="tooltip-box flex absolute desk:-top-[50px] desk:left-[calc(100%+155px)] transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white shadow-md text-center w-full min-w-[280px] rounded-lg p-[10px] gap-3 mobile:left-[calc(100%)]"
               >
                 {/* Imagem do Produto */}
                 {productImage && (
@@ -152,7 +121,7 @@ export default function InteractiveBanner({
         className="w-full py-5 bg-cover bg-center items-center text-white rounded-b-lg flex justify-center mobile:gap-4 desk:gap-0"
         style={{ backgroundImage: `url(${discountBackground})` }}
       >
-        <span className="desk:text-[40px] mobile:text-[22px] font-medium mb-2 font-['BeccaPerry'] text-[#FFF5FD] w-2/5 flex items-center leading-8 mobile:justify-center mobile:text-center flex-wrap">
+        <span className="desk:text-[40px] mobile:text-[22px] font-medium mb-2 font-['BeccaPerry'] text-[#FFF5FD] w-2/5 flex items-center leading-8 mobile:justify-center mobile:text-center desk:justify-start desk:text-start">
           <strong
             style={{
               WebkitTextStrokeColor: "#FF8300",
@@ -166,7 +135,7 @@ export default function InteractiveBanner({
           <span className={"desk:text-[80px] mobile:text-[44px] text-[#FF8300] font-medium desk:mr-[33px] mobile:mr-0"}>
             OFF{" "}
           </span>
-          na sua primeira compra
+          na sua primeira <br /> compra
         </span>
         <span className="text-center">
           <p className="flex flex-col text-[#FFF5FD] desk:text-base mobile:text-xs font-bold leading-5 text-center">

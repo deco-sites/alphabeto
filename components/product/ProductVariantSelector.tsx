@@ -113,7 +113,6 @@ export const Ring = ({ value, checked = false, class: _class }: {
     ? colors[value]?.join(", ") // Ou escolha apenas a primeira cor: colors[value][0]
     : colors[value];
   const styles = clx(useStyles(value, checked), _class);
-  console.log("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC", value)
 
   return (
     <span
