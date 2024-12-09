@@ -86,13 +86,13 @@ const colors: Record<string, string | string[] | undefined> = {
   "TANGERINA": "#f0974c",
   "PRETO E VERDE": ["#000", "#CDE539"],
   "MESCLA E ROSA": ["#d3d3d3", "#E56688"],
-  "CHICLETE": "#ff007f"
+  "CHICLETE": "#ff007f",
 };
 const useStyles = (value: string, checked: boolean) => {
   if (colors[value]) {
     return clx(
       "border border-base-300 rounded-full",
-      "w-12 h-12 block",
+      "w-5 h-5 block",
       "border border-[#C9CFCF] rounded-full",
       "ring-2 ring-offset-2",
       checked ? "ring-primary" : "ring-transparent",

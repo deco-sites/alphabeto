@@ -4418,9 +4418,6 @@ details.collapse summary::-webkit-details-marker {
 .min-w-\[213px\] {
   min-width: 213px;
 }
-.min-w-\[280px\] {
-  min-width: 280px;
-}
 .min-w-\[335px\] {
   min-width: 335px;
 }
@@ -6368,6 +6365,10 @@ details.collapse summary::-webkit-details-marker {
     width: 100%;
   }
 
+  .mobile\:min-w-\[240px\] {
+    min-width: 240px;
+  }
+
   .mobile\:flex-col {
     flex-direction: column;
   }
@@ -6560,6 +6561,10 @@ details.collapse summary::-webkit-details-marker {
 
   .desk\:w-full {
     width: 100%;
+  }
+
+  .desk\:min-w-\[280px\] {
+    min-width: 280px;
   }
 
   .desk\:max-w-\[187px\] {

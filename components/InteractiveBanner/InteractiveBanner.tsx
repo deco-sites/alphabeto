@@ -34,8 +34,14 @@ export default function InteractiveBanner({
   discountValue,
   products,
 }: InteractiveBannerProps) {
+  // Função auxiliar para calcular a posição ajustada
+  const calculatePosition = (position: number, axis: "x" | "y"): string => {
+    const offset = position > 90 ? -10 : position < 10 ? 10 : 0; // Evita posições muito extremas
+    return `calc(${position}% + ${offset}${axis === "x" ? "vw" : "vh"})`;
+  };
+
   return (
-    <div className={"desk:px-10 mobile:px-5 mt-[100px] container py-5 sm:py-10"}>
+    <div className="desk:px-10 mobile:px-5 mt-[100px] container py-5 sm:py-10">
       {/* Banner principal com os produtos */}
       <div
         className="relative w-full h-[500px] bg-cover bg-center rounded-t-lg"
@@ -44,28 +50,41 @@ export default function InteractiveBanner({
         {products?.map((item, index) => {
           if (!item.product) return null;
 
-          const isMobile = useDevice();
-          console.log(isMobile)
+          const isMobile = typeof window !== "undefined" &&
+            window.innerWidth < 768;
 
-          const productImage =
-            typeof item.previewImage?.src === "string"
-              ? item.previewImage.src
-              : item.product[0]?.image &&
+          const productImage = typeof item.previewImage?.src === "string"
+            ? item.previewImage.src
+            : item.product[0]?.image &&
                 typeof item.product[0]?.image === "string"
-                ? item.product[0].image
-                : undefined;
+            ? item.product[0].image
+            : undefined;
 
           const altText = item.previewImage?.alt || item.product[0]?.name;
           const offers = item.product[0]?.offers;
+
+          const xPosition = calculatePosition(
+            isMobile && item.xPosition.mobile
+              ? item.xPosition.mobile
+              : item.xPosition.desktop,
+            "x",
+          );
+
+          const yPosition = calculatePosition(
+            isMobile && item.yPosition.mobile
+              ? item.yPosition.mobile
+              : item.yPosition.desktop,
+            "y",
+          );
 
           return (
             <div
               key={index}
               className="absolute group"
               style={{
-                left: (isMobile === "mobile" || isMobile === "tablet" ) && item.xPosition.mobile ? `${item.xPosition.mobile}%` : `${item.xPosition.desktop}%`,
-                top: (isMobile === "mobile" || isMobile === "tablet" ) && item.yPosition.mobile ? `${item.yPosition.mobile}%` : `${item.yPosition.desktop}%`,
-                transform: "translate(-50%, -50%)", // Centraliza os círculos
+                left: xPosition,
+                top: yPosition,
+                transform: "translate(-50%, -50%)",
               }}
             >
               {/* Círculo com bolinha branca */}
@@ -76,7 +95,55 @@ export default function InteractiveBanner({
 
               {/* Informações do produto ao hover */}
               <div
-                className="tooltip-box flex absolute desk:-top-[50px] desk:left-[calc(100%+155px)] transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white shadow-md text-center w-full min-w-[280px] rounded-lg p-[10px] gap-3 mobile:left-[calc(100%)]"
+                className="tooltip-box flex absolute transform mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white shadow-md text-center w-full desk:min-w-[280px] mobile:min-w-[240px] rounded-lg p-[10px] gap-3"
+                style={{
+                  top: `${
+                    isMobile
+                      ? item.yPosition.mobile ?? item.yPosition.desktop
+                      : item.yPosition.desktop
+                  }%`,
+                  left: `${
+                    isMobile
+                      ? item.xPosition.mobile ?? item.xPosition.desktop
+                      : item.xPosition.desktop
+                  }%`,
+                  transform: "translate(-50%, -50%)",
+                  ...(isMobile
+                    ? {
+                      // Ajuste dinâmico para manter o modal visível no mobile
+                      ...(item.xPosition.mobile !== undefined &&
+                          item.xPosition.mobile > 80
+                        ? { left: "calc(-100% - 20px)" } // Próximo à borda direita no mobile
+                        : item.xPosition.mobile !== undefined &&
+                            item.xPosition.mobile < 20
+                        ? { left: "calc(100% + 20px)" } // Próximo à borda esquerda no mobile
+                        : {}),
+                    }
+                    : {
+                      // Ajuste dinâmico para manter o modal visível no desktop
+                      ...(item.xPosition.desktop > 80
+                        ? { left: "calc(-100% - 20px)" } // Próximo à borda direita no desktop
+                        : item.xPosition.desktop < 20
+                        ? { left: "calc(100% + 20px)" } // Próximo à borda esquerda no desktop
+                        : {}),
+                    }),
+                  ...(isMobile
+                    ? item.xPosition.mobile !== undefined &&
+                        item.xPosition.mobile < 10
+                      ? { transform: "translate(0, -50%)" } // Evitar quebra à esquerda
+                      : {}
+                    : item.xPosition.desktop < 10
+                    ? { transform: "translate(0, -50%)" } // Evitar quebra à esquerda no desktop
+                    : {}),
+                  ...(isMobile
+                    ? item.xPosition.mobile !== undefined &&
+                        item.xPosition.mobile > 90
+                      ? { transform: "translate(-100%, -50%)" } // Evitar quebra à direita
+                      : {}
+                    : item.xPosition.desktop > 90
+                    ? { transform: "translate(-100%, -50%)" } // Evitar quebra à direita no desktop
+                    : {}),
+                }}
               >
                 {/* Imagem do Produto */}
                 {productImage && (
@@ -86,7 +153,7 @@ export default function InteractiveBanner({
                     className="w-auto max-h-[123px] object-cover rounded-md mb-2"
                   />
                 )}
-                <div className={"flex flex-col items-start"}>
+                <div className="flex flex-col items-start">
                   <h3 className="text-[#676767] max-w-[264px] w-full leading-[18px] font-bold text-xs">
                     {item.product[0]?.name || "Nome indisponível"}
                   </h3>
@@ -127,12 +194,12 @@ export default function InteractiveBanner({
               WebkitTextStrokeColor: "#FF8300",
               WebkitTextStrokeWidth: "1px",
             }}
-            className={"desk:text-[80px] mobile:text-[44px] font-medium"}
+            className="desk:text-[80px] mobile:text-[44px] font-medium"
           >
             {discountValue}%
           </strong>
 
-          <span className={"desk:text-[80px] mobile:text-[44px] text-[#FF8300] font-medium desk:mr-[33px] mobile:mr-0"}>
+          <span className="desk:text-[80px] mobile:text-[44px] text-[#FF8300] font-medium desk:mr-[33px] mobile:mr-0">
             OFF{" "}
           </span>
           na sua primeira <br /> compra
@@ -140,7 +207,9 @@ export default function InteractiveBanner({
         <span className="text-center">
           <p className="flex flex-col text-[#FFF5FD] desk:text-base mobile:text-xs font-bold leading-5 text-center">
             Use o cupom
-            <strong className="border-[#D6DE23] border-2 border-dashed text-[#D6DE23] desk:text-3xl mobile:text-xl leading-9 bg-[#FF8300] rounded-lg px-[10px] py-[5px]">{cupom}</strong>{" "}
+            <strong className="border-[#D6DE23] border-2 border-dashed text-[#D6DE23] desk:text-3xl mobile:text-xl leading-9 bg-[#FF8300] rounded-lg px-[10px] py-[5px]">
+              {cupom}
+            </strong>{" "}
             na sua sacola
           </p>
         </span>
