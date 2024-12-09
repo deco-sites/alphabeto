@@ -4466,6 +4466,9 @@ details.collapse summary::-webkit-details-marker {
 .max-w-\[380px\] {
   max-width: 380px;
 }
+.max-w-\[388px\] {
+  max-width: 388px;
+}
 .max-w-\[392px\] {
   max-width: 392px;
 }
@@ -6550,6 +6553,10 @@ details.collapse summary::-webkit-details-marker {
 
   .mobile\:max-w-\[122px\] {
     max-width: 122px;
+  }
+
+  .mobile\:max-w-\[335px\] {
+    max-width: 335px;
   }
 
   .mobile\:max-w-\[82px\] {

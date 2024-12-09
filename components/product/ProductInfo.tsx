@@ -8,15 +8,15 @@ import ProductSmallDescription from "site/components/product/ProductSmallDescrip
 import ProductTextInfoDiscloujure from "site/components/product/ProductTextInfoDiscloujure.tsx";
 import { SizeBaySettings } from "site/loaders/sizebay.ts";
 import { PDPSettings } from "site/sections/Product/ProductDetails.tsx";
-import { formatPrice } from "../../sdk/format.ts";
-import { useId } from "../../sdk/useId.ts";
-import { useOffer } from "../../sdk/useOffer.ts";
-import { useSendEvent } from "../../sdk/useSendEvent.ts";
-import ShippingSimulationForm from "../shipping/Form.tsx";
-import WishlistButton from "../wishlist/WishlistButton.tsx";
-import AddToCartButton from "./AddToCartButton.tsx";
-import OutOfStock from "./OutOfStock.tsx";
-import ProductSelector from "./ProductVariantSelector.tsx";
+import { formatPrice } from "site/sdk/format.ts";
+import { useId } from "site/sdk/useId.ts";
+import { useOffer } from "site/sdk/useOffer.ts";
+import { useSendEvent } from "site/sdk/useSendEvent.ts";
+import ShippingSimulationForm from "site/components/shipping/Form.tsx";
+import WishlistButton from "site/components/wishlist/WishlistButton.tsx";
+import AddToCartButton from "site/components/product/AddToCartButton.tsx";
+import OutOfStock from "site/components/product/OutOfStock.tsx";
+import ProductSelector from "site/components/product/ProductVariantSelector.tsx";
 import ProductShare from "site/components/product/ProductShare.tsx";
 import ProductPartCare from "site/components/product/ProductPartCare.tsx";
 interface Props {
@@ -153,22 +153,23 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
       <ProductSizebay sizebay={sizebaySettings} />
 
       {availability === "https://schema.org/InStock" ? (
-        <AddToCartButton
-          item={item}
-          seller={seller}
-          product={product}
-          class="btn btn-primary no-animation"
-          disabled={false}
-        />
+        <>
+          <AddToCartButton
+            item={item}
+            seller={seller}
+            product={product}
+            class="btn btn-primary no-animation"
+            disabled={false}
+          />
+          {/* Shipping Simulation */}
+
+          <ShippingSimulationForm
+            items={[{ id: Number(product.sku), quantity: 1, seller: seller }]}
+          />
+        </>
       ) : (
         <OutOfStock productID={productID} />
       )}
-
-      {/* Shipping Simulation */}
-
-      <ShippingSimulationForm
-        items={[{ id: Number(product.sku), quantity: 1, seller: seller }]}
-      />
 
       {/* Description card */}
       <div class="desk:mt-2.5">

@@ -12,7 +12,9 @@
         "jsonLD": {
           "__resolveType": "PDP Loader"
         },
-        "jsonLDs": [{}]
+        "jsonLDs": [
+          {}
+        ]
       }
     },
     {
@@ -27,6 +29,18 @@
         "cashbackPercentage": 15,
         "colors": {
           "__resolveType": "Saved Colors"
+        },
+        "productUnavailableShelf": {
+          "products": {
+            "__resolveType": "vtex/loaders/legacy/relatedProductsLoader.ts",
+            "crossSelling": "whosawalsobought",
+            "slug": {
+              "__resolveType": "website/functions/requestToParam.ts",
+              "param": "slug"
+            },
+            "count": 18
+          },
+          "title": "Você também pode gostar"
         }
       }
     },
@@ -121,4 +135,3 @@
   ],
   "__resolveType": "website/pages/Page.tsx"
 }
-
