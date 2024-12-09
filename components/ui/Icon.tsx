@@ -53,7 +53,15 @@ export type AvailableIcons =
   | "equals"
   | "rotative_sum"
   | "rotative_star"
-  | "rotative_moon";
+  | "rotative_moon"
+  | "share_whatsapp"
+  | "share_facebook"
+  | "share_email"
+  | "product_care_wash"
+  | "product_care_bleach"
+  | "product_care_spin"
+  | "product_care_iron"
+  | "product_care_dry_cleaning";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

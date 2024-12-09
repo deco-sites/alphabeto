@@ -17,6 +17,8 @@ import WishlistButton from "../wishlist/WishlistButton.tsx";
 import AddToCartButton from "./AddToCartButton.tsx";
 import OutOfStock from "./OutOfStock.tsx";
 import ProductSelector from "./ProductVariantSelector.tsx";
+import ProductShare from "site/components/product/ProductShare.tsx";
+import ProductPartCare from "site/components/product/ProductPartCare.tsx";
 interface Props {
   page: ProductDetailsPage | null;
   settings: PDPSettings;
@@ -35,7 +37,7 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
   const description = product.description || isVariantOf?.description;
   const title = isVariantOf?.name ?? product.name;
   const characteristics = product.isVariantOf?.additionalProperty.find(
-    (property) => property.name?.toLowerCase() === "características",
+    (property) => property.name?.toLowerCase() === "características"
   )?.value;
   const {
     price = 0,
@@ -73,11 +75,12 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
   });
 
   //Checks if the variant name is "title"/"default title" and if so, the SKU Selector div doesn't render
-  const hasValidVariants = isVariantOf?.hasVariant?.some(
-    (variant) =>
-      variant?.name?.toLowerCase() !== "title" &&
-      variant?.name?.toLowerCase() !== "default title",
-  ) ?? false;
+  const hasValidVariants =
+    isVariantOf?.hasVariant?.some(
+      (variant) =>
+        variant?.name?.toLowerCase() !== "title" &&
+        variant?.name?.toLowerCase() !== "default title"
+    ) ?? false;
 
   const hasListPrice = listPrice && listPrice > price;
 
@@ -93,7 +96,9 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
       </div>
       {/* Product Name */}
       <span
-        class={"text-[#676767] text-[22px] mobile:leading-[26px] desk:text-3xl font-bold"}
+        class={
+          "text-[#676767] text-[22px] mobile:leading-[26px] desk:text-3xl font-bold"
+        }
       >
         {title}
       </span>
@@ -147,17 +152,17 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
 
       <ProductSizebay sizebay={sizebaySettings} />
 
-      {availability === "https://schema.org/InStock"
-        ? (
-          <AddToCartButton
-            item={item}
-            seller={seller}
-            product={product}
-            class="btn btn-primary no-animation"
-            disabled={false}
-          />
-        )
-        : <OutOfStock productID={productID} />}
+      {availability === "https://schema.org/InStock" ? (
+        <AddToCartButton
+          item={item}
+          seller={seller}
+          product={product}
+          class="btn btn-primary no-animation"
+          disabled={false}
+        />
+      ) : (
+        <OutOfStock productID={productID} />
+      )}
 
       {/* Shipping Simulation */}
 
@@ -177,6 +182,9 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
           content={characteristics}
         />
       </div>
+      <ProductPartCare />
+      {/* Product Share */}
+      <ProductShare product={product} />
       <script
         src={useScriptAsDataURI((data: unknown) => {
           console.log(data);
