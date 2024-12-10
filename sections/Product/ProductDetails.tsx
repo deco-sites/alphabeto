@@ -57,11 +57,6 @@ export default function ProductDetails({
   }
   const { availability } = useOffer(page.product.offers);
   const isUnavailable = availability === "https://schema.org/OutOfStock";
-  console.log({
-    isUnavailable,
-    products: settings.productUnavailableShelf.products,
-    availability,
-  });
 
   return (
     <div class="container mt-5">

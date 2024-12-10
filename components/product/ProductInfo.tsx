@@ -1,24 +1,24 @@
-import { useScriptAsDataURI } from "@deco/deco/hooks";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
+import AddToCartButton from "site/components/product/AddToCartButton.tsx";
+import OutOfStock from "site/components/product/OutOfStock.tsx";
 import ProductAgeRangeIndicator from "site/components/product/ProductAgeRangeIndicator.tsx";
 import ProductCashback from "site/components/product/ProductCashback.tsx";
+import ProductPartCare from "site/components/product/ProductPartCare.tsx";
+import ProductRating from "site/components/product/ProductRating.tsx";
+import ProductShare from "site/components/product/ProductShare.tsx";
 import ProductSizebay from "site/components/product/ProductSizebay.tsx";
 import ProductSmallDescription from "site/components/product/ProductSmallDescription.tsx";
 import ProductTextInfoDiscloujure from "site/components/product/ProductTextInfoDiscloujure.tsx";
+import ProductSelector from "site/components/product/ProductVariantSelector.tsx";
+import ShippingSimulationForm from "site/components/shipping/Form.tsx";
+import WishlistButton from "site/components/wishlist/WishlistButton.tsx";
 import { SizeBaySettings } from "site/loaders/sizebay.ts";
-import { PDPSettings } from "site/sections/Product/ProductDetails.tsx";
 import { formatPrice } from "site/sdk/format.ts";
 import { useId } from "site/sdk/useId.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
-import ShippingSimulationForm from "site/components/shipping/Form.tsx";
-import WishlistButton from "site/components/wishlist/WishlistButton.tsx";
-import AddToCartButton from "site/components/product/AddToCartButton.tsx";
-import OutOfStock from "site/components/product/OutOfStock.tsx";
-import ProductSelector from "site/components/product/ProductVariantSelector.tsx";
-import ProductShare from "site/components/product/ProductShare.tsx";
-import ProductPartCare from "site/components/product/ProductPartCare.tsx";
+import { PDPSettings } from "site/sections/Product/ProductDetails.tsx";
 interface Props {
   page: ProductDetailsPage | null;
   settings: PDPSettings;
@@ -37,7 +37,7 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
   const description = product.description || isVariantOf?.description;
   const title = isVariantOf?.name ?? product.name;
   const characteristics = product.isVariantOf?.additionalProperty.find(
-    (property) => property.name?.toLowerCase() === "características"
+    (property) => property.name?.toLowerCase() === "características",
   )?.value;
   const {
     price = 0,
@@ -75,12 +75,11 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
   });
 
   //Checks if the variant name is "title"/"default title" and if so, the SKU Selector div doesn't render
-  const hasValidVariants =
-    isVariantOf?.hasVariant?.some(
-      (variant) =>
-        variant?.name?.toLowerCase() !== "title" &&
-        variant?.name?.toLowerCase() !== "default title"
-    ) ?? false;
+  const hasValidVariants = isVariantOf?.hasVariant?.some(
+    (variant) =>
+      variant?.name?.toLowerCase() !== "title" &&
+      variant?.name?.toLowerCase() !== "default title",
+  ) ?? false;
 
   const hasListPrice = listPrice && listPrice > price;
 
@@ -95,15 +94,17 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
         <WishlistButton item={item} />
       </div>
       {/* Product Name */}
-      <span
-        class={
-          "text-[#676767] text-[22px] mobile:leading-[26px] desk:text-3xl font-bold"
-        }
-      >
+      <span class="text-[#676767] text-[22px] mobile:leading-[26px] desk:text-3xl font-bold">
         {title}
       </span>
 
-      <div class="flex gap-[15px] mt-3">
+      <div class="flex gap-[15px] mt-3 items-center">
+        <ProductRating
+          averageRating={product.aggregateRating?.ratingValue ?? 0}
+          maxRating={5}
+          iconSize={12}
+          class="gap-1"
+        />
         {/** Reference Code */}
         <span class="text-xs leading-[18px] desk:leading-[14px] text-[#676767]">
           REF: {referenceCode}
@@ -152,24 +153,24 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
 
       <ProductSizebay sizebay={sizebaySettings} />
 
-      {availability === "https://schema.org/InStock" ? (
-        <>
-          <AddToCartButton
-            item={item}
-            seller={seller}
-            product={product}
-            class="btn btn-primary no-animation"
-            disabled={false}
-          />
-          {/* Shipping Simulation */}
+      {availability === "https://schema.org/InStock"
+        ? (
+          <>
+            <AddToCartButton
+              item={item}
+              seller={seller}
+              product={product}
+              class="btn btn-primary no-animation"
+              disabled={false}
+            />
+            {/* Shipping Simulation */}
 
-          <ShippingSimulationForm
-            items={[{ id: Number(product.sku), quantity: 1, seller: seller }]}
-          />
-        </>
-      ) : (
-        <OutOfStock productID={productID} />
-      )}
+            <ShippingSimulationForm
+              items={[{ id: Number(product.sku), quantity: 1, seller: seller }]}
+            />
+          </>
+        )
+        : <OutOfStock productID={productID} />}
 
       {/* Description card */}
       <div class="desk:mt-2.5">
@@ -186,11 +187,6 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
       <ProductPartCare />
       {/* Product Share */}
       <ProductShare product={product} />
-      <script
-        src={useScriptAsDataURI((data: unknown) => {
-          console.log(data);
-        }, product)}
-      />
     </div>
   );
 }

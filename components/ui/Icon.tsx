@@ -61,7 +61,8 @@ export type AvailableIcons =
   | "product_care_bleach"
   | "product_care_spin"
   | "product_care_iron"
-  | "product_care_dry_cleaning";
+  | "product_care_dry_cleaning"
+  | "product_rating_star";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

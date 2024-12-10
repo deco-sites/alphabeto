@@ -150,7 +150,7 @@ function VariantSelector({ product, colors }: Props) {
               .map(([value, link]) => {
                 const relativeLink = relative(link);
                 const checked = relativeLink === relativeUrl;
-                console.log(relativeLink);
+
                 return (
                   <li>
                     <label

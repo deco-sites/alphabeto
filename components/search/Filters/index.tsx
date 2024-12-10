@@ -69,7 +69,6 @@ const sanitizeValueLabelFromFilter = (
 };
 
 function Filters({ filters, settings, url }: Props) {
-  console.log({ settings });
   const filtersSanitized = filters
     .sort(applyOrder)
     .filter(applyHide)

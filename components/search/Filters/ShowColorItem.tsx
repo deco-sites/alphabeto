@@ -61,7 +61,9 @@ function Item({
       hx-on:click={useScript(handleButtonPress)}
       class={clx(
         "flex items-center px-2.5 py-[8.5px] gap-2.5 max-h-[35px] rounded min-h-[35px] max-w-[176px]",
-        selected ? "border-[#D6DE23] border" : "border-[#F5F4F1] border-[0.5px]"
+        selected
+          ? "border-[#D6DE23] border"
+          : "border-[#F5F4F1] border-[0.5px]",
       )}
     >
       <div
@@ -69,7 +71,7 @@ function Item({
           "w-[18px] h-[18px] rounded",
           !(hexadecimals && hexadecimals.length > 0)
             ? "border-primary border"
-            : ""
+            : "",
         )}
         style={{
           background: hexadecimals
@@ -109,13 +111,12 @@ export default function ShowColorItem({
           `flex gap-[5px] flex-col mt-4 desk:mt-5`,
           showInputAndScroll
             ? `max-h-[var(--maxHeight)] overflow-y-auto customizeScroll`
-            : ""
+            : "",
         )}
         style={{ "--maxHeight": `${CALCULATED_MAX_HEIGHT}px` }}
       >
         {values.map((item) => {
           const colorItem = findColorItem(item.value, colors);
-          console.log({ colorItem });
           return (
             <Item
               keyValue={key}

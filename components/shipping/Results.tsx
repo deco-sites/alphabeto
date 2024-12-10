@@ -47,7 +47,6 @@ export default function Results({ result }: ComponentProps<typeof action>) {
     (initial, { slas }) => [...initial, ...slas],
     [] as Sla[],
   ) ?? [];
-  console.log(methods);
 
   if (!methods.length) {
     return (

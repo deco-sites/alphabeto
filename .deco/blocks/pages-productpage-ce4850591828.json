@@ -129,6 +129,25 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
+        "__resolveType": "site/sections/Product/ProductReviews.tsx",
+        "data": {
+          "__resolveType": "site/loaders/vtexReviewsAndRatings/index.ts",
+          "page": {
+            "__resolveType": "vtex/loaders/intelligentSearch/productDetailsPage.ts",
+            "slug": {
+              "__resolveType": "website/functions/requestToParam.ts",
+              "param": "slug"
+            }
+          }
+        }
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
         "__resolveType": "Footer"
       }
     }

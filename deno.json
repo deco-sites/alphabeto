@@ -38,7 +38,8 @@
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
     "daisyui": "npm:daisyui@4.6.0",
     "@deco/dev": "jsr:@deco/dev@1.107.0",
-    "site/": "./"
+    "site/": "./",
+    "dayjs/": "https://cdn.jsdelivr.net/npm/dayjs@1.10.4/esm/"
   },
   "tasks": {
     "start": "deno run -A --unstable-http --env https://deco.cx/run -- deno task dev",
@@ -71,13 +72,8 @@
   ],
   "lint": {
     "rules": {
-      "exclude": [
-        "no-window"
-      ],
-      "tags": [
-        "fresh",
-        "recommended"
-      ]
+      "exclude": ["no-window"],
+      "tags": ["fresh", "recommended"]
     }
   },
   "nodeModulesDir": "auto",
