@@ -14,11 +14,15 @@ const keepAllowedTags = (html: string, tags: string[]) => {
 const removeWrapperTag = (html: string) => {
   return html.replace(/<[^>]*>(.*)<\/[^>]*>/, "$1");
 };
+const removeEmptyTags = (html: string) => {
+  return html.replace(/<[^>]*>[\s]*<\/[^>]*>/g, "");
+};
 
 interface SanitizeOptions {
   removeWrapperTag?: boolean;
   removeAttributes?: boolean;
   allowedTags?: string[];
+  removeEmptyTags?: boolean;
 }
 
 export const sanitizeHTMLCode = (html: string, opitions: SanitizeOptions) => {
@@ -32,6 +36,9 @@ export const sanitizeHTMLCode = (html: string, opitions: SanitizeOptions) => {
   }
   if (opitions.allowedTags) {
     result = keepAllowedTags(result, opitions.allowedTags);
+  }
+  if (opitions.removeEmptyTags) {
+    result = removeEmptyTags(result);
   }
   return result;
 };

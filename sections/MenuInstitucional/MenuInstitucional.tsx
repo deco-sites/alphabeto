@@ -12,7 +12,7 @@ interface MenuProps {
   /**@title Rotas suporte*/
   supportLinks: LinkProps[];
   /**@title Menu Mobile*/
-  links: LinkProps[];
+  links: LinkProps[]
 }
 
 /**@title Rota: {{ label }}*/
@@ -25,7 +25,7 @@ interface LinkProps {
 
 export const loader = (menu: MenuProps, req: Request) => {
   const currentPath = new URL(req.url).pathname;
-  const matchingLink = menu.links?.find((link) => link.route === currentPath);
+  const matchingLink = menu.links?.find((link) => link.route === currentPath)
   return {
     ...menu,
     currentPath,
@@ -44,39 +44,28 @@ export default function MenuInstitucional(
     links,
   }: ReturnType<typeof loader>,
 ) {
+
   return (
     <>
       <MenuInstitutionalMobile links={links} label={label} />
       <div class="block list-none mobile:hidden">
         <section>
           <div class="mb-[20px]">
-            <h3 class="font-bold text-[#FF8300] text-[14px]">
-              {institutionalTitle}
-            </h3>
+            <h3 class="font-bold text-[#FF8300] text-[14px]">{institutionalTitle}</h3>
           </div>
           <section>
             {institutionalLinks?.map(({ route, label }, index) => (
-              <li
-                key={index}
-                class={`flex items-center justify-between w-[197px] p-[10px] ${
-                  currentPath === route
-                    ? "bg-[#FDF6ED] text-[#FF8300] font-bold border-2 border-dashed border-[#FF8300]"
-                    : ""
-                }`}
-              >
+              <li key={index} class={`flex items-center justify-between w-[197px] p-[10px] ${currentPath === route ? "bg-[#FDF6ED] text-[#FF8300] font-bold border-2 border-dashed border-[#FF8300]" : ""}`}>
                 <a
                   href={route}
-                  class="text-[12px] font-regular"
-                >
+                  class="text-[12px] font-regular">
                   {label}
                 </a>
                 <Icon
                   id="chevron-right-institutional"
                   width="16"
                   height="16"
-                  class={`${
-                    currentPath === route ? "text-[#FF8300]" : "text-[#7E7F88]"
-                  }`}
+                  class={`${currentPath === route ? "text-[#FF8300]" : "text-[#7E7F88]"}`}
                 />
               </li>
             ))}
@@ -89,24 +78,15 @@ export default function MenuInstitucional(
           </div>
           <section>
             {supportLinks?.map(({ route, label }, index) => (
-              <li
-                key={index}
-                class={`flex items-center justify-between w-[197px] p-[10px] ${
-                  currentPath === route
-                    ? "bg-[#FDF6ED] text-[#FF8300] font-bold border-2 border-dashed border-[#FF8300]"
-                    : ""
-                }`}
-              >
-                <a href={route} class="text-[12px] font-regular">
-                  {label}
-                </a>
+              <li key={index} class={`flex items-center justify-between w-[197px] p-[10px] ${currentPath === route ? "bg-[#FDF6ED] text-[#FF8300] font-bold border-2 border-dashed border-[#FF8300]" : ""}`}>
+                <a href={route}
+                  class="text-[12px] font-regular">
+                  {label}</a>
                 <Icon
                   id="chevron-right-institutional"
                   width="16"
                   height="16"
-                  class={`${
-                    currentPath === route ? "text-[#FF8300]" : "text-[#7E7F88]"
-                  }`}
+                  class={`${currentPath === route ? "text-[#FF8300]" : "text-[#7E7F88]"}`}
                 />
               </li>
             ))}
@@ -116,3 +96,4 @@ export default function MenuInstitucional(
     </>
   );
 }
+

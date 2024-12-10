@@ -1,0 +1,13 @@
+{
+  "__resolveType": "site/loaders/savedColors.ts",
+  "settings": {
+    "colors": [
+      {
+        "hexadecimals": [
+          "#f8ce49"
+        ],
+        "name": "Amarelo"
+      }
+    ]
+  }
+}

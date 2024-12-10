@@ -1,5 +1,5 @@
-import type { RichText } from "apps/admin/widgets.ts";
 import { Section } from "@deco/deco/blocks";
+import type { RichText } from "apps/admin/widgets.ts";
 
 /**@title {{ title }}*/
 interface PolicyProps {
@@ -16,12 +16,10 @@ interface PolicyProps {
 interface ItemsProps {
   items: PolicyProps[];
 
-  Menu: Section;
+  Menu: Section
 }
 
-export default function Policy(
-  { items, Menu: { Component: MenuInstitucional, props } }: ItemsProps,
-) {
+export default function Policy({ items, Menu: { Component: MenuInstitucional, props } }: ItemsProps) {
   return (
     <div class="flex container mobile:flex-col mb-[100px]">
       <MenuInstitucional {...props} />
@@ -29,22 +27,11 @@ export default function Policy(
         {items.map((content, index) => (
           <div key={index} class="mb-[40px]">
             <section class="flex flex-col mb-[20px]">
-              <p class="font-[beccaPerry] text-[44px] mobile:text-[32px] font-medium text-[#676767] mb-[20px]">
-                {content.title}
-              </p>
-              <p
-                class={`text-[20px] mobile:text-[14px] font-bold text-[#7E7F88] ${
-                  content.subtitle === undefined ? "mt-[-20px]" : "mt-[0px]"
-                }`}
-              >
-                {content.subtitle}
-              </p>
+              <p class="font-[beccaPerry] text-[44px] mobile:text-[32px] font-medium text-[#676767] mb-[20px]">{content.title}</p>
+              <p class={`text-[20px] mobile:text-[14px] font-bold text-[#7E7F88] ${content.subtitle === undefined ? "mt-[-20px]" : "mt-[0px]"}`}>{content.subtitle}</p>
             </section>
             <section>
-              <p
-                class="font-regular text-[12px] text-[#ffffff]"
-                dangerouslySetInnerHTML={{ __html: content.paragraph }}
-              />
+              <p class="font-regular text-[12px] text-[#ffffff]" dangerouslySetInnerHTML={{ __html: content.paragraph }} />
             </section>
           </div>
         ))}
