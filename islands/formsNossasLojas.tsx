@@ -41,13 +41,12 @@ const days = [
 ]
 
 export default function FormsNossasLojas({ stores }: Stores) {
-  const [showFiltered, setShowFiltered] = useState(false);
   const [queryInput, setQueryInput] = useState("");
   const [filtered, setFiltered] = useState<ItemWithWhatsapp[]>([]);
-  const [IsCicked, setIsClicked] = useState<number | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<string | null>(null);
 
-  const handleClick = (index: number) => {
-    setIsClicked(index);
+  const handleClick = (id: string) => {
+    setSelectedIndex(id);
   };
 
   const handleFilter = () => {
@@ -56,11 +55,10 @@ export default function FormsNossasLojas({ stores }: Stores) {
         value.toString().toLowerCase().includes(queryInput.toLowerCase())
       );
     });
-    setShowFiltered(!showFiltered);
     setFiltered(result);
   };
 
-  const content = showFiltered ? filtered : stores 
+  const content = filtered.length === 0 ? stores : filtered 
   
   return (
     <div class="mt-[30px] mobile:mb-[45px]">
@@ -68,7 +66,11 @@ export default function FormsNossasLojas({ stores }: Stores) {
         <p class="font-bold text-[14px] text-[#676767]">
           Busque por cidade, CEP, endereço ou loja:
         </p>
-        <form class="flex justify-between mt-[10px]" action="">
+        <form class="flex justify-between mt-[10px]" onSubmit={
+          (e) => {
+            e.preventDefault(); 
+            handleFilter()
+          }}>
           <input
             class="w-[64%] h-[44px] border-[1px] border-[#F7E0BF] rounded-[8px] py-[15px] pl-[20px]"
             value={queryInput}
@@ -79,7 +81,7 @@ export default function FormsNossasLojas({ stores }: Stores) {
           />
           <button
             class="w-[34%] h-[44px] font-bold text-[#ffffff] bg-[#FF8300] rounded-[8px]"
-            type="button"
+            type="submit"
             onClick={handleFilter}
           >
             Buscar
@@ -87,13 +89,13 @@ export default function FormsNossasLojas({ stores }: Stores) {
         </form>
       </section>
       <section class="mt-[30px] w-[100%] h-[370px] overflow-auto customizeScroll">
-        {content?.map((store, index) => (
+        {content?.map((store) => (
               <>
                 <div
-                  onClick={() => handleClick(index)}
-                  key={index}
+                  onClick={() => handleClick(store.id)}
+                  key={store.id}
                   class={`flex mobile:flex-col mobile:justify-start justify-between items-left w-[95%] h-[194px] mobile:h-[403px] border ${
-                    IsCicked === index ? "border-[#FF8300]" : "border-[#F5F4F1]"
+                    selectedIndex === store.id ? "border-[#FF8300]" : "border-[#F5F4F1]"
                   } rounded-[8px] px-[10px] mb-[16px]`}
                 >
                   <div>
@@ -115,10 +117,13 @@ export default function FormsNossasLojas({ stores }: Stores) {
                       <p class="font-regular text-[12px] text-[#7E7F88]">
                         {store.whatsapp}
                       </p>
-                      <button class="flex items-center justify-center w-[50%] bg-[#33D26B] h-[30px] rounded[8px] text-[65%] text-[#ffffff] font-bold rounded-[8px] mr-[24px]">
+                      <a 
+                      class="flex items-center justify-center w-[50%] bg-[#33D26B] h-[30px] rounded[8px] text-[65%] text-[#ffffff] font-bold rounded-[8px] mr-[24px]"
+                      href={`https://wa.me/${store.whatsapp?.replace(/[\s\-()]/g, "")}`}
+                      >
                         <Icon class="mr-[4px]" id="whatsappIcon" width="16" height="16"/>
                         Enviar mensagem
-                      </button>
+                      </a>
                     </div>
                     <div>
                       <button onClick={() => {
