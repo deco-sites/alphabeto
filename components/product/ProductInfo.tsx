@@ -1,5 +1,6 @@
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
+import { useScriptAsDataURI } from "@deco/deco/hooks";
 import AddToCartButton from "site/components/product/AddToCartButton.tsx";
 import OutOfStock from "site/components/product/OutOfStock.tsx";
 import ProductAgeRangeIndicator from "site/components/product/ProductAgeRangeIndicator.tsx";
@@ -37,7 +38,7 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
   const description = product.description || isVariantOf?.description;
   const title = isVariantOf?.name ?? product.name;
   const characteristics = product.isVariantOf?.additionalProperty.find(
-    (property) => property.name?.toLowerCase() === "características",
+    (property) => property.name?.toLowerCase() === "características"
   )?.value;
   const {
     price = 0,
@@ -75,11 +76,12 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
   });
 
   //Checks if the variant name is "title"/"default title" and if so, the SKU Selector div doesn't render
-  const hasValidVariants = isVariantOf?.hasVariant?.some(
-    (variant) =>
-      variant?.name?.toLowerCase() !== "title" &&
-      variant?.name?.toLowerCase() !== "default title",
-  ) ?? false;
+  const hasValidVariants =
+    isVariantOf?.hasVariant?.some(
+      (variant) =>
+        variant?.name?.toLowerCase() !== "title" &&
+        variant?.name?.toLowerCase() !== "default title"
+    ) ?? false;
 
   const hasListPrice = listPrice && listPrice > price;
 
@@ -153,24 +155,24 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
 
       <ProductSizebay sizebay={sizebaySettings} />
 
-      {availability === "https://schema.org/InStock"
-        ? (
-          <>
-            <AddToCartButton
-              item={item}
-              seller={seller}
-              product={product}
-              class="btn btn-primary no-animation"
-              disabled={false}
-            />
-            {/* Shipping Simulation */}
+      {availability === "https://schema.org/InStock" ? (
+        <>
+          <AddToCartButton
+            item={item}
+            seller={seller}
+            product={product}
+            class="btn btn-primary no-animation"
+            disabled={false}
+          />
+          {/* Shipping Simulation */}
 
-            <ShippingSimulationForm
-              items={[{ id: Number(product.sku), quantity: 1, seller: seller }]}
-            />
-          </>
-        )
-        : <OutOfStock productID={productID} />}
+          <ShippingSimulationForm
+            items={[{ id: Number(product.sku), quantity: 1, seller: seller }]}
+          />
+        </>
+      ) : (
+        <OutOfStock productID={productID} />
+      )}
 
       {/* Description card */}
       <div class="desk:mt-2.5">
@@ -187,6 +189,11 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
       <ProductPartCare />
       {/* Product Share */}
       <ProductShare product={product} />
+      <script
+        src={useScriptAsDataURI((data: unknown) => {
+          console.log(data);
+        }, page)}
+      />
     </div>
   );
 }

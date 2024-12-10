@@ -2,8 +2,10 @@ import { useScriptAsDataURI } from "@deco/deco/hooks";
 import Icon, { AvailableIcons } from "site/components/ui/Icon.tsx";
 import { useId } from "site/sdk/useId.ts";
 
+export type RotativeTextContent = string | null;
+
 interface Props {
-  text: string;
+  text: RotativeTextContent;
 }
 
 type Item =
@@ -54,6 +56,7 @@ const rotate = (id: string) => {
 };
 
 export default function RotativeText({ text }: Props) {
+  if (!text) return null;
   let colorPos = -1;
   const id = useId();
   const items: Item[] = Array.from({ length: ITEMS_QTD }, (_, index) => {

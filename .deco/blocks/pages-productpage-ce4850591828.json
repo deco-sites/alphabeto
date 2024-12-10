@@ -45,44 +45,37 @@
       }
     },
     {
-      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
-    },
-    {
       "__resolveType": "site/sections/Product/ProductBuyTogether.tsx",
       "page": {
         "__resolveType": "PDP Loader"
       }
     },
     {
-      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
-    },
-    {
       "__resolveType": "site/sections/Images/BackgroundBanner.tsx",
-      "text": "<h2>Coleção monstrinhos</h2><p>Lorem ipsum dolor sit amet consectetur. Viverra quam at eget congue etiam cursus accumsan elit turpis. Nunc velit risus luctus tincidunt. Vel eu tellus ultricies bibendum et. Tellus diam vivamus tellus sagittis ultrices ut aliquam. Maecenas auctor ornare aliquam odio amet commodo eget semper. Est blandit facilisis ac turpis elit. Molestie blandit est id tortor non. Vulputate fermentum massa eu amet interdum. Libero facilisis odio aliquet a bibendum sem.</p>",
-      "cta": {
-        "label": "Conheça todos os Produtos",
-        "url": "/meninas"
+      "data": {
+        "__resolveType": "site/loaders/product/backgroundBanner.ts",
+        "page": {
+          "__resolveType": "vtex/loaders/intelligentSearch/productDetailsPage.ts",
+          "slug": {
+            "__resolveType": "website/functions/requestToParam.ts",
+            "param": "slug"
+          }
+        }
       },
-      "image": {
-        "desktop": {
-          "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ae034cf4-63cf-44bc-9b6f-ae6ced2f9d2d/banner-pdp.png",
-          "width": 1440,
-          "height": 443
-        },
-        "mobile": {
-          "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/29f48417-ba70-4de1-8be1-d0dcbfc8451d/banner-pdp-mob.png",
-          "width": 375,
-          "height": 568
-        },
-        "alt": "A imagem apresenta uma criança sorridente com cabelos cacheados volumosos, transmitindo alegria e espontaneidade. O fundo é um lilás sólido, o que destaca o rosto e o vestuário da menina. Ela usa um vestido colorido com estampas vibrantes de desenhos animados e formas divertidas, criando uma atmosfera lúdica. Estrelas amarelas brilhantes estão espalhadas ao redor, adicionando um toque mágico à composição. A iluminação é suave, sem sombras marcantes, o que realça a vivacidade do cenário."
-      }
+      "addSpaceBefore": true
     },
     {
       "__resolveType": "site/sections/Content/RotativeText.tsx",
-      "text": "Vestindo Criança como Criança"
-    },
-    {
-      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+      "text": {
+        "__resolveType": "site/loaders/product/rotativeText.ts",
+        "page": {
+          "__resolveType": "vtex/loaders/intelligentSearch/productDetailsPage.ts",
+          "slug": {
+            "__resolveType": "website/functions/requestToParam.ts",
+            "param": "slug"
+          }
+        }
+      }
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
@@ -120,11 +113,10 @@
             "title": "Posso tomar todos os dias?",
             "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
           }
-        ]
+        ],
+        "addSpaceBefore": true,
+        "addSpaceAfter": false
       }
-    },
-    {
-      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
@@ -141,9 +133,6 @@
           }
         }
       }
-    },
-    {
-      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",

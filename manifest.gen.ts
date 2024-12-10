@@ -12,14 +12,16 @@ import * as $$$0 from "./loaders/availableIcons.ts";
 import * as $$$1 from "./loaders/geolocation.ts";
 import * as $$$2 from "./loaders/icons.ts";
 import * as $$$3 from "./loaders/minicart.ts";
-import * as $$$4 from "./loaders/savedColors.ts";
-import * as $$$5 from "./loaders/sizebay.ts";
-import * as $$$6 from "./loaders/user.ts";
-import * as $$$7 from "./loaders/vtexReviewsAndRatings/constants.ts";
-import * as $$$8 from "./loaders/vtexReviewsAndRatings/index.ts";
-import * as $$$9 from "./loaders/vtexReviewsAndRatings/queries.ts";
-import * as $$$10 from "./loaders/vtexReviewsAndRatings/types.ts";
-import * as $$$11 from "./loaders/wishlist.ts";
+import * as $$$4 from "./loaders/product/backgroundBanner.ts";
+import * as $$$5 from "./loaders/product/rotativeText.ts";
+import * as $$$6 from "./loaders/savedColors.ts";
+import * as $$$7 from "./loaders/sizebay.ts";
+import * as $$$8 from "./loaders/user.ts";
+import * as $$$9 from "./loaders/vtexReviewsAndRatings/constants.ts";
+import * as $$$10 from "./loaders/vtexReviewsAndRatings/index.ts";
+import * as $$$11 from "./loaders/vtexReviewsAndRatings/queries.ts";
+import * as $$$12 from "./loaders/vtexReviewsAndRatings/types.ts";
+import * as $$$13 from "./loaders/wishlist.ts";
 import * as $$$$$$0 from "./sections/Animation/Animation.tsx";
 import * as $$$$$$1 from "./sections/BreadcrumbInstitucional/Breadcrumb.tsx";
 import * as $$$$$$2 from "./sections/Category/CategoryBottomBanner.tsx";
@@ -63,14 +65,16 @@ const manifest = {
     "site/loaders/geolocation.ts": $$$1,
     "site/loaders/icons.ts": $$$2,
     "site/loaders/minicart.ts": $$$3,
-    "site/loaders/savedColors.ts": $$$4,
-    "site/loaders/sizebay.ts": $$$5,
-    "site/loaders/user.ts": $$$6,
-    "site/loaders/vtexReviewsAndRatings/constants.ts": $$$7,
-    "site/loaders/vtexReviewsAndRatings/index.ts": $$$8,
-    "site/loaders/vtexReviewsAndRatings/queries.ts": $$$9,
-    "site/loaders/vtexReviewsAndRatings/types.ts": $$$10,
-    "site/loaders/wishlist.ts": $$$11,
+    "site/loaders/product/backgroundBanner.ts": $$$4,
+    "site/loaders/product/rotativeText.ts": $$$5,
+    "site/loaders/savedColors.ts": $$$6,
+    "site/loaders/sizebay.ts": $$$7,
+    "site/loaders/user.ts": $$$8,
+    "site/loaders/vtexReviewsAndRatings/constants.ts": $$$9,
+    "site/loaders/vtexReviewsAndRatings/index.ts": $$$10,
+    "site/loaders/vtexReviewsAndRatings/queries.ts": $$$11,
+    "site/loaders/vtexReviewsAndRatings/types.ts": $$$12,
+    "site/loaders/wishlist.ts": $$$13,
   },
   "sections": {
     "site/sections/Animation/Animation.tsx": $$$$$$0,
