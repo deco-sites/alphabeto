@@ -55,7 +55,7 @@ export default function MenuInstitucional(
                 </div>
                 <section>
                     {institutionalLinks?.map(({ route, label }, index) => (
-                            <li key={index} class={`flex items-center justify-between cursor-pointer w-[197px] p-[10px] ${currentPath === route ? "bg-[#FDF6ED] text-[#FF8300] font-bold border-2 border-dashed border-[#FF8300]" : "hover:bg-gray-500 hover:bg-opacity-25 transition duration-200"}`}>
+                            <li key={index} class={`flex items-center justify-between w-[197px] p-[10px] ${currentPath === route ? "bg-[#FDF6ED] text-[#FF8300] font-bold border-2 border-dashed border-[#FF8300]" : ""}`}>
                                 <a 
                                 href={route} 
                                 class="text-[12px] font-regular">
@@ -78,7 +78,7 @@ export default function MenuInstitucional(
                 </div>
                 <section>
                     {supportLinks?.map(({ route, label }, index) => (
-                            <li key={index} class={`flex items-center justify-between cursor-pointer w-[197px] p-[10px] ${currentPath === route ? "bg-[#FDF6ED] text-[#FF8300] font-bold border-2 border-dashed border-[#FF8300]" : "hover:bg-gray-500 hover:bg-opacity-25 transition duration-200"}`}>
+                            <li key={index} class={`flex items-center justify-between w-[197px] p-[10px] ${currentPath === route ? "bg-[#FDF6ED] text-[#FF8300] font-bold border-2 border-dashed border-[#FF8300]" : ""}`}>
                                 <a href={route}
                                 class="text-[12px] font-regular">
                                 {label}</a>

@@ -1,8 +1,7 @@
 import type { HTMLWidget } from "apps/admin/widgets.ts";
+import Icon from "site/components/ui/Icon.tsx";
 import Slider from "../../components/ui/Slider.tsx";
 import { useId } from "../../sdk/useId.ts";
-import { IconArrowLeft } from "../Icons/IconArrowLeft.tsx";
-import { IconArrowRight } from "../Icons/IconArrowRight.tsx";
 
 export interface BenefitBarProps {
   benefits?: HTMLWidget[];
@@ -23,14 +22,14 @@ export function BenefitBar({ benefits = [], interval }: BenefitBarProps) {
           class="bg-base-200 hidden desk:block"
           disabled={false}
         >
-          <IconArrowLeft />
+          <Icon id="chevron-left" class="text-base-100" />
         </Slider.PrevButton>
 
         <Slider.NextButton
           class="bg-base-200 hidden desk:block"
           disabled={false}
         >
-          <IconArrowRight />
+          <Icon id="chevron-right" class="text-base-100" />
         </Slider.NextButton>
       </div>
 

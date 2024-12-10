@@ -1,26 +1,17 @@
-import { RichText } from "apps/admin/widgets.ts";
-import FaqDuvidasFrequentes from "../../islands/FaqDuvidasFrequentes.tsx";
 import { Section } from "@deco/deco/blocks";
 
-/**@title {{ question }}*/
-interface DuvidasProps {
-    /**@title Pergunta*/
-    question: string;
-    /**@title Resposta*/
-    answer: RichText;
-}
-
-interface Perguntas {
-    questions: DuvidasProps[],
-    
+interface Questions {
+    Question: Section;
     Menu: Section;
 } 
 
-export default function DuvidasFrequentes({ Menu: { Component: MenuInstitucional, props }, questions }: Perguntas){
+export default function DuvidasFrequentes({ Menu: { Component: MenuInstitucional, props }, Question: { Component: FAQ, props:faqProps }}: Questions){
     return(
-        <div class="container">
+        <div class="container flex mobile:flex-col">
             <MenuInstitucional {...props}/>
-            <FaqDuvidasFrequentes questions={questions}/>
+            <div class="mobile:mt-[24px] mobile:mb-[48px]">
+            <FAQ {...faqProps} />
+            </div>
         </div>
     )
 }
