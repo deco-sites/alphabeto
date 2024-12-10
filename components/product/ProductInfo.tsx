@@ -186,7 +186,7 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
           content={characteristics}
         />
       </div>
-      <ProductPartCare />
+      <ProductPartCare product={product} />
       {/* Product Share */}
       <ProductShare product={product} />
       <script
