@@ -35,7 +35,7 @@ export async function loader({ items, apiKey }: ContentProps, _req: Request, ctx
     const masterdataStoreNumbers = await ctx.invoke.site.loaders.searchDocuments({
         acronym: "SM",
         fields:"store_id,whatsapp",
-        where: "active=true"
+        take: 500,
     }) as unknown as MasterDataResponse[]
 
     const { io } = await ctx.invoke.vtex.loaders.config()
@@ -64,7 +64,7 @@ export default function NossasLojas({ items, apiKey, stores }: Awaited<ReturnTyp
             <section class="w-[100%] pr-[43px] mobile:pr-0">
                 {items.map((content, index) => (
                     <div key={index}>
-                        <h2 class="font-[beccaPerry] text-[44px] mobile:text-[32px] text-center font-medium text-[#676767] mb-[13px]">{content.title}</h2>
+                        <h2 class="font-[beccaPerry] text-[44px] mobile:text-[32px] text-left font-medium text-[#676767] mb-[13px]">{content.title}</h2>
                         <p class="font-regular text-[12px] text-[#ffffff]" dangerouslySetInnerHTML={{ __html: content.paragraph }}/>
                     </div>
                 ))}

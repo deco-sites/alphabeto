@@ -3951,8 +3951,11 @@ details.collapse summary::-webkit-details-marker {
 .mr-6 {
   margin-right: 1.5rem;
 }
-.mr-\[10px\] {
-  margin-right: 10px;
+.mr-\[24px\] {
+  margin-right: 24px;
+}
+.mr-\[4px\] {
+  margin-right: 4px;
 }
 .mr-\[8px\] {
   margin-right: 8px;
@@ -4255,6 +4258,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .w-\[243px\] {
   width: 243px;
+}
+.w-\[266px\] {
+  width: 266px;
 }
 .w-\[287px\] {
   width: 287px;

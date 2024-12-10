@@ -103,7 +103,7 @@ export default function FormsNossasLojas({ stores }: Stores) {
                         {store.name}
                       </p>
                     </div>
-                    <div class="py-[14px] font-regular text-[12px] text-[#7E7F88]">
+                    <div class="w-[100%] py-[14px] font-regular text-[12px] text-[#7E7F88]">
                       <p>{store.address.state}</p>
                       <p>
                         {store.address.street}, {store.address.number} -{" "}
@@ -111,12 +111,12 @@ export default function FormsNossasLojas({ stores }: Stores) {
                       </p>
                       <p>CEP: {store.address.postalCode}</p>
                     </div>
-                    <div class="w-[100%] flex items-center justify-between pb-[14px]">
+                    <div class="w-[266px] flex items-center justify-between pb-[14px]">
                       <p class="font-regular text-[12px] text-[#7E7F88]">
                         {store.whatsapp}
                       </p>
-                      <button class="flex items-center justify-center w-[50%] bg-[#33D26B] h-[30px] rounded[8px] text-[65%] text-[#ffffff] font-bold rounded-[8px]">
-                        <Icon class="mr-[10px]" id="whatsappIcon" width="16" height="16"/>
+                      <button class="flex items-center justify-center w-[50%] bg-[#33D26B] h-[30px] rounded[8px] text-[65%] text-[#ffffff] font-bold rounded-[8px] mr-[24px]">
+                        <Icon class="mr-[4px]" id="whatsappIcon" width="16" height="16"/>
                         Enviar mensagem
                       </button>
                     </div>
