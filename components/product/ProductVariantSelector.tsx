@@ -106,14 +106,14 @@ const useStyles = (value: string, checked: boolean) => {
       checked
         ? "ring-primary bg-primary border-primary text-white"
         : "ring-transparent bg-transparent border-[#5A5B61] text-[#5A5B61] hover:bg-primary hover:border-primary hover:text-white",
-      checked === false && isAvailable === false ? "diagonal-line" : "",
+      //checked === false && true === false ? "diagonal-line" : "",
     ),
   };
 };
 export const Ring = ({ value, checked = false, class: _class }: {
   value: string;
   checked?: boolean;
-  class?: string;
+  class?: string
 }) => {
   const color = Array.isArray(colors[value])
     ? colors[value]?.join(", ") // Ou escolha apenas a primeira cor: colors[value][0]
@@ -152,6 +152,7 @@ function VariantSelector({ product }: Props) {
       {filteredNames.map((name) => (
         <li class="flex flex-col gap-3">
           <VariantLabel
+
             variantName={name}
             possibilities={possibilities}
             product={product}

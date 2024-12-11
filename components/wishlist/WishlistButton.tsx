@@ -6,6 +6,7 @@ import { useSendEvent } from "../../sdk/useSendEvent.ts";
 import Icon from "../ui/Icon.tsx";
 interface Props {
   item: AnalyticsItem;
+  variant?: "full" | "icon";
 }
 
 const onLoad = (id: string, productID: string) =>
@@ -32,7 +33,7 @@ const onClick = (productID: string, productGroupID: string) => {
     window.alert(`Faça login para adicionar o produto à lista de desejos`);
   }
 };
-function WishlistButton({ item }: Props) {
+function WishlistButton({ item, variant }: Props) {
   // deno-lint-ignore no-explicit-any
   const productID = (item as any).item_id;
   const productGroupID = item.item_group_id ?? "";

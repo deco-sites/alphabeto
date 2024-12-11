@@ -2,6 +2,7 @@ import { useScript } from "@deco/deco/hooks";
 import { AnalyticsItem, Product } from "apps/commerce/types.ts";
 import { JSX } from "preact";
 import { Platform } from "site/apps/site.ts";
+import { clx } from "site/sdk/clx.ts";
 import { useId } from "../../sdk/useId.ts";
 import { usePlatform } from "../../sdk/usePlatform.tsx";
 import QuantitySelector from "../ui/QuantitySelector.tsx";
@@ -130,7 +131,7 @@ function AddToCartButton(props: Props) {
           "flex-grow peer-checked:hidden text-sm font-bold text-white text-center bg-[#FF8300] py-[13px] px-5",
           _class?.toString(),
         )}
-        hx-on:click={useScript(onClick)}
+        hx-on:click={useScript(onClick, inputQtdId, platform, "minicartDrawer")}
       >
         Adicionar à sacola
       </button>
@@ -139,15 +140,14 @@ function AddToCartButton(props: Props) {
       <div class="flex-grow hidden peer-checked:flex">
         <QuantitySelector
           disabled
-          min={0}
-          max={100}
-          hx-on:change={useScript(onChange)}
+         
+         
         />
       </div>
 
       <script
         type="module"
-        dangerouslySetInnerHTML={{ __html: useScript(onLoad, id) }}
+        
       />
     </div>
   );
