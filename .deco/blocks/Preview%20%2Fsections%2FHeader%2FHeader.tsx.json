@@ -1,0 +1,32 @@
+{
+  "__resolveType": "site/sections/Header/Header.tsx",
+  "links": [],
+  "navItems": [],
+  "benefits": {
+    "benefits": []
+  },
+  "logo": {
+    "alt": "yrestr",
+    "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/fb6b684e-53d2-4e06-b21f-3d910c3eb349/Frame-18.png"
+  },
+  "searchbar": {
+    "placeholder": "What are you looking for?",
+    "mostSellerTerms": [],
+    "loader": {
+      "data": {
+        "searches": [],
+        "products": []
+      },
+      "__resolveType": "resolved"
+    },
+    "topSearch": {
+      "data": {
+        "searches": [],
+        "products": []
+      },
+      "__resolveType": "resolved"
+    }
+  },
+  "googleMapsApiKey": {},
+  "loading": "eager"
+}
