@@ -21,11 +21,21 @@ export default {
     extend: {
       animation: {
         sliding: "sliding 30s linear infinite",
+        "scroll-right": "scroll-right 5s linear infinite",
+        "scroll-left": "scroll-left 5s linear infinite",
       },
       keyframes: {
         sliding: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
+        },
+        "scroll-right": {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+        "scroll-left": {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(-100%)" },
         },
       },
       fontFamily: {

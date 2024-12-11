@@ -23,7 +23,6 @@ const onClick = (
   const { item, platformProps } = JSON.parse(
     decodeURIComponent(button.getAttribute("data-cart-item")!),
   );
-  console.log({ item, platformProps });
 
   const qtdInput = document.getElementById(qtdInputId) as HTMLInputElement;
   let qtd = qtdInput?.value;

@@ -7,6 +7,7 @@ import { useVariantPossibilities } from "../../sdk/useVariantPossiblities.ts";
 
 interface Props {
   product: Product;
+  colors: ExportedColorItem[];
 }
 const colors: Record<string, string | string[] | undefined> = {
   "AMARELO": "#f8ce49",
@@ -130,14 +131,15 @@ export const Ring = ({ value, checked = false, class: _class }: {
   );
 };
 
-function VariantSelector({ product }: Props) {
+function VariantSelector({ product, colors }: Props) {
   const { url, isVariantOf } = product;
   const hasVariant = isVariantOf?.hasVariant ?? [];
   const possibilities = useVariantPossibilities(hasVariant, product);
   const relativeUrl = relative(url);
   const id = useId();
-  const filteredNames = Object.keys(possibilities).filter((name) =>
-    name.toLowerCase() !== "title" && name.toLowerCase() !== "default title"
+  const filteredNames = Object.keys(possibilities).filter(
+    (name) =>
+      name.toLowerCase() !== "title" && name.toLowerCase() !== "default title",
   );
   if (filteredNames.length === 0) {
     return null;
@@ -151,23 +153,20 @@ function VariantSelector({ product }: Props) {
     >
       {filteredNames.map((name) => (
         <li class="flex flex-col gap-3">
-          <VariantLabel
 
-            variantName={name}
-            possibilities={possibilities}
-            product={product}
-          />
-          <ul class="flex flex-row gap-2.5">
+          <ul class="flex flex-row gap-2.5 flex-wrap">
             {Object.entries(possibilities[name])
               .filter(([value]) => value)
               .map(([value, link]) => {
                 const relativeLink = relative(link);
                 const checked = relativeLink === relativeUrl;
+
                 return (
                   <li>
                     <label
                       class="cursor-pointer grid grid-cols-1 grid-rows-1 place-items-center"
                       hx-get={useSection({ href: relativeLink })}
+                      hx-replace-url={relativeLink}
                     >
                       {/* Checkbox for radio button on the frontend */}
                       <input
@@ -186,7 +185,8 @@ function VariantSelector({ product }: Props) {
                           value={value}
                           checked={checked}
                           name={name}
-                          isAvailable={isAvailable(link ?? "", product)}
+                          isAvailable={true}
+                          colors={colors}
                         />
                       </div>
                       {/* Loading spinner */}

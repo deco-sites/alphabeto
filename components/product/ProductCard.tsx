@@ -1,16 +1,16 @@
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import Image from "apps/website/components/Image.tsx";
+import QuickView from "site/components/product/quickview/QuickView.tsx";
 import { clx } from "../../sdk/clx.ts";
 import { formatPrice } from "../../sdk/format.ts";
 import { relative } from "../../sdk/url.ts";
+import { useId } from "../../sdk/useId.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
 import { useSendEvent } from "../../sdk/useSendEvent.ts";
 import { useVariantPossibilities } from "../../sdk/useVariantPossiblities.ts";
 import WishlistButton from "../wishlist/WishlistButton.tsx";
 import { Ring } from "./ProductVariantSelector.tsx";
-import { useId } from "../../sdk/useId.ts";
-import QuickView from "site/components/product/quickview/QuickView.tsx";
 
 interface Props {
   product: Product;
@@ -57,7 +57,7 @@ function ProductCard({
 
   const item = mapProductToAnalyticsItem({ product, price, listPrice, index });
 
-  {/* Add click event to dataLayer */}
+  {/* Add click event to dataLayer */ }
   const event = useSendEvent({
     on: "click",
     event: {
@@ -145,6 +145,7 @@ function ProductCard({
           </span>
         </div>
 
+
         <div class="absolute top-0 right-0 m-[14px]">
           <WishlistButton item={item} variant="icon" />
         </div>
@@ -192,7 +193,13 @@ function ProductCard({
                     name={`${id}-${firstSkuVariations?.[0]}`}
                     checked={link === relativeUrl}
                   />
-                  <Ring value={value} checked={link === relativeUrl} />
+                  <Ring
+                    value={value}
+                    checked={link === relativeUrl}
+                    name={firstSkuVariations?.[0] ?? ""}
+                    isAvailable={true}
+                    colors={[]}
+                  />
                 </a>
               </li>
             ))}

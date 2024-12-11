@@ -4,9 +4,17 @@ import ProductImages from "site/components/product/ProductImages.tsx";
 import ProductInfo from "site/components/product/ProductInfo.tsx";
 import Breadcrumb from "site/components/ui/Breadcrumb.tsx";
 import Section from "site/components/ui/Section.tsx";
+import { ExportedColorItem } from "site/loaders/savedColors.ts";
+import { useOffer } from "site/sdk/useOffer.ts";
+import Spacer from "site/sections/Miscellaneous/Spacer.tsx";
+import ProductShelf, {
+  Props as UnavailableShelfProps,
+} from "site/sections/Product/ProductShelf.tsx";
 
 export interface PDPSettings {
   cashbackPercentage: number;
+  colors: ExportedColorItem[];
+  productUnavailableShelf: UnavailableShelfProps;
 }
 
 export interface Props {
@@ -27,9 +35,11 @@ export async function loader(props: Props, _req: Request, ctx: AppContext) {
   };
 }
 
-export default function ProductDetails(
-  { page, settings, sizebaySettings }: Awaited<ReturnType<typeof loader>>,
-) {
+export default function ProductDetails({
+  page,
+  settings,
+  sizebaySettings,
+}: Awaited<ReturnType<typeof loader>>) {
   /**
    * Rendered when a not found is returned by any of the loaders run on this page
    */
@@ -45,11 +55,13 @@ export default function ProductDetails(
       </div>
     );
   }
+  const { availability } = useOffer(page.product.offers);
+  const isUnavailable = availability === "https://schema.org/OutOfStock";
 
   return (
-    <div class="container">
+    <div class="container mt-5">
       <Breadcrumb itemListElement={page.breadcrumbList.itemListElement} />
-      <div class="flex mobile:flex-col gap-4 justify-between mobile:relative">
+      <div class="flex mobile:flex-col gap-4 justify-between mobile:relative mt-5">
         <ProductImages page={page} />
         <ProductInfo
           page={page}
@@ -57,6 +69,12 @@ export default function ProductDetails(
           sizebaySettings={sizebaySettings}
         />
       </div>
+      {isUnavailable && (
+        <div id="unavailable-shelf">
+          <Spacer />
+          <ProductShelf {...settings.productUnavailableShelf} />
+        </div>
+      )}
     </div>
   );
 }
