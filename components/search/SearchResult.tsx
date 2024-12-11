@@ -69,6 +69,7 @@ export const loader = (props: Props, req: Request) => {
   };
 };
 
+
 const useUrlRebased = (overrides: string | undefined, base: string) => {
   let url: string | undefined = undefined;
   if (overrides) {
@@ -82,6 +83,8 @@ const useUrlRebased = (overrides: string | undefined, base: string) => {
   }
   return url;
 };
+
+
 
 const setPageQuerystring = (page: string, id: string) => {
   const element = document.getElementById(id)?.querySelector(
@@ -224,6 +227,7 @@ function PageResult(props: SectionProps<typeof loader>) {
   );
 }
 
+
 function Result(props: SectionProps<typeof loader>) {
   const container = useId();
   const controls = useId();
@@ -359,5 +363,6 @@ function SearchResult({ page, ...props }: SectionProps<typeof loader>) {
   }
   return <Result {...props} page={page} />;
 }
+
 
 export default SearchResult;

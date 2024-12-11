@@ -129,6 +129,7 @@ export function ButtonLabel(props: ButtonLabelProps) {
       {...finalProps}
     >
       {props.children}
+      {props.children}
     </label>
   );
 }
