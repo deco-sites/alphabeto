@@ -11,9 +11,12 @@ interface GiftShelfProps {
   section: Section;
 }
 
-export default function GiftShelf(
-  { title, description, image, section }: GiftShelfProps,
-) {
+export default function GiftShelf({
+  title,
+  description,
+  image,
+  section,
+}: GiftShelfProps) {
   return (
     <div className={"flex flex-col container mt-[100px]"}>
       <span class="flex flex-col gap-4">
@@ -23,7 +26,9 @@ export default function GiftShelf(
         <p class="text-[#676767] text-base font-medium">{description}</p>
       </span>
       <div
-        className={"flex mt-10 desk:flex-row mobile:flex-col mobile:items-center desk:items-start mobile:gap-10"}
+        className={
+          "flex mt-10 desk:flex-row desk:gap-4 mobile:flex-col mobile:items-center desk:items-start mobile:gap-10"
+        }
       >
         <img
           className={"desk:max-w-[608px] w-full"}
