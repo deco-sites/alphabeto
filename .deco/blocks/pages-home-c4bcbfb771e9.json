@@ -22,17 +22,6 @@
           "alt": "Children"
         },
         {
-          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/1226ef79-c7e0-403c-b716-b6b9af3f2936",
-          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/f7ea4cbe-7498-4e64-9205-c741753edfcc",
-          "alt": "Woman",
-          "action": {
-            "title": "Embrace New Trends",
-            "subTitle": "Stylish clothes and accessories.",
-            "href": "/women",
-            "label": "Shop Now!"
-          }
-        },
-        {
           "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/d26304f4-355b-48d0-b649-e24b9cbf0ded",
           "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/47a4d85a-1150-4e5d-abc2-5c642445ff12",
           "action": {
@@ -56,8 +45,8 @@
             "backgroundColor": "#FCF3E6",
             "mainColor": "#FF8300",
             "imageUrl": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/4afcd983-510b-4e38-9bf4-4e40c52c42a1/Troca-facil.svg",
-            "imageAlt": "Troca Teste",
-            "title": "Troca Teste",
+            "imageAlt": "Troca Fácil",
+            "title": "Troca Fácil",
             "message": "<p style=\"text-align: justify\">Precisa trocar? É fácil e rapidinho :) <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"/\"><span style=\"color: #ff8300\">Clique aqui</span></a></p>",
             "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/4afcd983-510b-4e38-9bf4-4e40c52c42a1/Troca-facil.svg"
           },
@@ -119,7 +108,7 @@
               "props": {
                 "sort": "price:desc",
                 "collection": "787",
-                "count": 8
+                "count": 16
               }
             },
             "colors": [
@@ -160,7 +149,7 @@
               "props": {
                 "sort": "price:desc",
                 "collection": "768",
-                "count": 8
+                "count": 16
               }
             }
           },
@@ -187,7 +176,7 @@
               "props": {
                 "sort": "price:desc",
                 "collection": "670",
-                "count": 8
+                "count": 16
               }
             }
           },
@@ -695,8 +684,14 @@
                 ]
               }
             },
-            "xPosition": 47,
-            "yPosition": 44
+            "xPosition": {
+              "desktop": 47,
+              "mobile": 46
+            },
+            "yPosition": {
+              "desktop": 45,
+              "mobile": 45
+            }
           },
           {
             "product": {
@@ -707,10 +702,49 @@
                 ]
               }
             },
-            "xPosition": 34,
-            "yPosition": 82
+            "xPosition": {
+              "desktop": 20,
+              "mobile": 20
+            },
+            "yPosition": {
+              "desktop": 83,
+              "mobile": 83
+            }
           }
-        ]
+        ],
+        "discountValue": 10
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/GiftShelf/GiftShelf.tsx",
+        "title": "Presentes que encantam!",
+        "description": "Conforto e carinho em forma de roupinhas.",
+        "image": {
+          "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/9da3296d-60eb-4a41-a698-2b8a6ec0a10c/Frame-21.png",
+          "alt": "presentes"
+        },
+        "section": {
+          "__resolveType": "site/sections/Product/ProductShelf.tsx",
+          "products": {
+            "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+            "props": {
+              "sort": "price:desc",
+              "count": 8,
+              "collection": "782"
+            }
+          },
+          "colors": []
+        },
+        "products": {
+          "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+          "props": {
+            "sort": "price:desc",
+            "collection": "767",
+            "count": 8
+          }
+        }
       }
     },
     {

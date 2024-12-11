@@ -2,8 +2,6 @@ import { useScript } from "@deco/deco/hooks";
 import { AnalyticsItem, Product } from "apps/commerce/types.ts";
 import { JSX } from "preact";
 import { Platform } from "site/apps/site.ts";
-import Button from "site/components/ui/Button.tsx";
-import { MINICART_DRAWER_ID } from "site/constants.ts";
 import { useId } from "../../sdk/useId.ts";
 import { usePlatform } from "../../sdk/usePlatform.tsx";
 import QuantitySelector from "../ui/QuantitySelector.tsx";
@@ -116,30 +114,41 @@ function AddToCartButton(props: Props) {
   const id = useId();
   const inputQtdId = useId();
   return (
-    <div class="grid grid-cols-[127px,1fr] desk:grid-cols-[133px,1fr] gap-[18px]">
-      <QuantitySelector
-        min="1"
-        value="1"
-        max="100"
-        small={false}
-        class="!text-[#212121]"
-        id={inputQtdId}
-      />
-      <Button
-        data-item-id={product.productID}
-        data-cart-item={encodeURIComponent(
-          JSON.stringify({ item, platformProps }),
+    <div
+      id={id}
+      class="flex"
+      data-item-id={product.productID}
+      data-cart-item={encodeURIComponent(
+        JSON.stringify({ item, platformProps }),
+      )}
+    >
+      <input type="checkbox" class="hidden peer" />
+
+      <button
+        disabled
+        class={clx(
+          "flex-grow peer-checked:hidden text-sm font-bold text-white text-center bg-[#FF8300] py-[13px] px-5",
+          _class?.toString(),
         )}
-        id={id}
-        hx-on:click={useScript(
-          onClick,
-          inputQtdId,
-          platform,
-          MINICART_DRAWER_ID,
-        )}
+        hx-on:click={useScript(onClick)}
       >
-        Adicionar a Sacola
-      </Button>
+        Adicionar à sacola
+      </button>
+
+      {/* Quantity Input */}
+      <div class="flex-grow hidden peer-checked:flex">
+        <QuantitySelector
+          disabled
+          min={0}
+          max={100}
+          hx-on:change={useScript(onChange)}
+        />
+      </div>
+
+      <script
+        type="module"
+        dangerouslySetInnerHTML={{ __html: useScript(onLoad, id) }}
+      />
     </div>
   );
 }

@@ -89,6 +89,13 @@
   box-shadow: 0 0 0 4px white inset, 0 0 0 4px white inset;
 }
 
+.radio:not(:checked) {
+  background-color: white;
+}
+.radio:checked {
+  box-shadow: 0 0 0 4px white inset, 0 0 0 4px white inset;
+}
+
 .breadcrumbs > ul > li + *:before,
 .breadcrumbs > ol > li + *:before {
   content: "|";

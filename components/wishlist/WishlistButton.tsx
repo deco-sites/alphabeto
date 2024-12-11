@@ -54,14 +54,20 @@ function WishlistButton({ item }: Props) {
         aria-label="Adicionar à lista de desejos"
         hx-on:click={useScript(onClick, productID, productGroupID)}
         class={clx(
-          "btn no-animation",
-          "btn-circle btn-ghost btn-sm",
-          "h-10 w-10 ",
-          "shadow-[0px_2px_10px_0px_rgba(59,_59,_59,_0.1)]",
-          "text-[#FF859A]",
+          "btn no-animation rounded-full !bg-white shadow-[0px_2px_10px_0px_#3B3B3B1A] w-10 h-10 hover:opacity-90",
+          variant === "icon"
+            ? "btn-circle btn-ghost btn-sm"
+            : "btn-primary btn-outline gap-2 w-full",
         )}
       >
-        <Icon id="hearth-unfill" class="[.htmx-request_&]:hidden" size={20} />
+        <Icon
+          id="favorite"
+          class="[.htmx-request_&]:hidden w-5 text-[#FF859A]"
+          fill="#FF859A"
+        />
+        {variant === "full" && (
+          <span class="[.htmx-request_&]:hidden">Add to wishlist</span>
+        )}
         <span class="[.htmx-request_&]:inline hidden loading loading-spinner" />
       </button>
       <script
