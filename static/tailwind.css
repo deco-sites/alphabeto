@@ -6325,10 +6325,6 @@ details.collapse summary::-webkit-details-marker {
 }
 @media (max-width: 1023px) {
 
-  .mobile\:left-\[calc\(100\%\)\] {
-    left: calc(100%);
-  }
-
   .mobile\:ml-0 {
     margin-left: 0px;
   }
@@ -6488,14 +6484,6 @@ details.collapse summary::-webkit-details-marker {
 
   .desk\:relative {
     position: relative;
-  }
-
-  .desk\:-top-\[50px\] {
-    top: -50px;
-  }
-
-  .desk\:left-\[calc\(100\%\+155px\)\] {
-    left: calc(100% + 155px);
   }
 
   .desk\:top-7 {
