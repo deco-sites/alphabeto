@@ -20,14 +20,57 @@
       "items": [
         {
           "banner": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/d8955d99-3f7d-4434-ac9c-747d23289be0/Banner-principal.png",
-          "title": "A"
-        },
-        {
-          "title": "Alphabeto",
-          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/166040cc-542a-4e2a-9b47-c117f2ef89d9/Logo.png"
+          "title": "A",
+          "firstText": "<p><span>Lorem ipsum dolor sit amet consectetur. Et imperdiet et rutrum laoreet urna vel. Nulla sit sed id magna non turpis lobortis. Sodales orci cursus semper est consectetur pulvinar nisi adipiscing tellus. Etiam vitae urna auctor diam. Vel mattis vitae est risus laoreet id posuere. Tellus morbi et amet tellus turpis quisque sed. Donec semper nisi rhoncus at elementum id venenatis. In auctor tincidunt quis enim urna quisque viverra. Nibh volutpat fringilla dui sed dapibus sagittis. Elementum cursus sagittis molestie leo morbi. Nulla tristique egestas non mattis purus tincidunt suscipit.<br>Ultrices etiam et cursus maecenas aliquet volutpat.e. Turpis magna interdum elit purus nisi in. Mauris auctor congue facilisi habitasse sit semper rhoncus consectetur morbi.</span></p>",
+          "secondText": "<ol><li><p><span>Ac egestas elementum urna vitae cursus faucibus leo eu hendrerit. Egestas pretium hendrerit cursus ut egestas at euismod pulvinar. Sagittis elit turpis sit fames imperdiet aliquet. Maecenas morbi justo phasellus massa pellentesque. Fringilla lacinia augue arcu purus. Pellentesque est iaculis mauris felis id id at. Diam faucibus ac feugiat nibh mi scelerisque. A fermentum mattis semper arcu placerat dictum. Morbi vestibulum vitae sed purus id tristique. At a commodo non nisl mattis. Aliquet tortor eleifend sodales dui viverra porttitor eget. Pretium et urna pharetra donec sed feugiat varius vel tellus. Justo risus facilisi massa pellentesque pretium. Viverra fermentum enim amet amet mi.</span></p></li></ol>",
+          "firstImage": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/76f0caf9-d497-4ff0-83ba-82af675b044b/Star-1.png",
+          "secondImage": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/6e649684-4206-423a-80c5-ce88990713d0/Arrow.png",
+          "images": {
+            "firstImage": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/76f0caf9-d497-4ff0-83ba-82af675b044b/Star-1.png",
+            "secondFirstImage": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/a65f59ac-e62a-4adb-b5b4-d2c7192b52df/Star-2.png",
+            "secondImage": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/6e649684-4206-423a-80c5-ce88990713d0/Arrow.png"
+          },
+          "video": {
+            "videoTitle": "Em seu reino existe uma fábrica encantada...",
+            "videoText": "<p><span>Ac egestas elementum urna vitae cursus faucibus leo eu hendrerit. Egestas pretium hendrerit cursus ut egestas at euismod pulvinar. Sagittis elit turpis sit fames imperdiet aliquet. Maecenas morbi justo phasellus massa pellentesque. Fringilla lacinia augue arcu purus. Pellentesque est iaculis mauris felis id id at. Diam faucibus ac feugiat nibh mi scelerisque. A fermentum mattis semper arcu placerat dictum. Morbi vestibulum vitae sed purus id tristique. At a commodo non nisl mattis. Aliquet tortor eleifend sodales dui viverra porttitor eget. Pretium et urna pharetra donec sed feugiat varius vel tellus. Justo risus facilisi massa pellentesque pretium. Viverra fermentum enim amet amet mi.</span></p>",
+            "video": "https://youtu.be/nGnX6GkrOgk"
+          }
         }
       ],
-      "banner": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/d8955d99-3f7d-4434-ac9c-747d23289be0/Banner-principal.png"
+      "banner": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/d8955d99-3f7d-4434-ac9c-747d23289be0/Banner-principal.png",
+      "title": "Mundo Alphabeto",
+      "logo": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/166040cc-542a-4e2a-9b47-c117f2ef89d9/Logo.png",
+      "company": {
+        "title": "Empresa brasileira com muito orgulho e amor",
+        "subTitle": "Ac egestas elementum urna vitae cursus faucibus leo eu hendrerit.",
+        "items": [
+          {
+            "mainInfo": "<p><span style=\"color: rgb(214, 222, 35)\">+800</span></p>",
+            "textAboutInfo": "Mais de 800 colaboradores.",
+            "color": "#D6DE23"
+          },
+          {
+            "textAboutInfo": "95% dos produtos são produzidos internamente",
+            "mainInfo": "<p><span style=\"color: #ff859a\">95%</span></p>",
+            "color": "#FF859A"
+          },
+          {
+            "color": "#D6DE23",
+            "mainInfo": "<p><span style=\"color: #70d1e8\">80k</span></p>",
+            "textAboutInfo": "Com mais de 80 mil produtos disponíveis."
+          }
+        ],
+        "text": "<ul><li><p>Produção just in time (Produtos no momento certo);</p></li><li><p>Maquinário de tecnologia avançada;</p></li><li><p>Processo de produção completa: criação, tecelagem, bordado, estamapria, costura, acabamento e embalagem;</p></li><li><p>Lavanderia industrial com estação própria de tratamento de água;</p></li></ul>"
+      },
+      "additionalInfo": {
+        "title": "Nosso mundo encantado!",
+        "subtitle": "<p><span style=\"color: #ff859a\">Cheio de magia</span><span style=\"color: #70d1e8\">, alegria</span> e <span style=\"color: #d6de23\">muitos detalhes!</span> </p>",
+        "image": [
+          "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/46e22f96-2f6a-45e8-bce4-70bbabff6c7c/image.png",
+          "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/e95584d1-d456-475f-8508-4ef35449b159/image-(1).png",
+          "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/0e52c1cc-b274-4ae7-a1ea-bdfde3d7ab1a/image-(2).png"
+        ]
+      }
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
