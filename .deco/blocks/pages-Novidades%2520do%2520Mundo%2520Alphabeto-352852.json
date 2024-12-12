@@ -1,0 +1,151 @@
+{
+  "name": "Novidades do Mundo Alphabeto",
+  "path": "/hotsite/novidades",
+  "sections": [
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
+        "jsonLD": {
+          "__resolveType": "PLP Loader"
+        }
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Header"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Product/SearchResult.tsx",
+        "page": {
+          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+          "count": 24,
+          "sort": "release:desc",
+          "fuzzy": "automatic",
+          "selectedFacets": [
+            {
+              "key": "productClusterIds",
+              "value": "695"
+            }
+          ],
+          "query": "",
+          "hideUnavailableItems": true
+        },
+        "layout": {
+          "columns": {
+            "mobile": 2,
+            "desktop": 4
+          },
+          "variant": "aside",
+          "pagination": "show-more",
+          "filters": {
+            "color": {
+              "__resolveType": "Saved Colors"
+            }
+          },
+          "filter": {
+            "__resolveType": "Saved Colors"
+          }
+        },
+        "startingPage": 1,
+        "seoComponents": {
+          "banner": {
+            "title": "Novidades",
+            "subtitle": "Vamos colorir o Mundo",
+            "description": "<p>Lorem ipsum dolor sit amet consectetur. Urna massa diam feugiat eleifend integer mattis.</p>",
+            "image": {
+              "desktop": {
+                "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/de7d30a6-2b3a-4e45-966a-98bdf21a1962/4.png",
+                "width": 1360,
+                "height": 230
+              },
+              "alt": "A imagem mostra uma menina sorridente com cabelos castanhos lisos e franja, usando uma jaqueta jeans azul. O fundo é rosa vibrante, decorado com estrelas amarelas e linhas curvas como arco-íris no canto direito. O visual transmite alegria e energia, com tons quentes e elementos lúdicos.",
+              "mobile": {
+                "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/de7d30a6-2b3a-4e45-966a-98bdf21a1962/4.png",
+                "width": 335,
+                "height": 200
+              }
+            }
+          },
+          "breadcrumb": [
+            {
+              "name": "Novidades Incríveis do Mundo Alphabeto",
+              "url": "/hotsite/novidades"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Category/CategoryBottomBanner.tsx",
+        "text": "<h2>Os Vestidos mais encantadores</h2><p>Nossos vestidos foram criados para unir estilo e conforto, valorizando cada detalhe. Com cortes impecáveis e design que realça sua beleza, são perfeitos para qualquer ocasião. Desde momentos casuais até eventos especiais, temos opções para você se sentir confiante e radiante.</p><p></p><h2>Tecidos direto da fábrica</h2><p></p><p>Trabalhamos com tecidos diretamente da fábrica, garantindo qualidade, durabilidade e um caimento perfeito. Nossos vestidos oferecem leveza e sofisticação, proporcionando conforto o dia todo. Escolha a peça ideal e destaque-se com elegância em qualquer ambiente!</p>",
+        "image": {
+          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/96259462-e7ec-4338-bfc5-331a32b622aa/image_categoria.png",
+          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ac67ce29-d4e2-4950-8ea4-d0b8b2433519/image_categoria_mob.png",
+          "alt": "A imagem mostra duas meninas sorridentes posando em frente a um fundo laranja vibrante com um grande círculo texturizado rosa ao centro. A menina à esquerda usa uma roupa colorida com estampas divertidas, jaqueta clara e tiara. A menina à direita veste blusa preta e saia rosa. O ambiente é alegre e lúdico."
+        }
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Content/FAQ.tsx",
+        "title": "Dúvidas frequentes",
+        "description": "<p><span>Ainda está com dúvida? Nos mande um e-mail e logo entraremos em contato com você o mais rápido possível. </span><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"/central-atendimento\"><span>Fale conosco!</span></a></p>",
+        "enableJSONLD": true,
+        "questions": [
+          {
+            "title": "Pedido veio com embalagem aberta, posso trocar?",
+            "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
+          },
+          {
+            "title": "Quais os métodos de pagamento?",
+            "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
+          },
+          {
+            "title": "Comprei o produto errado, posso realizar a troca?",
+            "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
+          },
+          {
+            "title": "Comprar com o combo saí mais barato?",
+            "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
+          },
+          {
+            "title": "Ganho descontos se comprar mais de um?",
+            "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
+          },
+          {
+            "title": "Como utilizo meu código promocional?",
+            "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
+          },
+          {
+            "title": "Posso tomar todos os dias?",
+            "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
+          }
+        ]
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer"
+      }
+    }
+  ],
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
+  "__resolveType": "website/pages/Page.tsx"
+}
