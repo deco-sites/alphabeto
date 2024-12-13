@@ -70,7 +70,8 @@
           "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/e95584d1-d456-475f-8508-4ef35449b159/image-(1).png",
           "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/0e52c1cc-b274-4ae7-a1ea-bdfde3d7ab1a/image-(2).png"
         ]
-      }
+      },
+      "bannerMobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/d8d901e8-8a09-4c7d-92ed-954a676d1436/Banner-principal-(1).png"
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",

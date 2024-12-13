@@ -10,6 +10,8 @@ import Icon from "site/components/ui/Icon.tsx";
 interface ItemsAboutUs {
   /**@title Banner principal */
   banner?: ImageWidget;
+  /**@title Banner principal Mobile */
+  bannerMobile?: ImageWidget;
   /**@title Título da página */
   title?: string;
   /**@title Logo */
@@ -23,53 +25,80 @@ interface ItemsAboutUs {
 }
 
 export default function AboutUs(
-  { items, company, additionalInfo, title, logo, banner }: ItemsAboutUs,
+  { items, company, additionalInfo, title, logo, banner, bannerMobile }:
+    ItemsAboutUs,
 ) {
   return (
     <>
       <div class="flex justify-center w-full">
-        <img src={banner} alt="" />
+        <img class="hidden tablet:flex" src={banner} alt="" />
+        <img class="flex tablet:hidden" src={bannerMobile} alt="" />
       </div>
-      <div class={`h-64 w-full flex flex-col items-center mt-[40px]`}>
-        <img src={logo} alt="" />
-        <h2 class="font-beccaPerry absolute mt-[64px] text-[44px] text-[#676767]">
+      <div
+        class={`h-64 mobile:h-[120px] w-full flex flex-col items-center mt-[40px]`}
+      >
+        <img class="mobile:w-[335px]" src={logo} alt="" />
+        <h2 class="font-beccaPerry absolute mobile:mt-[32px] mt-[64px] text-[44px] mobile:text-[32px] text-[#676767]">
           {title}
         </h2>
       </div>
 
       {items.map((items, index) => (
         <div key={index} class="container">
-          <div class="flex items-center">
-            <p class="font-regular text-[12px] text-[#7E7F88] max-w-[787px] h-[100%]">
-              {items.firstText
-                ? items.firstText.replace(/<\/?(p|span|ol|li)[^>]*>/g, "")
-                : ""}
-            </p>
+          <div class="flex mobile:flex-col items-center">
+            <div class="font-regular text-[12px] text-[#7E7F88] max-w-[787px] mobile:max-w-[100%] h-[100%]">
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: items.firstText ? items.firstText : "",
+                }}
+              />
+            </div>
+
             <div class="relative w-[100%] h-[100%] z-5">
               <Icon
                 id="star"
                 width="47"
                 height="50"
-                class="absolute mt-[60px] right-[350px] z-10"
+                class="absolute mt-[60px] right-[350px] z-10 hidden tablet:flex desk-small:hidden"
               />
               <img
-                class="absolute z-5 top-[-100px] right-0 w-[389px]"
+                class="absolute z-5 top-[-100px] right-0 w-[389px] hidden tablet:flex desk-small:hidden"
                 src={items.images?.firstImage}
               />
               <img
-                class="absolute mt-[100px] z-5 top-0 right-[-40px] w-[320px]"
+                class="absolute mt-[100px] z-5 top-0 right-[-40px] w-[320px] hidden tablet:flex desk-small:hidden"
                 src={items.images?.secondFirstImage}
                 alt=""
               />
             </div>
           </div>
-          <div class="container flex items-center">
-            <img src={items.images?.secondImage} />
-            <p class="font-regular text-[12px] text-[#7E7F88] max-w-[700px] mt-[65px]">
-              {items.secondText
-                ? items.secondText.replace(/<\/?(p|span|ol|li)[^>]*>/g, "")
-                : ""}
-            </p>
+          <div class="relative flex items-center mobile:mb-[65%] tablet:mb-[45%] mobile:pb-[65%] tablet:pb-[45%]">
+            <img
+              class="mobile:absolute mobile:top-[20px] mobile:scale-x-[-1] mobile:right-[0px] mobile:w-[108px] mobile:rotate-[-30deg]"
+              src={items.images?.secondImage}
+            />
+            <div class="font-regular text-[12px] text-[#7E7F88] max-w-[700px] mobile:max-w-[70%] mt-[65px]">
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: items.secondText ? items.secondText : "",
+                }}
+              />
+              <Icon
+                id="star"
+                width="47"
+                height="50"
+                class="absolute mt-[60px] top-[340px] right-[30px] z-10 flex tablet:hidden tablet:top-[140px] tablet:right-[170px] desk-small:flex"
+              />
+              <img
+                class="absolute z-5 top-[390px] right-[20px] w-[300px] flex tablet:hidden tablet:top-[190px] tablet:right-[160px] desk-small:flex"
+                src={items.images?.firstImage}
+              />
+              <img
+                class="absolute mt-[100px] z-5 top-[440px] right-0 w-[200px] flex tablet:hidden tablet:top-[240px] tablet:right-[140px] desk-small:flex"
+                src={items.images?.secondFirstImage}
+                alt=""
+              />
+            </div>
           </div>
         </div>
       ))}
@@ -77,10 +106,30 @@ export default function AboutUs(
       {items.map((items) =>
         items.video && (
           <div class="relative flex mobile:flex-col-reverse justify-around items-center bg-[#F7E0BF] mt-[144px] w-full">
-            <Icon id="star" width="47" height="50" class="absolute top-[35px] left-[20px] z-10"/>
-            <Icon id="minor-star" width="28" height="30" class="absolute top-[20px] left-[55px] z-10"/>
-            <Icon id="star" width="47" height="50" class="absolute bottom-[35px] right-[20px] z-10"/>
-            <Icon id="minor-star" width="28" height="30" class="absolute bottom-[70px] right-[55px] z-10"/>
+            <Icon
+              id="star"
+              width="47"
+              height="50"
+              class="absolute top-[35px] left-[20px] z-10"
+            />
+            <Icon
+              id="minor-star"
+              width="28"
+              height="30"
+              class="absolute top-[20px] left-[55px] z-10"
+            />
+            <Icon
+              id="star"
+              width="47"
+              height="50"
+              class="absolute bottom-[35px] right-[20px] z-10"
+            />
+            <Icon
+              id="minor-star"
+              width="28"
+              height="30"
+              class="absolute bottom-[70px] right-[55px] z-10"
+            />
             <iframe
               class="w-[626px] mobile:w-[345px] h-[356px] mobile:h-[230px] py-[42px] mobile:py-[15px] px-[40px] mobile:px-[20px] rounded-[8px]"
               src={items.video?.video.replace(
@@ -155,7 +204,11 @@ export default function AboutUs(
           </div>
           <span class="flex container justify-center w-full">
             {additionalInfo.image?.map((image) => (
-              <img class="mx-[20px] mobile:mx-[8.5px] mobile:w-[100px]" src={image} alt="" />
+              <img
+                class="mx-[20px] mobile:mx-[8.5px] mobile:w-[100px]"
+                src={image}
+                alt=""
+              />
             ))}
           </span>
         </div>
