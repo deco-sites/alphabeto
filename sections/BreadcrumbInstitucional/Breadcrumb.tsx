@@ -6,7 +6,7 @@ interface BreadcrumbProps {
     /**@title Habilitar Caminho */
     showText: boolean;
     /**@title Caminho */
-    path: string;
+    path?: string;
     /**@title Rota Final */
     route: string;
 }

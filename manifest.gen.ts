@@ -13,8 +13,9 @@ import * as $$$1 from "./loaders/geolocation.ts";
 import * as $$$2 from "./loaders/icons.ts";
 import * as $$$3 from "./loaders/minicart.ts";
 import * as $$$4 from "./loaders/savedColors.ts";
-import * as $$$5 from "./loaders/user.ts";
-import * as $$$6 from "./loaders/wishlist.ts";
+import * as $$$5 from "./loaders/searchDocuments.ts";
+import * as $$$6 from "./loaders/user.ts";
+import * as $$$7 from "./loaders/wishlist.ts";
 import * as $$$$$$0 from "./sections/Animation/Animation.tsx";
 import * as $$$$$$1 from "./sections/BenefitsBar/BenefitsBar.tsx";
 import * as $$$$$$2 from "./sections/BreadcrumbInstitucional/Breadcrumb.tsx";
@@ -42,19 +43,22 @@ import * as $$$$$$23 from "./sections/Miscellaneous/CampaignTimer.tsx";
 import * as $$$$$$24 from "./sections/Miscellaneous/CookieConsent.tsx";
 import * as $$$$$$25 from "./sections/Miscellaneous/Spacer.tsx";
 import * as $$$$$$26 from "./sections/Newsletter/Newsletter.tsx";
-import * as $$$$$$27 from "./sections/Policy/Policy.tsx";
-import * as $$$$$$28 from "./sections/Product/ProductDetails.tsx";
-import * as $$$$$$29 from "./sections/Product/ProductShelf.tsx";
-import * as $$$$$$30 from "./sections/Product/ProductShelfTabbed.tsx";
-import * as $$$$$$31 from "./sections/Product/QuickView.tsx";
-import * as $$$$$$32 from "./sections/Product/SearchResult.tsx";
-import * as $$$$$$33 from "./sections/Product/ShelfWithImage.tsx";
-import * as $$$$$$34 from "./sections/Product/Wishlist.tsx";
-import * as $$$$$$35 from "./sections/Session.tsx";
-import * as $$$$$$36 from "./sections/Social/InstagramPosts.tsx";
-import * as $$$$$$37 from "./sections/Social/WhatsApp.tsx";
-import * as $$$$$$38 from "./sections/TabLayout/TabLayout.tsx";
-import * as $$$$$$39 from "./sections/Theme/Theme.tsx";
+import * as $$$$$$27 from "./sections/NossasLojas/NossasLojas.tsx";
+import * as $$$$$$28 from "./sections/NossasLojas/query.ts";
+import * as $$$$$$29 from "./sections/NossasLojas/types.ts";
+import * as $$$$$$30 from "./sections/Policy/Policy.tsx";
+import * as $$$$$$31 from "./sections/Product/ProductDetails.tsx";
+import * as $$$$$$32 from "./sections/Product/ProductShelf.tsx";
+import * as $$$$$$33 from "./sections/Product/ProductShelfTabbed.tsx";
+import * as $$$$$$34 from "./sections/Product/QuickView.tsx";
+import * as $$$$$$35 from "./sections/Product/SearchResult.tsx";
+import * as $$$$$$36 from "./sections/Product/ShelfWithImage.tsx";
+import * as $$$$$$37 from "./sections/Product/Wishlist.tsx";
+import * as $$$$$$38 from "./sections/Session.tsx";
+import * as $$$$$$39 from "./sections/Social/InstagramPosts.tsx";
+import * as $$$$$$40 from "./sections/Social/WhatsApp.tsx";
+import * as $$$$$$41 from "./sections/TabLayout/TabLayout.tsx";
+import * as $$$$$$42 from "./sections/Theme/Theme.tsx";
 
 const manifest = {
   "loaders": {
@@ -63,8 +67,9 @@ const manifest = {
     "site/loaders/icons.ts": $$$2,
     "site/loaders/minicart.ts": $$$3,
     "site/loaders/savedColors.ts": $$$4,
-    "site/loaders/user.ts": $$$5,
-    "site/loaders/wishlist.ts": $$$6,
+    "site/loaders/searchDocuments.ts": $$$5,
+    "site/loaders/user.ts": $$$6,
+    "site/loaders/wishlist.ts": $$$7,
   },
   "sections": {
     "site/sections/Animation/Animation.tsx": $$$$$$0,
@@ -94,19 +99,22 @@ const manifest = {
     "site/sections/Miscellaneous/CookieConsent.tsx": $$$$$$24,
     "site/sections/Miscellaneous/Spacer.tsx": $$$$$$25,
     "site/sections/Newsletter/Newsletter.tsx": $$$$$$26,
-    "site/sections/Policy/Policy.tsx": $$$$$$27,
-    "site/sections/Product/ProductDetails.tsx": $$$$$$28,
-    "site/sections/Product/ProductShelf.tsx": $$$$$$29,
-    "site/sections/Product/ProductShelfTabbed.tsx": $$$$$$30,
-    "site/sections/Product/QuickView.tsx": $$$$$$31,
-    "site/sections/Product/SearchResult.tsx": $$$$$$32,
-    "site/sections/Product/ShelfWithImage.tsx": $$$$$$33,
-    "site/sections/Product/Wishlist.tsx": $$$$$$34,
-    "site/sections/Session.tsx": $$$$$$35,
-    "site/sections/Social/InstagramPosts.tsx": $$$$$$36,
-    "site/sections/Social/WhatsApp.tsx": $$$$$$37,
-    "site/sections/TabLayout/TabLayout.tsx": $$$$$$38,
-    "site/sections/Theme/Theme.tsx": $$$$$$39,
+    "site/sections/NossasLojas/NossasLojas.tsx": $$$$$$27,
+    "site/sections/NossasLojas/query.ts": $$$$$$28,
+    "site/sections/NossasLojas/types.ts": $$$$$$29,
+    "site/sections/Policy/Policy.tsx": $$$$$$30,
+    "site/sections/Product/ProductDetails.tsx": $$$$$$31,
+    "site/sections/Product/ProductShelf.tsx": $$$$$$32,
+    "site/sections/Product/ProductShelfTabbed.tsx": $$$$$$33,
+    "site/sections/Product/QuickView.tsx": $$$$$$34,
+    "site/sections/Product/SearchResult.tsx": $$$$$$35,
+    "site/sections/Product/ShelfWithImage.tsx": $$$$$$36,
+    "site/sections/Product/Wishlist.tsx": $$$$$$37,
+    "site/sections/Session.tsx": $$$$$$38,
+    "site/sections/Social/InstagramPosts.tsx": $$$$$$39,
+    "site/sections/Social/WhatsApp.tsx": $$$$$$40,
+    "site/sections/TabLayout/TabLayout.tsx": $$$$$$41,
+    "site/sections/Theme/Theme.tsx": $$$$$$42,
   },
   "actions": {
     "site/actions/minicart/submit.ts": $$$$$$$$$0,
