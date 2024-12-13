@@ -813,11 +813,21 @@ html {
   --tw-content: attr(aria-label);
   content: var(--tw-content);
 }
+.\!card {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  border-radius: var(--rounded-box, 1rem) !important;
+}
 .card {
   position: relative;
   display: flex;
   flex-direction: column;
   border-radius: var(--rounded-box, 1rem);
+}
+.\!card:focus {
+  outline: 2px solid transparent !important;
+  outline-offset: 2px !important;
 }
 .card:focus {
   outline: 2px solid transparent;
@@ -829,13 +839,30 @@ html {
   align-items: flex-start;
   gap: 0.5rem;
 }
+.\!card figure {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
 .card figure {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.\!card.image-full {
+  display: grid !important;
+}
 .card.image-full {
   display: grid;
+}
+.\!card.image-full:before {
+  position: relative !important;
+  content: "" !important;
+  z-index: 10 !important;
+  border-radius: var(--rounded-box, 1rem) !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity))) !important;
+  opacity: 0.75 !important;
 }
 .card.image-full:before {
   position: relative;
@@ -846,15 +873,36 @@ html {
   background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
   opacity: 0.75;
 }
+.\!card.image-full:before,
+    .\!card.image-full > * {
+  grid-column-start: 1 !important;
+  grid-row-start: 1 !important;
+}
 .card.image-full:before,
     .card.image-full > * {
   grid-column-start: 1;
   grid-row-start: 1;
 }
+.\!card.image-full:before,
+    .\!card.image-full > * {
+  grid-column-start: 1 !important;
+  grid-row-start: 1 !important;
+}
+.\!card.image-full > figure img {
+  height: 100% !important;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+}
 .card.image-full > figure img {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.\!card.image-full > .card-body {
+  position: relative !important;
+  z-index: 20 !important;
+  --tw-text-opacity: 1 !important;
+  color: var(--fallback-nc,oklch(var(--nc)/var(--tw-text-opacity))) !important;
 }
 .card.image-full > .card-body {
   position: relative;
@@ -2181,12 +2229,26 @@ input.tab:checked + .tab-content,
     transform: scale(1);
   }
 }
+.\!card :where(figure:first-child) {
+  overflow: hidden !important;
+  border-start-start-radius: inherit !important;
+  border-start-end-radius: inherit !important;
+  border-end-start-radius: unset !important;
+  border-end-end-radius: unset !important;
+}
 .card :where(figure:first-child) {
   overflow: hidden;
   border-start-start-radius: inherit;
   border-start-end-radius: inherit;
   border-end-start-radius: unset;
   border-end-end-radius: unset;
+}
+.\!card :where(figure:last-child) {
+  overflow: hidden !important;
+  border-start-start-radius: unset !important;
+  border-start-end-radius: unset !important;
+  border-end-start-radius: inherit !important;
+  border-end-end-radius: inherit !important;
 }
 .card :where(figure:last-child) {
   overflow: hidden;
@@ -2195,14 +2257,28 @@ input.tab:checked + .tab-content,
   border-end-start-radius: inherit;
   border-end-end-radius: inherit;
 }
+.\!card:focus-visible {
+  outline: 2px solid currentColor !important;
+  outline-offset: 2px !important;
+}
 .card:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
+}
+.\!card.bordered {
+  border-width: 1px !important;
+  --tw-border-opacity: 1 !important;
+  border-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity))) !important;
 }
 .card.bordered {
   border-width: 1px;
   --tw-border-opacity: 1;
   border-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity)));
+}
+.\!card.compact .card-body {
+  padding: 1rem !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
 }
 .card.compact .card-body {
   padding: 1rem;
@@ -2216,6 +2292,10 @@ input.tab:checked + .tab-content,
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 600;
+}
+.\!card.image-full :where(figure) {
+  overflow: hidden !important;
+  border-radius: inherit !important;
 }
 .card.image-full :where(figure) {
   overflow: hidden;
@@ -4239,6 +4319,9 @@ details.collapse summary::-webkit-details-marker {
 .aspect-\[156\/87\] {
   aspect-ratio: 156/87;
 }
+.aspect-\[328\/466\] {
+  aspect-ratio: 328/466;
+}
 .aspect-\[90\/134\] {
   aspect-ratio: 90/134;
 }
@@ -4393,6 +4476,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .max-h-\[35px\] {
   max-height: 35px;
+}
+.max-h-\[42px\] {
+  max-height: 42px;
 }
 .max-h-\[55px\] {
   max-height: 55px;
@@ -4816,6 +4902,10 @@ details.collapse summary::-webkit-details-marker {
 }
 .rotate-180 {
   --tw-rotate: 180deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.rotate-45 {
+  --tw-rotate: 45deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .transform {
@@ -6120,6 +6210,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .opacity-20 {
   opacity: 0.2;
+}
+.opacity-50 {
+  opacity: 0.5;
 }
 .opacity-70 {
   opacity: 0.7;

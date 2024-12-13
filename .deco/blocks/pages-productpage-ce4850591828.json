@@ -48,6 +48,17 @@
       "__resolveType": "site/sections/Product/ProductBuyTogether.tsx",
       "page": {
         "__resolveType": "PDP Loader"
+      },
+      "buyTogetherLoader": {
+        "data": {
+          "__resolveType": "site/loaders/buyTogether.ts",
+          "collection": "794",
+          "slug": {
+            "__resolveType": "website/functions/requestToParam.ts",
+            "param": "slug"
+          }
+        },
+        "__resolveType": "resolved"
       }
     },
     {

@@ -28,7 +28,9 @@ const load = (id: string) => {
   const select = element?.querySelector<HTMLSelectElement>("select");
   const items = element?.querySelectorAll<HTMLButtonElement>("[data-item]");
   const useSvg = container?.querySelector("use");
-  if (!container || !items || !itemsContainer || !useSvg || !select) return;
+  const name = container?.querySelector("#itemName");
+  if (!container || !items || !itemsContainer || !useSvg || !select || !name)
+    return;
 
   container.addEventListener("click", () => {
     if (itemsContainer.style.height === "0px") {
@@ -52,6 +54,7 @@ const load = (id: string) => {
     item.addEventListener("click", () => {
       select.selectedIndex = index;
       itemsContainer.style.height = `0px`;
+      name.textContent = item.textContent;
       const newIcon =
         useSvg
           .getAttribute("href")
@@ -78,7 +81,7 @@ export default function Selector({ values, placeholder, selectProps }: Props) {
         type="button"
         class="border border-primary border-dashed rounded-lg h-10 bg-white flex items-center justify-between px-3 w-full"
       >
-        <span class="text-sm text-[#676767]">
+        <span class="text-sm text-[#676767]" id="itemName">
           {selectedValue?.label ?? placeholder}
         </span>
         <Icon id="chevron-right" class="text-primary min-w-[18px]" size={18} />

@@ -4,7 +4,7 @@ import { AppContext } from "site/apps/deco/vtex.ts";
 import { getRandomNumber } from "site/sdk/numberUtils.ts";
 import { pickRandomItem } from "site/sdk/arrayUtils.ts";
 
-interface Props {
+export interface BuyTogetherProps {
   /**
    * @title Collection ID
    * @description (e.g.: 150)
@@ -28,10 +28,10 @@ export type BuyTogetherResponse = {
 } | null;
 
 export default async function loader(
-  props: Props,
+  props: BuyTogetherProps,
   _req: Request,
   ctx: AppContext,
-) {
+): Promise<BuyTogetherResponse> {
   const { collection, slug } = props;
 
   const principalProductPage = await ctx.invoke.vtex.loaders.intelligentSearch
@@ -44,6 +44,7 @@ export default async function loader(
     .productListingPage({
       count: 1,
       query: "",
+      hideUnavailableItems: true,
       selectedFacets: [{
         key: "productClusterIds",
         value: collection,
@@ -64,6 +65,7 @@ export default async function loader(
         count: itensPerPage,
         query: "",
         page: randomPage,
+        hideUnavailableItems: true,
         selectedFacets: [{
           key: "productClusterIds",
           value: collection,
