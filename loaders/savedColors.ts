@@ -1,21 +1,21 @@
-import { FilterSettings } from "site/components/search/Filters/index.tsx";
-
 /** @title {{name}} */
-export interface ColorItem {
-    name: string;
-    hexadecimals: string[];
+export interface ColorItemProps {
+  name: string;
+  hexadecimals: string[];
 }
 
 export interface LoaderFilterSettings {
-    colors: ColorItem[];
+  colors: ColorItemProps[];
 }
 
-interface Props {
-    settings: LoaderFilterSettings;
+export interface ExportedColorItem {
+  name: string;
+  hexadecimals: string[];
 }
+
 /**@title Saved Colors Loader */
 export default function Loader(
-    props: Props,
-): FilterSettings {
-    return props.settings;
+  props: LoaderFilterSettings,
+): ExportedColorItem[] {
+  return props.colors;
 }

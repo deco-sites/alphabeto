@@ -25,7 +25,7 @@ function ProductImageZoom({ images, width, height, id = useId() }: Props) {
           {images.map((image, index) => (
             <Slider.Item
               index={index}
-              class="carousel-item w-full h-full justify-center items-center"
+              class="carousel-item w-full h-full justify-center items-center overflow-hidden"
             >
               <Image
                 style={{ aspectRatio: `${width} / ${height}` }}
