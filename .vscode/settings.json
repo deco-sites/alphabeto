@@ -18,8 +18,5 @@
   },
   "files.associations": {
     "*.svg": "html"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
   }
 }
