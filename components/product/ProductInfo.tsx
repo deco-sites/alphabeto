@@ -1,6 +1,5 @@
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import { useScriptAsDataURI } from "@deco/deco/hooks";
 import AddToCartButton from "site/components/product/AddToCartButton.tsx";
 import OutOfStock from "site/components/product/OutOfStock.tsx";
 import ProductAgeRangeIndicator from "site/components/product/ProductAgeRangeIndicator.tsx";
@@ -11,7 +10,7 @@ import ProductShare from "site/components/product/ProductShare.tsx";
 import ProductSizebay from "site/components/product/ProductSizebay.tsx";
 import ProductSmallDescription from "site/components/product/ProductSmallDescription.tsx";
 import ProductTextInfoDiscloujure from "site/components/product/ProductTextInfoDiscloujure.tsx";
-import ProductSelector from "site/components/product/ProductVariantSelector.tsx";
+import ProductSelector from "site/components/product/ProductVariantSelectorPDP.tsx";
 import ShippingSimulationForm from "site/components/shipping/Form.tsx";
 import WishlistButton from "site/components/wishlist/WishlistButton.tsx";
 import { SizeBaySettings } from "site/loaders/sizebay.ts";
@@ -189,11 +188,6 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
       <ProductPartCare product={product} />
       {/* Product Share */}
       <ProductShare product={product} />
-      <script
-        src={useScriptAsDataURI((data: unknown) => {
-          console.log(data);
-        }, page)}
-      />
     </div>
   );
 }

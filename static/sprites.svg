@@ -11,6 +11,8 @@
   <symbol id="chevron-up" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M17 11L12 6L7 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
     <path d="M17 18L12 13L7 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M17 11L12 6L7 11" stroke="#FF8300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M17 18L12 13L7 18" stroke="#FF8300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
   </symbol>
   <symbol id="favorite" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z" /></symbol>
   <symbol id="chevron-left" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -330,5 +332,9 @@
   </symbol>
   <symbol id="product_rating_star" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M6 0L7.34708 4.1459H11.7063L8.17963 6.7082L9.52671 10.8541L6 8.2918L2.47329 10.8541L3.82037 6.7082L0.293661 4.1459H4.65292L6 0Z" fill="currentColor" />
+  </symbol>
+  <symbol id="stars-cat-2-mobile" width="66" height="94" viewBox="0 0 66 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M14.1137 54.2187C13.3635 54.14 12.6567 54.0324 12 53.9014C12.6853 53.9014 13.3911 54.0107 14.1137 54.2187C25.1385 55.3743 45.51 50.2651 53.2308 21C54.9487 33.338 62.5077 58.4254 79 60.0704C67.6615 66.5822 44.9846 82.4845 44.9846 94C38.8737 81.4883 24.6943 57.2647 14.1137 54.2187Z" fill="#F6D814" />
+    <path d="M1.16726 19.1121C0.753003 19.0669 0.36264 19.0049 0 18.9296C0.37845 18.9296 0.768222 18.9924 1.16726 19.1121C7.25558 19.777 18.5055 16.8374 22.7692 0C23.7179 7.09859 27.8923 21.5324 37 22.4789C30.7385 26.2254 18.2154 35.3746 18.2154 42C14.8407 34.8015 7.01031 20.8646 1.16726 19.1121Z" fill="#F6D814" />
   </symbol>
 </svg>

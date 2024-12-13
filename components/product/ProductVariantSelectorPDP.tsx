@@ -1,12 +1,12 @@
 import { useSection } from "@deco/deco/hooks";
 import type { Product } from "apps/commerce/types.ts";
 import { ExportedColorItem } from "site/loaders/savedColors.ts";
+import { clx } from "site/sdk/clx.ts";
 import { makeBackgroundFromHexadecimals } from "site/sdk/makeBackgroundFromHexadecimals.ts";
 import { uppercaseFirstLetter } from "site/sdk/stringUtils.ts";
-import { clx } from "../../sdk/clx.ts";
-import { relative } from "../../sdk/url.ts";
-import { useId } from "../../sdk/useId.ts";
-import { useVariantPossibilities } from "../../sdk/useVariantPossiblities.ts";
+import { relative } from "site/sdk/url.ts";
+import { useId } from "site/sdk/useId.ts";
+import { useVariantPossibilities } from "site/sdk/useVariantPossiblities.ts";
 
 interface Props {
   product: Product;
@@ -105,7 +105,7 @@ function VariantLabel({
   };
   const selectedLabelOrDefault =
     labelsMap[variantName.toLowerCase() as keyof typeof labelsMap] ??
-      variantName;
+    variantName;
   if (variantName.toLowerCase() === "cor") {
     selectedValue = uppercaseFirstLetter(selectedValue.toLowerCase());
   }
@@ -117,7 +117,7 @@ function VariantLabel({
   );
 }
 
-function VariantSelector({ product, colors }: Props) {
+function VariantSelectorPDP({ product, colors }: Props) {
   const { url, isVariantOf } = product;
   const hasVariant = isVariantOf?.hasVariant ?? [];
   const possibilities = useVariantPossibilities(hasVariant, product);
@@ -199,4 +199,4 @@ function VariantSelector({ product, colors }: Props) {
     </ul>
   );
 }
-export default VariantSelector;
+export default VariantSelectorPDP;
