@@ -84,3 +84,68 @@
 .radio:checked {
   box-shadow: 0 0 0 4px white inset, 0 0 0 4px white inset;
 }
+
+.breadcrumbs > ul > li + *:before,
+.breadcrumbs > ol > li + *:before {
+  content: "|";
+  height: auto;
+  width: auto;
+  transform: unset;
+  border-top: unset;
+  border-right: unset;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 120%;
+  color: #353535;
+}
+
+.double-range {
+  margin-top: 20px;
+}
+.double-range .range-slider {
+  height: 3px;
+  position: relative;
+  background-color: #e8e7e5;
+  border-radius: 100px;
+}
+.double-range .range-fill {
+  height: 100%;
+  left: 30%;
+  right: 30%;
+  position: absolute;
+  border-radius: 5px;
+  background-color: #d6de23;
+}
+.double-range .range-input {
+  position: relative;
+}
+.double-range .range-input input {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  top: -5px;
+  background: none;
+  pointer-events: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.double-range .range-input input::-webkit-slider-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background-color: #ff8300;
+  border: 5px solid #d6de23;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+.double-range .range-input input::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background-color: #ff8300;
+  border: 5px solid #d6de23;
+  pointer-events: auto;
+  -moz-appearance: none;
+  cursor: pointer;
+}

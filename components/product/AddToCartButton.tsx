@@ -120,10 +120,13 @@ function AddToCartButton(props: Props) {
 
       <button
         disabled
-        class={clx("flex-grow peer-checked:hidden", _class?.toString())}
+        class={clx(
+          "flex-grow peer-checked:hidden text-sm font-bold text-white text-center bg-[#FF8300] py-[13px] px-5",
+          _class?.toString(),
+        )}
         hx-on:click={useScript(onClick)}
       >
-        Add to Cart
+        Adicionar à sacola
       </button>
 
       {/* Quantity Input */}
