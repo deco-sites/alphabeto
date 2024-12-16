@@ -5366,6 +5366,9 @@ details.collapse summary::-webkit-details-marker {
 .\!pr-0 {
   padding-right: 0px !important;
 }
+.pb-0 {
+  padding-bottom: 0px;
+}
 .pb-1 {
   padding-bottom: 0.25rem;
 }
@@ -6456,10 +6459,6 @@ details.collapse summary::-webkit-details-marker {
     margin-bottom: 20px;
   }
 
-  .mobile\:mb-\[65\%\] {
-    margin-bottom: 65%;
-  }
-
   .mobile\:ml-0 {
     margin-left: 0px;
   }
@@ -6554,10 +6553,6 @@ details.collapse summary::-webkit-details-marker {
     padding-bottom: 15px;
   }
 
-  .mobile\:pb-\[65\%\] {
-    padding-bottom: 65%;
-  }
-
   .mobile\:text-left {
     text-align: left;
   }
@@ -6616,20 +6611,12 @@ details.collapse summary::-webkit-details-marker {
     top: 240px;
   }
 
-  .tablet\:mb-\[45\%\] {
-    margin-bottom: 45%;
-  }
-
   .tablet\:flex {
     display: flex;
   }
 
   .tablet\:hidden {
     display: none;
-  }
-
-  .tablet\:pb-\[45\%\] {
-    padding-bottom: 45%;
   }
 }
 @media (min-width: 1024px) {
@@ -6905,6 +6892,10 @@ details.collapse summary::-webkit-details-marker {
 }
 @media (max-width: 1200px) {
 
+  .desk-small\:mb-\[45\%\] {
+    margin-bottom: 45%;
+  }
+
   .desk-small\:flex {
     display: flex;
   }
@@ -6920,6 +6911,10 @@ details.collapse summary::-webkit-details-marker {
   .desk-small\:gap-x-3 {
     -moz-column-gap: 0.75rem;
          column-gap: 0.75rem;
+  }
+
+  .desk-small\:pb-\[45\%\] {
+    padding-bottom: 45%;
   }
 
   .desk-small\:text-\[12px\] {

@@ -1,21 +1,93 @@
-import type { ImageWidget } from "apps/admin/widgets.ts";
-import {
-  AboutUsProps,
-  AdditionalInfo,
-  CompanyProps,
-} from "site/sections/AboutUs/AboutUs.type.ts";
 import Icon from "site/components/ui/Icon.tsx";
+import type { ImageWidget, RichText } from "apps/admin/widgets.ts";
+
+import Image from "apps/website/components/Image.tsx";
+import { Picture, Source } from "apps/website/components/Picture.tsx";
+
+/**@title Imagems */
+interface ImageProps {
+    /**@title Primeira Imagem da primeira seção */
+    firstImage?: ImageWidget;
+    /**@title Texto alternativo */
+    altFirstImage?: string;
+    /**@title Segunda Imagem da primeira seção */
+    secondFirstImage?: ImageWidget;
+    /**@title Texto alternativo */
+    altSecondFirstImage?: string;
+    /**@title Segunda Imagem da segunda seção */
+    secondImage?: ImageWidget;
+    /**@title Texto alternativo */
+    altSecondImage?: string;
+}
+  
+/**@title Vídeos */
+interface VideoProps {
+    /**@title Título da seção de vídeo */
+    videoTitle: string;
+    /**@title Texto da seção de vídeo */
+    videoText: RichText;
+    /**@title URL do Vídeo */
+    video: string;
+}
+
+  
+/**@title Informação */
+interface InfoItemsProps {
+    /**@title Informação principal */
+    mainInfo: RichText;
+    /**@title Texto sobre a informação */
+    textAboutInfo: string;
+}
+
+/**@title {{ alt }} */
+interface AdditionalInfoImages {
+  image: ImageWidget;
+  alt: string;
+}
+
+/**@title Informações adicionais */
+export interface AdditionalInfo {
+    title?: string;
+    subtitle?: RichText;
+    image: AdditionalInfoImages[];
+}
+
+/**@title Informações sobre a empresa */
+export interface CompanyProps {
+    /**@title Título */
+    title?: string;
+    /**@title Subtítulo */
+    subTitle?: string;
+    /**@title Pontos de informação */
+    items?: InfoItemsProps[];
+    /**@title Texto geral */
+    text?: RichText;
+  }
+  
+  /**@title Parágrafos */
+export interface AboutUsProps {
+    /**@title Primeiro Parágrafo */
+    firstText?: RichText;
+    /**@title Segundo Parágrafo */
+    secondText?: RichText;
+    images?: ImageProps;
+    video?: VideoProps;
+  }
 
 /**@title Conteúdo */
 interface ItemsAboutUs {
   /**@title Banner principal */
-  banner?: ImageWidget;
+  bannerDesktop?: ImageWidget;
   /**@title Banner principal Mobile */
   bannerMobile?: ImageWidget;
+  /**@title Texto alternativo Banner*/
+  altBanner?: string;
   /**@title Título da página */
   title?: string;
   /**@title Logo */
   logo?: ImageWidget;
+  /**@title Texto alternativo Logo*/
+  altLogo: string;
   /**@title Paragráfos */
   items: AboutUsProps[];
   /**@title Sobre a empresa */
@@ -25,19 +97,44 @@ interface ItemsAboutUs {
 }
 
 export default function AboutUs(
-  { items, company, additionalInfo, title, logo, banner, bannerMobile }:
+  { items, company, additionalInfo, title, logo, altLogo, bannerDesktop, bannerMobile, altBanner }:
     ItemsAboutUs,
 ) {
   return (
     <>
       <div class="flex justify-center w-full">
-        <img class="hidden tablet:flex" src={banner} alt="" />
-        <img class="flex tablet:hidden" src={bannerMobile} alt="" />
+        <Picture>
+        <Source 
+        class="hidden tablet:flex"
+        media="(min-width: 768px)" 
+        src={bannerDesktop ? bannerDesktop : ""} 
+        width={1440}
+        height={230}
+        />
+
+        <Source 
+        class="flex tablet:hidden"
+        media="(max-width: 768px)" 
+        src={bannerMobile ? bannerMobile : ""} 
+        width={375}
+        height={230} 
+        />
+
+        <img 
+        src={bannerDesktop} 
+        alt={altBanner} />
+        </Picture>
       </div>
       <div
         class={`h-64 mobile:h-[120px] w-full flex flex-col items-center mt-[40px]`}
       >
-        <img class="mobile:w-[335px]" src={logo} alt="" />
+        <Image 
+        class="mobile:w-[335px]" 
+        src={logo ? logo : ""}
+        alt={altLogo}
+        width={920}
+        height={170}
+         />
         <h2 class="font-beccaPerry absolute mobile:mt-[32px] mt-[64px] text-[44px] mobile:text-[32px] text-[#676767]">
           {title}
         </h2>
@@ -61,21 +158,29 @@ export default function AboutUs(
                 height="50"
                 class="absolute mt-[60px] right-[350px] z-10 hidden tablet:flex desk-small:hidden"
               />
-              <img
+              <Image
                 class="absolute z-5 top-[-100px] right-0 w-[389px] hidden tablet:flex desk-small:hidden"
-                src={items.images?.firstImage}
+                src={items.images?.firstImage ? items.images?.firstImage : ""}
+                alt={items.images?.altFirstImage}
+                width={389}
+                height={417}
               />
-              <img
+              <Image
                 class="absolute mt-[100px] z-5 top-0 right-[-40px] w-[320px] hidden tablet:flex desk-small:hidden"
-                src={items.images?.secondFirstImage}
-                alt=""
+                src={items.images?.secondFirstImage ? items.images?.secondFirstImage : ""}
+                alt={items.images?.altSecondFirstImage}
+                width={320}
+                height={256}
               />
             </div>
           </div>
-          <div class="relative flex items-center mobile:mb-[65%] tablet:mb-[45%] mobile:pb-[65%] tablet:pb-[45%]">
-            <img
+          <div class="relative flex items-center desk-small:mb-[45%] desk-small:pb-[45%] pb-0 mb-0">
+            <Image
               class="mobile:absolute mobile:top-[20px] mobile:scale-x-[-1] mobile:right-[0px] mobile:w-[108px] mobile:rotate-[-30deg]"
-              src={items.images?.secondImage}
+              src={items.images?.secondImage ? items.images?.secondImage : ""}
+              alt={items.images?.altSecondImage}
+              width={100}
+              height={120}
             />
             <div class="font-regular text-[12px] text-[#7E7F88] max-w-[700px] mobile:max-w-[70%] mt-[65px]">
               <p
@@ -89,14 +194,19 @@ export default function AboutUs(
                 height="50"
                 class="absolute mt-[60px] top-[340px] right-[30px] z-10 flex tablet:hidden tablet:top-[140px] tablet:right-[170px] desk-small:flex"
               />
-              <img
+              <Image
                 class="absolute z-5 top-[390px] right-[20px] w-[300px] flex tablet:hidden tablet:top-[190px] tablet:right-[160px] desk-small:flex"
-                src={items.images?.firstImage}
+                src={items.images?.firstImage ? items.images?.firstImage : ""}
+                alt={items.images?.altFirstImage}
+                width={300}
+                height={328}
               />
-              <img
+              <Image
                 class="absolute mt-[100px] z-5 top-[440px] right-0 w-[200px] flex tablet:hidden tablet:top-[240px] tablet:right-[140px] desk-small:flex"
-                src={items.images?.secondFirstImage}
-                alt=""
+                src={items.images?.secondFirstImage ? items.images?.secondFirstImage : ""}
+                alt={items.images?.altSecondFirstImage}
+                width={200}
+                height={190}
               />
             </div>
           </div>
@@ -204,10 +314,12 @@ export default function AboutUs(
           </div>
           <span class="flex container justify-center w-full">
             {additionalInfo.image?.map((image) => (
-              <img
+              <Image
                 class="mx-[20px] mobile:mx-[8.5px] mobile:w-[100px]"
-                src={image}
-                alt=""
+                src={image.image}
+                width={120}
+                height={120}
+                alt={image.alt}
               />
             ))}
           </span>
