@@ -32,6 +32,7 @@ export interface Column {
 export interface Newsletter {
   title: RichText;
   description?: string;
+  image?: ImageWidget; 
   /** @hide true */
   formState?: "idle" | "success" | "error";
 }

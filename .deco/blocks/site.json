@@ -64,6 +64,12 @@
         ]
       },
       "freeShippingBarSettings": {}
+    },
+    {
+      "__resolveType": "site/sections/PopupDeEntrada/PopupDeEntrada.tsx",
+      "title": "<p><span>Cadastre-se e ganhe 10% de desconto!</span></p>",
+      "description": "Ganhe um super cupom de desconto na sua primeira compra na Alphabeto!",
+      "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ad8c11e9-a273-4237-9834-7f9cf34f5672/image-26.png"
     }
   ],
   "routes": [
@@ -99,6 +105,9 @@
   "abTesting": {
     "replaces": [],
     "includeScriptsToHead": {
+      "includes": []
+    },
+    "includeScriptsToBody": {
       "includes": []
     }
   },
