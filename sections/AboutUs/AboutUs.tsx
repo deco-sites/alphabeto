@@ -65,7 +65,7 @@ export interface CompanyProps {
   }
   
   /**@title Parágrafos */
-export interface AboutUsProps {
+export interface Item {
     /**@title Primeiro Parágrafo */
     firstText?: RichText;
     /**@title Segundo Parágrafo */
@@ -75,7 +75,7 @@ export interface AboutUsProps {
   }
 
 /**@title Conteúdo */
-interface ItemsAboutUs {
+interface Props {
   /**@title Banner principal */
   bannerDesktop?: ImageWidget;
   /**@title Banner principal Mobile */
@@ -89,7 +89,7 @@ interface ItemsAboutUs {
   /**@title Texto alternativo Logo*/
   altLogo: string;
   /**@title Paragráfos */
-  items: AboutUsProps[];
+  items: Item[];
   /**@title Sobre a empresa */
   company: CompanyProps;
   /**@title Informação adicional */
@@ -98,7 +98,7 @@ interface ItemsAboutUs {
 
 export default function AboutUs(
   { items, company, additionalInfo, title, logo, altLogo, bannerDesktop, bannerMobile, altBanner }:
-    ItemsAboutUs,
+    Props,
 ) {
   return (
     <>
