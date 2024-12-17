@@ -1,3 +1,4 @@
+// deno-lint-ignore-file
 import { ImageWidget } from "apps/admin/widgets.ts";
 import { Product } from "apps/commerce/types.ts";
 import { LoadingFallbackProps } from "@deco/deco";
