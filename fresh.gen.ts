@@ -3,6 +3,7 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import * as $_app from "./routes/_app.tsx";
+import * as $LgpdButton from "./islands/LgpdButton.tsx";
 import * as $Map from "./islands/Map.tsx";
 import * as $MenuInstitutionalMobile from "./islands/MenuInstitutionalMobile.tsx";
 import * as $MinicartFooter from "./islands/MinicartFooter.tsx";
@@ -18,6 +19,7 @@ const manifest = {
     "./routes/_app.tsx": $_app,
   },
   islands: {
+    "./islands/LgpdButton.tsx": $LgpdButton,
     "./islands/Map.tsx": $Map,
     "./islands/MenuInstitutionalMobile.tsx": $MenuInstitutionalMobile,
     "./islands/MinicartFooter.tsx": $MinicartFooter,
