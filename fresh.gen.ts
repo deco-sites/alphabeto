@@ -12,6 +12,7 @@ import * as $ProductTextInfoDiscloujure from "./islands/ProductTextInfoDisclouju
 import * as $ScrollButton from "./islands/ScrollButton.tsx";
 import * as $Selector from "./islands/Selector.tsx";
 import * as $ShowPriceItem from "./islands/ShowPriceItem.tsx";
+import * as $StarSelector from "./islands/StarSelector.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -28,6 +29,7 @@ const manifest = {
     "./islands/ScrollButton.tsx": $ScrollButton,
     "./islands/Selector.tsx": $Selector,
     "./islands/ShowPriceItem.tsx": $ShowPriceItem,
+    "./islands/StarSelector.tsx": $StarSelector,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

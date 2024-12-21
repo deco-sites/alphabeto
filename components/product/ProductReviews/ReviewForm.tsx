@@ -1,5 +1,5 @@
 import Input, { TextArea } from "site/components/ui/Input.tsx";
-import StarSelector from "site/components/product/ProductReviews/StarSelector.tsx";
+import StarSelector from "site/islands/StarSelector.tsx";
 import Button, { ButtonType } from "site/components/ui/Button.tsx";
 import { useScript } from "@deco/deco/hooks";
 import { SHOW_REVIEW_BUTTON_ID } from "site/components/product/ProductReviews/index.tsx";
