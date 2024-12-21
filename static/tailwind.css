@@ -813,21 +813,11 @@ html {
   --tw-content: attr(aria-label);
   content: var(--tw-content);
 }
-.\!card {
-  position: relative !important;
-  display: flex !important;
-  flex-direction: column !important;
-  border-radius: var(--rounded-box, 1rem) !important;
-}
 .card {
   position: relative;
   display: flex;
   flex-direction: column;
   border-radius: var(--rounded-box, 1rem);
-}
-.\!card:focus {
-  outline: 2px solid transparent !important;
-  outline-offset: 2px !important;
 }
 .card:focus {
   outline: 2px solid transparent;
@@ -839,30 +829,13 @@ html {
   align-items: flex-start;
   gap: 0.5rem;
 }
-.\!card figure {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
 .card figure {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.\!card.image-full {
-  display: grid !important;
-}
 .card.image-full {
   display: grid;
-}
-.\!card.image-full:before {
-  position: relative !important;
-  content: "" !important;
-  z-index: 10 !important;
-  border-radius: var(--rounded-box, 1rem) !important;
-  --tw-bg-opacity: 1 !important;
-  background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity))) !important;
-  opacity: 0.75 !important;
 }
 .card.image-full:before {
   position: relative;
@@ -873,36 +846,15 @@ html {
   background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
   opacity: 0.75;
 }
-.\!card.image-full:before,
-    .\!card.image-full > * {
-  grid-column-start: 1 !important;
-  grid-row-start: 1 !important;
-}
 .card.image-full:before,
     .card.image-full > * {
   grid-column-start: 1;
   grid-row-start: 1;
 }
-.\!card.image-full:before,
-    .\!card.image-full > * {
-  grid-column-start: 1 !important;
-  grid-row-start: 1 !important;
-}
-.\!card.image-full > figure img {
-  height: 100% !important;
-  -o-object-fit: cover !important;
-     object-fit: cover !important;
-}
 .card.image-full > figure img {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-}
-.\!card.image-full > .card-body {
-  position: relative !important;
-  z-index: 20 !important;
-  --tw-text-opacity: 1 !important;
-  color: var(--fallback-nc,oklch(var(--nc)/var(--tw-text-opacity))) !important;
 }
 .card.image-full > .card-body {
   position: relative;
@@ -1656,6 +1608,35 @@ html {
   background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
   --tw-bg-opacity: 1;
 }
+.\!select {
+  display: inline-flex !important;
+  cursor: pointer !important;
+  -webkit-user-select: none !important;
+     -moz-user-select: none !important;
+          user-select: none !important;
+  -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+          appearance: none !important;
+  height: 3rem !important;
+  min-height: 3rem !important;
+  padding-left: 1rem !important;
+  padding-right: 2.5rem !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  line-height: 2 !important;
+  border-radius: var(--rounded-btn, 0.5rem) !important;
+  border-width: 1px !important;
+  border-color: transparent !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity))) !important;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%) !important;
+  background-position: calc(100% - 20px) calc(1px + 50%),
+    calc(100% - 16.1px) calc(1px + 50%) !important;
+  background-size: 4px 4px,
+    4px 4px !important;
+  background-repeat: no-repeat !important;
+}
 .select {
   display: inline-flex;
   cursor: pointer;
@@ -1684,6 +1665,9 @@ html {
   background-size: 4px 4px,
     4px 4px;
   background-repeat: no-repeat;
+}
+.\!select[multiple] {
+  height: auto !important;
 }
 .select[multiple] {
   height: auto;
@@ -2203,26 +2187,12 @@ input.tab:checked + .tab-content,
     transform: scale(1);
   }
 }
-.\!card :where(figure:first-child) {
-  overflow: hidden !important;
-  border-start-start-radius: inherit !important;
-  border-start-end-radius: inherit !important;
-  border-end-start-radius: unset !important;
-  border-end-end-radius: unset !important;
-}
 .card :where(figure:first-child) {
   overflow: hidden;
   border-start-start-radius: inherit;
   border-start-end-radius: inherit;
   border-end-start-radius: unset;
   border-end-end-radius: unset;
-}
-.\!card :where(figure:last-child) {
-  overflow: hidden !important;
-  border-start-start-radius: unset !important;
-  border-start-end-radius: unset !important;
-  border-end-start-radius: inherit !important;
-  border-end-end-radius: inherit !important;
 }
 .card :where(figure:last-child) {
   overflow: hidden;
@@ -2231,28 +2201,14 @@ input.tab:checked + .tab-content,
   border-end-start-radius: inherit;
   border-end-end-radius: inherit;
 }
-.\!card:focus-visible {
-  outline: 2px solid currentColor !important;
-  outline-offset: 2px !important;
-}
 .card:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
-}
-.\!card.bordered {
-  border-width: 1px !important;
-  --tw-border-opacity: 1 !important;
-  border-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity))) !important;
 }
 .card.bordered {
   border-width: 1px;
   --tw-border-opacity: 1;
   border-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity)));
-}
-.\!card.compact .card-body {
-  padding: 1rem !important;
-  font-size: 0.875rem !important;
-  line-height: 1.25rem !important;
 }
 .card.compact .card-body {
   padding: 1rem;
@@ -2266,10 +2222,6 @@ input.tab:checked + .tab-content,
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 600;
-}
-.\!card.image-full :where(figure) {
-  overflow: hidden !important;
-  border-radius: inherit !important;
 }
 .card.image-full :where(figure) {
   overflow: hidden;
@@ -3007,6 +2959,14 @@ details.collapse summary::-webkit-details-marker {
     transform: translateY(0);
   }
 }
+.\!select:focus {
+  box-shadow: none !important;
+  border-color: var(--fallback-bc,oklch(var(--bc)/0.2)) !important;
+  outline-style: solid !important;
+  outline-width: 2px !important;
+  outline-offset: 2px !important;
+  outline-color: var(--fallback-bc,oklch(var(--bc)/0.2)) !important;
+}
 .select:focus {
   box-shadow: none;
   border-color: var(--fallback-bc,oklch(var(--bc)/0.2));
@@ -3014,6 +2974,16 @@ details.collapse summary::-webkit-details-marker {
   outline-width: 2px;
   outline-offset: 2px;
   outline-color: var(--fallback-bc,oklch(var(--bc)/0.2));
+}
+
+  .\!select:disabled,
+  .\!select[disabled] {
+  cursor: not-allowed !important;
+  --tw-border-opacity: 1 !important;
+  border-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity))) !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity))) !important;
+  --tw-text-opacity: 0.2 !important;
 }
 .select-disabled,
   .select:disabled,
@@ -3025,6 +2995,26 @@ details.collapse summary::-webkit-details-marker {
   background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity)));
   --tw-text-opacity: 0.2;
 }
+
+  .\!select:disabled,
+  .\!select[disabled] {
+  cursor: not-allowed !important;
+  --tw-border-opacity: 1 !important;
+  border-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity))) !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity))) !important;
+  --tw-text-opacity: 0.2 !important;
+}
+.\!select:disabled::-moz-placeholder, .\!select[disabled]::-moz-placeholder {
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-placeholder-opacity))) !important;
+  --tw-placeholder-opacity: 0.2 !important;
+}
+
+  .\!select:disabled::placeholder,
+  .\!select[disabled]::placeholder {
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-placeholder-opacity))) !important;
+  --tw-placeholder-opacity: 0.2 !important;
+}
 .select-disabled::-moz-placeholder, .select:disabled::-moz-placeholder, .select[disabled]::-moz-placeholder {
   color: var(--fallback-bc,oklch(var(--bc)/var(--tw-placeholder-opacity)));
   --tw-placeholder-opacity: 0.2;
@@ -3035,11 +3025,37 @@ details.collapse summary::-webkit-details-marker {
   color: var(--fallback-bc,oklch(var(--bc)/var(--tw-placeholder-opacity)));
   --tw-placeholder-opacity: 0.2;
 }
+.\!select:disabled::-moz-placeholder, .\!select[disabled]::-moz-placeholder {
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-placeholder-opacity))) !important;
+  --tw-placeholder-opacity: 0.2 !important;
+}
+
+  .\!select:disabled::placeholder,
+  .\!select[disabled]::placeholder {
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-placeholder-opacity))) !important;
+  --tw-placeholder-opacity: 0.2 !important;
+}
+
+  .\!select[multiple],
+  .\!select[size].\!select:not([size="1"]) {
+  background-image: none !important;
+  padding-right: 1rem !important;
+}
 .select-multiple,
   .select[multiple],
   .select[size].select:not([size="1"]) {
   background-image: none;
   padding-right: 1rem;
+}
+
+  .\!select[multiple],
+  .\!select[size].\!select:not([size="1"]) {
+  background-image: none !important;
+  padding-right: 1rem !important;
+}
+[dir="rtl"] .\!select {
+  background-position: calc(0% + 12px) calc(1px + 50%),
+    calc(0% + 16px) calc(1px + 50%) !important;
 }
 [dir="rtl"] .select {
   background-position: calc(0% + 12px) calc(1px + 50%),
