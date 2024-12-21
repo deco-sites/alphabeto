@@ -4,7 +4,7 @@ import dayjs from "https://cdn.skypack.dev/dayjs";
 import "https://cdn.skypack.dev/dayjs/locale/pt-br";
 import relativeTime from "https://cdn.skypack.dev/dayjs/plugin/relativeTime";
 import updateLocale from "https://cdn.skypack.dev/dayjs/plugin/updateLocale";
-import Selector from "site/components/product/ProductBuyTogether/Selector.tsx";
+import Selector from "site/islands/Selector.tsx";
 import ProductRating from "site/components/product/ProductRating.tsx";
 import ReviewForm, {
   REVIEW_FORM_CONTAINER_ID,
@@ -15,6 +15,7 @@ import { VtexReviewsLoader } from "site/loaders/vtexReviewsAndRatings/index.ts";
 import { useId } from "site/sdk/useId.ts";
 import { useComponent } from "site/sections/Component.tsx";
 import Spacer from "site/sections/Miscellaneous/Spacer.tsx";
+import { ReloadProps } from "site/components/product/ProductReviews/Reload.tsx";
 dayjs.extend(relativeTime);
 dayjs.extend(updateLocale);
 
@@ -60,38 +61,9 @@ export interface Props {
 
 export const SHOW_REVIEW_BUTTON_ID = "show-review-button";
 
-const submitFilterForm = () => {
-  const form = document.querySelector<HTMLFormElement>("#filter-form-review");
-  if (!form) return;
-  const url = new URL(form.getAttribute("hx-get") ?? "", window.location.href);
-  const props = JSON.parse(
-    decodeURIComponent(url.searchParams.get("props") ?? ""),
-  );
-  props.props.reloadSettings.filterBy = form.querySelector<HTMLSelectElement>(
-    "#filterBy",
-  )?.value;
-  props.props.reloadSettings.sortBy = form.querySelector<HTMLSelectElement>(
-    "#sortBy",
-  )?.value;
-  url.searchParams.set("props", JSON.stringify(props));
-  form.setAttribute("hx-get", url.href);
-  htmx.process(form);
-  document
-    .querySelector<HTMLButtonElement>(
-      "#filter-form-review button[type='submit']",
-    )
-    ?.click();
-};
-
 export default function ProductReviews(props: Props) {
   const hasReviews = props.data.review.length > 0;
   const formattedDate = (date: string) => dayjs(date).locale("pt-BR").fromNow();
-  const currentFilterValue =
-    props.data.currentFilters.filterBy.find((filter) => filter.selected)
-      ?.value ?? "";
-  const currentSortValue =
-    props.data.currentFilters.sortBy.find((filter) => filter.selected)?.value ??
-      "";
   const id = useId();
   return (
     <>
@@ -141,29 +113,25 @@ export default function ProductReviews(props: Props) {
             Escrever avaliação
           </Button>
           <ReviewForm productId={props.data.productId} state="idle" />
-          <div class="mt-9 border-t-secondary border-t">
-            <form
-              class="grid gap-[30px] grid-cols-[167px_112px] mt-9"
-              hx-target="closest section"
-              hx-swap="outerHTML"
-              hx-indicator={`#${id}`}
-              id="filter-form-review"
-              hx-get={useComponent<VtexReviewsLoader>(Reload, {
-                page: null,
-                reloadSettings: {
-                  actualPage: String(1),
-                  filterBy: "",
-                  productID: props.data.productId,
-                  sortBy: "",
-                },
-              })}
-            >
+          <form
+            class="mt-9 border-t-secondary border-t"
+            hx-target="closest section"
+            hx-swap="outerHTML"
+            hx-indicator={`#${id}`}
+            id="filter-form-review"
+            hx-post={useComponent<ReloadProps>(Reload, {
+              productId: props.data.productId,
+              actualPage: props.data.currentPage,
+            })}
+          >
+            <div class="grid gap-[30px] grid-cols-[167px_112px] mt-9">
               <Selector
                 placeholder="Ordernar Por:"
                 values={props.data.currentFilters.sortBy}
                 selectProps={{
                   name: "sortBy",
-                  "hx-on:change": useScript(submitFilterForm),
+                  "hx-on:change":
+                    `htmx.trigger(this.closest('form'), 'submit')`,
                   id: "sortBy",
                 }}
               />
@@ -171,13 +139,13 @@ export default function ProductReviews(props: Props) {
                 placeholder="Filtrar Por:"
                 selectProps={{
                   name: "filterBy",
-                  "hx-on:change": useScript(submitFilterForm),
                   id: "filterBy",
+                  "hx-on:change":
+                    `htmx.trigger(this.closest('form'), 'submit')`,
                 }}
                 values={props.data.currentFilters.filterBy}
               />
-              <button type="submit" class="hidden" />
-            </form>
+            </div>
             {props.data.review.map((review) => (
               <div class="flex flex-col gap-5 mt-9">
                 <h3 class="text-xs leading-[18px] font-bold text-[#353535]">
@@ -209,40 +177,22 @@ export default function ProductReviews(props: Props) {
                   <div class="flex gap-5">
                     <Button
                       disabled={props.data.currentPage === 1}
-                      hx-target="closest section"
-                      hx-indicator={`#${id}`}
-                      hx-swap="outerHTML"
-                      hx-get={useComponent<VtexReviewsLoader>(Reload, {
-                        page: null,
-                        reloadSettings: {
-                          actualPage: String(props.data.currentPage - 1),
-                          filterBy: currentFilterValue,
-                          productID: props.data.productId,
-                          sortBy: currentSortValue,
-                        },
-                      })}
                       styleType={ButtonType.Tertiary}
                       class="h-10 w-10 max-h-10 min-h-10 p-0 flex items-center justify-center"
+                      type="submit"
+                      name="operation"
+                      value="previous"
                     >
                       <Icon id="chevron-left" size={18} />
                     </Button>
                     <Button
+                      styleType={ButtonType.Tertiary}
                       disabled={props.data.currentPage ===
                         props.data.totalPages}
-                      hx-target="closest section"
-                      hx-indicator={`#${id}`}
-                      hx-swap="outerHTML"
-                      hx-get={useComponent<VtexReviewsLoader>(Reload, {
-                        page: null,
-                        reloadSettings: {
-                          actualPage: String(props.data.currentPage + 1),
-                          filterBy: currentFilterValue,
-                          productID: props.data.productId,
-                          sortBy: currentSortValue,
-                        },
-                      })}
-                      styleType={ButtonType.Tertiary}
                       class="h-10 w-10 max-h-10 min-h-10 p-0 flex items-center justify-center"
+                      type="submit"
+                      name="operation"
+                      value="next"
                     >
                       <Icon id="chevron-right" size={18} />
                     </Button>
@@ -254,7 +204,7 @@ export default function ProductReviews(props: Props) {
                   Não há avaliações!
                 </p>
               )}
-          </div>
+          </form>
         </div>
       </div>
       <Spacer />

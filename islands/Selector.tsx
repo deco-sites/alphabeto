@@ -28,7 +28,10 @@ export default function Selector({
   const id = useId();
   const selectedValue = values.find((value) => value.selected);
   const handleToogle = () => {
-    const itensContainer = document.querySelector(`#${id} #items-container`);
+    const itensContainer = document.querySelector<HTMLDivElement>(
+      `#${id} #items-container`,
+    );
+    if (!itensContainer) return;
     const currentHeight = itensContainer.style.height;
     if (currentHeight === "0px") {
       const height = itensContainer.scrollHeight;
@@ -41,13 +44,16 @@ export default function Selector({
     if (onChange) {
       onChange(value);
     } else {
-      const select = document.querySelector(`#${id} select`);
-      const itemNameElement = document.querySelector(`#${id} #itemName`);
+      const select = document.querySelector<HTMLSelectElement>(`#${id} select`);
+      const itemNameElement = document.querySelector<HTMLSpanElement>(
+        `#${id} #itemName`,
+      );
+      if (!select || !itemNameElement) return;
       const itemPos = values.findIndex((item) => item.value === value);
       const itemName = values[itemPos].label;
       itemNameElement.innerHTML = itemName;
       select.selectedIndex = itemPos;
-      onChange?.(value);
+      select.dispatchEvent(new Event("change"));
     }
     handleToogle();
   };
