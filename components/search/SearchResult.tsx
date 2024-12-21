@@ -253,11 +253,6 @@ function Result(props: SectionProps<typeof loader>) {
       },
     },
   });
-  const results = (
-    <span class="text-sm font-normal">
-      {page.pageInfo.recordPerPage} of {page.pageInfo.records} results
-    </span>
-  );
   const SortBy = () => {
     if (sortOptions.length === 0) return null;
     if (device === "desktop") {

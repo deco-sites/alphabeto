@@ -8,11 +8,11 @@ import { invoke } from "site/runtime.ts";
 import { clx } from "site/sdk/clx.ts";
 import { formatPrice } from "site/sdk/format.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
-import ProductSkuSelector from "./ProductSkuSelector.tsx";
-import ProductRating from "../ProductRating.tsx";
+import ProductSkuSelector from "site/components/product/ProductBuyTogether/ProductSkuSelector.tsx";
+import ProductRating from "site/components/product/ProductRating.tsx";
 
 export default function ProductCard(props: ProductCardProps) {
-  const { isVariantOf, name,aggregateRating } = props.signal.value.product;
+  const { isVariantOf, name, aggregateRating } = props.signal.value.product;
   const { image: images, offers } = isVariantOf?.hasVariant.find(
     (variant) => variant.sku === props.signal.value.selectedVariant,
   ) ?? props.signal.value.product;
@@ -145,12 +145,12 @@ export default function ProductCard(props: ProductCardProps) {
           : null}
         <input type="checkbox" id="product-checkbox" class="hidden" checked />
       </div>
-        <ProductRating
-          averageRating={aggregateRating?.ratingValue ?? 0}
-          maxRating={5}
-          iconSize={12}
-					class="gap-1 mt-2.5"
-        />
+      <ProductRating
+        averageRating={aggregateRating?.ratingValue ?? 0}
+        maxRating={5}
+        iconSize={12}
+        class="gap-1 mt-2.5"
+      />
       <p
         class="text-[#676767] font-bold text-xs mobile:leading-[18px] desk:text-sm mt-1 desk:mt-2.5 min-h-[42px] max-h-[42px] overflow-hidden"
         style={{

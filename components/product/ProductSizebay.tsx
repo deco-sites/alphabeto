@@ -9,7 +9,7 @@ export interface Props {
 }
 
 function handleSizebayManager(containersId: string) {
-  window.addEventListener("message", (event) => {
+  globalThis.addEventListener("message", (event) => {
     if (event.data === "close-fitting-room") {
       document.querySelectorAll<HTMLInputElement>(`#${containersId} input`)
         .forEach(

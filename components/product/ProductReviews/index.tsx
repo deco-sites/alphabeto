@@ -11,7 +11,6 @@ import ReviewForm, {
 } from "site/components/product/ProductReviews/ReviewForm.tsx";
 import Button, { ButtonType } from "site/components/ui/Button.tsx";
 import Icon from "site/components/ui/Icon.tsx";
-import { VtexReviewsLoader } from "site/loaders/vtexReviewsAndRatings/index.ts";
 import { useId } from "site/sdk/useId.ts";
 import { useComponent } from "site/sections/Component.tsx";
 import Spacer from "site/sections/Miscellaneous/Spacer.tsx";

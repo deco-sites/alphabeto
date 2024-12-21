@@ -2,7 +2,6 @@ import { AnalyticsItem, Product } from "apps/commerce/types.ts";
 import { useScript } from "@deco/deco/hooks";
 import { JSX } from "preact";
 import { useId } from "site/sdk/useId.ts";
-import { useVariantPossibilities } from "site/sdk/useVariantPossiblities.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import AddToCartButton from "site/components/product/AddToCartButton.tsx";
 
@@ -80,11 +79,6 @@ function QuickView({ product, seller, item }: Props) {
   const modalId = useId();
   const showButtonId = useId();
   const imagesModalId = useId();
-
-  const hasVariant = product.isVariantOf?.hasVariant ?? [];
-  const possibilities = useVariantPossibilities(hasVariant, product);
-  const firstSkuVariations = Object.entries(possibilities)?.[0];
-  const variants = Object.entries(firstSkuVariations?.[1] ?? {});
 
   const { listPrice, price, installments } = useOffer(product.offers);
 

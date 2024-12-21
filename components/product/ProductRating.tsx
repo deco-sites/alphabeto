@@ -11,7 +11,7 @@ export default function ProductRating({
   averageRating,
   maxRating,
   class: className,
- iconSize,
+  iconSize,
 }: Props) {
   return (
     <div class={clx("flex", className)}>
