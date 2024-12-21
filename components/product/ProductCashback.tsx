@@ -9,9 +9,8 @@ interface Props {
 export default function ProductCashback({ product, percentage }: Props) {
   const showCashback = percentage > 0 &&
     product.isVariantOf?.additionalProperty.find((property) =>
-      property.name?.toLowerCase() === "mostrar cashback" &&
-      property.value?.toLowerCase() === "sim"
-    );
+        property.name?.toLowerCase() === "mostrar cashback"
+      )?.value?.toLowerCase() === "sim";
   if (!showCashback) {
     return null;
   }
