@@ -86,6 +86,7 @@ export default function ReviewmForm(props: Props) {
           ...props,
         })}
         hx-target="this"
+        hx-indicator="this"
         hx-swap="innerHTML"
         class="flex flex-col mobile:p-5 desk:px-[38px] desk:py-[30px] border border-[#E8E7E5] rounded-lg mt-9"
       >
@@ -132,7 +133,12 @@ export default function ReviewmForm(props: Props) {
         />
 
         <Button type="submit" class="mt-[26px] max-w-[232px]">
-          Escrever avaliação
+          <div class="hidden [.htmx-request_&]:flex items-center justify-center">
+            <span class="loading loading-spinner"></span>
+          </div>
+          <span class="[.htmx-request_&]:hidden">
+            Escrever avaliação
+          </span>
         </Button>
       </form>
     </div>
