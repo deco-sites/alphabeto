@@ -1,4 +1,1 @@
-export {
-  default,
-  loader,
-} from "site/components/product/ProductBuyTogether/index.tsx";
+export { default, loader } from "site/islands/ProductBuyTogether.tsx";

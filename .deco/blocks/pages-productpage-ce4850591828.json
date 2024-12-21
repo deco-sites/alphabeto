@@ -46,17 +46,21 @@
     },
     {
       "__resolveType": "site/sections/Product/ProductBuyTogether.tsx",
-      "page": {
-        "__resolveType": "PDP Loader"
-      },
-      "buyTogetherLoader": {
+      "buyTogetherInitialLoader": {
         "data": {
-          "__resolveType": "site/loaders/buyTogether.ts",
-          "collection": "794",
+          "__resolveType": "site/loaders/BuyTogether/getInitialProducts.ts",
+          "collection": "764",
           "slug": {
             "__resolveType": "website/functions/requestToParam.ts",
             "param": "slug"
           }
+        },
+        "__resolveType": "resolved"
+      },
+      "buyTogetherNewProductsLoader": {
+        "data": {
+          "__resolveType": "site/loaders/BuyTogether/getNewProduct.ts",
+          "collection": "764"
         },
         "__resolveType": "resolved"
       }

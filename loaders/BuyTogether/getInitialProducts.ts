@@ -1,39 +1,21 @@
-import { RequestURLParam } from "apps/website/functions/requestToParam.ts";
 import { Product } from "apps/commerce/types.ts";
 import { AppContext } from "site/apps/deco/vtex.ts";
-import { getRandomNumber } from "site/sdk/numberUtils.ts";
+import { EXTENSIONS } from "site/loaders/BuyTogether/constants.ts";
+import {
+  BuyTogetherInitialProductsResponse,
+  BuyTogetherIntialProductProps,
+} from "site/loaders/BuyTogether/types.ts";
 import { pickRandomItem } from "site/sdk/arrayUtils.ts";
-
-export interface BuyTogetherProps {
-  /**
-   * @title Collection ID
-   * @description (e.g.: 150)
-   * @pattern \d*
-   * @format dynamic-options
-   * @options vtex/loaders/collections/list.ts
-   */
-  collection: string;
-  slug: RequestURLParam;
-}
+import { getRandomNumber } from "site/sdk/numberUtils.ts";
 
 const QTD_SUGESTIONS = 2;
-const EXTENSIONS = {
-  reviews: true,
-};
-
-export type BuyTogetherResponse = {
-  principalProduct: Product;
-  sugestions: Product[];
-  collection: string;
-} | null;
 
 export default async function loader(
-  props: BuyTogetherProps,
+  props: BuyTogetherIntialProductProps,
   _req: Request,
   ctx: AppContext,
-): Promise<BuyTogetherResponse> {
+): Promise<BuyTogetherInitialProductsResponse> {
   const { collection, slug } = props;
-
   const principalProductPage = await ctx.invoke.vtex.loaders.intelligentSearch
     .productDetailsPage({
       slug,
