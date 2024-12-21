@@ -70,7 +70,7 @@ export default function ProductPartCare(props: ProductPartCareProps) {
               "rounded desk:rounded-lg border border-primary border-dashed",
               "text-primary hover:text-white",
               `bg-secondary-content group`,
-              care.color
+              care.color,
             )}
           >
             <Icon id={care.icon} size={24} />

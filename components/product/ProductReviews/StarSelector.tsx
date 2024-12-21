@@ -10,7 +10,7 @@ interface Props {
 
 const loadSelector = (id: string) => {
   const input = document.querySelector<HTMLInputElement>(
-    `#${id} input[type="range"]`
+    `#${id} input[type="range"]`,
   );
   const buttons = document.querySelectorAll<HTMLButtonElement>(`#${id} button`);
   if (!input) return;

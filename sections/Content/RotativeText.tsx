@@ -10,15 +10,15 @@ interface Props {
 
 type Item =
   | {
-      type: "icon";
-      icon: AvailableIcons;
-      color: string;
-    }
+    type: "icon";
+    icon: AvailableIcons;
+    color: string;
+  }
   | {
-      type: "text";
-      text: string;
-      color: string;
-    };
+    type: "text";
+    text: string;
+    color: string;
+  };
 
 const ITEMS_QTD = 10;
 const COLORS = ["#FF8300", "#70D1E8", "#D6DE23", "#FF859A"];

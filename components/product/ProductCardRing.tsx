@@ -116,5 +116,4 @@ const ProductCardRing = ({ value, checked = false, class: _class }: {
   );
 };
 
-export default ProductCardRing
-
+export default ProductCardRing;

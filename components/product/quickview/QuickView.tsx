@@ -105,9 +105,7 @@ function QuickView({ product, seller, item }: Props) {
         className="fixed top-0 right-0 z-50 h-screen overflow-y-auto transition-transform translate-x-full bg-white w-[375px]"
       >
         <div
-          className={
-            "w-full flex items-center justify-between px-6 py-4 bg-[#FDF6ED] border-b border-[#FF8300] border-dashed"
-          }
+          className={"w-full flex items-center justify-between px-6 py-4 bg-[#FDF6ED] border-b border-[#FF8300] border-dashed"}
         >
           <p className="text-[#FF8300] font-bold leading-6 ">
             Selecione as opções
@@ -122,9 +120,7 @@ function QuickView({ product, seller, item }: Props) {
         </div>
         <div className={"py-10 px-6"}>
           <p
-            className={
-              "p-[5px] rounded-lg bg-[#F7E0BF] text-[#FF8300] text-xs font-bold leading-[18px] mb-5 max-w-fit"
-            }
+            className={"p-[5px] rounded-lg bg-[#F7E0BF] text-[#FF8300] text-xs font-bold leading-[18px] mb-5 max-w-fit"}
           >
             crianças de 1 à 10 anos
           </p>
@@ -140,17 +136,13 @@ function QuickView({ product, seller, item }: Props) {
             <p className={"text-[#C5C5C5] text-sm leading-5 font-bold"}>
               {listPrice}
               <strong
-                className={
-                  "font-bold ml-[5px] text-lg text-[#FF8300] leading-6"
-                }
+                className={"font-bold ml-[5px] text-lg text-[#FF8300] leading-6"}
               >
                 • {price}
               </strong>
             </p>
             <p
-              className={
-                "text-[#676767] font-medium text-xs mt-[5px] leading-[18px]"
-              }
+              className={"text-[#676767] font-medium text-xs mt-[5px] leading-[18px]"}
             >
               {installments}
             </p>
@@ -169,9 +161,7 @@ function QuickView({ product, seller, item }: Props) {
             </div>
           </div>
           <p
-            className={
-              "text-xs font-medium leading-[18px] text-[#7E7F88] line-clamp-3"
-            }
+            className={"text-xs font-medium leading-[18px] text-[#7E7F88] line-clamp-3"}
           >
             {product.description}
           </p>
@@ -195,7 +185,8 @@ function QuickView({ product, seller, item }: Props) {
                 </p>
               ))}
 
-            {/* {variants.map(([colorName, url], index) => (
+            {
+              /* {variants.map(([colorName, url], index) => (
               <a
                 key={index}
                 href={url}
@@ -220,7 +211,8 @@ function QuickView({ product, seller, item }: Props) {
                   title={colorName}
                 />
               </a>
-            ))} */}
+            ))} */
+            }
           </div>
 
           <div>

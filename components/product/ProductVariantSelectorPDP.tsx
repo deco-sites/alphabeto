@@ -105,7 +105,7 @@ function VariantLabel({
   };
   const selectedLabelOrDefault =
     labelsMap[variantName.toLowerCase() as keyof typeof labelsMap] ??
-    variantName;
+      variantName;
   if (variantName.toLowerCase() === "cor") {
     selectedValue = uppercaseFirstLetter(selectedValue.toLowerCase());
   }

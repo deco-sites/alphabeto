@@ -16,9 +16,11 @@ const socialNetworks: SocialNewtork[] = [
     icon: "share_facebook",
     color: "#7561F0",
     getUrl: (productUrl: string) =>
-      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-        productUrl
-      )}`,
+      `https://www.facebook.com/sharer/sharer.php?u=${
+        encodeURIComponent(
+          productUrl,
+        )
+      }`,
   },
   {
     name: "Email",

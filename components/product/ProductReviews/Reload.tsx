@@ -6,7 +6,7 @@ import { ProductReviewsData } from "site/components/product/ProductReviews/index
 export const loader = async (
   props: VtexReviewsLoader,
   req: Request,
-  ctx: AppContext
+  ctx: AppContext,
 ): Promise<ProductReviewsData> => {
   return await ctx.invoke.site.loaders.vtexReviewsAndRatings.index(props, req);
 };

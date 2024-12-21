@@ -18,7 +18,7 @@ export default function ProductRating({
         <Icon
           id="product_rating_star"
           class={clx(
-            index < averageRating ? "text-[#FFF61E]" : "text-[#C5C5C5]"
+            index < averageRating ? "text-[#FFF61E]" : "text-[#C5C5C5]",
           )}
           size={16}
         />

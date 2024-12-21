@@ -28,9 +28,7 @@ export default function MenuInstitutionalMobile({ links, label }: MenuProps) {
           width="16"
           height="16"
           style={{
-            transform: navigation
-              ? "rotate(90deg)"
-              : "rotate(0deg)",
+            transform: navigation ? "rotate(90deg)" : "rotate(0deg)",
             transition: "transform 0.3s",
           }}
           class="text-[#D6DE23]"
@@ -41,8 +39,9 @@ export default function MenuInstitutionalMobile({ links, label }: MenuProps) {
           {links &&
             links.map((link, index) => (
               <a
-                className={`text-left text-[12px] text-[#676767] font-medium w-full h-[44px] ${index === 0 ? "first:mt-[10px]" : ""
-                  }`}
+                className={`text-left text-[12px] text-[#676767] font-medium w-full h-[44px] ${
+                  index === 0 ? "first:mt-[10px]" : ""
+                }`}
                 key={index}
                 href={link.route}
               >

@@ -65,18 +65,20 @@ const submitFilterForm = () => {
   if (!form) return;
   const url = new URL(form.getAttribute("hx-get") ?? "", window.location.href);
   const props = JSON.parse(
-    decodeURIComponent(url.searchParams.get("props") ?? "")
+    decodeURIComponent(url.searchParams.get("props") ?? ""),
   );
-  props.props.reloadSettings.filterBy =
-    form.querySelector<HTMLSelectElement>("#filterBy")?.value;
-  props.props.reloadSettings.sortBy =
-    form.querySelector<HTMLSelectElement>("#sortBy")?.value;
+  props.props.reloadSettings.filterBy = form.querySelector<HTMLSelectElement>(
+    "#filterBy",
+  )?.value;
+  props.props.reloadSettings.sortBy = form.querySelector<HTMLSelectElement>(
+    "#sortBy",
+  )?.value;
   url.searchParams.set("props", JSON.stringify(props));
   form.setAttribute("hx-get", url.href);
   htmx.process(form);
   document
     .querySelector<HTMLButtonElement>(
-      "#filter-form-review button[type='submit']"
+      "#filter-form-review button[type='submit']",
     )
     ?.click();
 };
@@ -89,7 +91,7 @@ export default function ProductReviews(props: Props) {
       ?.value ?? "";
   const currentSortValue =
     props.data.currentFilters.sortBy.find((filter) => filter.selected)?.value ??
-    "";
+      "";
   const id = useId();
   return (
     <>
@@ -121,7 +123,7 @@ export default function ProductReviews(props: Props) {
                 const user = window.STOREFRONT.USER.getUser();
                 if (!user) {
                   return alert(
-                    "Você precisa estar logado para avaliar o produto"
+                    "Você precisa estar logado para avaliar o produto",
                   );
                 }
                 const el = document.getElementById(containerId);
@@ -132,7 +134,7 @@ export default function ProductReviews(props: Props) {
                   ?.style.setProperty("display", "none");
               },
               REVIEW_FORM_CONTAINER_ID,
-              SHOW_REVIEW_BUTTON_ID
+              SHOW_REVIEW_BUTTON_ID,
             )}
             class="max-w-[232px] w-full mt-5"
           >
@@ -188,7 +190,8 @@ export default function ProductReviews(props: Props) {
                   class="gap-1.5"
                 />
                 <p class="text-xs leading-[18px] font-bold text-[#353535]">
-                  Enviado {formattedDate(review.datePublished ?? "")} atrás por{" "}
+                  Enviado {formattedDate(review.datePublished ?? "")} atrás por
+                  {" "}
                   {review.author?.[0].name}
                 </p>
                 <p class="text-xs leading-[18px] text-[#353535]">
@@ -196,57 +199,61 @@ export default function ProductReviews(props: Props) {
                 </p>
               </div>
             ))}
-            {hasReviews ? (
-              <div class="flex justify-end items-center gap-9 mt-5">
-                <span class="text-base text-[#676767]">
-                  Mostrando {props.data.currentPage} de {props.data.totalPages}
-                </span>
-                <div class="flex gap-5">
-                  <Button
-                    disabled={props.data.currentPage === 1}
-                    hx-target="closest section"
-                    hx-indicator={`#${id}`}
-                    hx-swap="outerHTML"
-                    hx-get={useComponent<VtexReviewsLoader>(Reload, {
-                      page: null,
-                      reloadSettings: {
-                        actualPage: String(props.data.currentPage - 1),
-                        filterBy: currentFilterValue,
-                        productID: props.data.productId,
-                        sortBy: currentSortValue,
-                      },
-                    })}
-                    styleType={ButtonType.Tertiary}
-                    class="h-10 w-10 max-h-10 min-h-10 p-0 flex items-center justify-center"
-                  >
-                    <Icon id="chevron-left" size={18} />
-                  </Button>
-                  <Button
-                    disabled={props.data.currentPage === props.data.totalPages}
-                    hx-target="closest section"
-                    hx-indicator={`#${id}`}
-                    hx-swap="outerHTML"
-                    hx-get={useComponent<VtexReviewsLoader>(Reload, {
-                      page: null,
-                      reloadSettings: {
-                        actualPage: String(props.data.currentPage + 1),
-                        filterBy: currentFilterValue,
-                        productID: props.data.productId,
-                        sortBy: currentSortValue,
-                      },
-                    })}
-                    styleType={ButtonType.Tertiary}
-                    class="h-10 w-10 max-h-10 min-h-10 p-0 flex items-center justify-center"
-                  >
-                    <Icon id="chevron-right" size={18} />
-                  </Button>
+            {hasReviews
+              ? (
+                <div class="flex justify-end items-center gap-9 mt-5">
+                  <span class="text-base text-[#676767]">
+                    Mostrando {props.data.currentPage} de{" "}
+                    {props.data.totalPages}
+                  </span>
+                  <div class="flex gap-5">
+                    <Button
+                      disabled={props.data.currentPage === 1}
+                      hx-target="closest section"
+                      hx-indicator={`#${id}`}
+                      hx-swap="outerHTML"
+                      hx-get={useComponent<VtexReviewsLoader>(Reload, {
+                        page: null,
+                        reloadSettings: {
+                          actualPage: String(props.data.currentPage - 1),
+                          filterBy: currentFilterValue,
+                          productID: props.data.productId,
+                          sortBy: currentSortValue,
+                        },
+                      })}
+                      styleType={ButtonType.Tertiary}
+                      class="h-10 w-10 max-h-10 min-h-10 p-0 flex items-center justify-center"
+                    >
+                      <Icon id="chevron-left" size={18} />
+                    </Button>
+                    <Button
+                      disabled={props.data.currentPage ===
+                        props.data.totalPages}
+                      hx-target="closest section"
+                      hx-indicator={`#${id}`}
+                      hx-swap="outerHTML"
+                      hx-get={useComponent<VtexReviewsLoader>(Reload, {
+                        page: null,
+                        reloadSettings: {
+                          actualPage: String(props.data.currentPage + 1),
+                          filterBy: currentFilterValue,
+                          productID: props.data.productId,
+                          sortBy: currentSortValue,
+                        },
+                      })}
+                      styleType={ButtonType.Tertiary}
+                      class="h-10 w-10 max-h-10 min-h-10 p-0 flex items-center justify-center"
+                    >
+                      <Icon id="chevron-right" size={18} />
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            ) : (
-              <p class="text-xs leading-[18px] font-bold text-[#353535] mt-5">
-                Não há avaliações!
-              </p>
-            )}
+              )
+              : (
+                <p class="text-xs leading-[18px] font-bold text-[#353535] mt-5">
+                  Não há avaliações!
+                </p>
+              )}
           </div>
         </div>
       </div>

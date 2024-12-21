@@ -15,7 +15,7 @@ interface Props {
 export const action = async (
   props: Props,
   req: Request,
-  ctx: AppContext
+  ctx: AppContext,
 ): Promise<Props> => {
   try {
     const formData = await req.formData();
@@ -74,7 +74,7 @@ export default function ReviewmForm(props: Props) {
               ?.style.setProperty("display", "flex");
           },
           REVIEW_FORM_CONTAINER_ID,
-          SHOW_REVIEW_BUTTON_ID
+          SHOW_REVIEW_BUTTON_ID,
         )}
         styleType={ButtonType.Tertiary}
         class="max-w-[230px] mt-5 w-full"

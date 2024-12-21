@@ -26,9 +26,7 @@ export default function GiftShelf({
         <p class="text-[#676767] text-base font-medium">{description}</p>
       </span>
       <div
-        className={
-          "flex mt-10 desk:flex-row desk:gap-4 mobile:flex-col mobile:items-center desk:items-start mobile:gap-10"
-        }
+        className={"flex mt-10 desk:flex-row desk:gap-4 mobile:flex-col mobile:items-center desk:items-start mobile:gap-10"}
       >
         <img
           className={"desk:max-w-[608px] w-full"}

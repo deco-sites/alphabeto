@@ -35,7 +35,7 @@ function loadToogler(id: string) {
     const changeIcon = (iconName: string) => {
       icon?.setAttribute(
         "href",
-        icon.getAttribute("href")?.replace(/#.*$/, `#${iconName}`) ?? ""
+        icon.getAttribute("href")?.replace(/#.*$/, `#${iconName}`) ?? "",
       );
     };
     button?.addEventListener("click", () => {

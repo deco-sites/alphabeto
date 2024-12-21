@@ -51,9 +51,9 @@ function CartItem({ item, index, locale, currency }: Props) {
         </div>
         {/* Color and Size */}
         <div class="text-[#676767] text-xs leading-[18px] flex gap-3 mb-[17px]">
-          {item.color ? (
-            <span class="capitalize">Cor: {item.color?.toLowerCase()}</span>
-          ) : null}
+          {item.color
+            ? <span class="capitalize">Cor: {item.color?.toLowerCase()}</span>
+            : null}
           {item.size ? <span>Tamanho: {item.size}</span> : null}
         </div>
         {/* Price Block  And Quantity Selector*/}
