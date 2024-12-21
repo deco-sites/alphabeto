@@ -9,14 +9,6 @@ interface BreadcrumbProps {
   path: string;
   /**@title Rota Final */
   route: string;
-  /**@title Raiz*/
-  root: string;
-  /**@title Habilitar Caminho */
-  showText: boolean;
-  /**@title Caminho */
-  path: string;
-  /**@title Rota Final */
-  route: string;
 }
 
 export default function Breadcrumb(
