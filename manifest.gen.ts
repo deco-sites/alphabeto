@@ -8,21 +8,24 @@ import * as $$$$$$$$$$$0 from "./apps/deco/analytics.ts";
 import * as $$$$$$$$$$$1 from "./apps/deco/htmx.ts";
 import * as $$$$$$$$$$$2 from "./apps/deco/vtex.ts";
 import * as $$$$$$$$$$$3 from "./apps/site.ts";
-import * as $$$0 from "./loaders/availableIcons.ts";
-import * as $$$1 from "./loaders/buyTogether.ts";
-import * as $$$2 from "./loaders/geolocation.ts";
-import * as $$$3 from "./loaders/icons.ts";
-import * as $$$4 from "./loaders/minicart.ts";
-import * as $$$5 from "./loaders/product/backgroundBanner.ts";
-import * as $$$6 from "./loaders/product/rotativeText.ts";
-import * as $$$7 from "./loaders/savedColors.ts";
-import * as $$$8 from "./loaders/sizebay.ts";
-import * as $$$9 from "./loaders/user.ts";
-import * as $$$10 from "./loaders/vtexReviewsAndRatings/constants.ts";
-import * as $$$11 from "./loaders/vtexReviewsAndRatings/index.ts";
-import * as $$$12 from "./loaders/vtexReviewsAndRatings/queries.ts";
-import * as $$$13 from "./loaders/vtexReviewsAndRatings/types.ts";
-import * as $$$14 from "./loaders/wishlist.ts";
+import * as $$$4 from "./loaders/availableIcons.ts";
+import * as $$$0 from "./loaders/BuyTogether/constants.ts";
+import * as $$$1 from "./loaders/BuyTogether/getInitialProducts.ts";
+import * as $$$2 from "./loaders/BuyTogether/getNewProduct.ts";
+import * as $$$3 from "./loaders/BuyTogether/types.ts";
+import * as $$$5 from "./loaders/geolocation.ts";
+import * as $$$6 from "./loaders/icons.ts";
+import * as $$$7 from "./loaders/minicart.ts";
+import * as $$$8 from "./loaders/product/backgroundBanner.ts";
+import * as $$$9 from "./loaders/product/rotativeText.ts";
+import * as $$$10 from "./loaders/savedColors.ts";
+import * as $$$11 from "./loaders/sizebay.ts";
+import * as $$$12 from "./loaders/user.ts";
+import * as $$$13 from "./loaders/vtexReviewsAndRatings/constants.ts";
+import * as $$$14 from "./loaders/vtexReviewsAndRatings/index.ts";
+import * as $$$15 from "./loaders/vtexReviewsAndRatings/queries.ts";
+import * as $$$16 from "./loaders/vtexReviewsAndRatings/types.ts";
+import * as $$$17 from "./loaders/wishlist.ts";
 import * as $$$$$$0 from "./sections/Animation/Animation.tsx";
 import * as $$$$$$1 from "./sections/BenefitsBar/BenefitsBar.tsx";
 import * as $$$$$$2 from "./sections/BreadcrumbInstitucional/Breadcrumb.tsx";
@@ -69,21 +72,24 @@ import * as $$$$$$42 from "./sections/Theme/Theme.tsx";
 
 const manifest = {
   "loaders": {
-    "site/loaders/availableIcons.ts": $$$0,
-    "site/loaders/buyTogether.ts": $$$1,
-    "site/loaders/geolocation.ts": $$$2,
-    "site/loaders/icons.ts": $$$3,
-    "site/loaders/minicart.ts": $$$4,
-    "site/loaders/product/backgroundBanner.ts": $$$5,
-    "site/loaders/product/rotativeText.ts": $$$6,
-    "site/loaders/savedColors.ts": $$$7,
-    "site/loaders/sizebay.ts": $$$8,
-    "site/loaders/user.ts": $$$9,
-    "site/loaders/vtexReviewsAndRatings/constants.ts": $$$10,
-    "site/loaders/vtexReviewsAndRatings/index.ts": $$$11,
-    "site/loaders/vtexReviewsAndRatings/queries.ts": $$$12,
-    "site/loaders/vtexReviewsAndRatings/types.ts": $$$13,
-    "site/loaders/wishlist.ts": $$$14,
+    "site/loaders/availableIcons.ts": $$$4,
+    "site/loaders/BuyTogether/constants.ts": $$$0,
+    "site/loaders/BuyTogether/getInitialProducts.ts": $$$1,
+    "site/loaders/BuyTogether/getNewProduct.ts": $$$2,
+    "site/loaders/BuyTogether/types.ts": $$$3,
+    "site/loaders/geolocation.ts": $$$5,
+    "site/loaders/icons.ts": $$$6,
+    "site/loaders/minicart.ts": $$$7,
+    "site/loaders/product/backgroundBanner.ts": $$$8,
+    "site/loaders/product/rotativeText.ts": $$$9,
+    "site/loaders/savedColors.ts": $$$10,
+    "site/loaders/sizebay.ts": $$$11,
+    "site/loaders/user.ts": $$$12,
+    "site/loaders/vtexReviewsAndRatings/constants.ts": $$$13,
+    "site/loaders/vtexReviewsAndRatings/index.ts": $$$14,
+    "site/loaders/vtexReviewsAndRatings/queries.ts": $$$15,
+    "site/loaders/vtexReviewsAndRatings/types.ts": $$$16,
+    "site/loaders/wishlist.ts": $$$17,
   },
   "sections": {
     "site/sections/Animation/Animation.tsx": $$$$$$0,
