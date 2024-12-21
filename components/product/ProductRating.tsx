@@ -11,6 +11,7 @@ export default function ProductRating({
   averageRating,
   maxRating,
   class: className,
+ iconSize,
 }: Props) {
   return (
     <div class={clx("flex", className)}>
@@ -20,7 +21,7 @@ export default function ProductRating({
           class={clx(
             index < averageRating ? "text-[#FFF61E]" : "text-[#C5C5C5]",
           )}
-          size={16}
+          size={iconSize}
         />
       ))}
     </div>
