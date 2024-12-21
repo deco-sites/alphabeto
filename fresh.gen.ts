@@ -8,6 +8,7 @@ import * as $MinicartFooter from "./islands/MinicartFooter.tsx";
 import * as $MultiRangeSlider from "./islands/MultiRangeSlider.tsx";
 import * as $Notify from "./islands/Notify.tsx";
 import * as $ProductBuyTogether from "./islands/ProductBuyTogether.tsx";
+import * as $ProductTextInfoDiscloujure from "./islands/ProductTextInfoDiscloujure.tsx";
 import * as $ScrollButton from "./islands/ScrollButton.tsx";
 import * as $Selector from "./islands/Selector.tsx";
 import * as $ShowPriceItem from "./islands/ShowPriceItem.tsx";
@@ -23,6 +24,7 @@ const manifest = {
     "./islands/MultiRangeSlider.tsx": $MultiRangeSlider,
     "./islands/Notify.tsx": $Notify,
     "./islands/ProductBuyTogether.tsx": $ProductBuyTogether,
+    "./islands/ProductTextInfoDiscloujure.tsx": $ProductTextInfoDiscloujure,
     "./islands/ScrollButton.tsx": $ScrollButton,
     "./islands/Selector.tsx": $Selector,
     "./islands/ShowPriceItem.tsx": $ShowPriceItem,

@@ -9,7 +9,7 @@ import ProductRating from "site/components/product/ProductRating.tsx";
 import ProductShare from "site/components/product/ProductShare.tsx";
 import ProductSizebay from "site/components/product/ProductSizebay.tsx";
 import ProductSmallDescription from "site/components/product/ProductSmallDescription.tsx";
-import ProductTextInfoDiscloujure from "site/components/product/ProductTextInfoDiscloujure.tsx";
+import ProductTextInfoDiscloujure from "site/islands/ProductTextInfoDiscloujure.tsx";
 import ProductSelector from "site/components/product/ProductVariantSelectorPDP.tsx";
 import ShippingSimulationForm from "site/components/shipping/Form.tsx";
 import WishlistButton from "site/components/wishlist/WishlistButton.tsx";
