@@ -1,4 +1,6 @@
 import type { SKU } from "apps/vtex/utils/types.ts";
+import Button, { ButtonType } from "site/components/ui/Button.tsx";
+import Input from "site/components/ui/Input.tsx";
 import { useId } from "../../sdk/useId.ts";
 import { useComponent } from "../../sections/Component.tsx";
 
@@ -10,15 +12,13 @@ export default function Form({ items }: Props) {
   const slot = useId();
 
   return (
-    <div class="flex flex-col gap-2">
-      <div class="flex flex-col">
-        <span class="text-[#616B6B] text-sm pt-5 border-t-[1px] border-gray-300">
-          Please provide your ZIP code to check the delivery times.
-        </span>
-      </div>
+    <div class="flex flex-col mt-[30px]">
+      <span class="text-[#676767] text-xs leading-[14px] font-bold mb-1">
+        Calcule seu frete
+      </span>
 
       <form
-        class="relative join"
+        class="grid gap-1.5 grid-cols-[1fr_145px]"
         hx-target={`#${slot}`}
         hx-swap="innerHTML"
         hx-sync="this:replace"
@@ -26,20 +26,30 @@ export default function Form({ items }: Props) {
           items,
         })}
       >
-        <input
+        <Input
           as="input"
           type="text"
-          class="input input-bordered join-item w-48"
-          placeholder="00000000"
+          placeholder="CEP"
           name="postalCode"
           maxLength={8}
           size={8}
         />
-        <button type="submit" class="btn join-item no-animation">
-          <span class="[.htmx-request_&]:hidden inline">Calculate</span>
+        <Button
+          styleType={ButtonType.Secondary}
+          type="submit"
+        >
+          <span class="[.htmx-request_&]:hidden inline">Calcular</span>
           <span class="[.htmx-request_&]:inline hidden loading loading-spinner loading-xs" />
-        </button>
+        </Button>
       </form>
+
+      <a
+        class="text-[#676767] text-xs leading-[14px] mt-2.5 underline"
+        href="https://buscacepinter.correios.com.br/"
+        target="__black"
+      >
+        Não sei meu CEP
+      </a>
 
       {/* Results Slot */}
       <div id={slot} />
