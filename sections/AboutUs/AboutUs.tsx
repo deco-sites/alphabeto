@@ -6,37 +6,36 @@ import { Picture, Source } from "apps/website/components/Picture.tsx";
 
 /**@title Imagems */
 interface ImageProps {
-    /**@title Primeira Imagem da primeira seção */
-    firstImage?: ImageWidget;
-    /**@title Texto alternativo */
-    altFirstImage?: string;
-    /**@title Segunda Imagem da primeira seção */
-    secondFirstImage?: ImageWidget;
-    /**@title Texto alternativo */
-    altSecondFirstImage?: string;
-    /**@title Segunda Imagem da segunda seção */
-    secondImage?: ImageWidget;
-    /**@title Texto alternativo */
-    altSecondImage?: string;
-}
-  
-/**@title Vídeos */
-interface VideoProps {
-    /**@title Título da seção de vídeo */
-    videoTitle: string;
-    /**@title Texto da seção de vídeo */
-    videoText: RichText;
-    /**@title URL do Vídeo */
-    video: string;
+  /**@title Primeira Imagem da primeira seção */
+  firstImage?: ImageWidget;
+  /**@title Texto alternativo */
+  altFirstImage?: string;
+  /**@title Segunda Imagem da primeira seção */
+  secondFirstImage?: ImageWidget;
+  /**@title Texto alternativo */
+  altSecondFirstImage?: string;
+  /**@title Segunda Imagem da segunda seção */
+  secondImage?: ImageWidget;
+  /**@title Texto alternativo */
+  altSecondImage?: string;
 }
 
-  
+/**@title Vídeos */
+interface VideoProps {
+  /**@title Título da seção de vídeo */
+  videoTitle: string;
+  /**@title Texto da seção de vídeo */
+  videoText: RichText;
+  /**@title URL do Vídeo */
+  video: string;
+}
+
 /**@title Informação */
 interface InfoItemsProps {
-    /**@title Informação principal */
-    mainInfo: RichText;
-    /**@title Texto sobre a informação */
-    textAboutInfo: string;
+  /**@title Informação principal */
+  mainInfo: RichText;
+  /**@title Texto sobre a informação */
+  textAboutInfo: string;
 }
 
 /**@title {{ alt }} */
@@ -46,33 +45,33 @@ interface AdditionalInfoImages {
 }
 
 /**@title Informações adicionais */
-export interface AdditionalInfo {
-    title?: string;
-    subtitle?: RichText;
-    image: AdditionalInfoImages[];
+interface AdditionalInfo {
+  title?: string;
+  subtitle?: RichText;
+  image: AdditionalInfoImages[];
 }
 
 /**@title Informações sobre a empresa */
-export interface CompanyProps {
-    /**@title Título */
-    title?: string;
-    /**@title Subtítulo */
-    subTitle?: string;
-    /**@title Pontos de informação */
-    items?: InfoItemsProps[];
-    /**@title Texto geral */
-    text?: RichText;
-  }
-  
-  /**@title Parágrafos */
-export interface Item {
-    /**@title Primeiro Parágrafo */
-    firstText?: RichText;
-    /**@title Segundo Parágrafo */
-    secondText?: RichText;
-    images?: ImageProps;
-    video?: VideoProps;
-  }
+interface CompanyProps {
+  /**@title Título */
+  title?: string;
+  /**@title Subtítulo */
+  subTitle?: string;
+  /**@title Pontos de informação */
+  items?: InfoItemsProps[];
+  /**@title Texto geral */
+  text?: RichText;
+}
+
+/**@title Parágrafos */
+interface Item {
+  /**@title Primeiro Parágrafo */
+  firstText?: RichText;
+  /**@title Segundo Parágrafo */
+  secondText?: RichText;
+  images?: ImageProps;
+  video?: VideoProps;
+}
 
 /**@title Conteúdo */
 interface Props {
@@ -97,44 +96,54 @@ interface Props {
 }
 
 export default function AboutUs(
-  { items, company, additionalInfo, title, logo, altLogo, bannerDesktop, bannerMobile, altBanner }:
-    Props,
+  {
+    items,
+    company,
+    additionalInfo,
+    title,
+    logo,
+    altLogo,
+    bannerDesktop,
+    bannerMobile,
+    altBanner,
+  }: Props,
 ) {
   return (
     <>
       <div class="flex justify-center w-full">
         <Picture>
-        <Source 
-        class="hidden tablet:flex"
-        media="(min-width: 768px)" 
-        src={bannerDesktop ? bannerDesktop : ""} 
-        width={1440}
-        height={230}
-        />
+          <Source
+            class="hidden tablet:flex"
+            media="(min-width: 768px)"
+            src={bannerDesktop ? bannerDesktop : ""}
+            width={1440}
+            height={230}
+          />
 
-        <Source 
-        class="flex tablet:hidden"
-        media="(max-width: 768px)" 
-        src={bannerMobile ? bannerMobile : ""} 
-        width={375}
-        height={230} 
-        />
+          <Source
+            class="flex tablet:hidden"
+            media="(max-width: 768px)"
+            src={bannerMobile ? bannerMobile : ""}
+            width={375}
+            height={230}
+          />
 
-        <img 
-        src={bannerDesktop} 
-        alt={altBanner} />
+          <img
+            src={bannerDesktop}
+            alt={altBanner}
+          />
         </Picture>
       </div>
       <div
         class={`h-64 mobile:h-[120px] w-full flex flex-col items-center mt-[40px]`}
       >
-        <Image 
-        class="mobile:w-[335px]" 
-        src={logo ? logo : ""}
-        alt={altLogo}
-        width={920}
-        height={170}
-         />
+        <Image
+          class="mobile:w-[335px]"
+          src={logo ? logo : ""}
+          alt={altLogo}
+          width={920}
+          height={170}
+        />
         <h2 class="font-beccaPerry absolute mobile:mt-[32px] mt-[64px] text-[44px] mobile:text-[32px] text-[#676767]">
           {title}
         </h2>
@@ -167,7 +176,9 @@ export default function AboutUs(
               />
               <Image
                 class="absolute mt-[100px] z-5 top-0 right-[-40px] w-[320px] hidden tablet:flex desk-small:hidden"
-                src={items.images?.secondFirstImage ? items.images?.secondFirstImage : ""}
+                src={items.images?.secondFirstImage
+                  ? items.images?.secondFirstImage
+                  : ""}
                 alt={items.images?.altSecondFirstImage}
                 width={320}
                 height={256}
@@ -203,7 +214,9 @@ export default function AboutUs(
               />
               <Image
                 class="absolute mt-[100px] z-5 top-[440px] right-0 w-[200px] flex tablet:hidden tablet:top-[240px] tablet:right-[140px] desk-small:flex"
-                src={items.images?.secondFirstImage ? items.images?.secondFirstImage : ""}
+                src={items.images?.secondFirstImage
+                  ? items.images?.secondFirstImage
+                  : ""}
                 alt={items.images?.altSecondFirstImage}
                 width={200}
                 height={190}
