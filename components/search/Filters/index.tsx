@@ -6,15 +6,10 @@ import type {
 import BottomFilterBar from "site/components/search/Filters/BottomFilterBar.tsx";
 import RenderFilterItem from "site/components/search/Filters/RenderFilterItem.tsx";
 import SelectedFilters from "site/components/search/Filters/SelectedFilters.tsx";
-
-/** @title {{name}} */
-export interface ColorItem {
-  name: string;
-  hexadecimals: string[];
-}
+import { ExportedColorItem } from "site/loaders/savedColors.ts";
 
 export interface FilterSettings {
-  colors: ColorItem[];
+  colors: ExportedColorItem[];
 }
 
 interface Props {

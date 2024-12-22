@@ -1,12 +1,4 @@
-import type { Product } from "apps/commerce/types.ts";
-import { clx } from "../../sdk/clx.ts";
-import { relative } from "../../sdk/url.ts";
-import { useId } from "../../sdk/useId.ts";
-import { useVariantPossibilities } from "../../sdk/useVariantPossiblities.ts";
-import { useSection } from "@deco/deco/hooks";
-interface Props {
-  product: Product;
-}
+import { clx } from "site/sdk/clx.ts";
 const colors: Record<string, string | string[] | undefined> = {
   "AMARELO": "#f8ce49",
   "ANIS": "#484848",
@@ -104,7 +96,7 @@ const useStyles = (value: string, checked: boolean) => {
     checked ? "ring-primary" : "ring-transparent border-[#C9CFCF]",
   );
 };
-export const Ring = ({ value, checked = false, class: _class }: {
+const ProductCardRing = ({ value, checked = false, class: _class }: {
   value: string;
   checked?: boolean;
   class?: string;
@@ -124,73 +116,4 @@ export const Ring = ({ value, checked = false, class: _class }: {
   );
 };
 
-function VariantSelector({ product }: Props) {
-  const { url, isVariantOf } = product;
-  const hasVariant = isVariantOf?.hasVariant ?? [];
-  const possibilities = useVariantPossibilities(hasVariant, product);
-  const relativeUrl = relative(url);
-  const id = useId();
-  const filteredNames = Object.keys(possibilities).filter((name) =>
-    name.toLowerCase() !== "title" && name.toLowerCase() !== "default title"
-  );
-  if (filteredNames.length === 0) {
-    return null;
-  }
-  return (
-    <ul
-      class="flex flex-col gap-4"
-      hx-target="closest section"
-      hx-swap="outerHTML"
-      hx-sync="this:replace"
-    >
-      {filteredNames.map((name) => (
-        <li class="flex flex-col gap-2">
-          <span class="text-sm">{name}</span>
-          <ul class="flex flex-row gap-4">
-            {Object.entries(possibilities[name])
-              .filter(([value]) => value)
-              .map(([value, link]) => {
-                const relativeLink = relative(link);
-                const checked = relativeLink === relativeUrl;
-                return (
-                  <li>
-                    <label
-                      class="cursor-pointer grid grid-cols-1 grid-rows-1 place-items-center"
-                      hx-get={useSection({ href: relativeLink })}
-                    >
-                      {/* Checkbox for radio button on the frontend */}
-                      <input
-                        class="hidden peer"
-                        type="radio"
-                        name={`${id}-${name}`}
-                        checked={checked}
-                      />
-                      <div
-                        class={clx(
-                          "col-start-1 row-start-1 col-span-1 row-span-1",
-                          "[.htmx-request_&]:opacity-0 transition-opacity",
-                        )}
-                      >
-                        <Ring value={value} checked={checked} />
-                      </div>
-                      {/* Loading spinner */}
-                      <div
-                        class={clx(
-                          "col-start-1 row-start-1 col-span-1 row-span-1",
-                          "opacity-0 [.htmx-request_&]:opacity-100 transition-opacity",
-                          "flex justify-center items-center",
-                        )}
-                      >
-                        <span class="loading loading-sm loading-spinner" />
-                      </div>
-                    </label>
-                  </li>
-                );
-              })}
-          </ul>
-        </li>
-      ))}
-    </ul>
-  );
-}
-export default VariantSelector;
+export default ProductCardRing;

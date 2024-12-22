@@ -78,11 +78,12 @@
   background: #d6de23;
 }
 
-.radio:not(:checked) {
-  background-color: white;
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-.radio:checked {
-  box-shadow: 0 0 0 4px white inset, 0 0 0 4px white inset;
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 .breadcrumbs > ul > li + *:before,
