@@ -4339,6 +4339,9 @@ details.collapse summary::-webkit-details-marker {
 .h-2 {
   height: 0.5rem;
 }
+.h-20 {
+  height: 5rem;
+}
 .h-3 {
   height: 0.75rem;
 }
@@ -4575,6 +4578,9 @@ details.collapse summary::-webkit-details-marker {
 .w-2\/5 {
   width: 40%;
 }
+.w-20 {
+  width: 5rem;
+}
 .w-3 {
   width: 0.75rem;
 }
@@ -4605,6 +4611,9 @@ details.collapse summary::-webkit-details-marker {
 .w-\[197px\] {
   width: 197px;
 }
+.w-\[221px\] {
+  width: 221px;
+}
 .w-\[22px\] {
   width: 22px;
 }
@@ -4616,6 +4625,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .w-\[252px\] {
   width: 252px;
+}
+.w-\[266px\] {
+  width: 266px;
 }
 .w-\[295px\] {
   width: 295px;
@@ -4670,6 +4682,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .w-\[58px\] {
   width: 58px;
+}
+.w-\[64\%\] {
+  width: 64%;
 }
 .w-\[73px\] {
   width: 73px;
@@ -4885,6 +4900,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .max-w-\[calc\(100vw_-_20px_-_-48px\)\] {
   max-width: calc(100vw - 20px - -48px);
+}
+.max-w-\[calc\(100vw_-_40px\)\] {
+  max-width: calc(100vw - 40px);
 }
 .max-w-fit {
   max-width: -moz-fit-content;
@@ -5242,6 +5260,9 @@ details.collapse summary::-webkit-details-marker {
 .break-words {
   overflow-wrap: break-word;
 }
+.break-all {
+  word-break: break-all;
+}
 .rounded {
   border-radius: 0.25rem;
 }
@@ -5352,6 +5373,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .border-\[0\.5px\] {
   border-width: 0.5px;
+}
+.border-\[1px\] {
+  border-width: 1px;
 }
 .border-x {
   border-left-width: 1px;
@@ -6576,13 +6600,6 @@ details.collapse summary::-webkit-details-marker {
   display: none;
 }
 
-.radio:not(:checked) {
-  background-color: white;
-}
-.radio:checked {
-  box-shadow: 0 0 0 4px white inset, 0 0 0 4px white inset;
-}
-
 .breadcrumbs > ul > li + *:before,
 .breadcrumbs > ol > li + *:before {
   content: "|";
@@ -6599,13 +6616,10 @@ details.collapse summary::-webkit-details-marker {
 
 .double-range {
   margin-top: 20px;
-.double-range {
-  margin-top: 20px;
 }
 .double-range .range-slider {
   height: 3px;
   position: relative;
-  background-color: #e8e7e5;
   background-color: #e8e7e5;
   border-radius: 100px;
 }
@@ -6615,7 +6629,6 @@ details.collapse summary::-webkit-details-marker {
   right: 30%;
   position: absolute;
   border-radius: 5px;
-  background-color: #d6de23;
   background-color: #d6de23;
 }
 .double-range .range-input {
@@ -6637,8 +6650,6 @@ details.collapse summary::-webkit-details-marker {
   border-radius: 50%;
   background-color: #ff8300;
   border: 5px solid #d6de23;
-  background-color: #ff8300;
-  border: 5px solid #d6de23;
   pointer-events: auto;
   -webkit-appearance: none;
   cursor: pointer;
@@ -6647,8 +6658,6 @@ details.collapse summary::-webkit-details-marker {
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background-color: #ff8300;
-  border: 5px solid #d6de23;
   background-color: #ff8300;
   border: 5px solid #d6de23;
   pointer-events: auto;
@@ -7096,6 +7105,14 @@ details.collapse summary::-webkit-details-marker {
     margin-right: auto;
   }
 
+  .mobile\:mb-\[45px\] {
+    margin-bottom: 45px;
+  }
+
+  .mobile\:mb-\[48px\] {
+    margin-bottom: 48px;
+  }
+
   .mobile\:ml-0 {
     margin-left: 0px;
   }
@@ -7134,6 +7151,14 @@ details.collapse summary::-webkit-details-marker {
 
   .mobile\:h-9 {
     height: 2.25rem;
+  }
+
+  .mobile\:h-\[305px\] {
+    height: 305px;
+  }
+
+  .mobile\:h-\[403px\] {
+    height: 403px;
   }
 
   .mobile\:min-h-\[545px\] {
@@ -8005,4 +8030,3 @@ details.collapse summary::-webkit-details-marker {
 [data-aside].\[\[data-aside\]\&_section\]\:contents section {
   display: contents;
 }
-
