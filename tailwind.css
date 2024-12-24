@@ -23,6 +23,7 @@
   }
 }
 
+@layer utilities{
 .container {
   max-width: 95rem;
   width: 100%;
@@ -35,6 +36,7 @@
     padding-left: 20px;
     padding-right: 20px;
   }
+}
 }
 
 .group:disabled .group-disabled\:animate-progress {

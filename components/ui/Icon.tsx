@@ -67,7 +67,9 @@ export type AvailableIcons =
   | "product_care_spin"
   | "product_care_iron"
   | "product_care_dry_cleaning"
-  | "product_rating_star";
+  | "product_rating_star"
+  | "arrow-with-twirls"
+  | "arrow-with-twirls-2";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**
