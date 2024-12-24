@@ -5009,6 +5009,9 @@ details.collapse summary::-webkit-details-marker {
 .rounded-none {
   border-radius: 0px;
 }
+.rounded-sm {
+  border-radius: 0.125rem;
+}
 .rounded-b-\[5px\] {
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -5231,10 +5234,6 @@ details.collapse summary::-webkit-details-marker {
 .bg-\[\#f5f4f1\] {
   --tw-bg-opacity: 1;
   background-color: rgb(245 244 241 / var(--tw-bg-opacity));
-}
-.bg-\[\#ff8300\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 131 0 / var(--tw-bg-opacity));
 }
 .bg-\[var\(--bg-color\)\] {
   background-color: var(--bg-color);
@@ -5949,10 +5948,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .text-\[\#e7e7e7e\] {
   color: #e7e7e7e;
-}
-.text-\[\#fff\] {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .text-\[\#ffffff\] {
   --tw-text-opacity: 1;
@@ -7253,6 +7248,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .\[\&\>a\]\:font-bold>a {
   font-weight: 700;
+}
+.\[\&\>a\]\:font-medium>a {
+  font-weight: 500;
 }
 .\[\&\>a\]\:text-primary>a {
   --tw-text-opacity: 1;

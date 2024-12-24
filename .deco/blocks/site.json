@@ -67,7 +67,7 @@
     },
     {
       "__resolveType": "site/sections/PopupLGPD/PopupLGPD.tsx",
-      "text": "<p>Se você clicar no botão aceito, consideramos que você aceita o uso de nossos cookies. Verifique nossa <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"/politicas-de-privacidade\"><strong><u><span style=\"color: #ff8300\">Política de Privacidade</span></u></strong></a><strong><u><span style=\"color: #ff8300\">.</span></u></strong></p>",
+      "text": "<p>Se você clicar no botão aceito, consideramos que você aceita o uso de nossos cookies. Verifique nossa <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"/politicas-de-privacidade\">Política de Privacidade.</a></p>",
       "label": "Aceitar"
     }
   ],
