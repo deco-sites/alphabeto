@@ -1,16 +1,16 @@
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import Image from "apps/website/components/Image.tsx";
-import { clx } from "../../sdk/clx.ts";
-import { formatPrice } from "../../sdk/format.ts";
-import { relative } from "../../sdk/url.ts";
-import { useOffer } from "../../sdk/useOffer.ts";
-import { useSendEvent } from "../../sdk/useSendEvent.ts";
-import { useVariantPossibilities } from "../../sdk/useVariantPossiblities.ts";
-import WishlistButton from "../wishlist/WishlistButton.tsx";
-import { Ring } from "./ProductVariantSelector.tsx";
-import { useId } from "../../sdk/useId.ts";
+import Ring from "site/components/product/ProductCardRing.tsx";
 import QuickView from "site/components/product/quickview/QuickView.tsx";
+import WishlistButton from "site/components/wishlist/WishlistButton.tsx";
+import { clx } from "site/sdk/clx.ts";
+import { formatPrice } from "site/sdk/format.ts";
+import { relative } from "site/sdk/url.ts";
+import { useId } from "site/sdk/useId.ts";
+import { useOffer } from "site/sdk/useOffer.ts";
+import { useSendEvent } from "site/sdk/useSendEvent.ts";
+import { useVariantPossibilities } from "site/sdk/useVariantPossiblities.ts";
 
 interface Props {
   product: Product;
@@ -146,7 +146,7 @@ function ProductCard({
         </div>
 
         <div class="absolute top-0 right-0 m-[14px]">
-          <WishlistButton item={item} variant="icon" />
+          <WishlistButton item={item} />
         </div>
       </figure>
 

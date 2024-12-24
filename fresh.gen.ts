@@ -10,7 +10,9 @@ import * as $MultiRangeSlider from "./islands/MultiRangeSlider.tsx";
 import * as $Notify from "./islands/Notify.tsx";
 import * as $PopupLGPD from "./islands/PopupLGPD.tsx";
 import * as $ScrollButton from "./islands/ScrollButton.tsx";
+import * as $Selector from "./islands/Selector.tsx";
 import * as $ShowPriceItem from "./islands/ShowPriceItem.tsx";
+import * as $StarSelector from "./islands/StarSelector.tsx";
 import * as $formsNossasLojas from "./islands/formsNossasLojas.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
@@ -26,7 +28,9 @@ const manifest = {
     "./islands/Notify.tsx": $Notify,
     "./islands/PopupLGPD.tsx": $PopupLGPD,
     "./islands/ScrollButton.tsx": $ScrollButton,
+    "./islands/Selector.tsx": $Selector,
     "./islands/ShowPriceItem.tsx": $ShowPriceItem,
+    "./islands/StarSelector.tsx": $StarSelector,
     "./islands/formsNossasLojas.tsx": $formsNossasLojas,
   },
   baseUrl: import.meta.url,

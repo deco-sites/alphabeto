@@ -42,13 +42,10 @@
           },
           "variant": "aside",
           "pagination": "show-more",
-          "filters": {
-            "color": {
+          "filter": {
+            "colors": {
               "__resolveType": "Saved Colors"
             }
-          },
-          "filter": {
-            "__resolveType": "Saved Colors"
           }
         },
         "startingPage": 1,
