@@ -64,7 +64,7 @@ export default function CategoryBanner(props: Props) {
   if (!image?.src) return null;
 
   return (
-    <article class="relative">
+    <article class="relative mb-5">
       <Image
         class="w-full h-auto rounded-lg min-h-[200px] desk:min-h-[230px] object-cover"
         src={image.src}

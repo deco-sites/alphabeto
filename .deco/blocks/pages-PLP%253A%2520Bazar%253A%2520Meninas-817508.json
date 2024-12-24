@@ -1,6 +1,8 @@
 {
-  "name": "Conjunto para bebes: Meninas",
-  "path": "/bebe/menina/Conjunto-para-bebes-meninas",
+  "__resolveType": "website/pages/Page.tsx",
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
   "sections": [
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
@@ -26,13 +28,7 @@
           "count": 24,
           "sort": "release:desc",
           "fuzzy": "automatic",
-          "selectedFacets": [
-            {
-              "key": "productClusterIds",
-              "value": "729"
-            }
-          ],
-          "query": "",
+          "selectedFacets": [],
           "hideUnavailableItems": true
         },
         "layout": {
@@ -46,23 +42,24 @@
             "colors": {
               "__resolveType": "Saved Colors"
             }
-          }
+          },
+          "enableSpecialFilter": true
         },
         "startingPage": 1,
         "seoComponents": {
           "banner": {
-            "title": "Conjuntinhos",
+            "title": "Bazar",
             "subtitle": "Meninas",
             "description": "<p><span>Lorem ipsum dolor sit amet consectetur. Urna massa diam feugiat eleifend integer mattis.</span></p>",
             "image": {
               "desktop": {
-                "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/b99c8913-6279-43f1-b0a5-5ddf5310e093/banner_cat_meninas_conjuntos_desk.png",
+                "src": "https://data.decoassets.com/alphabeto/8064e5bc-d61b-42fd-920d-10c59ee61526/Banner-principal-(1).png",
                 "width": 1360,
                 "height": 230
               },
               "alt": "A imagem mostra uma menina sorridente com cabelos castanhos lisos e franja, usando uma jaqueta jeans azul. O fundo é rosa vibrante, decorado com estrelas amarelas e linhas curvas como arco-íris no canto direito. O visual transmite alegria e energia, com tons quentes e elementos lúdicos.",
               "mobile": {
-                "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/950128fd-a6b4-4344-8a48-4a7b915c3de7/banner_cat_meninas_conjuntos_mob.png",
+                "src": "https://data.decoassets.com/alphabeto/ba2be877-4a89-4ece-b26d-b3d4cc410814/Banner-principal-(2).png",
                 "width": 335,
                 "height": 200
               }
@@ -70,8 +67,12 @@
           },
           "breadcrumb": [
             {
-              "name": "Bebê Menina - Conjunto",
-              "url": "/bebe/menina/Conjunto-para-bebes-meninas"
+              "url": "/bazar",
+              "name": "Bazar"
+            },
+            {
+              "name": "Meninas",
+              "url": "/meninas/bazar"
             }
           ]
         }
@@ -141,8 +142,6 @@
       }
     }
   ],
-  "seo": {
-    "__resolveType": "website/sections/Seo/SeoV2.tsx"
-  },
-  "__resolveType": "website/pages/Page.tsx"
+  "name": "PLP: Bazar: Meninas",
+  "path": "/meninas/bazar"
 }
