@@ -219,7 +219,4 @@ export default function InteractiveBanner({
 
 export const LoadingFallback = (
   props: LoadingFallbackProps<InteractiveBannerProps>,
-) => (
-  // deno-lint-ignore no-explicit-any
-  <InteractiveBanner {...(props as any)} loading="lazy" />
-);
+) => <InteractiveBanner {...(props as any)} loading="lazy" />;
