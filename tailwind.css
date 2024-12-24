@@ -23,20 +23,20 @@
   }
 }
 
-@layer utilities{
-.container {
-  max-width: 95rem;
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 40px;
-  padding-right: 40px;
+@layer utilities {
+  .container {
+    max-width: 95rem;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 40px;
+    padding-right: 40px;
 
-  @media (max-width: 1024px) {
-    padding-left: 20px;
-    padding-right: 20px;
+    @media (max-width: 1024px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
-}
 }
 
 .group:disabled .group-disabled\:animate-progress {
