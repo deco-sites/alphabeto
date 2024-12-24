@@ -1,8 +1,6 @@
-// deno-lint-ignore-file
 import { ImageWidget } from "apps/admin/widgets.ts";
 import { Product } from "apps/commerce/types.ts";
 import { LoadingFallbackProps } from "@deco/deco";
-import { useDevice } from "@deco/deco/hooks";
 
 interface InteractiveBannerProduct {
   previewImage?: {
@@ -221,7 +219,4 @@ export default function InteractiveBanner({
 
 export const LoadingFallback = (
   props: LoadingFallbackProps<InteractiveBannerProps>,
-) => (
-  // deno-lint-ignore no-explicit-any
-  <InteractiveBanner {...(props as any)} loading="lazy" />
-);
+) => <InteractiveBanner {...(props as any)} loading="lazy" />;
