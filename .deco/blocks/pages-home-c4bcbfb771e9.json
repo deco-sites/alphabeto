@@ -2,10 +2,7 @@
   "name": "Home Page",
   "sections": [
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "Header"
-      }
+      "__resolveType": "Header"
     },
     {
       "__resolveType": "site/sections/Images/Carousel.tsx",
@@ -47,64 +44,58 @@
       "preload": true
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/BenefitsBar/BenefitsBar.tsx",
-        "items": [
-          {
-            "borderColor": "#FF8300",
-            "backgroundColor": "#FCF3E6",
-            "mainColor": "#FF8300",
-            "imageUrl": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/4afcd983-510b-4e38-9bf4-4e40c52c42a1/Troca-facil.svg",
-            "imageAlt": "Troca Fácil",
-            "title": "Troca Fácil",
-            "message": "<p style=\"text-align: justify\">Precisa trocar? É fácil e rapidinho :) <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"/\"><span style=\"color: #ff8300\">Clique aqui</span></a></p>",
-            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/4afcd983-510b-4e38-9bf4-4e40c52c42a1/Troca-facil.svg"
-          },
-          {
-            "mainColor": "#70D1E8",
-            "backgroundColor": "#F3FDFF",
-            "imageUrl": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/df88c2f5-e977-44fa-864a-600930a7d7e5/sem-juros.svg",
-            "imageAlt": "Sem Juros",
-            "message": "<p>Parcelinhas minímas de R$50,00</p>",
-            "title": "Até 6x sem juros",
-            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/df88c2f5-e977-44fa-864a-600930a7d7e5/sem-juros.svg"
-          },
-          {
-            "mainColor": "#FF859A",
-            "backgroundColor": "#FFEDF0",
-            "imageUrl": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/2586e2b7-8a61-4050-9321-acf0097abdbc/primeira-compra.svg",
-            "imageAlt": "Primeira Compra",
-            "title": "Primeira Compra",
-            "message": "<p><span>Ganhe 10% de presente com o cupom BEMVINDO10.</span></p>",
-            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/2586e2b7-8a61-4050-9321-acf0097abdbc/primeira-compra.svg"
-          },
-          {
-            "mainColor": "#D6DE23",
-            "backgroundColor": "#F9FAE5",
-            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/b106d86e-a147-4b78-9393-559120630fa3/cashback.svg",
-            "imageAlt": "Cashback",
-            "title": "Ganhe 15% de cashback",
-            "message": "<p><span>E resgate na sua próxima compra.</span></p>"
-          },
-          {
-            "mainColor": "#C5A6CD",
-            "backgroundColor": "#FDF5FF",
-            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/e45cb70f-a412-4371-8124-53eb2b94370b/app.svg",
-            "imageAlt": "App",
-            "title": "Baixe o app",
-            "message": "<p><span>Ganhe 15% de presente na sua primeira compra.</span></p>"
-          },
-          {
-            "mainColor": "#FF8300",
-            "backgroundColor": "#F7E0BF",
-            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/be59f3c5-5e04-4d1e-aeb2-b57bc53255c1/retirada.svg",
-            "imageAlt": "Retirada",
-            "title": "Retirada na loja",
-            "message": "<p><span>Compre e retire na loja mais próxima.</span></p>"
-          }
-        ]
-      }
+      "__resolveType": "site/sections/BenefitsBar/BenefitsBar.tsx",
+      "items": [
+        {
+          "backgroundColor": "#FCF3E6",
+          "mainColor": "#FF8300",
+          "imageAlt": "Troca Fácil",
+          "title": "Troca Fácil",
+          "message": "<p>Precisa trocar? É fácil e rapidinho :) <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"/\">Clique aqui</a></p>",
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/4afcd983-510b-4e38-9bf4-4e40c52c42a1/Troca-facil.svg"
+        },
+        {
+          "mainColor": "#70D1E8",
+          "backgroundColor": "#F3FDFF",
+          "imageAlt": "Sem Juros",
+          "message": "<p>Parcelinhas minímas de R$50,00</p>",
+          "title": "Até 6x sem juros",
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/df88c2f5-e977-44fa-864a-600930a7d7e5/sem-juros.svg"
+        },
+        {
+          "mainColor": "#FF859A",
+          "backgroundColor": "#FFEDF0",
+          "imageUrl": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/2586e2b7-8a61-4050-9321-acf0097abdbc/primeira-compra.svg",
+          "imageAlt": "Primeira Compra",
+          "title": "Primeira Compra",
+          "message": "<p><span>Ganhe 10% de presente com o cupom BEMVINDO10.</span></p>",
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/2586e2b7-8a61-4050-9321-acf0097abdbc/primeira-compra.svg"
+        },
+        {
+          "mainColor": "#D6DE23",
+          "backgroundColor": "#F9FAE5",
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/b106d86e-a147-4b78-9393-559120630fa3/cashback.svg",
+          "imageAlt": "Cashback",
+          "title": "Ganhe 15% de cashback",
+          "message": "<p>E resgate na sua próxima compra.</p>"
+        },
+        {
+          "mainColor": "#C5A6CD",
+          "backgroundColor": "#FDF5FF",
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/e45cb70f-a412-4371-8124-53eb2b94370b/app.svg",
+          "imageAlt": "App",
+          "title": "Baixe o app",
+          "message": "<p>Ganhe 15% de presente na sua primeira compra.</p>"
+        },
+        {
+          "mainColor": "#FF8300",
+          "backgroundColor": "#F7E0BF",
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/be59f3c5-5e04-4d1e-aeb2-b57bc53255c1/retirada.svg",
+          "imageAlt": "Retirada",
+          "title": "Retirada na loja",
+          "message": "<p>Compre e retire na loja mais próxima.</p>"
+        }
+      ]
     },
     {
       "__resolveType": "site/sections/TabLayout/TabLayout.tsx",

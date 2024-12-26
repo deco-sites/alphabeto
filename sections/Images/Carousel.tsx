@@ -95,8 +95,8 @@ function Carousel({ images = [], preload, interval }: Props) {
       id={id}
       class="w-full relative"
     >
-      <div class="relative z-10 aspect-[750/700] desk:aspect-[2880/900] max-h-fit">
-        <Slider class="carousel carousel-center w-full aspect-[750/700] desk:aspect-[2880/900]">
+      <div class="relative z-10 aspect-[750/700] tablet-large:aspect-[2880/900] max-h-fit">
+        <Slider class="carousel carousel-center w-full aspect-[750/700] tablet-large:aspect-[2880/900]">
           {images.map((image, index) => (
             <Slider.Item index={index} class="carousel-item w-full h-fit">
               <BannerItem image={image} lcp={index === 0 && preload} />
