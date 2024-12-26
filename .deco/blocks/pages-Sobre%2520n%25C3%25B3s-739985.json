@@ -1,0 +1,107 @@
+{
+  "name": "Sobre nós",
+  "path": "/sobre-nos",
+  "sections": [
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Header"
+      }
+    },
+    {
+      "__resolveType": "site/sections/BreadcrumbInstitucional/Breadcrumb.tsx",
+      "root": "HOME",
+      "path": "Institucional",
+      "route": "Mundo Alphabeto",
+      "showText": true
+    },
+    {
+      "__resolveType": "site/sections/AboutUs/AboutUsBanner.tsx",
+      "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/d8955d99-3f7d-4434-ac9c-747d23289be0/Banner-principal.png",
+      "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/2eb3992f-b89d-47d7-9551-bc08a14cea84/Banner-principal-(1).png",
+      "alt": "Dois meninos sorridentes em frente a um fundo vermelho e laranja vibrante, com um desenho de dinossauro azul ao lado."
+    },
+    {
+      "__resolveType": "site/sections/AboutUs/AboutUsIntroduction.tsx",
+      "title": "Mundo Alphabeto",
+      "logo": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/166040cc-542a-4e2a-9b47-c117f2ef89d9/Logo.png",
+      "altLogo": "Palavra Alphabeto",
+      "paragraphOne": "<p><span>Lorem ipsum dolor sit amet consectetur. Et imperdiet et rutrum laoreet urna vel. Nulla sit sed id magna non turpis lobortis. Sodales orci cursus semper est consectetur pulvinar nisi adipiscing tellus. Etiam vitae urna auctor diam. Vel mattis vitae est risus laoreet id posuere. Tellus morbi et amet tellus turpis quisque sed. Donec semper nisi rhoncus at elementum id venenatis. In auctor tincidunt quis enim urna quisque viverra. </span><strong><span>Nibh volutpat fringilla</span></strong><span> dui sed dapibus sagittis. Elementum cursus sagittis molestie leo morbi. Nulla tristique egestas non mattis purus tincidunt suscipit.<br>Ultrices etiam et cursus maecenas aliquet volutpat.e. Turpis magna interdum elit purus nisi in. Mauris auctor congue facilisi habitasse sit semper rhoncus consectetur morbi.</span></p>",
+      "paragraphTwo": "<p><span>Ac egestas elementum urna vitae cursus faucibus leo eu hendrerit. Egestas pretium hendrerit cursus ut egestas at euismod pulvinar. Sagittis elit turpis sit fames imperdiet aliquet. Maecenas morbi justo phasellus massa pellentesque. </span><strong><span>Fringilla lacinia augue arcu purus. Pellentesque est iaculis mauris felis id id at.</span></strong><span> Diam faucibus ac feugiat nibh mi scelerisque. A fermentum mattis semper arcu placerat dictum. Morbi vestibulum vitae sed purus id tristique. At a commodo non nisl mattis. Aliquet tortor eleifend sodales dui viverra porttitor eget. Pretium et urna pharetra donec sed feugiat varius vel tellus. Justo risus facilisi massa pellentesque pretium. Viverra fermentum enim amet amet mi.</span></p>",
+      "imageOne": {
+        "srcDesktop": "https://data.decoassets.com/alphabeto/e8cecfb6-392f-4026-882c-f5326e64a298/institucional_foto_1_desk.png",
+        "srcMobile": "https://data.decoassets.com/alphabeto/16d88948-ad7a-47d6-8dec-02485e96d264/institucional_foto_1_mob.png",
+        "alt": "A imagem apresenta três elementos principais: duas crianças e um personagem fantasiado. O fundo é laranja vibrante, enquanto o enquadramento está contido em uma forma de estrela, adicionando um toque divertido e dinâmico à composição.  Descrição dos elementos:  Criança à esquerda: Um menino com cabelos cacheados escuros, usando uma jaqueta azul com uma camiseta branca por baixo e calças bege com estampas. Ele faz um gesto de positivo com a mão, transmitindo uma mensagem de aprovação e alegria. Personagem central: Uma grande figura de pelúcia em formato de pássaro amarelo com bico laranja e olhos grandes e expressivos. Ele é o centro das atenções e cria uma atmosfera acolhedora e lúdica. Criança à direita: Uma menina com cabelo castanho claro e uma faixa no cabelo. Ela veste um vestido floral verde com detalhes vibrantes. Ela abraça o personagem, transmitindo carinho e diversão. Detalhes adicionais: Pequenas estrelas amarelas brilhantes estão dispersas em volta da composição, reforçando o tom alegre e mágico da imagem. A iluminação é suave, realçando as cores brilhantes sem criar sombras marcantes."
+      },
+      "imageTwo": {
+        "srcDesktop": "https://data.decoassets.com/alphabeto/38f49929-f440-4052-91af-e8af57be6325/institucional_foto_2_desk.png",
+        "srcMobile": "https://data.decoassets.com/alphabeto/55026835-ab7d-41ec-9a85-fc8826678a69/institucional_foto_2_mob.png",
+        "alt": "A imagem apresenta duas crianças abraçadas de forma afetuosa, transmitindo uma mensagem de união e amizade. O fundo é lilás, criando um contraste suave com os trajes das crianças. A composição está contida em uma forma orgânica e irregular que adiciona dinamismo à imagem.  Descrição dos elementos:  Criança à esquerda: Uma menina de pele escura, com tranças coloridas e vibrantes, usa um casaco cintilante que reflete tons metálicos. Sua expressão é tranquila, e o abraço que recebe transmite conforto e segurança. Criança à direita: Uma menina de pele clara com cabelo ruivo preso em dois coques. Ela veste um vestido escuro com textura discreta e tem uma expressão sorridente e acolhedora enquanto abraça a amiga. Detalhes adicionais: O contorno da imagem possui um efeito de brilho sutil, destacando ainda mais a interação amigável das crianças. A iluminação é suave e uniforme, valorizando as cores e as expressões faciais."
+      }
+    },
+    {
+      "__resolveType": "site/sections/AboutUs/AboutUsVideo.tsx",
+      "videoId": "f22tvc-GbOs",
+      "title": "Em seu reino existe uma fábrica encantada...",
+      "text": "<p>Ac egestas elementum urna vitae cursus faucibus leo eu hendrerit. Egestas pretium hendrerit cursus ut egestas at euismod pulvinar. Sagittis elit turpis sit fames imperdiet aliquet. Maecenas morbi justo phasellus massa pellentesque. Fringilla lacinia augue arcu purus. Pellentesque est iaculis mauris felis id id at. Diam faucibus ac feugiat nibh mi scelerisque. A fermentum mattis semper arcu placerat dictum. Morbi vestibulum vitae sed purus id tristique. At a commodo non nisl mattis. Aliquet tortor eleifend sodales dui viverra porttitor eget. Pretium et urna pharetra donec sed feugiat varius vel tellus. Justo risus facilisi massa pellentesque pretium. Viverra fermentum enim amet amet mi.</p>"
+    },
+    {
+      "__resolveType": "site/sections/AboutUs/AboutUsCompanyInfo.tsx",
+      "title": "Empresa brasileira com muito orgulho e amor",
+      "subTitle": "Ac egestas elementum urna vitae cursus faucibus leo eu hendrerit.",
+      "items": [
+        {
+          "mainInfo": "+800",
+          "textAboutInfo": "<p>Mais de 800 <br>colaboradores.</p>",
+          "color": "#D6DE23",
+          "label": "Mais de 800 colaboradores.",
+          "mainInfoColor": "#D6DE23"
+        },
+        {
+          "textAboutInfo": "<p>95% dos produtos são <br>produzidos internamente</p>",
+          "color": "#FF859A",
+          "label": "95% dos produtos são produzidos internamente",
+          "mainInfoColor": "#FF859A",
+          "mainInfo": "95%"
+        },
+        {
+          "color": "#D6DE23",
+          "textAboutInfo": "<p>Com mais de 80 mil<br>produtos disponíveis.</p>",
+          "label": "Com mais de 80 mil produtos disponíveis.",
+          "mainInfoColor": "#70D1E8",
+          "mainInfo": "80k"
+        }
+      ],
+      "text": "<ul><li><p>Produção <strong>just in time </strong>(Produtos no momento certo);</p></li><li><p>Maquinário de <strong>tecnologia avançada</strong>;</p></li><li><p><strong>Processo de produção completa</strong>: criação, tecelagem, bordado, estamapria, costura, acabamento e embalagem;</p></li><li><p>Lavanderia industrial com <strong>estação própria</strong> de tratamento de água;</p></li></ul>"
+    },
+    {
+      "__resolveType": "site/sections/AboutUs/AboutUsBubbles.tsx",
+      "title": "<p>Nosso mundo encantado!<br><span style=\"color: rgb(255, 133, 154)\">Cheio de magia</span><span style=\"color: rgb(112, 209, 232)\">, alegria</span> e <span style=\"color: rgb(214, 222, 35)\">muitos detalhes!</span></p>",
+      "subtitle": "<p><span style=\"color: rgb(255, 133, 154)\">Cheio de magia</span><span style=\"color: rgb(112, 209, 232)\">, alegria</span> e <span style=\"color: rgb(214, 222, 35)\">muitos detalhes!</span></p>",
+      "images": [
+        {
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/46e22f96-2f6a-45e8-bce4-70bbabff6c7c/image.png",
+          "alt": "Criança sorrindo e segurando uma bolsa pequena"
+        },
+        {
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/e95584d1-d456-475f-8508-4ef35449b159/image-(1).png",
+          "alt": "Duas crianças imitando dinossauros"
+        },
+        {
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/0e52c1cc-b274-4ae7-a1ea-bdfde3d7ab1a/image-(2).png",
+          "alt": "Criança sorrindo"
+        }
+      ]
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer"
+      }
+    }
+  ],
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
+  "__resolveType": "website/pages/Page.tsx"
+}
