@@ -97,6 +97,7 @@ const manifest = {
     "site/loaders/vtexReviewsAndRatings/queries.ts": $$$16,
     "site/loaders/vtexReviewsAndRatings/types.ts": $$$17,
     "site/loaders/wishlist.ts": $$$18,
+    "site/loaders/youtubeVideo.ts": $$$19,
   },
   "sections": {
     "site/sections/Animation/Animation.tsx": $$$$$$0,
