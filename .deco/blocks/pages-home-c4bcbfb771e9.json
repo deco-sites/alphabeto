@@ -609,9 +609,10 @@
           {
             "image": {
               "desktop": {
-                "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/c762e675-24c1-4b70-9325-8531f6f89075/image.png"
+                "src": "https://data.decoassets.com/alphabeto/d56a7b24-5549-497b-a279-73eabce88dc6/modelo-(1).png"
               },
-              "alt": "Banner meninas"
+              "alt": "Banner meninas",
+              "mobile": {}
             },
             "categoryLink": "/meninas",
             "buttonText": "Meninas",
@@ -620,7 +621,7 @@
           {
             "image": {
               "desktop": {
-                "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/5c0e6726-da38-4169-aba3-94524998675e/image-135.png"
+                "src": "https://data.decoassets.com/alphabeto/128b367d-eb58-4495-8f4a-776433135105/2-(1).png"
               },
               "alt": "Banner meninos"
             },
@@ -631,9 +632,10 @@
           {
             "image": {
               "desktop": {
-                "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/d864248d-72c4-4855-85b9-68afc3d4642a/image-(1).png"
+                "src": "https://data.decoassets.com/alphabeto/7262db37-50c8-4b1c-9bbf-24fbd3c36dc3/3-(1).png"
               },
-              "alt": "Banner bebes"
+              "alt": "Banner bebes",
+              "mobile": {}
             },
             "categoryLink": "/bebes",
             "buttonText": "Bebês",
@@ -733,7 +735,7 @@
         "title": "Presentes que encantam!",
         "description": "Conforto e carinho em forma de roupinhas.",
         "image": {
-          "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/9da3296d-60eb-4a41-a698-2b8a6ec0a10c/Frame-21.png",
+          "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/3fabe207-2476-4a17-bc2f-2f08e8482461/apoio-desk.png",
           "alt": "presentes"
         },
         "section": {
