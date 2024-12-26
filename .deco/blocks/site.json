@@ -64,6 +64,11 @@
         ]
       },
       "freeShippingBarSettings": {}
+    },
+    {
+      "__resolveType": "site/sections/PopupLGPD/PopupLGPD.tsx",
+      "text": "<p>Se você clicar no botão aceito, consideramos que você aceita o uso de nossos cookies. Verifique nossa <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"/politicas-de-privacidade\">Política de Privacidade.</a></p>",
+      "label": "Aceitar"
     }
   ],
   "routes": [

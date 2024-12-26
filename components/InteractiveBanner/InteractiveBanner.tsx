@@ -1,6 +1,6 @@
 import { ImageWidget } from "apps/admin/widgets.ts";
 import { Product } from "apps/commerce/types.ts";
-import { LoadingFallbackProps } from "@deco/deco";
+import Section from "site/components/ui/Section.tsx";
 
 interface InteractiveBannerProduct {
   previewImage?: {
@@ -217,9 +217,4 @@ export default function InteractiveBanner({
   );
 }
 
-export const LoadingFallback = (
-  props: LoadingFallbackProps<InteractiveBannerProps>,
-) => (
-  // deno-lint-ignore no-explicit-any
-  <InteractiveBanner {...(props as any)} loading="lazy" />
-);
+export const LoadingFallback = () => <Section.Placeholder height="635px" />;
