@@ -6625,31 +6625,31 @@ details.collapse summary::-webkit-details-marker {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 .\!container {
-  max-width: 95rem !important;
-  width: 100% !important;
-  margin-right: auto !important;
-  margin-left: auto !important;
-  padding-left: 40px !important;
-  padding-right: 40px !important;
+    max-width: 95rem !important;
+    width: 100% !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
 
-  @media (max-width: 1024px) {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    @media (max-width: 1024px) {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
   }
-}
 .container {
-  max-width: 95rem;
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 40px;
-  padding-right: 40px;
+    max-width: 95rem;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 40px;
+    padding-right: 40px;
 
-  @media (max-width: 1024px) {
-    padding-left: 20px;
-    padding-right: 20px;
+    @media (max-width: 1024px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
-}
 .\[--chkbg\:\#FF8300\] {
   --chkbg: #FF8300;
 }
@@ -7257,6 +7257,23 @@ details.collapse summary::-webkit-details-marker {
     bottom: 2.5rem;
   }
 
+  .mobile\:left-\[132px\] {
+    left: 132px;
+  }
+
+  .mobile\:top-\[199px\] {
+    top: 199px;
+  }
+
+  .mobile\:top-\[32px\] {
+    top: 32px;
+  }
+
+  .mobile\:mx-\[8\.5px\] {
+    margin-left: 8.5px;
+    margin-right: 8.5px;
+  }
+
   .mobile\:mx-auto {
     margin-left: auto;
     margin-right: auto;
@@ -7331,6 +7348,14 @@ details.collapse summary::-webkit-details-marker {
     height: 153px;
   }
 
+  .mobile\:h-\[230px\] {
+    height: 230px;
+  }
+
+  .mobile\:h-\[250px\] {
+    height: 250px;
+  }
+
   .mobile\:h-\[305px\] {
     height: 305px;
   }
@@ -7353,6 +7378,10 @@ details.collapse summary::-webkit-details-marker {
 
   .mobile\:w-\[100\%\] {
     width: 100%;
+  }
+
+  .mobile\:w-\[100px\] {
+    width: 100px;
   }
 
   .mobile\:w-\[160px\] {
@@ -7566,19 +7595,19 @@ details.collapse summary::-webkit-details-marker {
   .mobile\:leading-\[26px\] {
     line-height: 26px;
   }
-.mobile\:container {
-  max-width: 95rem;
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 40px;
-  padding-right: 40px;
+  .mobile\:container {
+    max-width: 95rem;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 40px;
+    padding-right: 40px;
 
-  @media (max-width: 1024px) {
-    padding-left: 20px;
-    padding-right: 20px;
+    @media (max-width: 1024px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
-}
 }
 @media (min-width: 680px) {
 
@@ -8189,20 +8218,20 @@ details.collapse summary::-webkit-details-marker {
   .desk\:leading-\[52\.8px\] {
     line-height: 52.8px;
   }
-.desk\:container {
-  max-width: 95rem;
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 40px;
-  padding-right: 40px;
+  .desk\:container {
+    max-width: 95rem;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 40px;
+    padding-right: 40px;
 
-  @media (max-width: 1024px) {
-    padding-left: 20px;
-    padding-right: 20px;
+    @media (max-width: 1024px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
-}
-.group:hover .desk\:group-hover\:block {
+  .group:hover .desk\:group-hover\:block {
     display: block;
   }
 }
