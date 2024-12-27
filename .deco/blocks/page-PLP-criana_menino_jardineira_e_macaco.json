@@ -1,0 +1,88 @@
+{
+  "__resolveType": "website/pages/Page.tsx",
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
+  "sections": [
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
+        "jsonLD": {
+          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+          "count": 1,
+          "sort": "release:desc",
+          "fuzzy": "automatic",
+          "selectedFacets": [
+            {
+              "key": "productClusterIds",
+              "value": "732"
+            }
+          ],
+          "query": "",
+          "hideUnavailableItems": true
+        }
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Header"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Product/SearchResult.tsx",
+        "page": {
+          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+          "count": 24,
+          "sort": "release:desc",
+          "fuzzy": "automatic",
+          "selectedFacets": [
+            {
+              "key": "productClusterIds",
+              "value": "732"
+            }
+          ],
+          "query": "",
+          "hideUnavailableItems": true
+        },
+        "layout": {
+          "columns": {
+            "mobile": 2,
+            "desktop": 4
+          },
+          "variant": "aside",
+          "pagination": "show-more",
+          "filter": {
+            "colors": {
+              "__resolveType": "Saved Colors"
+            }
+          }
+        },
+        "startingPage": 1,
+        "seoComponents": {
+          "banner": {},
+          "breadcrumb": [
+            {
+              "name": "Criança Menino - Jardineira e Macacão",
+              "url": "/infantil/crianca/menino/jardineira-e-macacao  "
+            }
+          ]
+        }
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer"
+      }
+    }
+  ],
+  "name": "PLP: Criança Menino - Jardineira e Macacão",
+  "path": "/infantil/crianca/menino/jardineira-e-macacao  "
+}

@@ -1,7 +1,8 @@
+import { Color } from "apps/admin/widgets.ts";
 /** @title {{name}} */
 export interface ColorItemProps {
   name: string;
-  hexadecimals: string[];
+  hexadecimals: Color[];
 }
 
 export interface LoaderFilterSettings {
@@ -10,7 +11,7 @@ export interface LoaderFilterSettings {
 
 export interface ExportedColorItem {
   name: string;
-  hexadecimals: string[];
+  hexadecimals: Color[];
 }
 
 /**@title Saved Colors Loader */

@@ -91,7 +91,7 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
     >
       <ProductAgeRangeIndicator product={product} />
       <div class="absolute desk:top-0 desk:right-0 top-[18px] right-[18px]">
-        <WishlistButton item={item} />
+        <WishlistButton mode="pdp" item={item} />
       </div>
       {/* Product Name */}
       <span class="text-[#676767] text-[22px] mobile:leading-[26px] desk:text-3xl font-bold">

@@ -170,7 +170,7 @@ export default function InteractiveBanner({
                     )}
                   </div>
                   <a
-                    href={item.product[0].url}
+                    href={item.product[0]?.url}
                     className="text-[#FF8300] font-bold lowercase text-xs mt-4 inline-block underline"
                   >
                     ver produto

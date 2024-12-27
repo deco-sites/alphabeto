@@ -1,16 +1,24 @@
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import ProductSlider from "site/components/product/ProductSlider.tsx";
-import Section, {
-  Props as SectionHeaderProps,
-} from "site/components/ui/Section.tsx";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
-import { type LoadingFallbackProps } from "@deco/deco";
-export interface Props extends SectionHeaderProps {
+import Section from "site/components/ui/Section.tsx";
+import { ExportedColorItem } from "site/loaders/savedColors.ts";
+
+export interface Props {
   products: Product[] | null;
+  /**
+   * @title List Name
+   * @description Name of the list of items being viewed used	for analytics
+   */
+  viewItemListName: string;
+
+  colors: ExportedColorItem[];
 }
-export default function ProductShelf({ products, title, cta }: Props) {
+export default function ProductShelf(
+  { products, viewItemListName, colors }: Props,
+) {
   if (!products || products.length === 0) {
     return null;
   }
@@ -19,7 +27,7 @@ export default function ProductShelf({ products, title, cta }: Props) {
     event: {
       name: "view_item_list",
       params: {
-        item_list_name: title,
+        item_list_name: viewItemListName,
         items: products.map((product, index) =>
           mapProductToAnalyticsItem({
             index,
@@ -32,18 +40,16 @@ export default function ProductShelf({ products, title, cta }: Props) {
   });
   return (
     <Section.Container {...viewItemListEvent}>
-      <Section.Header title={title} cta={cta} />
-
-      <ProductSlider products={products} itemListName={title} />
+      <ProductSlider
+        products={products}
+        itemListName={viewItemListName}
+        colors={colors}
+      />
     </Section.Container>
   );
 }
-export const LoadingFallback = ({
-  title,
-  cta,
-}: LoadingFallbackProps<Props>) => (
+export const LoadingFallback = () => (
   <Section.Container>
-    <Section.Header title={title} cta={cta} />
-    <Section.Placeholder height="471px" />;
+    <Section.Placeholder height="688px" />;
   </Section.Container>
 );

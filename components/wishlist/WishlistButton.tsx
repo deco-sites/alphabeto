@@ -1,10 +1,12 @@
-import { useScript } from "@deco/deco/hooks";
+import { useDevice, useScript } from "@deco/deco/hooks";
 import { AnalyticsItem } from "apps/commerce/types.ts";
-import { clx } from "../../sdk/clx.ts";
-import { useId } from "../../sdk/useId.ts";
-import { useSendEvent } from "../../sdk/useSendEvent.ts";
-import Icon from "../ui/Icon.tsx";
+import { clx } from "site/sdk/clx.ts";
+import { useId } from "site/sdk/useId.ts";
+import { useSendEvent } from "site/sdk/useSendEvent.ts";
+import Icon from "site/components/ui/Icon.tsx";
+
 interface Props {
+  mode: "pdp" | "productCard";
   item: AnalyticsItem;
 }
 
@@ -17,7 +19,7 @@ const onLoad = (id: string, productID: string) =>
     const useTag = button.querySelector("use");
     const href = useTag?.getAttribute("href") ?? "";
 
-    const newIconName = inWishlist ? "hearth-unfill" : "hearth-fill";
+    const newIconName = inWishlist ? "hearth-fill" : "hearth-unfill";
     const newHref = href.replace(/#.*$/, `#${newIconName}`);
     useTag?.setAttribute("href", newHref);
   });
@@ -32,11 +34,12 @@ const onClick = (productID: string, productGroupID: string) => {
     window.alert(`Faça login para adicionar o produto à lista de desejos`);
   }
 };
-function WishlistButton({ item }: Props) {
+function WishlistButton({ item, mode }: Props) {
   // deno-lint-ignore no-explicit-any
   const productID = (item as any).item_id;
   const productGroupID = item.item_group_id ?? "";
   const id = useId();
+  const device = useDevice();
   const addToWishlistEvent = useSendEvent({
     on: "click",
     event: {
@@ -56,12 +59,19 @@ function WishlistButton({ item }: Props) {
         class={clx(
           "btn no-animation",
           "btn-circle btn-ghost btn-sm",
-          "h-10 w-10 ",
+          "h-10 w-10 min-h-10",
           "shadow-[0px_2px_10px_0px_rgba(59,_59,_59,_0.1)]",
-          "text-[#FF859A]",
+          "text-[#FF859A] bg-white hover:bg-white hover:opacity-75",
+          mode === "productCard"
+            ? "mobile:w-[30px] mobile:h-[30px] mobile:min-h-[30px]"
+            : "",
         )}
       >
-        <Icon id="hearth-unfill" class="[.htmx-request_&]:hidden" size={20} />
+        <Icon
+          id="hearth-unfill"
+          class="[.htmx-request_&]:hidden"
+          size={device === "mobile" && mode === "productCard" ? 15 : 20}
+        />
         <span class="[.htmx-request_&]:inline hidden loading loading-spinner" />
       </button>
       <script

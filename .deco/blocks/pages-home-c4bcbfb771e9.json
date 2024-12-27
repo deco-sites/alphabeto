@@ -106,80 +106,83 @@
           "section": {
             "__resolveType": "site/sections/Product/ProductShelf.tsx",
             "products": {
-              "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
-              "props": {
-                "sort": "price:desc",
-                "collection": "787",
-                "count": 16
-              }
-            },
-            "colors": [
-              {
-                "hexadecimals": [
-                  "#f8ce49"
-                ],
-                "name": "amarelo"
+              "__resolveType": "commerce/loaders/product/extensions/list.ts",
+              "data": {
+                "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+                "props": {
+                  "sort": "price:desc",
+                  "collection": "787",
+                  "count": 16
+                }
               },
-              {
-                "hexadecimals": [
-                  "#484848"
-                ],
-                "name": "anis"
-              }
-            ]
+              "extensions": [
+                {
+                  "__resolveType": "vtex/loaders/product/extensions/list.ts",
+                  "reviews": true
+                }
+              ]
+            },
+            "viewItemListName": "Favoritos da Semana - Meninas",
+            "colors": {
+              "__resolveType": "Saved Colors"
+            }
           },
           "label": "Meninas",
           "title": "Meninas",
-          "products": {
-            "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
-            "props": {
-              "sort": "price:desc",
-              "collection": "769",
-              "count": 8,
-              "similars": true
-            },
-            "page": 4
-          },
-          "tabIndex": 1,
           "backgroundColor": "#FF859A"
         },
         {
           "section": {
             "__resolveType": "site/sections/Product/ProductShelf.tsx",
             "products": {
-              "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
-              "props": {
-                "sort": "price:desc",
-                "collection": "768",
-                "count": 16
-              }
+              "__resolveType": "commerce/loaders/product/extensions/list.ts",
+              "data": {
+                "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+                "props": {
+                  "sort": "price:desc",
+                  "collection": "768",
+                  "count": 16
+                }
+              },
+              "extensions": [
+                {
+                  "__resolveType": "vtex/loaders/product/extensions/list.ts",
+                  "reviews": true
+                }
+              ]
+            },
+            "viewItemListName": "Favoritos da Semana - Meninos",
+            "colors": {
+              "__resolveType": "Saved Colors"
             }
           },
           "label": "Meninos",
           "title": "Menino",
-          "products": {
-            "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
-            "props": {
-              "sort": "price:desc",
-              "collection": "768",
-              "count": 8
-            },
-            "page": 5,
-            "pagesize": 1
-          },
-          "tabIndex": 0,
           "backgroundColor": "#70D1E8"
         },
         {
           "section": {
             "__resolveType": "site/sections/Product/ProductShelf.tsx",
             "products": {
-              "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
-              "props": {
-                "sort": "price:desc",
-                "collection": "670",
-                "count": 16
-              }
+              "__resolveType": "commerce/loaders/product/extensions/list.ts",
+              "data": {
+                "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+                "props": {
+                  "sort": "price:desc",
+                  "collection": "670",
+                  "count": 16
+                }
+              },
+              "extensions": [
+                {
+                  "__resolveType": "vtex/loaders/product/extensions/list.ts",
+                  "reviews": true
+                }
+              ]
+            },
+            "viewItemListName": "Favoritos da Semana - Bebês",
+            "colors": {
+              "__resolveType": "Saved Colors"
             }
           },
           "label": "Bebês",
@@ -475,38 +478,6 @@
           }
         ],
         "discountValue": 10
-      }
-    },
-    {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/GiftShelf/GiftShelf.tsx",
-        "title": "Presentes que encantam!",
-        "description": "Conforto e carinho em forma de roupinhas.",
-        "image": {
-          "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/3fabe207-2476-4a17-bc2f-2f08e8482461/apoio-desk.png",
-          "alt": "presentes"
-        },
-        "section": {
-          "__resolveType": "site/sections/Product/ProductShelf.tsx",
-          "products": {
-            "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
-            "props": {
-              "sort": "price:desc",
-              "count": 8,
-              "collection": "782"
-            }
-          },
-          "colors": []
-        },
-        "products": {
-          "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
-          "props": {
-            "sort": "price:desc",
-            "collection": "767",
-            "count": 8
-          }
-        }
       }
     },
     {

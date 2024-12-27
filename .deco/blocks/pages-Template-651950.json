@@ -1,13 +1,17 @@
 {
-  "name": "Search Page",
-  "path": "/s",
+  "name": "Template",
+  "path": "/example-path",
   "sections": [
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
         "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
         "jsonLD": {
-          "__resolveType": "PLP Loader"
+          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+          "sort": "price:desc",
+          "fuzzy": "automatic",
+          "selectedFacets": [],
+          "count": 1
         }
       }
     },
@@ -22,7 +26,18 @@
       "section": {
         "__resolveType": "site/sections/Product/SearchResult.tsx",
         "page": {
-          "__resolveType": "PLP Loader"
+          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+          "count": 24,
+          "sort": "release:desc",
+          "fuzzy": "automatic",
+          "selectedFacets": [
+            {
+              "key": "productClusterIds",
+              "value": "729"
+            }
+          ],
+          "query": "",
+          "hideUnavailableItems": true
         },
         "layout": {
           "columns": {
@@ -38,14 +53,19 @@
           }
         },
         "startingPage": 1,
-        "seoContent": {
-          "banner": {}
-        },
         "seoComponents": {
           "banner": {},
-          "breadcrumb": []
+          "breadcrumb": [
+            {
+              "name": "Bebê Menina - Conjunto",
+              "url": "/bebe/menina/Conjunto-para-bebes-meninas"
+            }
+          ]
         }
       }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
