@@ -107,19 +107,27 @@ function Carousel({ images = [], preload, interval }: Props) {
 
       <div class="absolute mobile:hidden left-10 top-1/2 -translate-y-1/2 z-20">
         <Slider.PrevButton
-          class="btn btn-neutral btn-outline btn-circle no-animation btn-sm h-10 w-10 bg-white hover:bg-[#F7E0BF] text-primary hover:text-primary border-none"
+          class="btn btn-neutral btn-outline btn-circle no-animation btn-sm h-10 w-10 bg-white hover:bg-white text-primary hover:text-primary border-none group"
           disabled={false}
         >
-          <Icon id="chevron-right" class="rotate-180" />
+          <Icon id="chevron-right" class="rotate-180 group-hover:hidden" />
+          <Icon
+            id="arrow-right"
+            class="rotate-180 hidden group-hover:block"
+          />
         </Slider.PrevButton>
       </div>
 
       <div class="absolute mobile:hidden right-10 top-1/2 -translate-y-1/2 z-20">
         <Slider.NextButton
-          class="btn btn-neutral btn-outline btn-circle no-animation btn-sm h-10 w-10 bg-white hover:bg-[#F7E0BF] text-primary hover:text-primary border-none"
+          class="btn btn-neutral btn-outline btn-circle no-animation btn-sm h-10 w-10 bg-white hover:bg-white text-primary hover:text-primary border-none group"
           disabled={false}
         >
-          <Icon id="chevron-right" />
+          <Icon id="chevron-right" class="group-hover:hidden" />
+          <Icon
+            id="arrow-right"
+            class="hidden group-hover:block"
+          />
         </Slider.NextButton>
       </div>
 
