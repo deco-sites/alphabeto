@@ -11,6 +11,7 @@ import { useSendEvent } from "site/sdk/useSendEvent.ts";
 import { ExportedColorItem } from "site/loaders/savedColors.ts";
 import ProductShelfColors from "site/components/product/ProductShelfColors.tsx";
 import { useDevice } from "@deco/deco/hooks";
+import ProductRating from "site/components/product/ProductRating.tsx";
 
 interface Props {
   product: Product;
@@ -116,7 +117,7 @@ function ProductCard({
                 src={video}
                 class="object-cover rounded w-full col-span-full row-span-full"
                 preload="metadata"
-                controls
+                controls={false}
                 loop
                 autoplay
                 muted
@@ -161,6 +162,12 @@ function ProductCard({
           <WishlistButton mode="productCard" item={item} />
         </div>
       </figure>
+      <ProductRating
+        iconSize={device === "desktop" ? 12 : 10}
+        maxRating={5}
+        averageRating={product.aggregateRating?.ratingValue ?? 0}
+        class="gap-[2px] tablet-large:gap-1 mt-2.5"
+      />
 
       <a
         href={relativeUrl}

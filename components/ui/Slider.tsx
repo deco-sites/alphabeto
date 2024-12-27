@@ -127,12 +127,17 @@ const onLoad = ({ rootId, scroll, interval, infinite }: Props) => {
       const pageIndex = Math.floor(indices[0] / itemsPerPage);
       goToItem(isShowingLast ? 0 : (pageIndex + 1) * itemsPerPage);
     };
+    const getDot = (index: number) => {
+      return Array.from(dots ?? []).find((dot) =>
+        Number(dot.getAttribute("data-dot")) === index
+      );
+    };
     const observer = new IntersectionObserver(
       (elements) =>
         elements.forEach((e) => {
           const item = e.target.getAttribute("data-slider-item");
           const index = Number(item) || 0;
-          const dot = dots?.item(index);
+          const dot = getDot(index);
           if (e.isIntersecting) {
             dot?.setAttribute("disabled", "");
           } else {
@@ -158,8 +163,8 @@ const onLoad = ({ rootId, scroll, interval, infinite }: Props) => {
       { threshold: THRESHOLD, root: slider },
     );
     items.forEach((item) => observer.observe(item));
-    for (let it = 0; it < (dots?.length ?? 0); it++) {
-      dots?.item(it).addEventListener("click", () => goToItem(it));
+    for (let it = 0; it < (items?.length ?? 0); it++) {
+      getDot(it)?.addEventListener("click", () => goToItem(it));
     }
     prev?.addEventListener("click", onClickPrev);
     next?.addEventListener("click", onClickNext);

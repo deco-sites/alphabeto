@@ -5,6 +5,7 @@ import Slider from "site/components/ui/Slider.tsx";
 import ProductCard from "site/components/product/ProductCard.tsx";
 import { useId } from "site/sdk/useId.ts";
 import { ExportedColorItem } from "site/loaders/savedColors.ts";
+import { useDevice } from "@deco/deco/hooks";
 
 interface Props {
   products: Product[];
@@ -12,8 +13,15 @@ interface Props {
   colors: ExportedColorItem[];
 }
 
+const DESKTOP_ITENS = 4;
+const TABLET_ITENS = 2;
+
 function ProductSlider({ products, itemListName, colors }: Props) {
   const id = useId();
+  const device = useDevice();
+  const items = device === "desktop" ? DESKTOP_ITENS : TABLET_ITENS;
+  const pages = Math.ceil(products.length / items);
+  const pagesArray = Array.from({ length: pages }, (_, i) => i);
 
   return (
     <>
@@ -48,7 +56,7 @@ function ProductSlider({ products, itemListName, colors }: Props) {
           </Slider>
         </div>
 
-        <div class="absolute mobile:hidden left-10 top-1/2 -translate-y-1/2 z-20">
+        <div class="absolute mobile:hidden top-[min(14.7916vw,_230.30px)] -left-5 z-20">
           <Slider.PrevButton class="btn btn-neutral btn-outline btn-circle no-animation btn-sm h-10 w-10 bg-white hover:bg-white text-primary hover:text-primary border-none group disabled:hidden">
             <Icon id="chevron-right" class="rotate-180 group-hover:hidden" />
             <Icon
@@ -58,7 +66,7 @@ function ProductSlider({ products, itemListName, colors }: Props) {
           </Slider.PrevButton>
         </div>
 
-        <div class="absolute mobile:hidden right-10 top-1/2 -translate-y-1/2 z-20">
+        <div class="absolute mobile:hidden top-[min(14.7916vw,_230.30px)] -right-5 z-20">
           <Slider.NextButton class="btn btn-neutral btn-outline btn-circle no-animation btn-sm h-10 w-10 bg-white hover:bg-white text-primary hover:text-primary border-none group disabled:hidden">
             <Icon id="chevron-right" class="group-hover:hidden" />
             <Icon
@@ -67,6 +75,20 @@ function ProductSlider({ products, itemListName, colors }: Props) {
             />
           </Slider.NextButton>
         </div>
+        <ul class="carousel w-full gap-1 justify-center mt-10">
+          {pagesArray.map((_, index) => (
+            <li class="carousel-item">
+              <Slider.Dot
+                index={index * items}
+                class={clx(
+                  "bg-secondary h-[8px] w-[8px] no-animation rounded-full",
+                  "disabled:w-[30px] disabled:bg-primary transition-[width]",
+                )}
+              >
+              </Slider.Dot>
+            </li>
+          ))}
+        </ul>
       </div>
       <Slider.JS rootId={id} />
     </>

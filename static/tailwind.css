@@ -3821,6 +3821,12 @@ details.collapse summary::-webkit-details-marker {
 .-left-2 {
   left: -0.5rem;
 }
+.-left-5 {
+  left: -1.25rem;
+}
+.-right-5 {
+  right: -1.25rem;
+}
 .-top-2 {
   top: -0.5rem;
 }
@@ -4006,6 +4012,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .top-\[80\%\] {
   top: 80%;
+}
+.top-\[min\(14\.7916vw\2c _230\.30px\)\] {
+  top: min(14.7916vw, 230.30px);
 }
 .z-0 {
   z-index: 0;
@@ -7729,6 +7738,10 @@ details.collapse summary::-webkit-details-marker {
 
   .tablet-large\:max-w-\[348px\] {
     max-width: 348px;
+  }
+
+  .tablet-large\:gap-1 {
+    gap: 0.25rem;
   }
 
   .tablet-large\:p-2 {
