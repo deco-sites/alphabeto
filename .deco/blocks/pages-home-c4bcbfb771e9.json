@@ -203,20 +203,28 @@
               "desktop": {
                 "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/a052d135-4a59-4191-b428-2308854017ba/combos_desktop1-1.png"
               },
-              "alt": "Combo vestidos"
+              "alt": "Combo vestidos",
+              "mobile": {
+                "src": "https://data.decoassets.com/alphabeto/042b25e6-39af-42dd-b8bf-06caa145cd7e/banner_mob_1.png"
+              }
             },
             "imageAlt": "Combo vestidos",
-            "categoryLink": "/vestidos"
+            "categoryLink": "/vestidos",
+            "label": "Leve 2 Vestidos "
           },
           {
             "image": {
               "desktop": {
                 "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/bc3773bb-7d3d-420f-a845-8fdf4294d8c5/combos_desktop2-1.png"
               },
-              "alt": "Combo blusas"
+              "alt": "Combo blusas",
+              "mobile": {
+                "src": "https://data.decoassets.com/alphabeto/04d5af10-3d1f-45f5-8251-bf81f3fc4eae/Frame-23651.png"
+              }
             },
             "imageAlt": "combo blusas",
-            "categoryLink": "/blusas"
+            "categoryLink": "/blusas",
+            "label": "Leve 3 Vestidos "
           },
           {
             "image": {
@@ -344,10 +352,14 @@
               "desktop": {
                 "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/6cf62756-8889-473b-b5e2-a9c05f8924df/combos_desktop3-1.png"
               },
-              "alt": "Combo peças"
+              "alt": "Combo peças",
+              "mobile": {
+                "src": "https://data.decoassets.com/alphabeto/e9665d3d-48c3-47a4-beb8-7723fe36e460/Frame-23653.png"
+              }
             },
             "imageAlt": "combo peças",
-            "categoryLink": "/peças"
+            "categoryLink": "/peças",
+            "label": "Leve 4 Vestidos "
           }
         ]
       }

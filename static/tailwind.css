@@ -4323,6 +4323,9 @@ details.collapse summary::-webkit-details-marker {
 .mt-\[5px\] {
   margin-top: 5px;
 }
+.mt-\[80px\] {
+  margin-top: 80px;
+}
 .mt-auto {
   margin-top: auto;
 }
@@ -4796,6 +4799,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .w-\[calc\(100\%_-_32px\)\] {
   width: calc(100% - 32px);
+}
+.w-\[calc\(100dvw-40px\)\] {
+  width: calc(100dvw - 40px);
 }
 .w-\[calc\(100vw_-_40px\)\] {
   width: calc(100vw - 40px);
@@ -6344,6 +6350,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .leading-\[30px\] {
   line-height: 30px;
+}
+.leading-\[33px\] {
+  line-height: 33px;
 }
 .leading-\[38\.4px\] {
   line-height: 38.4px;
