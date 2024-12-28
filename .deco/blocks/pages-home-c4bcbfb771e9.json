@@ -376,22 +376,29 @@
                 "src": "https://data.decoassets.com/alphabeto/d56a7b24-5549-497b-a279-73eabce88dc6/modelo-(1).png"
               },
               "alt": "Banner meninas",
-              "mobile": {}
+              "mobile": {
+                "src": "https://data.decoassets.com/alphabeto/0684b0e5-5ede-4095-9361-deb29fd9452e/Frame-23872.png"
+              }
             },
             "categoryLink": "/meninas",
             "buttonText": "Meninas",
-            "buttonColor": "#FF859A"
+            "buttonColor": "#FF859A",
+            "label": "Meninas"
           },
           {
             "image": {
               "desktop": {
                 "src": "https://data.decoassets.com/alphabeto/128b367d-eb58-4495-8f4a-776433135105/2-(1).png"
               },
-              "alt": "Banner meninos"
+              "alt": "Banner meninos",
+              "mobile": {
+                "src": "https://data.decoassets.com/alphabeto/cb47c489-db5f-40b0-9c06-f3c4a918e993/Frame-23873.png"
+              }
             },
             "categoryLink": "/meninos",
             "buttonText": "Meninos",
-            "buttonColor": "#70D1E8"
+            "buttonColor": "#70D1E8",
+            "label": "Meninos"
           },
           {
             "image": {
@@ -399,11 +406,14 @@
                 "src": "https://data.decoassets.com/alphabeto/7262db37-50c8-4b1c-9bbf-24fbd3c36dc3/3-(1).png"
               },
               "alt": "Banner bebes",
-              "mobile": {}
+              "mobile": {
+                "src": "https://data.decoassets.com/alphabeto/2120aa9f-7581-465c-a896-95681c3d0c4a/Frame-23874.png"
+              }
             },
             "categoryLink": "/bebes",
             "buttonText": "Bebês",
-            "buttonColor": "#D6DE23"
+            "buttonColor": "#D6DE23",
+            "label": "Bebê"
           }
         ]
       }
