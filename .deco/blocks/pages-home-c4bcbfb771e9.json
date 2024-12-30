@@ -357,6 +357,30 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
+        "__resolveType": "site/sections/GiftShelf/GiftShelf.tsx",
+        "title": "Presentes que encantam!",
+        "description": "Conforto e carinho em forma de roupinhas.",
+        "image": {
+          "alt": "presentes",
+          "desktopSrc": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/3fabe207-2476-4a17-bc2f-2f08e8482461/apoio-desk.png",
+          "mobileSrc": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/3fabe207-2476-4a17-bc2f-2f08e8482461/apoio-desk.png"
+        },
+        "products": {
+          "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+          "props": {
+            "sort": "price:desc",
+            "collection": "782",
+            "count": 8
+          }
+        },
+        "colors": {
+          "__resolveType": "Saved Colors"
+        }
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
         "__resolveType": "Footer"
       }
     }
