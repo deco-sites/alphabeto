@@ -228,127 +228,6 @@
           },
           {
             "image": {
-              "0": "h",
-              "1": "t",
-              "2": "t",
-              "3": "p",
-              "4": "s",
-              "5": ":",
-              "6": "/",
-              "7": "/",
-              "8": "d",
-              "9": "e",
-              "10": "c",
-              "11": "o",
-              "12": "-",
-              "13": "s",
-              "14": "i",
-              "15": "t",
-              "16": "e",
-              "17": "s",
-              "18": "-",
-              "19": "a",
-              "20": "s",
-              "21": "s",
-              "22": "e",
-              "23": "t",
-              "24": "s",
-              "25": ".",
-              "26": "s",
-              "27": "3",
-              "28": ".",
-              "29": "s",
-              "30": "a",
-              "31": "-",
-              "32": "e",
-              "33": "a",
-              "34": "s",
-              "35": "t",
-              "36": "-",
-              "37": "1",
-              "38": ".",
-              "39": "a",
-              "40": "m",
-              "41": "a",
-              "42": "z",
-              "43": "o",
-              "44": "n",
-              "45": "a",
-              "46": "w",
-              "47": "s",
-              "48": ".",
-              "49": "c",
-              "50": "o",
-              "51": "m",
-              "52": "/",
-              "53": "a",
-              "54": "l",
-              "55": "p",
-              "56": "h",
-              "57": "a",
-              "58": "b",
-              "59": "e",
-              "60": "t",
-              "61": "o",
-              "62": "/",
-              "63": "6",
-              "64": "c",
-              "65": "f",
-              "66": "6",
-              "67": "2",
-              "68": "7",
-              "69": "5",
-              "70": "6",
-              "71": "-",
-              "72": "8",
-              "73": "8",
-              "74": "8",
-              "75": "9",
-              "76": "-",
-              "77": "4",
-              "78": "7",
-              "79": "3",
-              "80": "b",
-              "81": "-",
-              "82": "b",
-              "83": "5",
-              "84": "e",
-              "85": "2",
-              "86": "-",
-              "87": "a",
-              "88": "9",
-              "89": "c",
-              "90": "0",
-              "91": "5",
-              "92": "f",
-              "93": "8",
-              "94": "9",
-              "95": "2",
-              "96": "4",
-              "97": "d",
-              "98": "f",
-              "99": "/",
-              "100": "c",
-              "101": "o",
-              "102": "m",
-              "103": "b",
-              "104": "o",
-              "105": "s",
-              "106": "_",
-              "107": "d",
-              "108": "e",
-              "109": "s",
-              "110": "k",
-              "111": "t",
-              "112": "o",
-              "113": "p",
-              "114": "3",
-              "115": "-",
-              "116": "1",
-              "117": ".",
-              "118": "p",
-              "119": "n",
-              "120": "g",
               "desktop": {
                 "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/6cf62756-8889-473b-b5e2-a9c05f8924df/combos_desktop3-1.png"
               },
@@ -422,84 +301,57 @@
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
         "__resolveType": "site/sections/InteractiveBanner/InteractiveBanner.tsx",
-        "backgroundBannerImage": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/fb6b684e-53d2-4e06-b21f-3d910c3eb349/Frame-18.png",
-        "discountMessage": "10% OFF",
-        "cupom": "BEMVINDO10",
-        "discountBackground": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/28b868ab-ae26-4271-a2fe-90df69b82674/Frame-29.png",
-        "page": {
-          "__resolveType": "vtex/loaders/intelligentSearch/productDetailsPage.ts"
+        "complementBanner": {
+          "desktop": "https://data.decoassets.com/alphabeto/dcf93e79-df96-4b92-aea0-d19d0cd0fde6/ezgif.com-animated-gif-maker.gif",
+          "mobile": "https://data.decoassets.com/alphabeto/0cfe2524-c136-4ea8-b81a-35b3ac1372cd/ezgif.com-animated-gif-maker-(1).gif",
+          "alt": "10% Off na Primeira compra use o cupom bemvindo10 na sua sacola"
         },
-        "products": [
-          {
-            "previewImage": {
-              "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/6d6a437f-7892-4ddb-9d24-57dd47465dfa/Frame-31.png",
-              "alt": "preview produto"
-            },
-            "@type": "Product",
-            "additionalProperty": [],
-            "aggregateRating": {
-              "@type": "AggregateRating"
-            },
-            "brand": {
-              "@type": "Brand"
-            },
-            "isRelatedTo": [],
-            "isSimilarTo": [],
-            "isVariantOf": {
-              "@type": "ProductGroup",
-              "hasVariant": [],
-              "additionalProperty": []
-            },
-            "offers": {
-              "@type": "AggregateOffer",
-              "offers": [],
-              "hasMerchantReturnPolicy": {
-                "@type": "MerchantReturnPolicy",
-                "returnFees": "https://schema.org/FreeReturn",
-                "returnMethod": "https://schema.org/KeepProduct",
-                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow"
+        "interactiveBanner": {
+          "desktop": "https://data.decoassets.com/alphabeto/75fd31be-461b-4b30-ab83-1f223bc0a563/Frame-18.png",
+          "mobile": "https://data.decoassets.com/alphabeto/8e08ba41-cbe7-45ab-85c7-306f1b449cc7/Frame-23857.png",
+          "alt": "Crianças Brincando",
+          "products": [
+            {
+              "xPosition": {
+                "desktop": 50,
+                "mobile": 50
+              },
+              "yPosition": {
+                "desktop": 50,
+                "mobile": 50
+              },
+              "label": "Produto 1",
+              "products": {
+                "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+                "props": {
+                  "ids": [
+                    "117809"
+                  ]
+                },
+                "seo": null
               }
             },
-            "review": [],
-            "isAccessoryOrSparePartFor": [],
-            "questions": [],
-            "product": {
-              "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
-              "props": {
-                "ids": [
-                  "117806"
-                ]
+            {
+              "xPosition": {
+                "desktop": 66,
+                "mobile": 20
+              },
+              "yPosition": {
+                "desktop": 20,
+                "mobile": 20
+              },
+              "label": "Produto 1",
+              "products": {
+                "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+                "props": {
+                  "ids": [
+                    "117789"
+                  ]
+                }
               }
-            },
-            "xPosition": {
-              "desktop": 47,
-              "mobile": 46
-            },
-            "yPosition": {
-              "desktop": 45,
-              "mobile": 45
             }
-          },
-          {
-            "product": {
-              "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
-              "props": {
-                "ids": [
-                  "117112"
-                ]
-              }
-            },
-            "xPosition": {
-              "desktop": 20,
-              "mobile": 20
-            },
-            "yPosition": {
-              "desktop": 83,
-              "mobile": 83
-            }
-          }
-        ],
-        "discountValue": 10
+          ]
+        }
       }
     },
     {
