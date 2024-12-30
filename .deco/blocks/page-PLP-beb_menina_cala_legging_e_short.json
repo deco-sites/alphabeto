@@ -63,7 +63,16 @@
         },
         "startingPage": 1,
         "seoComponents": {
-          "banner": {},
+          "banner": {
+            "image": {
+              "mobile": {
+                "src": "https://data.decoassets.com/alphabeto/93deeff8-e363-45c3-90a0-33185f1d6341/bebeMeninaMobile.png"
+              },
+              "desktop": {
+                "src": "https://data.decoassets.com/alphabeto/6cfa1006-4626-43f8-a673-6131e42940b6/bebeMeninaDesk.png"
+              }
+            }
+          },
           "breadcrumb": [
             {
               "name": "Bebê Menina - Calça, Legging e Short",
