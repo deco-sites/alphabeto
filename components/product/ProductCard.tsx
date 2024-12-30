@@ -211,7 +211,7 @@ function ProductCard({
 
       {/* SKU Selector */}
       <ProductShelfColors product={product} colors={colors} />
-      <div class="hidden">
+      <div class="">
         {inStock
           ? (
             <QuickView

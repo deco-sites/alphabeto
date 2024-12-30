@@ -29,7 +29,7 @@ function ProductSlider({ products, itemListName, colors }: Props) {
         id={id}
         class="relative"
       >
-        <div class="relative z-10">
+        <div class="relative">
           <Slider
             class="carousel"
             style={{
