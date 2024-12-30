@@ -363,7 +363,7 @@
         "image": {
           "alt": "presentes",
           "desktopSrc": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/3fabe207-2476-4a17-bc2f-2f08e8482461/apoio-desk.png",
-          "mobileSrc": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/3fabe207-2476-4a17-bc2f-2f08e8482461/apoio-desk.png"
+          "mobileSrc": "https://data.decoassets.com/alphabeto/0f2ece33-0fa3-4257-8102-56b345d1b757/image-137.png"
         },
         "products": {
           "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
@@ -377,6 +377,9 @@
           "__resolveType": "Saved Colors"
         }
       }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
