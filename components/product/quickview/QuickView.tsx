@@ -4,7 +4,8 @@ import { JSX } from "preact";
 import { useId } from "site/sdk/useId.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import AddToCartButton from "site/components/product/AddToCartButton.tsx";
-
+import { clx } from "site/sdk/clx.ts";
+import Button from "site/components/ui/Button.tsx";
 export interface ColorItem {
   name: string;
   hexadecimals: string[];
@@ -85,13 +86,17 @@ function QuickView({ product, seller, item }: Props) {
   return (
     <>
       <div className="text-center flex justify-center">
-        <button
+        <Button
           id={showButtonId}
-          className="desk:hidden desk:group-hover:block mobile:block desk:absolute w-full bg-[#FF8300] hover:bg-[#F7E0BF] rounded-lg px-5 py-2.5 text-white font-bold text-sm transition desk:top-[415px] desk:w-[calc(100%-20px)] right-[10px  ] hover:text-[#FF8300]"
+          class={clx(
+            "block w-full",
+            "tablet-large:hidden tablet-large:group-hover:block tablet-large:absolute tablet-large:w-[calc(100%_-_28px)] tablet-large:mx-auto tablet-large:top-[min(27dvw,_428px)]",
+            "tablet-large:h-11 tablet-large:min-h-11",
+          )}
           type="button"
         >
           quickview
-        </button>
+        </Button>
       </div>
       {/* Product Info */}
       <div
@@ -178,35 +183,6 @@ function QuickView({ product, seller, item }: Props) {
                   <strong className={"font-normal"}>{property.value}</strong>
                 </p>
               ))}
-
-            {
-              /* {variants.map(([colorName, url], index) => (
-              <a
-                key={index}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  textDecoration: "none",
-                }}
-              >
-                <div
-                  style={{
-                    width: "30px",
-                    height: "30px",
-                    borderRadius: "50%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
-                    cursor: "pointer",
-                    transition: "transform 0.2s",
-                  }}
-                  title={colorName}
-                />
-              </a>
-            ))} */
-            }
           </div>
 
           <div>

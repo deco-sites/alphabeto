@@ -30,7 +30,7 @@ const useStyles = (
       class: clx(
         "btn rounded-full w-6 h-6 max-h-6 min-h-6 p-0",
         "ring-1 ring-offset-2",
-        checked ? "ring-primary" : "ring-transparent",
+        checked ? "ring-primary" : "ring-transparent border-none",
         checked === false && isAvailable === false ? "diagonal-line" : "",
       ),
     };
@@ -168,7 +168,7 @@ function VariantSelectorPDP({ product, colors }: Props) {
                       <div
                         class={clx(
                           "col-start-1 row-start-1 col-span-1 row-span-1 relative z-20",
-                          "[.htmx-request_&]:opacity-0 transition-opacity",
+                          "[.htmx-request_&]:opacity-0 transition-opacity h-6",
                         )}
                       >
                         <Ring

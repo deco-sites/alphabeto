@@ -69,7 +69,9 @@ export type AvailableIcons =
   | "product_care_dry_cleaning"
   | "product_rating_star"
   | "arrow-with-twirls"
-  | "arrow-with-twirls-2";
+  | "arrow-with-twirls-2"
+  | "arrow-right"
+  | "triangle-interactive-banner-desktop";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

@@ -10,6 +10,7 @@ import { formatPrice } from "site/sdk/format.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import ProductSkuSelector from "site/components/product/ProductBuyTogether/ProductSkuSelector.tsx";
 import ProductRating from "site/components/product/ProductRating.tsx";
+import VTEXImageTag from "site/components/VTEXImageTag.tsx";
 
 export default function ProductCard(props: ProductCardProps) {
   const { isVariantOf, name, aggregateRating } = props.signal.value.product;
@@ -71,7 +72,7 @@ export default function ProductCard(props: ProductCardProps) {
         </div>
         {front?.url
           ? (
-            <Image
+            <VTEXImageTag
               class={clx(
                 "rounded-xl desk:max-w-[328px] desk:max-h-[466px] w-full h-full aspect-[328/466]",
                 props.mode === "sugestion" && !props.signal.value.enabled

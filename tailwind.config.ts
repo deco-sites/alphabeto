@@ -50,6 +50,9 @@ export default {
       "tablet": "680px",
       // => @media (min-width: 680px) { ... }
 
+      "tablet-large": "768px",
+      // => @media (min-width: 768px) { ... }
+
       "desk": "1024px",
       // => @media (min-width: 1024px) { ... }
 

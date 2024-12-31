@@ -10,8 +10,7 @@ interface Props {
   /**
    * @title Id do Video do Youtube
    * @description Id do video do youtube, pode colocar o link que ele pega o id automaticamente
-   * @pattern \d*
-   * @format dynamic-options
+   * @format icon-select
    * @options site/loaders/youtubeVideo.ts
    */
   videoId: string;

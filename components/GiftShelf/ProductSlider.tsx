@@ -1,23 +1,22 @@
 import { Product } from "apps/commerce/types.ts";
+import { ExportedColorItem } from "site/loaders/savedColors.ts";
 import { clx } from "site/sdk/clx.ts";
+import ProductCard from "site/components/product/ProductCard.tsx";
 import Icon from "site/components/ui/Icon.tsx";
 import Slider from "site/components/ui/Slider.tsx";
-import ProductCard from "site/components/product/ProductCard.tsx";
-import { useId } from "site/sdk/useId.ts";
-import { ExportedColorItem } from "site/loaders/savedColors.ts";
 import { useDevice } from "@deco/deco/hooks";
 
 interface Props {
+  id: string;
   products: Product[];
   itemListName?: string;
   colors: ExportedColorItem[];
 }
 
-const DESKTOP_ITENS = 4;
+const DESKTOP_ITENS = 2;
 const TABLET_ITENS = 2;
 
-function ProductSlider({ products, itemListName, colors }: Props) {
-  const id = useId();
+function ProductSlider({ products, itemListName, colors, id }: Props) {
   const device = useDevice();
   const items = device === "desktop" ? DESKTOP_ITENS : TABLET_ITENS;
   const pages = Math.ceil(products.length / items);
@@ -29,7 +28,7 @@ function ProductSlider({ products, itemListName, colors }: Props) {
         id={id}
         class="relative"
       >
-        <div class="relative">
+        <div class="relative z-10 max-w-[calc(100dvw_-_40px)] tablet-large:max-w-[min(46.11dvw,_712px)]">
           <Slider
             class="carousel"
             style={{
@@ -56,7 +55,7 @@ function ProductSlider({ products, itemListName, colors }: Props) {
           </Slider>
         </div>
 
-        <div class="absolute mobile:hidden top-[min(14.7916vw,_230.30px)] -left-5 z-20">
+        <div class="absolute mobile:hidden -top-16 right-[70px]">
           <Slider.PrevButton class="btn btn-neutral btn-outline btn-circle no-animation btn-sm h-10 w-10 bg-white hover:bg-white text-primary hover:text-primary border-none group disabled:hidden">
             <Icon id="chevron-right" class="rotate-180 group-hover:hidden" />
             <Icon
@@ -66,7 +65,7 @@ function ProductSlider({ products, itemListName, colors }: Props) {
           </Slider.PrevButton>
         </div>
 
-        <div class="absolute mobile:hidden top-[min(14.7916vw,_230.30px)] -right-5 z-20">
+        <div class="absolute mobile:hidden -top-16 right-0 z-20">
           <Slider.NextButton class="btn btn-neutral btn-outline btn-circle no-animation btn-sm h-10 w-10 bg-white hover:bg-white text-primary hover:text-primary border-none group disabled:hidden">
             <Icon id="chevron-right" class="group-hover:hidden" />
             <Icon
