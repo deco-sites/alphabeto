@@ -1,11 +1,11 @@
 import { Product } from "apps/commerce/types.ts";
 import { useDevice } from "@deco/deco/hooks";
-import Image from "apps/website/components/Image.tsx";
 import { relative } from "site/sdk/url.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { formatPrice } from "site/sdk/format.ts";
 import Icon from "site/components/ui/Icon.tsx";
 import { clx } from "site/sdk/clx.ts";
+import VTEXImageTag from "site/components/VTEXImageTag.tsx";
 
 export interface InteractiveBannerProductProps {
   /**@title Name for CMS */
@@ -105,7 +105,7 @@ export default function InteractiveBannerProduct({
           >
             {front.url
               ? (
-                <Image
+                <VTEXImageTag
                   src={front.url}
                   alt={title}
                   width={imageSizes.width}

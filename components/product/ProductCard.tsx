@@ -1,6 +1,5 @@
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import Image from "apps/website/components/Image.tsx";
 import QuickView from "site/components/product/quickview/QuickView.tsx";
 import WishlistButton from "site/components/wishlist/WishlistButton.tsx";
 import { clx } from "site/sdk/clx.ts";
@@ -12,6 +11,7 @@ import { ExportedColorItem } from "site/loaders/savedColors.ts";
 import ProductShelfColors from "site/components/product/ProductShelfColors.tsx";
 import { useDevice } from "@deco/deco/hooks";
 import ProductRating from "site/components/product/ProductRating.tsx";
+import VTEXImageTag from "site/components/VTEXImageTag.tsx";
 
 interface Props {
   product: Product;
@@ -125,7 +125,7 @@ function ProductCard({
               />
             )
             : (
-              <Image
+              <VTEXImageTag
                 src={front.url!}
                 alt={front.alternateName}
                 width={device === "desktop" ? DESKTOP_WIDTH : MOBILE_WIDTH}

@@ -1,8 +1,8 @@
 import { useDevice, useScriptAsDataURI } from "@deco/deco/hooks";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
-import Image from "apps/website/components/Image.tsx";
 import Slider from "site/components/ui/Slider.tsx";
 import { useId } from "site/sdk/useId.ts";
+import VTEXImageTag from "site/components/VTEXImageTag.tsx";
 
 export interface Props {
   /** @title Integration */
@@ -79,7 +79,7 @@ export default function ProductImages({ page }: Props) {
             index={video ? index + 1 : index}
             class="mobile:carousel-item mobile:w-full overflow-hidden"
           >
-            <Image
+            <VTEXImageTag
               width={427}
               class="desk:max-h-[min(44.68vw,658px)] max-h-[126.67vw] desk:h-full w-full object-cover rounded-lg relative transition-all"
               height={658}
