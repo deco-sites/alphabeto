@@ -6,9 +6,7 @@ import ProductCard from "site/components/product/ProductCard.tsx";
 import CategoryBanner, {
   Props as BannerProps,
 } from "site/components/search/CategoryBanner.tsx";
-import Filters, {
-  FilterSettings,
-} from "site/components/search/Filters/index.tsx";
+import Filters from "site/components/search/Filters/index.tsx";
 import SortDesktop from "site/components/search/Sort/SortDesktop.tsx";
 import SortMobile from "site/components/search/Sort/SortMobile.tsx";
 import Breadcrumb, {
@@ -26,6 +24,7 @@ import { useId } from "site/sdk/useId.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
 import AgeFilter from "site/components/search/Filters/AgeFilter.tsx";
+import { AppContext } from "site/apps/site.ts";
 
 const AGE_FILTER_KEY = "category-2";
 
@@ -35,11 +34,6 @@ export interface Layout {
    * @description Format of the pagination
    */
   pagination?: "show-more" | "pagination";
-  /**
-   * @title Filters
-   * @description Settings About The Filters
-   */
-  filter?: FilterSettings;
   /**
    * @title Enable Special	Filter
    * @description Enables special filter on top of search results
@@ -70,10 +64,15 @@ export interface Props {
   partial?: "hideMore" | "hideLess";
 }
 
-export const loader = (props: Props, req: Request) => {
+export const loader = (props: Props, req: Request, app: AppContext) => {
+  const siteSettings = {
+    cashbackPercentage: app.globalSettings.cashbackPercentage,
+    colors: app.globalSettings.colors,
+  };
   return {
     ...props,
     url: req.url,
+    siteSettings,
   };
 };
 
@@ -124,7 +123,7 @@ function NotFound() {
 }
 
 function PageResult(props: SectionProps<typeof loader>) {
-  const { layout, startingPage = 0, url, partial } = props;
+  const { layout, startingPage = 0, url, partial, siteSettings } = props;
   const page = props.page!;
   const { products, pageInfo } = page;
   const perPage = pageInfo?.recordPerPage || products.length;
@@ -178,7 +177,7 @@ function PageResult(props: SectionProps<typeof loader>) {
             preload={index === 0}
             index={offset + index}
             class="h-full w-[calc((100dvw_-_456px)/3)] max-w-[355px]"
-            colors={layout?.filter?.colors ?? []}
+            settings={siteSettings}
           />
         ))}
       </div>
@@ -268,8 +267,8 @@ function Result(props: SectionProps<typeof loader>) {
       return <SortDesktop sortOptions={sortOptions} url={url} />;
     } else return <SortMobile sortOptions={sortOptions} url={url} />;
   };
-  const filterSettings = props.layout?.filter || {
-    colors: [],
+  const filterSettings = {
+    colors: props.siteSettings.colors ?? [],
   };
 
   const ageFilter = filters.find((filter) => filter.key === AGE_FILTER_KEY) as

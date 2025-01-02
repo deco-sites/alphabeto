@@ -1,2 +1,1 @@
-export { default } from "site/components/GiftShelf/GiftShelf.tsx";
-
+export { default } from "site/components/home/GiftShelf/GiftShelf.tsx";

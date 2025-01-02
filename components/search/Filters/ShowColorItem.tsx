@@ -2,9 +2,9 @@ import { useScript } from "@deco/deco/hooks";
 import { FilterToggle, FilterToggleValue } from "apps/commerce/types.ts";
 import { FilterMobileLogics } from "site/components/search/Filters/BottomFilterBar.tsx";
 import { RenderSearchInput } from "site/components/search/Filters/ShowItemWithCheckboxes.tsx";
-import { ExportedColorItem } from "site/loaders/savedColors.ts";
 import { clx } from "site/sdk/clx.ts";
 import { makeBackgroundFromHexadecimals } from "site/sdk/makeBackgroundFromHexadecimals.ts";
+import { ColorItem } from "site/apps/site.ts";
 
 const SHOW_QUANTITY = false;
 const ITENS_TO_SCROLL = 4;
@@ -19,7 +19,7 @@ interface ItemProps {
 interface Props {
   filter: FilterToggle;
   colorSettings: {
-    colors: ExportedColorItem[];
+    colors: ColorItem[];
   };
 }
 
@@ -86,7 +86,7 @@ function Item({
   );
 }
 
-function findColorItem(value: string, colors: ExportedColorItem[]) {
+function findColorItem(value: string, colors: ColorItem[]) {
   const normalizeAll = (str: string) =>
     str
       .toLowerCase()

@@ -1,8 +1,8 @@
 import { Product } from "apps/commerce/types.ts";
 import { useCallback } from "preact/hooks";
-import { uppercaseFirstLetter } from "site/sdk/stringUtils.ts";
-import Selector from "site/islands/Selector.tsx";
 import { ProductSkuSelectorProps } from "site/components/product/ProductBuyTogether/types.ts";
+import Selector from "site/islands/Selector.tsx";
+import { uppercaseFirstLetter } from "site/sdk/stringUtils.ts";
 
 const checkAvailability = (variant: Product) => {
   return variant.offers?.offers.find((offer) =>
@@ -153,7 +153,6 @@ export default function ProductSkuSelector(props: ProductSkuSelectorProps) {
     },
     [isVariantOf, currentColor],
   );
-  console.log({ colors, sizes, signal: props.signal.value });
 
   return (
     <>

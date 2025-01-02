@@ -19,13 +19,18 @@ import { useId } from "site/sdk/useId.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
 import { PDPSettings } from "site/sections/Product/ProductDetails.tsx";
+import { ColorItem } from "site/apps/site.ts";
 interface Props {
   page: ProductDetailsPage | null;
   settings: PDPSettings;
   sizebaySettings: SizeBaySettings;
+  siteSettings: {
+    colors: ColorItem[];
+    cashbackPercentage: number;
+  };
 }
 
-function ProductInfo({ page, settings, sizebaySettings }: Props) {
+function ProductInfo({ page, settings, sizebaySettings, siteSettings }: Props) {
   const id = useId();
 
   if (page === null) {
@@ -138,7 +143,7 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
         </div>
         <ProductCashback
           product={product}
-          percentage={settings.cashbackPercentage}
+          percentage={siteSettings.cashbackPercentage}
         />
       </div>
 
@@ -147,7 +152,7 @@ function ProductInfo({ page, settings, sizebaySettings }: Props) {
       {/* Sku Selector */}
       {hasValidVariants && (
         <div class="mt-[30px] mb-5">
-          <ProductSelector product={product} colors={settings.colors} />
+          <ProductSelector product={product} colors={siteSettings.colors} />
         </div>
       )}
 

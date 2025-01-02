@@ -1,20 +1,20 @@
 import { Product } from "apps/commerce/types.ts";
-import { ExportedColorItem } from "site/loaders/savedColors.ts";
 import { useVariantPossibilities } from "site/sdk/useVariantPossiblities.ts";
 import { makeBackgroundFromHexadecimals } from "site/sdk/makeBackgroundFromHexadecimals.ts";
 import { clx } from "site/sdk/clx.ts";
 import { relative } from "site/sdk/url.ts";
 import { uppercaseFirstLetter } from "site/sdk/stringUtils.ts";
+import { ColorItem } from "site/apps/site.ts";
 
 interface Props {
   product: Product;
-  colors: ExportedColorItem[];
+  colors: ColorItem[];
 }
 
 const useStyles = (
   value: string,
   checked: boolean,
-  colors: ExportedColorItem[],
+  colors: ColorItem[],
 ) => {
   const hasColor = colors.find(
     (color) => color.name.toLowerCase() === value.toLowerCase(),

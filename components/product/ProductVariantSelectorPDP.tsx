@@ -1,16 +1,16 @@
 import { useSection } from "@deco/deco/hooks";
 import type { Product } from "apps/commerce/types.ts";
-import { ExportedColorItem } from "site/loaders/savedColors.ts";
 import { clx } from "site/sdk/clx.ts";
 import { makeBackgroundFromHexadecimals } from "site/sdk/makeBackgroundFromHexadecimals.ts";
 import { uppercaseFirstLetter } from "site/sdk/stringUtils.ts";
 import { relative } from "site/sdk/url.ts";
 import { useId } from "site/sdk/useId.ts";
 import { useVariantPossibilities } from "site/sdk/useVariantPossiblities.ts";
+import { ColorItem } from "site/apps/site.ts";
 
 interface Props {
   product: Product;
-  colors: ExportedColorItem[];
+  colors: ColorItem[];
 }
 
 const useStyles = (
@@ -18,7 +18,7 @@ const useStyles = (
   checked: boolean,
   name: string,
   isAvailable: boolean,
-  colors: ExportedColorItem[],
+  colors: ColorItem[],
 ) => {
   const hasColor = colors.find(
     (color) => color.name.toLowerCase() === value.toLowerCase(),

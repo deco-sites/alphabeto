@@ -1,24 +1,29 @@
-import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import ProductSlider from "site/components/product/ProductSlider.tsx";
+import ProductSlider, {
+  ProductSliderProps,
+} from "site/components/product/ProductSlider.tsx";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
 import Section from "site/components/ui/Section.tsx";
-import { ExportedColorItem } from "site/loaders/savedColors.ts";
+import { AppContext } from "site/apps/site.ts";
 
-export interface Props {
-  products: Product[] | null;
-  /**
-   * @title List Name
-   * @description Name of the list of items being viewed used	for analytics
-   */
-  viewItemListName: string;
-
-  colors: ExportedColorItem[];
+export interface Props extends Omit<ProductSliderProps, "settings"> {
+  title?: string;
+}
+export function loader(props: Props, _req: Request, app: AppContext) {
+  const shelfSettings = {
+    colors: app.globalSettings.colors,
+    cashbackPercentage: app.globalSettings.cashbackPercentage,
+  };
+  return {
+    ...props,
+    shelfSettings,
+  };
 }
 export default function ProductShelf(
-  { products, viewItemListName, colors }: Props,
+  props: ReturnType<typeof loader>,
 ) {
+  const { products, viewItemListName } = props;
   if (!products || products.length === 0) {
     return null;
   }
@@ -39,11 +44,15 @@ export default function ProductShelf(
     },
   });
   return (
-    <Section.Container {...viewItemListEvent}>
+    <Section.Container {...viewItemListEvent} class="!gap-10">
+      {props.title && (
+        <h2 class="font-beccaPerry mobile:text-[28px] mobile:leading-[33px] text-[40px] leading-[48px] font-medium text-[#676767]">
+          {props.title}
+        </h2>
+      )}
       <ProductSlider
-        products={products}
-        itemListName={viewItemListName}
-        colors={colors}
+        {...props}
+        settings={props.shelfSettings}
       />
     </Section.Container>
   );

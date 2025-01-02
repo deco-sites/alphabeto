@@ -98,13 +98,15 @@
       ]
     },
     {
-      "__resolveType": "site/sections/TabLayout/TabLayout.tsx",
+      "__resolveType": "site/sections/Product/ProductTabShelf.tsx",
       "title": "Favoritos da Semana",
       "description": "Conheça os novos queridinhos da alphabeto",
       "tabs": [
         {
-          "section": {
-            "__resolveType": "site/sections/Product/ProductShelf.tsx",
+          "label": "Meninas",
+          "title": "Meninas",
+          "backgroundColor": "#FF859A",
+          "slider": {
             "products": {
               "__resolveType": "commerce/loaders/product/extensions/list.ts",
               "data": {
@@ -122,18 +124,14 @@
                 }
               ]
             },
-            "viewItemListName": "Favoritos da Semana - Meninas",
-            "colors": {
-              "__resolveType": "Saved Colors"
-            }
-          },
-          "label": "Meninas",
-          "title": "Meninas",
-          "backgroundColor": "#FF859A"
+            "viewItemListName": "Favoritos da Semana - Meninas"
+          }
         },
         {
-          "section": {
-            "__resolveType": "site/sections/Product/ProductShelf.tsx",
+          "label": "Meninos",
+          "title": "Menino",
+          "backgroundColor": "#70D1E8",
+          "slider": {
             "products": {
               "__resolveType": "commerce/loaders/product/extensions/list.ts",
               "data": {
@@ -151,18 +149,14 @@
                 }
               ]
             },
-            "viewItemListName": "Favoritos da Semana - Meninos",
-            "colors": {
-              "__resolveType": "Saved Colors"
-            }
-          },
-          "label": "Meninos",
-          "title": "Menino",
-          "backgroundColor": "#70D1E8"
+            "viewItemListName": "Favoritos da Semana - Meninos"
+          }
         },
         {
-          "section": {
-            "__resolveType": "site/sections/Product/ProductShelf.tsx",
+          "label": "Bebês",
+          "title": "Bebês",
+          "backgroundColor": "#D6DE23",
+          "slider": {
             "products": {
               "__resolveType": "commerce/loaders/product/extensions/list.ts",
               "data": {
@@ -180,14 +174,8 @@
                 }
               ]
             },
-            "viewItemListName": "Favoritos da Semana - Bebês",
-            "colors": {
-              "__resolveType": "Saved Colors"
-            }
-          },
-          "label": "Bebês",
-          "title": "Bebês",
-          "backgroundColor": "#D6DE23"
+            "viewItemListName": "Favoritos da Semana - Bebês"
+          }
         }
       ],
       "activeTab": 0
@@ -365,16 +353,17 @@
           "desktopSrc": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/3fabe207-2476-4a17-bc2f-2f08e8482461/apoio-desk.png",
           "mobileSrc": "https://data.decoassets.com/alphabeto/0f2ece33-0fa3-4257-8102-56b345d1b757/image-137.png"
         },
-        "products": {
-          "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
-          "props": {
-            "sort": "price:desc",
-            "collection": "782",
-            "count": 8
-          }
-        },
-        "colors": {
-          "__resolveType": "Saved Colors"
+        "slider": {
+          "products": {
+            "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+            "props": {
+              "sort": "price:desc",
+              "collection": "782",
+              "count": 8
+            }
+          },
+          "settings": {},
+          "viewItemListName": "Presentes"
         }
       }
     },

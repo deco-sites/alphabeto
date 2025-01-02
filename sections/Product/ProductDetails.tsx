@@ -1,10 +1,9 @@
 import { ProductDetailsPage } from "apps/commerce/types.ts";
-import { AppContext } from "site/apps/site.ts";
+import { AppContext, ColorItem } from "site/apps/site.ts";
 import ProductImages from "site/components/product/ProductImages.tsx";
 import ProductInfo from "site/components/product/ProductInfo.tsx";
 import Breadcrumb from "site/components/ui/Breadcrumb.tsx";
 import Section from "site/components/ui/Section.tsx";
-import { ExportedColorItem } from "site/loaders/savedColors.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import Spacer from "site/sections/Miscellaneous/Spacer.tsx";
 import ProductShelf, {
@@ -12,8 +11,6 @@ import ProductShelf, {
 } from "site/sections/Product/ProductShelf.tsx";
 
 export interface PDPSettings {
-  cashbackPercentage: number;
-  colors: ExportedColorItem[];
   productUnavailableShelf: UnavailableShelfProps;
 }
 
@@ -29,9 +26,14 @@ export async function loader(props: Props, _req: Request, ctx: AppContext) {
   const sizebaySettings = await ctx.invoke.site.loaders.sizebay({
     productUrl: props.page?.product.url,
   });
+  const siteSettings = {
+    colors: ctx.globalSettings.colors,
+    cashbackPercentage: ctx.globalSettings.cashbackPercentage,
+  };
   return {
     ...props,
     sizebaySettings,
+    siteSettings,
   };
 }
 
@@ -39,6 +41,7 @@ export default function ProductDetails({
   page,
   settings,
   sizebaySettings,
+  siteSettings,
 }: Awaited<ReturnType<typeof loader>>) {
   /**
    * Rendered when a not found is returned by any of the loaders run on this page
@@ -67,12 +70,13 @@ export default function ProductDetails({
           page={page}
           settings={settings}
           sizebaySettings={sizebaySettings}
+          siteSettings={siteSettings}
         />
       </div>
       {isUnavailable && (
         <div id="unavailable-shelf">
           <Spacer />
-          <ProductShelf {...settings.productUnavailableShelf} />
+          <ProductShelf {...settings.productUnavailableShelf} shelfSettings={siteSettings} />
         </div>
       )}
     </div>

@@ -1,22 +1,20 @@
-import { Product } from "apps/commerce/types.ts";
-import { ExportedColorItem } from "site/loaders/savedColors.ts";
 import { clx } from "site/sdk/clx.ts";
 import ProductCard from "site/components/product/ProductCard.tsx";
 import Icon from "site/components/ui/Icon.tsx";
 import Slider from "site/components/ui/Slider.tsx";
 import { useDevice } from "@deco/deco/hooks";
+import { ProductSliderProps } from "site/components/product/ProductSlider.tsx";
 
-interface Props {
+interface Props extends ProductSliderProps {
   id: string;
-  products: Product[];
-  itemListName?: string;
-  colors: ExportedColorItem[];
 }
 
 const DESKTOP_ITENS = 2;
 const TABLET_ITENS = 2;
 
-function ProductSlider({ products, itemListName, colors, id }: Props) {
+function ProductSlider(props: Props) {
+  const { products, viewItemListName, settings, id } = props;
+  if (!products || products.length === 0) return null;
   const device = useDevice();
   const items = device === "desktop" ? DESKTOP_ITENS : TABLET_ITENS;
   const pages = Math.ceil(products.length / items);
@@ -28,7 +26,7 @@ function ProductSlider({ products, itemListName, colors, id }: Props) {
         id={id}
         class="relative"
       >
-        <div class="relative z-10 max-w-[calc(100dvw_-_40px)] tablet-large:max-w-[min(46.11dvw,_712px)]">
+        <div class="relative max-w-[calc(100dvw_-_40px)] tablet-large:max-w-[min(46.11dvw,_712px)]">
           <Slider
             class="carousel"
             style={{
@@ -46,9 +44,9 @@ function ProductSlider({ products, itemListName, colors, id }: Props) {
                 <ProductCard
                   index={index}
                   product={product}
-                  itemListName={itemListName}
                   class="tablet-large:max-w-[348px] tablet-large:w-[calc((100dvw_-_144px)_/_4)] w-[calc((100dvw_-_56px)/2)]"
-                  colors={colors}
+                  settings={settings}
+                  itemListName={viewItemListName}
                 />
               </Slider.Item>
             ))}

@@ -112,5 +112,1320 @@
   },
   "flavor": {
     "framework": "htmx"
+  },
+  "globalSettings": {
+    "colors": [
+      {
+        "name": "Amarelo",
+        "hexadecimals": [
+          "#f8ce49"
+        ]
+      },
+      {
+        "name": "Anis",
+        "hexadecimals": [
+          "#484848"
+        ]
+      },
+      {
+        "name": "Azul",
+        "hexadecimals": [
+          "#38BBD2"
+        ]
+      },
+      {
+        "name": "Azul Ceu",
+        "hexadecimals": [
+          "#87ceeb"
+        ]
+      },
+      {
+        "name": "Azul e Bege",
+        "hexadecimals": [
+          "#38bbd2",
+          "#F2DCBD"
+        ]
+      },
+      {
+        "name": "Azul e Pink",
+        "hexadecimals": [
+          "#38bbd2",
+          "#E56688"
+        ]
+      },
+      {
+        "name": "Azul e Verde",
+        "hexadecimals": [
+          "#38bbd2",
+          "#CDE539"
+        ]
+      },
+      {
+        "name": "Amarelo e Rosa Claro",
+        "hexadecimals": [
+          "#38bbd2",
+          "#e97796"
+        ]
+      },
+      {
+        "name": "Azul e Laranja",
+        "hexadecimals": [
+          "#38bbd2",
+          "#ff8300"
+        ]
+      },
+      {
+        "name": "Azul e Roxo",
+        "hexadecimals": [
+          "#38bbd2",
+          "#C5A6CD"
+        ]
+      },
+      {
+        "name": "Bco e Azul",
+        "hexadecimals": [
+          "#F6F6F6",
+          "#38bbd2"
+        ]
+      },
+      {
+        "name": "Bco e Lilas",
+        "hexadecimals": [
+          "#F6F6F6",
+          "#DF8BF1"
+        ]
+      },
+      {
+        "name": "Bco e Preto e Rosa",
+        "hexadecimals": [
+          "#F6F6F6",
+          "#000",
+          "#E56688"
+        ]
+      },
+      {
+        "name": "Branco e Azul",
+        "hexadecimals": [
+          "#F6F6F6",
+          "#38bbd2"
+        ]
+      },
+      {
+        "name": "Branco e Esmeralda",
+        "hexadecimals": [
+          "#F6F6F6",
+          "#007e61"
+        ]
+      },
+      {
+        "name": "Branco e Jeans",
+        "hexadecimals": [
+          "#F6F6F6",
+          "#244f9c"
+        ]
+      },
+      {
+        "name": "Branco e Marinho",
+        "hexadecimals": [
+          "#F6F6F6",
+          "#003366"
+        ]
+      },
+      {
+        "name": "Branco e Preto",
+        "hexadecimals": [
+          "#F6F6F6",
+          "#000"
+        ]
+      },
+      {
+        "name": "Branco e Rosa",
+        "hexadecimals": [
+          "#F6F6F6",
+          "#E56688"
+        ]
+      },
+      {
+        "name": "Branco e Verde",
+        "hexadecimals": [
+          "#F6F6F6",
+          "#CDE539"
+        ]
+      },
+      {
+        "name": "Chumbo",
+        "hexadecimals": [
+          "#5b5b58"
+        ]
+      },
+      {
+        "name": "Cinza",
+        "hexadecimals": [
+          "#7E7F88"
+        ]
+      },
+      {
+        "name": "Coral",
+        "hexadecimals": [
+          "#FF8300"
+        ]
+      },
+      {
+        "name": "Esmeralda e Off White",
+        "hexadecimals": [
+          "#007e61",
+          "#FAF9F6"
+        ]
+      },
+      {
+        "name": "Esmeralda e Salmon",
+        "hexadecimals": [
+          "#007e61",
+          "#FF859A"
+        ]
+      },
+      {
+        "name": "Jade",
+        "hexadecimals": [
+          "#00a86b"
+        ]
+      },
+      {
+        "name": "Jeans",
+        "hexadecimals": [
+          "#244f9c"
+        ]
+      },
+      {
+        "name": "Laranja BB",
+        "hexadecimals": [
+          "#FF8300"
+        ]
+      },
+      {
+        "name": "Laranja",
+        "hexadecimals": [
+          "#FF8300"
+        ]
+      },
+      {
+        "name": "Mostarda",
+        "hexadecimals": [
+          "#f8ce49"
+        ]
+      },
+      {
+        "name": "Lilas",
+        "hexadecimals": [
+          "#DF8BF1"
+        ]
+      },
+      {
+        "name": "Lilas e Esmeralda",
+        "hexadecimals": [
+          "#DF8BF1",
+          "#007e61"
+        ]
+      },
+      {
+        "name": "Marrom",
+        "hexadecimals": [
+          "#A88A69"
+        ]
+      },
+      {
+        "name": "Off White",
+        "hexadecimals": [
+          "#FAF9F6"
+        ]
+      },
+      {
+        "name": "Off White e Lilas",
+        "hexadecimals": [
+          "#FAF9F6",
+          "#DF8BF1"
+        ]
+      },
+      {
+        "name": "Off White e Verde",
+        "hexadecimals": [
+          "#FAF9F6",
+          "#DF8BF1"
+        ]
+      },
+      {
+        "name": "Oliva",
+        "hexadecimals": [
+          "#808000"
+        ]
+      },
+      {
+        "name": "Noz Moscada",
+        "hexadecimals": [
+          "#dbb695"
+        ]
+      },
+      {
+        "name": "Pessego",
+        "hexadecimals": [
+          "#ffdab9"
+        ]
+      },
+      {
+        "name": "Pink",
+        "hexadecimals": [
+          "#E56688"
+        ]
+      },
+      {
+        "name": "Preto e Azul",
+        "hexadecimals": [
+          "#000",
+          "#38BBD2"
+        ]
+      },
+      {
+        "name": "Preto e Bco",
+        "hexadecimals": [
+          "#000",
+          "#F6F6F6"
+        ]
+      },
+      {
+        "name": "Preto e Cereja",
+        "hexadecimals": [
+          "#000",
+          "#8d1c38"
+        ]
+      },
+      {
+        "name": "Preto e Esmeralda",
+        "hexadecimals": [
+          "#000",
+          "#007e61"
+        ]
+      },
+      {
+        "name": "Preto e Off White",
+        "hexadecimals": [
+          "#000",
+          "#FAF9F6"
+        ]
+      },
+      {
+        "name": "Preto e Rosa",
+        "hexadecimals": [
+          "#000",
+          "#E56688"
+        ]
+      },
+      {
+        "name": "Preto e Rosa Forte",
+        "hexadecimals": [
+          "#000",
+          "#e45078"
+        ]
+      },
+      {
+        "name": "Preto e Roxo",
+        "hexadecimals": [
+          "#000",
+          "#C5A6CD"
+        ]
+      },
+      {
+        "name": "Rosa",
+        "hexadecimals": [
+          "#E56688"
+        ]
+      },
+      {
+        "name": "Rosa Claro",
+        "hexadecimals": [
+          "#e27894"
+        ]
+      },
+      {
+        "name": "Rosa e Azul",
+        "hexadecimals": [
+          "#E56688",
+          "#38BBD2"
+        ]
+      },
+      {
+        "name": "Rosa e Laranja",
+        "hexadecimals": [
+          "#E56688",
+          "#FF8300"
+        ]
+      },
+      {
+        "name": "Rosa e Laranja e Azul",
+        "hexadecimals": [
+          "#E56688",
+          "#FF8300",
+          "#38BBD2"
+        ]
+      },
+      {
+        "name": "Rosa e Off White",
+        "hexadecimals": [
+          "#E56688",
+          "#FAF9F6"
+        ]
+      },
+      {
+        "name": "Rosa Forte",
+        "hexadecimals": [
+          "#e45078"
+        ]
+      },
+      {
+        "name": "Rosa Medio",
+        "hexadecimals": [
+          "#e45078"
+        ]
+      },
+      {
+        "name": "Roxo",
+        "hexadecimals": [
+          "#C5A6CD"
+        ]
+      },
+      {
+        "name": "Roxo BB",
+        "hexadecimals": [
+          "#C5A6CD"
+        ]
+      },
+      {
+        "name": "Royal",
+        "hexadecimals": [
+          "#6b3fa0"
+        ]
+      },
+      {
+        "name": "Salmon",
+        "hexadecimals": [
+          "#FF859A"
+        ]
+      },
+      {
+        "name": "Verde",
+        "hexadecimals": [
+          "#CDE539"
+        ]
+      },
+      {
+        "name": "Verde e Azul",
+        "hexadecimals": [
+          "#CDE539",
+          "#38BBD2"
+        ]
+      },
+      {
+        "name": "Verde e Rosa",
+        "hexadecimals": [
+          "#CDE539",
+          "#E56688"
+        ]
+      },
+      {
+        "name": "Verde e Violacio",
+        "hexadecimals": [
+          "#CDE539",
+          "#ee82ee"
+        ]
+      },
+      {
+        "name": "Vermelho",
+        "hexadecimals": [
+          "#E35027"
+        ]
+      },
+      {
+        "name": "Verde e Roxo",
+        "hexadecimals": [
+          "#CDE539",
+          "#C5A6CD"
+        ]
+      },
+      {
+        "name": "Azul BB",
+        "hexadecimals": [
+          "#38BBD2"
+        ]
+      },
+      {
+        "name": "Rosa e Verde",
+        "hexadecimals": [
+          "#E56688",
+          "#CDE539"
+        ]
+      },
+      {
+        "name": "Esmeralda BB",
+        "hexadecimals": [
+          "#007e61"
+        ]
+      },
+      {
+        "name": "Rosa e Cereja",
+        "hexadecimals": [
+          "#E56688",
+          "#8d1c38"
+        ]
+      },
+      {
+        "name": "Esmeralda e Rosa",
+        "hexadecimals": [
+          "#007e61",
+          "#E56688"
+        ]
+      },
+      {
+        "name": "Cristal",
+        "hexadecimals": [
+          "#d5d5d5"
+        ]
+      },
+      {
+        "name": "Amarelo e Pink",
+        "hexadecimals": [
+          "#f8ce49",
+          "#E56688"
+        ]
+      },
+      {
+        "name": "Cereja e Amarelo",
+        "hexadecimals": [
+          "#8d1c38",
+          "#f8ce49"
+        ]
+      },
+      {
+        "name": "Roxo Claro",
+        "hexadecimals": [
+          "#6b3fa0"
+        ]
+      },
+      {
+        "name": "Roxo e Amarelo",
+        "hexadecimals": [
+          "#C5A6CD",
+          "#f8ce49"
+        ]
+      },
+      {
+        "name": "Coral e Verde",
+        "hexadecimals": [
+          "#FF8300",
+          "#CDE539"
+        ]
+      },
+      {
+        "name": "Kiwi e Jeans",
+        "hexadecimals": [
+          "#a7ab9a",
+          "#244f9c"
+        ]
+      },
+      {
+        "name": "Branco e Salmon",
+        "hexadecimals": [
+          "#F6F6F6",
+          "#FF859A"
+        ]
+      },
+      {
+        "name": "Grafite",
+        "hexadecimals": [
+          "#2e2e2e"
+        ]
+      },
+      {
+        "name": "Branco e Roxo BB",
+        "hexadecimals": [
+          "#F6F6F6",
+          "#6b3fa0"
+        ]
+      },
+      {
+        "name": "Violacio e Amarelo",
+        "hexadecimals": [
+          "#ee82ee",
+          "#f8ce49"
+        ]
+      },
+      {
+        "name": "Rosa e Marrom",
+        "hexadecimals": [
+          "#E56688",
+          "#A07244"
+        ]
+      },
+      {
+        "name": "Bco Azul e Roxo",
+        "hexadecimals": [
+          "#F6F6F6",
+          "#38BBD2",
+          "#C5A6CD"
+        ]
+      },
+      {
+        "name": "Tangerina",
+        "hexadecimals": [
+          "#f0974c"
+        ]
+      },
+      {
+        "name": "Preto e Verde",
+        "hexadecimals": [
+          "#000",
+          "#CDE539"
+        ]
+      },
+      {
+        "name": "Mescla e Rosa",
+        "hexadecimals": [
+          "#d3d3d3",
+          "#E56688"
+        ]
+      },
+      {
+        "name": "Chiclete",
+        "hexadecimals": [
+          "#ff007f"
+        ]
+      },
+      {
+        "name": "Azul e Amarelo",
+        "hexadecimals": [
+          "#38BBD2",
+          "#f8ce49"
+        ]
+      },
+      {
+        "name": "Amarelo e Jeans",
+        "hexadecimals": [
+          "#f8ce49",
+          "#244f9c"
+        ]
+      },
+      {
+        "name": "Azul e Areia",
+        "hexadecimals": [
+          "#38BBD2",
+          "#dccbb5"
+        ]
+      },
+      {
+        "name": "Azul e Esmeralda",
+        "hexadecimals": [
+          "#38BBD2",
+          "#007e61"
+        ]
+      },
+      {
+        "name": "Azul Forte",
+        "hexadecimals": [
+          "#120a8f"
+        ]
+      },
+      {
+        "name": "Azul Jeans",
+        "hexadecimals": [
+          "#000921"
+        ]
+      },
+      {
+        "name": "Beterraba",
+        "hexadecimals": [
+          "#993399"
+        ]
+      },
+      {
+        "name": "Branco e Amarelo",
+        "hexadecimals": [
+          "#F6F6F6",
+          "#f8ce49"
+        ]
+      },
+      {
+        "name": "Cafe com Leite",
+        "hexadecimals": [
+          "#ac9794"
+        ]
+      },
+      {
+        "name": "Camelo",
+        "hexadecimals": [
+          "#c1a982"
+        ]
+      },
+      {
+        "name": "Canela",
+        "hexadecimals": [
+          "#70594b"
+        ]
+      },
+      {
+        "name": "Jeans Black",
+        "hexadecimals": [
+          "#191C27"
+        ]
+      },
+      {
+        "name": "Cinza e Azul",
+        "hexadecimals": [
+          "#7E7F88",
+          "#38BBD2"
+        ]
+      },
+      {
+        "name": "Cinza e Verde",
+        "hexadecimals": [
+          "#7E7F88",
+          "#CDE539"
+        ]
+      },
+      {
+        "name": "Royal e Verde",
+        "hexadecimals": [
+          "#6b3fa0",
+          "#CDE539"
+        ]
+      },
+      {
+        "name": "Goiaba",
+        "hexadecimals": [
+          "#be5b59"
+        ]
+      },
+      {
+        "name": "Cravo",
+        "hexadecimals": [
+          "#ebd6e6"
+        ]
+      },
+      {
+        "name": "Gelo",
+        "hexadecimals": [
+          "#ddd9ce"
+        ]
+      },
+      {
+        "name": "Hortela",
+        "hexadecimals": [
+          "#71d099"
+        ]
+      },
+      {
+        "name": "Hortencia Forte",
+        "hexadecimals": [
+          "#a38ba2"
+        ]
+      },
+      {
+        "name": "Lima",
+        "hexadecimals": [
+          "#fde910"
+        ]
+      },
+      {
+        "name": "Listrado Preto e Branco",
+        "hexadecimals": [
+          "#000",
+          "#F6F6F6",
+          "#000"
+        ]
+      },
+      {
+        "name": "Noz Moscada e Marinho",
+        "hexadecimals": [
+          "#dbb695",
+          "#003366"
+        ]
+      },
+      {
+        "name": "Off White e Azul",
+        "hexadecimals": [
+          "#FAF9F6",
+          "#38BBD2"
+        ]
+      },
+      {
+        "name": "Off White e Marinho",
+        "hexadecimals": [
+          "#FAF9F6",
+          "#003366"
+        ]
+      },
+      {
+        "name": "Off White e Mescla",
+        "hexadecimals": [
+          "#FAF9F6",
+          "#d3d3d3"
+        ]
+      },
+      {
+        "name": "Petroleo",
+        "hexadecimals": [
+          "#084d6e"
+        ]
+      },
+      {
+        "name": "Tomate",
+        "hexadecimals": [
+          "#ff6347"
+        ]
+      },
+      {
+        "name": "Verde Azul e Chumbo",
+        "hexadecimals": [
+          "#008080",
+          "#5b5b58"
+        ]
+      },
+      {
+        "name": "Verde Oceano",
+        "hexadecimals": [
+          "#20b2aa"
+        ]
+      },
+      {
+        "name": "Vermelho Botton",
+        "hexadecimals": [
+          "#EB584C"
+        ]
+      },
+      {
+        "name": "Vermelho e Hort Forte",
+        "hexadecimals": [
+          "#EB584C",
+          "#7e77b1"
+        ]
+      },
+      {
+        "name": "Vermelho e Marinho",
+        "hexadecimals": [
+          "#E35027",
+          "#003366"
+        ]
+      },
+      {
+        "name": "Vermelho e Mescla",
+        "hexadecimals": [
+          "#E35027",
+          "#003366"
+        ]
+      },
+      {
+        "name": "Amarelo e Jeans Claro",
+        "hexadecimals": [
+          "#f8ce49",
+          "#0153a5"
+        ]
+      },
+      {
+        "name": "Amarelo e Laranja",
+        "hexadecimals": [
+          "#f8ce49",
+          "#ff8300"
+        ]
+      },
+      {
+        "name": "Off White e Branco",
+        "hexadecimals": [
+          "#FAF9F6",
+          "#F6F6F6"
+        ]
+      },
+      {
+        "name": "Turmalina e Preto",
+        "hexadecimals": [
+          "#0c8e6b",
+          "#000"
+        ]
+      },
+      {
+        "name": "Kiwi e Off White",
+        "hexadecimals": [
+          "#a7ab9a",
+          "#FAF9F6"
+        ]
+      },
+      {
+        "name": "Branco e Noz Moscada",
+        "hexadecimals": [
+          "#F6F6F6",
+          "#dbb695"
+        ]
+      },
+      {
+        "name": "Turmalina e Chumbo",
+        "hexadecimals": [
+          "#0c8e6b",
+          "#5b5b58"
+        ]
+      },
+      {
+        "name": "Royal e Mostarda",
+        "hexadecimals": [
+          "#6b3fa0",
+          "#f8ce49"
+        ]
+      },
+      {
+        "name": "Preto e Jeans",
+        "hexadecimals": [
+          "#000",
+          "#244f9c"
+        ]
+      },
+      {
+        "name": "Chumbo e Jeans",
+        "hexadecimals": [
+          "#5b5b58",
+          "#244f9c"
+        ]
+      },
+      {
+        "name": "Jeans e Marrom",
+        "hexadecimals": [
+          "#244f9c",
+          "#A88A69"
+        ]
+      },
+      {
+        "name": "Pimenta e Marinho",
+        "hexadecimals": [
+          "#aa0027",
+          "#003366"
+        ]
+      },
+      {
+        "name": "List Preto",
+        "hexadecimals": [
+          "#000",
+          "#FAF9F6",
+          "#000"
+        ]
+      },
+      {
+        "name": "Xadrez Azul",
+        "hexadecimals": [
+          "#38BBD2",
+          "#000",
+          "#38BBD2"
+        ]
+      },
+      {
+        "name": "Xadrez Vermelho",
+        "hexadecimals": [
+          "#E35027",
+          "#000",
+          "#E35027"
+        ]
+      },
+      {
+        "name": "Amarelo Sol de Verao",
+        "hexadecimals": [
+          "#f8ce49"
+        ]
+      },
+      {
+        "name": "Amarillo",
+        "hexadecimals": [
+          "#f9f3b7"
+        ]
+      },
+      {
+        "name": "Areia",
+        "hexadecimals": [
+          "#d7d0a2"
+        ]
+      },
+      {
+        "name": "Argile Rosee",
+        "hexadecimals": [
+          "#aa7a6c"
+        ]
+      },
+      {
+        "name": "Azul Brisa",
+        "hexadecimals": [
+          "#a7bcd7"
+        ]
+      },
+      {
+        "name": "Azul Placido",
+        "hexadecimals": [
+          "#c3ccd3"
+        ]
+      },
+      {
+        "name": "Bege",
+        "hexadecimals": [
+          "#F2DCBD"
+        ]
+      },
+      {
+        "name": "Beige Fonce",
+        "hexadecimals": [
+          "#bda990"
+        ]
+      },
+      {
+        "name": "Bege Fonce",
+        "hexadecimals": [
+          "#bda990"
+        ]
+      },
+      {
+        "name": "Amarelo e Rosa",
+        "hexadecimals": [
+          "#f8ce49",
+          "#E56688"
+        ]
+      },
+      {
+        "name": "Berinjela",
+        "hexadecimals": [
+          "#766573"
+        ]
+      },
+      {
+        "name": "Preto e Azul",
+        "hexadec": [
+          "#000",
+          "#38BBD2"
+        ],
+        "hexadecimals": []
+      },
+      {
+        "name": "Blue Pen",
+        "hexadecimals": [
+          "#244f9c"
+        ]
+      },
+      {
+        "name": "Blush",
+        "hexadecimals": [
+          "#ceb0a5"
+        ]
+      },
+      {
+        "name": "Branco",
+        "hexadecimals": [
+          "#F6F6F6"
+        ]
+      },
+      {
+        "name": "Brocado",
+        "hexadecimals": [
+          "#d6b764"
+        ]
+      },
+      {
+        "name": "Castanha",
+        "hexadecimals": [
+          "#af8575"
+        ]
+      },
+      {
+        "name": "Cereja",
+        "hexadecimals": [
+          "#8d1c38"
+        ]
+      },
+      {
+        "name": "Colombe",
+        "hexadecimals": [
+          "#e7dfd4"
+        ]
+      },
+      {
+        "name": "Cru Fixado",
+        "hexadecimals": [
+          "#fafcef"
+        ]
+      },
+      {
+        "name": "Dagree",
+        "hexadecimals": [
+          "#fff0f3"
+        ]
+      },
+      {
+        "name": "Esmeralda",
+        "hexadecimals": [
+          "#007e61"
+        ]
+      },
+      {
+        "name": "Etalon",
+        "hexadecimals": [
+          "#593632"
+        ]
+      },
+      {
+        "name": "Grenat",
+        "hexadecimals": [
+          "#632240"
+        ]
+      },
+      {
+        "name": "Guacamole",
+        "hexadecimals": [
+          "#8eba19"
+        ]
+      },
+      {
+        "name": "Hortencia",
+        "hexadecimals": [
+          "#7e77b1"
+        ]
+      },
+      {
+        "name": "Incarnat",
+        "hexadecimals": [
+          "#ff88a8"
+        ]
+      },
+      {
+        "name": "Je T'aime",
+        "hexadecimals": [
+          "#f2b4ad"
+        ]
+      },
+      {
+        "name": "Kiwi",
+        "hexadecimals": [
+          "#a7ab9a"
+        ]
+      },
+      {
+        "name": "Lavanda",
+        "hexadecimals": [
+          "#bca4c2"
+        ]
+      },
+      {
+        "name": "Lilac",
+        "hexadecimals": [
+          "#e1c1d6"
+        ]
+      },
+      {
+        "name": "Lumiere",
+        "hexadecimals": [
+          "#efece7"
+        ]
+      },
+      {
+        "name": "Mescla",
+        "hexadecimals": [
+          "#d3d3d3"
+        ]
+      },
+      {
+        "name": "Mescla e Azul",
+        "hexadecimals": [
+          "#d3d3d3",
+          "#38BBD2"
+        ]
+      },
+      {
+        "name": "Mescla e Verde",
+        "hexadecimals": [
+          "#d3d3d3",
+          "#CDE539"
+        ]
+      },
+      {
+        "name": "Mescla e Mostarda",
+        "hexadecimals": [
+          "#d3d3d3",
+          "#f8ce49"
+        ]
+      },
+      {
+        "name": "Mescla e Preto",
+        "hexadecimals": [
+          "#d3d3d3",
+          "#000"
+        ]
+      },
+      {
+        "name": "Mescla Escuro",
+        "hexadecimals": [
+          "#b1b1b1"
+        ]
+      },
+      {
+        "name": "Navy Blue",
+        "hexadecimals": [
+          "#002c56"
+        ]
+      },
+      {
+        "name": "Ocean",
+        "hexadecimals": [
+          "#0f75b2"
+        ]
+      },
+      {
+        "name": "Paprika",
+        "hexadecimals": [
+          "#8e1413"
+        ]
+      },
+      {
+        "name": "Perle",
+        "hexadecimals": [
+          "#edefe2"
+        ]
+      },
+      {
+        "name": "Pink Atoba",
+        "hexadecimals": [
+          "#c57ab2"
+        ]
+      },
+      {
+        "name": "Poussiere",
+        "hexadecimals": [
+          "#b8a69c"
+        ]
+      },
+      {
+        "name": "Poussiere de Ville",
+        "hexadecimals": [
+          "#c8cbca"
+        ]
+      },
+      {
+        "name": "Preto",
+        "hexadecimals": [
+          "#000"
+        ]
+      },
+      {
+        "name": "Rosa Serenata",
+        "hexadecimals": [
+          "#E56688"
+        ]
+      },
+      {
+        "name": "Rose Passe",
+        "hexadecimals": [
+          "#9b767b"
+        ]
+      },
+      {
+        "name": "Rose Passé",
+        "hexadecimals": [
+          "#9b767b"
+        ]
+      },
+      {
+        "name": "Rose The",
+        "hexadecimals": [
+          "#bc9a91"
+        ]
+      },
+      {
+        "name": "Rouge Passion",
+        "hexadecimals": [
+          "#ae1e3f"
+        ]
+      },
+      {
+        "name": "Rouge Samba",
+        "hexadecimals": [
+          "#d74f36"
+        ]
+      },
+      {
+        "name": "Titane",
+        "hexadecimals": [
+          "#616169"
+        ]
+      },
+      {
+        "name": "Verde Gramado",
+        "hexadecimals": [
+          "#35523d"
+        ]
+      },
+      {
+        "name": "Vermelho Desejo",
+        "hexadecimals": [
+          "#ba1616"
+        ]
+      },
+      {
+        "name": "Violet",
+        "hexadecimals": [
+          "#413c8c"
+        ]
+      },
+      {
+        "name": "Olive",
+        "hexadecimals": [
+          "#61785d"
+        ]
+      },
+      {
+        "name": "Marinho",
+        "hexadecimals": [
+          "#003366"
+        ]
+      },
+      {
+        "name": "Orquidea",
+        "hexadecimals": [
+          "#d158b7"
+        ]
+      },
+      {
+        "name": "Estampado Jamaica",
+        "hexadecimals": [
+          ""
+        ]
+      },
+      {
+        "name": "Estampado Paraty",
+        "hexadecimals": [
+          ""
+        ]
+      },
+      {
+        "name": "Estampado Amelie",
+        "hexadecimals": [
+          ""
+        ]
+      },
+      {
+        "name": "Nude",
+        "hexadecimals": [
+          ""
+        ]
+      },
+      {
+        "name": "Azul Sereia",
+        "hexadecimals": [
+          ""
+        ]
+      },
+      {
+        "name": "Perle Estampado",
+        "hexadecimals": [
+          ""
+        ]
+      }
+    ],
+    "cashbackPercentage": 15
   }
 }

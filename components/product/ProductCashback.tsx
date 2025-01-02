@@ -1,17 +1,15 @@
 import { Product } from "apps/commerce/types.ts";
 import Icon from "site/components/ui/Icon.tsx";
+import useCashback from "site/sdk/useCashback.ts";
 
 interface Props {
   product: Product;
   percentage: number;
 }
 
-export default function ProductCashback({ product, percentage }: Props) {
-  const showCashback = percentage > 0 &&
-    product.isVariantOf?.additionalProperty.find((property) =>
-        property.name?.toLowerCase() === "mostrar cashback"
-      )?.value?.toLowerCase() === "sim";
-  if (!showCashback) {
+export default function ProductCashback(props: Props) {
+  const percentage = useCashback(props.percentage, props.product);
+  if (!percentage) {
     return null;
   }
   return (

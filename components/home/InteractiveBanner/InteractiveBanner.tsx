@@ -5,7 +5,7 @@ import Image from "apps/website/components/Image.tsx";
 import { clx } from "site/sdk/clx.ts";
 import InteractiveBannerProduct, {
   InteractiveBannerProductProps,
-} from "site/components/InteractiveBanner/Product.tsx";
+} from "site/components/home/InteractiveBanner/Product.tsx";
 
 interface InteractiveBannerProps {
   interactiveBanner: {

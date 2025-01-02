@@ -9,7 +9,15 @@ import { color as vtex } from "apps/vtex/mod.ts";
 import { color as wake } from "apps/wake/mod.ts";
 import { Props as WebsiteProps } from "apps/website/mod.ts";
 import { rgb24 } from "std/fmt/colors.ts";
-import manifest, { Manifest } from "../manifest.gen.ts";
+import manifest, { Manifest } from "site/manifest.gen.ts";
+import { Color } from "apps/admin/widgets.ts";
+
+/** @titleBy name	*/
+export interface ColorItem {
+  name: string;
+  hexadecimals: Color[];
+}
+
 export interface Props extends WebsiteProps {
   /**
    * @title Active Commerce Platform
@@ -18,6 +26,10 @@ export interface Props extends WebsiteProps {
    */
   platform: Platform;
   theme?: Section;
+  globalSettings: {
+    colors: ColorItem[];
+    cashbackPercentage: number;
+  };
 }
 export type Platform =
   | "vtex"

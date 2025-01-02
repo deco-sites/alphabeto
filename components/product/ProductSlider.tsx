@@ -4,19 +4,28 @@ import Icon from "site/components/ui/Icon.tsx";
 import Slider from "site/components/ui/Slider.tsx";
 import ProductCard from "site/components/product/ProductCard.tsx";
 import { useId } from "site/sdk/useId.ts";
-import { ExportedColorItem } from "site/loaders/savedColors.ts";
 import { useDevice } from "@deco/deco/hooks";
+import { ColorItem } from "site/apps/site.ts";
 
-interface Props {
-  products: Product[];
-  itemListName?: string;
-  colors: ExportedColorItem[];
+export interface ProductSliderProps {
+  products: Product[] | null;
+  /**
+   * @title List Name for Analytics
+   */
+  viewItemListName?: string;
+  settings: {
+    colors: ColorItem[];
+    cashbackPercentage: number;
+  };
 }
 
 const DESKTOP_ITENS = 4;
 const TABLET_ITENS = 2;
 
-function ProductSlider({ products, itemListName, colors }: Props) {
+function ProductSlider(
+  { products, viewItemListName, settings }: ProductSliderProps,
+) {
+  if (!products || products.length === 0) return null;
   const id = useId();
   const device = useDevice();
   const items = device === "desktop" ? DESKTOP_ITENS : TABLET_ITENS;
@@ -47,9 +56,9 @@ function ProductSlider({ products, itemListName, colors }: Props) {
                 <ProductCard
                   index={index}
                   product={product}
-                  itemListName={itemListName}
+                  itemListName={viewItemListName}
                   class="tablet-large:max-w-[348px] tablet-large:w-[calc((100dvw_-_144px)_/_4)] w-[calc((100dvw_-_56px)/2)]"
-                  colors={colors}
+                  settings={settings}
                 />
               </Slider.Item>
             ))}

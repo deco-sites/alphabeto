@@ -1,9 +1,11 @@
 import { ImageWidget } from "apps/admin/widgets.ts";
-import { Product } from "apps/commerce/types.ts";
-import { ExportedColorItem } from "site/loaders/savedColors.ts";
-import ProductSlider from "site/components/GiftShelf/ProductSlider.tsx";
+import ProductSlider from "site/components/home/GiftShelf/ProductSlider.tsx";
 import { useId } from "site/sdk/useId.ts";
 import { Picture, Source } from "apps/website/components/Picture.tsx";
+import { ProductSliderProps } from "site/components/product/ProductSlider.tsx";
+import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
+import { useOffer } from "site/sdk/useOffer.ts";
+import { useSendEvent } from "site/sdk/useSendEvent.ts";
 
 interface GiftShelfProps {
   title: string;
@@ -13,21 +15,39 @@ interface GiftShelfProps {
     mobileSrc: ImageWidget;
     alt?: string;
   };
-  products: Product[] | null;
-  colors: ExportedColorItem[];
+  slider: ProductSliderProps;
 }
 
 export default function GiftShelf({
   title,
   description,
   image,
-  products,
-  colors,
+  slider,
 }: GiftShelfProps) {
   const id = useId();
+  const { products, viewItemListName } = slider;
   if (!products) return null;
+  const viewItemListEvent = useSendEvent({
+    on: "view",
+    event: {
+      name: "view_item_list",
+      params: {
+        item_list_name: viewItemListName,
+        items: products.map((product, index) =>
+          mapProductToAnalyticsItem({
+            index,
+            product,
+            ...useOffer(product.offers),
+          })
+        ),
+      },
+    },
+  });
   return (
-    <div class="flex flex-col container tablet-large:mt-[100px] mt-20">
+    <div
+      class="flex flex-col container tablet-large:mt-[100px] mt-20"
+      {...viewItemListEvent}
+    >
       <span class="flex flex-col gap-4">
         <h2 class="font-beccaPerry text-[28px] leading-8 tablet-large:text-[40px] tablet-large:leading-[48px] font-medium text-[#676767]">
           {title}
@@ -56,7 +76,7 @@ export default function GiftShelf({
             class="w-full tablet-large:aspect-[672/688] aspect-[355/329] rounded-lg object-cover"
           />
         </Picture>
-        <ProductSlider id={id} products={products} colors={colors} />
+        <ProductSlider id={id} {...slider} />
       </div>
     </div>
   );

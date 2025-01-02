@@ -18,16 +18,15 @@ import * as $$$6 from "./loaders/icons.ts";
 import * as $$$7 from "./loaders/minicart.ts";
 import * as $$$8 from "./loaders/product/backgroundBanner.ts";
 import * as $$$9 from "./loaders/product/rotativeText.ts";
-import * as $$$10 from "./loaders/savedColors.ts";
-import * as $$$11 from "./loaders/searchDocuments.ts";
-import * as $$$12 from "./loaders/sizebay.ts";
-import * as $$$13 from "./loaders/user.ts";
-import * as $$$14 from "./loaders/vtexReviewsAndRatings/constants.ts";
-import * as $$$15 from "./loaders/vtexReviewsAndRatings/index.ts";
-import * as $$$16 from "./loaders/vtexReviewsAndRatings/queries.ts";
-import * as $$$17 from "./loaders/vtexReviewsAndRatings/types.ts";
-import * as $$$18 from "./loaders/wishlist.ts";
-import * as $$$19 from "./loaders/youtubeVideo.ts";
+import * as $$$10 from "./loaders/searchDocuments.ts";
+import * as $$$11 from "./loaders/sizebay.ts";
+import * as $$$12 from "./loaders/user.ts";
+import * as $$$13 from "./loaders/vtexReviewsAndRatings/constants.ts";
+import * as $$$14 from "./loaders/vtexReviewsAndRatings/index.ts";
+import * as $$$15 from "./loaders/vtexReviewsAndRatings/queries.ts";
+import * as $$$16 from "./loaders/vtexReviewsAndRatings/types.ts";
+import * as $$$17 from "./loaders/wishlist.ts";
+import * as $$$18 from "./loaders/youtubeVideo.ts";
 import * as $$$$$$0 from "./sections/AboutUs/AboutUsBanner.tsx";
 import * as $$$$$$1 from "./sections/AboutUs/AboutUsBubbles.tsx";
 import * as $$$$$$2 from "./sections/AboutUs/AboutUsCompanyInfo.tsx";
@@ -71,16 +70,15 @@ import * as $$$$$$39 from "./sections/Product/ProductBuyTogether.tsx";
 import * as $$$$$$40 from "./sections/Product/ProductDetails.tsx";
 import * as $$$$$$41 from "./sections/Product/ProductReviews.tsx";
 import * as $$$$$$42 from "./sections/Product/ProductShelf.tsx";
-import * as $$$$$$43 from "./sections/Product/ProductShelfTabbed.tsx";
-import * as $$$$$$44 from "./sections/Product/QuickView.tsx";
-import * as $$$$$$45 from "./sections/Product/SearchResult.tsx";
-import * as $$$$$$46 from "./sections/Product/ShelfWithImage.tsx";
-import * as $$$$$$47 from "./sections/Product/Wishlist.tsx";
-import * as $$$$$$48 from "./sections/Session.tsx";
-import * as $$$$$$49 from "./sections/Social/InstagramPosts.tsx";
-import * as $$$$$$50 from "./sections/Social/WhatsApp.tsx";
-import * as $$$$$$51 from "./sections/TabLayout/TabLayout.tsx";
-import * as $$$$$$52 from "./sections/Theme/Theme.tsx";
+import * as $$$$$$43 from "./sections/Product/ProductTabShelf.tsx";
+import * as $$$$$$44 from "./sections/Product/SearchResult.tsx";
+import * as $$$$$$45 from "./sections/Product/ShelfWithImage.tsx";
+import * as $$$$$$46 from "./sections/Product/Wishlist.tsx";
+import * as $$$$$$47 from "./sections/Session.tsx";
+import * as $$$$$$48 from "./sections/Social/InstagramPosts.tsx";
+import * as $$$$$$49 from "./sections/Social/WhatsApp.tsx";
+import * as $$$$$$50 from "./sections/TabLayout/TabLayout.tsx";
+import * as $$$$$$51 from "./sections/Theme/Theme.tsx";
 
 const manifest = {
   "loaders": {
@@ -94,16 +92,15 @@ const manifest = {
     "site/loaders/minicart.ts": $$$7,
     "site/loaders/product/backgroundBanner.ts": $$$8,
     "site/loaders/product/rotativeText.ts": $$$9,
-    "site/loaders/savedColors.ts": $$$10,
-    "site/loaders/searchDocuments.ts": $$$11,
-    "site/loaders/sizebay.ts": $$$12,
-    "site/loaders/user.ts": $$$13,
-    "site/loaders/vtexReviewsAndRatings/constants.ts": $$$14,
-    "site/loaders/vtexReviewsAndRatings/index.ts": $$$15,
-    "site/loaders/vtexReviewsAndRatings/queries.ts": $$$16,
-    "site/loaders/vtexReviewsAndRatings/types.ts": $$$17,
-    "site/loaders/wishlist.ts": $$$18,
-    "site/loaders/youtubeVideo.ts": $$$19,
+    "site/loaders/searchDocuments.ts": $$$10,
+    "site/loaders/sizebay.ts": $$$11,
+    "site/loaders/user.ts": $$$12,
+    "site/loaders/vtexReviewsAndRatings/constants.ts": $$$13,
+    "site/loaders/vtexReviewsAndRatings/index.ts": $$$14,
+    "site/loaders/vtexReviewsAndRatings/queries.ts": $$$15,
+    "site/loaders/vtexReviewsAndRatings/types.ts": $$$16,
+    "site/loaders/wishlist.ts": $$$17,
+    "site/loaders/youtubeVideo.ts": $$$18,
   },
   "sections": {
     "site/sections/AboutUs/AboutUsBanner.tsx": $$$$$$0,
@@ -149,16 +146,15 @@ const manifest = {
     "site/sections/Product/ProductDetails.tsx": $$$$$$40,
     "site/sections/Product/ProductReviews.tsx": $$$$$$41,
     "site/sections/Product/ProductShelf.tsx": $$$$$$42,
-    "site/sections/Product/ProductShelfTabbed.tsx": $$$$$$43,
-    "site/sections/Product/QuickView.tsx": $$$$$$44,
-    "site/sections/Product/SearchResult.tsx": $$$$$$45,
-    "site/sections/Product/ShelfWithImage.tsx": $$$$$$46,
-    "site/sections/Product/Wishlist.tsx": $$$$$$47,
-    "site/sections/Session.tsx": $$$$$$48,
-    "site/sections/Social/InstagramPosts.tsx": $$$$$$49,
-    "site/sections/Social/WhatsApp.tsx": $$$$$$50,
-    "site/sections/TabLayout/TabLayout.tsx": $$$$$$51,
-    "site/sections/Theme/Theme.tsx": $$$$$$52,
+    "site/sections/Product/ProductTabShelf.tsx": $$$$$$43,
+    "site/sections/Product/SearchResult.tsx": $$$$$$44,
+    "site/sections/Product/ShelfWithImage.tsx": $$$$$$45,
+    "site/sections/Product/Wishlist.tsx": $$$$$$46,
+    "site/sections/Session.tsx": $$$$$$47,
+    "site/sections/Social/InstagramPosts.tsx": $$$$$$48,
+    "site/sections/Social/WhatsApp.tsx": $$$$$$49,
+    "site/sections/TabLayout/TabLayout.tsx": $$$$$$50,
+    "site/sections/Theme/Theme.tsx": $$$$$$51,
   },
   "actions": {
     "site/actions/minicart/submit.ts": $$$$$$$$$0,

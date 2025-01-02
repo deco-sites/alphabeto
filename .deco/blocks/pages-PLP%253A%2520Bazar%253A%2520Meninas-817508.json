@@ -38,11 +38,6 @@
           },
           "variant": "aside",
           "pagination": "show-more",
-          "filter": {
-            "colors": {
-              "__resolveType": "Saved Colors"
-            }
-          },
           "enableSpecialFilter": true
         },
         "startingPage": 1,

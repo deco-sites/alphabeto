@@ -41,12 +41,7 @@
             "desktop": 4
           },
           "variant": "aside",
-          "pagination": "show-more",
-          "filter": {
-            "colors": {
-              "__resolveType": "Saved Colors"
-            }
-          }
+          "pagination": "show-more"
         },
         "startingPage": 1,
         "seoComponents": {

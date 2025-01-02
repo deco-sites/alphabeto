@@ -26,10 +26,6 @@
         "__resolveType": "PDP Loader"
       },
       "settings": {
-        "cashbackPercentage": 15,
-        "colors": {
-          "__resolveType": "Saved Colors"
-        },
         "productUnavailableShelf": {
           "products": {
             "__resolveType": "vtex/loaders/legacy/relatedProductsLoader.ts",
@@ -40,7 +36,8 @@
             },
             "count": 18
           },
-          "title": "Você também pode gostar"
+          "title": "Você também pode gostar",
+          "viewItemListName": "Unavailable Itens"
         }
       }
     },

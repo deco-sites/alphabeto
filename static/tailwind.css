@@ -4245,9 +4245,6 @@ details.collapse summary::-webkit-details-marker {
 .ml-\[4px\] {
   margin-left: 4px;
 }
-.ml-\[5px\] {
-  margin-left: 5px;
-}
 .ml-\[8px\] {
   margin-left: 8px;
 }
@@ -4409,6 +4406,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .aspect-\[160\/260\] {
   aspect-ratio: 160/260;
+}
+.aspect-\[327\/507\] {
+  aspect-ratio: 327/507;
 }
 .aspect-\[328\/466\] {
   aspect-ratio: 328/466;
@@ -5084,10 +5084,6 @@ details.collapse summary::-webkit-details-marker {
 .max-w-\[calc\(100vw_-_40px\)\] {
   max-width: calc(100vw - 40px);
 }
-.max-w-fit {
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-}
 .max-w-full {
   max-width: 100%;
 }
@@ -5293,6 +5289,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .justify-around {
   justify-content: space-around;
+}
+.\!gap-10 {
+  gap: 2.5rem !important;
 }
 .gap-0 {
   gap: 0px;
@@ -6222,6 +6221,10 @@ details.collapse summary::-webkit-details-marker {
   font-size: 0.875rem !important;
   line-height: 1.25rem !important;
 }
+.\!text-xs {
+  font-size: 0.75rem !important;
+  line-height: 1rem !important;
+}
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -6359,6 +6362,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .capitalize {
   text-transform: capitalize;
+}
+.\!leading-\[18px\] {
+  line-height: 18px !important;
 }
 .leading-3 {
   line-height: .75rem;
@@ -7717,6 +7723,10 @@ details.collapse summary::-webkit-details-marker {
 
   .mobile\:leading-\[26px\] {
     line-height: 26px;
+  }
+
+  .mobile\:leading-\[33px\] {
+    line-height: 33px;
   }
 
   .mobile\:leading-\[38px\] {

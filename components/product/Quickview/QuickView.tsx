@@ -6,6 +6,12 @@ import { useOffer } from "site/sdk/useOffer.ts";
 import AddToCartButton from "site/components/product/AddToCartButton.tsx";
 import { clx } from "site/sdk/clx.ts";
 import Button from "site/components/ui/Button.tsx";
+import VTEXImageTag from "site/components/VTEXImageTag.tsx";
+import ProductAgeRangeIndicator from "site/components/product/ProductAgeRangeIndicator.tsx";
+import QuikviewHeader from "site/components/product/Quickview/Header.tsx";
+import ProductRating from "site/components/product/ProductRating.tsx";
+import { formatPrice } from "site/sdk/format.ts";
+import ProductCashback from "site/components/product/Quickview/ProductCashback.tsx";
 export interface ColorItem {
   name: string;
   hexadecimals: string[];
@@ -15,6 +21,9 @@ export interface Props extends JSX.HTMLAttributes<HTMLButtonElement> {
   product: Product;
   seller: string;
   item: AnalyticsItem;
+  settings: {
+    cashbackPercentage: number;
+  };
 }
 
 const script = (id: string, showButtonId: string, imagesModalId: string) => {
@@ -76,12 +85,15 @@ const script = (id: string, showButtonId: string, imagesModalId: string) => {
   });
 };
 
-function QuickView({ product, seller, item }: Props) {
+function QuickViewDesktop({ product, seller, item, settings }: Props) {
   const modalId = useId();
   const showButtonId = useId();
   const imagesModalId = useId();
-
-  const { listPrice, price, installments } = useOffer(product.offers);
+  const { offers, isVariantOf } = product;
+  const productName = isVariantOf?.name ?? product.name;
+  const { listPrice, price, installments } = useOffer(offers);
+  const referenceCode = isVariantOf?.model;
+  const hasListPrice = listPrice && listPrice > (price ?? 0);
 
   return (
     <>
@@ -101,63 +113,61 @@ function QuickView({ product, seller, item }: Props) {
       {/* Product Info */}
       <div
         id={modalId}
-        className="fixed top-0 right-0 z-50 h-screen overflow-y-auto transition-transform translate-x-full bg-white w-[375px]"
+        class="fixed top-0 right-0 z-50 h-screen overflow-y-auto transition-transform translate-x-full bg-white w-[375px]"
       >
-        <div
-          className={"w-full flex items-center justify-between px-6 py-4 bg-[#FDF6ED] border-b border-[#FF8300] border-dashed"}
-        >
-          <p className="text-[#FF8300] font-bold leading-6 ">
-            Selecione as opções
+        <QuikviewHeader modalId={modalId} />
+        <div class="py-10 px-6">
+          <ProductAgeRangeIndicator
+            product={product}
+            class="!text-xs !leading-[18px]"
+          />
+          {/* Product Name */}
+          <p class="text-[20px] font-bold leading-6 text-[#676767] mt-5">
+            {productName}
           </p>
-          <label
-            id={"closeModalId"}
-            className="text-[#FF8300] font-bold leading-6 "
-            htmlFor={modalId}
-          >
-            X
-          </label>
-        </div>
-        <div className={"py-10 px-6"}>
-          <p
-            className={"p-[5px] rounded-lg bg-[#F7E0BF] text-[#FF8300] text-xs font-bold leading-[18px] mb-5 max-w-fit"}
-          >
-            crianças de 1 à 10 anos
-          </p>
-          <p className={"text-[20px] font-bold leading-6 text-[#676767]"}>
-            {product.name}
-          </p>
-          <div className={"mt-3"}>
-            <p className="text-[#676767] text-xs leading-[14px font-medium]">
-              REF: {product.sku}
+          {/* Product Rating */}
+          <div class="mt-3 flex gap-4 items-center">
+            <ProductRating
+              averageRating={product.aggregateRating?.ratingValue ?? 0}
+              maxRating={5}
+              iconSize={12}
+              class="gap-1"
+            />
+            {/* Reference Code */}
+            <p class="text-[#676767] text-xs leading-[14px] font-medium">
+              REF: {referenceCode}
             </p>
           </div>
-          <div className={"my-[30px]"}>
-            <p className={"text-[#C5C5C5] text-sm leading-5 font-bold"}>
-              {listPrice}
-              <strong
-                className={"font-bold ml-[5px] text-lg text-[#FF8300] leading-6"}
-              >
-                • {price}
+          <div class="my-[30px]">
+            {/** Prices */}
+            <div class="flex gap-1 items-center">
+              {hasListPrice
+                ? (
+                  <>
+                    <p class="text-[#C5C5C5] text-sm line-through font-bold">
+                      {formatPrice(listPrice, offers?.priceCurrency)}
+                    </p>
+                    <span class="text-primary text-sm leading-4 font-semibold">
+                      •
+                    </span>
+                  </>
+                )
+                : null}
+              <strong class="font-bold text-xl text-primary leading-6">
+                {formatPrice(price, offers?.priceCurrency)}
               </strong>
-            </p>
-            <p
-              className={"text-[#676767] font-medium text-xs mt-[5px] leading-[18px]"}
-            >
-              {installments}
-            </p>
-            <div className="relative inline-block mt-3">
-              {/* Triângulo */}
-              <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-b-8 border-l-transparent border-r-transparent border-b-[#D6DE23]" />
-              {/* Botão */}
-              <span className="flex relative z-10 bg-[#D6DE23] text-[#FF8300] font-bold p-[5px] rounded-lg text-xs transition">
-                <img
-                  src="https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/765ee7fe-12a3-4a7e-b7e1-4d17c13f48b8/Accounting-Coins--Streamline-Ultimate.svg.svg"
-                  alt="Ícone de moeda"
-                  className={"mr-[3px]"}
-                />
-                Ganhe 15% de cashback
-              </span>
             </div>
+            {/** Installments */}
+            {installments && (
+              <p class="text-[#676767] font-medium text-xs mt-1 leading-[18px]">
+                Em até {installments}
+              </p>
+            )}
+            {/* Cashback */}
+            <ProductCashback
+              product={product}
+              percentage={settings.cashbackPercentage}
+            />
           </div>
           <p
             className={"text-xs font-medium leading-[18px] text-[#7E7F88] line-clamp-3"}
@@ -210,11 +220,13 @@ function QuickView({ product, seller, item }: Props) {
       >
         {product.image?.map((image, index) => (
           <div key={index} className="">
-            <img
-              src={image.url}
+            <VTEXImageTag
+              src={image.url ?? ""}
+              width={327}
+              height={507}
               alt={image.alternateName || "Image"}
               title={image.name || "Image"}
-              className="rounded-md w-full"
+              className="rounded-md w-full aspect-[327/507] object-cover"
             />
           </div>
         ))}
@@ -229,4 +241,4 @@ function QuickView({ product, seller, item }: Props) {
   );
 }
 
-export default QuickView;
+export default QuickViewDesktop;

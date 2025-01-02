@@ -1,17 +1,17 @@
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import QuickView from "site/components/product/quickview/QuickView.tsx";
+import QuickView from "site/components/product/Quickview/QuickView.tsx";
 import WishlistButton from "site/components/wishlist/WishlistButton.tsx";
 import { clx } from "site/sdk/clx.ts";
 import { formatPrice } from "site/sdk/format.ts";
 import { relative } from "site/sdk/url.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
-import { ExportedColorItem } from "site/loaders/savedColors.ts";
 import ProductShelfColors from "site/components/product/ProductShelfColors.tsx";
 import { useDevice } from "@deco/deco/hooks";
 import ProductRating from "site/components/product/ProductRating.tsx";
 import VTEXImageTag from "site/components/VTEXImageTag.tsx";
+import { ColorItem } from "site/apps/site.ts";
 
 interface Props {
   product: Product;
@@ -26,7 +26,10 @@ interface Props {
 
   class?: string;
 
-  colors: ExportedColorItem[];
+  settings: {
+    colors: ColorItem[];
+    cashbackPercentage: number;
+  };
 }
 
 const DESKTOP_WIDTH = 328;
@@ -41,7 +44,7 @@ function ProductCard({
   itemListName,
   index,
   class: _class,
-  colors,
+  settings,
 }: Props) {
   const { url, image: images, offers, isVariantOf } = product;
   const title = isVariantOf?.name ?? product.name;
@@ -210,7 +213,7 @@ function ProductCard({
       </a>
 
       {/* SKU Selector */}
-      <ProductShelfColors product={product} colors={colors} />
+      <ProductShelfColors product={product} colors={settings.colors} />
       <div class="">
         {inStock
           ? (
@@ -218,6 +221,7 @@ function ProductCard({
               product={product}
               seller={seller}
               item={item}
+              settings={settings}
             />
           )
           : (

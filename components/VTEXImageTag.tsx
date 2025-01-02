@@ -45,6 +45,12 @@ const readVtexImg = (url: string) => {
   };
 };
 
+const changeExtension = (fileName: string, extension: string) => {
+  const parts = fileName.split(".");
+  parts.pop();
+  return `${parts.join(".")}.${extension}`;
+};
+
 const makeUrlSize = (vtexImg: VtexImg, width: number) => {
   const {
     account,
@@ -52,7 +58,9 @@ const makeUrlSize = (vtexImg: VtexImg, width: number) => {
     id,
     fileName,
   } = vtexImg;
-  return `https://${account}.${cdnDomain}/arquivos/ids/${id}-${width}-auto/${fileName}`;
+  return `https://${account}.${cdnDomain}/arquivos/ids/${id}-${width}-auto/${
+    changeExtension(fileName, "webp")
+  }`;
 };
 
 const VTEXImageTag = forwardRef<HTMLImageElement, Props>((props, ref) => {
