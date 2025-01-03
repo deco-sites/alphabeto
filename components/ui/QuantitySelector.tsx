@@ -1,8 +1,8 @@
 import { useScript } from "@deco/deco/hooks";
-import { clx } from "../../sdk/clx.ts";
-import { useId } from "../../sdk/useId.ts";
-import { IconMinus } from "../Icons/IconMinus.tsx";
-import { IconPlus } from "../Icons/IconPlus.tsx";
+import { clx } from "site/sdk/clx.ts";
+import { useId } from "site/sdk/useId.ts";
+import { IconMinus } from "site/components/Icons/IconMinus.tsx";
+import { IconPlus } from "site/components/Icons/IconPlus.tsx";
 
 const onClick = (delta: number) => {
   event!.stopPropagation();
@@ -23,14 +23,21 @@ type InputProps = React.DetailedHTMLProps<
 
 type QuantitySelectorProps = InputProps & {
   small?: boolean;
+  containerClass?: string;
 };
 
 function QuantitySelector(
-  { id = useId(), disabled, class: className, small, ...props }:
+  { id = useId(), disabled, class: className, small, containerClass, ...props }:
     QuantitySelectorProps,
 ) {
   return (
-    <div class={clx("join w-full flex gap-[2px]", small ? "h-5" : "h-11")}>
+    <div
+      class={clx(
+        "join w-full flex gap-[2px]",
+        small ? "h-5" : "h-11",
+        containerClass,
+      )}
+    >
       <button
         type="button"
         class={clx(

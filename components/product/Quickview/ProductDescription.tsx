@@ -9,7 +9,7 @@ export default function ProductDescription({ product }: Props) {
   const { url, description } = product;
   const relativeUrl = relative(url);
   return (
-    <div class="h-[54px] relative mb-[30px]">
+    <div class="h-[54px] relative mt-5 mb-5  tablet-large:mb-[30px] tablet-large:mt-0">
       <p class="text-xs font-medium leading-[18px] text-[#7E7F88] line-clamp-3">
         {description}
       </p>

@@ -142,6 +142,7 @@ function ProductCard({
                   "object-cover",
                   "rounded w-full",
                   "col-span-full row-span-full",
+                  "aspect-[160/260]",
                   "tablet-large:aspect-[328/466]",
                 )}
                 sizes="(max-width: 640px) 50vw, 20vw"
@@ -219,30 +220,28 @@ function ProductCard({
 
       {/* SKU Selector */}
       <ProductShelfColors product={product} colors={settings.colors} />
-      <div class="">
-        {inStock
-          ? (
-            <QuickView
-              product={product}
-              cardId={cardId}
-              settings={settings}
-            />
-          )
-          : (
-            <a
-              href={relativeUrl}
-              class={clx(
-                "btn",
-                "btn-outline justify-start border-none !text-sm !font-medium px-0 no-animation w-full",
-                "hover:!bg-transparent",
-                "disabled:!bg-transparent disabled:!opacity-75",
-                "btn-error hover:!text-error disabled:!text-error",
-              )}
-            >
-              Indisponível
-            </a>
-          )}
-      </div>
+      {inStock
+        ? (
+          <QuickView
+            product={product}
+            cardId={cardId}
+            settings={settings}
+          />
+        )
+        : (
+          <a
+            href={relativeUrl}
+            class={clx(
+              "btn",
+              "btn-outline justify-start border-none !text-sm !font-medium px-0 no-animation w-full",
+              "hover:!bg-transparent",
+              "disabled:!bg-transparent disabled:!opacity-75",
+              "btn-error hover:!text-error disabled:!text-error",
+            )}
+          >
+            Indisponível
+          </a>
+        )}
     </div>
   );
 }

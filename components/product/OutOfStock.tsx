@@ -4,6 +4,7 @@ import Input from "site/components/ui/Input.tsx";
 import Button, { ButtonType } from "site/components/ui/Button.tsx";
 import { useScript } from "@deco/deco/hooks";
 import { AppContext } from "site/apps/deco/vtex.ts";
+import { clx } from "site/sdk/clx.ts";
 
 export interface Props {
   productID: Product["productID"];
@@ -47,7 +48,10 @@ export default function Notify(
   const message = stateMessages[state as keyof typeof stateMessages];
   return (
     <form
-      class="form-control justify-start gap-2.5 mobile:max-w-[335px] mobile:mx-auto p-5 border border-[#F5F4F1] rounded-lg"
+      class={clx(
+        "form-control justify-start gap-2.5  p-5 border border-[#F5F4F1] rounded-lg",
+        mode === "default" ? "mobile:max-w-[335px] mobile:mx-auto" : "w-full",
+      )}
       hx-sync="this:replace"
       hx-swap="outerHTML"
       hx-indicator="this"

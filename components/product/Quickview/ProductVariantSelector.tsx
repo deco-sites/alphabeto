@@ -137,7 +137,7 @@ function VariantSelector({ product, colors, cardId }: Props) {
   }
   return (
     <ul
-      class="flex flex-col gap-[30px] mb-[30px]"
+      class="flex flex-col gap-5 mb-3 tablet-large:gap-[30px] tablet-large:mb-[30px]"
       hx-target="closest #quickviewContent"
       hx-select="#quickviewContent"
       hx-swap="outerHTML"
