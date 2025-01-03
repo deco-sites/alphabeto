@@ -58,7 +58,16 @@
         },
         "startingPage": 1,
         "seoComponents": {
-          "banner": {},
+          "banner": {
+            "image": {
+              "mobile": {
+                "src": "https://data.decoassets.com/alphabeto/419219ae-ad61-4966-a269-d8424f63961a/bebeMeninoMobile.png"
+              },
+              "desktop": {
+                "src": "https://data.decoassets.com/alphabeto/2c6c3816-d120-485f-b421-28be2106e431/bebeMeninoDesk.png"
+              }
+            }
+          },
           "breadcrumb": [
             {
               "name": "Bebê Menino - Jardineira e Macacão",
