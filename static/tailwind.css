@@ -3839,9 +3839,6 @@ details.collapse summary::-webkit-details-marker {
 .-top-2 {
   top: -0.5rem;
 }
-.-top-5 {
-  top: -1.25rem;
-}
 .-top-\[15\%\] {
   top: -15%;
 }
@@ -3901,9 +3898,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .left-4 {
   left: 1rem;
-}
-.left-64 {
-  left: 16rem;
 }
 .left-\[14px\] {
   left: 14px;
@@ -4251,6 +4245,12 @@ details.collapse summary::-webkit-details-marker {
 .ml-auto {
   margin-left: auto;
 }
+.mr-0 {
+  margin-right: 0px;
+}
+.mr-0\.5 {
+  margin-right: 0.125rem;
+}
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -4265,9 +4265,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .mr-\[2px\] {
   margin-right: 2px;
-}
-.mr-\[3px\] {
-  margin-right: 3px;
 }
 .mr-\[4px\] {
   margin-right: 4px;
@@ -5711,6 +5708,10 @@ details.collapse summary::-webkit-details-marker {
   --tw-bg-opacity: 1;
   background-color: rgb(13 23 23 / var(--tw-bg-opacity));
 }
+.bg-\[\#212121\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(33 33 33 / var(--tw-bg-opacity));
+}
 .bg-\[\#33D26B\] {
   --tw-bg-opacity: 1;
   background-color: rgb(51 210 107 / var(--tw-bg-opacity));
@@ -5830,6 +5831,9 @@ details.collapse summary::-webkit-details-marker {
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
+.bg-opacity-80 {
+  --tw-bg-opacity: 0.8;
+}
 .bg-\[url\(https\:\/\/deco-sites-assets\.s3\.sa-east-1\.amazonaws\.com\/alphabeto\/c8bb9397-459e-4c62-a325-ab0147648a3b\/discountBackground\.svg\)\] {
   background-image: url(https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/c8bb9397-459e-4c62-a325-ab0147648a3b/discountBackground.svg);
 }
@@ -5913,9 +5917,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .p-\[20px\] {
   padding: 20px;
-}
-.p-\[5px\] {
-  padding: 5px;
 }
 .p-\[8px\] {
   padding: 8px;
@@ -6620,6 +6621,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .opacity-10 {
   opacity: 0.1;
+}
+.opacity-100 {
+  opacity: 1;
 }
 .opacity-40 {
   opacity: 0.4;

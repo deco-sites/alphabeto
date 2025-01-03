@@ -30,7 +30,7 @@ interface Props {
   };
 }
 
-function ProductInfo({ page, settings, sizebaySettings, siteSettings }: Props) {
+function ProductInfo({ page, sizebaySettings, siteSettings }: Props) {
   const id = useId();
 
   if (page === null) {

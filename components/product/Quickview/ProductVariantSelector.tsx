@@ -1,16 +1,17 @@
-import { useSection } from "@deco/deco/hooks";
 import type { Product } from "apps/commerce/types.ts";
 import { clx } from "site/sdk/clx.ts";
 import { makeBackgroundFromHexadecimals } from "site/sdk/makeBackgroundFromHexadecimals.ts";
 import { uppercaseFirstLetter } from "site/sdk/stringUtils.ts";
-import { relative } from "site/sdk/url.ts";
 import { useId } from "site/sdk/useId.ts";
 import { useVariantPossibilities } from "site/sdk/useVariantPossiblities.ts";
 import { ColorItem } from "site/apps/site.ts";
+import { useComponent } from "site/sections/Component.tsx";
+import { QuickviewLoaderProps } from "site/components/product/Quickview/QuickView.tsx";
 
 interface Props {
   product: Product;
   colors: ColorItem[];
+  cardId: string;
 }
 
 const useStyles = (
@@ -112,17 +113,20 @@ function VariantLabel({
   }
 
   return (
-    <span class="text-xs leading-[14px] text-[#353535]">
+    <span class="text-xs leading-[18px] text-[#7E7F88]">
       <span class="font-bold">{selectedLabelOrDefault}:</span> {selectedValue}
     </span>
   );
 }
+const getSkuId = (url: string) => {
+  const urlObject = new URL(url);
+  return urlObject.searchParams.get("skuId");
+};
 
-function VariantSelectorPDP({ product, colors }: Props) {
-  const { url, isVariantOf } = product;
+function VariantSelector({ product, colors, cardId }: Props) {
+  const { isVariantOf, sku } = product;
   const hasVariant = isVariantOf?.hasVariant ?? [];
   const possibilities = useVariantPossibilities(hasVariant, product);
-  const relativeUrl = relative(url);
   const id = useId();
   const filteredNames = Object.keys(possibilities).filter(
     (name) =>
@@ -133,8 +137,9 @@ function VariantSelectorPDP({ product, colors }: Props) {
   }
   return (
     <ul
-      class="flex flex-col gap-[30px]"
-      hx-target="closest section"
+      class="flex flex-col gap-[30px] mb-[30px]"
+      hx-target="closest #quickviewContent"
+      hx-select="#quickviewContent"
       hx-swap="outerHTML"
       hx-sync="this:replace"
     >
@@ -149,15 +154,22 @@ function VariantSelectorPDP({ product, colors }: Props) {
             {Object.entries(possibilities[name])
               .filter(([value]) => value)
               .map(([value, link]) => {
-                const relativeLink = relative(link);
-                const checked = relativeLink === relativeUrl;
+                const skuId = getSkuId(link ?? "") ?? "";
+                const checked = skuId === sku;
 
                 return (
                   <li>
                     <label
                       class="cursor-pointer grid grid-cols-1 grid-rows-1 place-items-center"
-                      hx-get={useSection({ href: relativeLink })}
-                      hx-replace-url={relativeLink}
+                      hx-get={useComponent<QuickviewLoaderProps>(
+                        import.meta.resolve(
+                          "site/components/product/Quickview/QuickView.tsx",
+                        ),
+                        {
+                          skuId,
+                          cardId,
+                        },
+                      )}
                     >
                       {/* Checkbox for radio button on the frontend */}
                       <input
@@ -200,4 +212,4 @@ function VariantSelectorPDP({ product, colors }: Props) {
     </ul>
   );
 }
-export default VariantSelectorPDP;
+export default VariantSelector;

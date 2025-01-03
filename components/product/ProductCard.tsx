@@ -12,6 +12,7 @@ import { useDevice } from "@deco/deco/hooks";
 import ProductRating from "site/components/product/ProductRating.tsx";
 import VTEXImageTag from "site/components/VTEXImageTag.tsx";
 import { ColorItem } from "site/apps/site.ts";
+import { useId } from "site/sdk/useId.ts";
 
 interface Props {
   product: Product;
@@ -50,9 +51,11 @@ function ProductCard({
   const title = isVariantOf?.name ?? product.name;
   const device = useDevice();
   const [front] = images ?? [];
+  const cardId = useId();
 
-  const { listPrice, price, seller = "1", availability, installments } =
-    useOffer(offers, (installment, sellingPrice) => {
+  const { listPrice, price, availability, installments } = useOffer(
+    offers,
+    (installment, sellingPrice) => {
       const { billingDuration, billingIncrement, price } = installment;
 
       if (!billingDuration || !billingIncrement) {
@@ -64,7 +67,8 @@ function ProductCard({
       return `Em até ${billingDuration}x ${
         withTaxes ? "com juros" : "sem juros"
       }`;
-    });
+    },
+  );
   const inStock = availability === "https://schema.org/InStock";
   const relativeUrl = relative(url);
   const percent = listPrice && price
@@ -96,6 +100,7 @@ function ProductCard({
     <div
       {...event}
       class={clx("card card-compact group text-sm", _class)}
+      id={cardId}
     >
       <figure
         class={clx(
@@ -219,8 +224,7 @@ function ProductCard({
           ? (
             <QuickView
               product={product}
-              seller={seller}
-              item={item}
+              cardId={cardId}
               settings={settings}
             />
           )

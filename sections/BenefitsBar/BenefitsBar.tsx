@@ -3,7 +3,6 @@ import Slider from "site/components/ui/Slider.tsx";
 import { useId } from "site/sdk/useId.ts";
 import Section from "site/components/ui/Section.tsx";
 import Image from "apps/website/components/Image.tsx";
-import { clx } from "site/sdk/clx.ts";
 import { sanitizeHTMLCode } from "site/sdk/htmlSanitizer.ts";
 
 /** @titleBy title */

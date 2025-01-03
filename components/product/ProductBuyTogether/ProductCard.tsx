@@ -1,5 +1,4 @@
 import { asset } from "$fresh/runtime.ts";
-import Image from "apps/website/components/Image.tsx";
 import { useCallback } from "preact/hooks";
 import { JSX } from "preact/jsx-runtime";
 import Icon from "site/components/ui/Icon.tsx";

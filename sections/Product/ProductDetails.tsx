@@ -1,5 +1,5 @@
 import { ProductDetailsPage } from "apps/commerce/types.ts";
-import { AppContext, ColorItem } from "site/apps/site.ts";
+import { AppContext } from "site/apps/site.ts";
 import ProductImages from "site/components/product/ProductImages.tsx";
 import ProductInfo from "site/components/product/ProductInfo.tsx";
 import Breadcrumb from "site/components/ui/Breadcrumb.tsx";
@@ -76,7 +76,10 @@ export default function ProductDetails({
       {isUnavailable && (
         <div id="unavailable-shelf">
           <Spacer />
-          <ProductShelf {...settings.productUnavailableShelf} shelfSettings={siteSettings} />
+          <ProductShelf
+            {...settings.productUnavailableShelf}
+            shelfSettings={siteSettings}
+          />
         </div>
       )}
     </div>

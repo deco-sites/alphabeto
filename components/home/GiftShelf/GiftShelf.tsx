@@ -6,6 +6,7 @@ import { ProductSliderProps } from "site/components/product/ProductSlider.tsx";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
+import { AppContext } from "site/apps/site.ts";
 
 interface GiftShelfProps {
   title: string;
@@ -15,7 +16,18 @@ interface GiftShelfProps {
     mobileSrc: ImageWidget;
     alt?: string;
   };
-  slider: ProductSliderProps;
+  slider: Omit<ProductSliderProps, "settings">;
+}
+
+export function loader(props: GiftShelfProps, _req: Request, app: AppContext) {
+  const shelfSettings = {
+    colors: app.globalSettings.colors,
+    cashbackPercentage: app.globalSettings.cashbackPercentage,
+  };
+  return {
+    ...props,
+    shelfSettings,
+  };
 }
 
 export default function GiftShelf({
@@ -23,7 +35,8 @@ export default function GiftShelf({
   description,
   image,
   slider,
-}: GiftShelfProps) {
+  shelfSettings,
+}: ReturnType<typeof loader>) {
   const id = useId();
   const { products, viewItemListName } = slider;
   if (!products) return null;
@@ -76,7 +89,7 @@ export default function GiftShelf({
             class="w-full tablet-large:aspect-[672/688] aspect-[355/329] rounded-lg object-cover"
           />
         </Picture>
-        <ProductSlider id={id} {...slider} />
+        <ProductSlider id={id} {...slider} settings={shelfSettings} />
       </div>
     </div>
   );
