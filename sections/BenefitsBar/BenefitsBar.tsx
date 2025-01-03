@@ -1,22 +1,23 @@
-import { ImageWidget, RichText } from "apps/admin/widgets.ts";
-import { LoadingFallbackProps } from "@deco/deco";
-import { BenefitBarProps } from "../../components/header/BenefitBar.tsx";
+import { Color, ImageWidget, RichText } from "apps/admin/widgets.ts";
 import Slider from "site/components/ui/Slider.tsx";
 import { useId } from "site/sdk/useId.ts";
+import Section from "site/components/ui/Section.tsx";
+import Image from "apps/website/components/Image.tsx";
+import { sanitizeHTMLCode } from "site/sdk/htmlSanitizer.ts";
 
+/** @titleBy title */
 interface BenefitsBarItem {
-  mainColor: string;
-  backgroundColor: string;
-  image: ImageWidget;
-  imageAlt: string;
   title: string;
   message: RichText;
+  /** @title Principal Color Text */
+  mainColor: Color;
+  backgroundColor: Color;
+  image: ImageWidget;
+  imageAlt: string;
 }
 
 interface BenefitsBar {
-  /**
-   * @maxItems 6
-   */
+  /** @maxItems 6 */
   items: BenefitsBarItem[];
   interval?: number;
 }
@@ -28,31 +29,43 @@ function BenefitsBar({ items, interval }: BenefitsBar) {
     <div>
       <Slider
         style={{
-          gridTemplateColumns: `repeat(${items.length}, 1fr)`,
+          "--cols": items.length,
         }}
-        class="desk:px-10 mobile:px-4 max-w-full mt-5 grid gap-4 mb-[50px] carousel carousel-center w-screen justify-between"
+        class="desk:container grid justify-between grid-cols-[repeat(var(--cols),1fr)] pt-5 pb-[50px] gap-4 mobile:carousel mobile:max-w-[100dvw] mobile:carousel-center mobile:scroll-p-5"
       >
         {items.map((item, index) => (
           <Slider.Item
             index={index}
-            style={{
-              backgroundColor: item.backgroundColor,
-              borderColor: item.mainColor,
-            }}
-            class={`min-w-[213px] border-dashed border rounded-2xl px-3 py-[6px] flex gap-[5px] items-center carousel-item`}
+            class="w-fit mobile:first:pl-5 mobile:last:pr-5"
           >
-            <img src={item.image} alt={item.imageAlt} />
-            <div>
-              <p style={{ color: item.mainColor }} class="font-['BeccaPerry']">
-                {item.title}
-              </p>
-              <small
-                class="text-[12px]"
-                dangerouslySetInnerHTML={{
-                  __html: item.message,
-                }}
+            <article
+              style={{
+                "--bgColor": item.backgroundColor,
+                "--mainColor": item.mainColor,
+              }}
+              class="mobile:min-w-[260px] mobile:max-w-[260px] desk:max-w-[213px] bg-[var(--bgColor)] flex border border-[var(--mainColor)] rounded-2xl border-dashed gap-3.5 desk:gap-1 h-full py-1.5 px-3.5 desk:px-1 items-center mobile:carousel-item mobile:box-border"
+            >
+              <Image
+                src={item.image}
+                alt={item.imageAlt}
+                width={40}
+                height={40}
               />
-            </div>
+              <div>
+                <h4 class="font-beccaPerry text-[16px] leading-[18px] text-[var(--mainColor)]">
+                  {item.title}
+                </h4>
+                <p
+                  class="text-[12px] [&>a]:text-[var(--mainColor)] [&>a:visted]:text-[var(--mainColor)] [&>a]:underline [&>a]:font-bold"
+                  dangerouslySetInnerHTML={{
+                    __html: sanitizeHTMLCode(item.message, {
+                      allowedTags: ["strong", "em", "u", "a"],
+                      removeWrapperTag: true,
+                    }),
+                  }}
+                />
+              </div>
+            </article>
           </Slider.Item>
         ))}
       </Slider>
@@ -62,11 +75,6 @@ function BenefitsBar({ items, interval }: BenefitsBar) {
   );
 }
 
-export const LoadingFallback = (
-  props: LoadingFallbackProps<BenefitBarProps>,
-) => (
-  // deno-lint-ignore no-explicit-any
-  <BenefitsBar {...(props as any)} loading="lazy" />
-);
+export const LoadingFallback = () => <Section.Placeholder height="140px" />;
 
 export default BenefitsBar;

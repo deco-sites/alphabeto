@@ -4,9 +4,6 @@ import { clx } from "../../sdk/clx.ts";
 export interface Props {
   /** @description Section title */
   title?: string;
-
-  /** @description See all link */
-  cta?: string;
 }
 
 function Header({ title, cta }: Props) {

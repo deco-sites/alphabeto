@@ -1,15 +1,17 @@
 import type { ImageWidget } from "apps/admin/widgets.ts";
-import { Picture, Source } from "apps/website/components/Picture.tsx";
-import Icon from "../../components/ui/Icon.tsx";
-import Slider from "../../components/ui/Slider.tsx";
-import { clx } from "../../sdk/clx.ts";
-import { useId } from "../../sdk/useId.ts";
-import { useSendEvent } from "../../sdk/useSendEvent.ts";
+import * as PictureTsx from "apps/website/components/Picture.tsx";
+import Icon from "site/components/ui/Icon.tsx";
+import Slider from "site/components/ui/Slider.tsx";
+import { clx } from "site/sdk/clx.ts";
+import { useId } from "site/sdk/useId.ts";
+import { useSendEvent } from "site/sdk/useSendEvent.ts";
 
 /**
- * @titleBy alt
+ * @titleBy title
  */
 export interface Banner {
+  /** @description Title of the banner used to identify in the cms	*/
+  title: string;
   /** @description desktop otimized image */
   desktop: ImageWidget;
 
@@ -19,16 +21,8 @@ export interface Banner {
   /** @description Image's alt text */
   alt: string;
 
-  action?: {
-    /** @description when user clicks on the image, go to this link */
-    href: string;
-    /** @description Image text title */
-    title: string;
-    /** @description Image text subtitle */
-    subTitle: string;
-    /** @description Button label */
-    label: string;
-  };
+  /** @description Action to be performed when the banner is clicked */
+  clickUrl: string;
 }
 
 export interface Props {
@@ -47,7 +41,7 @@ export interface Props {
 }
 
 function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
-  const { alt, mobile, desktop, action } = image;
+  const { alt, mobile, desktop, clickUrl } = image;
   const params = { promotion_name: image.alt };
 
   const selectPromotionEvent = useSendEvent({
@@ -63,32 +57,32 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
   return (
     <a
       {...selectPromotionEvent}
-      href={action?.href ?? "#"}
-      aria-label={action?.label}
-      class="relative block overflow-y-hidden w-full"
+      href={clickUrl ?? "#"}
+      aria-label={alt}
+      class="relative w-full h-fit"
     >
-      <Picture preload={lcp} {...viewPromotionEvent}>
-        <Source
+      <PictureTsx.Picture preload={lcp} {...viewPromotionEvent}>
+        <PictureTsx.Source
           media="(max-width: 767px)"
           fetchPriority={lcp ? "high" : "auto"}
           src={mobile}
-          width={412}
-          height={660}
+          width={375}
+          height={350}
         />
-        <Source
+        <PictureTsx.Source
           media="(min-width: 768px)"
           fetchPriority={lcp ? "high" : "auto"}
           src={desktop}
           width={1440}
-          height={600}
+          height={450}
         />
         <img
-          class="object-cover w-full h-full"
+          class="w-full"
           loading={lcp ? "eager" : "lazy"}
           src={desktop}
           alt={alt}
         />
-      </Picture>
+      </PictureTsx.Picture>
     </a>
   );
 }
@@ -99,56 +93,52 @@ function Carousel({ images = [], preload, interval }: Props) {
   return (
     <div
       id={id}
-      class={clx(
-        "grid",
-        "grid-rows-[1fr_32px_1fr_64px]",
-        "grid-cols-[32px_1fr_32px] min-h-[450px]",
-        "sm:grid-cols-[112px_1fr_112px] sm:min-h-min",
-        "w-full",
-      )}
+      class="w-full relative"
     >
-      <div class="col-span-full row-span-full">
-        <Slider class="carousel carousel-center w-full gap-6">
+      <div class="relative z-10 aspect-[750/700] tablet-large:aspect-[2880/900] max-h-fit">
+        <Slider class="carousel carousel-center w-full aspect-[750/700] tablet-large:aspect-[2880/900]">
           {images.map((image, index) => (
-            <Slider.Item index={index} class="carousel-item w-full">
+            <Slider.Item index={index} class="carousel-item w-full h-fit">
               <BannerItem image={image} lcp={index === 0 && preload} />
             </Slider.Item>
           ))}
         </Slider>
       </div>
 
-      <div class="hidden desk:flex relative top-5 left-10 items-center justify-center z-10 col-start-1 row-start-2">
+      <div class="absolute mobile:hidden left-10 top-1/2 -translate-y-1/2 z-20">
         <Slider.PrevButton
-          class="btn btn-neutral btn-outline btn-circle no-animation btn-sm h-10 w-10 bg-white text-primary border-none"
+          class="btn btn-neutral btn-outline btn-circle no-animation btn-sm h-10 w-10 bg-white hover:bg-white text-primary hover:text-primary border-none group"
           disabled={false}
         >
-          <Icon id="chevron-right" class="rotate-180" />
+          <Icon id="chevron-right" class="rotate-180 group-hover:hidden" />
+          <Icon
+            id="arrow-right"
+            class="rotate-180 hidden group-hover:block"
+          />
         </Slider.PrevButton>
       </div>
 
-      <div class="hidden desk:flex relative top-5 right-10 items-center justify-center z-10 col-start-3 row-start-2">
+      <div class="absolute mobile:hidden right-10 top-1/2 -translate-y-1/2 z-20">
         <Slider.NextButton
-          class="btn btn-neutral btn-outline btn-circle no-animation btn-sm h-10 w-10 bg-white text-primary border-none"
+          class="btn btn-neutral btn-outline btn-circle no-animation btn-sm h-10 w-10 bg-white hover:bg-white text-primary hover:text-primary border-none group"
           disabled={false}
         >
-          <Icon id="chevron-right" />
+          <Icon id="chevron-right" class="group-hover:hidden" />
+          <Icon
+            id="arrow-right"
+            class="hidden group-hover:block"
+          />
         </Slider.NextButton>
       </div>
 
-      <ul
-        class={clx(
-          "col-span-full row-start-4 z-10",
-          "carousel justify-center gap-3",
-          "desk:relative desk:top-7",
-        )}
-      >
+      <ul class="carousel absolute w-full z-20 gap-1 bottom-2.5 justify-center">
         {images.map((_, index) => (
           <li class="carousel-item">
             <Slider.Dot
               index={index}
               class={clx(
-                "bg-secondary opacity-20 h-3 w-3 no-animation rounded-full",
-                "disabled:w-8 disabled:bg-primary disabled:opacity-100 transition-[width]",
+                "bg-secondary h-[8px] w-[8px] no-animation rounded-full",
+                "disabled:w-[30px] disabled:bg-primary transition-[width]",
               )}
             >
             </Slider.Dot>

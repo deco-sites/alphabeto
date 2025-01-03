@@ -1,21 +1,36 @@
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import { clx } from "../../sdk/clx.ts";
-import { formatPrice } from "../../sdk/format.ts";
-import { useId } from "../../sdk/useId.ts";
-import { useOffer } from "../../sdk/useOffer.ts";
-import { useSendEvent } from "../../sdk/useSendEvent.ts";
-import ShippingSimulationForm from "../shipping/Form.tsx";
-import WishlistButton from "../wishlist/WishlistButton.tsx";
-import AddToCartButton from "./AddToCartButton.tsx";
-import OutOfStock from "./OutOfStock.tsx";
-import ProductSelector from "./ProductVariantSelector.tsx";
-
+import AddToCartButton from "site/components/product/AddToCartButton.tsx";
+import OutOfStock from "site/components/product/OutOfStock.tsx";
+import ProductAgeRangeIndicator from "site/components/product/ProductAgeRangeIndicator.tsx";
+import ProductCashback from "site/components/product/ProductCashback.tsx";
+import ProductPartCare from "site/components/product/ProductPartCare.tsx";
+import ProductRating from "site/components/product/ProductRating.tsx";
+import ProductShare from "site/components/product/ProductShare.tsx";
+import ProductSizebay from "site/components/product/ProductSizebay.tsx";
+import ProductSmallDescription from "site/components/product/ProductSmallDescription.tsx";
+import ProductTextInfoDiscloujure from "site/islands/ProductTextInfoDiscloujure.tsx";
+import ProductSelector from "site/components/product/ProductVariantSelectorPDP.tsx";
+import ShippingSimulationForm from "site/components/shipping/Form.tsx";
+import WishlistButton from "site/components/wishlist/WishlistButton.tsx";
+import { SizeBaySettings } from "site/loaders/sizebay.ts";
+import { formatPrice } from "site/sdk/format.ts";
+import { useId } from "site/sdk/useId.ts";
+import { useOffer } from "site/sdk/useOffer.ts";
+import { useSendEvent } from "site/sdk/useSendEvent.ts";
+import { PDPSettings } from "site/sections/Product/ProductDetails.tsx";
+import { ColorItem } from "site/apps/site.ts";
 interface Props {
   page: ProductDetailsPage | null;
+  settings: PDPSettings;
+  sizebaySettings: SizeBaySettings;
+  siteSettings: {
+    colors: ColorItem[];
+    cashbackPercentage: number;
+  };
 }
 
-function ProductInfo({ page }: Props) {
+function ProductInfo({ page, sizebaySettings, siteSettings }: Props) {
   const id = useId();
 
   if (page === null) {
@@ -26,17 +41,18 @@ function ProductInfo({ page }: Props) {
   const { productID, offers, isVariantOf } = product;
   const description = product.description || isVariantOf?.description;
   const title = isVariantOf?.name ?? product.name;
-
+  const characteristics = product.isVariantOf?.additionalProperty.find(
+    (property) => property.name?.toLowerCase() === "características",
+  )?.value;
   const {
     price = 0,
     listPrice,
     seller = "1",
     availability,
+    installments,
   } = useOffer(offers);
 
-  const percent = listPrice && price
-    ? Math.round(((listPrice - price) / listPrice) * 100)
-    : 0;
+  const referenceCode = isVariantOf?.model;
 
   const breadcrumb = {
     ...breadcrumbList,
@@ -70,80 +86,112 @@ function ProductInfo({ page }: Props) {
       variant?.name?.toLowerCase() !== "default title",
   ) ?? false;
 
-  return (
-    <div {...viewItemEvent} class="flex flex-col" id={id}>
-      {/* Price tag */}
-      <span
-        class={clx(
-          "text-sm/4 font-normal text-black bg-primary bg-opacity-15 text-center rounded-badge px-2 py-1",
-          percent < 1 && "opacity-0",
-          "w-fit",
-        )}
-      >
-        {percent} % off
-      </span>
+  const hasListPrice = listPrice && listPrice > price;
 
+  return (
+    <div
+      {...viewItemEvent}
+      class="flex flex-col desk:max-w-[min(33.33vw,480px)] desk:relative"
+      id={id}
+    >
+      <ProductAgeRangeIndicator product={product} />
+      <div class="absolute desk:top-0 desk:right-0 top-[18px] right-[18px]">
+        <WishlistButton mode="pdp" item={item} />
+      </div>
       {/* Product Name */}
-      <span class={clx("text-3xl font-semibold", "pt-4")}>
+      <span class="text-[#676767] text-[22px] mobile:leading-[26px] desk:text-3xl font-bold">
         {title}
       </span>
 
-      {/* Prices */}
-      <div class="flex gap-3 pt-1">
-        <span class="text-3xl font-semibold text-base-400">
-          {formatPrice(price, offers?.priceCurrency)}
-        </span>
-        <span class="line-through text-sm font-medium text-gray-400">
-          {formatPrice(listPrice, offers?.priceCurrency)}
+      <div class="flex gap-[15px] mt-3 items-center">
+        <ProductRating
+          averageRating={product.aggregateRating?.ratingValue ?? 0}
+          maxRating={5}
+          iconSize={12}
+          class="gap-1"
+        />
+        {/** Reference Code */}
+        <span class="text-xs leading-[18px] desk:leading-[14px] text-[#676767]">
+          REF: {referenceCode}
         </span>
       </div>
 
-      {/* Sku Selector */}
-      {hasValidVariants && (
-        <div class="mt-4 sm:mt-8">
-          <ProductSelector product={product} />
+      <div class="mt-5 desk:mt-[30px] flex gap-6 items-center mb-10 desk:mb-[30px]">
+        <div>
+          {/* Prices */}
+          <div class="flex items-center">
+            {hasListPrice && (
+              <>
+                <span class="line-through text-[#C5C5C5] text-xs leading-[14px] desk:text-sm desk:leading-4 font-semibold">
+                  {formatPrice(listPrice, offers?.priceCurrency)}
+                </span>
+                <span class="desk:text-sm desk:leading-4 font-semibold text-primary mx-[5px]">
+                  •
+                </span>
+              </>
+            )}
+            <span class="text-xl leading-6 font-bold text-primary">
+              {formatPrice(price, offers?.priceCurrency)}
+            </span>
+          </div>
+          {/* Installments */}
+          {installments && (
+            <span class="text-xs leading-[18px] desk:leading-[14px] text-[#676767] font-bold mt-[5px] block">
+              Em até {installments}
+            </span>
+          )}
         </div>
-      )}
-
-      {/* Add to Cart and Favorites button */}
-      <div class="mt-4 sm:mt-10 flex flex-col gap-2">
-        {availability === "https://schema.org/InStock"
-          ? (
-            <>
-              <AddToCartButton
-                item={item}
-                seller={seller}
-                product={product}
-                class="btn btn-primary no-animation"
-                disabled={false}
-              />
-              <WishlistButton item={item} />
-            </>
-          )
-          : <OutOfStock productID={productID} />}
-      </div>
-
-      {/* Shipping Simulation */}
-      <div class="mt-8">
-        <ShippingSimulationForm
-          items={[{ id: Number(product.sku), quantity: 1, seller: seller }]}
+        <ProductCashback
+          product={product}
+          percentage={siteSettings.cashbackPercentage}
         />
       </div>
 
+      <ProductSmallDescription product={product} />
+
+      {/* Sku Selector */}
+      {hasValidVariants && (
+        <div class="mt-[30px] mb-5">
+          <ProductSelector product={product} colors={siteSettings.colors} />
+        </div>
+      )}
+
+      <ProductSizebay sizebay={sizebaySettings} />
+
+      {availability === "https://schema.org/InStock"
+        ? (
+          <>
+            <AddToCartButton
+              item={item}
+              seller={seller}
+              product={product}
+              class="btn btn-primary no-animation"
+              disabled={false}
+            />
+            {/* Shipping Simulation */}
+
+            <ShippingSimulationForm
+              items={[{ id: Number(product.sku), quantity: 1, seller: seller }]}
+            />
+          </>
+        )
+        : <OutOfStock productID={productID} />}
+
       {/* Description card */}
-      <div class="mt-4 sm:mt-6">
-        <span class="text-sm">
-          {description && (
-            <details>
-              <summary class="cursor-pointer">Description</summary>
-              <div
-                class="ml-2 mt-2"
-                dangerouslySetInnerHTML={{ __html: description }}
-              />
-            </details>
-          )}
-        </span>
+      <div class="desk:mt-2.5">
+        <ProductTextInfoDiscloujure
+          title="Descrição"
+          content={description}
+          defaultOpen
+        />
+        <ProductTextInfoDiscloujure
+          title="Composição"
+          content={characteristics}
+        />
       </div>
+      <ProductPartCare product={product} />
+      {/* Product Share */}
+      <ProductShare product={product} />
     </div>
   );
 }

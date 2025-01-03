@@ -33,7 +33,7 @@ const bestInstallment = (
   return acc;
 };
 
-const installmentToString = (
+const defaultInstallmentToString = (
   installment: UnitPriceSpecification,
   sellingPrice: number,
 ) => {
@@ -45,12 +45,17 @@ const installmentToString = (
 
   const withTaxes = sellingPrice < price;
 
-  return `${billingDuration}x de R$ ${billingIncrement} ${
+  return `${billingDuration}x R$ ${billingIncrement} ${
     withTaxes ? "com juros" : "sem juros"
   }`;
 };
 
-export const useOffer = (aggregateOffer?: AggregateOffer) => {
+type InstallmentToString = typeof defaultInstallmentToString;
+
+export const useOffer = (
+  aggregateOffer?: AggregateOffer,
+  customInstallmentToString?: InstallmentToString,
+) => {
   const offer = aggregateOffer?.offers[0];
   const listPrice = offer?.priceSpecification.find((spec) =>
     spec.priceType === "https://schema.org/ListPrice"
@@ -59,6 +64,8 @@ export const useOffer = (aggregateOffer?: AggregateOffer) => {
   const seller = offer?.seller;
   const price = offer?.price;
   const availability = offer?.availability;
+  const installmentToString = customInstallmentToString ??
+    defaultInstallmentToString;
 
   return {
     price,

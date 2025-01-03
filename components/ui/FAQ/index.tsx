@@ -7,6 +7,7 @@ import Icon from "site/components/ui/Icon.tsx";
 import { COMMON_HTML_TAGS_TO_ALLOW } from "site/constants.ts";
 import { sanitizeHTMLCode } from "site/sdk/htmlSanitizer.ts";
 import { useId } from "site/sdk/useId.ts";
+import Spacer from "site/sections/Miscellaneous/Spacer.tsx";
 
 /** @title {{title}} */
 export interface Question {
@@ -19,6 +20,8 @@ export interface Props {
   description: RichText;
   questions: Question[];
   enableJSONLD: boolean;
+  addSpaceBefore?: boolean;
+  addSpaceAfter?: boolean;
 }
 
 function loadToogler(id: string) {
@@ -32,8 +35,7 @@ function loadToogler(id: string) {
     const changeIcon = (iconName: string) => {
       icon?.setAttribute(
         "href",
-        icon.getAttribute("href")?.replace(/#.*$/, `#${iconName}`) ??
-          "",
+        icon.getAttribute("href")?.replace(/#.*$/, `#${iconName}`) ?? "",
       );
     };
     button?.addEventListener("click", () => {
@@ -59,55 +61,53 @@ export default function FAQ(props: Props) {
   const id = useId();
 
   return (
-    <div class="container" id={id}>
-      <h2 class="font-beccaPerry text-[28px] leading-8 desk:text-[40px] desk:leading-[48px] text-[#676767] mb-2.5">
-        {props.title}
-      </h2>
-      <p
-        class="text-xs pb-5 mobile:leading-5 desk:text-sm text-[#7e7f88] [&>a]:text-primary [&>a]:font-bold [&>a]:underline"
-        dangerouslySetInnerHTML={{
-          __html: sanitizeHTMLCode(props.description, {
-            removeEmptyTags: true,
-            allowedTags: COMMON_HTML_TAGS_TO_ALLOW,
-            removeWrapperTag: true,
-          }),
-        }}
-      />
-      <ul>
-        {props.questions.map((question) => (
-          <li class="py-5 border-b border-dashed border-secondary overflow-hidden">
-            <button class="flex justify-between w-full text-xs mobile:leading-[18px] desk:text-sm text-[#676767] font-bold">
-              <h3>{question.title}</h3>
-              <Icon id="plus" size={22} />
-            </button>
-            <div style={{ height: "0px" }} class="transition-all">
-              <p
-                class="pt-5 desk:pl-5 text-xs leading-5 text-[#7e7f88] [&>a]:text-primary [&>a]:font-bold [&>a]:underline"
-                dangerouslySetInnerHTML={{
-                  __html: sanitizeHTMLCode(
-                    question.description,
-                    {
+    <>
+      {props.addSpaceBefore && <Spacer />}
+      <div class="container" id={id}>
+        <h2 class="font-beccaPerry text-[28px] leading-8 desk:text-[40px] desk:leading-[48px] text-[#676767] mb-2.5">
+          {props.title}
+        </h2>
+        <p
+          class="text-xs pb-5 mobile:leading-5 desk:text-sm text-[#7e7f88] [&>a]:text-primary [&>a]:font-bold [&>a]:underline"
+          dangerouslySetInnerHTML={{
+            __html: sanitizeHTMLCode(props.description, {
+              removeEmptyTags: true,
+              allowedTags: COMMON_HTML_TAGS_TO_ALLOW,
+              removeWrapperTag: true,
+            }),
+          }}
+        />
+        <ul>
+          {props.questions.map((question) => (
+            <li class="py-5 border-b border-dashed border-secondary overflow-hidden">
+              <button class="flex justify-between w-full text-xs mobile:leading-[18px] desk:text-sm text-[#676767] font-bold">
+                <h3>{question.title}</h3>
+                <Icon id="plus" size={22} />
+              </button>
+              <div style={{ height: "0px" }} class="transition-all">
+                <p
+                  class="pt-5 desk:pl-5 text-xs leading-5 text-[#7e7f88] [&>a]:text-primary [&>a]:font-bold [&>a]:underline"
+                  dangerouslySetInnerHTML={{
+                    __html: sanitizeHTMLCode(question.description, {
                       removeEmptyTags: true,
                       allowedTags: COMMON_HTML_TAGS_TO_ALLOW,
                       removeWrapperTag: true,
-                    },
-                  ),
-                }}
-              />
-            </div>
-          </li>
-        ))}
-      </ul>
-      <script
-        type="module"
-        src={useScriptAsDataURI(loadToogler, id)}
-      />
-      {JSONLD && (
-        <script
-          type="module"
-          src={useScriptAsDataURI(appendJSONLDToHead, JSONLD)}
-        />
-      )}
-    </div>
+                    }),
+                  }}
+                />
+              </div>
+            </li>
+          ))}
+        </ul>
+        <script type="module" src={useScriptAsDataURI(loadToogler, id)} />
+        {JSONLD && (
+          <script
+            type="module"
+            src={useScriptAsDataURI(appendJSONLDToHead, JSONLD)}
+          />
+        )}
+      </div>
+      {props.addSpaceAfter && <Spacer />}
+    </>
   );
 }

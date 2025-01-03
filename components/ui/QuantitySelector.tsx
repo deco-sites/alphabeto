@@ -1,8 +1,8 @@
 import { useScript } from "@deco/deco/hooks";
-import { clx } from "../../sdk/clx.ts";
-import { useId } from "../../sdk/useId.ts";
-import { IconMinus } from "../Icons/IconMinus.tsx";
-import { IconPlus } from "../Icons/IconPlus.tsx";
+import { clx } from "site/sdk/clx.ts";
+import { useId } from "site/sdk/useId.ts";
+import { IconMinus } from "site/components/Icons/IconMinus.tsx";
+import { IconPlus } from "site/components/Icons/IconPlus.tsx";
 
 const onClick = (delta: number) => {
   event!.stopPropagation();
@@ -23,23 +23,34 @@ type InputProps = React.DetailedHTMLProps<
 
 type QuantitySelectorProps = InputProps & {
   small?: boolean;
+  containerClass?: string;
 };
 
 function QuantitySelector(
-  { id = useId(), disabled, class: className, ...props }: QuantitySelectorProps,
+  { id = useId(), disabled, class: className, small, containerClass, ...props }:
+    QuantitySelectorProps,
 ) {
   return (
-    <div class="join w-full h-5 flex gap-[2px]">
+    <div
+      class={clx(
+        "join w-full flex gap-[2px]",
+        small ? "h-5" : "h-11",
+        containerClass,
+      )}
+    >
       <button
         type="button"
-        class="btn btn-circle btn-secondary w-5 h-5 min-h-5 no-animation"
+        class={clx(
+          "btn btn-circle btn-secondary  no-animation",
+          small ? "w-5 h-5 min-h-5" : "w-11 h-11 min-h-11",
+        )}
         hx-on:click={useScript(onClick, -1)}
         disabled={disabled}
       >
         <IconMinus
-          class="w-[10px] h-[10px]"
+          class={clx(small ? "w-[10px] h-[10px]" : "w-[22px] h-[22px]")}
           strokeclass="stroke-primary"
-          strokeWidth={6}
+          strokeWidth={small ? 6 : 3}
         />
       </button>
       <div
@@ -53,9 +64,10 @@ function QuantitySelector(
         <input
           id={id}
           class={clx(
-            "input w-[29px] h-[18px] font-bold text-[#676767] text-xs leading-[18px] p-0 border-none text-center flex-grow [appearance:textfield]",
+            "input w-[29px] font-bold text-[#676767] text-xs leading-[18px] p-0 border-none text-center flex-grow [appearance:textfield] outline-none",
             "invalid:input-error",
             className?.toString(),
+            small ? "h-[18px]" : "h-11",
           )}
           disabled={disabled}
           inputMode="numeric"
@@ -65,14 +77,17 @@ function QuantitySelector(
       </div>
       <button
         type="button"
-        class="btn btn-circle btn-secondary w-5 h-5 min-h-5 no-animation"
+        class={clx(
+          "btn btn-circle btn-secondary  no-animation",
+          small ? "w-5 h-5 min-h-5" : "w-11 h-11 min-h-11",
+        )}
         hx-on:click={useScript(onClick, 1)}
         disabled={disabled}
       >
         <IconPlus
-          class="w-[10px] h-[10px]"
+          class={clx(small ? "w-[10px] h-[10px]" : "w-[22px] h-[22px]")}
           strokeclass="stroke-primary"
-          strokeWidth={6}
+          strokeWidth={small ? 6 : 3}
         />
       </button>
     </div>

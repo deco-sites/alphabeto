@@ -23,17 +23,19 @@
   }
 }
 
-.container {
-  max-width: 95rem;
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 40px;
-  padding-right: 40px;
+@layer utilities {
+  .container {
+    max-width: 95rem;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 40px;
+    padding-right: 40px;
 
-  @media (max-width: 1024px) {
-    padding-left: 20px;
-    padding-right: 20px;
+    @media (max-width: 1024px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
 }
 
@@ -78,11 +80,12 @@
   background: #d6de23;
 }
 
-.radio:not(:checked) {
-  background-color: white;
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-.radio:checked {
-  box-shadow: 0 0 0 4px white inset, 0 0 0 4px white inset;
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 .breadcrumbs > ul > li + *:before,

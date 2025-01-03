@@ -34,6 +34,14 @@ export async function action(props: Props, req: Request, ctx: AppContext) {
   }
 }
 
+const formatShippingName = (method: Sla) => {
+  if (method.deliveryChannel === "pickup-in-point") {
+    return `Retirada em ${method.pickupStoreInfo?.friendlyName}`;
+  } else {
+    return method.name;
+  }
+};
+
 export default function Results({ result }: ComponentProps<typeof action>) {
   const methods = result?.logisticsInfo?.reduce(
     (initial, { slas }) => [...initial, ...slas],
@@ -42,23 +50,23 @@ export default function Results({ result }: ComponentProps<typeof action>) {
 
   if (!methods.length) {
     return (
-      <div class="p-2">
+      <div class="mt-2.5 text-red-500 text-sm">
         <span>CEP inválido</span>
       </div>
     );
   }
 
   return (
-    <ul class="flex flex-col gap-4 p-4 border border-base-400 rounded">
+    <ul class="flex flex-col gap-4 p-4 border border-base-400 rounded mt-2.5">
       {methods.map((method) => (
-        <li class="flex justify-between items-center border-base-200 not-first-child:border-t">
-          <span class="text-button text-center">
-            Entrega {method.name}
+        <li class="text-sm grid grid-cols-[200px_1fr_100px] items-center">
+          <span class="">
+            {formatShippingName(method)}
           </span>
-          <span class="text-button">
-            até {formatShippingEstimate(method.shippingEstimate)}
+          <span class="">
+            Em até {formatShippingEstimate(method.shippingEstimate)}
           </span>
-          <span class="text-base font-semibold text-right">
+          <span class="text-right font-semibold">
             {method.price === 0 ? "Grátis" : (
               formatPrice(method.price / 100, "BRL", "pt-BR")
             )}

@@ -1,1 +1,1 @@
-export { default } from "site/components/InteractiveBanner/InteractiveBanner.tsx";
+export { default } from "site/components/home/InteractiveBanner/InteractiveBanner.tsx";

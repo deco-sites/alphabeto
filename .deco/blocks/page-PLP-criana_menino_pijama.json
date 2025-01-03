@@ -1,0 +1,92 @@
+{
+  "__resolveType": "website/pages/Page.tsx",
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
+  "sections": [
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
+        "jsonLD": {
+          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+          "count": 1,
+          "sort": "release:desc",
+          "fuzzy": "automatic",
+          "selectedFacets": [
+            {
+              "key": "productClusterIds",
+              "value": "747"
+            }
+          ],
+          "query": "",
+          "hideUnavailableItems": true
+        }
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Header"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Product/SearchResult.tsx",
+        "page": {
+          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+          "count": 24,
+          "sort": "release:desc",
+          "fuzzy": "automatic",
+          "selectedFacets": [
+            {
+              "key": "productClusterIds",
+              "value": "747"
+            }
+          ],
+          "query": "",
+          "hideUnavailableItems": true
+        },
+        "layout": {
+          "columns": {
+            "mobile": 2,
+            "desktop": 4
+          },
+          "variant": "aside",
+          "pagination": "show-more"
+        },
+        "startingPage": 1,
+        "seoComponents": {
+          "banner": {
+            "image": {
+              "desktop": {
+                "src": "https://data.decoassets.com/alphabeto/d606e952-f7fc-48ff-bb33-87735baf27ac/meninoDesk.png"
+              },
+              "mobile": {
+                "src": "https://data.decoassets.com/alphabeto/23a89281-d3bf-4bb5-af8e-9aee55963e72/meninoMobile.png"
+              }
+            }
+          },
+          "breadcrumb": [
+            {
+              "name": "Criança Menino - Pijama",
+              "url": "/infantil/crianca/menino/pijama  "
+            }
+          ]
+        }
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer"
+      }
+    }
+  ],
+  "name": "PLP: Criança Menino - Pijama",
+  "path": "/infantil/crianca/menino/pijama  "
+}

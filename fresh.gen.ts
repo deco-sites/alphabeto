@@ -8,9 +8,13 @@ import * as $MenuInstitutionalMobile from "./islands/MenuInstitutionalMobile.tsx
 import * as $MinicartFooter from "./islands/MinicartFooter.tsx";
 import * as $MultiRangeSlider from "./islands/MultiRangeSlider.tsx";
 import * as $Notify from "./islands/Notify.tsx";
-import * as $PopupDeEntrada from "./islands/PopupDeEntrada.tsx";
+import * as $PopupLGPD from "./islands/PopupLGPD.tsx";
+import * as $ProductBuyTogether from "./islands/ProductBuyTogether.tsx";
+import * as $ProductTextInfoDiscloujure from "./islands/ProductTextInfoDiscloujure.tsx";
 import * as $ScrollButton from "./islands/ScrollButton.tsx";
+import * as $Selector from "./islands/Selector.tsx";
 import * as $ShowPriceItem from "./islands/ShowPriceItem.tsx";
+import * as $StarSelector from "./islands/StarSelector.tsx";
 import * as $formsNossasLojas from "./islands/formsNossasLojas.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
@@ -24,9 +28,13 @@ const manifest = {
     "./islands/MinicartFooter.tsx": $MinicartFooter,
     "./islands/MultiRangeSlider.tsx": $MultiRangeSlider,
     "./islands/Notify.tsx": $Notify,
-    "./islands/PopupDeEntrada.tsx": $PopupDeEntrada,
+    "./islands/PopupLGPD.tsx": $PopupLGPD,
+    "./islands/ProductBuyTogether.tsx": $ProductBuyTogether,
+    "./islands/ProductTextInfoDiscloujure.tsx": $ProductTextInfoDiscloujure,
     "./islands/ScrollButton.tsx": $ScrollButton,
+    "./islands/Selector.tsx": $Selector,
     "./islands/ShowPriceItem.tsx": $ShowPriceItem,
+    "./islands/StarSelector.tsx": $StarSelector,
     "./islands/formsNossasLojas.tsx": $formsNossasLojas,
   },
   baseUrl: import.meta.url,

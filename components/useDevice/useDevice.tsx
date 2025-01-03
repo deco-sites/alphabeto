@@ -9,8 +9,6 @@ function Notify() {
     isMobile.value = true;
   }
 
-  console.log({ isMobile: isMobile.value });
-
   return { isMobile: isMobile.value };
 }
 

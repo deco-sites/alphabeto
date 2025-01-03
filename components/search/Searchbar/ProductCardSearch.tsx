@@ -1,11 +1,12 @@
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import Image from "apps/website/components/Image.tsx";
-import { clx } from "../../../sdk/clx.ts";
-import { formatPrice } from "../../../sdk/format.ts";
-import { relative } from "../../../sdk/url.ts";
-import { useOffer } from "../../../sdk/useOffer.ts";
-import { useSendEvent } from "../../../sdk/useSendEvent.ts";
+import { clx } from "site/sdk/clx.ts";
+import { formatPrice } from "site/sdk/format.ts";
+import { relative } from "site/sdk/url.ts";
+import { useOffer } from "site/sdk/useOffer.ts";
+import { useSendEvent } from "site/sdk/useSendEvent.ts";
+import VTEXImageTag from "site/components/VTEXImageTag.tsx";
 
 interface Props {
   product: Product;
@@ -75,7 +76,7 @@ function ProductCardSearch(
             !inStock && "opacity-70",
           )}
         >
-          <Image
+          <VTEXImageTag
             src={front.url!}
             alt={front.alternateName}
             width={WIDTH}

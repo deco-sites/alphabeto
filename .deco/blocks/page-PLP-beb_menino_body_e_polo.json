@@ -1,0 +1,94 @@
+{
+  "__resolveType": "website/pages/Page.tsx",
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
+  "sections": [
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
+        "jsonLD": {
+          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+          "count": 1,
+          "sort": "release:desc",
+          "fuzzy": "automatic",
+          "selectedFacets": [
+            {
+              "key": "productClusterIds",
+              "value": "749"
+            }
+          ],
+          "query": "",
+          "hideUnavailableItems": true
+        }
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Header"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Product/SearchResult.tsx",
+        "page": {
+          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+          "count": 24,
+          "sort": "release:desc",
+          "fuzzy": "automatic",
+          "selectedFacets": [
+            {
+              "key": "productClusterIds",
+              "value": "749"
+            }
+          ],
+          "query": "",
+          "hideUnavailableItems": true
+        },
+        "layout": {
+          "columns": {
+            "mobile": 2,
+            "desktop": 4
+          },
+          "variant": "aside",
+          "pagination": "show-more"
+        },
+        "startingPage": 1,
+        "seoComponents": {
+          "banner": {
+            "image": {
+              "mobile": {
+                "src": "https://data.decoassets.com/alphabeto/419219ae-ad61-4966-a269-d8424f63961a/bebeMeninoMobile.png"
+              },
+              "desktop": {
+                "src": "https://data.decoassets.com/alphabeto/2c6c3816-d120-485f-b421-28be2106e431/bebeMeninoDesk.png"
+              }
+            },
+            "title": "Body e Polo Infantis para bebês",
+            "description": "<p><span style=\"color: rgb(0, 0, 0); font-size: 11pt\">Conforto para os bebês e facilidade para as mamães.</span></p>"
+          },
+          "breadcrumb": [
+            {
+              "name": "Bebê Menino - Body e Polo",
+              "url": "/infantil/bebe/menino/body-e-polo  "
+            }
+          ]
+        }
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer"
+      }
+    }
+  ],
+  "name": "PLP: Bebê Menino - Body e Polo",
+  "path": "/infantil/bebe/menino/body-e-polo  "
+}

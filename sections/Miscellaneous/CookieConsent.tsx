@@ -1,7 +1,7 @@
+import { useScript } from "@deco/deco/hooks";
 import { HTMLWidget } from "apps/admin/widgets.ts";
 import { clx } from "../../sdk/clx.ts";
 import { useId } from "../../sdk/useId.ts";
-import { useScript } from "@deco/deco/hooks";
 const script = (id: string) => {
   const handleScroll = () => {
     const KEY = "store-cookie-consent";

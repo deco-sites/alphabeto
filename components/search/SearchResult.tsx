@@ -1,14 +1,12 @@
 import { type SectionProps } from "@deco/deco";
 import { useDevice, useScript, useSection } from "@deco/deco/hooks";
-import type { ProductListingPage } from "apps/commerce/types.ts";
+import type { FilterToggle, ProductListingPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import ProductCard from "site/components/product/ProductCard.tsx";
 import CategoryBanner, {
   Props as BannerProps,
 } from "site/components/search/CategoryBanner.tsx";
-import Filters, {
-  FilterSettings,
-} from "site/components/search/Filters/index.tsx";
+import Filters from "site/components/search/Filters/index.tsx";
 import SortDesktop from "site/components/search/Sort/SortDesktop.tsx";
 import SortMobile from "site/components/search/Sort/SortMobile.tsx";
 import Breadcrumb, {
@@ -25,6 +23,10 @@ import { clx } from "site/sdk/clx.ts";
 import { useId } from "site/sdk/useId.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
+import AgeFilter from "site/components/search/Filters/AgeFilter.tsx";
+import { AppContext } from "site/apps/site.ts";
+
+const AGE_FILTER_KEY = "category-2";
 
 export interface Layout {
   /**
@@ -33,10 +35,10 @@ export interface Layout {
    */
   pagination?: "show-more" | "pagination";
   /**
-   * @title Filters
-   * @description Settings About The Filters
+   * @title Enable Special	Filter
+   * @description Enables special filter on top of search results
    */
-  filter?: FilterSettings;
+  enableSpecialFilter?: boolean;
 }
 export interface Props {
   /**
@@ -62,10 +64,15 @@ export interface Props {
   partial?: "hideMore" | "hideLess";
 }
 
-export const loader = (props: Props, req: Request) => {
+export const loader = (props: Props, req: Request, app: AppContext) => {
+  const siteSettings = {
+    cashbackPercentage: app.globalSettings.cashbackPercentage,
+    colors: app.globalSettings.colors,
+  };
   return {
     ...props,
     url: req.url,
+    siteSettings,
   };
 };
 
@@ -116,7 +123,7 @@ function NotFound() {
 }
 
 function PageResult(props: SectionProps<typeof loader>) {
-  const { layout, startingPage = 0, url, partial } = props;
+  const { layout, startingPage = 0, url, partial, siteSettings } = props;
   const page = props.page!;
   const { products, pageInfo } = page;
   const perPage = pageInfo?.recordPerPage || products.length;
@@ -158,8 +165,8 @@ function PageResult(props: SectionProps<typeof loader>) {
         data-product-list
         class={clx(
           "grid items-center",
-          "grid-cols-2 gap-2",
-          "desk:grid-cols-4 desk:gap-10",
+          "grid-cols-2",
+          "desk:grid-cols-3 gap-4",
           "w-full",
         )}
       >
@@ -169,7 +176,8 @@ function PageResult(props: SectionProps<typeof loader>) {
             product={product}
             preload={index === 0}
             index={offset + index}
-            class="h-full min-w-[160px] max-w-[300px]"
+            class="h-full w-[calc((100dvw_-_456px)/3)] max-w-[355px]"
+            settings={siteSettings}
           />
         ))}
       </div>
@@ -253,20 +261,19 @@ function Result(props: SectionProps<typeof loader>) {
       },
     },
   });
-  const results = (
-    <span class="text-sm font-normal">
-      {page.pageInfo.recordPerPage} of {page.pageInfo.records} results
-    </span>
-  );
   const SortBy = () => {
     if (sortOptions.length === 0) return null;
     if (device === "desktop") {
       return <SortDesktop sortOptions={sortOptions} url={url} />;
     } else return <SortMobile sortOptions={sortOptions} url={url} />;
   };
-  const filterSettings = props.layout?.filter || {
-    colors: [],
+  const filterSettings = {
+    colors: props.siteSettings.colors ?? [],
   };
+
+  const ageFilter = filters.find((filter) => filter.key === AGE_FILTER_KEY) as
+    | FilterToggle
+    | undefined;
 
   return (
     <>
@@ -318,7 +325,7 @@ function Result(props: SectionProps<typeof loader>) {
                 </Drawer>
               )}
 
-              <div class="grid grid-cols-1 desk:grid-cols-[265px_1fr] desk:gap-20 mt-5">
+              <div class="grid grid-cols-1 desk:grid-cols-[265px_1fr] desk:gap-20">
                 {device === "desktop" && (
                   <aside class="place-self-start flex flex-col gap-9">
                     <div>
@@ -332,7 +339,10 @@ function Result(props: SectionProps<typeof loader>) {
                   </aside>
                 )}
 
-                <div class="flex flex-col gap-9">
+                <div class="flex flex-col gap-10">
+                  {(ageFilter && props.layout?.enableSpecialFilter)
+                    ? <AgeFilter {...ageFilter} />
+                    : null}
                   <PageResult {...props} />
                 </div>
               </div>
