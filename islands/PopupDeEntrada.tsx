@@ -78,27 +78,26 @@ export async function loader(props: Props, req: Request, ctx: AppContext) {
     }
   }
   return {
-    ...props
+    ...props,
   };
 }
 
 export default function PopupDeEntrada(props: Props) {
-
-  const [isClose, setIsClose] = useState(true)
+  const [isClose, setIsClose] = useState(true);
 
   const handleClick = () => {
-    localStorage.setItem('fechado', JSON.stringify(isClose))
-    setIsClose(false)
-  }
+    localStorage.setItem("fechado", JSON.stringify(isClose));
+    setIsClose(false);
+  };
 
-  const verify = localStorage.getItem('fechado')
+  const verify = localStorage.getItem("fechado");
 
   useEffect(() => {
-    setIsClose(false)
-    verify === 'true' ? setIsClose(false) : setIsClose(true)
-  }, [])
+    setIsClose(false);
+    verify === "true" ? setIsClose(false) : setIsClose(true);
+  }, []);
 
-  if (isClose === false) return null
+  if (isClose === false) return null;
 
   const formState = props.formState ?? "idle";
   const sanitizedCode = sanitizeHTMLCode(props.title, {
@@ -115,135 +114,138 @@ export default function PopupDeEntrada(props: Props) {
 
   return (
     <>
-    { isClose && (
-      <div>
-        <div class="fixed bg-[#000] z-[9998] opacity-40 top-0 w-full mobile:w-[100%] h-[100vh] mobile:h-[100%]"></div>
-        <div class="relative">
-          <div class="fixed left-[49%] -translate-x-1/2 flex top-[15%] bg-secondary-content z-[9999] rounded-[8px]">
-            <button onClick={handleClick} class="border-none bg-transparent">
-              <Icon class="absolute top-[16px] right-[16px] text-[#ff8300] z-[9999]" id="close" />
-            </button>
-            <Image
-              class="rounded-tl-[8px] rounded-bl-[8px]"
-              src={props.image ? props.image : ''}
-              width={234}
-              height={308}
-            />
-            <div class="max-w-[489px] flex flex-col py-5 desk:py-10 items-center gap-[10px] justify-between container relative">
-              <div class="max-w-[489px] w-full flex items-center justify-between">
-                <h3
-                  dangerouslySetInnerHTML={{
-                    __html: sanitizedCode,
-                  }}
-                  class="text-[28px] w-[226px] text-center desk:text-left font-medium text-[#676767] font-beccaPerry mb-[16px]"
+      {isClose && (
+        <div>
+          <div class="fixed bg-[#000] z-[9998] opacity-40 top-0 w-full mobile:w-[100%] h-[100vh] mobile:h-[100%]">
+          </div>
+          <div class="relative">
+            <div class="fixed left-[49%] -translate-x-1/2 flex top-[15%] bg-secondary-content z-[9999] rounded-[8px]">
+              <button onClick={handleClick} class="border-none bg-transparent">
+                <Icon
+                  class="absolute top-[16px] right-[16px] text-[#ff8300] z-[9999]"
+                  id="close"
                 />
-                {props.description && (
-                  <p class="text-[12px] font-medium text-[#7E7F88] max-w-[223px] text-center desk:text-left">
-                    {props.description}
-                  </p>
-                )}
-              </div>
-              <form
-                class="max-w-[489px]"
-                id={formId}
-                hx-post={useComponent(import.meta.url, props)}
-                hx-target={`#${submitButtonWrapperId} .textSpan`}
-                hx-swap="innerHTML"
-                hx-indicator={`#${submitButtonWrapperId}`}
-                hx-select={`#${submitButtonWrapperId} .textSpan`}
-                {...{
-                  "hx-on::before-send": useScript(beforeFormSubmit, formId),
-                  "hx-on::after-settle": useScript(afterFormSubmit, formId),
-                }}
-              >
-                <div
-                  class="flex flex-col desk:grid grid-cols-2  grid-rows-2 gap-4 w-full desk:w-auto mb-[35px]">
-                  <Input
-                    placeholder="Nome do responsável"
-                    type="text"
-                    name="name"
-                    required
+              </button>
+              <Image
+                class="rounded-tl-[8px] rounded-bl-[8px]"
+                src={props.image ? props.image : ""}
+                width={234}
+                height={308}
+              />
+              <div class="max-w-[489px] flex flex-col py-5 desk:py-10 items-center gap-[10px] justify-between container relative">
+                <div class="max-w-[489px] w-full flex items-center justify-between">
+                  <h3
+                    dangerouslySetInnerHTML={{
+                      __html: sanitizedCode,
+                    }}
+                    class="text-[28px] w-[226px] text-center desk:text-left font-medium text-[#676767] font-beccaPerry mb-[16px]"
                   />
-                  <Input
-                    placeholder="E-mail do responsável"
-                    type="email"
-                    name="email"
-                    required
-                  />
-                  <Input
-                    type="text"
-                    name="childrenName"
-                    placeholder="Nome da criança"
-                    required
-                  />
-                  <div class="flex flex-col desk:flex-row justify-between gap-9">
-                    <div>
-                      <span class="text-xs leading-[14.4px] text-[#676767] font-semibold block">
-                        Tenho Interresse em:
-                      </span>
-                      <div class="flex gap-[14px] pt-[14px]">
-                        <div class="flex items-center">
-                          <RadioInput
-                            name="interest"
-                            value="boys"
-                            id="boysInterest"
-                            required
-                          />
-                          <label
-                            class="text-xs leading-[14.4px] text-[#676767] font-medium pl-1"
-                            htmlFor="boysInterest"
-                          >
-                            Meninos
-                          </label>
-                        </div>
-                        <div class="flex items-center">
-                          <RadioInput
-                            name="interest"
-                            value="girls"
-                            id="girlsInterest"
-                            required
-                          />
-                          <label
-                            class="text-xs leading-[14.4px] text-[#676767] font-medium pl-1"
-                            htmlFor="girlsInterest"
-                          >
-                            Meninas
-                          </label>
-                        </div>
-                        <div class="flex items-center">
-                          <RadioInput
-                            name="interest"
-                            value="any"
-                            id="anyInterest"
-                            required
-                          />
-                          <label
-                            class="text-xs leading-[14.4px] text-[#676767] font-medium pl-1"
-                            htmlFor="anyInterest"
-                          >
-                            Ambos
-                          </label>
+                  {props.description && (
+                    <p class="text-[12px] font-medium text-[#7E7F88] max-w-[223px] text-center desk:text-left">
+                      {props.description}
+                    </p>
+                  )}
+                </div>
+                <form
+                  class="max-w-[489px]"
+                  id={formId}
+                  hx-post={useComponent(import.meta.url, props)}
+                  hx-target={`#${submitButtonWrapperId} .textSpan`}
+                  hx-swap="innerHTML"
+                  hx-indicator={`#${submitButtonWrapperId}`}
+                  hx-select={`#${submitButtonWrapperId} .textSpan`}
+                  {...{
+                    "hx-on::before-send": useScript(beforeFormSubmit, formId),
+                    "hx-on::after-settle": useScript(afterFormSubmit, formId),
+                  }}
+                >
+                  <div class="flex flex-col desk:grid grid-cols-2  grid-rows-2 gap-4 w-full desk:w-auto mb-[35px]">
+                    <Input
+                      placeholder="Nome do responsável"
+                      type="text"
+                      name="name"
+                      required
+                    />
+                    <Input
+                      placeholder="E-mail do responsável"
+                      type="email"
+                      name="email"
+                      required
+                    />
+                    <Input
+                      type="text"
+                      name="childrenName"
+                      placeholder="Nome da criança"
+                      required
+                    />
+                    <div class="flex flex-col desk:flex-row justify-between gap-9">
+                      <div>
+                        <span class="text-xs leading-[14.4px] text-[#676767] font-semibold block">
+                          Tenho Interresse em:
+                        </span>
+                        <div class="flex gap-[14px] pt-[14px]">
+                          <div class="flex items-center">
+                            <RadioInput
+                              name="interest"
+                              value="boys"
+                              id="boysInterest"
+                              required
+                            />
+                            <label
+                              class="text-xs leading-[14.4px] text-[#676767] font-medium pl-1"
+                              htmlFor="boysInterest"
+                            >
+                              Meninos
+                            </label>
+                          </div>
+                          <div class="flex items-center">
+                            <RadioInput
+                              name="interest"
+                              value="girls"
+                              id="girlsInterest"
+                              required
+                            />
+                            <label
+                              class="text-xs leading-[14.4px] text-[#676767] font-medium pl-1"
+                              htmlFor="girlsInterest"
+                            >
+                              Meninas
+                            </label>
+                          </div>
+                          <div class="flex items-center">
+                            <RadioInput
+                              name="interest"
+                              value="any"
+                              id="anyInterest"
+                              required
+                            />
+                            <label
+                              class="text-xs leading-[14.4px] text-[#676767] font-medium pl-1"
+                              htmlFor="anyInterest"
+                            >
+                              Ambos
+                            </label>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <Button
-                  class="h-11 px-5 w-full"
-                  type="submit"
-                  id={submitButtonWrapperId}
-                >
-                  <span class="[.htmx-request_&]:hidden textSpan">
-                    {texts[formState]}
-                  </span>
-                  <span class="[.htmx-request_&]:inline hidden loading loading-spinner" />
-                </Button>
-              </form>
+                  <Button
+                    class="h-11 px-5 w-full"
+                    type="submit"
+                    id={submitButtonWrapperId}
+                  >
+                    <span class="[.htmx-request_&]:hidden textSpan">
+                      {texts[formState]}
+                    </span>
+                    <span class="[.htmx-request_&]:inline hidden loading loading-spinner" />
+                  </Button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    )}
+      )}
     </>
   );
 }

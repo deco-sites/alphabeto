@@ -12,7 +12,7 @@ const keepAllowedTags = (html: string, tags: string[]) => {
   });
 };
 const removeWrapperTag = (html: string) => {
-  return html ? html.replace(/<[^>]*>(.*)<\/[^>]*>/, "$1") : '';
+  return html ? html.replace(/<[^>]*>(.*)<\/[^>]*>/, "$1") : "";
 };
 const removeEmptyTags = (html: string) => {
   return html.replace(/<[^>]*>[\s]*<\/[^>]*>/g, "");
