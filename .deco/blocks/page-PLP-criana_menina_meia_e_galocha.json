@@ -63,7 +63,16 @@
         },
         "startingPage": 1,
         "seoComponents": {
-          "banner": {},
+          "banner": {
+            "image": {
+              "mobile": {
+                "src": "https://data.decoassets.com/alphabeto/4d4dd08b-3db5-4dff-b847-bc5d22a9c6e9/meninaMobile.png"
+              },
+              "desktop": {
+                "src": "https://data.decoassets.com/alphabeto/d3a1b4e9-f760-422c-ae9a-deecf30567bd/meninaDesk.png"
+              }
+            }
+          },
           "breadcrumb": [
             {
               "name": "Criança Menina - Meia e Galocha",

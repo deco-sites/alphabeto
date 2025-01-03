@@ -63,7 +63,16 @@
         },
         "startingPage": 1,
         "seoComponents": {
-          "banner": {},
+          "banner": {
+            "image": {
+              "mobile": {
+                "src": "https://data.decoassets.com/alphabeto/23a89281-d3bf-4bb5-af8e-9aee55963e72/meninoMobile.png"
+              },
+              "desktop": {
+                "src": "https://data.decoassets.com/alphabeto/d606e952-f7fc-48ff-bb33-87735baf27ac/meninoDesk.png"
+              }
+            }
+          },
           "breadcrumb": [
             {
               "name": "Criança Menino - Camiseta e Regata",
