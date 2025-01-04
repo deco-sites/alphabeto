@@ -1,4 +1,4 @@
-import { clx } from "../../sdk/clx.ts";
+import { clx } from "site/sdk/clx.ts";
 
 type InputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,

@@ -1,189 +1,177 @@
-import { useScript } from "@deco/deco/hooks";
-import { AppContext } from "site/apps/deco/vtex.ts";
-import { Newsletter as Props } from "site/components/footer/types.ts";
 import Button from "site/components/ui/Button.tsx";
 import Image from "apps/website/components/Image.tsx";
 import Input, { RadioInput } from "site/components/ui/Input.tsx";
 import Icon from "site/components/ui/Icon.tsx";
 import { sanitizeHTMLCode } from "site/sdk/htmlSanitizer.ts";
-import { useComponent } from "site/sections/Component.tsx";
-import { useEffect, useState } from "preact/hooks";
+import { useCallback, useEffect } from "preact/hooks";
+import { ImageWidget, RichText } from "apps/admin/widgets.ts";
+import { useSignal } from "@preact/signals";
+import { JSX } from "preact";
+import { invoke } from "site/runtime.ts";
 
-const submitButtonWrapperId = "NEWSLETTER_FOOTER_SUBMIT_BUTTON_WRAPPER";
-const formId = "NEWSLETTER_FOOTER_FORM";
-
-const beforeFormSubmit = (formId: string) => {
-  const form = document.getElementById(formId) as HTMLFormElement;
-  const submitButton = form.querySelector(
-    "button[type=submit]",
-  ) as HTMLButtonElement;
-  submitButton.disabled = true;
-  const inputs = form.querySelectorAll("input");
-  inputs.forEach((input) => {
-    input.disabled = true;
-  });
-};
-
-const afterFormSubmit = async (formId: string) => {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-  const form = document.getElementById(formId) as HTMLFormElement;
-  form.reset();
-  const submitButton = form.querySelector(
-    "button[type=submit]",
-  ) as HTMLButtonElement;
-  submitButton.disabled = false;
-  const span = submitButton.querySelector(".textSpan") as HTMLSpanElement;
-  span.innerHTML = "Enviar";
-  const inputs = form.querySelectorAll("input");
-  inputs.forEach((input) => {
-    input.disabled = false;
-  });
-};
-
-export async function loader(props: Props, req: Request, ctx: AppContext) {
-  if (req.method === "POST") {
-    try {
-      const formData = await req.formData();
-      const name = formData.get("name") as string;
-      const email = formData.get("email") as string;
-      const child_name = formData.get("childrenName") as string;
-
-      const interestMap = {
-        "any": "Ambos",
-        "girls": "Menina",
-        "boys": "Menino",
-      };
-      const interest = formData.get("interest") as keyof typeof interestMap;
-
-      await ctx.invoke("vtex/actions/masterdata/createDocument.ts", {
-        data: {
-          name,
-          accept: true,
-          email,
-          gender: interestMap[interest],
-          child_name,
-        },
-        acronym: "NW",
-      });
-
-      return {
-        ...props,
-        formState: "success",
-      };
-    } catch (_e) {
-      return {
-        ...props,
-        formState: "error",
-      };
-    }
-  }
-  return {
-    ...props,
-  };
+interface Props {
+  title: RichText;
+  description: RichText;
+  image: ImageWidget;
 }
 
+type FormStates = "idle" | "success" | "error" | "loading";
+
+const LOCAL_STORAGE_KEY = "popup-entrada-closed";
+const COMMON_SANITIZE_OPTIONS = {
+  removeAttributes: true,
+  removeWrapperTag: true,
+  allowedTags: ["span", "strong"],
+};
+
 export default function PopupDeEntrada(props: Props) {
-  const [isClose, setIsClose] = useState(true);
+  const isOpened = useSignal(false);
+  const formState = useSignal<FormStates>("idle");
 
-  const handleClick = () => {
-    localStorage.setItem("fechado", JSON.stringify(isClose));
-    setIsClose(false);
-  };
-
-  const verify = localStorage.getItem("fechado");
-
-  useEffect(() => {
-    setIsClose(false);
-    verify === "true" ? setIsClose(false) : setIsClose(true);
+  const closeModal = useCallback(() => {
+    document.body.style.overflow = "auto";
+    isOpened.value = false;
+    localStorage.setItem(LOCAL_STORAGE_KEY, "true");
   }, []);
 
-  if (isClose === false) return null;
+  const openModal = useCallback(() => {
+    document.body.style.overflow = "hidden";
+    isOpened.value = true;
+  }, []);
 
-  const formState = props.formState ?? "idle";
-  const sanitizedCode = sanitizeHTMLCode(props.title, {
-    removeAttributes: true,
-    removeWrapperTag: true,
-    allowedTags: ["span", "strong"],
-  });
+  const loadLocalStorage = useCallback(() => {
+    const isClosed = localStorage.getItem(LOCAL_STORAGE_KEY) === "true";
+    if (!isClosed) {
+      openModal();
+    }
+  }, []);
 
-  const texts: Record<typeof formState, string> = {
+  const formSubmit = useCallback<JSX.SubmitEventHandler<HTMLFormElement>>(
+    async (event) => {
+      event.preventDefault();
+		 formState.value = "loading";
+      try {
+        const formData = new FormData(event.currentTarget);
+        const name = formData.get("name") as string;
+        const email = formData.get("email") as string;
+        const child_name = formData.get("childrenName") as string;
+
+        const interestMap = {
+          "any": "Ambos",
+          "girls": "Menina",
+          "boys": "Menino",
+        };
+        const interest = formData.get("interest") as keyof typeof interestMap;
+
+        await invoke.vtex.actions.masterdata.createDocument({
+          data: {
+            name,
+            accept: true,
+            email,
+            gender: interestMap[interest],
+            child_name,
+          },
+          acronym: "NW",
+        });
+        formState.value = "success";
+        setTimeout(() => {
+          closeModal();
+        }, 3000);
+      } catch (_e) {
+        formState.value = "error";
+        setTimeout(() => {
+          formState.value = "idle";
+        }, 3000);
+      }
+    },
+    [],
+  );
+
+  const texts: Record<FormStates, string> = {
     idle: "Cadastrar",
     success: "Cadastro realizado",
     error: "Erro",
+    loading: "Carregando...",
   };
+
+  useEffect(() => {
+    loadLocalStorage();
+  }, []);
 
   return (
     <>
-      {isClose && (
+      {isOpened.value && (
         <div>
-          <div class="fixed bg-[#000] z-[9998] opacity-40 top-0 w-full mobile:w-[100%] h-[100vh] mobile:h-[100%]">
+          <div class="fixed bg-[#000] z-[9998] opacity-40 top-0 w-dvw h-dvh">
           </div>
           <div class="relative">
-            <div class="fixed left-[49%] -translate-x-1/2 flex top-[15%] bg-secondary-content z-[9999] rounded-[8px]">
-              <button onClick={handleClick} class="border-none bg-transparent">
+            <div class="fixed left-[49%] -translate-x-1/2 flex top-[15%] bg-secondary-content z-[9999] rounded-lg">
+              <button onClick={closeModal} class="border-none bg-transparent">
                 <Icon
-                  class="absolute top-[16px] right-[16px] text-[#ff8300] z-[9999]"
+                  class="absolute top-[16px] right-[16px] text-primary z-[9999]"
                   id="close"
                 />
               </button>
               <Image
-                class="rounded-tl-[8px] rounded-bl-[8px]"
+                class="rounded-tl-lg rounded-bl-lg object-cover mobile:hidden"
                 src={props.image ? props.image : ""}
-                width={234}
+                width={214}
                 height={308}
               />
-              <div class="max-w-[489px] flex flex-col py-5 desk:py-10 items-center gap-[10px] justify-between container relative">
-                <div class="max-w-[489px] w-full flex items-center justify-between">
+              <div class="max-w-[335px] w-[calc(100dvw-_40px)] desk:max-w-[529px] desk:w-full flex flex-col p-5 items-center gap-4 justify-between relative">
+                <div class="flex flex-col desk:grid grid-cols-[256px_223px] w-full items-center justify-between mobile:gap-2.5 ">
                   <h3
+                    class="text-[25px] leading-[30px] desk:text-[32px] desk:leading-[38px] text-center desk:text-left font-medium text-[#676767] font-beccaPerry [&>strong]:text-primary [&>strong]:font-medium mobile:max-w-[201px] mobile:mx-auto"
                     dangerouslySetInnerHTML={{
-                      __html: sanitizedCode,
+                      __html: sanitizeHTMLCode(
+                        props.title,
+                        COMMON_SANITIZE_OPTIONS,
+                      ),
                     }}
-                    class="text-[28px] w-[226px] text-center desk:text-left font-medium text-[#676767] font-beccaPerry mb-[16px]"
                   />
-                  {props.description && (
-                    <p class="text-[12px] font-medium text-[#7E7F88] max-w-[223px] text-center desk:text-left">
-                      {props.description}
-                    </p>
-                  )}
+                  <p
+                    class="text-[12px] leading-[18px] font-medium text-[#7E7F88] text-center desk:text-left"
+                    dangerouslySetInnerHTML={{
+                      __html: sanitizeHTMLCode(
+                        props.description,
+                        COMMON_SANITIZE_OPTIONS,
+                      ),
+                    }}
+                  />
                 </div>
                 <form
-                  class="max-w-[489px]"
-                  id={formId}
-                  hx-post={useComponent(import.meta.url, props)}
-                  hx-target={`#${submitButtonWrapperId} .textSpan`}
-                  hx-swap="innerHTML"
-                  hx-indicator={`#${submitButtonWrapperId}`}
-                  hx-select={`#${submitButtonWrapperId} .textSpan`}
-                  {...{
-                    "hx-on::before-send": useScript(beforeFormSubmit, formId),
-                    "hx-on::after-settle": useScript(afterFormSubmit, formId),
-                  }}
+                  class="w-full"
+                  onSubmit={formSubmit}
+                  disabled={formState.value !== "idle"}
                 >
-                  <div class="flex flex-col desk:grid grid-cols-2  grid-rows-2 gap-4 w-full desk:w-auto mb-[35px]">
+                  <div class="flex flex-col desk:grid grid-cols-2  grid-rows-2 gap-2 w-full desk:w-auto mb-[35px]">
                     <Input
                       placeholder="Nome do responsável"
                       type="text"
                       name="name"
                       required
+                      class="h-11"
                     />
                     <Input
                       placeholder="E-mail do responsável"
                       type="email"
                       name="email"
                       required
+                      class="h-11"
                     />
                     <Input
                       type="text"
                       name="childrenName"
                       placeholder="Nome da criança"
                       required
+                      class="h-11"
                     />
                     <div class="flex flex-col desk:flex-row justify-between gap-9">
                       <div>
-                        <span class="text-xs leading-[14.4px] text-[#676767] font-semibold block">
+                        <span class="text-xs leading-[14.4px] text-[#212121] font-semibold block">
                           Tenho Interresse em:
                         </span>
-                        <div class="flex gap-[14px] pt-[14px]">
+                        <div class="flex gap-[14px] pt-[14px] mobile:justify-between">
                           <div class="flex items-center">
                             <RadioInput
                               name="interest"
@@ -231,14 +219,16 @@ export default function PopupDeEntrada(props: Props) {
                     </div>
                   </div>
                   <Button
-                    class="h-11 px-5 w-full"
+                    class="h-11 min-h-11 px-5 w-full"
                     type="submit"
-                    id={submitButtonWrapperId}
                   >
-                    <span class="[.htmx-request_&]:hidden textSpan">
-                      {texts[formState]}
-                    </span>
-                    <span class="[.htmx-request_&]:inline hidden loading loading-spinner" />
+                    {formState.value === "loading"
+                      ? <span class="inline loading loading-spinner" />
+                      : (
+                        <span>
+                          {texts[formState.value]}
+                        </span>
+                      )}
                   </Button>
                 </form>
               </div>
