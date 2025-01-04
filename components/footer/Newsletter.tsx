@@ -57,8 +57,7 @@ export async function loader(props: Props, req: Request, ctx: AppContext) {
       };
       const interest = formData.get("interest") as keyof typeof interestMap;
 
-		 await ctx.invoke.vtex.actions.masterdata.createDocument({
-
+      await ctx.invoke.vtex.actions.masterdata.createDocument({
         data: {
           name,
           accept: true,

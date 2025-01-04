@@ -49,7 +49,7 @@ export default function PopupDeEntrada(props: Props) {
   const formSubmit = useCallback<JSX.SubmitEventHandler<HTMLFormElement>>(
     async (event) => {
       event.preventDefault();
-		 formState.value = "loading";
+      formState.value = "loading";
       try {
         const formData = new FormData(event.currentTarget);
         const name = formData.get("name") as string;
