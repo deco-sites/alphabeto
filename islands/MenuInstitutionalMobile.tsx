@@ -19,7 +19,7 @@ export default function MenuInstitutionalMobile({ links, label }: MenuProps) {
   return (
     <div class="hidden z-10 mobile:flex flex-col bg-[#FFFFFF] rounded-[5px]">
       <button
-        class="hidden text-left mobile:flex container justify-between items-center h-[44px] py-[13px] font-bold text-[12px] leading-[18px] text-[#676767] rounded-[4px] border border-[#F7E0BF]"
+        class="hidden text-left mobile:flex container justify-between items-center h-[44px] py-[13px] font-bold text-[12px] leading-[18px] text-[#676767] rounded-[4px] border border-secondary"
         onClick={() => setNavigation(!navigation)}
       >
         {label}{" "}
@@ -35,7 +35,7 @@ export default function MenuInstitutionalMobile({ links, label }: MenuProps) {
         />
       </button>
       {navigation && (
-        <div className="flex flex-col absolute mt-[44px] items-center justify-start text-left w-[100%] bg-[#FFFFFF] py-0 px-[10px] rounded-b-[5px] border-b border-r border-l border-[#F7E0BF]">
+        <div className="flex flex-col absolute mt-[44px] items-center justify-start text-left w-[100%] bg-[#FFFFFF] py-0 px-[10px] rounded-b-[5px] border-b border-r border-l border-secondary">
           {links &&
             links.map((link, index) => (
               <a

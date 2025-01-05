@@ -74,7 +74,7 @@ export default function FormsNossasLojas({ stores }: Stores) {
           }}
         >
           <input
-            class="w-[64%] h-[44px] border-[1px] border-[#F7E0BF] rounded-[8px] py-[15px] pl-[20px]"
+            class="w-[64%] h-[44px] border-[1px] border-secondary rounded-[8px] py-[15px] pl-[20px]"
             value={queryInput}
             onChange={(e: React.TargetedEvent<HTMLInputElement>) =>
               setQueryInput(e.currentTarget.value)}
@@ -169,7 +169,7 @@ export default function FormsNossasLojas({ stores }: Stores) {
                 </div>
               </div>
             </div>
-            <hr class=" w-[95%] border-t border-dotted border-[#F7E0BF] my-4" />
+            <hr class=" w-[95%] border-t border-dotted border-secondary my-4" />
           </>
         ))}
       </section>

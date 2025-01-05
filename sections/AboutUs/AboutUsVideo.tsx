@@ -19,7 +19,7 @@ interface Props {
 export default function AboutUSVideo(props: Props) {
   const { title, text, videoId } = props;
   return (
-    <article class="relative  bg-[#F7E0BF] mt-[144px] w-full">
+    <article class="relative  bg-secondary mt-[144px] w-full">
       <Icon
         id="star"
         width="47"

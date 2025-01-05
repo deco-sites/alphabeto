@@ -56,7 +56,7 @@ export default function ProductBuyTogether(props: BuyTogetherLoaderResponse) {
           <div class="mobile:hidden">
             <ProductCard mode="principal" signal={principalProduct} />
           </div>
-          <div class="bg-[#F7E0BF] text-primary mobile:hidden rounded-full min-w-10 w-10 h-10 flex items-center justify-center">
+          <div class="bg-secondary text-primary mobile:hidden rounded-full min-w-10 w-10 h-10 flex items-center justify-center">
             <Icon id="plus" size={20} />
           </div>
           <div class="flex gap-4 relative">
@@ -65,7 +65,7 @@ export default function ProductBuyTogether(props: BuyTogetherLoaderResponse) {
               signal={sugestionOne}
               newProductsLoader={props.newProductsLoader}
             />
-            <div class="bg-[#F7E0BF] text-primary desk:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[335%] z-10 rounded-full min-w-10 w-10 h-10 flex items-center justify-center">
+            <div class="bg-secondary text-primary desk:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[335%] z-10 rounded-full min-w-10 w-10 h-10 flex items-center justify-center">
               <Icon id="plus" size={20} />
             </div>
             <ProductCard
@@ -74,7 +74,7 @@ export default function ProductBuyTogether(props: BuyTogetherLoaderResponse) {
               newProductsLoader={props.newProductsLoader}
             />
           </div>
-          <div class="bg-[#F7E0BF] text-primary rounded-full min-w-10 w-10 h-10 flex items-center justify-center">
+          <div class="bg-secondary text-primary rounded-full min-w-10 w-10 h-10 flex items-center justify-center">
             <Icon id="equals" size={20} />
           </div>
           <ProductResume

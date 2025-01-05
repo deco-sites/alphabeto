@@ -1,6 +1,6 @@
 import { RichText } from "apps/admin/widgets.ts";
-import { sanitizeHTMLCode } from "site/sdk/htmlSanitizer.ts";
 import { clx } from "site/sdk/clx.ts";
+import { sanitizeHTMLCode } from "site/sdk/htmlSanitizer.ts";
 
 interface InfoItems {
   /**
@@ -66,7 +66,7 @@ export default function AboutUsCompanyInfo(props: Props) {
             </div>
             {(index < items.length - 1)
               ? (
-                <div class="w-[162px] h-[1px] mobile:my-5 desk:w-[1px] desk:h-[67px] desk:mx-[35px] bg-[#F7E0BF]" />
+                <div class="w-[162px] h-[1px] mobile:my-5 desk:w-[1px] desk:h-[67px] desk:mx-[35px] bg-secondary" />
               )
               : null}
           </>

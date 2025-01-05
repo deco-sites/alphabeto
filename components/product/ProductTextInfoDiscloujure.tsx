@@ -1,8 +1,8 @@
 import { useSignal } from "@preact/signals";
+import { useEffect } from "preact/hooks";
 import Icon from "site/components/ui/Icon.tsx";
 import { clx } from "site/sdk/clx.ts";
 import { useId } from "site/sdk/useId.ts";
-import { useEffect } from "preact/hooks";
 
 interface Props {
   title: string;
@@ -32,7 +32,7 @@ export default function ProductTextInfoDiscloujure({
   }, [contentId]);
   if (!content) return null;
   return (
-    <div class="flex flex-col border-b border-[#F7E0BF] border-dashed">
+    <div class="flex flex-col border-b border-secondary border-dashed">
       <button
         class={clx(
           "flex text-sm py-5 cursor-pointer justify-between items-center font-bold",

@@ -10,7 +10,7 @@ export default function AgeFilter({ values }: FilterToggle) {
           class={clx(
             "rounded-full text-base leading-6 font-bold w-20 h-20 flex items-center justify-center text-primary break-all p-1 text-center carousel-item",
             value.selected
-              ? "border border-primary bg-[#F7E0BF]"
+              ? "border border-primary bg-secondary"
               : "bg-secondary-content",
           )}
         >

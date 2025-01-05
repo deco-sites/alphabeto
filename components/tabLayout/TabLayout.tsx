@@ -1,8 +1,8 @@
-import { useId } from "site/sdk/useId.ts";
 import { Section } from "@deco/deco/blocks";
 import { useSection } from "@deco/deco/hooks";
 import { Color } from "apps/admin/widgets.ts";
 import { clx } from "site/sdk/clx.ts";
+import { useId } from "site/sdk/useId.ts";
 
 /** @titleBy title */
 export interface tab {
@@ -56,7 +56,7 @@ export default function TabLayout(
                 "desk:min-w-[159px] h-11 desk:rounded-lg flex items-center justify-center mobile:w-full text-xl desk:leading-6 mobile:text-sm font-bold",
                 activeTab === index
                   ? "bg-[var(--bgColor)] text-white"
-                  : "bg-[#F7F7F7] border-[#EFEFEF] desk:border text-[#676767] hover:bg-[#F7E0BF] hover:border-[#F7E0BF]",
+                  : "bg-[#F7F7F7] border-[#EFEFEF] desk:border text-[#676767] hover:bg-secondary hover:border-secondary",
                 index === 0
                   ? "mobile:rounded-l-lg"
                   : index === tabs.length - 1

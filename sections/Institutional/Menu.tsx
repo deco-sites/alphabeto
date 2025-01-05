@@ -82,7 +82,7 @@ export default function MenuInstitucional(
             ))}
           </section>
         </section>
-        <hr class="bg-[#F7E0BF] w-[100%] h-[1px] my-[20px] border-0" />
+        <hr class="bg-secondary w-[100%] h-[1px] my-[20px] border-0" />
         <section>
           <div class="mb-[20px]">
             <h3 class="font-bold text-primary text-[14px]">{supportTitle}</h3>
