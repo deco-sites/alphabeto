@@ -1,0 +1,57 @@
+{
+  "__resolveType": "website/pages/Page.tsx",
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
+  "sections": [
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Header"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Institutional/Breadcrumb.tsx",
+      "root": "HOME",
+      "showText": true,
+      "path": "Ajuda",
+      "route": "Fale Conosco"
+    },
+    {
+      "__resolveType": "site/sections/Institutional/PageDividerContent.tsx",
+      "left": {
+        "__resolveType": "Menu"
+      },
+      "right": {
+        "__resolveType": "site/sections/Institutional/ContactUs.tsx",
+        "title": "Fale conosco",
+        "description": "<p>Ei! Precisa de ajuda, quer fazer reclamação, elogio ou sugestão?<br>Mande-nos uma mensagem que nossas fadinhas vão te ajudar!</p>",
+        "contact": {
+          "itens": [
+            {
+              "name": "Telefone",
+              "value": "(21) 99942-2795"
+            },
+            {
+              "value": " sac@alphabeto.com",
+              "name": "Email"
+            }
+          ],
+          "title": "Contato",
+          "description": "<p>Abaixo seguem as formas de contato disponíveis conosco:</p>"
+        }
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer"
+      }
+    }
+  ],
+  "name": "Fale Conosco",
+  "path": "/central-atendimento"
+}

@@ -50,7 +50,7 @@ export default function MenuInstitucional(
       <div class="block list-none mobile:hidden">
         <section>
           <div class="mb-[20px]">
-            <h3 class="font-bold text-[#FF8300] text-[14px]">
+            <h3 class="font-bold text-primary text-[14px]">
               {institutionalTitle}
             </h3>
           </div>
@@ -60,7 +60,7 @@ export default function MenuInstitucional(
                 key={index}
                 class={`flex items-center justify-between w-[197px] p-[10px] ${
                   currentPath === route
-                    ? "bg-[#FDF6ED] text-[#FF8300] font-bold border-2 border-dashed border-[#FF8300]"
+                    ? "bg-[#FDF6ED] text-primary font-bold border-2 border-dashed border-primary"
                     : ""
                 }`}
               >
@@ -75,7 +75,7 @@ export default function MenuInstitucional(
                   width="16"
                   height="16"
                   class={`${
-                    currentPath === route ? "text-[#FF8300]" : "text-[#7E7F88]"
+                    currentPath === route ? "text-primary" : "text-[#7E7F88]"
                   }`}
                 />
               </li>
@@ -85,7 +85,7 @@ export default function MenuInstitucional(
         <hr class="bg-[#F7E0BF] w-[100%] h-[1px] my-[20px] border-0" />
         <section>
           <div class="mb-[20px]">
-            <h3 class="font-bold text-[#FF8300] text-[14px]">{supportTitle}</h3>
+            <h3 class="font-bold text-primary text-[14px]">{supportTitle}</h3>
           </div>
           <section>
             {supportLinks?.map(({ route, label }, index) => (
@@ -93,7 +93,7 @@ export default function MenuInstitucional(
                 key={index}
                 class={`flex items-center justify-between w-[197px] p-[10px] ${
                   currentPath === route
-                    ? "bg-[#FDF6ED] text-[#FF8300] font-bold border-2 border-dashed border-[#FF8300]"
+                    ? "bg-[#FDF6ED] text-primary font-bold border-2 border-dashed border-primary"
                     : ""
                 }`}
               >
@@ -105,7 +105,7 @@ export default function MenuInstitucional(
                   width="16"
                   height="16"
                   class={`${
-                    currentPath === route ? "text-[#FF8300]" : "text-[#7E7F88]"
+                    currentPath === route ? "text-primary" : "text-[#7E7F88]"
                   }`}
                 />
               </li>

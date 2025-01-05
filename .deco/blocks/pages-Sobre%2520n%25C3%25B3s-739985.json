@@ -9,7 +9,7 @@
       }
     },
     {
-      "__resolveType": "site/sections/BreadcrumbInstitucional/Breadcrumb.tsx",
+      "__resolveType": "site/sections/Institutional/Breadcrumb.tsx",
       "root": "HOME",
       "path": "Institucional",
       "route": "Mundo Alphabeto",

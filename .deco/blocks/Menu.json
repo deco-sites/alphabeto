@@ -1,0 +1,67 @@
+{
+  "__resolveType": "site/sections/Institutional/Menu.tsx",
+  "institutionalLinks": [
+    {
+      "label": "Políticas de privacidade",
+      "route": "/politicas-de-privacidade"
+    },
+    {
+      "label": "Troca e devolução",
+      "route": "/troca-e-devolucao"
+    },
+    {
+      "label": "Termos e condições",
+      "route": "/termos-e-condicoes"
+    },
+    {
+      "label": "Formas de pagamento",
+      "route": "/formas-de-pagamento"
+    },
+    {
+      "route": "/formas-de-entrega",
+      "label": "Formas de entrega"
+    }
+  ],
+  "supportLinks": [
+    {
+      "route": "/central-atendimento",
+      "label": "Fale conosco"
+    },
+    {
+      "route": "/duvidas-frequentes",
+      "label": "Dúvidas frequentes"
+    }
+  ],
+  "links": [
+    {
+      "route": "/politicas-de-privacidade",
+      "label": "Políticas de privacidade"
+    },
+    {
+      "route": "/troca-e-devolucao",
+      "label": "Troca e devolução"
+    },
+    {
+      "route": "/termos-e-condicoes",
+      "label": "Termos e condições"
+    },
+    {
+      "route": "/formas-de-pagamento",
+      "label": "Formas de pagamento"
+    },
+    {
+      "route": "/formas-de-entrega",
+      "label": "Formas de entrega"
+    },
+    {
+      "route": "/central-atendimento",
+      "label": "Fale conosco"
+    },
+    {
+      "route": "/duvidas-frequentes",
+      "label": "Dúvidas frequentes"
+    }
+  ],
+  "institutionalTitle": "Ajuda",
+  "supportTitle": "Fale conosco"
+}

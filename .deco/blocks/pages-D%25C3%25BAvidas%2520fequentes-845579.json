@@ -9,82 +9,18 @@
       }
     },
     {
-      "__resolveType": "site/sections/BreadcrumbInstitucional/Breadcrumb.tsx",
+      "__resolveType": "site/sections/Institutional/Breadcrumb.tsx",
       "root": "HOME",
       "showText": true,
       "path": "Ajuda",
       "route": "Dúvidas frequentes"
     },
     {
-      "__resolveType": "site/sections/DuvidasFrequentes/DuvidasFrequentes.tsx",
-      "Menu": {
-        "__resolveType": "site/sections/MenuInstitucional/MenuInstitucional.tsx",
-        "institutionalLinks": [
-          {
-            "label": "Políticas de privacidade",
-            "route": "/politicas-de-privacidade"
-          },
-          {
-            "label": "Troca e devolução",
-            "route": "/troca-e-devolucao"
-          },
-          {
-            "label": "Termos e condições",
-            "route": "/termos-e-condicoes"
-          },
-          {
-            "label": "Formas de pagamento",
-            "route": "/formas-de-pagamento"
-          },
-          {
-            "route": "/formas-de-entrega",
-            "label": "Formas de entrega"
-          }
-        ],
-        "supportLinks": [
-          {
-            "label": "Fale conosco",
-            "route": "/fale-conosco"
-          },
-          {
-            "route": "/duvidas-frequentes",
-            "label": "Dúvidas frequentes"
-          }
-        ],
-        "links": [
-          {
-            "route": "/politicas-de-privacidade",
-            "label": "Políticas de privacidade"
-          },
-          {
-            "route": "/troca-e-devolucao",
-            "label": "Troca e devolução"
-          },
-          {
-            "route": "/termos-e-condicoes",
-            "label": "Termos e condições"
-          },
-          {
-            "route": "/formas-de-pagamento",
-            "label": "Formas de pagamento"
-          },
-          {
-            "route": "/formas-de-entrega",
-            "label": "Formas de entrega"
-          },
-          {
-            "route": "/fale-conosco",
-            "label": "Fale conosco"
-          },
-          {
-            "route": "/duvidas-frequentes",
-            "label": "Dúvidas frequentes"
-          }
-        ],
-        "institutionalTitle": "Ajuda",
-        "supportTitle": "Fale conosco"
+      "__resolveType": "site/sections/Institutional/PageDividerContent.tsx",
+      "left": {
+        "__resolveType": "Menu"
       },
-      "Question": {
+      "right": {
         "__resolveType": "site/sections/Content/FAQ.tsx",
         "title": "Dúvidas frequentes",
         "description": "<p><span>Ainda está com dúvida? Nos mande um e-mail e logo entraremos em contato com você o mais rápido possível. </span><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"/central-atendimento\"><span>Fale conosco!</span></a></p>",
@@ -120,6 +56,9 @@
           }
         ]
       }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
