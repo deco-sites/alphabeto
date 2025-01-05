@@ -63,7 +63,7 @@ export default function FormsNossasLojas({ stores }: Stores) {
   return (
     <div class="mt-[30px] mobile:mb-[45px]">
       <section>
-        <p class="font-bold text-[14px] text-[#676767]">
+        <p class="font-bold text-[14px] text-accent">
           Busque por cidade, CEP, endereço ou loja:
         </p>
         <form
@@ -99,7 +99,7 @@ export default function FormsNossasLojas({ stores }: Stores) {
               class={`flex mobile:flex-col mobile:justify-start justify-between items-left w-[95%] h-[194px] mobile:h-[403px] border ${
                 selectedIndex === store.id
                   ? "border-primary"
-                  : "border-[#F5F4F1]"
+                  : "border-primary-content"
               } rounded-[8px] px-[10px] mb-[16px]`}
             >
               <div>
@@ -151,8 +151,8 @@ export default function FormsNossasLojas({ stores }: Stores) {
                   </button>
                 </div>
               </div>
-              <div class="w-[221px] h-[174px] pt-[10px] mobile:mt-[10px] bg-[#FDF6ED] flex flex-col items-center rounded-[8px]">
-                <p class="font-bold text-[12px] text-[#676767]">
+              <div class="w-[221px] h-[174px] pt-[10px] mobile:mt-[10px] bg-secondary-content flex flex-col items-center rounded-[8px]">
+                <p class="font-bold text-[12px] text-accent">
                   Horários de funcionamento:
                 </p>
                 <div class="mt-[10px]">

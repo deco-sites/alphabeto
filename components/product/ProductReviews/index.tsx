@@ -4,17 +4,17 @@ import dayjs from "https://cdn.skypack.dev/dayjs";
 import "https://cdn.skypack.dev/dayjs/locale/pt-br";
 import relativeTime from "https://cdn.skypack.dev/dayjs/plugin/relativeTime";
 import updateLocale from "https://cdn.skypack.dev/dayjs/plugin/updateLocale";
-import Selector from "site/islands/Selector.tsx";
 import ProductRating from "site/components/product/ProductRating.tsx";
+import { ReloadProps } from "site/components/product/ProductReviews/Reload.tsx";
 import ReviewForm, {
   REVIEW_FORM_CONTAINER_ID,
 } from "site/components/product/ProductReviews/ReviewForm.tsx";
 import Button, { ButtonType } from "site/components/ui/Button.tsx";
 import Icon from "site/components/ui/Icon.tsx";
+import Selector from "site/islands/Selector.tsx";
 import { useId } from "site/sdk/useId.ts";
 import { useComponent } from "site/sections/Component.tsx";
 import Spacer from "site/sections/Miscellaneous/Spacer.tsx";
-import { ReloadProps } from "site/components/product/ProductReviews/Reload.tsx";
 dayjs.extend(relativeTime);
 dayjs.extend(updateLocale);
 
@@ -169,7 +169,7 @@ export default function ProductReviews(props: Props) {
             {hasReviews
               ? (
                 <div class="flex justify-end items-center gap-9 mt-5">
-                  <span class="text-base text-[#676767]">
+                  <span class="text-base text-accent">
                     Mostrando {props.data.currentPage} de{" "}
                     {props.data.totalPages}
                   </span>

@@ -1,10 +1,10 @@
 import { useScript } from "@deco/deco/hooks";
 import { FilterToggle, FilterToggleValue } from "apps/commerce/types.ts";
+import { ColorItem } from "site/apps/site.ts";
 import { FilterMobileLogics } from "site/components/search/Filters/BottomFilterBar.tsx";
 import { RenderSearchInput } from "site/components/search/Filters/ShowItemWithCheckboxes.tsx";
 import { clx } from "site/sdk/clx.ts";
 import { makeBackgroundFromHexadecimals } from "site/sdk/makeBackgroundFromHexadecimals.ts";
-import { ColorItem } from "site/apps/site.ts";
 
 const SHOW_QUANTITY = false;
 const ITENS_TO_SCROLL = 4;
@@ -39,9 +39,12 @@ function handleButtonPress() {
   window.FILTER_LOGICS.filterChange(key, value, url, selected);
   if (selected) {
     target.classList.remove("border-[#D6DE23]", "border");
-    target.classList.add("border-[#F5F4F1]", "border-[0.5px]");
+    target.classList.add("border-primary-content", "border-[0.5px]");
   } else {
-    target.classList.remove("border-[#F5F4F1]", "border-[0.5px]");
+    target.classList.remove(
+      "border-primary-contentontentontent",
+      "border-[0.5px]",
+    );
     target.classList.add("border-[#D6DE23]", "border");
   }
   target.setAttribute("data-selected", String(!selected));
@@ -63,7 +66,7 @@ function Item({
         "flex items-center px-2.5 py-[8.5px] gap-2.5 max-h-[35px] rounded min-h-[35px] max-w-[176px]",
         selected
           ? "border-[#D6DE23] border"
-          : "border-[#F5F4F1] border-[0.5px]",
+          : "border-primary-contentontentontent border-[0.5px]",
       )}
     >
       <div

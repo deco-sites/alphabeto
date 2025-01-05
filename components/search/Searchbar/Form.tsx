@@ -120,7 +120,7 @@ export default function Searchbar(
       <form
         id={SEARCHBAR_INPUT_FORM_ID}
         action={ACTION}
-        class="join bg-[#f5f4f1] mt-5 rounded-lg"
+        class="join bg-primary-content mt-5 rounded-lg"
       >
         <button
           type="submit"
@@ -155,7 +155,7 @@ export default function Searchbar(
         />
         <label
           type="button"
-          class="join-item btn btn-ghost btn-square sm:inline-flex no-animation text-[#676767] min-h-10 h-10 w-10"
+          class="join-item btn btn-ghost btn-square sm:inline-flex no-animation text-accent min-h-10 h-10 w-10"
           for={SEARCHBAR_POPUP_ID}
           aria-label="Toggle searchbar"
         >

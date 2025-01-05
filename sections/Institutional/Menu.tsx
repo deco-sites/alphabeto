@@ -60,7 +60,7 @@ export default function MenuInstitucional(
                 key={index}
                 class={`flex items-center justify-between w-[197px] p-[10px] ${
                   currentPath === route
-                    ? "bg-[#FDF6ED] text-primary font-bold border-2 border-dashed border-primary"
+                    ? "bg-secondary-content text-primary font-bold border-2 border-dashed border-primary"
                     : ""
                 }`}
               >
@@ -93,7 +93,7 @@ export default function MenuInstitucional(
                 key={index}
                 class={`flex items-center justify-between w-[197px] p-[10px] ${
                   currentPath === route
-                    ? "bg-[#FDF6ED] text-primary font-bold border-2 border-dashed border-primary"
+                    ? "bg-secondary-content text-primary font-bold border-2 border-dashed border-primary"
                     : ""
                 }`}
               >

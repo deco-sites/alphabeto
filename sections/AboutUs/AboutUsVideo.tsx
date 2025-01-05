@@ -55,7 +55,7 @@ export default function AboutUSVideo(props: Props) {
         </iframe>
         <div class="flex flex-col items-center">
           <Icon id="castle" />
-          <h3 class="font-beccaPerry mb-[20px] text-[40px] mobile:text-[28px] text-[#676767] text-center p-2.5">
+          <h3 class="font-beccaPerry mb-[20px] text-[40px] mobile:text-[28px] text-accent text-center p-2.5">
             {title}
           </h3>
           <p

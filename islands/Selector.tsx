@@ -69,7 +69,7 @@ export default function Selector({
         onClick={handleToogle}
         class="border border-primary border-dashed rounded-lg h-10 bg-white flex items-center justify-between px-3 w-full"
       >
-        <span class="text-sm text-[#676767]" id="itemName">
+        <span class="text-sm text-accent" id="itemName">
           {selectedValue?.label ?? placeholder}
         </span>
         <Icon id="chevron-right" class="text-primary min-w-[18px]" size={18} />
@@ -84,11 +84,11 @@ export default function Selector({
         <div class="border-b border-primary border-dashed mt-2">
           {values.map((value) => (
             <button
-              class="h-10 flex items-center hover:bg-[#FDF6ED] px-3 cursor-pointer w-full"
+              class="h-10 flex items-center hover:bg-secondary-content px-3 cursor-pointer w-full"
               type="button"
               onClick={() => handleItemClick(value.value)}
             >
-              <span class="text-sm text-[#676767] text-left">
+              <span class="text-sm text-accent text-left">
                 {value.label}
               </span>
             </button>

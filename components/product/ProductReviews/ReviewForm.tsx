@@ -1,9 +1,9 @@
+import { useScript } from "@deco/deco/hooks";
+import { AppContext } from "site/apps/deco/vtex.ts";
+import { SHOW_REVIEW_BUTTON_ID } from "site/components/product/ProductReviews/index.tsx";
+import Button, { ButtonType } from "site/components/ui/Button.tsx";
 import Input, { TextArea } from "site/components/ui/Input.tsx";
 import StarSelector from "site/islands/StarSelector.tsx";
-import Button, { ButtonType } from "site/components/ui/Button.tsx";
-import { useScript } from "@deco/deco/hooks";
-import { SHOW_REVIEW_BUTTON_ID } from "site/components/product/ProductReviews/index.tsx";
-import { AppContext } from "site/apps/deco/vtex.ts";
 import { useComponent } from "site/sections/Component.tsx";
 
 export const REVIEW_FORM_CONTAINER_ID = "review-form-container";
@@ -94,7 +94,7 @@ export default function ReviewmForm(props: Props) {
           Adicionar avaliação
         </h2>
         <label
-          class="text-[#676767] text-xs leading-[18px] mb-1 mt-[22px] font-bold"
+          class="text-accent text-xs leading-[18px] mb-1 mt-[22px] font-bold"
           for="title"
         >
           Título da Avaliação:
@@ -111,14 +111,14 @@ export default function ReviewmForm(props: Props) {
 
         <label
           for="name"
-          class="text-[#676767] text-xs leading-[18px] mb-1 mt-[22px] font-bold"
+          class="text-accent text-xs leading-[18px] mb-1 mt-[22px] font-bold"
         >
           Seu nome:
         </label>
         <Input type="text" placeholder="Nome" name="name" id="name" required />
 
         <label
-          class="text-[#676767] text-xs leading-[18px] mb-1 mt-[22px] font-bold"
+          class="text-accent text-xs leading-[18px] mb-1 mt-[22px] font-bold"
           name="review"
         >
           Escrever avaliação:

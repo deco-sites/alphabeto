@@ -1,13 +1,13 @@
-import Button from "site/components/ui/Button.tsx";
-import Image from "apps/website/components/Image.tsx";
-import Input, { RadioInput } from "site/components/ui/Input.tsx";
-import Icon from "site/components/ui/Icon.tsx";
-import { sanitizeHTMLCode } from "site/sdk/htmlSanitizer.ts";
-import { useCallback, useEffect } from "preact/hooks";
-import { ImageWidget, RichText } from "apps/admin/widgets.ts";
 import { useSignal } from "@preact/signals";
+import { ImageWidget, RichText } from "apps/admin/widgets.ts";
+import Image from "apps/website/components/Image.tsx";
 import { JSX } from "preact";
+import { useCallback, useEffect } from "preact/hooks";
+import Button from "site/components/ui/Button.tsx";
+import Icon from "site/components/ui/Icon.tsx";
+import Input, { RadioInput } from "site/components/ui/Input.tsx";
 import { invoke } from "site/runtime.ts";
+import { sanitizeHTMLCode } from "site/sdk/htmlSanitizer.ts";
 
 interface Props {
   title: RichText;
@@ -121,7 +121,7 @@ export default function PopupDeEntrada(props: Props) {
               <div class="max-w-[335px] w-[calc(100dvw-_40px)] desk:max-w-[529px] desk:w-full flex flex-col p-5 items-center gap-4 justify-between relative">
                 <div class="flex flex-col desk:grid grid-cols-[256px_223px] w-full items-center justify-between mobile:gap-2.5 ">
                   <h3
-                    class="text-[25px] leading-[30px] desk:text-[32px] desk:leading-[38px] text-center desk:text-left font-medium text-[#676767] font-beccaPerry [&>strong]:text-primary [&>strong]:font-medium mobile:max-w-[201px] mobile:mx-auto"
+                    class="text-[25px] leading-[30px] desk:text-[32px] desk:leading-[38px] text-center desk:text-left font-medium text-accent font-beccaPerry [&>strong]:text-primary [&>strong]:font-medium mobile:max-w-[201px] mobile:mx-auto"
                     dangerouslySetInnerHTML={{
                       __html: sanitizeHTMLCode(
                         props.title,
@@ -168,7 +168,7 @@ export default function PopupDeEntrada(props: Props) {
                     />
                     <div class="flex flex-col desk:flex-row justify-between gap-9">
                       <div>
-                        <span class="text-xs leading-[14.4px] text-[#212121] font-semibold block">
+                        <span class="text-xs leading-[14.4px] text-base-content font-semibold block">
                           Tenho Interresse em:
                         </span>
                         <div class="flex gap-[14px] pt-[14px] mobile:justify-between">
@@ -180,7 +180,7 @@ export default function PopupDeEntrada(props: Props) {
                               required
                             />
                             <label
-                              class="text-xs leading-[14.4px] text-[#676767] font-medium pl-1"
+                              class="text-xs leading-[14.4px] text-accent font-medium pl-1"
                               htmlFor="boysInterest"
                             >
                               Meninos
@@ -194,7 +194,7 @@ export default function PopupDeEntrada(props: Props) {
                               required
                             />
                             <label
-                              class="text-xs leading-[14.4px] text-[#676767] font-medium pl-1"
+                              class="text-xs leading-[14.4px] text-accent font-medium pl-1"
                               htmlFor="girlsInterest"
                             >
                               Meninas
@@ -208,7 +208,7 @@ export default function PopupDeEntrada(props: Props) {
                               required
                             />
                             <label
-                              class="text-xs leading-[14.4px] text-[#676767] font-medium pl-1"
+                              class="text-xs leading-[14.4px] text-accent font-medium pl-1"
                               htmlFor="anyInterest"
                             >
                               Ambos

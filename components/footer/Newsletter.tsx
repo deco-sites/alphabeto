@@ -106,7 +106,7 @@ export default function Newsletter(props: Props) {
             dangerouslySetInnerHTML={{
               __html: sanitizedCode,
             }}
-            class="text-[28px] desk:text-[40px] leading-8 desk:leading-[48px] text-center desk:text-left font-medium text-[#676767] font-beccaPerry [&_strong]:text-primary [&_strong]:font-medium"
+            class="text-[28px] desk:text-[40px] leading-8 desk:leading-[48px] text-center desk:text-left font-medium text-accent font-beccaPerry [&_strong]:text-primary [&_strong]:font-medium"
           />
           {props.description && (
             <p class="text-[13px] leading-[19.5px] desk:font-medium text-[#7E7F88] pt-4 desk:text-base max-w-[371px] text-center desk:text-left">
@@ -147,7 +147,7 @@ export default function Newsletter(props: Props) {
           />
           <div class="flex flex-col desk:flex-row justify-between gap-9">
             <div>
-              <span class="text-xs leading-[14.4px] text-[#676767] font-semibold block">
+              <span class="text-xs leading-[14.4px] text-accent font-semibold block">
                 Tenho Interresse em:
               </span>
               <div class="flex gap-[14px] pt-[14px]">
@@ -159,7 +159,7 @@ export default function Newsletter(props: Props) {
                     required
                   />
                   <label
-                    class="text-xs leading-[14.4px] text-[#676767] font-medium pl-1"
+                    class="text-xs leading-[14.4px] text-accent font-medium pl-1"
                     htmlFor="boysInterest"
                   >
                     Meninos
@@ -173,7 +173,7 @@ export default function Newsletter(props: Props) {
                     required
                   />
                   <label
-                    class="text-xs leading-[14.4px] text-[#676767] font-medium pl-1"
+                    class="text-xs leading-[14.4px] text-accent font-medium pl-1"
                     htmlFor="girlsInterest"
                   >
                     Meninas
@@ -187,7 +187,7 @@ export default function Newsletter(props: Props) {
                     required
                   />
                   <label
-                    class="text-xs leading-[14.4px] text-[#676767] font-medium pl-1"
+                    class="text-xs leading-[14.4px] text-accent font-medium pl-1"
                     htmlFor="anyInterest"
                   >
                     Ambos

@@ -1,15 +1,15 @@
 import { asset } from "$fresh/runtime.ts";
 import { useCallback } from "preact/hooks";
 import { JSX } from "preact/jsx-runtime";
+import ProductSkuSelector from "site/components/product/ProductBuyTogether/ProductSkuSelector.tsx";
+import ProductRating from "site/components/product/ProductRating.tsx";
 import Icon from "site/components/ui/Icon.tsx";
+import VTEXImageTag from "site/components/VTEXImageTag.tsx";
 import { BuyTogetherNewProductsResponse } from "site/loaders/BuyTogether/types.ts";
 import { invoke } from "site/runtime.ts";
 import { clx } from "site/sdk/clx.ts";
 import { formatPrice } from "site/sdk/format.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
-import ProductSkuSelector from "site/components/product/ProductBuyTogether/ProductSkuSelector.tsx";
-import ProductRating from "site/components/product/ProductRating.tsx";
-import VTEXImageTag from "site/components/VTEXImageTag.tsx";
 
 export default function ProductCard(props: ProductCardProps) {
   const { isVariantOf, name, aggregateRating } = props.signal.value.product;
@@ -86,7 +86,7 @@ export default function ProductCard(props: ProductCardProps) {
           : null}
         {props.mode === "principal"
           ? (
-            <p class="absolute w-[calc(100%_-_32px)] mx-4 bottom-3.5 text-sm flex gap-2.5 items-center justify-center font-bold text-[#2C2C2C] bg-[#70D1E8] py-2.5 rounded-lg">
+            <p class="absolute w-[calc(100%_-_32px)] mx-4 bottom-3.5 text-sm flex gap-2.5 items-center justify-center font-bold text-base-300 bg-[#70D1E8] py-2.5 rounded-lg">
               <Icon id="eye" class="min-w-5" size={20} />
               Você está vendo este produto
             </p>
@@ -97,7 +97,7 @@ export default function ProductCard(props: ProductCardProps) {
             <div class="absolute top-2.5 right-2.5 desk:top-3.5 desk:right-3.5 flex flex-col gap-2.5 desk:gap-3.5">
               <button
                 onClick={refresh}
-                class="h-[30px] w-[30px] desk:h-10 desk:w-10 flex items-center justify-center bg-white rounded-full hover:bg-[#FDF6ED] text-[#FF859A] shadow-[0px_2px_10px_rgba(59,59,59,0.1)]"
+                class="h-[30px] w-[30px] desk:h-10 desk:w-10 flex items-center justify-center bg-white rounded-full hover:bg-secondary-content text-[#FF859A] shadow-[0px_2px_10px_rgba(59,59,59,0.1)]"
               >
                 <div class="hidden [.htmx-request_&]:flex items-center justify-center h-[600px]">
                   <span class="loading loading-spinner"></span>
@@ -123,7 +123,7 @@ export default function ProductCard(props: ProductCardProps) {
                   };
                 }}
                 class={clx(
-                  "h-[30px] w-[30px] desk:h-10 desk:w-10 flex items-center justify-center bg-white rounded-full hover:bg-[#FDF6ED] text-[#FF859A] shadow-[0px_2px_10px_rgba(59,59,59,0.1)] transition-all",
+                  "h-[30px] w-[30px] desk:h-10 desk:w-10 flex items-center justify-center bg-white rounded-full hover:bg-secondary-content text-[#FF859A] shadow-[0px_2px_10px_rgba(59,59,59,0.1)] transition-all",
                   props.signal.value.enabled ? "" : "rotate-45",
                 )}
               >
@@ -152,7 +152,7 @@ export default function ProductCard(props: ProductCardProps) {
         class="gap-1 mt-2.5"
       />
       <p
-        class="text-[#676767] font-bold text-xs mobile:leading-[18px] desk:text-sm mt-1 desk:mt-2.5 min-h-[42px] max-h-[42px] overflow-hidden"
+        class="text-accent font-bold text-xs mobile:leading-[18px] desk:text-sm mt-1 desk:mt-2.5 min-h-[42px] max-h-[42px] overflow-hidden"
         style={{
           display: "-webkit-box",
           "--webkit-line-clamp": 2,
@@ -181,7 +181,7 @@ export default function ProductCard(props: ProductCardProps) {
         </div>
         <p
           class={clx(
-            "text-[#676767] text-xs leading-[18px] font-medium mt-1 mobile:h-9",
+            "text-accent text-xs leading-[18px] font-medium mt-1 mobile:h-9",
             installments ? "" : "hidden",
           )}
           id="installments"

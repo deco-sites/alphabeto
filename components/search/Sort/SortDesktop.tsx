@@ -6,7 +6,7 @@ function SortDesktop(props: Props) {
   const { options } = useSortData(props);
   return (
     <div class="py-5 px-[17.5px] border border-secondary rounded bg-white">
-      <p class="text-sm text-[#676767] font-bold">Ordernar por</p>
+      <p class="text-sm text-accent font-bold">Ordernar por</p>
       <div class="grid grid-cols-3 gap-x-2.5 gap-y-5 mt-5">
         {options.map(({ value, textLabel, icon, isCurrent }) => (
           <a
@@ -18,7 +18,7 @@ function SortDesktop(props: Props) {
                 "rounded-full border w-10 h-10 flex items-center justify-center",
                 isCurrent
                   ? "bg-[#D6DE2333] text-primary border-[#D6DE23]"
-                  : "text-[#676767] border-[#676767]",
+                  : "text-accent border-accent",
               )}
             >
               <Icon id={icon} size={20} />
@@ -26,7 +26,7 @@ function SortDesktop(props: Props) {
             <span
               class={clx(
                 "text-xs leading-[18px] font-bold",
-                isCurrent ? "text-[#D6DE23]" : "text-[#676767]",
+                isCurrent ? "text-[#D6DE23]" : "text-accent",
               )}
             >
               {textLabel}

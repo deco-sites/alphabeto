@@ -44,7 +44,7 @@ export default function ProductShare(props: Props) {
 
   return (
     <div class="flex gap-4 items-center mt-[30px]">
-      <span class="text-sm text-[#676767] font-bold">Compartilhe:</span>
+      <span class="text-sm text-accent font-bold">Compartilhe:</span>
       <div class="flex gap-4">
         {socialNetworks.map((network) => (
           <a

@@ -213,7 +213,7 @@ export default function GeolocationOffers(props: Props) {
             >
               <Icon id="close" size={20} />
             </label>
-            <h3 class="text-[#676767] text-[25px] leading-[30px] font-beccaPerry text-center mb-[10px]">
+            <h3 class="text-accent text-[25px] leading-[30px] font-beccaPerry text-center mb-[10px]">
               Quer <span class="text-primary">ofertas?</span>
             </h3>
             <p class="text-[#7e7f88] text-xs leading-[18px] text-center w-[295px]">
@@ -234,7 +234,7 @@ export default function GeolocationOffers(props: Props) {
             >
               <label
                 for={ids.GEOLOCATION_CEP_INPUT_ID}
-                class="text-[#676767] text-xs leading-[18px] mb-1 font-bold"
+                class="text-accent text-xs leading-[18px] mb-1 font-bold"
               >
                 CEP
               </label>

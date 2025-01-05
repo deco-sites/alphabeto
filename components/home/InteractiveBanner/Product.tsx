@@ -1,11 +1,11 @@
-import { Product } from "apps/commerce/types.ts";
 import { useDevice } from "@deco/deco/hooks";
+import { Product } from "apps/commerce/types.ts";
+import Icon from "site/components/ui/Icon.tsx";
+import VTEXImageTag from "site/components/VTEXImageTag.tsx";
+import { clx } from "site/sdk/clx.ts";
+import { formatPrice } from "site/sdk/format.ts";
 import { relative } from "site/sdk/url.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
-import { formatPrice } from "site/sdk/format.ts";
-import Icon from "site/components/ui/Icon.tsx";
-import { clx } from "site/sdk/clx.ts";
-import VTEXImageTag from "site/components/VTEXImageTag.tsx";
 
 export interface InteractiveBannerProductProps {
   /**@title Name for CMS */
@@ -115,7 +115,7 @@ export default function InteractiveBannerProduct({
               )
               : null}
             <div class="flex flex-col">
-              <p class="text-[#676767] text-xs leading-[18px] font-bold">
+              <p class="text-accent text-xs leading-[18px] font-bold">
                 {title}
               </p>
               <div class="flex items-center mt-2.5 desk:mt-3">

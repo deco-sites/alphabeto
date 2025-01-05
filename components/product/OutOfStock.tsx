@@ -1,10 +1,10 @@
-import type { Product } from "apps/commerce/types.ts";
-import { useComponent } from "site/sections/Component.tsx";
-import Input from "site/components/ui/Input.tsx";
-import Button, { ButtonType } from "site/components/ui/Button.tsx";
 import { useScript } from "@deco/deco/hooks";
+import type { Product } from "apps/commerce/types.ts";
 import { AppContext } from "site/apps/deco/vtex.ts";
+import Button, { ButtonType } from "site/components/ui/Button.tsx";
+import Input from "site/components/ui/Input.tsx";
 import { clx } from "site/sdk/clx.ts";
+import { useComponent } from "site/sections/Component.tsx";
 
 export interface Props {
   productID: Product["productID"];
@@ -49,7 +49,7 @@ export default function Notify(
   return (
     <form
       class={clx(
-        "form-control justify-start gap-2.5  p-5 border border-[#F5F4F1] rounded-lg",
+        "form-control justify-start gap-2.5  p-5 border border-primary-content rounded-lg",
         mode === "default" ? "mobile:max-w-[335px] mobile:mx-auto" : "w-full",
       )}
       hx-sync="this:replace"
@@ -57,7 +57,7 @@ export default function Notify(
       hx-indicator="this"
       hx-post={useComponent<Props>(import.meta.url, { productID, mode })}
     >
-      <span class="bg-secondary-content text-[#676767] text-lg leading-5 py-1 px-5 font-beccaPerry mobile:text-center">
+      <span class="bg-secondary-content text-accent text-lg leading-5 py-1 px-5 font-beccaPerry mobile:text-center">
         Este produto está indisponivel!
       </span>
       <span class="text-[#7E7F88] text-xs leading-[18px] max-w-[388px] mx-auto mb-2.5 text-center">
@@ -82,7 +82,7 @@ export default function Notify(
                 behavior: "smooth",
               });
             })}
-            class="text-xs leading-5 text-[#676767] text-center font-bold"
+            class="text-xs leading-5 text-accent text-center font-bold"
           >
             veja produtos semelhantes
           </button>

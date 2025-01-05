@@ -57,7 +57,7 @@ export default function RenderFilterItem(props: RenderFilterItemProps) {
         class="flex justify-between"
         hx-on:click={useScript(handleToogle, id)}
       >
-        <span class="text-xs leading-[18px] text-[#676767] font-bold">
+        <span class="text-xs leading-[18px] text-accent font-bold">
           {props.filter.label}
         </span>
         <Icon id={icon} size={18} class="text-[#D6DE23]" />

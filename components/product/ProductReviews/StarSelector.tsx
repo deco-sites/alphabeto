@@ -1,6 +1,6 @@
-import { clx } from "site/sdk/clx.ts";
-import Icon from "site/components/ui/Icon.tsx";
 import { useSignal } from "@preact/signals";
+import Icon from "site/components/ui/Icon.tsx";
+import { clx } from "site/sdk/clx.ts";
 
 interface Props {
   maxStars: number;
@@ -16,7 +16,7 @@ export default function StarSelector({ maxStars, minStars }: Props) {
     <div>
       <label
         for="stars"
-        class="text-[#676767] text-xs leading-[18px] mb-1 mt-[22px] font-bold block"
+        class="text-accent text-xs leading-[18px] mb-1 mt-[22px] font-bold block"
       >
         Avalie o produto de {minStars} à {maxStars} estrelas:
       </label>

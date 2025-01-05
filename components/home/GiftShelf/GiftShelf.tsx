@@ -1,12 +1,12 @@
 import { ImageWidget } from "apps/admin/widgets.ts";
-import ProductSlider from "site/components/home/GiftShelf/ProductSlider.tsx";
-import { useId } from "site/sdk/useId.ts";
-import { Picture, Source } from "apps/website/components/Picture.tsx";
-import { ProductSliderProps } from "site/components/product/ProductSlider.tsx";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
+import { Picture, Source } from "apps/website/components/Picture.tsx";
+import { AppContext } from "site/apps/site.ts";
+import ProductSlider from "site/components/home/GiftShelf/ProductSlider.tsx";
+import { ProductSliderProps } from "site/components/product/ProductSlider.tsx";
+import { useId } from "site/sdk/useId.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
-import { AppContext } from "site/apps/site.ts";
 
 interface GiftShelfProps {
   title: string;
@@ -62,10 +62,10 @@ export default function GiftShelf({
       {...viewItemListEvent}
     >
       <span class="flex flex-col gap-4">
-        <h2 class="font-beccaPerry text-[28px] leading-8 tablet-large:text-[40px] tablet-large:leading-[48px] font-medium text-[#676767]">
+        <h2 class="font-beccaPerry text-[28px] leading-8 tablet-large:text-[40px] tablet-large:leading-[48px] font-medium text-accent">
           {title}
         </h2>
-        <p class="text-[#676767] text-base leading-5 tablet-large:leading-6 font-medium max-w-[224px] tablet-large:max-w-full">
+        <p class="text-accent text-base leading-5 tablet-large:leading-6 font-medium max-w-[224px] tablet-large:max-w-full">
           {description}
         </p>
       </span>

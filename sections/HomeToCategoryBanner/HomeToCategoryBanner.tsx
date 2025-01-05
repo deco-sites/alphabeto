@@ -1,8 +1,8 @@
-import { Color, ImageWidget } from "apps/admin/widgets.ts";
 import { useDevice } from "@deco/deco/hooks";
+import { Color, ImageWidget } from "apps/admin/widgets.ts";
 import { Picture, Source } from "apps/website/components/Picture.tsx";
-import { clx } from "site/sdk/clx.ts";
 import Section from "site/components/ui/Section.tsx";
+import { clx } from "site/sdk/clx.ts";
 
 interface HomeToCategoryBannerItem {
   /**@title Label for CMS */
@@ -33,7 +33,7 @@ export default function HomeToCategoryBanner(
 ) {
   return (
     <div class="desk:mt-[100px] mt-[80px] w-full container">
-      <h2 class="font-beccaPerry desk:text-[40px] desk:leading-[48px] text-[28px] leading-[33px] font-medium text-[#676767] text-center mb-10">
+      <h2 class="font-beccaPerry desk:text-[40px] desk:leading-[48px] text-[28px] leading-[33px] font-medium text-accent text-center mb-10">
         {title}
       </h2>
       <div class="grid grid-cols-1 desk:grid-cols-3 gap-4">

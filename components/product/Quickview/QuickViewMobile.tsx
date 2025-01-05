@@ -1,20 +1,20 @@
 import { useScript } from "@deco/deco/hooks";
-import { useOffer } from "site/sdk/useOffer.ts";
-import AddToCartButton from "site/components/product/Quickview/AddToCartButton.tsx";
-import { clx } from "site/sdk/clx.ts";
-import Button from "site/components/ui/Button.tsx";
+import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
+import OutOfStock from "site/components/product/OutOfStock.tsx";
 import ProductAgeRangeIndicator from "site/components/product/ProductAgeRangeIndicator.tsx";
-import QuikviewHeader from "site/components/product/Quickview/Header.tsx";
 import ProductRating from "site/components/product/ProductRating.tsx";
-import { formatPrice } from "site/sdk/format.ts";
+import AddToCartButton from "site/components/product/Quickview/AddToCartButton.tsx";
+import QuikviewHeader from "site/components/product/Quickview/Header.tsx";
 import ProductCashback from "site/components/product/Quickview/ProductCashback.tsx";
 import ProductDescription from "site/components/product/Quickview/ProductDescription.tsx";
 import VariantSelector from "site/components/product/Quickview/ProductVariantSelector.tsx";
-import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import OutOfStock from "site/components/product/OutOfStock.tsx";
-import { relative } from "site/sdk/url.ts";
 import { QuickViewProps } from "site/components/product/Quickview/QuickView.tsx";
+import Button from "site/components/ui/Button.tsx";
 import VTEXImageTag from "site/components/VTEXImageTag.tsx";
+import { clx } from "site/sdk/clx.ts";
+import { formatPrice } from "site/sdk/format.ts";
+import { relative } from "site/sdk/url.ts";
+import { useOffer } from "site/sdk/useOffer.ts";
 
 const script = (id: string) => {
   const card = document.getElementById(id);
@@ -97,7 +97,7 @@ function QuickViewMobile({ product, settings, cardId }: QuickViewProps) {
         <div
           id="quickviewBackdrop"
           class={clx(
-            "fixed top-0 left-0	z-50 h-screen w-screen bg-[#212121] bg-opacity-80 transition-all",
+            "fixed top-0 left-0	z-50 h-screen w-screen bg-base-content bg-opacity-80 transition-all",
             isOpen ? "block opacity-100" : "hidden opacity-0",
           )}
         />
@@ -125,7 +125,7 @@ function QuickViewMobile({ product, settings, cardId }: QuickViewProps) {
                     class="!text-xs !leading-[18px]"
                   />
                   {/* Product Name */}
-                  <p class="text-[14px] font-bold leading-4 text-[#676767] mt-2.5">
+                  <p class="text-[14px] font-bold leading-4 text-accent mt-2.5">
                     {productName}
                   </p>
                   {/* Product Rating */}
@@ -137,7 +137,7 @@ function QuickViewMobile({ product, settings, cardId }: QuickViewProps) {
                       class="gap-1"
                     />
                     {/* Reference Code */}
-                    <p class="text-[#676767] text-xs leading-[14px] font-medium">
+                    <p class="text-accent text-xs leading-[14px] font-medium">
                       REF: {referenceCode}
                     </p>
                   </div>
@@ -164,7 +164,7 @@ function QuickViewMobile({ product, settings, cardId }: QuickViewProps) {
                     </div>
                     {/** Installments */}
                     {installments && (
-                      <p class="text-[#676767] font-medium text-xs mt-1 leading-[18px]">
+                      <p class="text-accent font-medium text-xs mt-1 leading-[18px]">
                         Em até {installments}
                       </p>
                     )}

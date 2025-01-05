@@ -29,7 +29,7 @@ export function SearchDesktop({ searchbar, loading }: SearchProps) {
         class="w-[243px] desk-small:w-[150px] bg-primary-content h-10 cursor-pointer rounded-lg flex items-center px-2 justify-between gap-2"
         aria-label="search icon button"
       >
-        <span class="text-base-400 truncate text-xs">
+        <span class="text-[#353535] truncate text-xs">
           {searchbar.placeholder}
         </span>
         <IconSearch />

@@ -34,10 +34,10 @@ export default function TabLayout(
     <div class="flex flex-col gap-10 container">
       <div class="flex justify-between mobile:flex-col">
         <span class="flex flex-col gap-4">
-          <h2 class="font-beccaPerry mobile:text-[32px] mobile:leading-[38px] text-[44px] leading-[53px] font-medium text-[#676767]">
+          <h2 class="font-beccaPerry mobile:text-[32px] mobile:leading-[38px] text-[44px] leading-[53px] font-medium text-accent">
             {title}
           </h2>
-          <p class="text-[#676767] text-base mobile:text-[13px] mobile:leading-[18px] font-medium">
+          <p class="text-accent text-base mobile:text-[13px] mobile:leading-[18px] font-medium">
             {description}
           </p>
         </span>
@@ -56,7 +56,7 @@ export default function TabLayout(
                 "desk:min-w-[159px] h-11 desk:rounded-lg flex items-center justify-center mobile:w-full text-xl desk:leading-6 mobile:text-sm font-bold",
                 activeTab === index
                   ? "bg-[var(--bgColor)] text-white"
-                  : "bg-[#F7F7F7] border-[#EFEFEF] desk:border text-[#676767] hover:bg-secondary hover:border-secondary",
+                  : "bg-[#F7F7F7] border-[#EFEFEF] desk:border text-accent hover:bg-secondary hover:border-secondary",
                 index === 0
                   ? "mobile:rounded-l-lg"
                   : index === tabs.length - 1

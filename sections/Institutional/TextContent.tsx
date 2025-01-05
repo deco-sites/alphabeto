@@ -24,7 +24,7 @@ export default function TextContent(
       {items.map((content, index) => (
         <div key={index} class="mb-[40px]">
           <section class="flex flex-col mb-[20px]">
-            <p class="font-[beccaPerry] text-[44px] mobile:text-[32px] font-medium text-[#676767] mb-[20px]">
+            <p class="font-[beccaPerry] text-[44px] mobile:text-[32px] font-medium text-accent mb-[20px]">
               {content.title}
             </p>
             <p

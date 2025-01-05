@@ -1,8 +1,8 @@
 import { RichText } from "apps/admin/widgets.ts";
+import Button from "site/components/ui/Button.tsx";
+import Input, { TextArea } from "site/components/ui/Input.tsx";
 import { COMMON_HTML_TAGS_TO_ALLOW } from "site/constants.ts";
 import { sanitizeHTMLCode } from "site/sdk/htmlSanitizer.ts";
-import Input, { TextArea } from "site/components/ui/Input.tsx";
-import Button from "site/components/ui/Button.tsx";
 
 /** @titleBy name	*/
 interface Item {
@@ -23,7 +23,7 @@ interface Props {
 export default function ContactUs(props: Props) {
   return (
     <div class="max-w-[667px] w-[calc(100dvw_-_40px)]">
-      <h1 class="font-beccaPerry text-[32px] leading-[38px] desk:text-[44px] desk:leading-[52px] text-[#676767] mb-5">
+      <h1 class="font-beccaPerry text-[32px] leading-[38px] desk:text-[44px] desk:leading-[52px] text-accent mb-5">
         {props.title}
       </h1>
       <p
@@ -41,7 +41,7 @@ export default function ContactUs(props: Props) {
           <div class="flex flex-col gap-1">
             <label
               for="name"
-              class="text-[12px] leading-[18px] text-[#676767] font-bold"
+              class="text-[12px] leading-[18px] text-accent font-bold"
             >
               Nome completo*
             </label>
@@ -56,7 +56,7 @@ export default function ContactUs(props: Props) {
           <div class="flex flex-col gap-1">
             <label
               for="phone"
-              class="text-[12px] leading-[18px] text-[#676767] font-bold"
+              class="text-[12px] leading-[18px] text-accent font-bold"
             >
               Celular*
             </label>
@@ -72,7 +72,7 @@ export default function ContactUs(props: Props) {
         <div class="flex flex-col gap-1">
           <label
             for="message"
-            class="text-[12px] leading-[18px] text-[#676767] font-bold"
+            class="text-[12px] leading-[18px] text-accent font-bold"
           >
             Mensagem*
           </label>
@@ -83,7 +83,7 @@ export default function ContactUs(props: Props) {
         </Button>
       </form>
       <div class="mt-20">
-        <h2 class="text-[40px] leading-[48px] font-beccaPerry font-medium text-[#676767]">
+        <h2 class="text-[40px] leading-[48px] font-beccaPerry font-medium text-accent">
           {props.contact.title}
         </h2>
         <p

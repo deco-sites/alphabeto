@@ -25,7 +25,7 @@ export default function Seller(props: Props) {
   return (
     <div class="flex justify-between items-center flex-col mt-5">
       <div class="flex justify-between w-full items-center ">
-        <span class="text-xs leading-[18px] font-bold text-[#676767]">
+        <span class="text-xs leading-[18px] font-bold text-accent">
           Código vendedor (a)
         </span>
         <button

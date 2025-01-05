@@ -1,5 +1,6 @@
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
+import { ColorItem } from "site/apps/site.ts";
 import AddToCartButton from "site/components/product/AddToCartButton.tsx";
 import OutOfStock from "site/components/product/OutOfStock.tsx";
 import ProductAgeRangeIndicator from "site/components/product/ProductAgeRangeIndicator.tsx";
@@ -9,17 +10,16 @@ import ProductRating from "site/components/product/ProductRating.tsx";
 import ProductShare from "site/components/product/ProductShare.tsx";
 import ProductSizebay from "site/components/product/ProductSizebay.tsx";
 import ProductSmallDescription from "site/components/product/ProductSmallDescription.tsx";
-import ProductTextInfoDiscloujure from "site/islands/ProductTextInfoDiscloujure.tsx";
 import ProductSelector from "site/components/product/ProductVariantSelectorPDP.tsx";
 import ShippingSimulationForm from "site/components/shipping/Form.tsx";
 import WishlistButton from "site/components/wishlist/WishlistButton.tsx";
+import ProductTextInfoDiscloujure from "site/islands/ProductTextInfoDiscloujure.tsx";
 import { SizeBaySettings } from "site/loaders/sizebay.ts";
 import { formatPrice } from "site/sdk/format.ts";
 import { useId } from "site/sdk/useId.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
 import { PDPSettings } from "site/sections/Product/ProductDetails.tsx";
-import { ColorItem } from "site/apps/site.ts";
 interface Props {
   page: ProductDetailsPage | null;
   settings: PDPSettings;
@@ -99,7 +99,7 @@ function ProductInfo({ page, sizebaySettings, siteSettings }: Props) {
         <WishlistButton mode="pdp" item={item} />
       </div>
       {/* Product Name */}
-      <span class="text-[#676767] text-[22px] mobile:leading-[26px] desk:text-3xl font-bold">
+      <span class="text-accent text-[22px] mobile:leading-[26px] desk:text-3xl font-bold">
         {title}
       </span>
 
@@ -111,7 +111,7 @@ function ProductInfo({ page, sizebaySettings, siteSettings }: Props) {
           class="gap-1"
         />
         {/** Reference Code */}
-        <span class="text-xs leading-[18px] desk:leading-[14px] text-[#676767]">
+        <span class="text-xs leading-[18px] desk:leading-[14px] text-accent">
           REF: {referenceCode}
         </span>
       </div>
@@ -136,7 +136,7 @@ function ProductInfo({ page, sizebaySettings, siteSettings }: Props) {
           </div>
           {/* Installments */}
           {installments && (
-            <span class="text-xs leading-[18px] desk:leading-[14px] text-[#676767] font-bold mt-[5px] block">
+            <span class="text-xs leading-[18px] desk:leading-[14px] text-accent font-bold mt-[5px] block">
               Em até {installments}
             </span>
           )}

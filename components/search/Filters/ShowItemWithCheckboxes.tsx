@@ -89,7 +89,7 @@ export function RenderSearchInput() {
     <div class="flex items-center rounded-lg w-full gap-2 p-2.5 mt-4 desk:mt-5 bg-[#F6F6F6]">
       <input
         type="text"
-        class="w-full h-5 text-xs leading-[18px] text-[#676767] bg-transparent focus:outline-none"
+        class="w-full h-5 text-xs leading-[18px] text-accent bg-transparent focus:outline-none"
         placeholder="O que você está buscando?"
         hx-on:input={useScript(handleKeyInputSearch)}
       />

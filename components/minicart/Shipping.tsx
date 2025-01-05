@@ -33,7 +33,7 @@ export default function Shipping({ cep, openShipping, shippingValue }: Props) {
   return (
     <div class="flex justify-between items-center flex-col mt-5">
       <div class="flex justify-between w-full items-center ">
-        <span class="text-xs leading-[18px] font-bold text-[#676767]">
+        <span class="text-xs leading-[18px] font-bold text-accent">
           CEP de Entrega
         </span>
         <button
@@ -68,8 +68,8 @@ export default function Shipping({ cep, openShipping, shippingValue }: Props) {
             )}
           >
             <div class="flex justify-between w-full pt-5">
-              <span class="text-sm font-bold text-[#676767]">Frete:</span>
-              <div class="flex flex-col items-end text-[#676767]">
+              <span class="text-sm font-bold text-accent">Frete:</span>
+              <div class="flex flex-col items-end text-accent">
                 <span class="text-sm">
                   {cep}{" "}
                   <span class="font-bold">

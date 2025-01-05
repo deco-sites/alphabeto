@@ -1,9 +1,9 @@
 import { ImageWidget, RichText } from "apps/admin/widgets.ts";
 import Image from "apps/website/components/Image.tsx";
-import { sanitizeHTMLCode } from "site/sdk/htmlSanitizer.ts";
-import Icon from "site/components/ui/Icon.tsx";
 import { Picture, Source } from "apps/website/components/Picture.tsx";
+import Icon from "site/components/ui/Icon.tsx";
 import { clx } from "site/sdk/clx.ts";
+import { sanitizeHTMLCode } from "site/sdk/htmlSanitizer.ts";
 
 interface Props {
   /*+
@@ -71,7 +71,7 @@ export default function AboutUsIntroduction(props: Props) {
           width={920}
           height={170}
         />
-        <h2 class="font-beccaPerry absolute mobile:top-[32px] top-[77px] text-[44px] leading-[120%] mobile:text-[32px] text-[#676767]">
+        <h2 class="font-beccaPerry absolute mobile:top-[32px] top-[77px] text-[44px] leading-[120%] mobile:text-[32px] text-accent">
           {title}
         </h2>
       </div>

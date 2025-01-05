@@ -1,6 +1,6 @@
 // deno-lint-ignore-file
-import { Secret } from "apps/website/loaders/secret.ts";
 import { type RichText } from "apps/admin/widgets.ts";
+import { Secret } from "apps/website/loaders/secret.ts";
 
 import Map from "site/islands/Map.tsx";
 import FormsNossasLojas from "site/islands/formsNossasLojas.tsx";
@@ -72,7 +72,7 @@ export default function NossasLojas(
       <section class="w-[100%] pr-[43px] mobile:pr-0">
         {items.map((content, index) => (
           <div key={index}>
-            <h2 class="font-[beccaPerry] text-[44px] mobile:text-[32px] text-left font-medium text-[#676767] mb-[13px]">
+            <h2 class="font-[beccaPerry] text-[44px] mobile:text-[32px] text-left font-medium text-accent mb-[13px]">
               {content.title}
             </h2>
             <p

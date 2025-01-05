@@ -20,7 +20,7 @@ interface Props {
 }
 
 const TITLE_STYLES =
-  "desk:[&>h2]:text-[32px] desk:[&>h2]:leading-[38px] [&>h2]:text-[25px] [&>h2]:leading-[30px] [&>h2]:font-medium [&>h2]:text-[#676767] [&>h2]:font-beccaPerry [&>h2]:mb-6";
+  "desk:[&>h2]:text-[32px] desk:[&>h2]:leading-[38px] [&>h2]:text-[25px] [&>h2]:leading-[30px] [&>h2]:font-medium [&>h2]:text-accent [&>h2]:font-beccaPerry [&>h2]:mb-6";
 const PARAGRAPH_STYLES =
   "[&>p]:text-xs [&>p]:leading-[18px] [&>p]:text-[#7E7F88] [&>p:not(:last-child)]:mb-[60px]";
 

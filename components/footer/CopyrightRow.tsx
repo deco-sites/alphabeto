@@ -12,9 +12,9 @@ export default function CopyrightRow(props: Props) {
     new Date().getFullYear().toString(),
   );
   return (
-    <div class="bg-[#F6F6F6] desk:bg-[#F5F4F1] ">
+    <div class="bg-[#F6F6F6] desk:bg-primary-content ">
       <div class="container flex justify-between desktop:gap-7 items-center mobile:flex-col-reverse py-[14px] desk:py-4">
-        <p class="text-[#676767] text-[12px] leading-[18px] mobile:text-center">
+        <p class="text-accent text-[12px] leading-[18px] mobile:text-center">
           {copyText}
         </p>
         <div class="flex gap-3 desk:hidden pt-[46px] pb-4">

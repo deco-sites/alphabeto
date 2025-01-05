@@ -13,7 +13,7 @@ export default function SelectedFilters(props: SelectedFiltersProps) {
 
   return (
     <li class="hidden desk:flex flex-col py-5 px-[17.5px] border border-secondary rounded bg-white">
-      <span class="text-sm text-[#676767] font-bold">
+      <span class="text-sm text-accent font-bold">
         Filtrado por:
       </span>
       <ul class="flex flex-wrap gap-2.5 mt-2.5">
@@ -21,7 +21,7 @@ export default function SelectedFilters(props: SelectedFiltersProps) {
           <li>
             <a
               href={value.url}
-              class="text-xs leading-[14.4px] text-[#676767] bg-secondary px-2.5 py-1.5 flex items-center gap-1.5 rounded"
+              class="text-xs leading-[14.4px] text-accent bg-secondary px-2.5 py-1.5 flex items-center gap-1.5 rounded"
             >
               {value.label}
               <Icon

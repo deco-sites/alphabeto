@@ -61,7 +61,7 @@ function Breadcrumb({ itemListElement = [], breadcrumbOverride }: Props) {
   }
 
   return (
-    <div class="breadcrumbs py-0 text-xs font-normal text-base-400">
+    <div class="breadcrumbs py-0 text-xs font-normal text-[#353535]">
       <ul>
         {items
           .filter(({ name, item }) => name && item)

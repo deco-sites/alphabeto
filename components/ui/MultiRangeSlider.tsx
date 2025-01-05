@@ -193,7 +193,7 @@ export default function MultiRangeSlider(props: MultiRangeSliderProps) {
             step={step}
           />
         </div>
-        <div class="flex justify-between text-[#676767] text-xs leading-[18px] my-4">
+        <div class="flex justify-between text-accent text-xs leading-[18px] my-4">
           <span>{formatBRL(parseFloat(min))}</span>
           <span>{formatBRL(parseFloat(max))}</span>
         </div>
@@ -201,13 +201,13 @@ export default function MultiRangeSlider(props: MultiRangeSliderProps) {
           <div class="flex flex-col">
             <label
               for="min"
-              class="text-[#676767] text-xs leading-[18px] font-bold mb-0.5"
+              class="text-accent text-xs leading-[18px] font-bold mb-0.5"
             >
               Mínimo
             </label>
             <input
               id="min"
-              class="bg-[#F5F4F1] rounded w-full outline-none text-[#676767] text-xs leading-[18px] h-9 flex items-center pl-3 before:content-['R$']"
+              class="bg-primary-content rounded w-full outline-none text-accent text-xs leading-[18px] h-9 flex items-center pl-3 before:content-['R$']"
               name="min"
               value={formatBRL(parseFloat(minVal))}
             />
@@ -215,13 +215,13 @@ export default function MultiRangeSlider(props: MultiRangeSliderProps) {
           <div class="flex flex-col items-end">
             <label
               for="max"
-              class="text-[#676767] text-xs leading-[18px] font-bold mb-0.5"
+              class="text-accent text-xs leading-[18px] font-bold mb-0.5"
             >
               Máximo
             </label>
             <input
               id="max"
-              class="bg-[#F5F4F1] rounded outline-none w-full text-[#676767] text-xs leading-[18px] h-9 flex items-center pl-3 before:content-['R$']"
+              class="bg-primary-contentontentontent rounded outline-none w-full text-accent text-xs leading-[18px] h-9 flex items-center pl-3 before:content-['R$']"
               name="max"
               value={formatBRL(parseFloat(maxVal))}
             />

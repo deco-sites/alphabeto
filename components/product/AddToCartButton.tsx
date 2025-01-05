@@ -121,7 +121,7 @@ function AddToCartButton(props: Props) {
         value="1"
         max="100"
         small={false}
-        class="!text-[#212121]"
+        class="!text-base-content"
         id={inputQtdId}
       />
       <Button

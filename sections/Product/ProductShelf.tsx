@@ -1,11 +1,11 @@
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
+import { AppContext } from "site/apps/site.ts";
 import ProductSlider, {
   ProductSliderProps,
 } from "site/components/product/ProductSlider.tsx";
+import Section from "site/components/ui/Section.tsx";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
-import Section from "site/components/ui/Section.tsx";
-import { AppContext } from "site/apps/site.ts";
 
 export interface Props extends Omit<ProductSliderProps, "settings"> {
   title?: string;
@@ -46,7 +46,7 @@ export default function ProductShelf(
   return (
     <Section.Container {...viewItemListEvent} class="!gap-10">
       {props.title && (
-        <h2 class="font-beccaPerry mobile:text-[28px] mobile:leading-[33px] text-[40px] leading-[48px] font-medium text-[#676767]">
+        <h2 class="font-beccaPerry mobile:text-[28px] mobile:leading-[33px] text-[40px] leading-[48px] font-medium text-accent">
           {props.title}
         </h2>
       )}

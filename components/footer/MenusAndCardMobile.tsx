@@ -82,7 +82,7 @@ function Menu(props: ExtendedMenuProps) {
         style={{ height: 0 }}
       >
         {props.itens.map((item) => (
-          <li class="text-[#676767] hover:text-primary first:mt-1 last:mb-4">
+          <li class="text-accent hover:text-primary first:mt-1 last:mb-4">
             <a href={item.href} target={item.openInNewTab ? "_blank" : "_self"}>
               {item.title}
             </a>

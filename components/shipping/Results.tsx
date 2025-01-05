@@ -57,7 +57,7 @@ export default function Results({ result }: ComponentProps<typeof action>) {
   }
 
   return (
-    <ul class="flex flex-col gap-4 p-4 border border-base-400 rounded mt-2.5">
+    <ul class="flex flex-col gap-4 p-4 border border-[#353535] rounded mt-2.5">
       {methods.map((method) => (
         <li class="text-sm grid grid-cols-[200px_1fr_100px] items-center">
           <span class="">

@@ -63,7 +63,7 @@ export const typeClasses: Record<ButtonType, {
 };
 
 const disabledClasses =
-  "disabled:bg-[#C5C5C5] disabled:border-[#C5C5C5] disabled:text-[#676767] [&[disabled]]:bg-[#C5C5C5] [&[disabled]]:border-[#C5C5C5] [&[disabled]]:text-[#676767]";
+  "disabled:bg-[#C5C5C5] disabled:border-[#C5C5C5] disabled:text-accent [&[disabled]]:bg-[#C5C5C5] [&[disabled]]:border-[#C5C5C5] [&[disabled]]:text-accent";
 
 function makeFinalProps<T extends ButtonsProps>(
   props: T,

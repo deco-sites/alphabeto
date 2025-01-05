@@ -1,10 +1,10 @@
-import { ImageWidget } from "apps/admin/widgets.ts";
 import { useDevice } from "@deco/deco/hooks";
-import Slider from "site/components/ui/Slider.tsx";
+import { ImageWidget } from "apps/admin/widgets.ts";
 import Image from "apps/website/components/Image.tsx";
-import Section from "site/components/ui/Section.tsx";
-import { clx } from "site/sdk/clx.ts";
 import { useId } from "preact/hooks";
+import Section from "site/components/ui/Section.tsx";
+import Slider from "site/components/ui/Slider.tsx";
+import { clx } from "site/sdk/clx.ts";
 
 interface CollectionBannerItem {
   /**@title Label for CMS */
@@ -29,7 +29,7 @@ interface CollectionBannerProps {
 function CollectionBannerDesktop(props: CollectionBannerProps) {
   return (
     <div class="container mt-[100px]">
-      <h2 class="font-beccaPerry text-[40px] leading-[48px] font-medium text-[#676767] text-center mb-10">
+      <h2 class="font-beccaPerry text-[40px] leading-[48px] font-medium text-accent text-center mb-10">
         {props.title}
       </h2>
       <div class="grid grid-cols-3 gap-4">
@@ -57,7 +57,7 @@ function CollectionBannerMobile(
   const id = useId();
   return (
     <div class="mt-[80px] container" id={id}>
-      <h2 class="font-beccaPerry text-[28px] leading-[33px] font-medium text-[#676767] text-center mb-10">
+      <h2 class="font-beccaPerry text-[28px] leading-[33px] font-medium text-accent text-center mb-10">
         {title}
       </h2>
       <Slider class="flex justify-between gap-4 max-w-full carousel carousel-center overflow-scroll">

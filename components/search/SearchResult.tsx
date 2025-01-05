@@ -2,10 +2,12 @@ import { type SectionProps } from "@deco/deco";
 import { useDevice, useScript, useSection } from "@deco/deco/hooks";
 import type { FilterToggle, ProductListingPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
+import { AppContext } from "site/apps/site.ts";
 import ProductCard from "site/components/product/ProductCard.tsx";
 import CategoryBanner, {
   Props as BannerProps,
 } from "site/components/search/CategoryBanner.tsx";
+import AgeFilter from "site/components/search/Filters/AgeFilter.tsx";
 import Filters from "site/components/search/Filters/index.tsx";
 import SortDesktop from "site/components/search/Sort/SortDesktop.tsx";
 import SortMobile from "site/components/search/Sort/SortMobile.tsx";
@@ -23,8 +25,6 @@ import { clx } from "site/sdk/clx.ts";
 import { useId } from "site/sdk/useId.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
-import AgeFilter from "site/components/search/Filters/AgeFilter.tsx";
-import { AppContext } from "site/apps/site.ts";
 
 const AGE_FILTER_KEY = "category-2";
 
@@ -312,7 +312,7 @@ function Result(props: SectionProps<typeof loader>) {
                 >
                   <div class="grid grid-cols-2">
                     <label
-                      class="flex bg-[#FDF6ED] rounded-[4px_0px_0px_4px] text-xs font-bold leading-[18px] text-[#676767] gap-2.5 h-10 items-center justify-center"
+                      class="flex bg-secondary-content rounded-[4px_0px_0px_4px] text-xs font-bold leading-[18px] text-accent gap-2.5 h-10 items-center justify-center"
                       for={controls}
                     >
                       <Icon id="filter" size={16} className="text-primary" />

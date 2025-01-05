@@ -41,14 +41,14 @@ function loadToogler(id: string) {
     button?.addEventListener("click", () => {
       if (div?.style.height === "0px") {
         div.style.height = div.scrollHeight + "px";
-        button.classList.remove("text-[#676767]");
+        button.classList.remove("text-accent");
         button.classList.add("text-primary");
         changeIcon("minus");
       } else {
         div?.style.setProperty("height", "0px");
         changeIcon("plus");
         button.classList.remove("text-primary");
-        button.classList.add("text-[#676767]");
+        button.classList.add("text-accent");
       }
     });
   });
@@ -64,7 +64,7 @@ export default function FAQ(props: Props) {
     <>
       {props.addSpaceBefore && <Spacer />}
       <div class="container" id={id}>
-        <h2 class="font-beccaPerry text-[28px] leading-8 desk:text-[40px] desk:leading-[48px] text-[#676767] mb-2.5">
+        <h2 class="font-beccaPerry text-[28px] leading-8 desk:text-[40px] desk:leading-[48px] text-accent mb-2.5">
           {props.title}
         </h2>
         <p
@@ -80,7 +80,7 @@ export default function FAQ(props: Props) {
         <ul>
           {props.questions.map((question) => (
             <li class="py-5 border-b border-dashed border-secondary overflow-hidden">
-              <button class="flex justify-between w-full text-xs mobile:leading-[18px] desk:text-sm text-[#676767] font-bold">
+              <button class="flex justify-between w-full text-xs mobile:leading-[18px] desk:text-sm text-accent font-bold">
                 <h3>{question.title}</h3>
                 <Icon id="plus" size={22} />
               </button>

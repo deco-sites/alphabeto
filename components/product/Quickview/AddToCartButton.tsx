@@ -3,11 +3,11 @@ import { AnalyticsItem, Product } from "apps/commerce/types.ts";
 import { JSX } from "preact";
 import { Platform } from "site/apps/site.ts";
 import Button from "site/components/ui/Button.tsx";
+import QuantitySelector from "site/components/ui/QuantitySelector.tsx";
 import { MINICART_DRAWER_ID } from "site/constants.ts";
+import { relative } from "site/sdk/url.ts";
 import { useId } from "site/sdk/useId.ts";
 import { usePlatform } from "site/sdk/usePlatform.tsx";
-import QuantitySelector from "site/components/ui/QuantitySelector.tsx";
-import { relative } from "site/sdk/url.ts";
 
 export interface Props extends JSX.HTMLAttributes<HTMLButtonElement> {
   product: Product;
@@ -126,7 +126,7 @@ function AddToCartButton(props: Props) {
         value="1"
         max="100"
         small={false}
-        class="!text-[#212121]"
+        class="!text-base-content"
         containerClass="hidden tablet-large:flex"
         id={inputQtdId}
       />

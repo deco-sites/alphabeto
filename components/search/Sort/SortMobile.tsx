@@ -12,7 +12,7 @@ function SortMobile(props: Props) {
     <div>
       <label
         for={id}
-        class="flex bg-[#FDF6ED] rounded-[0px_4px_4px_0px] text-xs font-bold leading-[18px] text-[#676767] gap-2.5 h-10 items-center justify-center"
+        class="flex bg-secondary-content rounded-[0px_4px_4px_0px] text-xs font-bold leading-[18px] text-accent gap-2.5 h-10 items-center justify-center"
       >
         <Icon id="sort" size={16} className="text-primary" />
         Ordernar por
@@ -21,7 +21,7 @@ function SortMobile(props: Props) {
         <div class="flex flex-col bg-white rounded-lg p-5 gap-2.5 absolute top-1/2 left-1/2 -translate-x-2/4 -translate-y-2/4">
           {options.map(({ isCurrent, textLabel, value }) => (
             <a
-              class="flex gap-2.5 items-center text-xs font-bold leading-[18px] text-[#676767]"
+              class="flex gap-2.5 items-center text-xs font-bold leading-[18px] text-accent"
               href={value}
             >
               <CheckboxInput

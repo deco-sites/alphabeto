@@ -45,12 +45,12 @@ function CartItem({ item, index, locale, currency }: Props) {
       <div class="flex flex-col">
         {/* Name and Remove button */}
         <div class="flex justify-between items-center">
-          <legend class="text-[#676767] text-xs font-bold leading-[18px] mb-1">
+          <legend class="text-accent text-xs font-bold leading-[18px] mb-1">
             {name}
           </legend>
         </div>
         {/* Color and Size */}
-        <div class="text-[#676767] text-xs leading-[18px] flex gap-3 mb-[17px]">
+        <div class="text-accent text-xs leading-[18px] flex gap-3 mb-[17px]">
           {item.color
             ? <span class="capitalize">Cor: {item.color?.toLowerCase()}</span>
             : null}

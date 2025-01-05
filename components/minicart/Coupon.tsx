@@ -24,7 +24,7 @@ export default function Coupon({ coupon, openCoupon }: Props) {
   return (
     <div class="flex justify-between items-center flex-col mt-5">
       <div class="flex justify-between w-full items-center ">
-        <span class="text-xs leading-[18px] font-bold text-[#676767]">
+        <span class="text-xs leading-[18px] font-bold text-accent">
           Cupom de desconto
         </span>
         <button
@@ -59,8 +59,8 @@ export default function Coupon({ coupon, openCoupon }: Props) {
             )}
           >
             <div class="flex justify-between w-full pt-5">
-              <span class="text-sm font-bold text-[#676767]">Cupom:</span>
-              <div class="flex flex-col items-end text-[#676767]">
+              <span class="text-sm font-bold text-accent">Cupom:</span>
+              <div class="flex flex-col items-end text-accent">
                 <span class="text-sm">{coupon}</span>
                 <input
                   type="hidden"

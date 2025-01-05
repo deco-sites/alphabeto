@@ -1,10 +1,10 @@
+import { type SectionProps } from "@deco/deco";
 import { AppContext } from "../../apps/site.ts";
 import Icon from "../../components/ui/Icon.tsx";
 import Section from "../../components/ui/Section.tsx";
 import { clx } from "../../sdk/clx.ts";
 import { usePlatform } from "../../sdk/usePlatform.tsx";
 import { useComponent } from "../Component.tsx";
-import { type SectionProps } from "@deco/deco";
 interface NoticeProps {
   title?: string;
   description?: string;
@@ -45,7 +45,7 @@ function Notice({ title, description }: {
       <span class="text-3xl font-semibold text-center sm:text-start">
         {title}
       </span>
-      <span class="text-sm font-normal text-base-400 text-center sm:text-start">
+      <span class="text-sm font-normal text-[#353535] text-center sm:text-start">
         {description}
       </span>
     </div>

@@ -107,7 +107,7 @@ export default function MinicartFooter(props: Props) {
       </div>
       <div class="bg-secondary-content z-10 relative px-6">
         {/* Subtotal */}
-        <div class="border-b border-secondary border-dashed pt-5 pb-[10px] flex w-full justify-between text-xs leading-[18px] text-[#676767]">
+        <div class="border-b border-secondary border-dashed pt-5 pb-[10px] flex w-full justify-between text-xs leading-[18px] text-accent">
           <span>Subtotal</span>
           <output form={MINICART_FORM_ID} class="font-bold">
             {formatPrice(subtotal, currency, locale)}
@@ -122,7 +122,7 @@ export default function MinicartFooter(props: Props) {
         />
         {/* Total */}
         <div class="border-t border-secondary border-dashed pt-[10px] mt-5 flex flex-col justify-end items-end gap-2">
-          <div class="flex justify-between items-center w-full text-sm leading-[21px] font-bold text-[#676767]">
+          <div class="flex justify-between items-center w-full text-sm leading-[21px] font-bold text-accent">
             <span>Total</span>
             <output form={MINICART_FORM_ID} class="text-primary">
               {formatPrice(total, currency, locale)}
@@ -133,7 +133,7 @@ export default function MinicartFooter(props: Props) {
         <div class="flex gap-4 items-center py-5">
           <label
             for={MINICART_DRAWER_ID}
-            class="text-[13px] leading-[19.5px] font-bold underline text-[#676767] cursor-pointer w-1/2"
+            class="text-[13px] leading-[19.5px] font-bold underline text-accent cursor-pointer w-1/2"
           >
             Continuar Comprando
           </label>

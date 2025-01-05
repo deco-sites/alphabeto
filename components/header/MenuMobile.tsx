@@ -18,7 +18,7 @@ export function MenuMobile({ navItems, otherLinks }: Props) {
           {otherLinks.map((item) => (
             <a
               href={item.href}
-              class="block font-[#676767] text-xs leading-[18px]"
+              class="block text-accent text-xs leading-[18px]"
             >
               {item.title}
             </a>

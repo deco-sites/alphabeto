@@ -1,18 +1,18 @@
+import { useDevice } from "@deco/deco/hooks";
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
+import { ColorItem } from "site/apps/site.ts";
+import ProductRating from "site/components/product/ProductRating.tsx";
+import ProductShelfColors from "site/components/product/ProductShelfColors.tsx";
 import QuickView from "site/components/product/Quickview/QuickView.tsx";
+import VTEXImageTag from "site/components/VTEXImageTag.tsx";
 import WishlistButton from "site/components/wishlist/WishlistButton.tsx";
 import { clx } from "site/sdk/clx.ts";
 import { formatPrice } from "site/sdk/format.ts";
 import { relative } from "site/sdk/url.ts";
+import { useId } from "site/sdk/useId.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
-import ProductShelfColors from "site/components/product/ProductShelfColors.tsx";
-import { useDevice } from "@deco/deco/hooks";
-import ProductRating from "site/components/product/ProductRating.tsx";
-import VTEXImageTag from "site/components/VTEXImageTag.tsx";
-import { ColorItem } from "site/apps/site.ts";
-import { useId } from "site/sdk/useId.ts";
 
 interface Props {
   product: Product;
@@ -189,7 +189,7 @@ function ProductCard({
             "--webkit-line-clamp": device === "desktop" ? 2 : 4,
             "-webkit-box-orient": "vertical",
           }}
-          class="font-bold text-[#676767] text-xs leading-[18px] tablet-large:text-sm tablet-large:leading-5 overflow-hidden max-h-[72px] h-[72px] tablet-large:h-[42px] tablet-large:max-h-[42px]"
+          class="font-bold text-accent text-xs leading-[18px] tablet-large:text-sm tablet-large:leading-5 overflow-hidden max-h-[72px] h-[72px] tablet-large:h-[42px] tablet-large:max-h-[42px]"
         >
           {title}
         </span>
@@ -212,7 +212,7 @@ function ProductCard({
               {formatPrice(price, offers?.priceCurrency)}
             </span>
           </div>
-          <span class="text-[#676767] text-[12px] leading-[14px] tablet-large:text-sm font-medium mt-[5px]">
+          <span class="text-accent text-[12px] leading-[14px] tablet-large:text-sm font-medium mt-[5px]">
             {installments}
           </span>
         </div>

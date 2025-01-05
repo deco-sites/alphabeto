@@ -12,7 +12,7 @@ interface Props {
 
 const textStyles = {
   open: "text-primary",
-  closed: "text-[#676767]",
+  closed: "text-accent",
 };
 
 export default function ProductTextInfoDiscloujure({

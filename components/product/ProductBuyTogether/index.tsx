@@ -48,8 +48,11 @@ export default function ProductBuyTogether(props: BuyTogetherLoaderResponse) {
   return (
     <>
       <Spacer />
-      <div class="bg-[#FDF6ED] flex flex-col pb-5 desk:pb-10" id="buy-together">
-        <h2 class="font-beccaPerry text-[28px] leading-8 desk:text-[40px] desk:leading-[48px] text-[#212121] font-medium text-center mt-[22px] mb-[30px] desk:my-10">
+      <div
+        class="bg-secondary-content flex flex-col pb-5 desk:pb-10"
+        id="buy-together"
+      >
+        <h2 class="font-beccaPerry text-[28px] leading-8 desk:text-[40px] desk:leading-[48px] text-base-content font-medium text-center mt-[22px] mb-[30px] desk:my-10">
           Compre junto
         </h2>
         <div class="flex mobile:flex-col container justify-between items-center gap-5 desk:gap-[18px]">

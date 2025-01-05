@@ -13,7 +13,7 @@ export default function Form({ items }: Props) {
 
   return (
     <div class="flex flex-col mt-[30px]">
-      <span class="text-[#676767] text-xs leading-[14px] font-bold mb-1">
+      <span class="text-accent text-xs leading-[14px] font-bold mb-1">
         Calcule seu frete
       </span>
 
@@ -44,7 +44,7 @@ export default function Form({ items }: Props) {
       </form>
 
       <a
-        class="text-[#676767] text-xs leading-[14px] mt-2.5 underline"
+        class="text-accent text-xs leading-[14px] mt-2.5 underline"
         href="https://buscacepinter.correios.com.br/"
         target="__black"
       >

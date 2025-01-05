@@ -1,8 +1,8 @@
 import { useScript } from "@deco/deco/hooks";
-import { clx } from "site/sdk/clx.ts";
-import { useId } from "site/sdk/useId.ts";
 import { IconMinus } from "site/components/Icons/IconMinus.tsx";
 import { IconPlus } from "site/components/Icons/IconPlus.tsx";
+import { clx } from "site/sdk/clx.ts";
+import { useId } from "site/sdk/useId.ts";
 
 const onClick = (delta: number) => {
   event!.stopPropagation();
@@ -64,7 +64,7 @@ function QuantitySelector(
         <input
           id={id}
           class={clx(
-            "input w-[29px] font-bold text-[#676767] text-xs leading-[18px] p-0 border-none text-center flex-grow [appearance:textfield] outline-none",
+            "input w-[29px] font-bold text-accent text-xs leading-[18px] p-0 border-none text-center flex-grow [appearance:textfield] outline-none",
             "invalid:input-error",
             className?.toString(),
             small ? "h-[18px]" : "h-11",
