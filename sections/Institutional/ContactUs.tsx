@@ -3,6 +3,8 @@ import Button from "site/components/ui/Button.tsx";
 import Input, { TextArea } from "site/components/ui/Input.tsx";
 import { COMMON_HTML_TAGS_TO_ALLOW } from "site/constants.ts";
 import { sanitizeHTMLCode } from "site/sdk/htmlSanitizer.ts";
+import { AppContext } from "site/apps/deco/vtex.ts";
+import { useSection } from "@deco/deco/hooks";
 
 /** @titleBy name	*/
 interface Item {
@@ -18,6 +20,37 @@ interface Props {
     description: RichText;
     itens: Item[];
   };
+  state?: "idle" | "loading" | "success" | "error";
+}
+
+export async function action(
+  props: Props,
+  req: Request,
+  ctx: AppContext,
+): Promise<Props> {
+  try {
+    const formData = await req.formData();
+    const name = formData.get("name");
+    const phone = formData.get("phone");
+    const message = formData.get("message");
+    await ctx.invoke.vtex.actions.masterdata.createDocument({
+      acronym: "FC",
+      data: {
+        name: name,
+        telefone: phone,
+        mensagem: message,
+      },
+    });
+    return {
+      ...props,
+      state: "success",
+    };
+  } catch (_e) {
+    return {
+      ...props,
+      state: "error",
+    };
+  }
 }
 
 export default function ContactUs(props: Props) {
@@ -36,7 +69,11 @@ export default function ContactUs(props: Props) {
           }),
         }}
       />
-      <form class="mt-[53px] mobile:mt-[45px] flex flex-col gap-6">
+      <form
+        hx-post={useSection({ props })}
+        hx-target="closest section"
+        class="mt-[53px] mobile:mt-[45px] flex flex-col mobile:gap-8 gap-6"
+      >
         <div class="grid grid-cols-[1fr_168px] mobile:flex mobile:flex-col gap-8">
           <div class="flex flex-col gap-1">
             <label
@@ -78,16 +115,22 @@ export default function ContactUs(props: Props) {
           </label>
           <TextArea id="message" name="message" required class="h-[263px]" />
         </div>
-        <Button type="submit" class="w-[300px] h-[44px]">
+        <Button type="submit" class="w-[300px] h-[44px] mobile:w-full">
           Enviar
         </Button>
+        {props.state === "success" && (
+          <p class="text-green-500">Mensagem enviada com sucesso!</p>
+        )}
+        {props.state === "error" && (
+          <p class="text-red-500">Erro ao enviar mensagem!</p>
+        )}
       </form>
-      <div class="mt-20">
-        <h2 class="text-[40px] leading-[48px] font-beccaPerry font-medium text-accent">
+      <div class="mt-20 mobile:mt-[60px]">
+        <h2 class="text-[40px] leading-[48px] font-beccaPerry font-medium text-accent mobile:text-[28px] mobile:leading-[33px]">
           {props.contact.title}
         </h2>
         <p
-          class="text-[16px] leading-6 font-medium text-[#7e7f88] mt-5"
+          class="text-[16px] leading-6 font-medium text-[#7e7f88] mt-5 mobile:text-[14px] mobile:leading-5"
           dangerouslySetInnerHTML={{
             __html: sanitizeHTMLCode(props.contact.description, {
               removeEmptyTags: true,

@@ -6626,6 +6626,10 @@ details.collapse summary::-webkit-details-marker {
   --tw-text-opacity: 1;
   color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity)));
 }
+.text-green-500 {
+  --tw-text-opacity: 1;
+  color: rgb(34 197 94 / var(--tw-text-opacity));
+}
 .text-primary {
   --tw-text-opacity: 1;
   color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
@@ -7497,6 +7501,10 @@ details.collapse summary::-webkit-details-marker {
     margin-top: 45px;
   }
 
+  .mobile\:mt-\[60px\] {
+    margin-top: 60px;
+  }
+
   .mobile\:box-border {
     box-sizing: border-box;
   }
@@ -7663,6 +7671,10 @@ details.collapse summary::-webkit-details-marker {
 
   .mobile\:gap-2\.5 {
     gap: 0.625rem;
+  }
+
+  .mobile\:gap-8 {
+    gap: 2rem;
   }
 
   .mobile\:overflow-x-hidden {
