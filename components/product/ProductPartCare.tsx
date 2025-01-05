@@ -32,7 +32,7 @@ const cares: Care[] = [
     name: "Passar",
     icon: "product_care_iron",
     propertyName: "Cuidado com a Peça - Passar",
-    color: "hover:bg-[#FF8300] hover:border-[#FF8300]",
+    color: "hover:bg-primary hover:border-primary",
   },
   {
     name: "Solventes",

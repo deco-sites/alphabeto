@@ -19,7 +19,7 @@ export default function Breadcrumb(
       <span class="flex items-center">
         <Icon id="home_icon" width="14px" height="14px" class="text-primary" />
         <div class="flex text-[#353535] text-[12px] font-medium">
-          <b class="text-[12px] text-[#FF8300] font-medium ml-[4px] mr-[8px]">
+          <b class="text-[12px] text-primary font-medium ml-[4px] mr-[8px]">
             {root}
           </b>
           {showText &&

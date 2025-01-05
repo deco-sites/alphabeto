@@ -82,7 +82,7 @@ export default function FormsNossasLojas({ stores }: Stores) {
             placeholder="Buscar"
           />
           <button
-            class="w-[34%] h-[44px] font-bold text-[#ffffff] bg-[#FF8300] rounded-[8px]"
+            class="w-[34%] h-[44px] font-bold text-[#ffffff] bg-primary rounded-[8px]"
             type="submit"
             onClick={handleFilter}
           >
@@ -98,7 +98,7 @@ export default function FormsNossasLojas({ stores }: Stores) {
               key={store.id}
               class={`flex mobile:flex-col mobile:justify-start justify-between items-left w-[95%] h-[194px] mobile:h-[403px] border ${
                 selectedIndex === store.id
-                  ? "border-[#FF8300]"
+                  ? "border-primary"
                   : "border-[#F5F4F1]"
               } rounded-[8px] px-[10px] mb-[16px]`}
             >
@@ -145,7 +145,7 @@ export default function FormsNossasLojas({ stores }: Stores) {
                         zoom: 10,
                       };
                     }}
-                    class="font-[12px] text-[#FF8300] font-bold underline"
+                    class="font-[12px] text-primary font-bold underline"
                   >
                     Ver no mapa
                   </button>
