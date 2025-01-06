@@ -1,0 +1,13 @@
+{
+  "__resolveType": "site/sections/Content/NotFound.tsx",
+  "cta": {
+    "label": "Voltar ao inicio",
+    "url": "/"
+  },
+  "title": "Página não encontrada!",
+  "description": "Aconteceu um erro e essa página não está disponível no momento, tente novamente mais tarde.",
+  "image": {
+    "desktop": "https://data.decoassets.com/alphabeto/85bfd377-2da3-4087-a335-6c94c705292e/backfoward.svg",
+    "mobile": "https://data.decoassets.com/alphabeto/957989bd-8c76-45b3-a28f-fdebdc7e8965/backfoward_mob.svg"
+  }
+}

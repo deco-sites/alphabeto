@@ -1,0 +1,61 @@
+{
+  "__resolveType": "website/pages/Page.tsx",
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
+  "sections": [
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Header"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Content/SearchNotFound.tsx",
+      "title": "<p><strong>Ops!</strong> Sua busca não foi encontrada :(</p>",
+      "description": "<p>Infelizmente <strong>não encontramos </strong>nenhum resultado para essa busca. <br><strong>Siga essas dicas e tente novamente:</strong></p>",
+      "list": [
+        "Verifique se a palavra foi digitada corretamente;",
+        "Tente palavras menos específicas;",
+        "Tente palavras-chave diferentes;",
+        "Faça buscas relacionadas."
+      ]
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "site/sections/Product/ProductShelf.tsx",
+      "products": {
+        "__resolveType": "commerce/loaders/product/extensions/list.ts",
+        "data": {
+          "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+          "props": {
+            "sort": "price:desc",
+            "count": 12,
+            "collection": "793"
+          }
+        },
+        "extensions": [
+          {
+            "__resolveType": "vtex/loaders/product/extensions/list.ts",
+            "reviews": true
+          }
+        ]
+      },
+      "title": "Você também pode gostar!",
+      "viewItemListName": "Not Found - Shelf"
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer"
+      }
+    }
+  ],
+  "path": "/searchNotFound",
+  "name": "Search Not Found"
+}

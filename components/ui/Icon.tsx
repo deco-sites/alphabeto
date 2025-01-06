@@ -71,6 +71,7 @@ export type AvailableIcons =
   | "arrow-with-twirls"
   | "arrow-with-twirls-2"
   | "arrow-right"
+  | "single-star"
   | "triangle-interactive-banner-desktop";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {

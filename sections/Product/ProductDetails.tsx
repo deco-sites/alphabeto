@@ -23,6 +23,10 @@ export interface Props {
 }
 
 export async function loader(props: Props, _req: Request, ctx: AppContext) {
+  if (!props.page) {
+    ctx.response.status = 307;
+    ctx.response.headers.set("location", "/404");
+  }
   const sizebaySettings = await ctx.invoke.site.loaders.sizebay({
     productUrl: props.page?.product.url,
   });

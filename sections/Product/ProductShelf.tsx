@@ -1,4 +1,5 @@
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
+import { Product } from "apps/commerce/types.ts";
 import { AppContext } from "site/apps/site.ts";
 import ProductSlider, {
   ProductSliderProps,
@@ -9,6 +10,11 @@ import { useSendEvent } from "site/sdk/useSendEvent.ts";
 
 export interface Props extends Omit<ProductSliderProps, "settings"> {
   title?: string;
+  products: Product[] | null;
+  /**
+   * @title List Name for Analytics
+   */
+  viewItemListName?: string;
 }
 export function loader(props: Props, _req: Request, app: AppContext) {
   const shelfSettings = {
@@ -44,7 +50,7 @@ export default function ProductShelf(
     },
   });
   return (
-    <Section.Container {...viewItemListEvent} class="!gap-10">
+    <Section.Container {...viewItemListEvent} class="!gap-10 container">
       {props.title && (
         <h2 class="font-beccaPerry mobile:text-[28px] mobile:leading-[33px] text-[40px] leading-[48px] font-medium text-accent">
           {props.title}

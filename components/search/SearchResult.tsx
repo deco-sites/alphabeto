@@ -25,6 +25,7 @@ import { clx } from "site/sdk/clx.ts";
 import { useId } from "site/sdk/useId.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
+import Section from "site/components/ui/Section.tsx";
 
 const AGE_FILTER_KEY = "category-2";
 
@@ -69,10 +70,18 @@ export const loader = (props: Props, req: Request, app: AppContext) => {
     cashbackPercentage: app.globalSettings.cashbackPercentage,
     colors: app.globalSettings.colors,
   };
+  let emptyRedirect = "/404";
+  const urlObject = new URL(req.url);
+  const query = urlObject.searchParams.get("q");
+  if (query) {
+    emptyRedirect = `/searchNotFound?q=${query}`;
+  }
+  console.log("URL", req.url);
   return {
     ...props,
     url: req.url,
     siteSettings,
+    emptyRedirect,
   };
 };
 
@@ -114,11 +123,20 @@ const setPageQuerystring = (page: string, id: string) => {
   }).observe(element);
 };
 
-function NotFound() {
+export const LoadingFallback = () => <Section.Placeholder height="635px" />;
+function SearchNotFound(props: SectionProps<typeof loader>) {
   return (
-    <div class="w-full flex justify-center items-center py-10">
-      <span>Not Found!</span>
-    </div>
+    <>
+      <LoadingFallback />
+      <script
+        type="module"
+        dangerouslySetInnerHTML={{
+          __html: useScript((page: string) => {
+            window.location.href = page;
+          }, props.emptyRedirect),
+        }}
+      />
+    </>
   );
 }
 
@@ -363,11 +381,12 @@ function Result(props: SectionProps<typeof loader>) {
     </>
   );
 }
-function SearchResult({ page, ...props }: SectionProps<typeof loader>) {
+function SearchResult(props: SectionProps<typeof loader>) {
+  const page = props.page;
   if (!page || !page.products || page.products.length === 0) {
-    return <NotFound />;
+    return <SearchNotFound {...props} />;
   }
-  return <Result {...props} page={page} />;
+  return <Result {...props} />;
 }
 
 export default SearchResult;
