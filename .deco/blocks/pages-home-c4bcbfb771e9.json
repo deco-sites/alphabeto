@@ -18,26 +18,26 @@
           },
           "alt": "O banner publicitário apresenta três crianças sorridentes vestindo vestidos infantis leves e coloridos, com um fundo vibrante dividido entre amarelo e rosa. O design é lúdico, com estrelas decorativas e um selo com a frase \"O vestido mais lindo do mundo\". O texto promocional destaca o preço de \"149,95\" em fontes chamativas e um botão azul \"APROVEITAR\" incentiva a ação. A composição harmoniza fotografia e gráficos simples, transmitindo alegria e conforto, enquanto a iluminação destaca as cores vivas e os sorrisos das crianças, reforçando a proposta amigável e atrativa ao público infantil e familiar.",
           "clickUrl": "/vestidos",
-          "title": "Vestidos Banner"
+          "title": "Liqui  Banner"
         },
         {
-          "desktop": "https://data.decoassets.com/alphabeto/d9e9017e-d9ab-4d64-9bb4-e127aa84ee36/Frame-23868.png",
-          "mobile": "https://data.decoassets.com/alphabeto/70f8e9a7-e9b2-4294-899f-49250102473e/Frame-23870.png",
+          "desktop": "https://data.decoassets.com/alphabeto/c2dbf71d-ced7-4e7e-8e0b-6c105a7265ce/2880x-(8).png",
+          "mobile": "https://data.decoassets.com/alphabeto/6a89be0b-c05b-4c3f-beea-319df3779b48/750-x-700-px-(6).png",
           "action": {
             "href": "/meninas"
           },
-          "title": "Banner Demo 2",
+          "title": "Novidas do Verão",
           "alt": "Banner de Demonstração",
           "clickUrl": "/meninas"
         },
         {
-          "desktop": "https://data.decoassets.com/alphabeto/7aa78ed6-1b8e-4744-9660-1b1fd2f37350/Frame-23869.png",
-          "mobile": "https://data.decoassets.com/alphabeto/d4bea6be-f3c2-4422-914e-c934e81b0047/Frame-23871-(1).png",
+          "desktop": "https://data.decoassets.com/alphabeto/859e345e-7b21-48ce-b5f5-e32b9e56a33c/2880x-(3).png",
+          "mobile": "https://data.decoassets.com/alphabeto/b5ac5aa9-1e95-400b-8104-4a338b8066af/750-x-700-px-(4).png",
           "alt": "Banner de Demonstração",
           "action": {
             "href": "/meninas"
           },
-          "title": "Banner Demo 3",
+          "title": "Bazar até 60% ",
           "clickUrl": "/meninas"
         }
       ],
@@ -100,7 +100,7 @@
     {
       "__resolveType": "site/sections/Product/ProductTabShelf.tsx",
       "title": "Favoritos da Semana",
-      "description": "Conheça os novos queridinhos da alphabeto",
+      "description": "Conheça os novos queridinhos da Alphabeto",
       "tabs": [
         {
           "label": "Meninas",
@@ -112,8 +112,8 @@
               "data": {
                 "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
                 "props": {
-                  "sort": "price:desc",
-                  "collection": "787",
+                  "sort": "release:desc",
+                  "collection": "734",
                   "count": 16
                 }
               },
@@ -137,8 +137,8 @@
               "data": {
                 "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
                 "props": {
-                  "sort": "price:desc",
-                  "collection": "768",
+                  "sort": "release:desc",
+                  "collection": "748",
                   "count": 16
                 }
               },

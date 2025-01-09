@@ -18,9 +18,16 @@
       },
       "__resolveType": "resolved"
     },
-    "mostSellerTerms": ["Vestidos Estampados", "Conjuntinhos", "Camisetas", "Bonecas"]
+    "mostSellerTerms": [
+      "Vestidos Estampados",
+      "Conjuntinhos",
+      "Camisetas",
+      "Bonecas"
+    ]
   },
-  "alerts": ["<p>Get 10% off today: <strong>NEW10</strong></p>"],
+  "alerts": [
+    "<p>Get 10% off today: <strong>NEW10</strong></p>"
+  ],
   "logo": {
     "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/e30a75c7-a480-4ecb-828e-e76c39805c71/svgviewer-output-(21).svg",
     "alt": "Logo Alphabeto",
@@ -48,7 +55,10 @@
   ],
   "benefits": {
     "alerts": [],
-    "benefits": ["<p>Frete fixo de R$ 9,90</p>", "<p>Item 2</p>"],
+    "benefits": [
+      "<p>Frete fixo de R$ 9,90</p>",
+      "<p>Item 2</p>"
+    ],
     "interval": 5
   },
   "navItems": [
@@ -78,27 +88,27 @@
             },
             {
               "item": "Body e Polo",
-              "href": "/"
+              "href": "/infantil/bebe/menino/body-e-polo"
             },
             {
               "item": "Bermuda",
-              "href": "/"
+              "href": "/infantil/bebe/menino/bermuda"
             },
             {
               "item": "Calça",
-              "href": "/"
+              "href": "/infantil/bebe/menino/calca"
             },
             {
               "item": "Casaco",
-              "href": "/"
+              "href": "/infantil/bebe/menino/casaco"
             },
             {
               "item": "Conjunto",
-              "href": "/"
+              "href": "/infantil/bebe/menino/conjunto"
             },
             {
               "item": "Jardineira e Macacão",
-              "href": "/"
+              "href": "/infantil/bebe/menino/jardineira-e-macacao"
             }
           ],
           "seeAll": true
