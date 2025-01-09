@@ -122,51 +122,47 @@
             },
             {
               "item": "Acessório",
-              "href": "/"
+              "href": "/infantil/crianca/menino/acessorio"
             },
             {
               "item": "Camiseta e Regata",
-              "href": "/"
+              "href": "/infantil/crianca/menino/camiseta-e-regata"
             },
             {
               "item": "Camisa e Polo",
-              "href": "/"
-            },
-            {
-              "item": "Body",
-              "href": "/"
+              "href": "/infantil/crianca/menino/camisa-e-polo"
             },
             {
               "item": "Bermuda",
-              "href": "/"
+              "href": "/infantil/crianca/menino/bermuda-e-short"
             },
             {
               "item": "Casaco",
-              "href": "/"
+              "href": "/infantil/crianca/menino/casaco"
             },
             {
               "item": "Moda Praia",
-              "href": "/"
+              "href": "/infantil/crianca/menino/moda-praia"
             },
             {
               "item": "Jardineira e Macacão",
-              "href": "/"
+              "href": "/infantil/crianca/menino/jardineira-e-macacao"
             },
             {
               "item": "Calça",
-              "href": "/"
+              "href": "/infantil/crianca/menino/calca"
             },
             {
               "item": "Conjunto",
-              "href": "/"
+              "href": "/infantil/crianca/menino/conjunto"
             },
             {
               "item": "Pijama",
-              "href": "/"
+              "href": "/infantil/crianca/menino/pijama"
             },
             {
               "item": "Meia e Galocha",
-              "href": "/"
+              "href": "/infantil/crianca/menino/meia-e-galocha"
             }
           ],
           "seeAll": true
