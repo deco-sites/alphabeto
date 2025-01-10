@@ -194,7 +194,7 @@ function PageResult(props: SectionProps<typeof loader>) {
             product={product}
             preload={index === 0}
             index={offset + index}
-            class="h-full w-[calc((100dvw_-_456px)/3)] max-w-[355px]"
+            class="h-full desk:w-[calc((100dvw_-_456px)/3)] max-w-[355px]"
             settings={siteSettings}
           />
         ))}
