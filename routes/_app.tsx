@@ -13,7 +13,13 @@ const serviceWorkerScript = () =>
 export default defineApp(async (_req, ctx) => {
   const revision = await Context.active().release?.revision();
   return (
-    <>
+    <html lang="pt-br">
+      <meta charSet="utf-8" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+      />
+
       {/* Include Icons and manifest */}
       <Head>
         {/* Enable View Transitions API */}
@@ -131,6 +137,6 @@ export default defineApp(async (_req, ctx) => {
         type="module"
         dangerouslySetInnerHTML={{ __html: useScript(serviceWorkerScript) }}
       />
-    </>
+    </html>
   );
 });
