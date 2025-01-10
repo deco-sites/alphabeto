@@ -58,7 +58,7 @@ export default function ProductImages({ page }: Props) {
   }
   return (
     <div id={id} class="relative">
-      <Slider class="mobile:carousel mobile:carousel-center desk:grid grid-cols-2 desk:gap-3">
+      <Slider class="mobile:carousel mobile:carousel-center desk:grid grid-cols-2 desk:gap-3 z-10">
         {video && (
           <Slider.Item
             class="mobile:carousel-item mobile:w-full"
@@ -77,7 +77,7 @@ export default function ProductImages({ page }: Props) {
         {images.map((image, index) => (
           <Slider.Item
             index={video ? index + 1 : index}
-            class="mobile:carousel-item mobile:w-full overflow-hidden"
+            class="mobile:carousel-item mobile:w-full desk:overflow-hidden"
           >
             <VTEXImageTag
               width={427}

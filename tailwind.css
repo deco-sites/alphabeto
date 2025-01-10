@@ -152,3 +152,14 @@
   -moz-appearance: none;
   cursor: pointer;
 }
+
+.modal:not(dialog:not(.modal-open)),
+.modal::backdrop{
+ pointer-events: none;
+ display:none
+}
+
+.modal-open, .modal:target, .modal-toggle:checked + .modal, .modal[open]{
+ pointer-events: auto;
+ display:block;
+}
