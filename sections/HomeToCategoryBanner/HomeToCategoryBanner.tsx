@@ -39,8 +39,8 @@ export default function HomeToCategoryBanner(
       <div class="grid grid-cols-1 desk:grid-cols-3 gap-4">
         {items.map((item) => {
           return (
-            <article class="max-w-[443px] rounded-lg">
-              <a class="relative" href={item.categoryLink}>
+            <article class="max-w-[443px] rounded-lg relative">
+              <a class="relative block" href={item.categoryLink}>
                 <Picture>
                   <Source
                     src={item.image.desktop.src}
