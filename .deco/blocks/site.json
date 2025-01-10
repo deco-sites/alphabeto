@@ -8,7 +8,8 @@
     "description": "Build profitable websites with deco.cx",
     "titleTemplate": "%s | Veste criança como criança!",
     "descriptionTemplate": "%s | deco.cx",
-    "favicon": "https://data.decoassets.com/alphabeto/3794e714-18ec-4d42-b814-93afca2385eb/1698261196300.jpeg"
+    "favicon": "https://data.decoassets.com/alphabeto/3794e714-18ec-4d42-b814-93afca2385eb/1698261196300.jpeg",
+    "themeColor": "#FF8300"
   },
   "theme": {
     "__resolveType": "Alphabeto"
