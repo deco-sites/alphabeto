@@ -183,80 +183,22 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
-        "__resolveType": "site/sections/CollectionBanner/CollectionBanner.tsx",
-        "title": "Combos",
-        "items": [
-          {
-            "image": {
-              "desktop": {
-                "src": "https://data.decoassets.com/alphabeto/d4c57944-603c-4c7b-acba-4c6aba766cff/2-(7).png"
-              },
-              "alt": "Combo vestidos",
-              "mobile": {
-                "src": "https://data.decoassets.com/alphabeto/adc30d9b-2664-4efd-aad2-b098b495b532/2-(6).png"
-              }
-            },
-            "imageAlt": "Combo vestidos",
-            "categoryLink": "/vestidos",
-            "label": "Presente até R$69,00"
-          },
-          {
-            "image": {
-              "desktop": {
-                "src": "https://data.decoassets.com/alphabeto/d7c8d8dc-1727-41c0-b08b-595b0a802863/3-(7).png"
-              },
-              "alt": "Combo blusas",
-              "mobile": {
-                "src": "https://data.decoassets.com/alphabeto/482e00e4-0609-4fe5-82a0-e1d000c6a148/3-(7).png"
-              }
-            },
-            "imageAlt": "combo blusas",
-            "categoryLink": "/blusas",
-            "label": "Presente até R$99,00"
-          },
-          {
-            "image": {
-              "desktop": {
-                "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/6cf62756-8889-473b-b5e2-a9c05f8924df/combos_desktop3-1.png"
-              },
-              "alt": "Combo peças",
-              "mobile": {
-                "src": "https://data.decoassets.com/alphabeto/e9665d3d-48c3-47a4-beb8-7723fe36e460/Frame-23653.png"
-              }
-            },
-            "imageAlt": "combo peças",
-            "categoryLink": "/peças",
-            "label": "Leve 4 Vestidos "
-          },
-          {
-            "image": {
-              "mobile": {},
-              "desktop": {}
-            }
-          }
-        ]
-      }
-    },
-    {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
         "__resolveType": "site/sections/HomeToCategoryBanner/HomeToCategoryBanner.tsx",
-        "title": "Compre por Tamanho",
         "items": [
           {
             "image": {
               "desktop": {
                 "src": "https://data.decoassets.com/alphabeto/d56a7b24-5549-497b-a279-73eabce88dc6/modelo-(1).png"
               },
-              "alt": "Banner meninas",
               "mobile": {
                 "src": "https://data.decoassets.com/alphabeto/0684b0e5-5ede-4095-9361-deb29fd9452e/Frame-23872.png"
-              }
+              },
+              "alt": "Banner meninas"
             },
             "categoryLink": "/meninas",
+            "label": "Meninas",
             "buttonText": "Meninas",
-            "buttonColor": "#FF859A",
-            "label": "Meninas"
+            "buttonColor": "#FF859A"
           },
           {
             "image": {
@@ -269,9 +211,9 @@
               }
             },
             "categoryLink": "/meninos",
+            "label": "Meninos",
             "buttonText": "Meninos",
-            "buttonColor": "#70D1E8",
-            "label": "Meninos"
+            "buttonColor": "#70D1E8"
           },
           {
             "image": {
@@ -284,9 +226,58 @@
               }
             },
             "categoryLink": "/bebes",
+            "label": "Bebê",
             "buttonText": "Bebês",
-            "buttonColor": "#D6DE23",
-            "label": "Bebê"
+            "buttonColor": "#D6DE23"
+          }
+        ],
+        "title": "Compre por Tamanho"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/CollectionBanner/CollectionBanner.tsx",
+        "title": "Dicas de Presentes ",
+        "items": [
+          {
+            "image": {
+              "desktop": {
+                "src": "https://data.decoassets.com/alphabeto/d4c57944-603c-4c7b-acba-4c6aba766cff/2-(7).png"
+              },
+              "mobile": {
+                "src": "https://data.decoassets.com/alphabeto/adc30d9b-2664-4efd-aad2-b098b495b532/2-(6).png"
+              },
+              "alt": "Alt"
+            },
+            "categoryLink": "/infantil/vestidos ",
+            "label": "Presentes até R$69"
+          },
+          {
+            "image": {
+              "mobile": {
+                "src": "https://data.decoassets.com/alphabeto/d7c8d8dc-1727-41c0-b08b-595b0a802863/3-(7).png"
+              },
+              "desktop": {
+                "src": "https://data.decoassets.com/alphabeto/482e00e4-0609-4fe5-82a0-e1d000c6a148/3-(7).png"
+              },
+              "alt": "Alt"
+            },
+            "label": "Presentes até R$99",
+            "categoryLink": "/infantil/vestidos "
+          },
+          {
+            "image": {
+              "mobile": {
+                "src": "https://data.decoassets.com/alphabeto/9e38ad5a-2637-45cc-a200-aeb2be4aada9/4-(1).png"
+              },
+              "desktop": {
+                "src": "https://data.decoassets.com/alphabeto/1f1d289b-8e1b-4107-96bb-1d2e1967c817/4.png"
+              },
+              "alt": "Alt"
+            },
+            "label": "Presentes até R$129,00",
+            "categoryLink": "/infantil/vestidos"
           }
         ]
       }
@@ -364,7 +355,7 @@
             "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
             "props": {
               "sort": "price:desc",
-              "collection": "782",
+              "collection": "797",
               "count": 8
             }
           },
