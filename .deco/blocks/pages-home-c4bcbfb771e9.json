@@ -112,9 +112,9 @@
               "data": {
                 "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
                 "props": {
-                  "sort": "release:desc",
-                  "collection": "734",
-                  "count": 16
+                  "sort": "name:asc",
+                  "collection": "801",
+                  "count": 8
                 }
               },
               "extensions": [
@@ -138,8 +138,8 @@
                 "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
                 "props": {
                   "sort": "release:desc",
-                  "collection": "748",
-                  "count": 16
+                  "collection": "802",
+                  "count": 8
                 }
               },
               "extensions": [
@@ -163,8 +163,8 @@
                 "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
                 "props": {
                   "sort": "price:desc",
-                  "collection": "670",
-                  "count": 16
+                  "collection": "803",
+                  "count": 8
                 }
               },
               "extensions": [
@@ -189,30 +189,30 @@
           {
             "image": {
               "desktop": {
-                "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/a052d135-4a59-4191-b428-2308854017ba/combos_desktop1-1.png"
+                "src": "https://data.decoassets.com/alphabeto/d4c57944-603c-4c7b-acba-4c6aba766cff/2-(7).png"
               },
               "alt": "Combo vestidos",
               "mobile": {
-                "src": "https://data.decoassets.com/alphabeto/042b25e6-39af-42dd-b8bf-06caa145cd7e/banner_mob_1.png"
+                "src": "https://data.decoassets.com/alphabeto/adc30d9b-2664-4efd-aad2-b098b495b532/2-(6).png"
               }
             },
             "imageAlt": "Combo vestidos",
             "categoryLink": "/vestidos",
-            "label": "Leve 2 Vestidos "
+            "label": "Presente até R$69,00"
           },
           {
             "image": {
               "desktop": {
-                "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/bc3773bb-7d3d-420f-a845-8fdf4294d8c5/combos_desktop2-1.png"
+                "src": "https://data.decoassets.com/alphabeto/d7c8d8dc-1727-41c0-b08b-595b0a802863/3-(7).png"
               },
               "alt": "Combo blusas",
               "mobile": {
-                "src": "https://data.decoassets.com/alphabeto/04d5af10-3d1f-45f5-8251-bf81f3fc4eae/Frame-23651.png"
+                "src": "https://data.decoassets.com/alphabeto/482e00e4-0609-4fe5-82a0-e1d000c6a148/3-(7).png"
               }
             },
             "imageAlt": "combo blusas",
             "categoryLink": "/blusas",
-            "label": "Leve 3 Vestidos "
+            "label": "Presente até R$99,00"
           },
           {
             "image": {
@@ -227,6 +227,12 @@
             "imageAlt": "combo peças",
             "categoryLink": "/peças",
             "label": "Leve 4 Vestidos "
+          },
+          {
+            "image": {
+              "mobile": {},
+              "desktop": {}
+            }
           }
         ]
       }
@@ -378,8 +384,8 @@
     }
   ],
   "__resolveType": "website/pages/Page.tsx",
-  "path": "/",
   "seo": {
     "__resolveType": "website/sections/Seo/SeoV2.tsx"
-  }
+  },
+  "path": "/*"
 }

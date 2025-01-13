@@ -181,11 +181,11 @@
     {
       "submenu": [],
       "menuItem": "Basiquinho",
-      "href": "/"
+      "href": "/infantil/basiquinho"
     },
     {
       "submenu": [],
-      "href": "/",
+      "href": "/infantil/bazar",
       "menuItem": "Bazar"
     }
   ],
