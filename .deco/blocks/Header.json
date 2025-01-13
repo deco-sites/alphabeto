@@ -56,8 +56,9 @@
   "benefits": {
     "alerts": [],
     "benefits": [
-      "<p>Frete fixo de R$ 9,90</p>",
-      "<p>Item 2</p>"
+      "<p>Frete FIXO de R$9,90 com código de vendedora</p>",
+      "<p>Ganhe 15% de CASHBACK para sua próxima compra</p>",
+      "<p>Parcele em até 6x</p>"
     ],
     "interval": 5
   },
@@ -65,12 +66,12 @@
     {
       "submenu": [],
       "menuItem": "Novidades",
-      "href": "/"
+      "href": "/infantil/novidades"
     },
     {
       "submenu": [],
       "menuItem": "Vestidos",
-      "href": "/"
+      "href": "/infantil/vestidos"
     },
     {
       "submenu": [],
@@ -174,8 +175,8 @@
     },
     {
       "submenu": [],
-      "menuItem": "Combos",
-      "href": "/"
+      "menuItem": "Liqui",
+      "href": "/infantil/liqui-colecao-verao"
     },
     {
       "submenu": [],

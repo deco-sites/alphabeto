@@ -1,15 +1,15 @@
 {
   "seo": {
     "type": "website",
-    "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/74d13a55-4c18-4a5c-8cb4-dcaa27aae923",
+    "image": "https://data.decoassets.com/alphabeto/3794e714-18ec-4d42-b814-93afca2385eb/1698261196300.jpeg",
     "title": "Alphabeto",
     "jsonLDs": [],
     "noIndexing": false,
-    "description": "Build profitable websites with deco.cx",
+    "description": "Roupa infantil com conforto e estilo para meninas, meninos e bebês de 0 a 12 anos.",
     "titleTemplate": "%s | Veste criança como criança!",
-    "descriptionTemplate": "%s | deco.cx",
-    "favicon": "https://data.decoassets.com/alphabeto/3794e714-18ec-4d42-b814-93afca2385eb/1698261196300.jpeg",
-    "themeColor": "#FF8300"
+    "descriptionTemplate": "%s | Alphabeto",
+    "themeColor": "#FF8300",
+    "favicon": "https://data.decoassets.com/alphabeto/3794e714-18ec-4d42-b814-93afca2385eb/1698261196300.jpeg"
   },
   "theme": {
     "__resolveType": "Alphabeto"
@@ -81,7 +81,11 @@
   "routes": [
     {
       "__resolveType": "vtex/loaders/proxy.ts",
-      "extraPathsToProxy": [],
+      "extraPathsToProxy": [
+        "/faca-parte",
+        "/mini-me",
+        "/almofada-boneca-mini-me-55724/p?skuId=80784"
+      ],
       "includeSiteMap": [],
       "excludePathsFromDecoSiteMap": [],
       "includeScriptsToHead": {
@@ -115,7 +119,13 @@
     },
     "includeScriptsToBody": {
       "includes": []
-    }
+    },
+    "name": "Teste AB",
+    "matcher": {
+      "__resolveType": "website/matchers/random.ts",
+      "traffic": 0.2
+    },
+    "urlToRunAgainst": "alphabeto.com.br"
   },
   "flavor": {
     "framework": "htmx"

@@ -1,6 +1,8 @@
 {
-  "name": "Vestido Infantil | Alphabeto",
-  "path": "/infantil/vestidos",
+  "__resolveType": "website/pages/Page.tsx",
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
   "sections": [
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
@@ -29,7 +31,7 @@
           "selectedFacets": [
             {
               "key": "productClusterIds",
-              "value": "771"
+              "value": "695"
             }
           ],
           "query": "",
@@ -46,23 +48,21 @@
         "startingPage": 1,
         "seoComponents": {
           "banner": {
-            "title": "Vestidos Infantis",
-            "subtitle": "Conforto, estilo e muita diversão para as pequenas",
-            "description": "<p>Vestidos leves, coloridos e confortáveis, perfeitos para brincar e brilhar em qualquer ocasião.</p>",
+            "title": "Novidades",
+            "description": "<p>Vamos colorir o mundo!</p>",
             "image": {
               "desktop": {
-                "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/476cfeee-a654-49e8-99b7-499c87901c9c/Desk-Categ-Image.png"
+                "src": "https://data.decoassets.com/alphabeto/4dc5a7bd-3005-4c1b-8811-f8bebe8a30b2/4.png"
               },
-              "alt": "Vestidos infantis coloridos e confortáveis, perfeitos para brincadeiras e ocasiões especiais.",
               "mobile": {
-                "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/476cfeee-a654-49e8-99b7-499c87901c9c/Desk-Categ-Image.png"
+                "src": "https://data.decoassets.com/alphabeto/4a82140e-ca59-49a0-b332-ceac9bf47912/4-(1).png"
               }
             }
           },
           "breadcrumb": [
             {
-              "url": "/infantil/vestidos",
-              "name": "Vestido Infantil"
+              "url": "/infantil/novidades",
+              "name": "Novidades"
             }
           ]
         }
@@ -132,8 +132,6 @@
       }
     }
   ],
-  "seo": {
-    "__resolveType": "website/sections/Seo/SeoV2.tsx"
-  },
-  "__resolveType": "website/pages/Page.tsx"
+  "name": "Novidades | Alphabeto",
+  "path": "/infantil/novidades"
 }
