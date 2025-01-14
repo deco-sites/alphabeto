@@ -27,32 +27,40 @@
         "enableJSONLD": true,
         "questions": [
           {
-            "title": "Pedido veio com embalagem aberta, posso trocar?",
-            "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
-          },
-          {
             "title": "Quais os métodos de pagamento?",
-            "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
+            "description": "<p>Aceitamos pagamentos através de Pix, transferência bancária e cartões de crédito nas bandeiras Mastercard, VISA, Elo, Hipercard, Amex e Diners. As compras no cartão de crédito podem ser feitas em um ou dois cartões diferentes e parceladas em até 5x sem juros. A aprovação do compra pela instituição financeira pode levar até 02 dias úteis.</p>"
           },
           {
-            "title": "Comprei o produto errado, posso realizar a troca?",
-            "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
+            "title": "Como realizar meu pedido?",
+            "description": "<p>A escolha dos produtos poderá ser feita na Seção Meninos, Meninas ou Unissex, as quais são separadas por tamanhos: Bebês - 0 a 12 meses; Criança Menina - 1 a 9 anos; Criança Menino 1 a 9 anos; Mini-teen Menina - 10 a 16 anos; Mini-teen Menino 10 a 16 anos. Você poderá ainda realizar seu pedido a partir das Seções Menina, Meninos, Lançamentos, Presentes ou através da Seção OFF. Em qualquer caso, basta selecionar o produto, a cor e o tamanho e adicionar ao carrinho. Quer encontrar a roupinha mais rápido? É só digitar no campo destinado a busca a peça, a estampa ou o termo desejado.</p>"
           },
           {
-            "title": "Comprar com o combo saí mais barato?",
-            "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
+            "title": "Como acompanhar meu pedido?",
+            "description": "<p>As informações mais atualizadas sobre sua Compra e a situação de Entrega estão disponíveis em Meus pedidos, na aba Minha Conta. Além disso, você será notificado do andamento do seu pedido no e-mail informado no cadastro.</p>"
           },
           {
-            "title": "Ganho descontos se comprar mais de um?",
-            "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
+            "title": "Como cancelar meu pedido?",
+            "description": "<p>Se o pedido ainda não estiver sido APROVADO, basta se logar e cancelar diretamente em Meus Pedidos. Se você já recebeu e quer cancelar por qualquer motivo. De acordo com o CDC (Código de Defesa do Consumidor), a solicitação de cancelamento de compras virtuais deve ser feita em até 07 dias úteis/corridos após a data de recebimento. Faça seu pedido de devolução no TROQUE FÁCIL. É bem rápido e fácil. No Troque Fácil será gerado um código de autorização de postagem para que você devolva o(s) produto(s) sem custos. Em qualquer agência dos Correios o produto deve ser despachado junto com a via original da nota fiscal (cupom fiscal ou danfe) com as seguintes informações escritas no verso: Nome completo, CPF, Endereço completo, Número do pedido, Código do(s) produto(s), Motivo da devolução e Assinatura. Em até 08 dias úteis do recebimento do(s) produto(s) pelo nosso CD, o estorno do pagamento é efetuado, desde que tudo esteja conforme orientações do nosso SAC.</p>"
           },
           {
-            "title": "Como utilizo meu código promocional?",
-            "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
+            "title": "A Alphabeto entrega em todo Brasil?",
+            "description": "<p>Via de regra, nossos produtos são entregues em todo o Brasil. Contudo, a transportadora não efetuam a entrega domiciliar em algumas cidades, em área rural, logradouros de difícil acesso ou de risco. Para estes casos, a transportadora envia a encomenda para uma unidade mais próxima do endereço do destinatário, para que seja realizada a entrega interna. Assim, caso o objeto seja destinado a uma área com restrições de entrega domiciliar, a transportadora avaliará qual a providência a ser tomada para o CEP indicado, podendo alongar o prazo de entrega do objeto em mais 7 dias ou enviar o objeto para uma das Unidades da transportadora, de modo que o destinatário possa retirá-lo: eles deixarão um aviso de chegada no endereço do destinatário, que deverá se se dirigir à unidade indicada, portando documentos que permitam a sua identificação, para fazer a retirada do objeto. Os objetos ficam disponíveis, para retirada, por 07 dias, sendo que, após o referido prazo, os objetos não procurados são devolvidos ao remetente.</p>"
           },
           {
-            "title": "Posso tomar todos os dias?",
-            "description": "<p>Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor. Lorem ipsum dolor sit amet consectetur. Nulla ultrices tortor id quis sit varius risus. Ut commodo urna rhoncus nisl. Enim eget lobortis elit at sed viverra. Et integer augue mauris duis massa dignissim tortor.</p>"
+            "title": "Posso alterar o endereço de entrega?",
+            "description": "<p><span>Ainda não fechei a compra no site:</span> no processo de fechamento do pedido, você pode alterar o seu endereço clicando em “editar” no canto direto do campo “entrega”. <span>Já fechei minha compra no site:</span> Após o fechamento da compra, não é possível alterar o endereço de entrega, contudo, envie um e-mail para o <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"mailto:sac@alphabeto.com\">sac@alphabeto.com</a> para que possamos te ajudar.</p>"
+          },
+          {
+            "title": "Posso agendar a entrega?",
+            "description": "<p>Não é possível agendar a data e/ou horário para entrega de pedidos.</p>"
+          },
+          {
+            "title": "Como funciona o processo de aprovação de pedido?",
+            "description": "<p>Após você fechar o pedido nós entramos em contato eletronicamente com a instituição financeira correspondente para confirmar o pagamento. Assim que o pagamento é confirmado nós informamos a aprovação do pedido por e-mail.</p>"
+          },
+          {
+            "title": "Como funciona o cupom de desconto ou vale presente?",
+            "description": "<p>O Cupom de desconto funciona como um desconto propriamente dito, onde ao possui-lo, oriundo de uma promoção ou vendedor, basta acrescentá-lo no campo destinado a ele no carrinho de compras. Ele irá debitar do valor do carrinho. O vale é obtido nas ocasiões de troca e premiações . Se você tem um vale, para utiliza-lo é preciso preencher o campo destinado a ele na tela de pagamento do pedido.</p>"
           }
         ]
       }
