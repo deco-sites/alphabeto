@@ -195,7 +195,7 @@
               },
               "alt": "Banner meninas"
             },
-            "categoryLink": "/infantil/crianca/menina",
+            "categoryLink": "/infantil/crianca/menina?filter.category-2=crianca&page=1",
             "label": "Meninas",
             "buttonText": "Meninas",
             "buttonColor": "#FF859A"
@@ -210,7 +210,7 @@
                 "src": "https://data.decoassets.com/alphabeto/cb47c489-db5f-40b0-9c06-f3c4a918e993/Frame-23873.png"
               }
             },
-            "categoryLink": "/infantil/crianca/menino",
+            "categoryLink": "/infantil/crianca/menino?filter.category-2=crianca&page=1",
             "label": "Meninos",
             "buttonText": "Meninos",
             "buttonColor": "#70D1E8"
@@ -225,7 +225,7 @@
                 "src": "https://data.decoassets.com/alphabeto/2120aa9f-7581-465c-a896-95681c3d0c4a/Frame-23874.png"
               }
             },
-            "categoryLink": "/bebes",
+            "categoryLink": "/s?q=bebê&page=1",
             "label": "Bebê",
             "buttonText": "Bebês",
             "buttonColor": "#D6DE23"
@@ -250,8 +250,8 @@
               },
               "alt": "Alt"
             },
-            "categoryLink": "/infantil/vestidos ",
-            "label": "Presentes até R$69"
+            "label": "Presentes até R$69",
+            "categoryLink": "/infantil/novidades?filter.price=29.97%3A70&sort=price%3Adesc&page=1"
           },
           {
             "image": {
@@ -264,7 +264,7 @@
               "alt": "Alt"
             },
             "label": "Presentes até R$99",
-            "categoryLink": "/infantil/vestidos "
+            "categoryLink": "/infantil/novidades?sort=price%3Adesc&filter.price=29.97%3A100&page=1"
           },
           {
             "image": {
@@ -277,7 +277,7 @@
               "alt": "Alt"
             },
             "label": "Presentes até R$129,00",
-            "categoryLink": "/infantil/vestidos"
+            "categoryLink": "/infantil/novidades?filter.price=29.97%3A130&sort=price%3Adesc&page=1"
           }
         ]
       }
