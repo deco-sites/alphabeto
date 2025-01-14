@@ -66,7 +66,7 @@
     {
       "submenu": [],
       "menuItem": "Novidades",
-      "href": "/infantil/novidades"
+      "href": "/hotsite/novidades"
     },
     {
       "submenu": [],
@@ -74,9 +74,19 @@
       "href": "/infantil/vestidos"
     },
     {
-      "submenu": [],
+      "submenu": [
+        {
+          "item": [
+            {
+              "item": "Bebê (3 a 18 meses)",
+              "href": "/meninas/beb%C3%AA",
+              "highlight": true
+            }
+          ]
+        }
+      ],
       "menuItem": "Meninas",
-      "href": "/"
+      "href": "/infantil/crianca/menina"
     },
     {
       "submenu": [
@@ -84,7 +94,7 @@
           "item": [
             {
               "item": "Bebê (3 a 18 meses)",
-              "href": "/",
+              "href": "/infantil/bebe/menino",
               "highlight": true
             },
             {
@@ -118,7 +128,7 @@
           "item": [
             {
               "item": "Criança  (2 a 8 anos)",
-              "href": "/",
+              "href": "/infantil/crianca/menino",
               "highlight": true
             },
             {
@@ -170,8 +180,8 @@
         }
       ],
       "menuItem": "Meninos",
-      "href": "/",
-      "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/55a0da1a-8b38-40f1-a1f3-b044c848fffc/image-20.png"
+      "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/55a0da1a-8b38-40f1-a1f3-b044c848fffc/image-20.png",
+      "href": "/infantil/crianca/menino"
     },
     {
       "submenu": [],
