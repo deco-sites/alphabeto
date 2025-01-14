@@ -1,8 +1,0 @@
-{
-  "redirect": {
-    "from": "/menina/infantil/conjunto-para-meninas",
-    "to": "/infantil/crianca/menina/conjunto",
-    "type": "temporary"
-  },
-  "__resolveType": "website/loaders/redirect.ts"
-}

@@ -1,8 +1,0 @@
-{
-  "redirect": {
-    "from": "/bebe/menino/body-e-polo-bebe-para-meninos",
-    "to": "/infantil/bebe/menino/body-e-polo",
-    "type": "temporary"
-  },
-  "__resolveType": "website/loaders/redirect.ts"
-}

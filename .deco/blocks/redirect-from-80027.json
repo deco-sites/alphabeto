@@ -1,8 +1,0 @@
-{
-  "redirect": {
-    "from": "/bebe/menina/calca-legging-e-short-para-bebes-meninas",
-    "to": "/infantil/bebe/menina/calca-legging-e-short",
-    "type": "temporary"
-  },
-  "__resolveType": "website/loaders/redirect.ts"
-}

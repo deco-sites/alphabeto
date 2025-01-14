@@ -1,8 +1,0 @@
-{
-  "redirect": {
-    "from": "/menina/infantil/acessorios-para-meninas",
-    "to": "/infantil/crianca/menina/acessorio",
-    "type": "temporary"
-  },
-  "__resolveType": "website/loaders/redirect.ts"
-}

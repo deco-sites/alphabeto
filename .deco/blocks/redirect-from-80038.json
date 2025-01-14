@@ -1,8 +1,0 @@
-{
-  "redirect": {
-    "from": "/hotsite/infantil/bazar",
-    "to": "/infantil/bazar",
-    "type": "temporary"
-  },
-  "__resolveType": "website/loaders/redirect.ts"
-}

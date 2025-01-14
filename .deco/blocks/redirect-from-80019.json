@@ -1,8 +1,0 @@
-{
-  "redirect": {
-    "from": "/menina/infantil/short-shortsaia-e-bermuda-para-meninas",
-    "to": "/infantil/crianca/menina/short-short-saia-e-bermuda",
-    "type": "temporary"
-  },
-  "__resolveType": "website/loaders/redirect.ts"
-}

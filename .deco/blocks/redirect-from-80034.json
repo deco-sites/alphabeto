@@ -1,8 +1,0 @@
-{
-  "redirect": {
-    "from": "/meninos/bebê",
-    "to": "/infantil/bebe/menino",
-    "type": "temporary"
-  },
-  "__resolveType": "website/loaders/redirect.ts"
-}

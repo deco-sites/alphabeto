@@ -1,8 +1,0 @@
-{
-  "redirect": {
-    "from": "/menino/infantil/conjunto-infantil-para-meninos",
-    "to": "/infantil/crianca/menino/conjunto",
-    "type": "temporary"
-  },
-  "__resolveType": "website/loaders/redirect.ts"
-}

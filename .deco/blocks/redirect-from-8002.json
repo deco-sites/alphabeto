@@ -1,8 +1,0 @@
-{
-  "redirect": {
-    "from": "/menina/infantil/meia-e-galocha-para-meninas",
-    "to": "/infantil/crianca/menina/meia-e-galocha",
-    "type": "temporary"
-  },
-  "__resolveType": "website/loaders/redirect.ts"
-}

@@ -1,8 +1,0 @@
-{
-  "redirect": {
-    "from": "/bebe/menino/casaco-bebe-para-meninos-alphabeto",
-    "to": "/infantil/bebe/menino/casaco",
-    "type": "temporary"
-  },
-  "__resolveType": "website/loaders/redirect.ts"
-}

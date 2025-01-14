@@ -1,8 +1,0 @@
-{
-  "redirect": {
-    "from": "/bebe/menina/body-para-bebes-meninas",
-    "to": "/infantil/bebe/menina/body",
-    "type": "temporary"
-  },
-  "__resolveType": "website/loaders/redirect.ts"
-}

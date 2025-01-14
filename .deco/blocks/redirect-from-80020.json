@@ -1,8 +1,0 @@
-{
-  "redirect": {
-    "from": "/bebe/menina/casaco-para-bebes-meninas",
-    "to": "/infantil/bebe/menina/casaco",
-    "type": "temporary"
-  },
-  "__resolveType": "website/loaders/redirect.ts"
-}

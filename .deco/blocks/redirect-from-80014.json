@@ -1,8 +1,0 @@
-{
-  "redirect": {
-    "from": "/bebe/menino/jardineira-e-macacao-para-bebes-meninos",
-    "to": "/infantil/bebe/menino/jardineira-e-macacao",
-    "type": "temporary"
-  },
-  "__resolveType": "website/loaders/redirect.ts"
-}
