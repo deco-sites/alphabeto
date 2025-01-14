@@ -99,9 +99,9 @@ function ProductInfo({ page, sizebaySettings, siteSettings }: Props) {
         <WishlistButton mode="pdp" item={item} />
       </div>
       {/* Product Name */}
-      <span class="text-accent text-[22px] mobile:leading-[26px] desk:text-3xl font-bold">
+      <h1 class="text-accent text-[22px] mobile:leading-[26px] desk:text-3xl font-bold">
         {title}
-      </span>
+      </h1>
 
       <div class="flex gap-[15px] mt-3 items-center">
         <ProductRating
