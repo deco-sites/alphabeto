@@ -1,0 +1,8 @@
+{
+  "redirect": {
+    "from": "/menino/infantil/acessorio-para-meninos",
+    "to": "/infantil/crianca/menino/acessorio",
+    "type": "temporary"
+  },
+  "__resolveType": "website/loaders/redirect.ts"
+}

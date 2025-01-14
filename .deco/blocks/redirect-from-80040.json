@@ -1,0 +1,8 @@
+{
+  "redirect": {
+    "from": "/infantil/liqui-colecao-verao",
+    "to": "/infantil/liqui-colecao-verao",
+    "type": "temporary"
+  },
+  "__resolveType": "website/loaders/redirect.ts"
+}

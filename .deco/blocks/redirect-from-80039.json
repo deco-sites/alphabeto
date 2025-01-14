@@ -1,0 +1,8 @@
+{
+  "redirect": {
+    "from": "/infantil/vestidos",
+    "to": "/infantil/vestidos",
+    "type": "temporary"
+  },
+  "__resolveType": "website/loaders/redirect.ts"
+}

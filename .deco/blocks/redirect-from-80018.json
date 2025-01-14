@@ -1,0 +1,8 @@
+{
+  "redirect": {
+    "from": "/menina/infantil/blusa-regata-e-camisa-para-meninas",
+    "to": "/infantil/crianca/menina/blusa-regata-e-camiseta",
+    "type": "temporary"
+  },
+  "__resolveType": "website/loaders/redirect.ts"
+}

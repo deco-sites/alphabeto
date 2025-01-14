@@ -1,0 +1,8 @@
+{
+  "redirect": {
+    "from": "/menino/infantil/camiseta-e-polo-para-meninos",
+    "to": "/infantil/crianca/menino/camisa-e-polo",
+    "type": "temporary"
+  },
+  "__resolveType": "website/loaders/redirect.ts"
+}

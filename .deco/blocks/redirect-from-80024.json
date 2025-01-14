@@ -1,0 +1,8 @@
+{
+  "redirect": {
+    "from": "/menina/infantil/vestido-e-macaquinho-para-meninas",
+    "to": "/infantil/crianca/menina/vestido-e-macaquinho",
+    "type": "temporary"
+  },
+  "__resolveType": "website/loaders/redirect.ts"
+}

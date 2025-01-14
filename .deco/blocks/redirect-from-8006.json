@@ -1,0 +1,8 @@
+{
+  "redirect": {
+    "from": "/bebe/menino/calca-bebe-para-meninos",
+    "to": "/infantil/bebe/menino/calca",
+    "type": "temporary"
+  },
+  "__resolveType": "website/loaders/redirect.ts"
+}

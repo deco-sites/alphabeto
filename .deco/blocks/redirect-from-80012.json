@@ -1,0 +1,8 @@
+{
+  "redirect": {
+    "from": "/bebê/menino/bermuda-bebe-para-meninos",
+    "to": "/infantil/bebe/menino/bermuda",
+    "type": "temporary"
+  },
+  "__resolveType": "website/loaders/redirect.ts"
+}

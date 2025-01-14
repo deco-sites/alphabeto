@@ -1,0 +1,8 @@
+{
+  "redirect": {
+    "from": "/bebe/menino/conjunto-bebe-para-meninos",
+    "to": "/infantil/bebe/menino/conjunto",
+    "type": "temporary"
+  },
+  "__resolveType": "website/loaders/redirect.ts"
+}

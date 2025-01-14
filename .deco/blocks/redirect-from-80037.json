@@ -1,0 +1,8 @@
+{
+  "redirect": {
+    "from": "/hotsite/novidades",
+    "to": "/infantil/novidades",
+    "type": "temporary"
+  },
+  "__resolveType": "website/loaders/redirect.ts"
+}

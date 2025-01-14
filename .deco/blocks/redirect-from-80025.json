@@ -1,0 +1,8 @@
+{
+  "redirect": {
+    "from": "/menina/infantil/calca-e-legging-para-meninas",
+    "to": "/infantil/crianca/menina/calca-e-legging",
+    "type": "temporary"
+  },
+  "__resolveType": "website/loaders/redirect.ts"
+}

@@ -1,0 +1,8 @@
+{
+  "redirect": {
+    "from": "/meninas/crianca",
+    "to": "/infantil/crianca/menina",
+    "type": "temporary"
+  },
+  "__resolveType": "website/loaders/redirect.ts"
+}

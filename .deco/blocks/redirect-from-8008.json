@@ -1,0 +1,8 @@
+{
+  "redirect": {
+    "from": "/menino/infantil/pijama-infantil-para-meninos",
+    "to": "/infantil/crianca/menino/pijama",
+    "type": "temporary"
+  },
+  "__resolveType": "website/loaders/redirect.ts"
+}
