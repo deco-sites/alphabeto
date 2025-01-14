@@ -127,8 +127,8 @@
       "__resolveType": "website/matchers/random.ts",
       "traffic": 0.2
     },
-    "urlToRunAgainst": "secure.alphabeto.com",
-    "enabled": true
+    "enabled": true,
+    "urlToRunAgainst": "https://secure.alphabeto.com"
   },
   "flavor": {
     "framework": "htmx"
