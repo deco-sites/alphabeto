@@ -154,12 +154,12 @@
 }
 
 .modal:not(dialog:not(.modal-open)),
-.modal::backdrop{
- pointer-events: none;
- display:none
+.modal::backdrop {
+  pointer-events: none;
+  display: none;
 }
 
-.modal-open, .modal:target, .modal-toggle:checked + .modal, .modal[open]{
- pointer-events: auto;
- display:block;
+.modal-open, .modal:target, .modal-toggle:checked + .modal, .modal[open] {
+  pointer-events: auto;
+  display: block;
 }
