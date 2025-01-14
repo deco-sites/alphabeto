@@ -195,7 +195,7 @@
               },
               "alt": "Banner meninas"
             },
-            "categoryLink": "/meninas",
+            "categoryLink": "/infantil/crianca/menina",
             "label": "Meninas",
             "buttonText": "Meninas",
             "buttonColor": "#FF859A"
@@ -210,7 +210,7 @@
                 "src": "https://data.decoassets.com/alphabeto/cb47c489-db5f-40b0-9c06-f3c4a918e993/Frame-23873.png"
               }
             },
-            "categoryLink": "/meninos",
+            "categoryLink": "/infantil/crianca/menino",
             "label": "Meninos",
             "buttonText": "Meninos",
             "buttonColor": "#70D1E8"
@@ -378,5 +378,5 @@
   "seo": {
     "__resolveType": "website/sections/Seo/SeoV2.tsx"
   },
-  "path": "/*"
+  "path": "/"
 }

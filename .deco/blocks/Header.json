@@ -79,14 +79,89 @@
           "item": [
             {
               "item": "Bebê (3 a 18 meses)",
-              "href": "/meninas/beb%C3%AA",
+              "href": "/infantil/bebe/menina",
               "highlight": true
+            },
+            {
+              "href": "/infantil/bebe/menina/body",
+              "item": "Body"
+            },
+            {
+              "href": "/infantil/bebe/menina/vestido-e-macaquinho",
+              "item": "Vestido e Macaquinho"
+            },
+            {
+              "href": "/infantil/bebe/menina/calca-legging-e-short",
+              "item": "Calça, Legging e Short"
+            },
+            {
+              "item": "Casaco",
+              "href": "/infantil/bebe/menina/casaco"
+            },
+            {
+              "href": "/infantil/bebe/menina/conjunto",
+              "item": "Conjunto"
             }
-          ]
+          ],
+          "seeAll": true
+        },
+        {
+          "item": [
+            {
+              "item": "Criança (2 a 12 anos)",
+              "href": "/infantil/crianca/menina",
+              "highlight": true
+            },
+            {
+              "href": "/infantil/crianca/menina/acessorio",
+              "item": "Acessório"
+            },
+            {
+              "href": "/infantil/crianca/menina/blusa-regata-e-camiseta",
+              "item": "Blusa, Regata e Camisa"
+            },
+            {
+              "item": "Short, Short-Saia e Bermuda",
+              "href": "/infantil/crianca/menina/short-short-saia-e-bermuda"
+            },
+            {
+              "item": "Conjunto",
+              "href": "/infantil/crianca/menina/conjunto"
+            },
+            {
+              "item": "Vestido e Macaquinho",
+              "href": "/infantil/crianca/menina/vestido-e-macaquinho"
+            },
+            {
+              "item": "Calça e Legging",
+              "href": "/infantil/crianca/menina/calca-e-legging"
+            },
+            {
+              "href": "/infantil/crianca/menina/casaco",
+              "item": "Casaco"
+            },
+            {
+              "href": "/infantil/crianca/menina/moda-praia",
+              "item": "Moda Praia"
+            },
+            {
+              "href": "/infantil/crianca/menina/pijama-e-camisola",
+              "item": "Pijama e Camisola"
+            },
+            {
+              "href": "/infantil/crianca/menina/meia-e-galocha",
+              "item": "Meia e Galocha"
+            },
+            {
+              "href": "/menina/infantil/basiquinho-para-meninas",
+              "item": "Basiquino"
+            }
+          ],
+          "seeAll": true
         }
       ],
       "menuItem": "Meninas",
-      "href": "/infantil/crianca/menina"
+      "href": "/infantil/bebe/menina"
     },
     {
       "submenu": [
