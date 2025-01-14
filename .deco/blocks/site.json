@@ -125,7 +125,7 @@
     "name": "Teste AB",
     "matcher": {
       "__resolveType": "website/matchers/random.ts",
-      "traffic": 0.2
+      "traffic": 0.8
     },
     "enabled": true,
     "urlToRunAgainst": "https://secure.alphabeto.com"
