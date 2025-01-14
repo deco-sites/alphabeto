@@ -33,11 +33,11 @@ interface Props {
   };
 }
 
-const DESKTOP_WIDTH = 328;
-const DESKTOP_HEIGHT = 466;
+const DESKTOP_WIDTH = 500;
+const DESKTOP_HEIGHT = 692;
 
-const MOBILE_WIDTH = 160;
-const MOBILE_HEIGHT = 260;
+const MOBILE_WIDTH = 500;
+const MOBILE_HEIGHT = 692;
 
 function ProductCard({
   product,

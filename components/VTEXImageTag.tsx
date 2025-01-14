@@ -22,6 +22,8 @@ type Props =
     fetchPriority?: "high" | "low" | "auto";
     /** @description Object-fit */
     fit?: "contain" | "cover";
+    /** @description remove size */
+    removeSize?: boolean;
   };
 
 interface VtexImg {
@@ -60,17 +62,33 @@ const makeUrlSize = (vtexImg: VtexImg, width: number) => {
   } = vtexImg;
   return `https://${account}.${cdnDomain}/arquivos/ids/${id}-${width}-auto/${
     changeExtension(fileName, "webp")
-  }`;
+  }?aspect=true`;
+};
+
+const makeUrlWithoutSize = (vtexImg: VtexImg) => {
+  const {
+    account,
+    cdnDomain,
+    id,
+    fileName,
+  } = vtexImg;
+  return `https://${account}.${cdnDomain}/arquivos/ids/${id}/${
+    changeExtension(fileName, "webp")
+  }?aspect=true`;
 };
 
 const VTEXImageTag = forwardRef<HTMLImageElement, Props>((props, ref) => {
-  const { width, src, loading = "lazy", preload } = props;
+  const { width, src, loading = "lazy", preload, removeSize } = props;
   const vtexImg = readVtexImg(src);
-  const srcSetOne = makeUrlSize(vtexImg, width);
+  const srcSetOne = removeSize
+    ? makeUrlWithoutSize(vtexImg)
+    : makeUrlSize(vtexImg, width);
   const srcSetOneW = `${width}w`;
   const srcSetTwo = makeUrlSize(vtexImg, width * 2);
   const srcSetTwoW = `${width * 2}w`;
-  const finalSrcSet = `${srcSetOne} ${srcSetOneW}, ${srcSetTwo} ${srcSetTwoW}`;
+  const finalSrcSet = removeSize
+    ? undefined
+    : `${srcSetOne} ${srcSetOneW}, ${srcSetTwo} ${srcSetTwoW}`;
   const linkProps = {
     imagesrcset: finalSrcSet,
     imagesizes: props.sizes,

@@ -85,6 +85,7 @@ export default function ProductImages({ page }: Props) {
               height={658}
               src={image.url ?? ""}
               alt={image.alternateName}
+              removeSize
             />
           </Slider.Item>
         ))}
