@@ -127,7 +127,7 @@
       "__resolveType": "website/matchers/random.ts",
       "traffic": 0.2
     },
-    "urlToRunAgainst": "alphabeto.com.br"
+    "urlToRunAgainst": "secure.alphabeto.com.br"
   },
   "flavor": {
     "framework": "htmx"
