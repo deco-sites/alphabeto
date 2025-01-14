@@ -27,7 +27,7 @@ import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
 import Section from "site/components/ui/Section.tsx";
 
-const AGE_FILTER_KEY = "category-2";
+const AGE_FILTER_KEY = "tamanho";
 
 export interface Layout {
   /**
