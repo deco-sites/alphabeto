@@ -20,7 +20,14 @@ export interface Redirects {
   forcePermanentRedirects?: boolean;
   redirects: Redirect[];
   cookieMatcherName: string;
+  /**
+   * @description The final value of the cookie to not make the redirect
+   */
   cookieMatcherValue: "0" | "1";
+  /**
+   * @description The url to proxy the request ex: secure.alphabeto.com
+   */
+  proxyUrl: string;
 }
 
 function findAndRemove<T>(array: T[], values: T[]): T | null {
@@ -36,6 +43,7 @@ const getRedirectFromFile = async (
   from: string,
   cookieMatcherName: string,
   cookieMatcherValue: "0" | "1",
+  proxyUrl: string,
   forcePermanentRedirects?: boolean,
 ) => {
   let redirectsRaw: string | null = null;
@@ -97,6 +105,7 @@ const getRedirectFromFile = async (
         discardQueryParameters,
         cookieMatcherName,
         cookieMatcherValue,
+        proxyUrl,
       },
     },
   }));
@@ -113,6 +122,7 @@ export default async function redirect({
   forcePermanentRedirects,
   cookieMatcherName,
   cookieMatcherValue,
+  proxyUrl,
 }: Redirects): Promise<Route[]> {
   const current = routesMap.get(from);
 
@@ -124,6 +134,7 @@ export default async function redirect({
           from,
           cookieMatcherName,
           cookieMatcherValue,
+          proxyUrl,
           forcePermanentRedirects,
         )
         : Promise.resolve([]),
@@ -145,6 +156,7 @@ export default async function redirect({
         discardQueryParameters,
         cookieMatcherName,
         cookieMatcherValue,
+        proxyUrl,
       },
     },
   }));

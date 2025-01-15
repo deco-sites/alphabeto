@@ -110,7 +110,8 @@
       "redirects": [],
       "from": "/static/redirects/go-live.csv",
       "cookieMatcherName": "deco_matcher_2054384696",
-      "cookieMatcherValue": "0"
+      "cookieMatcherValue": "1",
+      "proxyUrl": "secure.alphabeto.com"
     }
   ],
   "caching": {

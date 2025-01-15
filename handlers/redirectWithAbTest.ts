@@ -9,6 +9,7 @@ export interface RedirectConfig {
   discardQueryParameters?: boolean;
   cookieMatcherName: string;
   cookieMatcherValue: "0" | "1";
+  proxyUrl: string;
 }
 
 /**
@@ -22,6 +23,7 @@ export default function Redirect(
     discardQueryParameters,
     cookieMatcherName,
     cookieMatcherValue,
+    proxyUrl,
   }: RedirectConfig,
 ) {
   /** https://archive.is/kWvxu */
@@ -42,10 +44,10 @@ export default function Redirect(
     const cookie = findedAbCookie ? cookies[findedAbCookie] : "";
     const hasExpectedFinalValue = cookie.endsWith(cookieMatcherValue);
 
-    if (!hasExpectedFinalValue && isFreshCtx(conn)) {
+    if (hasExpectedFinalValue && isFreshCtx(conn)) {
       return await Proxy({
-        url: "https://secure.alphabeto.com",
-        host: "secure.alphabeto.com",
+        url: `https://${proxyUrl}`,
+        host: proxyUrl,
       })(req, conn);
     }
     const params = isFreshCtx(conn) ? conn.params ?? {} : {};
