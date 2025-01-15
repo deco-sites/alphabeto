@@ -103,6 +103,14 @@
     },
     {
       "__resolveType": "website/loaders/pages.ts"
+    },
+    {
+      "__resolveType": "site/loaders/abCsvRedirect.ts",
+      "expectedFinalValue": "0",
+      "redirects": [],
+      "from": "/static/redirects/go-live.csv",
+      "cookieMatcherName": "deco_matcher_2054384696",
+      "cookieMatcherValue": "0"
     }
   ],
   "caching": {
