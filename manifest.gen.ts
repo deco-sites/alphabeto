@@ -8,25 +8,27 @@ import * as $$$$$$$$$$$0 from "./apps/deco/analytics.ts";
 import * as $$$$$$$$$$$1 from "./apps/deco/htmx.ts";
 import * as $$$$$$$$$$$2 from "./apps/deco/vtex.ts";
 import * as $$$$$$$$$$$3 from "./apps/site.ts";
-import * as $$$4 from "./loaders/availableIcons.ts";
+import * as $$$$0 from "./handlers/redirectWithAbTest.ts";
+import * as $$$4 from "./loaders/abCsvRedirect.ts";
+import * as $$$5 from "./loaders/availableIcons.ts";
 import * as $$$0 from "./loaders/BuyTogether/constants.ts";
 import * as $$$1 from "./loaders/BuyTogether/getInitialProducts.ts";
 import * as $$$2 from "./loaders/BuyTogether/getNewProduct.ts";
 import * as $$$3 from "./loaders/BuyTogether/types.ts";
-import * as $$$5 from "./loaders/geolocation.ts";
-import * as $$$6 from "./loaders/icons.ts";
-import * as $$$7 from "./loaders/minicart.ts";
-import * as $$$8 from "./loaders/product/backgroundBanner.ts";
-import * as $$$9 from "./loaders/product/rotativeText.ts";
-import * as $$$10 from "./loaders/searchDocuments.ts";
-import * as $$$11 from "./loaders/sizebay.ts";
-import * as $$$12 from "./loaders/user.ts";
-import * as $$$13 from "./loaders/vtexReviewsAndRatings/constants.ts";
-import * as $$$14 from "./loaders/vtexReviewsAndRatings/index.ts";
-import * as $$$15 from "./loaders/vtexReviewsAndRatings/queries.ts";
-import * as $$$16 from "./loaders/vtexReviewsAndRatings/types.ts";
-import * as $$$17 from "./loaders/wishlist.ts";
-import * as $$$18 from "./loaders/youtubeVideo.ts";
+import * as $$$6 from "./loaders/geolocation.ts";
+import * as $$$7 from "./loaders/icons.ts";
+import * as $$$8 from "./loaders/minicart.ts";
+import * as $$$9 from "./loaders/product/backgroundBanner.ts";
+import * as $$$10 from "./loaders/product/rotativeText.ts";
+import * as $$$11 from "./loaders/searchDocuments.ts";
+import * as $$$12 from "./loaders/sizebay.ts";
+import * as $$$13 from "./loaders/user.ts";
+import * as $$$14 from "./loaders/vtexReviewsAndRatings/constants.ts";
+import * as $$$15 from "./loaders/vtexReviewsAndRatings/index.ts";
+import * as $$$16 from "./loaders/vtexReviewsAndRatings/queries.ts";
+import * as $$$17 from "./loaders/vtexReviewsAndRatings/types.ts";
+import * as $$$18 from "./loaders/wishlist.ts";
+import * as $$$19 from "./loaders/youtubeVideo.ts";
 import * as $$$$$$0 from "./sections/AboutUs/AboutUsBanner.tsx";
 import * as $$$$$$1 from "./sections/AboutUs/AboutUsBubbles.tsx";
 import * as $$$$$$2 from "./sections/AboutUs/AboutUsCompanyInfo.tsx";
@@ -86,25 +88,29 @@ import * as $$$$$$55 from "./sections/Theme/Theme.tsx";
 
 const manifest = {
   "loaders": {
-    "site/loaders/availableIcons.ts": $$$4,
+    "site/loaders/abCsvRedirect.ts": $$$4,
+    "site/loaders/availableIcons.ts": $$$5,
     "site/loaders/BuyTogether/constants.ts": $$$0,
     "site/loaders/BuyTogether/getInitialProducts.ts": $$$1,
     "site/loaders/BuyTogether/getNewProduct.ts": $$$2,
     "site/loaders/BuyTogether/types.ts": $$$3,
-    "site/loaders/geolocation.ts": $$$5,
-    "site/loaders/icons.ts": $$$6,
-    "site/loaders/minicart.ts": $$$7,
-    "site/loaders/product/backgroundBanner.ts": $$$8,
-    "site/loaders/product/rotativeText.ts": $$$9,
-    "site/loaders/searchDocuments.ts": $$$10,
-    "site/loaders/sizebay.ts": $$$11,
-    "site/loaders/user.ts": $$$12,
-    "site/loaders/vtexReviewsAndRatings/constants.ts": $$$13,
-    "site/loaders/vtexReviewsAndRatings/index.ts": $$$14,
-    "site/loaders/vtexReviewsAndRatings/queries.ts": $$$15,
-    "site/loaders/vtexReviewsAndRatings/types.ts": $$$16,
-    "site/loaders/wishlist.ts": $$$17,
-    "site/loaders/youtubeVideo.ts": $$$18,
+    "site/loaders/geolocation.ts": $$$6,
+    "site/loaders/icons.ts": $$$7,
+    "site/loaders/minicart.ts": $$$8,
+    "site/loaders/product/backgroundBanner.ts": $$$9,
+    "site/loaders/product/rotativeText.ts": $$$10,
+    "site/loaders/searchDocuments.ts": $$$11,
+    "site/loaders/sizebay.ts": $$$12,
+    "site/loaders/user.ts": $$$13,
+    "site/loaders/vtexReviewsAndRatings/constants.ts": $$$14,
+    "site/loaders/vtexReviewsAndRatings/index.ts": $$$15,
+    "site/loaders/vtexReviewsAndRatings/queries.ts": $$$16,
+    "site/loaders/vtexReviewsAndRatings/types.ts": $$$17,
+    "site/loaders/wishlist.ts": $$$18,
+    "site/loaders/youtubeVideo.ts": $$$19,
+  },
+  "handlers": {
+    "site/handlers/redirectWithAbTest.ts": $$$$0,
   },
   "sections": {
     "site/sections/AboutUs/AboutUsBanner.tsx": $$$$$$0,

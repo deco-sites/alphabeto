@@ -21,7 +21,7 @@ const useStyles = (
   colors: ColorItem[],
 ) => {
   const hasColor = colors.find(
-    (color) => color.name.toLowerCase() === value.toLowerCase(),
+    (color) => color.name.trim().toLowerCase() === value.trim().toLowerCase(),
   );
 
   if (hasColor && name.toLowerCase() === "cor") {

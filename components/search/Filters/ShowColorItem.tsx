@@ -90,15 +90,9 @@ function Item({
 }
 
 function findColorItem(value: string, colors: ColorItem[]) {
-  const normalizeAll = (str: string) =>
-    str
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "");
-
-  return colors.find((color) => {
-    return normalizeAll(color.name).includes(normalizeAll(value));
-  });
+  return colors.find((color) =>
+    color.name.toLowerCase().trim() === value.toLowerCase().trim()
+  );
 }
 
 export default function ShowColorItem({
@@ -119,7 +113,7 @@ export default function ShowColorItem({
         style={{ "--maxHeight": `${CALCULATED_MAX_HEIGHT}px` }}
       >
         {values.map((item) => {
-          const colorItem = findColorItem(item.value, colors);
+          const colorItem = findColorItem(item.label, colors);
           return (
             <Item
               keyValue={key}
