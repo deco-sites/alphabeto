@@ -59,7 +59,7 @@
       "benefits": {
         "alerts": [],
         "benefits": [
-          "<p>Frete FIXO de R$9,90 com código de vendedora</p>",
+          "<p>Frete GRÁTIS acima de R$249 com código de vendedora</p>",
           "<p>Ganhe 15% de CASHBACK para sua próxima compra</p>",
           "<p>Parcele em até 6x</p>"
         ],
@@ -330,7 +330,7 @@
           "mainColor": "#FF8300",
           "imageAlt": "Troca Fácil",
           "title": "Troca Fácil",
-          "message": "<p>Precisa trocar? É fácil e rapidinho :) <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"/\">Clique aqui</a></p>",
+          "message": "<p>Precisa trocar? É fácil e rapidinho :) <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://alphabeto.troquefacil.com.br/\">Clique aqui</a></p>",
           "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/4afcd983-510b-4e38-9bf4-4e40c52c42a1/Troca-facil.svg"
         },
         {
