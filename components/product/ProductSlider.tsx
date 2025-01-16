@@ -1,4 +1,4 @@
-import { Product } from "apps/commerce/types.ts";
+import { Product, ProductLeaf, Review } from "apps/commerce/types.ts";
 import { clx } from "site/sdk/clx.ts";
 import Icon from "site/components/ui/Icon.tsx";
 import Slider from "site/components/ui/Slider.tsx";
@@ -22,6 +22,75 @@ export interface ProductSliderProps {
 const DESKTOP_ITENS = 4;
 const TABLET_ITENS = 2;
 
+type AnyProduct = Product | ProductLeaf;
+
+export function FixSellerIssue<T extends AnyProduct>(product: T): T {
+  const newProduct = product;
+
+  if (!newProduct.offers?.offers) return newProduct;
+  newProduct.offers.offers = newProduct.offers.offers.map((offer) => {
+    if (!offer.sellerName) return offer;
+    const { sellerName, ...newOffer } = offer;
+    newOffer.seller = {
+      "@type": "Organization",
+      name: sellerName,
+    } as unknown as string;
+    return newOffer;
+  });
+
+  if (
+    "isVariantOf" in newProduct && newProduct.isVariantOf?.hasVariant &&
+    newProduct.isVariantOf.hasVariant.length > 0
+  ) {
+    newProduct.isVariantOf.hasVariant = newProduct.isVariantOf.hasVariant.map(
+      (variant) => FixSellerIssue(variant),
+    );
+  }
+
+  return newProduct;
+}
+
+export function FixReviewIssue<T extends AnyProduct>(product: T): T {
+  let newProduct = product;
+  if (product.review && product.review?.length > 0) {
+    product.review = product.review.map((review) => {
+      // It's stranger but i need to remove	the reviewHeadline from the review object because it's not a valid property on schema.org
+      const { author, reviewHeadline: _reviewHeadline, ...restOfReview } =
+        review;
+      const newReview = restOfReview;
+      if (!author) return newReview;
+      return {
+        ...restOfReview,
+        reviewRating: {
+          ...product.aggregateRating,
+          ...restOfReview.reviewRating,
+        },
+        author: {
+          "@type": "Person",
+          name: author?.[0].name,
+        },
+      } as unknown as Review;
+    });
+  } else {
+    const {
+      review: _review,
+      aggregateRating: _aggregateRating,
+      ...newProduct2
+    } = product;
+
+    newProduct = newProduct2 as T;
+  }
+  if (
+    "isVariantOf" in newProduct && newProduct.isVariantOf?.hasVariant &&
+    newProduct.isVariantOf.hasVariant.length > 0
+  ) {
+    newProduct.isVariantOf.hasVariant = newProduct.isVariantOf.hasVariant.map(
+      (variant) => FixReviewIssue(variant),
+    );
+  }
+  return newProduct;
+}
+
 function ProductSlider(
   { products, viewItemListName, settings }: ProductSliderProps,
 ) {
@@ -38,6 +107,20 @@ function ProductSlider(
         id={id}
         class="relative"
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              "itemListElement": products.map((product, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "item": FixReviewIssue(FixSellerIssue(product)),
+              })),
+            }),
+          }}
+        />
         <div class="relative">
           <Slider
             class="carousel"

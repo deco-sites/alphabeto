@@ -3,7 +3,11 @@ import ProductCard from "site/components/product/ProductCard.tsx";
 import Icon from "site/components/ui/Icon.tsx";
 import Slider from "site/components/ui/Slider.tsx";
 import { useDevice } from "@deco/deco/hooks";
-import { ProductSliderProps } from "site/components/product/ProductSlider.tsx";
+import {
+  FixReviewIssue,
+  FixSellerIssue,
+  ProductSliderProps,
+} from "site/components/product/ProductSlider.tsx";
 
 interface Props extends ProductSliderProps {
   id: string;
@@ -26,6 +30,20 @@ function ProductSlider(props: Props) {
         id={id}
         class="relative"
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              "itemListElement": products.map((product, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "item": FixReviewIssue(FixSellerIssue(product)),
+              })),
+            }),
+          }}
+        />
         <div class="relative max-w-[calc(100dvw_-_40px)] tablet-large:max-w-[min(46.11dvw,_712px)]">
           <Slider
             class="carousel"
