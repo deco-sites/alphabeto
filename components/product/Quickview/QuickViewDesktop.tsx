@@ -101,7 +101,7 @@ function QuickViewDesktop({ product, settings, cardId }: QuickViewProps) {
           )}
           type="button"
         >
-          quickview
+          Veja Agora
         </Button>
       </div>
       <div id="quickviewContent">
