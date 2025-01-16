@@ -1,0 +1,59 @@
+{
+  "name": "Mini Me",
+  "path": "/mini-me",
+  "sections": [
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Header"
+      }
+    },
+    {
+      "__resolveType": "site/sections/MiniMe/MiniMe.tsx",
+      "components": [
+        {
+          "__resolveType": "site/sections/Institutional/Breadcrumb.tsx",
+          "showText": false,
+          "root": "HOME",
+          "route": "Faça a sua boneca",
+          "path": "."
+        },
+        {
+          "__resolveType": "site/sections/AboutUs/AboutUsBanner.tsx",
+          "alt": "Banner da página",
+          "desktop": "https://data.decoassets.com/alphabeto/b709cc85-4ecd-40e4-9b8f-e87916542d19/Banner-principal-(2).png",
+          "mobile": "https://data.decoassets.com/alphabeto/8b3712ee-eb1b-4a80-a43b-c141530739aa/Banner-principal-(3).png"
+        },
+        {
+          "__resolveType": "site/sections/MiniMe/Components/AboutMiniMe.tsx",
+          "title": "Mini Me",
+          "subtitle": "Os pequenos imagina e nós fazemos!",
+          "description": "<p><strong>Expressando sua forma única e valorizando todas as diferenças! Desejamos construir um mundo onde toda criança se sinta abraçada.</strong></p><p></p><p>Lorem ipsum dolor sit amet consectetur. Sociis pellentesque suspendisse sit placerat malesuada ligula. Diam sed curabitur malesuada magnis. Est donec scelerisque placerat dui consectetur magna odio mi. Venenatis velit sapien platea sed magna turpis et fames velit. Eu sed ut diam viverra metus.</p>",
+          "label": "Quero a minha",
+          "mainImage": "https://data.decoassets.com/alphabeto/3c4b961a-f1da-4738-93c3-cc05359736c7/Imagem-1.png",
+          "backImage": "https://data.decoassets.com/alphabeto/6d5e08ab-5f7e-4627-90bc-243b52c5d615/Imagem-2.png"
+        },
+        {
+          "__resolveType": "site/sections/MiniMe/Components/VideoMiniMe.tsx",
+          "backgroundImage": "https://data.decoassets.com/alphabeto/2e410d12-1031-40ec-9606-4b67513cd845/Novo-Projeto.jpg"
+        },
+        {
+          "__resolveType": "website/sections/Rendering/Lazy.tsx",
+          "section": {
+            "__resolveType": "FAQ"
+          }
+        }
+      ]
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer"
+      }
+    }
+  ],
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
+  "__resolveType": "website/pages/Page.tsx"
+}
