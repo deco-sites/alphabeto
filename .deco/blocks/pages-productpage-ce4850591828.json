@@ -46,7 +46,7 @@
       "buyTogetherInitialLoader": {
         "data": {
           "__resolveType": "site/loaders/BuyTogether/getInitialProducts.ts",
-          "collection": "764",
+          "collection": "380",
           "slug": {
             "__resolveType": "website/functions/requestToParam.ts",
             "param": "slug"
@@ -57,7 +57,7 @@
       "buyTogetherNewProductsLoader": {
         "data": {
           "__resolveType": "site/loaders/BuyTogether/getNewProduct.ts",
-          "collection": "764"
+          "collection": "380"
         },
         "__resolveType": "resolved"
       }
