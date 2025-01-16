@@ -301,26 +301,6 @@
           "products": [
             {
               "xPosition": {
-                "desktop": 50,
-                "mobile": 50
-              },
-              "yPosition": {
-                "desktop": 50,
-                "mobile": 50
-              },
-              "label": "Produto 1",
-              "products": {
-                "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
-                "props": {
-                  "ids": [
-                    "98376"
-                  ]
-                },
-                "seo": null
-              }
-            },
-            {
-              "xPosition": {
                 "desktop": 66,
                 "mobile": 20
               },
