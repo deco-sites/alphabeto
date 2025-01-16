@@ -298,27 +298,7 @@
           "desktop": "https://data.decoassets.com/alphabeto/75fd31be-461b-4b30-ab83-1f223bc0a563/Frame-18.png",
           "mobile": "https://data.decoassets.com/alphabeto/8e08ba41-cbe7-45ab-85c7-306f1b449cc7/Frame-23857.png",
           "alt": "Crianças Brincando",
-          "products": [
-            {
-              "xPosition": {
-                "desktop": 66,
-                "mobile": 20
-              },
-              "yPosition": {
-                "desktop": 20,
-                "mobile": 20
-              },
-              "label": "Produto 1",
-              "products": {
-                "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
-                "props": {
-                  "ids": [
-                    "117789"
-                  ]
-                }
-              }
-            }
-          ]
+          "products": []
         }
       }
     },
