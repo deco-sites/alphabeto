@@ -153,8 +153,8 @@
               "item": "Meia e Galocha"
             },
             {
-              "href": "/menina/infantil/basiquinho-para-meninas",
-              "item": "Basiquino"
+              "href": "/infantil/basiquinho",
+              "item": "Basiquinho"
             }
           ],
           "seeAll": true
@@ -202,7 +202,7 @@
         {
           "item": [
             {
-              "item": "Criança  (2 a 8 anos)",
+              "item": "Criança  (2 a 12 anos)",
               "href": "/infantil/crianca/menino",
               "highlight": true
             },
@@ -249,6 +249,10 @@
             {
               "item": "Meia e Galocha",
               "href": "/infantil/crianca/menino/meia-e-galocha"
+            },
+            {
+              "item": "Basiquinho",
+              "href": "/infantil/basiquinho"
             }
           ],
           "seeAll": true
