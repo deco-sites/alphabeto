@@ -1,7 +1,7 @@
 {
   "__resolveType": "site/sections/Footer/Footer.tsx",
   "newsletter": {
-    "title": "<p><span>Fique por </span><span>dentro</span><span> das novidades da <strong>Alphabeto!</strong></span></p>",
+    "title": "<p>Fique por dentro das novidades da <strong>Alphabeto!</strong></p>",
     "description": "Saiba mais sobre os lançamentos, as estampas mais divertidas e detalhes que encantam!",
     "formState": "idle"
   },
@@ -20,7 +20,8 @@
             },
             {
               "title": "Faça Parte",
-              "href": "/faca-parte"
+              "href": "https://negociosalphabeto.com.br/",
+              "openInNewTab": true
             }
           ],
           "title": "Institucional"
@@ -108,8 +109,8 @@
             },
             {
               "title": "E-mail: sac@alphabeto.com",
-              "href": "malito:sac@alphabeto.com",
-              "openInNewTab": false
+              "href": "mailto:sac@alphabeto.com",
+              "openInNewTab": true
             },
             {
               "title": "Whatsapp: (21) 99942-2795",
@@ -118,7 +119,7 @@
             },
             {
               "title": "Contato: privacidade@alphabeto.com",
-              "href": "malito:privacidade@alphabeto.com"
+              "href": "mailto:privacidade@alphabeto.com"
             }
           ],
           "title": "Fale conosco"

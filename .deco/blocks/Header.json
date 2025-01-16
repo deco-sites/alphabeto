@@ -37,20 +37,20 @@
   "loading": "eager",
   "links": [
     {
-      "href": "/",
+      "href": "/central-atendimento",
       "title": "Fale com as fadinhas"
     },
     {
       "title": "Troca fácil",
-      "href": "/"
+      "href": "https://alphabeto.troquefacil.com.br/"
     },
     {
       "title": "Seja um franqueado",
-      "href": "/"
+      "href": "https://negociosalphabeto.com.br/seja-um-franqueado-alphabeto/"
     },
     {
       "title": "Seja um revendedor",
-      "href": " /"
+      "href": "https://negociosalphabeto.com.br/seja-um-revendedor-alphabeto/"
     }
   ],
   "benefits": {
@@ -277,6 +277,6 @@
   "googleMapsApiKey": {
     "__resolveType": "website/loaders/secret.ts",
     "name": "GOOGLE_MAPS_API_KEY",
-    "encrypted": "6187760b6f56eccaa52720e22e451805632cc03d6aa6896a5dded87ccdaafc77c37cda5bfbd5ef05c358635ab0ba12fb"
+    "encrypted": "f7df10623d26f93486cb00c6783f0003b0b5ebe2e861850dd8c3b1f40207a2392e88c16abe6640377a187d0988711077"
   }
 }
