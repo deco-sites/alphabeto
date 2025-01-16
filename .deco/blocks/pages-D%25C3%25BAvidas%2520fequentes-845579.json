@@ -28,11 +28,11 @@
         "questions": [
           {
             "title": "Quais os métodos de pagamento?",
-            "description": "<p>Aceitamos pagamentos através de Pix, transferência bancária e cartões de crédito nas bandeiras Mastercard, VISA, Elo, Hipercard, Amex e Diners. As compras no cartão de crédito podem ser feitas em um ou dois cartões diferentes e parceladas em até 5x sem juros. A aprovação do compra pela instituição financeira pode levar até 02 dias úteis.</p>"
+            "description": "<p>Aceitamos pagamentos através de Pix, transferência bancária e cartões de crédito nas bandeiras Mastercard, VISA, Elo, Hipercard, Amex e Diners. As compras no cartão de crédito podem ser feitas em um ou dois cartões diferentes e parceladas em até 6x sem juros. A aprovação da compra pela instituição financeira pode levar até 02 dias úteis.</p>"
           },
           {
             "title": "Como realizar meu pedido?",
-            "description": "<p>A escolha dos produtos poderá ser feita na Seção Meninos, Meninas ou Unissex, as quais são separadas por tamanhos: Bebês - 0 a 12 meses; Criança Menina - 1 a 9 anos; Criança Menino 1 a 9 anos; Mini-teen Menina - 10 a 16 anos; Mini-teen Menino 10 a 16 anos. Você poderá ainda realizar seu pedido a partir das Seções Menina, Meninos, Lançamentos, Presentes ou através da Seção OFF. Em qualquer caso, basta selecionar o produto, a cor e o tamanho e adicionar ao carrinho. Quer encontrar a roupinha mais rápido? É só digitar no campo destinado a busca a peça, a estampa ou o termo desejado.</p>"
+            "description": "<p>A escolha dos produtos poderá ser feita na Seção Meninos, Meninas ou Unissex, as quais são separadas por tamanhos: Bebês - 0 a 12 meses; Criança Menina - 1 a 12 anos; Criança Menino 1 a 12 anos. Você poderá ainda realizar seu pedido a partir das Seções Menina, Meninos, Lançamentos, Presentes ou através da Seção OFF. Em qualquer caso, basta selecionar o produto, a cor e o tamanho e adicionar ao carrinho. Quer encontrar a roupinha mais rápido? É só digitar no campo destinado a busca a peça, a estampa ou o termo desejado.</p>"
           },
           {
             "title": "Como acompanhar meu pedido?",
@@ -48,7 +48,7 @@
           },
           {
             "title": "Posso alterar o endereço de entrega?",
-            "description": "<p><span>Ainda não fechei a compra no site:</span> no processo de fechamento do pedido, você pode alterar o seu endereço clicando em “editar” no canto direto do campo “entrega”. <span>Já fechei minha compra no site:</span> Após o fechamento da compra, não é possível alterar o endereço de entrega, contudo, envie um e-mail para o <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"mailto:sac@alphabeto.com\">sac@alphabeto.com</a> para que possamos te ajudar.</p>"
+            "description": "<p>Ainda não fechei a compra no site: no processo de fechamento do pedido, você pode alterar o seu endereço clicando em “editar” no canto direto do campo “entrega”. Já fechei minha compra no site: Após o fechamento da compra, não é possível alterar o endereço de entrega, contudo, envie um e-mail para o <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"mailto:sac@alphabeto.com\">sac@alphabeto.com</a> para que possamos te ajudar.</p>"
           },
           {
             "title": "Posso agendar a entrega?",
@@ -60,7 +60,7 @@
           },
           {
             "title": "Como funciona o cupom de desconto ou vale presente?",
-            "description": "<p>O Cupom de desconto funciona como um desconto propriamente dito, onde ao possui-lo, oriundo de uma promoção ou vendedor, basta acrescentá-lo no campo destinado a ele no carrinho de compras. Ele irá debitar do valor do carrinho. O vale é obtido nas ocasiões de troca e premiações . Se você tem um vale, para utiliza-lo é preciso preencher o campo destinado a ele na tela de pagamento do pedido.</p>"
+            "description": "<p>O Cupom de desconto funciona como um desconto propriamente dito, onde ao possui-lo, oriundo de uma promoção ou vendedor, basta acrescentá-lo no campo destinado a ele no carrinho de compras. Ele irá debitar do valor do carrinho. O vale é obtido nas ocasiões de troca e premiações. Se você tem um vale, para utilizá-lo é preciso preencher o campo destinado a ele na tela de pagamento do pedido.</p>"
           }
         ]
       }
