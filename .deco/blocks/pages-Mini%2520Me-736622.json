@@ -35,7 +35,39 @@
         },
         {
           "__resolveType": "site/sections/MiniMe/Components/VideoMiniMe.tsx",
-          "backgroundImage": "https://data.decoassets.com/alphabeto/2e410d12-1031-40ec-9606-4b67513cd845/Novo-Projeto.jpg"
+          "backgroundImage": "https://data.decoassets.com/alphabeto/2e410d12-1031-40ec-9606-4b67513cd845/Novo-Projeto.jpg",
+          "title": "Vamos abraçar todas as crianças?",
+          "subtitle": "Queremos todos os pequenos se sinta especial do jeitinho que ele realmente é!",
+          "description": "<p><strong><span style=\"color: #7e7f88; font-size: 14pt\">Queremos todos os pequenos se sinta especial do jeitinho que ele realmente é!</span></strong></p><p></p><p><span style=\"font-size: 10pt\">Lorem ipsum dolor sit amet consectetur. Sociis pellentesque suspendisse sit placerat malesuada ligula. Diam sed curabitur malesuada magnis. Est donec scelerisque placerat dui consectetur magna odio mi. Venenatis velit sapien platea sed magna turpis et fames velit. Eu sed ut diam viverra metus.</span></p>",
+          "label": "Vamos nessa!"
+        },
+        {
+          "__resolveType": "site/sections/MiniMe/Components/MiniMeTutorial.tsx",
+          "title": "Passo a passo",
+          "subtitle": "Como funciona!",
+          "mainImage": "https://data.decoassets.com/alphabeto/fec71905-328a-4460-b840-45a93bf3e58b/Group-14215.png",
+          "description": "<p><strong><span style=\"color: #7e7f88\">Do jeitinho que você imaginou! para brincar, decorar o quartinho e se encontrar!</span></strong></p>",
+          "label": "Criar minha boneca",
+          "steps": {
+            "stepOne": {
+              "title": "Brinque e customize todas as partes!",
+              "description": "Você pode começar a brincar agora mesmo! Escolha todos os detalhes da Mini Me e se divirta criando!"
+            },
+            "stepTwo": {
+              "title": "Adicione ao seu carrinho!",
+              "description": "Gostou da versão que criou? Agora é hora da Mini Me ganhar vida! É só finalizar a compra pra gente começar a produzir!"
+            },
+            "stepThree": {
+              "description": "A brincadeira começa agora e continua quando a Mini me que você criou chegar na sua casa! Uhuuuu!",
+              "title": "A diversão chega até a sua casa!"
+            }
+          }
+        },
+        {
+          "__resolveType": "site/sections/MiniMe/Components/LetsBuild.tsx",
+          "subtitle": "Expressando sua forma única e valorizando todas as diferenças!",
+          "title": "Abraçar é tempo juntinho!",
+          "label": "Vamos criar!"
         },
         {
           "__resolveType": "website/sections/Rendering/Lazy.tsx",
