@@ -1,0 +1,71 @@
+{
+  "name": "Formas de entrega",
+  "path": "/formas-entrega",
+  "sections": [
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Header"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Institutional/Breadcrumb.tsx",
+      "root": "HOME",
+      "path": "Ajuda",
+      "route": "Políticas de privacidade ",
+      "showText": true
+    },
+    {
+      "__resolveType": "site/sections/Institutional/PageDividerContent.tsx",
+      "right": {
+        "__resolveType": "site/sections/Institutional/TextContent.tsx",
+        "items": [
+          {
+            "title": "Formas de entrega",
+            "paragraph": "<p><span style=\"color: rgb(90, 91, 97); font-size: 12pt\">No momento trabalhamos com a entrega através da transportadora Jadlog e Total Express.</span></p><p><span style=\"font-size: 12pt\"><br></span><span style=\"color: rgb(90, 91, 97); font-size: 12pt\">O valor do frete e o prazo de entrega dos produtos variam de acordo com seu CEP, cidade e Estado.</span></p><p><span style=\"font-size: 12pt\"><br></span><span style=\"color: rgb(90, 91, 97); font-size: 12pt\">Divergência de dados, condições climáticas, acidentes de grandes proporções, feriados regionais, dentre outros, poderão interferir no prazo de entrega do seu pedido.</span></p><p><span style=\"font-size: 12pt\"><br></span><span style=\"color: rgb(90, 91, 97); font-size: 12pt\">Você pode consultar os valores dos fretes e os prazos de entrega para a sua região após a digitação do CEP no carrinho de compras.</span></p>"
+          },
+          {
+            "title": "Qual o horário de entrega?",
+            "paragraph": "<p>As entregas são realizadas em dias úteis e em horário comercial, podendo ser recebida por terceiros, desde que assinem o comprovante de recebimento.</p><p></p><p></p><p><strong><span style=\"font-size: 13pt\">Posso alterar o endereço de entrega após finalizar pedido?</span></strong></p><p>Depois de finalizado o pedido, o endereço não pode ser alterado. Mas se aconteceu algum imprevisto, entre em contato conosco para que possamos te ajudar pelo email <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"mailto:sac@alphabeto.com\">sac@alphabeto.com</a><br><strong>Horários de atendimento por telefone:</strong><br>Segunda a Sexta: 8:00 às 17:00 (exceto feriados)</p>"
+          },
+          {
+            "title": "Tentativas de entrega",
+            "paragraph": "<p><span style=\"color: rgb(90, 91, 97); font-size: 12pt\">Em caso de ausência do destinatário, a transportadora tem o compromisso de realizar até três tentativas de entrega. Após as três tentativas, o pedido retornará ao Centro de Distribuição da loja Alphabeto</span></p>"
+          },
+          {
+            "paragraph": "<p><span style=\"color: rgb(90, 91, 97); font-size: 12pt\">Todas as mercadorias transportadas são cuidadosamente revisadas e embaladas.</span><span style=\"font-size: 12pt\"><br></span><span style=\"color: rgb(90, 91, 97); font-size: 12pt\">Caso a embalagem de seu pedido esteja violada ou mesmo avariada recuse a entrega e entre em contato conosco pelo email </span><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"mailto:sac@alphabeto.com\"><span style=\"font-size: 12pt\">sac@alphabeto.com</span></a></p>",
+            "title": "Embalagem do produto"
+          },
+          {
+            "paragraph": "<p>O prazo de entrega inicia-se no dia útil seguinte ao faturamento do pedido que pode levar até 48h após a confirmação do pagamento.</p><p><br>O prazo de aprovação do pedido é de até 48 horas úteis, já incluídas nestas a análise cadastral e a aprovação da administradora do cartão.</p><p><br>Caso o prazo tenha expirado entre em contato através <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"mailto:sac@alphabeto.com\">sac@alphabeto.com</a></p><p><strong>Horários de atendimento por telefone:</strong><br>Segunda a Sexta: 8:00 às 17:00</p>",
+            "title": "Meu pedido está atrasado"
+          },
+          {
+            "paragraph": "<p>Entre em contato com nosso SAC para que possamos identificar o problema.<br>E-mail <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"mailto:sac@alphabeto.com\"><strong>sac@alphabeto.com</strong></a></p><p><strong>Horários de atendimento por telefone:</strong><br>Segunda a Sexta: 8:00 às 17:00</p>",
+            "title": "Por que o meu pedido foi cancelado?"
+          },
+          {
+            "paragraph": "<p>O número de rastreamento do seu pedido pode ser visualizado dentro de ‘Minha conta’ – ‘Meus pedidos’. Basta escolher o pedido e clicar em ‘código de rastreio’. Ou ainda acessando o site da transportadora Jadlog ou Total Express.<br>Você também recebe esse código por e-mail, após o envio do produto.</p>",
+            "title": "Qual o número de rastreamento do meu pedido?"
+          }
+        ]
+      },
+      "left": {
+        "__resolveType": "Menu"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer"
+      }
+    }
+  ],
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
+  "__resolveType": "website/pages/Page.tsx"
+}
