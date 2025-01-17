@@ -65,11 +65,6 @@
   "navItems": [
     {
       "submenu": [],
-      "menuItem": "Novidades",
-      "href": "/infantil/novidades"
-    },
-    {
-      "submenu": [],
       "menuItem": "Vestidos",
       "href": "/infantil/vestidos"
     },
@@ -173,24 +168,24 @@
               "highlight": true
             },
             {
-              "item": "Body e Polo",
-              "href": "/infantil/bebe/menino/body-e-polo"
+              "href": "/infantil/bebe/menino/body-e-polo",
+              "item": "Body e Polo"
             },
             {
-              "item": "Bermuda",
-              "href": "/infantil/bebe/menino/bermuda"
+              "href": "/infantil/bebe/menino/bermuda",
+              "item": "Bermuda"
             },
             {
-              "item": "Calça",
-              "href": "/infantil/bebe/menino/calca"
+              "href": "/infantil/bebe/menino/calca",
+              "item": "Calça"
             },
             {
               "item": "Casaco",
               "href": "/infantil/bebe/menino/casaco"
             },
             {
-              "item": "Conjunto",
-              "href": "/infantil/bebe/menino/conjunto"
+              "href": "/infantil/bebe/menino/conjunto",
+              "item": "Conjunto"
             },
             {
               "item": "Jardineira e Macacão",
@@ -207,12 +202,12 @@
               "highlight": true
             },
             {
-              "item": "Acessório",
-              "href": "/infantil/crianca/menino/acessorio"
+              "href": "/infantil/crianca/menino/acessorio",
+              "item": "Acessório"
             },
             {
-              "item": "Camiseta e Regata",
-              "href": "/infantil/crianca/menino/camiseta-e-regata"
+              "href": "/infantil/crianca/menino/camiseta-e-regata",
+              "item": "Camiseta e Regata"
             },
             {
               "item": "Camisa e Polo",
@@ -231,24 +226,24 @@
               "href": "/infantil/crianca/menino/moda-praia"
             },
             {
-              "item": "Jardineira e Macacão",
-              "href": "/infantil/crianca/menino/jardineira-e-macacao"
+              "href": "/infantil/crianca/menino/jardineira-e-macacao",
+              "item": "Jardineira e Macacão"
             },
             {
-              "item": "Calça",
-              "href": "/infantil/crianca/menino/calca"
+              "href": "/infantil/crianca/menino/calca",
+              "item": "Calça"
             },
             {
-              "item": "Conjunto",
-              "href": "/infantil/crianca/menino/conjunto"
+              "href": "/infantil/crianca/menino/conjunto",
+              "item": "Conjunto"
             },
             {
-              "item": "Pijama",
-              "href": "/infantil/crianca/menino/pijama"
+              "href": "/infantil/crianca/menino/pijama",
+              "item": "Pijama"
             },
             {
-              "item": "Meia e Galocha",
-              "href": "/infantil/crianca/menino/meia-e-galocha"
+              "href": "/infantil/crianca/menino/meia-e-galocha",
+              "item": "Meia e Galocha"
             },
             {
               "item": "Basiquinho",
@@ -259,8 +254,8 @@
         }
       ],
       "menuItem": "Meninos",
-      "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/55a0da1a-8b38-40f1-a1f3-b044c848fffc/image-20.png",
-      "href": "/infantil/crianca/menino"
+      "href": "/infantil/crianca/menino",
+      "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/55a0da1a-8b38-40f1-a1f3-b044c848fffc/image-20.png"
     },
     {
       "submenu": [],
@@ -274,8 +269,8 @@
     },
     {
       "submenu": [],
-      "href": "/infantil/bazar",
-      "menuItem": "Bazar"
+      "menuItem": "Bazar com 60%",
+      "href": "/infantil/bazar"
     }
   ],
   "googleMapsApiKey": {
