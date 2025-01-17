@@ -7,19 +7,15 @@
     },
     {
       "label": "Troca e devolução",
-      "route": "/troca-e-devolucao"
+      "route": "/trocas-e-devolucao"
     },
     {
       "label": "Termos e condições",
       "route": "/termos-e-condicoes"
     },
     {
-      "label": "Formas de pagamento",
-      "route": "/formas-de-pagamento"
-    },
-    {
-      "route": "/formas-de-entrega",
-      "label": "Formas de entrega"
+      "label": "Formas de entrega",
+      "route": "/formas-de-entrega"
     }
   ],
   "supportLinks": [
@@ -44,10 +40,6 @@
     {
       "route": "/termos-e-condicoes",
       "label": "Termos e condições"
-    },
-    {
-      "route": "/formas-de-pagamento",
-      "label": "Formas de pagamento"
     },
     {
       "route": "/formas-de-entrega",
