@@ -359,7 +359,7 @@ function Result(props: SectionProps<typeof loader>) {
 
                 <div class="flex flex-col gap-10">
                   {(ageFilter && props.layout?.enableSpecialFilter)
-                    ? <AgeFilter {...ageFilter} />
+                    ? <AgeFilter filterToogle={ageFilter} url={url} />
                     : null}
                   <PageResult {...props} />
                 </div>
