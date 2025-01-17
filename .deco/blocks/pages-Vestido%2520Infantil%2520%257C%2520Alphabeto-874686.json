@@ -41,7 +41,8 @@
             "desktop": 4
           },
           "variant": "aside",
-          "pagination": "show-more"
+          "pagination": "show-more",
+          "enableSpecialFilter": true
         },
         "startingPage": 1,
         "seoComponents": {
