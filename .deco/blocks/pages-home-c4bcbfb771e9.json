@@ -232,49 +232,51 @@
       "title": "Compre por Tamanho"
     },
     {
-      "__resolveType": "site/sections/CollectionBanner/CollectionBanner.tsx",
-      "title": "Dicas de Presentes ",
-      "items": [
-        {
-          "image": {
-            "desktop": {
-              "src": "https://data.decoassets.com/alphabeto/d4c57944-603c-4c7b-acba-4c6aba766cff/2-(7).png"
+    
+        "__resolveType": "site/sections/CollectionBanner/CollectionBanner.tsx",
+        "items": [
+          {
+            "image": {
+              "desktop": {
+                "src": "https://data.decoassets.com/alphabeto/ab5a8ac3-33e3-44be-8ff0-005497535881/11.png"
+              },
+              "mobile": {
+                "src": "https://data.decoassets.com/alphabeto/148d20e0-6cfa-4fe8-8e15-8425ecbbece0/12-(1).png"
+              },
+              "alt": "Alt"
             },
-            "mobile": {
-              "src": "https://data.decoassets.com/alphabeto/adc30d9b-2664-4efd-aad2-b098b495b532/2-(6).png"
-            },
-            "alt": "Alt"
+            "label": "Vestidos a partir de R$89,97",
+            "categoryLink": "https://www.alphabeto.com/vestidos?initialMap=category-3&initialQuery=74&map=category-3&order=OrderByPriceASC&priceRange=89%20TO%20270"
           },
-          "label": "Presentes até R$69",
-          "categoryLink": "/infantil/novidades?filter.price=29.97%3A70&sort=price%3Adesc&page=1"
-        },
-        {
-          "image": {
-            "mobile": {
-              "src": "https://data.decoassets.com/alphabeto/d7c8d8dc-1727-41c0-b08b-595b0a802863/3-(7).png"
+          {
+            "image": {
+              "mobile": {
+                "src": "https://data.decoassets.com/alphabeto/2c51e99c-73a2-4728-83e0-6a0d3d301ef6/10-(1).png"
+              },
+              "desktop": {
+                "src": "https://data.decoassets.com/alphabeto/9aaa2ece-0eb2-4078-b0fb-0b473833a3bc/9.png"
+              },
+              "alt": "Alt"
             },
-            "desktop": {
-              "src": "https://data.decoassets.com/alphabeto/482e00e4-0609-4fe5-82a0-e1d000c6a148/3-(7).png"
-            },
-            "alt": "Alt"
+            "label": "Camisetas a partir de R$39,97",
+            "categoryLink": "https://www.alphabeto.com/camisetas-camisetas-m-c-camisetas-m-l-regatas/infantil-meninos?initialMap=productClusterIds&initialQuery=697&map=category-3,productclusternames&order=OrderByPriceASC&priceRange=37%20TO%20130"
           },
-          "label": "Presentes até R$99",
-          "categoryLink": "/infantil/novidades?sort=price%3Adesc&filter.price=29.97%3A100&page=1"
-        },
-        {
-          "image": {
-            "mobile": {
-              "src": "https://data.decoassets.com/alphabeto/9e38ad5a-2637-45cc-a200-aeb2be4aada9/4-(1).png"
+          {
+            "image": {
+              "mobile": {
+                "src": "https://data.decoassets.com/alphabeto/c3acaecd-fe83-4213-9b3a-ef5f1a02d429/14.png"
+              },
+              "desktop": {
+                "src": "https://data.decoassets.com/alphabeto/10f2c0c1-f2b3-4517-9d9c-598b4306cda3/13.png"
+              },
+              "alt": "Alt"
             },
-            "desktop": {
-              "src": "https://data.decoassets.com/alphabeto/1f1d289b-8e1b-4107-96bb-1d2e1967c817/4.png"
-            },
-            "alt": "Alt"
-          },
-          "label": "Presentes até R$129,00",
-          "categoryLink": "/infantil/novidades?filter.price=29.97%3A130&sort=price%3Adesc&page=1"
-        }
-      ]
+            "label": "Moda Praia a partir de R$89,95",
+            "categoryLink": "https://www.alphabeto.com/moda-praia--sunga-p-m-g-e-gg-blusa-uv-pp-ao-gg-/moda-praia-biquini-maio-blusa-uv/vamos-colorir-o-mundo?initialMap=productClusterIds&initialQuery=695&map=category-3,category-3,productclusternames&order=OrderByPriceASC"
+          }
+        ],
+        "title": "Selecionados do Verão "
+      
     },
     {
       "__resolveType": "site/sections/InteractiveBanner/InteractiveBanner.tsx",
