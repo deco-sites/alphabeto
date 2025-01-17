@@ -7,6 +7,18 @@ interface BabyAgeValue extends FilterToggleValue {
   max: number;
 }
 
+const isLetterOnly = (str: string) => /^[a-zA-Z]+$/.test(str);
+
+const LETTER_ORDER = [
+  "P",
+  "M",
+  "G",
+  "GG",
+  "XG",
+  "XXG",
+  "U",
+];
+
 function getFilterValues(
   { values }: FilterToggle,
   url: string,
@@ -66,7 +78,17 @@ function getFilterValues(
     }))
     .sort((a, b) => a.min - b.min);
 
-  return babyAgeValues;
+  if (babyAgeValues.length > 0) {
+    return babyAgeValues;
+  }
+
+  const letterSizes = values.filter((value) => isLetterOnly(value.label)).sort(
+    (a, b) => {
+      return LETTER_ORDER.indexOf(a.label) - LETTER_ORDER.indexOf(b.label);
+    },
+  );
+
+  return letterSizes;
 }
 
 interface Props {
