@@ -5,7 +5,6 @@ import ProductSkuSelector from "site/components/product/ProductBuyTogether/Produ
 import ProductRating from "site/components/product/ProductRating.tsx";
 import Icon from "site/components/ui/Icon.tsx";
 import VTEXImageTag from "site/components/VTEXImageTag.tsx";
-import { BuyTogetherNewProductsResponse } from "site/loaders/BuyTogether/types.ts";
 import { invoke } from "site/runtime.ts";
 import { clx } from "site/sdk/clx.ts";
 import { formatPrice } from "site/sdk/format.ts";
@@ -32,22 +31,18 @@ export default function ProductCard(props: ProductCardProps) {
       const target = event.currentTarget;
       target.classList.add("htmx-request");
       if (props.mode === "principal") return;
-      const { __resolveType, ...propsLoader } = props.newProductsLoader;
-
-      const { newSugestion } = (await invoke({
-        key: __resolveType,
-        props: {
-          ...propsLoader,
-        },
-      })) as BuyTogetherNewProductsResponse;
+      console.log(props.newProductLoaderData);
+      const newSugestionResult = await invoke.site.loaders.BuyTogether
+        .getNewProduct(props.newProductLoaderData);
+      if (!newSugestionResult) return;
       props.signal.value = {
-        product: newSugestion,
+        product: newSugestionResult.newSugestion,
         enabled: true,
-        selectedVariant: newSugestion.sku,
+        selectedVariant: newSugestionResult.newSugestion.sku,
       };
       target.classList.remove("htmx-request");
     },
-    [props.mode, props.newProductsLoader],
+    [props.mode, props.newProductLoaderData],
   );
 
   return (

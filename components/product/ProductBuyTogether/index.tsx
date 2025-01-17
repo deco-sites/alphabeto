@@ -4,46 +4,37 @@ import ProductCard from "site/components/product/ProductBuyTogether/ProductCard.
 import ProductResume from "site/components/product/ProductBuyTogether/ProductResume.tsx";
 import {
   BuyTogetgherLoaderProps,
-  BuyTogetherLoaderResponse,
   PrincipalProductSignal,
   SugestionProductSignal,
 } from "site/components/product/ProductBuyTogether/types.ts";
 import Icon from "site/components/ui/Icon.tsx";
-import { BuyTogetherInitialProductsResponse } from "site/loaders/BuyTogether/types.ts";
 import Spacer from "site/sections/Miscellaneous/Spacer.tsx";
 
 export async function loader(
   props: BuyTogetgherLoaderProps,
   _req: Request,
   ctx: AppContext,
-): Promise<BuyTogetherLoaderResponse> {
-  const { __resolveType, ...propsLoader } = props.buyTogetherInitialLoader;
-  const result = (await ctx.invoke(
-    // @ts-expect-error This is a dynamic resolved loader
-    __resolveType,
-    propsLoader,
-  )) as BuyTogetherInitialProductsResponse;
-  return {
-    result,
-    newProductsLoader: props.buyTogetherNewProductsLoader,
-  };
+) {
+  return await ctx.invoke.site.loaders.BuyTogether.getInitialProducts(props);
 }
 
-export default function ProductBuyTogether(props: BuyTogetherLoaderResponse) {
-  if (!props.result) return null;
+export default function ProductBuyTogether(
+  props: Awaited<ReturnType<typeof loader>>,
+) {
+  if (!props) return null;
   const principalProduct = useSignal<PrincipalProductSignal>({
-    product: props.result.principalProduct,
-    selectedVariant: props.result.principalProduct.sku,
+    product: props.principalProduct,
+    selectedVariant: props.principalProduct.sku,
   });
   const sugestionOne = useSignal<SugestionProductSignal>({
-    product: props.result.sugestions[0],
+    product: props.sugestions[0],
     enabled: true,
-    selectedVariant: props.result.sugestions[0].sku,
+    selectedVariant: props.sugestions[0].sku,
   });
   const sugestionTwo = useSignal<SugestionProductSignal>({
-    product: props.result.sugestions[1],
+    product: props.sugestions[1],
     enabled: true,
-    selectedVariant: props.result.sugestions[1].sku,
+    selectedVariant: props.sugestions[1].sku,
   });
   return (
     <>
@@ -66,7 +57,7 @@ export default function ProductBuyTogether(props: BuyTogetherLoaderResponse) {
             <ProductCard
               mode="sugestion"
               signal={sugestionOne}
-              newProductsLoader={props.newProductsLoader}
+              newProductLoaderData={props.newProductLoaderData}
             />
             <div class="bg-secondary text-primary desk:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[335%] z-10 rounded-full min-w-10 w-10 h-10 flex items-center justify-center">
               <Icon id="plus" size={20} />
@@ -74,7 +65,7 @@ export default function ProductBuyTogether(props: BuyTogetherLoaderResponse) {
             <ProductCard
               mode="sugestion"
               signal={sugestionTwo}
-              newProductsLoader={props.newProductsLoader}
+              newProductLoaderData={props.newProductLoaderData}
             />
           </div>
           <div class="bg-secondary text-primary rounded-full min-w-10 w-10 h-10 flex items-center justify-center">

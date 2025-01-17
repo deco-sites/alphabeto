@@ -1,10 +1,9 @@
-import { Resolved } from "@deco/deco";
 import { Product } from "apps/commerce/types.ts";
 import {
   BuyTogetherInitialProductsResponse,
-  BuyTogetherNewProductsResponse,
 } from "site/loaders/BuyTogether/types.ts";
 import { Signal } from "@preact/signals";
+import { RequestURLParam } from "apps/website/functions/requestToParam.ts";
 
 export interface SugestionProductSignal {
   product: Product;
@@ -17,13 +16,23 @@ export interface PrincipalProductSignal {
 }
 
 export interface BuyTogetgherLoaderProps {
-  buyTogetherInitialLoader: Resolved<BuyTogetherInitialProductsResponse>;
-  buyTogetherNewProductsLoader: Resolved<BuyTogetherNewProductsResponse>;
+  /**
+   * @title Collection ID
+   * @description (e.g.: 150)
+   * @pattern \d*
+   * @format dynamic-options
+   * @options vtex/loaders/collections/list.ts
+   */
+  collection: string;
+  slug: RequestURLParam;
 }
 
 export interface BuyTogetherLoaderResponse {
   result: BuyTogetherInitialProductsResponse;
-  newProductsLoader: Resolved<BuyTogetherNewProductsResponse>;
+  newProductLoaderData: {
+    collection: string;
+    department: string;
+  };
 }
 export interface ProductSkuSelectorProps {
   signal: Signal<PrincipalProductSignal> | Signal<SugestionProductSignal>;
@@ -36,7 +45,10 @@ export type ProductCardProps =
   | {
     mode: "sugestion";
     signal: Signal<SugestionProductSignal>;
-    newProductsLoader: Resolved<BuyTogetherNewProductsResponse>;
+    newProductLoaderData: {
+      collection: string;
+      department: string;
+    };
   };
 
 export interface ProductResumeProps {

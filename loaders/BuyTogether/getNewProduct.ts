@@ -12,7 +12,7 @@ export default async function loader(
   _req: Request,
   ctx: AppContext,
 ): Promise<BuyTogetherNewProductsResponse> {
-  const { collection } = props;
+  const { collection, department } = props;
 
   const results = await ctx.invoke.vtex.loaders.intelligentSearch
     .productListingPage({
@@ -22,6 +22,9 @@ export default async function loader(
       selectedFacets: [{
         key: "productClusterIds",
         value: collection,
+      }, {
+        key: "category-1",
+        value: department,
       }],
     });
   const qtdOfProducts = results?.pageInfo.records ?? 0;
@@ -41,6 +44,9 @@ export default async function loader(
       selectedFacets: [{
         key: "productClusterIds",
         value: collection,
+      }, {
+        key: "category-1",
+        value: department,
       }],
     });
   if (!result?.products) return null;

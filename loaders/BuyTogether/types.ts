@@ -8,7 +8,10 @@ export type BuyTogetherNewProductsResponse = {
 export type BuyTogetherInitialProductsResponse = {
   principalProduct: Product;
   sugestions: Product[];
-  collection: string;
+  newProductLoaderData: {
+    collection: string;
+    department: string;
+  };
 } | null;
 
 export interface BuyTogetherNewProductsProps {
@@ -20,6 +23,7 @@ export interface BuyTogetherNewProductsProps {
    * @options vtex/loaders/collections/list.ts
    */
   collection: string;
+  department: string;
 }
 export interface BuyTogetherIntialProductProps {
   /**

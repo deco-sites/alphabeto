@@ -43,23 +43,10 @@
     },
     {
       "__resolveType": "site/sections/Product/ProductBuyTogether.tsx",
-      "buyTogetherInitialLoader": {
-        "data": {
-          "__resolveType": "site/loaders/BuyTogether/getInitialProducts.ts",
-          "collection": "380",
-          "slug": {
-            "__resolveType": "website/functions/requestToParam.ts",
-            "param": "slug"
-          }
-        },
-        "__resolveType": "resolved"
-      },
-      "buyTogetherNewProductsLoader": {
-        "data": {
-          "__resolveType": "site/loaders/BuyTogether/getNewProduct.ts",
-          "collection": "380"
-        },
-        "__resolveType": "resolved"
+      "collection": "775",
+      "slug": {
+        "__resolveType": "website/functions/requestToParam.ts",
+        "param": "slug"
       }
     },
     {

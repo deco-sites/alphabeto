@@ -22,6 +22,8 @@ export default async function loader(
     });
   const principalProduct = principalProductPage?.product;
   if (!principalProduct) return null;
+  const department =
+    principalProduct.category?.split(">")[0].trim().toLowerCase() ?? "";
   const results = await ctx.invoke.vtex.loaders.intelligentSearch
     .productListingPage({
       count: 1,
@@ -30,6 +32,9 @@ export default async function loader(
       selectedFacets: [{
         key: "productClusterIds",
         value: collection,
+      }, {
+        key: "category-1",
+        value: department,
       }],
     });
   const qtdOfProducts = results?.pageInfo.records ?? 0;
@@ -51,6 +56,9 @@ export default async function loader(
         selectedFacets: [{
           key: "productClusterIds",
           value: collection,
+        }, {
+          key: "category-1",
+          value: department,
         }],
       });
     if (result?.products) {
@@ -69,6 +77,9 @@ export default async function loader(
   return {
     principalProduct: principalProductWithExtensions,
     sugestions: sugestionsWithExtensions,
-    collection,
+    newProductLoaderData: {
+      collection,
+      department,
+    },
   };
 }
