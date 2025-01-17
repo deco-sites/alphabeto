@@ -3,101 +3,83 @@
   "path": "/infantil/vestidos",
   "sections": [
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
-        "jsonLD": {
-          "__resolveType": "PLP Loader"
-        }
+      "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
+      "jsonLD": {
+        "__resolveType": "PLP Loader"
       }
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "Header"
-      }
+      "__resolveType": "Header"
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Product/SearchResult.tsx",
-        "page": {
-          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
-          "count": 24,
-          "sort": "release:desc",
-          "fuzzy": "automatic",
-          "selectedFacets": [
-            {
-              "key": "productClusterIds",
-              "value": "771"
-            }
-          ],
-          "query": "",
-          "hideUnavailableItems": true
+      "__resolveType": "site/sections/Product/SearchResult.tsx",
+      "page": {
+        "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+        "count": 24,
+        "sort": "release:desc",
+        "fuzzy": "automatic",
+        "selectedFacets": [
+          {
+            "key": "productClusterIds",
+            "value": "771"
+          }
+        ],
+        "query": "",
+        "hideUnavailableItems": true
+      },
+      "layout": {
+        "columns": {
+          "mobile": 2,
+          "desktop": 4
         },
-        "layout": {
-          "columns": {
-            "mobile": 2,
-            "desktop": 4
-          },
-          "variant": "aside",
-          "pagination": "show-more",
-          "enableSpecialFilter": true
+        "variant": "aside",
+        "pagination": "show-more",
+        "enableSpecialFilter": true
+      },
+      "startingPage": 1,
+      "seoComponents": {
+        "banner": {
+          "title": "Vestidos Infantis",
+          "subtitle": "Conforto, estilo e muita diversão para as pequenas",
+          "description": "<p>Vestidos leves, coloridos e confortáveis, perfeitos para brincar e brilhar em qualquer ocasião.</p>",
+          "image": {
+            "desktop": {
+              "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/476cfeee-a654-49e8-99b7-499c87901c9c/Desk-Categ-Image.png"
+            },
+            "alt": "Vestidos infantis coloridos e confortáveis, perfeitos para brincadeiras e ocasiões especiais.",
+            "mobile": {
+              "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/476cfeee-a654-49e8-99b7-499c87901c9c/Desk-Categ-Image.png"
+            }
+          }
         },
-        "startingPage": 1,
-        "seoComponents": {
-          "banner": {
-            "title": "Vestidos Infantis",
-            "subtitle": "Conforto, estilo e muita diversão para as pequenas",
-            "description": "<p>Vestidos leves, coloridos e confortáveis, perfeitos para brincar e brilhar em qualquer ocasião.</p>",
-            "image": {
-              "desktop": {
-                "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/476cfeee-a654-49e8-99b7-499c87901c9c/Desk-Categ-Image.png"
-              },
-              "alt": "Vestidos infantis coloridos e confortáveis, perfeitos para brincadeiras e ocasiões especiais.",
-              "mobile": {
-                "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/476cfeee-a654-49e8-99b7-499c87901c9c/Desk-Categ-Image.png"
-              }
-            }
-          },
-          "breadcrumb": [
-            {
-              "url": "/infantil/vestidos",
-              "name": "Vestido Infantil"
-            }
-          ]
-        }
+        "breadcrumb": [
+          {
+            "url": "/infantil/vestidos",
+            "name": "Vestido Infantil"
+          }
+        ]
       }
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Category/CategoryBottomBanner.tsx",
-        "text": "<h2>Os Vestidos mais encantadores</h2><p>Nossos vestidos foram criados para unir estilo e conforto, valorizando cada detalhe. Com cortes impecáveis e design que realça sua beleza, são perfeitos para qualquer ocasião. Desde momentos casuais até eventos especiais, temos opções para você se sentir confiante e radiante.</p><p></p><h2>Tecidos direto da fábrica</h2><p></p><p>Trabalhamos com tecidos diretamente da fábrica, garantindo qualidade, durabilidade e um caimento perfeito. Nossos vestidos oferecem leveza e sofisticação, proporcionando conforto o dia todo. Escolha a peça ideal e destaque-se com elegância em qualquer ambiente!</p>",
-        "image": {
-          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/96259462-e7ec-4338-bfc5-331a32b622aa/image_categoria.png",
-          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ac67ce29-d4e2-4950-8ea4-d0b8b2433519/image_categoria_mob.png",
-          "alt": "A imagem mostra duas meninas sorridentes posando em frente a um fundo laranja vibrante com um grande círculo texturizado rosa ao centro. A menina à esquerda usa uma roupa colorida com estampas divertidas, jaqueta clara e tiara. A menina à direita veste blusa preta e saia rosa. O ambiente é alegre e lúdico."
-        }
+      "__resolveType": "site/sections/Category/CategoryBottomBanner.tsx",
+      "text": "<h2>Os Vestidos mais encantadores</h2><p>Nossos vestidos foram criados para unir estilo e conforto, valorizando cada detalhe. Com cortes impecáveis e design que realça sua beleza, são perfeitos para qualquer ocasião. Desde momentos casuais até eventos especiais, temos opções para você se sentir confiante e radiante.</p><p></p><h2>Tecidos direto da fábrica</h2><p></p><p>Trabalhamos com tecidos diretamente da fábrica, garantindo qualidade, durabilidade e um caimento perfeito. Nossos vestidos oferecem leveza e sofisticação, proporcionando conforto o dia todo. Escolha a peça ideal e destaque-se com elegância em qualquer ambiente!</p>",
+      "image": {
+        "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/96259462-e7ec-4338-bfc5-331a32b622aa/image_categoria.png",
+        "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ac67ce29-d4e2-4950-8ea4-d0b8b2433519/image_categoria_mob.png",
+        "alt": "A imagem mostra duas meninas sorridentes posando em frente a um fundo laranja vibrante com um grande círculo texturizado rosa ao centro. A menina à esquerda usa uma roupa colorida com estampas divertidas, jaqueta clara e tiara. A menina à direita veste blusa preta e saia rosa. O ambiente é alegre e lúdico."
       }
     },
     {
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "FAQ"
-      }
+      "__resolveType": "FAQ"
     },
     {
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "Footer"
-      }
+      "__resolveType": "Footer"
     }
   ],
   "seo": {

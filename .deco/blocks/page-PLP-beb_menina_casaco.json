@@ -5,89 +5,77 @@
   },
   "sections": [
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
-        "jsonLD": {
-          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
-          "count": 1,
-          "sort": "release:desc",
-          "fuzzy": "automatic",
-          "selectedFacets": [
-            {
-              "key": "productClusterIds",
-              "value": "728"
-            }
-          ],
-          "query": "",
-          "hideUnavailableItems": true
-        }
+      "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
+      "jsonLD": {
+        "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+        "count": 1,
+        "sort": "release:desc",
+        "fuzzy": "automatic",
+        "selectedFacets": [
+          {
+            "key": "productClusterIds",
+            "value": "728"
+          }
+        ],
+        "query": "",
+        "hideUnavailableItems": true
       }
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "Header"
-      }
+      "__resolveType": "Header"
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Product/SearchResult.tsx",
-        "page": {
-          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
-          "count": 24,
-          "sort": "release:desc",
-          "fuzzy": "automatic",
-          "selectedFacets": [
-            {
-              "key": "productClusterIds",
-              "value": "728"
-            }
-          ],
-          "query": "",
-          "hideUnavailableItems": true
+      "__resolveType": "site/sections/Product/SearchResult.tsx",
+      "page": {
+        "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+        "count": 24,
+        "sort": "release:desc",
+        "fuzzy": "automatic",
+        "selectedFacets": [
+          {
+            "key": "productClusterIds",
+            "value": "728"
+          }
+        ],
+        "query": "",
+        "hideUnavailableItems": true
+      },
+      "layout": {
+        "columns": {
+          "mobile": 2,
+          "desktop": 4
         },
-        "layout": {
-          "columns": {
-            "mobile": 2,
-            "desktop": 4
-          },
-          "variant": "aside",
-          "pagination": "show-more",
-          "enableSpecialFilter": true
-        },
-        "startingPage": 1,
-        "seoComponents": {
-          "banner": {
-            "image": {
-              "mobile": {
-                "src": "https://data.decoassets.com/alphabeto/93deeff8-e363-45c3-90a0-33185f1d6341/bebeMeninaMobile.png"
-              },
-              "desktop": {
-                "src": "https://data.decoassets.com/alphabeto/6cfa1006-4626-43f8-a673-6131e42940b6/bebeMeninaDesk.png"
-              }
+        "variant": "aside",
+        "pagination": "show-more",
+        "enableSpecialFilter": true
+      },
+      "startingPage": 1,
+      "seoComponents": {
+        "banner": {
+          "image": {
+            "mobile": {
+              "src": "https://data.decoassets.com/alphabeto/93deeff8-e363-45c3-90a0-33185f1d6341/bebeMeninaMobile.png"
             },
-            "title": "Casaco infantil para bebês",
-            "description": "<p><span style=\"color: rgb(0, 0, 0); font-size: 11pt\">Quando o frio chega, o estilo aumenta! Conheça os casacos infantis femininos da Alphabeto para bebês.</span></p>"
-          },
-          "breadcrumb": [
-            {
-              "name": "Bebê Menina - Casaco",
-              "url": "/infantil/bebe/menina/casaco  "
+            "desktop": {
+              "src": "https://data.decoassets.com/alphabeto/6cfa1006-4626-43f8-a673-6131e42940b6/bebeMeninaDesk.png"
             }
-          ]
-        }
+          },
+          "title": "Casaco infantil para bebês",
+          "description": "<p><span style=\"color: rgb(0, 0, 0); font-size: 11pt\">Quando o frio chega, o estilo aumenta! Conheça os casacos infantis femininos da Alphabeto para bebês.</span></p>"
+        },
+        "breadcrumb": [
+          {
+            "name": "Bebê Menina - Casaco",
+            "url": "/infantil/bebe/menina/casaco  "
+          }
+        ]
       }
     },
     {
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "Footer"
-      }
+      "__resolveType": "Footer"
     }
   ],
   "name": "PLP: Bebê Menina - Casaco",

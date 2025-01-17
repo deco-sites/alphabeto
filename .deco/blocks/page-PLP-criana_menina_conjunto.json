@@ -5,88 +5,76 @@
   },
   "sections": [
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
-        "jsonLD": {
-          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
-          "count": 1,
-          "sort": "release:desc",
-          "fuzzy": "automatic",
-          "selectedFacets": [
-            {
-              "key": "productClusterIds",
-              "value": "738"
-            }
-          ],
-          "query": "",
-          "hideUnavailableItems": true
-        }
+      "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
+      "jsonLD": {
+        "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+        "count": 1,
+        "sort": "release:desc",
+        "fuzzy": "automatic",
+        "selectedFacets": [
+          {
+            "key": "productClusterIds",
+            "value": "738"
+          }
+        ],
+        "query": "",
+        "hideUnavailableItems": true
       }
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "Header"
-      }
+      "__resolveType": "Header"
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Product/SearchResult.tsx",
-        "page": {
-          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
-          "count": 24,
-          "sort": "release:desc",
-          "fuzzy": "automatic",
-          "selectedFacets": [
-            {
-              "key": "productClusterIds",
-              "value": "738"
-            }
-          ],
-          "query": "",
-          "hideUnavailableItems": true
+      "__resolveType": "site/sections/Product/SearchResult.tsx",
+      "page": {
+        "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+        "count": 24,
+        "sort": "release:desc",
+        "fuzzy": "automatic",
+        "selectedFacets": [
+          {
+            "key": "productClusterIds",
+            "value": "738"
+          }
+        ],
+        "query": "",
+        "hideUnavailableItems": true
+      },
+      "layout": {
+        "columns": {
+          "mobile": 2,
+          "desktop": 4
         },
-        "layout": {
-          "columns": {
-            "mobile": 2,
-            "desktop": 4
-          },
-          "variant": "aside",
-          "pagination": "show-more",
-          "enableSpecialFilter": true
-        },
-        "startingPage": 1,
-        "seoComponents": {
-          "banner": {
-            "image": {
-              "mobile": {
-                "src": "https://data.decoassets.com/alphabeto/4d4dd08b-3db5-4dff-b847-bc5d22a9c6e9/meninaMobile.png"
-              },
-              "desktop": {
-                "src": "https://data.decoassets.com/alphabeto/d3a1b4e9-f760-422c-ae9a-deecf30567bd/meninaDesk.png"
-              }
+        "variant": "aside",
+        "pagination": "show-more",
+        "enableSpecialFilter": true
+      },
+      "startingPage": 1,
+      "seoComponents": {
+        "banner": {
+          "image": {
+            "mobile": {
+              "src": "https://data.decoassets.com/alphabeto/4d4dd08b-3db5-4dff-b847-bc5d22a9c6e9/meninaMobile.png"
             },
-            "title": "Conjunto infantil"
-          },
-          "breadcrumb": [
-            {
-              "name": "Criança Menina - Conjunto",
-              "url": "/infantil/crianca/menina/conjunto  "
+            "desktop": {
+              "src": "https://data.decoassets.com/alphabeto/d3a1b4e9-f760-422c-ae9a-deecf30567bd/meninaDesk.png"
             }
-          ]
-        }
+          },
+          "title": "Conjunto infantil"
+        },
+        "breadcrumb": [
+          {
+            "name": "Criança Menina - Conjunto",
+            "url": "/infantil/crianca/menina/conjunto  "
+          }
+        ]
       }
     },
     {
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "Footer"
-      }
+      "__resolveType": "Footer"
     }
   ],
   "name": "PLP: Criança Menina - Conjunto",

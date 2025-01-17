@@ -5,88 +5,76 @@
   },
   "sections": [
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
-        "jsonLD": {
-          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
-          "count": 1,
-          "sort": "release:desc",
-          "fuzzy": "automatic",
-          "selectedFacets": [
-            {
-              "key": "productClusterIds",
-              "value": "744"
-            }
-          ],
-          "query": "",
-          "hideUnavailableItems": true
-        }
+      "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
+      "jsonLD": {
+        "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+        "count": 1,
+        "sort": "release:desc",
+        "fuzzy": "automatic",
+        "selectedFacets": [
+          {
+            "key": "productClusterIds",
+            "value": "744"
+          }
+        ],
+        "query": "",
+        "hideUnavailableItems": true
       }
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "Header"
-      }
+      "__resolveType": "Header"
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Product/SearchResult.tsx",
-        "page": {
-          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
-          "count": 24,
-          "sort": "release:desc",
-          "fuzzy": "automatic",
-          "selectedFacets": [
-            {
-              "key": "productClusterIds",
-              "value": "697"
-            }
-          ],
-          "query": "",
-          "hideUnavailableItems": true
+      "__resolveType": "site/sections/Product/SearchResult.tsx",
+      "page": {
+        "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+        "count": 24,
+        "sort": "release:desc",
+        "fuzzy": "automatic",
+        "selectedFacets": [
+          {
+            "key": "productClusterIds",
+            "value": "697"
+          }
+        ],
+        "query": "",
+        "hideUnavailableItems": true
+      },
+      "layout": {
+        "columns": {
+          "mobile": 2,
+          "desktop": 4
         },
-        "layout": {
-          "columns": {
-            "mobile": 2,
-            "desktop": 4
-          },
-          "variant": "aside",
-          "pagination": "show-more",
-          "enableSpecialFilter": true
-        },
-        "startingPage": 1,
-        "seoComponents": {
-          "banner": {
-            "image": {
-              "mobile": {
-                "src": "https://data.decoassets.com/alphabeto/14c5a7ca-6766-41d7-9fbc-df5fb92b0a07/criancaMeninoMobile.png"
-              },
-              "desktop": {
-                "src": "https://data.decoassets.com/alphabeto/7f02b444-c20c-4612-b8f6-768ba8370777/criancaMeninoDesk.png"
-              }
+        "variant": "aside",
+        "pagination": "show-more",
+        "enableSpecialFilter": true
+      },
+      "startingPage": 1,
+      "seoComponents": {
+        "banner": {
+          "image": {
+            "mobile": {
+              "src": "https://data.decoassets.com/alphabeto/14c5a7ca-6766-41d7-9fbc-df5fb92b0a07/criancaMeninoMobile.png"
             },
-            "title": "Infantil Menino"
-          },
-          "breadcrumb": [
-            {
-              "name": "Criança Menino",
-              "url": "/infantil/crianca/menino"
+            "desktop": {
+              "src": "https://data.decoassets.com/alphabeto/7f02b444-c20c-4612-b8f6-768ba8370777/criancaMeninoDesk.png"
             }
-          ]
-        }
+          },
+          "title": "Infantil Menino"
+        },
+        "breadcrumb": [
+          {
+            "name": "Criança Menino",
+            "url": "/infantil/crianca/menino"
+          }
+        ]
       }
     },
     {
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "Footer"
-      }
+      "__resolveType": "Footer"
     }
   ],
   "name": "PLP: Criança Menino",

@@ -2,10 +2,7 @@
   "name": "Home Page",
   "sections": [
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "Header"
-      }
+      "__resolveType": "Header"
     },
     {
       "__resolveType": "site/sections/Images/Carousel.tsx",
@@ -184,157 +181,142 @@
       "activeTab": 0
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/HomeToCategoryBanner/HomeToCategoryBanner.tsx",
-        "items": [
-          {
-            "image": {
-              "desktop": {
-                "src": "https://data.decoassets.com/alphabeto/d56a7b24-5549-497b-a279-73eabce88dc6/modelo-(1).png"
-              },
-              "mobile": {
-                "src": "https://data.decoassets.com/alphabeto/0684b0e5-5ede-4095-9361-deb29fd9452e/Frame-23872.png"
-              },
-              "alt": "Banner meninas"
+      "__resolveType": "site/sections/HomeToCategoryBanner/HomeToCategoryBanner.tsx",
+      "items": [
+        {
+          "image": {
+            "desktop": {
+              "src": "https://data.decoassets.com/alphabeto/d56a7b24-5549-497b-a279-73eabce88dc6/modelo-(1).png"
             },
-            "categoryLink": "/infantil/crianca/menina?filter.category-2=crianca&page=1",
-            "label": "Meninas",
-            "buttonText": "Meninas",
-            "buttonColor": "#FF859A"
+            "mobile": {
+              "src": "https://data.decoassets.com/alphabeto/0684b0e5-5ede-4095-9361-deb29fd9452e/Frame-23872.png"
+            },
+            "alt": "Banner meninas"
           },
-          {
-            "image": {
-              "desktop": {
-                "src": "https://data.decoassets.com/alphabeto/128b367d-eb58-4495-8f4a-776433135105/2-(1).png"
-              },
-              "alt": "Banner meninos",
-              "mobile": {
-                "src": "https://data.decoassets.com/alphabeto/cb47c489-db5f-40b0-9c06-f3c4a918e993/Frame-23873.png"
-              }
-            },
-            "categoryLink": "/infantil/crianca/menino?filter.category-2=crianca&page=1",
-            "label": "Meninos",
-            "buttonText": "Meninos",
-            "buttonColor": "#70D1E8"
-          },
-          {
-            "image": {
-              "desktop": {
-                "src": "https://data.decoassets.com/alphabeto/7262db37-50c8-4b1c-9bbf-24fbd3c36dc3/3-(1).png"
-              },
-              "alt": "Banner bebes",
-              "mobile": {
-                "src": "https://data.decoassets.com/alphabeto/2120aa9f-7581-465c-a896-95681c3d0c4a/Frame-23874.png"
-              }
-            },
-            "categoryLink": "/s?q=bebê&page=1",
-            "label": "Bebê",
-            "buttonText": "Bebês",
-            "buttonColor": "#D6DE23"
-          }
-        ],
-        "title": "Compre por Tamanho"
-      }
-    },
-    {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/CollectionBanner/CollectionBanner.tsx",
-        "title": "Dicas de Presentes ",
-        "items": [
-          {
-            "image": {
-              "desktop": {
-                "src": "https://data.decoassets.com/alphabeto/d4c57944-603c-4c7b-acba-4c6aba766cff/2-(7).png"
-              },
-              "mobile": {
-                "src": "https://data.decoassets.com/alphabeto/adc30d9b-2664-4efd-aad2-b098b495b532/2-(6).png"
-              },
-              "alt": "Alt"
-            },
-            "label": "Presentes até R$69",
-            "categoryLink": "/infantil/novidades?filter.price=29.97%3A70&sort=price%3Adesc&page=1"
-          },
-          {
-            "image": {
-              "mobile": {
-                "src": "https://data.decoassets.com/alphabeto/d7c8d8dc-1727-41c0-b08b-595b0a802863/3-(7).png"
-              },
-              "desktop": {
-                "src": "https://data.decoassets.com/alphabeto/482e00e4-0609-4fe5-82a0-e1d000c6a148/3-(7).png"
-              },
-              "alt": "Alt"
-            },
-            "label": "Presentes até R$99",
-            "categoryLink": "/infantil/novidades?sort=price%3Adesc&filter.price=29.97%3A100&page=1"
-          },
-          {
-            "image": {
-              "mobile": {
-                "src": "https://data.decoassets.com/alphabeto/9e38ad5a-2637-45cc-a200-aeb2be4aada9/4-(1).png"
-              },
-              "desktop": {
-                "src": "https://data.decoassets.com/alphabeto/1f1d289b-8e1b-4107-96bb-1d2e1967c817/4.png"
-              },
-              "alt": "Alt"
-            },
-            "label": "Presentes até R$129,00",
-            "categoryLink": "/infantil/novidades?filter.price=29.97%3A130&sort=price%3Adesc&page=1"
-          }
-        ]
-      }
-    },
-    {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/InteractiveBanner/InteractiveBanner.tsx",
-        "complementBanner": {
-          "desktop": "https://data.decoassets.com/alphabeto/dcf93e79-df96-4b92-aea0-d19d0cd0fde6/ezgif.com-animated-gif-maker.gif",
-          "mobile": "https://data.decoassets.com/alphabeto/0cfe2524-c136-4ea8-b81a-35b3ac1372cd/ezgif.com-animated-gif-maker-(1).gif",
-          "alt": "10% Off na Primeira compra use o cupom bemvindo10 na sua sacola"
+          "categoryLink": "/infantil/crianca/menina?filter.category-2=crianca&page=1",
+          "label": "Meninas",
+          "buttonText": "Meninas",
+          "buttonColor": "#FF859A"
         },
-        "interactiveBanner": {
-          "desktop": "https://data.decoassets.com/alphabeto/75fd31be-461b-4b30-ab83-1f223bc0a563/Frame-18.png",
-          "mobile": "https://data.decoassets.com/alphabeto/8e08ba41-cbe7-45ab-85c7-306f1b449cc7/Frame-23857.png",
-          "alt": "Crianças Brincando",
-          "products": []
-        }
-      }
-    },
-    {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/GiftShelf/GiftShelf.tsx",
-        "title": "Presentes que encantam!",
-        "description": "Conforto e carinho em forma de roupinhas.",
-        "image": {
-          "alt": "presentes",
-          "desktopSrc": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/3fabe207-2476-4a17-bc2f-2f08e8482461/apoio-desk.png",
-          "mobileSrc": "https://data.decoassets.com/alphabeto/0f2ece33-0fa3-4257-8102-56b345d1b757/image-137.png"
-        },
-        "slider": {
-          "products": {
-            "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
-            "props": {
-              "sort": "price:desc",
-              "collection": "797",
-              "count": 8
+        {
+          "image": {
+            "desktop": {
+              "src": "https://data.decoassets.com/alphabeto/128b367d-eb58-4495-8f4a-776433135105/2-(1).png"
+            },
+            "alt": "Banner meninos",
+            "mobile": {
+              "src": "https://data.decoassets.com/alphabeto/cb47c489-db5f-40b0-9c06-f3c4a918e993/Frame-23873.png"
             }
           },
-          "settings": {},
-          "viewItemListName": "Presentes"
+          "categoryLink": "/infantil/crianca/menino?filter.category-2=crianca&page=1",
+          "label": "Meninos",
+          "buttonText": "Meninos",
+          "buttonColor": "#70D1E8"
+        },
+        {
+          "image": {
+            "desktop": {
+              "src": "https://data.decoassets.com/alphabeto/7262db37-50c8-4b1c-9bbf-24fbd3c36dc3/3-(1).png"
+            },
+            "alt": "Banner bebes",
+            "mobile": {
+              "src": "https://data.decoassets.com/alphabeto/2120aa9f-7581-465c-a896-95681c3d0c4a/Frame-23874.png"
+            }
+          },
+          "categoryLink": "/s?q=bebê&page=1",
+          "label": "Bebê",
+          "buttonText": "Bebês",
+          "buttonColor": "#D6DE23"
         }
+      ],
+      "title": "Compre por Tamanho"
+    },
+    {
+      "__resolveType": "site/sections/CollectionBanner/CollectionBanner.tsx",
+      "title": "Dicas de Presentes ",
+      "items": [
+        {
+          "image": {
+            "desktop": {
+              "src": "https://data.decoassets.com/alphabeto/d4c57944-603c-4c7b-acba-4c6aba766cff/2-(7).png"
+            },
+            "mobile": {
+              "src": "https://data.decoassets.com/alphabeto/adc30d9b-2664-4efd-aad2-b098b495b532/2-(6).png"
+            },
+            "alt": "Alt"
+          },
+          "label": "Presentes até R$69",
+          "categoryLink": "/infantil/novidades?filter.price=29.97%3A70&sort=price%3Adesc&page=1"
+        },
+        {
+          "image": {
+            "mobile": {
+              "src": "https://data.decoassets.com/alphabeto/d7c8d8dc-1727-41c0-b08b-595b0a802863/3-(7).png"
+            },
+            "desktop": {
+              "src": "https://data.decoassets.com/alphabeto/482e00e4-0609-4fe5-82a0-e1d000c6a148/3-(7).png"
+            },
+            "alt": "Alt"
+          },
+          "label": "Presentes até R$99",
+          "categoryLink": "/infantil/novidades?sort=price%3Adesc&filter.price=29.97%3A100&page=1"
+        },
+        {
+          "image": {
+            "mobile": {
+              "src": "https://data.decoassets.com/alphabeto/9e38ad5a-2637-45cc-a200-aeb2be4aada9/4-(1).png"
+            },
+            "desktop": {
+              "src": "https://data.decoassets.com/alphabeto/1f1d289b-8e1b-4107-96bb-1d2e1967c817/4.png"
+            },
+            "alt": "Alt"
+          },
+          "label": "Presentes até R$129,00",
+          "categoryLink": "/infantil/novidades?filter.price=29.97%3A130&sort=price%3Adesc&page=1"
+        }
+      ]
+    },
+    {
+      "__resolveType": "site/sections/InteractiveBanner/InteractiveBanner.tsx",
+      "complementBanner": {
+        "desktop": "https://data.decoassets.com/alphabeto/dcf93e79-df96-4b92-aea0-d19d0cd0fde6/ezgif.com-animated-gif-maker.gif",
+        "mobile": "https://data.decoassets.com/alphabeto/0cfe2524-c136-4ea8-b81a-35b3ac1372cd/ezgif.com-animated-gif-maker-(1).gif",
+        "alt": "10% Off na Primeira compra use o cupom bemvindo10 na sua sacola"
+      },
+      "interactiveBanner": {
+        "desktop": "https://data.decoassets.com/alphabeto/75fd31be-461b-4b30-ab83-1f223bc0a563/Frame-18.png",
+        "mobile": "https://data.decoassets.com/alphabeto/8e08ba41-cbe7-45ab-85c7-306f1b449cc7/Frame-23857.png",
+        "alt": "Crianças Brincando",
+        "products": []
+      }
+    },
+    {
+      "__resolveType": "site/sections/GiftShelf/GiftShelf.tsx",
+      "title": "Presentes que encantam!",
+      "description": "Conforto e carinho em forma de roupinhas.",
+      "image": {
+        "alt": "presentes",
+        "desktopSrc": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/3fabe207-2476-4a17-bc2f-2f08e8482461/apoio-desk.png",
+        "mobileSrc": "https://data.decoassets.com/alphabeto/0f2ece33-0fa3-4257-8102-56b345d1b757/image-137.png"
+      },
+      "slider": {
+        "products": {
+          "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+          "props": {
+            "sort": "price:desc",
+            "collection": "797",
+            "count": 8
+          }
+        },
+        "settings": {},
+        "viewItemListName": "Presentes"
       }
     },
     {
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "Footer"
-      }
+      "__resolveType": "Footer"
     }
   ],
   "__resolveType": "website/pages/Page.tsx",

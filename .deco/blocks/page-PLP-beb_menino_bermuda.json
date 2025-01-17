@@ -5,89 +5,77 @@
   },
   "sections": [
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
-        "jsonLD": {
-          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
-          "count": 1,
-          "sort": "release:desc",
-          "fuzzy": "automatic",
-          "selectedFacets": [
-            {
-              "key": "productClusterIds",
-              "value": "750"
-            }
-          ],
-          "query": "",
-          "hideUnavailableItems": true
-        }
+      "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
+      "jsonLD": {
+        "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+        "count": 1,
+        "sort": "release:desc",
+        "fuzzy": "automatic",
+        "selectedFacets": [
+          {
+            "key": "productClusterIds",
+            "value": "750"
+          }
+        ],
+        "query": "",
+        "hideUnavailableItems": true
       }
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "Header"
-      }
+      "__resolveType": "Header"
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Product/SearchResult.tsx",
-        "page": {
-          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
-          "count": 24,
-          "sort": "release:desc",
-          "fuzzy": "automatic",
-          "selectedFacets": [
-            {
-              "key": "productClusterIds",
-              "value": "750"
-            }
-          ],
-          "query": "",
-          "hideUnavailableItems": true
+      "__resolveType": "site/sections/Product/SearchResult.tsx",
+      "page": {
+        "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+        "count": 24,
+        "sort": "release:desc",
+        "fuzzy": "automatic",
+        "selectedFacets": [
+          {
+            "key": "productClusterIds",
+            "value": "750"
+          }
+        ],
+        "query": "",
+        "hideUnavailableItems": true
+      },
+      "layout": {
+        "columns": {
+          "mobile": 2,
+          "desktop": 4
         },
-        "layout": {
-          "columns": {
-            "mobile": 2,
-            "desktop": 4
-          },
-          "variant": "aside",
-          "pagination": "show-more",
-          "enableSpecialFilter": true
-        },
-        "startingPage": 1,
-        "seoComponents": {
-          "banner": {
-            "image": {
-              "mobile": {
-                "src": "https://data.decoassets.com/alphabeto/419219ae-ad61-4966-a269-d8424f63961a/bebeMeninoMobile.png"
-              },
-              "desktop": {
-                "src": "https://data.decoassets.com/alphabeto/2c6c3816-d120-485f-b421-28be2106e431/bebeMeninoDesk.png"
-              }
+        "variant": "aside",
+        "pagination": "show-more",
+        "enableSpecialFilter": true
+      },
+      "startingPage": 1,
+      "seoComponents": {
+        "banner": {
+          "image": {
+            "mobile": {
+              "src": "https://data.decoassets.com/alphabeto/419219ae-ad61-4966-a269-d8424f63961a/bebeMeninoMobile.png"
             },
-            "title": "Bermuda Infantil para bebês",
-            "description": "<p><span style=\"color: rgb(0, 0, 0); font-size: 11pt\">Bermuda infantil para meninos de 3 a 18 meses.</span></p>"
-          },
-          "breadcrumb": [
-            {
-              "name": "Bebê Menino - Bermuda",
-              "url": "/infantil/bebe/menino/bermuda  "
+            "desktop": {
+              "src": "https://data.decoassets.com/alphabeto/2c6c3816-d120-485f-b421-28be2106e431/bebeMeninoDesk.png"
             }
-          ]
-        }
+          },
+          "title": "Bermuda Infantil para bebês",
+          "description": "<p><span style=\"color: rgb(0, 0, 0); font-size: 11pt\">Bermuda infantil para meninos de 3 a 18 meses.</span></p>"
+        },
+        "breadcrumb": [
+          {
+            "name": "Bebê Menino - Bermuda",
+            "url": "/infantil/bebe/menino/bermuda  "
+          }
+        ]
       }
     },
     {
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "Footer"
-      }
+      "__resolveType": "Footer"
     }
   ],
   "name": "PLP: Bebê Menino - Bermuda",

@@ -5,89 +5,77 @@
   },
   "sections": [
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
-        "jsonLD": {
-          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
-          "count": 1,
-          "sort": "release:desc",
-          "fuzzy": "automatic",
-          "selectedFacets": [
-            {
-              "key": "productClusterIds",
-              "value": "742"
-            }
-          ],
-          "query": "",
-          "hideUnavailableItems": true
-        }
+      "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
+      "jsonLD": {
+        "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+        "count": 1,
+        "sort": "release:desc",
+        "fuzzy": "automatic",
+        "selectedFacets": [
+          {
+            "key": "productClusterIds",
+            "value": "742"
+          }
+        ],
+        "query": "",
+        "hideUnavailableItems": true
       }
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "Header"
-      }
+      "__resolveType": "Header"
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Product/SearchResult.tsx",
-        "page": {
-          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
-          "count": 24,
-          "sort": "release:desc",
-          "fuzzy": "automatic",
-          "selectedFacets": [
-            {
-              "key": "productClusterIds",
-              "value": "742"
-            }
-          ],
-          "query": "",
-          "hideUnavailableItems": true
+      "__resolveType": "site/sections/Product/SearchResult.tsx",
+      "page": {
+        "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+        "count": 24,
+        "sort": "release:desc",
+        "fuzzy": "automatic",
+        "selectedFacets": [
+          {
+            "key": "productClusterIds",
+            "value": "742"
+          }
+        ],
+        "query": "",
+        "hideUnavailableItems": true
+      },
+      "layout": {
+        "columns": {
+          "mobile": 2,
+          "desktop": 4
         },
-        "layout": {
-          "columns": {
-            "mobile": 2,
-            "desktop": 4
-          },
-          "variant": "aside",
-          "pagination": "show-more",
-          "enableSpecialFilter": true
-        },
-        "startingPage": 1,
-        "seoComponents": {
-          "banner": {
-            "image": {
-              "mobile": {
-                "src": "https://data.decoassets.com/alphabeto/4d4dd08b-3db5-4dff-b847-bc5d22a9c6e9/meninaMobile.png"
-              },
-              "desktop": {
-                "src": "https://data.decoassets.com/alphabeto/d3a1b4e9-f760-422c-ae9a-deecf30567bd/meninaDesk.png"
-              }
+        "variant": "aside",
+        "pagination": "show-more",
+        "enableSpecialFilter": true
+      },
+      "startingPage": 1,
+      "seoComponents": {
+        "banner": {
+          "image": {
+            "mobile": {
+              "src": "https://data.decoassets.com/alphabeto/4d4dd08b-3db5-4dff-b847-bc5d22a9c6e9/meninaMobile.png"
             },
-            "title": "Moda Praia infantil para meninas",
-            "description": "<p><span style=\"color: rgb(0, 0, 0); font-size: 11pt\">Roupas infantis para as meninas aproveitarem os dias de sol. Biquíni, Maiô e Bulsa UV para garantir a diversão e a proteção das pequenas.</span></p>"
-          },
-          "breadcrumb": [
-            {
-              "name": "Criança Menina - Moda Praia",
-              "url": "/infantil/crianca/menina/moda-praia  "
+            "desktop": {
+              "src": "https://data.decoassets.com/alphabeto/d3a1b4e9-f760-422c-ae9a-deecf30567bd/meninaDesk.png"
             }
-          ]
-        }
+          },
+          "title": "Moda Praia infantil para meninas",
+          "description": "<p><span style=\"color: rgb(0, 0, 0); font-size: 11pt\">Roupas infantis para as meninas aproveitarem os dias de sol. Biquíni, Maiô e Bulsa UV para garantir a diversão e a proteção das pequenas.</span></p>"
+        },
+        "breadcrumb": [
+          {
+            "name": "Criança Menina - Moda Praia",
+            "url": "/infantil/crianca/menina/moda-praia  "
+          }
+        ]
       }
     },
     {
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "Footer"
-      }
+      "__resolveType": "Footer"
     }
   ],
   "name": "PLP: Criança Menina - Moda Praia",

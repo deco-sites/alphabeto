@@ -5,103 +5,85 @@
   },
   "sections": [
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
-        "jsonLD": {
-          "__resolveType": "PLP Loader"
-        }
+      "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
+      "jsonLD": {
+        "__resolveType": "PLP Loader"
       }
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "Header"
-      }
+      "__resolveType": "Header"
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Product/SearchResult.tsx",
-        "page": {
-          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
-          "count": 24,
-          "sort": "release:desc",
-          "fuzzy": "automatic",
-          "selectedFacets": [],
-          "hideUnavailableItems": true
+      "__resolveType": "site/sections/Product/SearchResult.tsx",
+      "page": {
+        "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+        "count": 24,
+        "sort": "release:desc",
+        "fuzzy": "automatic",
+        "selectedFacets": [],
+        "hideUnavailableItems": true
+      },
+      "layout": {
+        "columns": {
+          "mobile": 2,
+          "desktop": 4
         },
-        "layout": {
-          "columns": {
-            "mobile": 2,
-            "desktop": 4
-          },
-          "variant": "aside",
-          "pagination": "show-more",
-          "enableSpecialFilter": true
-        },
-        "startingPage": 1,
-        "seoComponents": {
-          "banner": {
-            "title": "Bazar",
-            "subtitle": "Meninas",
-            "description": "<p><span>Lorem ipsum dolor sit amet consectetur. Urna massa diam feugiat eleifend integer mattis.</span></p>",
-            "image": {
-              "desktop": {
-                "src": "https://data.decoassets.com/alphabeto/8064e5bc-d61b-42fd-920d-10c59ee61526/Banner-principal-(1).png",
-                "width": 1360,
-                "height": 230
-              },
-              "alt": "A imagem mostra uma menina sorridente com cabelos castanhos lisos e franja, usando uma jaqueta jeans azul. O fundo é rosa vibrante, decorado com estrelas amarelas e linhas curvas como arco-íris no canto direito. O visual transmite alegria e energia, com tons quentes e elementos lúdicos.",
-              "mobile": {
-                "src": "https://data.decoassets.com/alphabeto/ba2be877-4a89-4ece-b26d-b3d4cc410814/Banner-principal-(2).png",
-                "width": 335,
-                "height": 200
-              }
-            }
-          },
-          "breadcrumb": [
-            {
-              "url": "/bazar",
-              "name": "Bazar"
+        "variant": "aside",
+        "pagination": "show-more",
+        "enableSpecialFilter": true
+      },
+      "startingPage": 1,
+      "seoComponents": {
+        "banner": {
+          "title": "Bazar",
+          "subtitle": "Meninas",
+          "description": "<p><span>Lorem ipsum dolor sit amet consectetur. Urna massa diam feugiat eleifend integer mattis.</span></p>",
+          "image": {
+            "desktop": {
+              "src": "https://data.decoassets.com/alphabeto/8064e5bc-d61b-42fd-920d-10c59ee61526/Banner-principal-(1).png",
+              "width": 1360,
+              "height": 230
             },
-            {
-              "name": "Meninas",
-              "url": "/meninas/bazar"
+            "alt": "A imagem mostra uma menina sorridente com cabelos castanhos lisos e franja, usando uma jaqueta jeans azul. O fundo é rosa vibrante, decorado com estrelas amarelas e linhas curvas como arco-íris no canto direito. O visual transmite alegria e energia, com tons quentes e elementos lúdicos.",
+            "mobile": {
+              "src": "https://data.decoassets.com/alphabeto/ba2be877-4a89-4ece-b26d-b3d4cc410814/Banner-principal-(2).png",
+              "width": 335,
+              "height": 200
             }
-          ]
-        }
+          }
+        },
+        "breadcrumb": [
+          {
+            "url": "/bazar",
+            "name": "Bazar"
+          },
+          {
+            "name": "Meninas",
+            "url": "/meninas/bazar"
+          }
+        ]
       }
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Category/CategoryBottomBanner.tsx",
-        "text": "<h2>Os melhores conjuntinhos</h2><p></p><p>Lorem ipsum dolor sit amet consectetur. Urna massa diam feugiat eleifend integer mattis. Mauris pharetra sed pellentesque in tristique. Dolor pellentesque nunc tempus risus libero elementum. Tellus nisi pharetra tortor sociis cursus odio. Tempor placerat in consequat in amet. Adipiscing et a condimentum libero senectus nisi. Elementum pretium metus a cursus. Senectus auctor pellentesque feugiat neque augue faucibus sed. Aliquam suspendisse platea eget amet.</p><p></p><h2><span>Tecidos direto da fábrica</span></h2><p></p><p><span>Lorem ipsum dolor sit amet consectetur. Urna massa diam feugiat eleifend integer mattis. Mauris pharetra sed pellentesque in tristique. Dolor pellentesque nunc tempus risus libero elementum. Tellus nisi pharetra tortor sociis cursus odio. Tempor placerat in consequat in amet. Adipiscing et a condimentum libero senectus nisi. Elementum pretium metus a cursus. Senectus auctor pellentesque feugiat neque augue faucibus sed. Aliquam suspendisse platea eget amet.</span></p>",
-        "image": {
-          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/96259462-e7ec-4338-bfc5-331a32b622aa/image_categoria.png",
-          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ac67ce29-d4e2-4950-8ea4-d0b8b2433519/image_categoria_mob.png",
-          "alt": "A imagem mostra duas meninas sorridentes posando em frente a um fundo laranja vibrante com um grande círculo texturizado rosa ao centro. A menina à esquerda usa uma roupa colorida com estampas divertidas, jaqueta clara e tiara. A menina à direita veste blusa preta e saia rosa. O ambiente é alegre e lúdico."
-        }
+      "__resolveType": "site/sections/Category/CategoryBottomBanner.tsx",
+      "text": "<h2>Os melhores conjuntinhos</h2><p></p><p>Lorem ipsum dolor sit amet consectetur. Urna massa diam feugiat eleifend integer mattis. Mauris pharetra sed pellentesque in tristique. Dolor pellentesque nunc tempus risus libero elementum. Tellus nisi pharetra tortor sociis cursus odio. Tempor placerat in consequat in amet. Adipiscing et a condimentum libero senectus nisi. Elementum pretium metus a cursus. Senectus auctor pellentesque feugiat neque augue faucibus sed. Aliquam suspendisse platea eget amet.</p><p></p><h2><span>Tecidos direto da fábrica</span></h2><p></p><p><span>Lorem ipsum dolor sit amet consectetur. Urna massa diam feugiat eleifend integer mattis. Mauris pharetra sed pellentesque in tristique. Dolor pellentesque nunc tempus risus libero elementum. Tellus nisi pharetra tortor sociis cursus odio. Tempor placerat in consequat in amet. Adipiscing et a condimentum libero senectus nisi. Elementum pretium metus a cursus. Senectus auctor pellentesque feugiat neque augue faucibus sed. Aliquam suspendisse platea eget amet.</span></p>",
+      "image": {
+        "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/96259462-e7ec-4338-bfc5-331a32b622aa/image_categoria.png",
+        "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ac67ce29-d4e2-4950-8ea4-d0b8b2433519/image_categoria_mob.png",
+        "alt": "A imagem mostra duas meninas sorridentes posando em frente a um fundo laranja vibrante com um grande círculo texturizado rosa ao centro. A menina à esquerda usa uma roupa colorida com estampas divertidas, jaqueta clara e tiara. A menina à direita veste blusa preta e saia rosa. O ambiente é alegre e lúdico."
       }
     },
     {
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "faq-teste"
-      }
+      "__resolveType": "faq-teste"
     },
     {
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "Footer"
-      }
+      "__resolveType": "Footer"
     }
   ],
   "name": "PLP: Bazar: Meninas",
