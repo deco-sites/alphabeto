@@ -64,14 +64,14 @@ const onClick = (
     ?.click();
 };
 
-const useAddToCart = ({ product, seller }: Props) => {
+const useAddToCart = ({ product }: Props) => {
   const platform = usePlatform();
   const { additionalProperty = [], isVariantOf, productID } = product;
   const productGroupID = isVariantOf?.productGroupID;
   if (platform === "vtex") {
     return {
       allowedOutdatedData: ["paymentData"],
-      orderItems: [{ quantity: 1, seller: seller, id: productID }],
+      orderItems: [{ quantity: 1, seller: "1", id: productID }],
     };
   }
   if (platform === "shopify") {
