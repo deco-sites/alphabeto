@@ -11,8 +11,6 @@ interface MenuProps {
   institutionalLinks: LinkProps[];
   /**@title Rotas suporte*/
   supportLinks: LinkProps[];
-  /**@title Menu Mobile*/
-  links: LinkProps[];
 }
 
 /**@title Rota: {{ label }}*/
@@ -25,9 +23,11 @@ interface LinkProps {
 
 export const loader = (menu: MenuProps, req: Request) => {
   const currentPath = new URL(req.url).pathname;
-  const matchingLink = menu.links?.find((link) => link.route === currentPath);
+  const links = menu.institutionalLinks.concat(menu.supportLinks);
+  const matchingLink = links?.find((link) => link.route === currentPath);
   return {
     ...menu,
+    links,
     currentPath,
     label: matchingLink ? matchingLink.label : "Menu",
   };

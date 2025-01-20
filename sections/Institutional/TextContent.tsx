@@ -1,9 +1,10 @@
 import type { RichText } from "apps/admin/widgets.ts";
+import { clx } from "site/sdk/clx.ts";
 
-/**@title {{ title }}*/
+/**@title {{ subtitle }}*/
 interface PolicyProps {
   /**@title Título*/
-  title: string;
+  title?: string;
 
   /**@title Subtítulo */
   subtitle?: string;
@@ -21,26 +22,36 @@ export default function TextContent(
 ) {
   return (
     <div class="flex flex-col">
-      {items.map((content, index) => (
-        <div key={index} class="mb-[40px]">
-          <section class="flex flex-col mb-[20px]">
-            <p class="font-[beccaPerry] text-[44px] mobile:text-[32px] font-medium text-accent mb-[20px]">
-              {content.title}
-            </p>
-            <p
-              class={`text-[20px] mobile:text-[14px] font-bold text-[#7E7F88] ${
-                content.subtitle === undefined ? "mt-[-20px]" : "mt-[0px]"
-              }`}
-            >
-              {content.subtitle}
-            </p>
-          </section>
-          <section>
-            <p
-              class="font-regular text-[12px] text-[#ffffff]"
+      {items.map((content) => (
+        <div key={content.subtitle || content.title} class="mb-10">
+          <div class="flex flex-col">
+            {content.title
+              ? (
+                <h1 class="font-[beccaPerry] text-[44px] mobile:text-[32px] font-medium text-accent mb-2.5">
+                  {content.title}
+                </h1>
+              )
+              : null}
+            {content.subtitle
+              ? (
+                <h2
+                  class={`text-[20px] mobile:text-[14px] font-bold text-[#7E7F88] mb-5`}
+                >
+                  {content.subtitle}
+                </h2>
+              )
+              : null}
+          </div>
+          <div>
+            <div
+              class={clx(
+                "font-regular [&_a]:text-primary [&_a]:underline [&_a]:font-bold [&_ul]:list-disc [&_ul]:ml-[18px] [&_p]:text-[14px] mobile:[&_p]:text-[13px]",
+                "[&_*]:text-[#7E7F88] [&_a_strong]:text-primary [&_td]:border [&_td]:border-[#7e7f88] [&_td]:border-solid [&_td]:p-2",
+                "[&_th]:border [&_th]:border-[#7e7f88] [&_th]:border-solid [&_th]:p-2",
+              )}
               dangerouslySetInnerHTML={{ __html: content.paragraph }}
             />
-          </section>
+          </div>
         </div>
       ))}
     </div>

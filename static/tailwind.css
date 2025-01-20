@@ -4336,12 +4336,6 @@ details.collapse summary::-webkit-details-marker {
 .mt-9 {
   margin-top: 2.25rem;
 }
-.mt-\[-20px\] {
-  margin-top: -20px;
-}
-.mt-\[0px\] {
-  margin-top: 0px;
-}
 .mt-\[100px\] {
   margin-top: 100px;
 }
@@ -8971,6 +8965,40 @@ details.collapse summary::-webkit-details-marker {
   color: var(--fallback-a,oklch(var(--a)/var(--tw-text-opacity)));
 }
 
+.\[\&_\*\]\:text-\[\#7E7F88\] * {
+  --tw-text-opacity: 1;
+  color: rgb(126 127 136 / var(--tw-text-opacity));
+}
+
+.\[\&_a\]\:font-bold a {
+  font-weight: 700;
+}
+
+.\[\&_a\]\:text-primary a {
+  --tw-text-opacity: 1;
+  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+}
+
+.\[\&_a\]\:underline a {
+  text-decoration-line: underline;
+}
+
+.\[\&_a_strong\]\:text-primary a strong {
+  --tw-text-opacity: 1;
+  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+}
+
+.\[\&_p\]\:text-\[14px\] p {
+  font-size: 14px;
+}
+
+@media (max-width: 1023px) {
+
+  .mobile\:\[\&_p\]\:text-\[13px\] p {
+    font-size: 13px;
+  }
+}
+
 .\[\&_section\]\:contents section {
   display: contents;
 }
@@ -8982,6 +9010,48 @@ details.collapse summary::-webkit-details-marker {
 .\[\&_strong\]\:text-primary strong {
   --tw-text-opacity: 1;
   color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+}
+
+.\[\&_td\]\:border td {
+  border-width: 1px;
+}
+
+.\[\&_td\]\:border-solid td {
+  border-style: solid;
+}
+
+.\[\&_td\]\:border-\[\#7e7f88\] td {
+  --tw-border-opacity: 1;
+  border-color: rgb(126 127 136 / var(--tw-border-opacity));
+}
+
+.\[\&_td\]\:p-2 td {
+  padding: 0.5rem;
+}
+
+.\[\&_th\]\:border th {
+  border-width: 1px;
+}
+
+.\[\&_th\]\:border-solid th {
+  border-style: solid;
+}
+
+.\[\&_th\]\:border-\[\#7e7f88\] th {
+  --tw-border-opacity: 1;
+  border-color: rgb(126 127 136 / var(--tw-border-opacity));
+}
+
+.\[\&_th\]\:p-2 th {
+  padding: 0.5rem;
+}
+
+.\[\&_ul\]\:ml-\[18px\] ul {
+  margin-left: 18px;
+}
+
+.\[\&_ul\]\:list-disc ul {
+  list-style-type: disc;
 }
 
 .htmx-request .\[\.htmx-request_\&\]\:block {
