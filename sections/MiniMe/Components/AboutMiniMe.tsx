@@ -24,7 +24,7 @@ export default function AboutMiniMe(
                 src={mainImage}
                 width={477}
                 height={433}
-                alt="Criança com problemas de locomoção sorridente com uma boneca inclusiva"
+                alt="Criança com dificuldade de locomoção sorridente com uma boneca inclusiva"
                 class="mobile:w-[263px] mobile:h-[238px]"
               />
             </>
@@ -36,12 +36,12 @@ export default function AboutMiniMe(
                 width={340}
                 height={286}
                 alt="Criança sorridente com boneca"
-                class="absolute top-[185px] left-[307px]"
+                class="absolute top-[185px] left-[307px] mobile:left-[45%] mobile:w-[174px]"
               />
             </>
           )}
         </div>
-        <div class="max-w-[664px] w-[100%] ml-[40px]">
+        <div class="max-w-[664px] w-[100%] mobile:max-w-[335px] ml-[40px] mobile:ml-[0] mobile:mb-[40px]">
           <div>
             <h2 class="font-Quicksand mobile:text-[16px] text-[#F98300] font-bold mt-[10px]">
               {title}
@@ -51,10 +51,12 @@ export default function AboutMiniMe(
             <h3 class="font-beccaPerry mobile:text-[32px] text-[44px] font-medium text-[#676767]">
               {subtitle}
             </h3>
+            <div class="mobile:text-[12px]">
             <p
               class="font-Quicksand mt-[20px]"
               dangerouslySetInnerHTML={{ __html: description }}
             />
+            </div>
           </div>
           <button class="w-[100%] max-w-[197px] h-[44px] bg-[#F98300] mt-[30px] font-Quicksand text-[#FFF] text-[14px] font-bold rounded-[8px]">
           <a href="/faca-sua-boneca">{label}</a>
