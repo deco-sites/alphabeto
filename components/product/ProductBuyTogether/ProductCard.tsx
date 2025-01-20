@@ -9,6 +9,7 @@ import { invoke } from "site/runtime.ts";
 import { clx } from "site/sdk/clx.ts";
 import { formatPrice } from "site/sdk/format.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
+import { ProductCardProps } from "site/components/product/ProductBuyTogether/types.ts";
 
 export default function ProductCard(props: ProductCardProps) {
   const { isVariantOf, name, aggregateRating } = props.signal.value.product;

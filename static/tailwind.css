@@ -4519,6 +4519,9 @@ details.collapse summary::-webkit-details-marker {
 .h-\[137px\] {
   height: 137px;
 }
+.h-\[142\.130987vw\] {
+  height: 142.130987vw;
+}
 .h-\[159px\] {
   height: 159px;
 }
@@ -8321,6 +8324,10 @@ details.collapse summary::-webkit-details-marker {
 
   .desk\:h-\[67px\] {
     height: 67px;
+  }
+
+  .desk\:h-\[min\(64\.5833vw\2c _930px\)\] {
+    height: min(64.5833vw, 930px);
   }
 
   .desk\:h-\[unset\] {

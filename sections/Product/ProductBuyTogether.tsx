@@ -1,1 +1,5 @@
-export { default, loader } from "site/islands/ProductBuyTogether.tsx";
+export {
+  default,
+  loader,
+  LoadingFallback,
+} from "site/islands/ProductBuyTogether.tsx";

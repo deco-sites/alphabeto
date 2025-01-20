@@ -36,6 +36,11 @@ export default function ProductBuyTogether(
     enabled: true,
     selectedVariant: props.sugestions[1].sku,
   });
+  const notReloadThisProducts = [
+    principalProduct.value.product.isVariantOf?.productGroupID ?? "",
+    sugestionOne.value.product.isVariantOf?.productGroupID ?? "",
+    sugestionTwo.value.product.isVariantOf?.productGroupID ?? "",
+  ];
   return (
     <>
       <Spacer />
@@ -57,7 +62,10 @@ export default function ProductBuyTogether(
             <ProductCard
               mode="sugestion"
               signal={sugestionOne}
-              newProductLoaderData={props.newProductLoaderData}
+              newProductLoaderData={{
+                ...props.newProductLoaderData,
+                notShowProductsIds: notReloadThisProducts,
+              }}
             />
             <div class="bg-secondary text-primary desk:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[335%] z-10 rounded-full min-w-10 w-10 h-10 flex items-center justify-center">
               <Icon id="plus" size={20} />
@@ -65,7 +73,10 @@ export default function ProductBuyTogether(
             <ProductCard
               mode="sugestion"
               signal={sugestionTwo}
-              newProductLoaderData={props.newProductLoaderData}
+              newProductLoaderData={{
+                ...props.newProductLoaderData,
+                notShowProductsIds: notReloadThisProducts,
+              }}
             />
           </div>
           <div class="bg-secondary text-primary rounded-full min-w-10 w-10 h-10 flex items-center justify-center">
@@ -79,5 +90,13 @@ export default function ProductBuyTogether(
         </div>
       </div>
     </>
+  );
+}
+
+export function LoadingFallback() {
+  return (
+    <div class="flex justify-center items-center h-[142.130987vw] desk:h-[min(64.5833vw,_930px)]">
+      <span class="loading loading-spinner" />
+    </div>
   );
 }

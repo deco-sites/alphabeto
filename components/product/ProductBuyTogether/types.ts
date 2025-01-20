@@ -48,6 +48,8 @@ export type ProductCardProps =
     newProductLoaderData: {
       collection: string;
       department: string;
+      notShowProductsIds: string[];
+      term?: string;
     };
   };
 

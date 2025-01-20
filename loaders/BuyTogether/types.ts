@@ -11,6 +11,7 @@ export type BuyTogetherInitialProductsResponse = {
   newProductLoaderData: {
     collection: string;
     department: string;
+    term?: string;
   };
 } | null;
 
@@ -24,6 +25,8 @@ export interface BuyTogetherNewProductsProps {
    */
   collection: string;
   department: string;
+  term?: string;
+  notShowProductsIds: string[];
 }
 export interface BuyTogetherIntialProductProps {
   /**
@@ -35,4 +38,6 @@ export interface BuyTogetherIntialProductProps {
    */
   collection: string;
   slug: RequestURLParam;
+  terms: string[];
+  notShowProductsIds: string[];
 }
