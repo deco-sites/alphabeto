@@ -99,7 +99,7 @@ function ProductInfo({ page, sizebaySettings, siteSettings }: Props) {
         <WishlistButton mode="pdp" item={item} />
       </div>
       {/* Product Name */}
-      <h1 class="text-accent text-[22px] mobile:leading-[26px] desk:text-3xl font-bold">
+      <h1 class="text-accent text-[22px] mobile:leading-[26px] desk:text-3xl font-bold desk:max-w-[calc(100%_-_80px)]">
         {title}
       </h1>
 

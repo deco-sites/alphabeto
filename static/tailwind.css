@@ -8454,6 +8454,10 @@ details.collapse summary::-webkit-details-marker {
     max-width: 95rem;
   }
 
+  .desk\:max-w-\[calc\(100\%_-_80px\)\] {
+    max-width: calc(100% - 80px);
+  }
+
   .desk\:max-w-\[min\(33\.33vw\2c 480px\)\] {
     max-width: min(33.33vw,480px);
   }
