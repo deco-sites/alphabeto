@@ -77,7 +77,10 @@ export type AvailableIcons =
   | "curved-lines"
   | "minime-step-1"
   | "minime-step-2"
-  | "minime-step-3";
+  | "minime-step-3"
+  | "clock"
+  | "product_description_mini-me"
+  | "composition";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

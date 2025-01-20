@@ -1,5 +1,5 @@
 {
-  "name": "Mini Me",
+  "name": "Mini Me (landing page)",
   "path": "/mini-me",
   "sections": [
     {
@@ -70,10 +70,7 @@
           "label": "Vamos criar!"
         },
         {
-          "__resolveType": "website/sections/Rendering/Lazy.tsx",
-          "section": {
-            "__resolveType": "FAQ"
-          }
+          "__resolveType": "FAQ"
         }
       ]
     },

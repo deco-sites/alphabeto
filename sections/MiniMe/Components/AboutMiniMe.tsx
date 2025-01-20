@@ -8,11 +8,13 @@ interface Props {
 
   label: string;
   mainImage?: ImageWidget;
-  backImage?: ImageWidget;
+  altTextMainImage?: string;
+  secondaryImage?: ImageWidget;
+  altTextBackImage?: string;
 }
 
 export default function AboutMiniMe(
-  { title, subtitle, description, label, mainImage, backImage }: Props,
+  { title, subtitle, description, label, mainImage, secondaryImage, altTextMainImage, altTextBackImage }: Props,
 ) {
   return (
     <>
@@ -24,18 +26,18 @@ export default function AboutMiniMe(
                 src={mainImage}
                 width={477}
                 height={433}
-                alt="Criança com dificuldade de locomoção sorridente com uma boneca inclusiva"
+                alt={altTextMainImage}
                 class="mobile:w-[263px] mobile:h-[238px]"
               />
             </>
           )}
-          {backImage && (
+          {secondaryImage && (
             <>
               <Image
-                src={backImage}
+                src={secondaryImage}
                 width={340}
                 height={286}
-                alt="Criança sorridente com boneca"
+                alt={altTextBackImage}
                 class="absolute top-[185px] left-[307px] mobile:left-[45%] mobile:w-[174px]"
               />
             </>
