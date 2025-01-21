@@ -126,15 +126,18 @@
   "abTesting": {
     "replaces": [],
     "includeScriptsToHead": {
-      "includes": []
+      "includes": [
+        {
+          "__resolveType": "analytics/loaders/DecoAnalyticsScript.ts"
+        }
+      ]
     },
     "includeScriptsToBody": {
       "includes": []
     },
     "name": "Teste AB",
     "matcher": {
-      "__resolveType": "website/matchers/random.ts",
-      "traffic": 0.8
+      "__resolveType": "Teste AB"
     },
     "enabled": true,
     "urlToRunAgainst": "https://secure.alphabeto.com"
