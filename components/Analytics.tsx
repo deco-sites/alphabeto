@@ -1,7 +1,8 @@
 import { sendEvent } from "site/sdk/analytics.ts";
 import type { AnalyticsEvent } from "apps/commerce/types.ts";
+import type ExtendedAnalyticsEvent from "site/components/analytics.d.ts";
 
-const SendEventOnClick = <E extends AnalyticsEvent>(
+const SendEventOnClick = <E extends ExtendedAnalyticsEvent>(
   { event, id }: { event: E; id: string },
 ) => (
   <script

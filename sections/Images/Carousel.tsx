@@ -90,10 +90,9 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
       <SendEventOnClick
         id={id}
         event={{
-          name: "deco",
+          name: "banner_click",
           params: {
-            page: { id: "" },
-            flags: [{ name: "TESTE", value: true }],
+            url: clickUrl
           },
         }}
       />

@@ -3,6 +3,8 @@ import { Color, ImageWidget } from "apps/admin/widgets.ts";
 import { Picture, Source } from "apps/website/components/Picture.tsx";
 import Section from "site/components/ui/Section.tsx";
 import { clx } from "site/sdk/clx.ts";
+import { SendEventOnClick } from "site/components/Analytics.tsx";
+import { useId } from "preact/hooks";
 
 interface HomeToCategoryBannerItem {
   /**@title Label for CMS */
@@ -38,8 +40,13 @@ export default function HomeToCategoryBanner(
       </h2>
       <div class="grid grid-cols-1 desk:grid-cols-3 gap-4">
         {items.map((item) => {
+          const id = useId();
+
           return (
-            <article class="max-w-[443px] rounded-lg relative">
+            <article
+              class="max-w-[443px] rounded-lg relative"
+              id={id}
+            >
               <a class="relative block" href={item.categoryLink}>
                 <Picture>
                   <Source
@@ -69,6 +76,16 @@ export default function HomeToCategoryBanner(
                 </span>
                 <div class="absolute w-full h-auto left-0 bottom-0 aspect-[335/178] desk:aspect-[443/278] bg-gradient-to-b from-[#14141400] to-[#141414] rounded-b-lg" />
               </a>
+
+              <SendEventOnClick
+                id={id}
+                event={{
+                  name: "banner_click",
+                  params: {
+                    url: item.categoryLink
+                  }
+                }}
+              />
             </article>
           );
         })}
