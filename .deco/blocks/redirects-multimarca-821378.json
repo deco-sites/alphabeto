@@ -1,0 +1,8 @@
+{
+  "redirect": {
+    "from": "/multimarcas",
+    "to": "https://negociosalphabeto.com.br/seja-um-revendedor-alphabeto/",
+    "type": "permanent"
+  },
+  "__resolveType": "website/loaders/redirect.ts"
+}

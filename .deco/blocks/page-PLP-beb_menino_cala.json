@@ -75,6 +75,24 @@
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "BlocoConteudo"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "FAQ"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
       "__resolveType": "Footer"
     }
   ],

@@ -75,6 +75,30 @@
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Category/CategoryBottomBanner.tsx",
+        "image": {
+          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/96259462-e7ec-4338-bfc5-331a32b622aa/image_categoria.png",
+          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ac67ce29-d4e2-4950-8ea4-d0b8b2433519/image_categoria_mob.png",
+          "alt": "A imagem mostra duas meninas sorridentes posando em frente a um fundo laranja vibrante com um grande círculo texturizado rosa ao centro. A menina à esquerda usa uma roupa colorida com estampas divertidas, jaqueta clara e tiara. A menina à direita veste blusa preta e saia rosa. O ambiente é alegre e lúdico."
+        },
+        "text": "<h2>Partiu, piscina!</h2><p>A linha de moda praia infantil feminina da Alphabeto conta com biquínis, maiôs e blusas com proteção UV para que as meninas possam brincar, aproveitar os dias de sol e criar memórias inesquecíveis. Só não vale esquecer o protetor solar, hein?</p><h2>Biquíni Infantil</h2><p>Os biquínis infantis da Alphabeto possuem estampas exclusivas e modelos variados. Alcinhas ou mangas compridas? Você escolhe! As peças possuem elástico no top e nas cavas e se ajustam perfeitamente ao corpo das pequenas.</p><h2>Maiô infantil</h2><p>O maiô infantil é uma peça que pode ser usada tanto na praia e na piscina, quanto como um body na composição do lookinho.</p><h2>Blusa UV</h2><p>A blusa UV é um item indispensável no guarda-roupa das pequenas. Com mangas compridas e proteção fator 50, essa peça acompanha as pequenas em muitas aventuras. </p>"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "FAQ"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
       "__resolveType": "Footer"
     }
   ],

@@ -5,77 +5,113 @@
   },
   "sections": [
     {
-      "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
-      "jsonLD": {
-        "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
-        "count": 1,
-        "sort": "release:desc",
-        "fuzzy": "automatic",
-        "selectedFacets": [
-          {
-            "key": "productClusterIds",
-            "value": "723"
-          }
-        ],
-        "query": "",
-        "hideUnavailableItems": true
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
+        "jsonLD": {
+          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+          "count": 1,
+          "sort": "release:desc",
+          "fuzzy": "automatic",
+          "selectedFacets": [
+            {
+              "key": "productClusterIds",
+              "value": "723"
+            }
+          ],
+          "query": "",
+          "hideUnavailableItems": true
+        }
       }
     },
     {
-      "__resolveType": "Header"
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Header"
+      }
     },
     {
-      "__resolveType": "site/sections/Product/SearchResult.tsx",
-      "page": {
-        "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
-        "count": 24,
-        "sort": "release:desc",
-        "fuzzy": "automatic",
-        "selectedFacets": [
-          {
-            "key": "productClusterIds",
-            "value": "723"
-          }
-        ],
-        "query": "",
-        "hideUnavailableItems": true
-      },
-      "layout": {
-        "columns": {
-          "mobile": 2,
-          "desktop": 4
-        },
-        "variant": "aside",
-        "pagination": "show-more",
-        "enableSpecialFilter": true
-      },
-      "startingPage": 1,
-      "seoComponents": {
-        "banner": {
-          "image": {
-            "mobile": {
-              "src": "https://data.decoassets.com/alphabeto/23a89281-d3bf-4bb5-af8e-9aee55963e72/meninoMobile.png"
-            },
-            "desktop": {
-              "src": "https://data.decoassets.com/alphabeto/d606e952-f7fc-48ff-bb33-87735baf27ac/meninoDesk.png"
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Product/SearchResult.tsx",
+        "page": {
+          "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
+          "count": 24,
+          "sort": "release:desc",
+          "fuzzy": "automatic",
+          "selectedFacets": [
+            {
+              "key": "productClusterIds",
+              "value": "723"
             }
-          },
-          "title": "Camisetas e regatas infantis para meninos",
-          "description": "<p><span style=\"color: rgb(0, 0, 0); font-size: 11pt\">As camisetas e regatas infantis da Alphabeto são confortáveis e perfeitas para compor lookinhos divertidos para os pequenos.</span></p>"
+          ],
+          "query": "",
+          "hideUnavailableItems": true
         },
-        "breadcrumb": [
-          {
-            "name": "Criança Menino - Camiseta e Regata",
-            "url": "/infantil/crianca/menino/camiseta-e-regata  "
-          }
-        ]
+        "layout": {
+          "columns": {
+            "mobile": 2,
+            "desktop": 4
+          },
+          "variant": "aside",
+          "pagination": "show-more",
+          "enableSpecialFilter": true
+        },
+        "startingPage": 1,
+        "seoComponents": {
+          "banner": {
+            "image": {
+              "mobile": {
+                "src": "https://data.decoassets.com/alphabeto/23a89281-d3bf-4bb5-af8e-9aee55963e72/meninoMobile.png"
+              },
+              "desktop": {
+                "src": "https://data.decoassets.com/alphabeto/d606e952-f7fc-48ff-bb33-87735baf27ac/meninoDesk.png"
+              }
+            },
+            "title": "Camisetas e regatas infantis para meninos",
+            "description": "<p><span style=\"color: rgb(0, 0, 0); font-size: 11pt\">As camisetas e regatas infantis da Alphabeto são confortáveis e perfeitas para compor lookinhos divertidos para os pequenos.</span></p>"
+          },
+          "breadcrumb": [
+            {
+              "name": "Criança Menino - Camiseta e Regata",
+              "url": "/infantil/crianca/menino/camiseta-e-regata  "
+            }
+          ]
+        }
       }
     },
     {
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
-      "__resolveType": "Footer"
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Category/CategoryBottomBanner.tsx",
+        "image": {
+          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/96259462-e7ec-4338-bfc5-331a32b622aa/image_categoria.png",
+          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ac67ce29-d4e2-4950-8ea4-d0b8b2433519/image_categoria_mob.png",
+          "alt": "A imagem mostra duas meninas sorridentes posando em frente a um fundo laranja vibrante com um grande círculo texturizado rosa ao centro. A menina à esquerda usa uma roupa colorida com estampas divertidas, jaqueta clara e tiara. A menina à direita veste blusa preta e saia rosa. O ambiente é alegre e lúdico."
+        },
+        "text": "<h2>Enquanto eles brincam, a pele respira!</h2><p>As camisetas e regatas infantis da Alphabeto são confeccionadas em tecidos leves e macios que, além do conforto, proporcionam estilo e muita fofura para os pequenos. </p><p>Além disso, os apliques e os silks deixam as composições ainda mais divertidas.  Com o conceito de “roupa brinquedo”, algumas peças possuem detalhes interativos que despertam a curiosidade e a criatividade dos meninos.  Por aqui, cada estampa conta uma história e não falta conforto para vestir criança como criança. </p><p></p>"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "FAQ"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer"
+      }
     }
   ],
   "name": "PLP: Criança Menino - Camiseta e Regata",

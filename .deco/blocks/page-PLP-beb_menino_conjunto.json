@@ -75,6 +75,30 @@
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Category/CategoryBottomBanner.tsx",
+        "image": {
+          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/96259462-e7ec-4338-bfc5-331a32b622aa/image_categoria.png",
+          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ac67ce29-d4e2-4950-8ea4-d0b8b2433519/image_categoria_mob.png",
+          "alt": "A imagem mostra duas meninas sorridentes posando em frente a um fundo laranja vibrante com um grande círculo texturizado rosa ao centro. A menina à esquerda usa uma roupa colorida com estampas divertidas, jaqueta clara e tiara. A menina à direita veste blusa preta e saia rosa. O ambiente é alegre e lúdico."
+        },
+        "text": "<h2>O “2 em 1” que as mamães amam!</h2><p>Os conjuntos infantis da Alphabeto são verdadeiros aliados das mamães que buscam praticidade e estilo no dia a dia. Com peças versáteis e confortáveis, eles permitem montar várias composições diferentes, trazendo um excelente custo-benefício para o guarda-roupa dos pequenos.</p><p>Perfeitos para todas as ocasiões, nossos conjuntos são confeccionados com tecidos leves e macios, garantindo liberdade de movimento e muito conforto para os bebês. Desde momentos de diversão em família até eventos mais especiais, os modelos Alphabeto oferecem combinações prontas que encantam e facilitam a rotina. Combine conforto, praticidade e fofura com os conjuntos Alphabeto! </p><p></p>"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "FAQ"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
       "__resolveType": "Footer"
     }
   ],
