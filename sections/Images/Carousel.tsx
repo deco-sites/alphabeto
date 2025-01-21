@@ -5,6 +5,7 @@ import Slider from "site/components/ui/Slider.tsx";
 import { clx } from "site/sdk/clx.ts";
 import { useId } from "site/sdk/useId.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
+import { SendEventOnClick } from "site/components/Analytics.tsx";
 
 /**
  * @titleBy title
@@ -43,6 +44,7 @@ export interface Props {
 function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
   const { alt, mobile, desktop, clickUrl } = image;
   const params = { promotion_name: image.alt };
+  const id = useId();
 
   const selectPromotionEvent = useSendEvent({
     on: "click",
@@ -60,6 +62,7 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
       href={clickUrl ?? "#"}
       aria-label={alt}
       class="relative w-full h-fit"
+      id={id}
     >
       <PictureTsx.Picture preload={lcp} {...viewPromotionEvent}>
         <PictureTsx.Source
@@ -83,6 +86,17 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
           alt={alt}
         />
       </PictureTsx.Picture>
+
+      <SendEventOnClick
+        id={id}
+        event={{
+          name: "deco",
+          params: {
+            page: { id: "" },
+            flags: [{ name: "TESTE", value: true }],
+          },
+        }}
+      />
     </a>
   );
 }
