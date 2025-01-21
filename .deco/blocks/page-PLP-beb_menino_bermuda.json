@@ -75,6 +75,30 @@
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Category/CategoryBottomBanner.tsx",
+        "image": {
+          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/96259462-e7ec-4338-bfc5-331a32b622aa/image_categoria.png",
+          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ac67ce29-d4e2-4950-8ea4-d0b8b2433519/image_categoria_mob.png",
+          "alt": "A imagem mostra duas meninas sorridentes posando em frente a um fundo laranja vibrante com um grande círculo texturizado rosa ao centro. A menina à esquerda usa uma roupa colorida com estampas divertidas, jaqueta clara e tiara. A menina à direita veste blusa preta e saia rosa. O ambiente é alegre e lúdico."
+        },
+        "text": "<h2>Uma bermuda, infinitas possibilidades.</h2><p>Monte combinações incríveis para o seu bebê com as bermudas de bebê menino da Alphabeto. Nossas peças foram feitas para unir estilo e conforto, pensando no bem-estar dos pequenos. Com elástico no cós, elas se ajustam delicadamente à cintura, garantindo liberdade para explorar o mundo.</p><p>As bermudas em cores neutras são versáteis e facilitam a criação de lookinhos variados, do passeio ao almoço em família. Já os modelos estampados e coloridos adicionam aquele toque divertido e cheio de personalidade às composições.</p><p>Produzidas com tecidos de qualidade, as bermudas Alphabeto acompanham o ritmo do seu bebê com muita leveza. Descubra combinações que encantam e aproveite a praticidade de peças que se adaptam a qualquer ocasião. Conforto, estilo e durabilidade que só a Alphabeto oferece. </p><p></p>"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "FAQ"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
       "__resolveType": "Footer"
     }
   ],

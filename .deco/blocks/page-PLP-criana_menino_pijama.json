@@ -75,6 +75,30 @@
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Category/CategoryBottomBanner.tsx",
+        "image": {
+          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/96259462-e7ec-4338-bfc5-331a32b622aa/image_categoria.png",
+          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ac67ce29-d4e2-4950-8ea4-d0b8b2433519/image_categoria_mob.png",
+          "alt": "A imagem mostra duas meninas sorridentes posando em frente a um fundo laranja vibrante com um grande círculo texturizado rosa ao centro. A menina à esquerda usa uma roupa colorida com estampas divertidas, jaqueta clara e tiara. A menina à direita veste blusa preta e saia rosa. O ambiente é alegre e lúdico."
+        },
+        "text": "<h2>Conforto e estilo até na hora de dormir!</h2><p>Na Alphabeto, as estampas exclusivas estão presentes também nos pijamas e nas camisolas infantis das princesinhas. Essas peças, geralmente, são confeccionadas em ½ malha 100% algodão. A qualidade do tecido está ligada diretamente à tranquilidade do sono da criança. Por isso, tão importante quanto escolher roupas infantis confortáveis para passear, é escolher peças leves e macias para dormir.</p><h2>Pijamas infantis para o ano todo</h2><p>No frio ou no calor, o soninho das pequenas está garantido! Na Alphabeto, você encontra vários tipos de pijamas infantis. Montamos um guia para te ajudar a escolher o pijama perfeito para a sua pequena. </p><h2>Pijama infantil com blusa de manga curta e short</h2><p>Essa é uma  ótima opção para quem mora em regiões mais quentes. Enquanto as pequenas dormem tranquilamente, a pele respira.</p><h2>Pijama infantil com blusa de manga longa e calça</h2><p>Ideal para as regiões mais frias e para as pequenas que dorme com o ar condicionado ligado. Por ser confeccionado em ½ malha, permite que as meninas durmam tranquilas e confortáveis a noite inteira. </p><h2>Para a festa do pijama ficar completa!</h2><p>As camisolas estão entre as queridinhas das pequenas e são uma ótima dica de presente também.</p>"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "FAQ"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
       "__resolveType": "Footer"
     }
   ],

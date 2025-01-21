@@ -75,6 +75,30 @@
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Category/CategoryBottomBanner.tsx",
+        "image": {
+          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/96259462-e7ec-4338-bfc5-331a32b622aa/image_categoria.png",
+          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ac67ce29-d4e2-4950-8ea4-d0b8b2433519/image_categoria_mob.png",
+          "alt": "A imagem mostra duas meninas sorridentes posando em frente a um fundo laranja vibrante com um grande círculo texturizado rosa ao centro. A menina à esquerda usa uma roupa colorida com estampas divertidas, jaqueta clara e tiara. A menina à direita veste blusa preta e saia rosa. O ambiente é alegre e lúdico."
+        },
+        "text": "<h2>Vestidos e Macaquinhos para Bebês de 3 a 18 Meses</h2><p>Na Alphabeto, você encontra vestidos e macaquinhos infantis que combinam conforto, estilo e diversão para sua bebê. Nossos modelos são feitos com tecidos leves e estampas exclusivas, repletas de cores e desenhos encantadores que vão brilhar no guarda-roupa das pequenas. A Alphabeto é uma marca mineira que está há mais de 30 anos no mercado, dedicada a vestir criança como criança, respeitando a essência da infância com peças que unem praticidade e muita fofura.</p><p>Além disso, cada roupa é pensada para proporcionar liberdade de movimento, permitindo que os primeiros momentos da vida sejam vividos com alegria e espontaneidade. Seja para o dia a dia ou para ocasiões especiais, nossos vestidos e macaquinhos vão fazer parte das memórias mais felizes. Aposte na Alphabeto para valorizar cada detalhe da infância!</p>"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "FAQ"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
       "__resolveType": "Footer"
     }
   ],
