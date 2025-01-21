@@ -8,35 +8,12 @@
       "__resolveType": "site/sections/Images/Carousel.tsx",
       "images": [
         {
-          "desktop": "https://data.decoassets.com/alphabeto/05228dd1-f2f6-4751-8ae6-e3d54e5c1f1e/2880x-(9)-(1).png",
-          "mobile": "https://data.decoassets.com/alphabeto/f93f10c5-1bd8-4a79-9d12-b1ed34cd7bb2/750-x-700-px-(7).png",
-          "action": {
-            "href": "/s?q=shoes&page=0",
-            "title": "Skate into Adventure",
-            "subTitle": "Top-quality roller skate shoes for all levels. ",
-            "label": "Grab Yours Now!"
-          },
-          "alt": "O banner publicitário apresenta três crianças sorridentes vestindo vestidos infantis leves e coloridos, com um fundo vibrante dividido entre amarelo e rosa. O design é lúdico, com estrelas decorativas e um selo com a frase \"O vestido mais lindo do mundo\". O texto promocional destaca o preço de \"149,95\" em fontes chamativas e um botão azul \"APROVEITAR\" incentiva a ação. A composição harmoniza fotografia e gráficos simples, transmitindo alegria e conforto, enquanto a iluminação destaca as cores vivas e os sorrisos das crianças, reforçando a proposta amigável e atrativa ao público infantil e familiar.",
-          "title": "Liqui  Banner",
-          "clickUrl": "/infantil/liqui-colecao-verao"
-        },
-        {
-          "desktop": "https://data.decoassets.com/alphabeto/c2dbf71d-ced7-4e7e-8e0b-6c105a7265ce/2880x-(8).png",
-          "mobile": "https://data.decoassets.com/alphabeto/6a89be0b-c05b-4c3f-beea-319df3779b48/750-x-700-px-(6).png",
+          "desktop": "https://data.decoassets.com/alphabeto/22cfdaf0-5fff-4786-8e5a-ce91536e16a4/desk.jpg",
+          "mobile": "https://data.decoassets.com/alphabeto/7aa024ea-38d9-44c2-9ccb-ba99dfd1de42/mobile.jpg",
           "action": {
             "href": "/meninas"
           },
-          "title": "Novidas do Verão",
           "alt": "Banner de Demonstração",
-          "clickUrl": "/infantil/novidades"
-        },
-        {
-          "desktop": "https://data.decoassets.com/alphabeto/859e345e-7b21-48ce-b5f5-e32b9e56a33c/2880x-(3).png",
-          "mobile": "https://data.decoassets.com/alphabeto/b5ac5aa9-1e95-400b-8104-4a338b8066af/750-x-700-px-(4).png",
-          "alt": "Banner de Demonstração",
-          "action": {
-            "href": "/meninas"
-          },
           "title": "Bazar até 60%",
           "clickUrl": "/infantil/bazar"
         }
