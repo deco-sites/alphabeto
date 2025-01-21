@@ -88,6 +88,7 @@ function ProductCard({
       },
     },
   });
+  const ENABLE_VIDEO_ON_SHELF = false;
 
   //Added it to check the variant name in the SKU Selector later, so it doesn't render the SKU to "shoes size" in the Product Card
   const hasListPrice = listPrice && listPrice > (price ?? 0);
@@ -119,12 +120,11 @@ function ProductCard({
           )}
         >
           {/* Video or Image */}
-          {video
+          {video && ENABLE_VIDEO_ON_SHELF
             ? (
               <video
                 src={video}
                 class="object-cover rounded w-full col-span-full row-span-full"
-                preload="metadata"
                 controls={false}
                 loop
                 autoplay
