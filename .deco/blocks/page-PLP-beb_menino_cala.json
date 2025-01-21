@@ -77,13 +77,7 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
-        "__resolveType": "site/sections/Category/CategoryBottomBanner.tsx",
-        "image": {
-          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/96259462-e7ec-4338-bfc5-331a32b622aa/image_categoria.png",
-          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ac67ce29-d4e2-4950-8ea4-d0b8b2433519/image_categoria_mob.png",
-          "alt": "A imagem mostra duas meninas sorridentes posando em frente a um fundo laranja vibrante com um grande círculo texturizado rosa ao centro. A menina à esquerda usa uma roupa colorida com estampas divertidas, jaqueta clara e tiara. A menina à direita veste blusa preta e saia rosa. O ambiente é alegre e lúdico."
-        },
-        "text": "<h2>Monte lookinhos infantis incríveis com as calças infantis da Alphabeto</h2><p>As calças infantis da Alphabeto são a combinação perfeita de conforto e estilo para bebês desde o nascimento até os primeiros passinhos. Confeccionadas em tecidos como moletinho e matelassê, nossas peças são ideais para recém-nascidos e para os que estão começando a engatinhar, proporcionando liberdade de movimento e muita fofura em cada lookinho.</p><p>Para os pequenos aventureiros que estão ensaiando os primeiros passos, as calças em jeans e sarja são ótimas escolhas. Além de modernas, elas garantem resistência para acompanhar cada nova descoberta com conforto. Disponíveis em cores e modelos que combinam com diferentes ocasiões, as calças infantis da Alphabeto permitem montar composições práticas e charmosas, ideais para o dia a dia dos pequenos. Conheça nossa coleção e crie looks cheios de personalidade para o seu bebê crescer com estilo e liberdade!</p>"
+        "__resolveType": "BlocoConteudo"
       }
     },
     {

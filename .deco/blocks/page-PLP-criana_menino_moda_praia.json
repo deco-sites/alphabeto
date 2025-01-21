@@ -75,30 +75,6 @@
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Category/CategoryBottomBanner.tsx",
-        "image": {
-          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/96259462-e7ec-4338-bfc5-331a32b622aa/image_categoria.png",
-          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ac67ce29-d4e2-4950-8ea4-d0b8b2433519/image_categoria_mob.png",
-          "alt": "A imagem mostra duas meninas sorridentes posando em frente a um fundo laranja vibrante com um grande círculo texturizado rosa ao centro. A menina à esquerda usa uma roupa colorida com estampas divertidas, jaqueta clara e tiara. A menina à direita veste blusa preta e saia rosa. O ambiente é alegre e lúdico."
-        },
-        "text": "<h2>Para brincar na água com conforto e diversão!</h2><p>A linha de moda praia masculina da Alphabeto é composta por sungas, blusas UV e acessórios, como roupão e mochila. Perfeitas para brincar na água com conforto e muita fofura, as peças possuem também detalhes interativos, que estimulam a imaginação e a criatividade dos pequenos.</p>"
-      }
-    },
-    {
-      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
-    },
-    {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "FAQ"
-      }
-    },
-    {
-      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
-    },
-    {
       "__resolveType": "Footer"
     }
   ],
