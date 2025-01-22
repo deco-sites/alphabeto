@@ -74,6 +74,30 @@
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Category/CategoryBottomBanner.tsx",
+        "image": {
+          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/96259462-e7ec-4338-bfc5-331a32b622aa/image_categoria.png",
+          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ac67ce29-d4e2-4950-8ea4-d0b8b2433519/image_categoria_mob.png",
+          "alt": "A imagem mostra duas meninas sorridentes posando em frente a um fundo laranja vibrante com um grande círculo texturizado rosa ao centro. A menina à esquerda usa uma roupa colorida com estampas divertidas, jaqueta clara e tiara. A menina à direita veste blusa preta e saia rosa. O ambiente é alegre e lúdico."
+        },
+        "text": "<h2>Conjunto infantil para meninas: o “2 em 1” que todo mundo ama!</h2><p>Praticidade, versatilidade e conforto para as pequenas. Os conjuntos infantis femininos são os queridinhos das mamães e fazem o maior sucesso entre as pequenas. As peças podem ser usadas juntas ou separadas e dão uma infinidade de opções na hora de montar lookinhos. </p><h2>Reinvente o guarda-roupa das pequenas com conjuntos infantis</h2><p>Os conjuntos infantis possuem um excelente custo benefício. Por serem fresquinhos, confortáveis e cheios de estilo, são verdadeiros “uniformes para a diversão”. Enquanto a pele respira, as meninas brincam. </p>"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "FAQ"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
       "__resolveType": "Footer"
     }
   ],

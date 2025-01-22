@@ -75,6 +75,30 @@
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Category/CategoryBottomBanner.tsx",
+        "image": {
+          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/96259462-e7ec-4338-bfc5-331a32b622aa/image_categoria.png",
+          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ac67ce29-d4e2-4950-8ea4-d0b8b2433519/image_categoria_mob.png",
+          "alt": "A imagem mostra duas meninas sorridentes posando em frente a um fundo laranja vibrante com um grande círculo texturizado rosa ao centro. A menina à esquerda usa uma roupa colorida com estampas divertidas, jaqueta clara e tiara. A menina à direita veste blusa preta e saia rosa. O ambiente é alegre e lúdico."
+        },
+        "text": "<h2>Vestidos e Macaquinhos infantis para menina</h2><p>Os vestidos infantis são o top 1 de vendas da Alphabeto. Rodados, com modelagens retas, lisos ou estampados, possuem caimento perfeito e conforto que acompanham as pequenas em todas as aventuras.</p><p>Quando falamos em conforto, não podemos nos esquecer também dos macaquinhos infantis. Além disso, assim como o vestido, é uma excelente oportunidade de garantir um lookinho completo na compra de uma única peça. </p><p></p>"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "FAQ"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
       "__resolveType": "Footer"
     }
   ],
