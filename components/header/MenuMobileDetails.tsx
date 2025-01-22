@@ -2,12 +2,15 @@ import { IconArrowRightDropdown } from "../Icons/IconArrowRightDropdown.tsx";
 import { SendEventOnClick } from "site/components/Analytics.tsx";
 import { useId } from "site/sdk/useId.ts";
 import { Submenu } from "./Menu.types.ts";
+import { useDevice } from "@deco/deco/hooks";
 
 interface Props {
   submenu: Submenu[] | null | undefined;
 }
 
 export function MenuMobileDetails({ submenu }: Props) {
+  const device = useDevice();
+
   return (
     <div class="px-6">
       {submenu?.map((item, index) => {
@@ -43,10 +46,11 @@ export function MenuMobileDetails({ submenu }: Props) {
                     <SendEventOnClick
                       id={itemID}
                       event={{
-                        name: 'menu_click',
+                        name: 'submenu_click',
                         params: {
                           name: subItem.item,
-                          url: subItem.href
+                          url: subItem.href,
+                          device
                         }
                       }}
                     />
@@ -68,10 +72,11 @@ export function MenuMobileDetails({ submenu }: Props) {
                   <SendEventOnClick
                     id={seeAllID}
                     event={{
-                      name: 'menu_click',
+                      name: 'submenu_click',
                       params: {
-                        name: 'Ver mais (mobile)',
-                        url: item.item[0]?.href
+                        name: 'Ver mais',
+                        url: item.item[0]?.href,
+                        device
                       }
                     }}
                   />

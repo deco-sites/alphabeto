@@ -6,6 +6,7 @@ import { MenuMobileDetails } from "./MenuMobileDetails.tsx";
 import { SignInMobile } from "./SignIn.tsx";
 import { Items } from "./Menu.types.ts";
 import { SendEventOnClick } from "site/components/Analytics.tsx";
+import { useDevice } from "@deco/deco/hooks";
 
 interface Props {
   navItems: Items[] | null | undefined;
@@ -13,6 +14,8 @@ interface Props {
 }
 
 export function MenuMobile({ navItems, otherLinks }: Props) {
+  const device = useDevice();
+
   const RenderOtherLinks = () => {
     if (otherLinks) {
       return (
@@ -36,7 +39,8 @@ export function MenuMobile({ navItems, otherLinks }: Props) {
                     name: 'menu_click',
                     params: {
                       name: item.title,
-                      url: item.href
+                      url: item.href,
+                      device
                     }
                   }}
                 />

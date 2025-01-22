@@ -28,6 +28,8 @@ interface CollectionBannerProps {
 }
 
 function CollectionBannerDesktop(props: CollectionBannerProps) {
+  const device = useDevice();
+
   return (
     <div class="container mt-[100px]">
       <h2 class="font-beccaPerry text-[40px] leading-[48px] font-medium text-accent text-center mb-10">
@@ -54,9 +56,10 @@ function CollectionBannerDesktop(props: CollectionBannerProps) {
               <SendEventOnClick
                 id={id}
                 event={{
-                  name: "banner_click",
+                  name: "mini_banner_click",
                   params: {
-                    url: item.categoryLink
+                    url: item.categoryLink,
+                    device
                   }
                 }}
               />
@@ -71,6 +74,7 @@ function CollectionBannerDesktop(props: CollectionBannerProps) {
 function CollectionBannerMobile(
   { title, items }: CollectionBannerProps,
 ) {
+  const device = useDevice();
   const id = useId();
 
   return (
@@ -104,9 +108,10 @@ function CollectionBannerMobile(
               <SendEventOnClick
                 id={itemID}
                 event={{
-                  name: 'banner_click',
+                  name: 'mini_banner_click',
                   params: {
-                    url: item.categoryLink
+                    url: item.categoryLink,
+                    device
                   }
                 }}
               />

@@ -6,8 +6,10 @@ import {
   NAVBAR_HEIGHT_DESKTOP,
 } from "site/constants.ts";
 import { Item, Items, Submenu } from "site/components/header/Menu.types.ts";
+import { useDevice } from "@deco/deco/hooks";
 
 function NavItem({ href, menuItem, image, submenu }: Items) {
+  const device = useDevice();
   const itemID = useId();
 
   const getHighlight = (items: Item[]) => {
@@ -39,11 +41,12 @@ function NavItem({ href, menuItem, image, submenu }: Items) {
                 <SendEventOnClick
                   id={highlightID}
                   event={{
-                    name: "menu_click",
+                    name: "submenu_click",
                     params: {
                       name: highlight.item,
-                      url: highlight.href
-                    },
+                      url: highlight.href,
+                      device
+                    }
                   }}
                 />
               </>
@@ -67,10 +70,11 @@ function NavItem({ href, menuItem, image, submenu }: Items) {
                     <SendEventOnClick
                       id={id}
                       event={{
-                        name: "menu_click",
+                        name: "submenu_click",
                         params: {
                           name: leaf.item,
-                          url: leaf.href
+                          url: leaf.href,
+                          device
                         }
                       }}
                     />
@@ -92,10 +96,11 @@ function NavItem({ href, menuItem, image, submenu }: Items) {
                   <SendEventOnClick
                     id={seeAllID}
                     event={{
-                      name: "menu_click",
+                      name: "submenu_click",
                       params: {
                         name: 'Ver mais',
-                        url: href
+                        url: href,
+                        device
                       },
                     }}
                   />
@@ -109,18 +114,51 @@ function NavItem({ href, menuItem, image, submenu }: Items) {
   };
 
   return (
-    <li
-      class="group flex items-center text-base-200"
-      style={{ height: NAVBAR_HEIGHT_DESKTOP }}
-      id={itemID}
-    >
-      <a
-        href={href}
-        class="border-b-4 group-hover:border-b-[#70D1E8] border-t-4 border-transparent text-base-200 text-[13px] font-bold flex items-center"
+    <>
+      <li
+        class="group flex items-center text-base-200"
         style={{ height: NAVBAR_HEIGHT_DESKTOP }}
+        id={itemID}
       >
-        {menuItem}
-      </a>
+        <a
+          href={href}
+          class="border-b-4 group-hover:border-b-[#70D1E8] border-t-4 border-transparent text-base-200 text-[13px] font-bold flex items-center"
+          style={{ height: NAVBAR_HEIGHT_DESKTOP }}
+        >
+          {menuItem}
+        </a>
+
+        {submenu && submenu.length > 0 && (
+          <div
+            class="fixed hidden hover:flex group-hover:flex bg-base-100 z-40 items-start justify-center gap-6 w-screen"
+            style={{
+              top: "0px",
+              left: "0px",
+              marginTop: HEADER_HEIGHT_DESKTOP_WITHOUT_BENEFITS_BAR,
+            }}
+          >
+            <div class="container flex justify-between gap-9 !pr-0">
+              <div class="w-full pt-[23px]">
+                <h5 class="text-accent font-beccaPerry pb-[17px] leading-[38px] text-[32px] border-b border-secondary border-dashed">
+                  {menuItem}
+                </h5>
+                <ul class="flex items-start justify-start gap-[60px]">
+                  {submenu.map((node) => <RenderSubmenuNode {...node} />)}
+                </ul>
+              </div>
+              {image && (
+                <Image
+                  src={image}
+                  alt={menuItem}
+                  width={279}
+                  height={377}
+                  loading="lazy"
+                />
+              )}
+            </div>
+          </div>
+        )}
+      </li>
 
       <SendEventOnClick
         id={itemID}
@@ -128,42 +166,12 @@ function NavItem({ href, menuItem, image, submenu }: Items) {
           name: "menu_click",
           params: {
             name: menuItem,
-            url: href
-          },
+            url: href,
+            device
+          }
         }}
       />
-
-      {submenu && submenu.length > 0 && (
-        <div
-          class="fixed hidden hover:flex group-hover:flex bg-base-100 z-40 items-start justify-center gap-6 w-screen"
-          style={{
-            top: "0px",
-            left: "0px",
-            marginTop: HEADER_HEIGHT_DESKTOP_WITHOUT_BENEFITS_BAR,
-          }}
-        >
-          <div class="container flex justify-between gap-9 !pr-0">
-            <div class="w-full pt-[23px]">
-              <h5 class="text-accent font-beccaPerry pb-[17px] leading-[38px] text-[32px] border-b border-secondary border-dashed">
-                {menuItem}
-              </h5>
-              <ul class="flex items-start justify-start gap-[60px]">
-                {submenu.map((node) => <RenderSubmenuNode {...node} />)}
-              </ul>
-            </div>
-            {image && (
-              <Image
-                src={image}
-                alt={menuItem}
-                width={279}
-                height={377}
-                loading="lazy"
-              />
-            )}
-          </div>
-        </div>
-      )}
-    </li>
+    </>
   );
 }
 
