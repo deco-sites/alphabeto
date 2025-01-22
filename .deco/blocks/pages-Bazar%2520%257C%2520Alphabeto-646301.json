@@ -44,14 +44,13 @@
           "description": "<p></p>",
           "image": {
             "desktop": {
-              "src": "https://data.decoassets.com/alphabeto/f7410eb0-3e15-47af-9bb9-0e540ea2bebb/Categoria-Deco-(2).jpg",
-              "width": 1000
+              "src": "https://data.decoassets.com/alphabeto/4dc5a7bd-3005-4c1b-8811-f8bebe8a30b2/4.png"
             },
             "mobile": {
-              "src": "https://data.decoassets.com/alphabeto/01a54fcf-f87f-4bcd-b86b-1f59193e3502/Categoria-DecoMobile.jpg",
-              "width": 300
+              "src": "https://data.decoassets.com/alphabeto/4a82140e-ca59-49a0-b332-ceac9bf47912/4-(1).png"
             }
-          }
+          },
+          "title": "Bazar"
         },
         "breadcrumb": [
           {
