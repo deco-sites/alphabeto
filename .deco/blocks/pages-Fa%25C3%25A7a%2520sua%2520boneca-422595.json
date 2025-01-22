@@ -1,0 +1,65 @@
+{
+  "name": "Faça sua boneca",
+  "path": "/faca-sua-boneca",
+  "sections": [
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Header"
+      }
+    },
+    {
+      "__resolveType": "site/sections/MiniMe/MiniMe.tsx",
+      "components": [
+        {
+          "__resolveType": "site/sections/Institutional/Breadcrumb.tsx",
+          "root": "HOME",
+          "path": ".",
+          "route": "Faça a sua boneca",
+          "showText": false
+        },
+        {
+          "__resolveType": "site/sections/MiniMe/MakeYourMiniMe/MakeYourMiniMe.tsx",
+          "title": "Siga os passinhos",
+          "image": "https://data.decoassets.com/alphabeto/54b573dd-d6b2-4df7-aed1-ae5afe456828/image-(4).png",
+          "price": 189,
+          "installments": 2
+        },
+        {
+          "__resolveType": "site/sections/MiniMe/MakeYourMiniMe/InfoMakeYourMiniMe.tsx",
+          "image": "https://data.decoassets.com/alphabeto/be1de918-4031-4672-abb4-79b46799f2d5/screencapture-alphabeto-almofada-boneca-mini-me-55724-p-2024-08-22-14_55_32-1.png",
+          "description": "<p><span>Criar, escolher as cores, montar o look. A brincadeira começa bem antes de receber o presente! Customize sua Mini Me do seu jeitinho!</span></p>",
+          "altText": "Criança sorrindo e segurando uma boneca",
+          "title": "Faça a sua mini me",
+          "infos": {
+            "aboutComposition": {
+              "title": "Composição",
+              "description": "A mini me é composta de 100% poliéster"
+            },
+            "aboutProduct": {
+              "title": "Descrição do produto",
+              "description": "Almofada em formato de boneca. Tamanho aproximado 12cm x 42cm. Acompanha caixa especial e diário."
+            },
+            "timeProduction": {
+              "title": "Tempo de produção",
+              "description": "Sua mini me leva 15 dias corridos para ficar pronta."
+            }
+          }
+        },
+        {
+          "__resolveType": "FAQ"
+        }
+      ]
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer"
+      }
+    }
+  ],
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
+  "__resolveType": "website/pages/Page.tsx"
+}
