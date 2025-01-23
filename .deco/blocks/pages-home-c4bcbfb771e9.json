@@ -16,6 +16,12 @@
           "alt": "Banner de Demonstração",
           "title": "Bazar até 60%",
           "clickUrl": "/infantil/liqui-colecao-verao"
+        },
+        {
+          "title": "Carnaval",
+          "desktop": "https://data.decoassets.com/alphabeto/fdd9be4f-7bd2-44cb-bfe9-9a09251561da/deco2880x-900-(2).jpg",
+          "mobile": "https://data.decoassets.com/alphabeto/a68b7138-bbe5-4f02-ab8d-ec5972b6a9ca/deco750-x-700-px-(1).jpg",
+          "clickUrl": "/807?map=productClusterIds"
         }
       ],
       "preload": true
