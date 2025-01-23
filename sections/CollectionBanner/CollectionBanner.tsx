@@ -5,6 +5,7 @@ import { useId } from "preact/hooks";
 import Section from "site/components/ui/Section.tsx";
 import Slider from "site/components/ui/Slider.tsx";
 import { clx } from "site/sdk/clx.ts";
+import { SendEventOnClick } from "site/components/Analytics.tsx";
 
 interface CollectionBannerItem {
   /**@title Label for CMS */
@@ -27,25 +28,44 @@ interface CollectionBannerProps {
 }
 
 function CollectionBannerDesktop(props: CollectionBannerProps) {
+  const device = useDevice();
+
   return (
     <div class="container mt-[100px]">
       <h2 class="font-beccaPerry text-[40px] leading-[48px] font-medium text-accent text-center mb-10">
         {props.title}
       </h2>
       <div class="grid grid-cols-3 gap-4">
-        {props.items.map((item) => (
-          <article>
-            <a href={item.categoryLink}>
-              <Image
-                src={item.image.desktop.src}
-                alt={item.image.alt}
-                width={443}
-                height={320}
-                class="rounded-lg"
+        {props.items.map((item) => {
+          const id = useId();
+
+          return (
+            <>
+              <article id={id}>
+                <a href={item.categoryLink}>
+                  <Image
+                    src={item.image.desktop.src}
+                    alt={item.image.alt}
+                    width={443}
+                    height={320}
+                    class="rounded-lg"
+                  />
+                </a>
+              </article>
+
+              <SendEventOnClick
+                id={id}
+                event={{
+                  name: "mini_banner_click",
+                  params: {
+                    url: item.categoryLink,
+                    device
+                  }
+                }}
               />
-            </a>
-          </article>
-        ))}
+            </>
+          );
+        })}
       </div>
     </div>
   );
@@ -54,32 +74,52 @@ function CollectionBannerDesktop(props: CollectionBannerProps) {
 function CollectionBannerMobile(
   { title, items }: CollectionBannerProps,
 ) {
+  const device = useDevice();
   const id = useId();
+
   return (
     <div class="mt-[80px] container" id={id}>
       <h2 class="font-beccaPerry text-[28px] leading-[33px] font-medium text-accent text-center mb-10">
         {title}
       </h2>
+
       <Slider class="flex justify-between gap-4 max-w-full carousel carousel-center overflow-scroll">
         {items.map((item, index) => {
+          const itemID = useId();
+
           return (
-            <Slider.Item
-              index={index}
-              class="min-w-[335px] carousel-item"
-            >
-              <a href={item.categoryLink}>
-                <Image
-                  class="rounded-lg w-[calc(100dvw-40px)]"
-                  src={item.image.mobile.src}
-                  alt={item.image.alt}
-                  width={335}
-                  height={240}
-                />
-              </a>
-            </Slider.Item>
+            <>
+              <Slider.Item
+                index={index}
+                class="min-w-[335px] carousel-item"
+                id={itemID}
+              >
+                <a href={item.categoryLink}>
+                  <Image
+                    class="rounded-lg w-[calc(100dvw-40px)]"
+                    src={item.image.mobile.src}
+                    alt={item.image.alt}
+                    width={335}
+                    height={240}
+                  />
+                </a>
+              </Slider.Item>
+
+              <SendEventOnClick
+                id={itemID}
+                event={{
+                  name: 'mini_banner_click',
+                  params: {
+                    url: item.categoryLink,
+                    device
+                  }
+                }}
+              />
+            </>
           );
         })}
       </Slider>
+
       <ul class="carousel w-full gap-1 justify-center mt-10">
         {items.map((_, index) => (
           <li class="carousel-item">
@@ -94,7 +134,8 @@ function CollectionBannerMobile(
           </li>
         ))}
       </ul>
-      <Slider.JS rootId={id} />
+
+      <Slider.JS rootId={id}/>
     </div>
   );
 }

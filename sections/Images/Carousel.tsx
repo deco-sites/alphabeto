@@ -5,6 +5,8 @@ import Slider from "site/components/ui/Slider.tsx";
 import { clx } from "site/sdk/clx.ts";
 import { useId } from "site/sdk/useId.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
+import { SendEventOnClick } from "site/components/Analytics.tsx";
+import { useDevice } from "@deco/deco/hooks";
 
 /**
  * @titleBy title
@@ -40,7 +42,9 @@ export interface Props {
   interval?: number;
 }
 
-function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
+function BannerItem({ image, lcp, index }: { image: Banner; lcp?: boolean; index: number }) {
+  const device = useDevice();
+  const id = useId();
   const { alt, mobile, desktop, clickUrl } = image;
   const params = { promotion_name: image.alt };
 
@@ -55,35 +59,50 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
   });
 
   return (
-    <a
-      {...selectPromotionEvent}
-      href={clickUrl ?? "#"}
-      aria-label={alt}
-      class="relative w-full h-fit"
-    >
-      <PictureTsx.Picture preload={lcp} {...viewPromotionEvent}>
-        <PictureTsx.Source
-          media="(max-width: 767px)"
-          fetchPriority={lcp ? "high" : "auto"}
-          src={mobile}
-          width={375}
-          height={350}
-        />
-        <PictureTsx.Source
-          media="(min-width: 768px)"
-          fetchPriority={lcp ? "high" : "auto"}
-          src={desktop}
-          width={1440}
-          height={450}
-        />
-        <img
-          class="w-full"
-          loading={lcp ? "eager" : "lazy"}
-          src={desktop}
-          alt={alt}
-        />
-      </PictureTsx.Picture>
-    </a>
+    <>
+      <a
+        {...selectPromotionEvent}
+        href={clickUrl ?? "#"}
+        aria-label={alt}
+        class="relative w-full h-fit"
+        id={id}
+      >
+        <PictureTsx.Picture preload={lcp} {...viewPromotionEvent}>
+          <PictureTsx.Source
+            media="(max-width: 767px)"
+            fetchPriority={lcp ? "high" : "auto"}
+            src={mobile}
+            width={375}
+            height={350}
+          />
+          <PictureTsx.Source
+            media="(min-width: 768px)"
+            fetchPriority={lcp ? "high" : "auto"}
+            src={desktop}
+            width={1440}
+            height={450}
+          />
+          <img
+            class="w-full"
+            loading={lcp ? "eager" : "lazy"}
+            src={desktop}
+            alt={alt}
+          />
+        </PictureTsx.Picture>
+      </a>
+
+      <SendEventOnClick
+        id={id}
+        event={{
+          name: "banner_principal_click",
+          params: {
+            url: clickUrl,
+            index: index + 1,
+            device
+          }
+        }}
+      />
+    </>
   );
 }
 
@@ -99,7 +118,7 @@ function Carousel({ images = [], preload, interval }: Props) {
         <Slider class="carousel carousel-center w-full aspect-[750/700] tablet-large:aspect-[2880/900]">
           {images.map((image, index) => (
             <Slider.Item index={index} class="carousel-item w-full h-fit">
-              <BannerItem image={image} lcp={index === 0 && preload} />
+              <BannerItem image={image} lcp={index === 0 && preload} index={index}/>
             </Slider.Item>
           ))}
         </Slider>
