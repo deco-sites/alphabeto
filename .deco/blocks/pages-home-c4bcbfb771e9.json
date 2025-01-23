@@ -8,37 +8,14 @@
       "__resolveType": "site/sections/Images/Carousel.tsx",
       "images": [
         {
-          "desktop": "https://data.decoassets.com/alphabeto/05228dd1-f2f6-4751-8ae6-e3d54e5c1f1e/2880x-(9)-(1).png",
-          "mobile": "https://data.decoassets.com/alphabeto/f93f10c5-1bd8-4a79-9d12-b1ed34cd7bb2/750-x-700-px-(7).png",
-          "action": {
-            "href": "/s?q=shoes&page=0",
-            "title": "Skate into Adventure",
-            "subTitle": "Top-quality roller skate shoes for all levels. ",
-            "label": "Grab Yours Now!"
-          },
-          "alt": "O banner publicitário apresenta três crianças sorridentes vestindo vestidos infantis leves e coloridos, com um fundo vibrante dividido entre amarelo e rosa. O design é lúdico, com estrelas decorativas e um selo com a frase \"O vestido mais lindo do mundo\". O texto promocional destaca o preço de \"149,95\" em fontes chamativas e um botão azul \"APROVEITAR\" incentiva a ação. A composição harmoniza fotografia e gráficos simples, transmitindo alegria e conforto, enquanto a iluminação destaca as cores vivas e os sorrisos das crianças, reforçando a proposta amigável e atrativa ao público infantil e familiar.",
-          "title": "Liqui  Banner",
-          "clickUrl": "/infantil/liqui-colecao-verao"
-        },
-        {
-          "desktop": "https://data.decoassets.com/alphabeto/c2dbf71d-ced7-4e7e-8e0b-6c105a7265ce/2880x-(8).png",
-          "mobile": "https://data.decoassets.com/alphabeto/6a89be0b-c05b-4c3f-beea-319df3779b48/750-x-700-px-(6).png",
+          "desktop": "https://data.decoassets.com/alphabeto/168a2048-c929-4107-b51b-8eec2a291263/2880x-900-(1).jpg",
+          "mobile": "https://data.decoassets.com/alphabeto/5846d0ee-2926-47ff-a2a0-54975bf43a7e/750-x-700-px.jpg",
           "action": {
             "href": "/meninas"
           },
-          "title": "Novidas do Verão",
           "alt": "Banner de Demonstração",
-          "clickUrl": "/infantil/novidades"
-        },
-        {
-          "desktop": "https://data.decoassets.com/alphabeto/859e345e-7b21-48ce-b5f5-e32b9e56a33c/2880x-(3).png",
-          "mobile": "https://data.decoassets.com/alphabeto/b5ac5aa9-1e95-400b-8104-4a338b8066af/750-x-700-px-(4).png",
-          "alt": "Banner de Demonstração",
-          "action": {
-            "href": "/meninas"
-          },
           "title": "Bazar até 60%",
-          "clickUrl": "/infantil/bazar"
+          "clickUrl": "/infantil/liqui-colecao-verao"
         }
       ],
       "preload": true
@@ -232,51 +209,49 @@
       "title": "Compre por Tamanho"
     },
     {
-    
-        "__resolveType": "site/sections/CollectionBanner/CollectionBanner.tsx",
-        "items": [
-          {
-            "image": {
-              "desktop": {
-                "src": "https://data.decoassets.com/alphabeto/ab5a8ac3-33e3-44be-8ff0-005497535881/11.png"
-              },
-              "mobile": {
-                "src": "https://data.decoassets.com/alphabeto/148d20e0-6cfa-4fe8-8e15-8425ecbbece0/12-(1).png"
-              },
-              "alt": "Alt"
+      "__resolveType": "site/sections/CollectionBanner/CollectionBanner.tsx",
+      "items": [
+        {
+          "image": {
+            "desktop": {
+              "src": "https://data.decoassets.com/alphabeto/ab5a8ac3-33e3-44be-8ff0-005497535881/11.png"
             },
-            "label": "Vestidos a partir de R$89,97",
-            "categoryLink": "https://www.alphabeto.com/vestidos?initialMap=category-3&initialQuery=74&map=category-3&order=OrderByPriceASC&priceRange=89%20TO%20270"
+            "mobile": {
+              "src": "https://data.decoassets.com/alphabeto/148d20e0-6cfa-4fe8-8e15-8425ecbbece0/12-(1).png"
+            },
+            "alt": "Alt"
           },
-          {
-            "image": {
-              "mobile": {
-                "src": "https://data.decoassets.com/alphabeto/2c51e99c-73a2-4728-83e0-6a0d3d301ef6/10-(1).png"
-              },
-              "desktop": {
-                "src": "https://data.decoassets.com/alphabeto/9aaa2ece-0eb2-4078-b0fb-0b473833a3bc/9.png"
-              },
-              "alt": "Alt"
+          "label": "Vestidos a partir de R$89,97",
+          "categoryLink": "https://www.alphabeto.com/infantil/vestidos?filter.price=89.4%3A120&sort=price%3Aasc&page=1"
+        },
+        {
+          "image": {
+            "mobile": {
+              "src": "https://data.decoassets.com/alphabeto/2c51e99c-73a2-4728-83e0-6a0d3d301ef6/10-(1).png"
             },
-            "label": "Camisetas a partir de R$39,97",
-            "categoryLink": "https://www.alphabeto.com/camisetas-camisetas-m-c-camisetas-m-l-regatas/infantil-meninos?initialMap=productClusterIds&initialQuery=697&map=category-3,productclusternames&order=OrderByPriceASC&priceRange=37%20TO%20130"
+            "desktop": {
+              "src": "https://data.decoassets.com/alphabeto/9aaa2ece-0eb2-4078-b0fb-0b473833a3bc/9.png"
+            },
+            "alt": "Alt"
           },
-          {
-            "image": {
-              "mobile": {
-                "src": "https://data.decoassets.com/alphabeto/c3acaecd-fe83-4213-9b3a-ef5f1a02d429/14.png"
-              },
-              "desktop": {
-                "src": "https://data.decoassets.com/alphabeto/10f2c0c1-f2b3-4517-9d9c-598b4306cda3/13.png"
-              },
-              "alt": "Alt"
+          "label": "Camisetas a partir de R$39,97",
+          "categoryLink": "https://www.alphabeto.com/infantil/crianca/menino/camiseta-e-regata?filter.price=39.17%3A129.95&sort=price%3Aasc&page=1"
+        },
+        {
+          "image": {
+            "mobile": {
+              "src": "https://data.decoassets.com/alphabeto/c3acaecd-fe83-4213-9b3a-ef5f1a02d429/14.png"
             },
-            "label": "Moda Praia a partir de R$89,95",
-            "categoryLink": "https://www.alphabeto.com/moda-praia--sunga-p-m-g-e-gg-blusa-uv-pp-ao-gg-/moda-praia-biquini-maio-blusa-uv/vamos-colorir-o-mundo?initialMap=productClusterIds&initialQuery=695&map=category-3,category-3,productclusternames&order=OrderByPriceASC"
-          }
-        ],
-        "title": "Selecionados do Verão "
-      
+            "desktop": {
+              "src": "https://data.decoassets.com/alphabeto/10f2c0c1-f2b3-4517-9d9c-598b4306cda3/13.png"
+            },
+            "alt": "Alt"
+          },
+          "label": "Moda Praia a partir de R$89,95",
+          "categoryLink": "https://www.alphabeto.com/moda-praia--sunga-p-m-g-e-gg-blusa-uv-pp-ao-gg-/moda-praia-biquini-maio-blusa-uv/vamos-colorir-o-mundo?initialMap=productClusterIds&initialQuery=695&map=category-3,category-3,productclusternames&order=OrderByPriceASC"
+        }
+      ],
+      "title": "Selecionados do Verão "
     },
     {
       "__resolveType": "site/sections/InteractiveBanner/InteractiveBanner.tsx",

@@ -75,6 +75,30 @@
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Category/CategoryBottomBanner.tsx",
+        "image": {
+          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/96259462-e7ec-4338-bfc5-331a32b622aa/image_categoria.png",
+          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ac67ce29-d4e2-4950-8ea4-d0b8b2433519/image_categoria_mob.png",
+          "alt": "A imagem mostra duas meninas sorridentes posando em frente a um fundo laranja vibrante com um grande círculo texturizado rosa ao centro. A menina à esquerda usa uma roupa colorida com estampas divertidas, jaqueta clara e tiara. A menina à direita veste blusa preta e saia rosa. O ambiente é alegre e lúdico."
+        },
+        "text": "<h2>Quentinhos e estilosos</h2><p>Os casacos masculinos para bebês da Alphabeto são a escolha perfeita para manter os pequenos de 3 a 18 meses quentinhos, estilosos e confortáveis em qualquer ocasião. Desenvolvidos com tecidos leves e macios, nossas peças são pensadas para garantir o bem-estar dos bebês, protegendo a pele delicada e sensível sem causar irritações. Além disso, os casacos contam com detalhes fofos e interativos que encantam pais e crianças, trazendo um toque especial ao look dos pequenos.</p><p>Seja para um passeio em dias mais frios ou momentos aconchegantes em casa, os casacos infantis oferecem liberdade de movimento e praticidade, permitindo que os bebês se sintam à vontade enquanto esbanjam charme. Disponíveis em uma variedade de cores e designs, nossa coleção foi criada para atender às necessidades de conforto e estilo com o carinho que toda família deseja. Conheça nossos modelos e deixe seu bebê protegido e cheio de personalidade!</p>"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "FAQ"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
       "__resolveType": "Footer"
     }
   ],

@@ -75,6 +75,30 @@
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Category/CategoryBottomBanner.tsx",
+        "image": {
+          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/96259462-e7ec-4338-bfc5-331a32b622aa/image_categoria.png",
+          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ac67ce29-d4e2-4950-8ea4-d0b8b2433519/image_categoria_mob.png",
+          "alt": "A imagem mostra duas meninas sorridentes posando em frente a um fundo laranja vibrante com um grande círculo texturizado rosa ao centro. A menina à esquerda usa uma roupa colorida com estampas divertidas, jaqueta clara e tiara. A menina à direita veste blusa preta e saia rosa. O ambiente é alegre e lúdico."
+        },
+        "text": "<h2>Escolha a bermuda certa para cada ocasião</h2><p>As bermudas infantis da Alphabeto acompanham os pequenos em todas as aventuras e, independente do tecido, o conforto está garantido.</p><h2>Bermuda em jeans</h2><p>Combinam com tudo! São peças versáteis e não podem faltar no guarda-roupa dos pequenos.</p><h2>Bermuda em sarja</h2><p>Ideais para criar looks mais arrumadinhos e cheios de estilo.</p><h2>Bermuda em moletom</h2><p>Conforto que acompanha os pequenos nas aventuras dentro e fora de casa, do jeitinho que eles amam!</p><h2>Short em microfibra</h2><p>Brincou, sujou, lavou, secou. Além do conforto para brincar, os shorts em microfibra têm outra vantagem: acompanham os pequenos nas novas descobertas e secam rápido.</p>"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "FAQ"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
       "__resolveType": "Footer"
     }
   ],

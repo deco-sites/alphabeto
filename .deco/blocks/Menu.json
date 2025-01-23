@@ -3,11 +3,11 @@
   "institutionalLinks": [
     {
       "label": "Políticas de privacidade",
-      "route": "/politicas-de-privacidade"
+      "route": "/privacidade"
     },
     {
       "label": "Troca e devolução",
-      "route": "/trocas-e-devolucao"
+      "route": "/trocas-devolucao"
     },
     {
       "label": "Termos e condições",
@@ -15,7 +15,11 @@
     },
     {
       "label": "Formas de entrega",
-      "route": "/formas-de-entrega"
+      "route": "/formas-entrega"
+    },
+    {
+      "route": "/regulamento-cashback",
+      "label": "Regulamento Cashback"
     }
   ],
   "supportLinks": [

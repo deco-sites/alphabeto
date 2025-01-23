@@ -41,16 +41,16 @@
       "startingPage": 1,
       "seoComponents": {
         "banner": {
-          "title": "Bazar",
           "description": "<p></p>",
           "image": {
             "desktop": {
-              "src": "https://data.decoassets.com/alphabeto/79d985df-4221-4496-a464-6c23bbfd06c1/laranjaDesk.png"
+              "src": "https://data.decoassets.com/alphabeto/4dc5a7bd-3005-4c1b-8811-f8bebe8a30b2/4.png"
             },
             "mobile": {
-              "src": "https://data.decoassets.com/alphabeto/eb5bbb4b-b9b0-4958-b3fb-19f18b4dd108/laranjaMobile.png"
+              "src": "https://data.decoassets.com/alphabeto/4a82140e-ca59-49a0-b332-ceac9bf47912/4-(1).png"
             }
-          }
+          },
+          "title": "Bazar"
         },
         "breadcrumb": [
           {

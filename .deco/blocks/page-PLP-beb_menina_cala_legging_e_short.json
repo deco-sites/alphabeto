@@ -75,6 +75,30 @@
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
     },
     {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Category/CategoryBottomBanner.tsx",
+        "image": {
+          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/96259462-e7ec-4338-bfc5-331a32b622aa/image_categoria.png",
+          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ac67ce29-d4e2-4950-8ea4-d0b8b2433519/image_categoria_mob.png",
+          "alt": "A imagem mostra duas meninas sorridentes posando em frente a um fundo laranja vibrante com um grande círculo texturizado rosa ao centro. A menina à esquerda usa uma roupa colorida com estampas divertidas, jaqueta clara e tiara. A menina à direita veste blusa preta e saia rosa. O ambiente é alegre e lúdico."
+        },
+        "text": "<h2>Veja as melhores opções de calça, short e legging para completar o lookinho das princesas</h2><p>A Alphabeto é uma marca mineira que possui fábrica própria e é especialista em detalhes. Cada produto é desenvolvido com muito carinho para vestir criança como criança com roupas leves, vibrantes e coloridas, como a vida deve ser. Conheça alguns produtos que fazem sucesso entre as mamães e garantem o conforto das bebezinhas.</p><h2>Short infantil para bebês</h2><p>Os shorts infantis femininos para bebês possuem elástico no cós e isso, além de facilitar a troca, não causa incômodo nas pequenas. E para as mamães que gostam de combinar o lookinho das filhas, temos uma boa notícia: em algumas mini coleções, as estampas das roupas de bebês são iguais às das roupas das crianças maiores. Combine um body liso com um shortinho estampado e deixe a sua bebê cheia de estilo. </p><h2>Calças e Leggings infantis para bebês</h2><p>O conforto das pequenas está garantido com as calças e as leggings infantis da Alphabeto. Sejam lisas ou com estampas atrativas e cheias de detalhes, as meninas vão ensaiar os primeiros passinhos com muito estilo.</p>"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "FAQ"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
+    },
+    {
       "__resolveType": "Footer"
     }
   ],

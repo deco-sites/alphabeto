@@ -35,7 +35,7 @@ export default function MenuInstitutionalMobile({ links, label }: MenuProps) {
         />
       </button>
       {navigation && (
-        <div className="flex flex-col absolute mt-[44px] items-center justify-start text-left w-[100%] bg-[#FFFFFF] py-0 px-[10px] rounded-b-[5px] border-b border-r border-l border-secondary">
+        <div className="flex flex-col absolute mt-[44px] items-center justify-start text-left w-[calc(100vw_-_40px)] bg-[#FFFFFF] py-0 px-[10px] rounded-b-[5px] border-b border-r border-l border-secondary">
           {links &&
             links.map((link, index) => (
               <a

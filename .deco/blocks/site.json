@@ -109,7 +109,7 @@
       "expectedFinalValue": "0",
       "redirects": [],
       "from": "/static/redirects/go-live.csv",
-      "cookieMatcherName": "deco_matcher_2054384696",
+      "cookieMatcherName": "deco_matcher_809666540",
       "cookieMatcherValue": "1",
       "proxyUrl": "secure.alphabeto.com"
     }
@@ -126,15 +126,18 @@
   "abTesting": {
     "replaces": [],
     "includeScriptsToHead": {
-      "includes": []
+      "includes": [
+        {
+          "__resolveType": "analytics/loaders/DecoAnalyticsScript.ts"
+        }
+      ]
     },
     "includeScriptsToBody": {
       "includes": []
     },
     "name": "Teste AB",
     "matcher": {
-      "__resolveType": "website/matchers/random.ts",
-      "traffic": 0.8
+      "__resolveType": "Teste AB"
     },
     "enabled": true,
     "urlToRunAgainst": "https://secure.alphabeto.com"
