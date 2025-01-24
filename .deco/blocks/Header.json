@@ -56,7 +56,7 @@
   "benefits": {
     "alerts": [],
     "benefits": [
-      "<p>Frete GRÁTIS acima de R$249 com código de vendedora</p>",
+      "<p>Frete GRÁTIS com código de vendedora</p>",
       "<p>Ganhe 15% de CASHBACK para sua próxima compra</p>",
       "<p>Parcele em até 6x</p>"
     ],
@@ -269,7 +269,7 @@
     },
     {
       "submenu": [],
-      "menuItem": "Bazar tudo com 60%",
+      "menuItem": "Bazar até 60%",
       "href": "/infantil/bazar"
     }
   ],
