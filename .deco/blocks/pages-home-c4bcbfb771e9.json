@@ -176,7 +176,7 @@
             },
             "alt": "Banner meninas"
           },
-          "categoryLink": "/infantil/crianca/menina?filter.category-2=crianca&page=1",
+          "categoryLink": "/infantil/liqui-colecao-verao?filter.category-1=meninas&page=1",
           "label": "Meninas",
           "buttonText": "Meninas",
           "buttonColor": "#FF859A"
@@ -191,7 +191,7 @@
               "src": "https://data.decoassets.com/alphabeto/cb47c489-db5f-40b0-9c06-f3c4a918e993/Frame-23873.png"
             }
           },
-          "categoryLink": "/infantil/crianca/menino?filter.category-2=crianca&page=1",
+          "categoryLink": "/infantil/liqui-colecao-verao?filter.category-1=meninos&page=1",
           "label": "Meninos",
           "buttonText": "Meninos",
           "buttonColor": "#70D1E8"
@@ -206,7 +206,7 @@
               "src": "https://data.decoassets.com/alphabeto/2120aa9f-7581-465c-a896-95681c3d0c4a/Frame-23874.png"
             }
           },
-          "categoryLink": "/s?q=bebê&page=1",
+          "categoryLink": "/infantil/liqui-colecao-verao?filter.category-2=bebe&page=1",
           "label": "Bebê",
           "buttonText": "Bebês",
           "buttonColor": "#D6DE23"
