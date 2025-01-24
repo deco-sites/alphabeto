@@ -42,67 +42,32 @@ export default function MiniMe({ title, price, installments, image }: Props) {
     setTypes(typesSorted);
   };
 
-  const filterData = () => {
+  const filterData = (i: number) => {
+    localStorage.setItem('types', JSON.stringify(types))
+    
     let tempData: StateUpdater<CustomPart[]> = [];
+    const typesStorage: PartType[] = JSON.parse(localStorage.getItem('types') || '[]')
 
-    console.log(types)
-
-    const typesMap = types.filter((item) => item.ordem)
-
-    console.log(typesMap[count])
-
-    const typesSequence = typesMap.filter((item) => item.ordem)
-
-    console.log("num: ", typesSequence)
-
-    switch (count) {
-      case 0:
-        tempData = data.filter((item) => parseInt(item.id_tipo) === 5);
-
-        break;
-      case 1:
-        tempData = data.filter((item) => parseInt(item.id_tipo) === 4);
-
-        break;
-      case 2:
-        tempData = data.filter((item) => parseInt(item.id_tipo) === 6);
-
-        break;
-      case 3:
-        tempData = data.filter((item) => parseInt(item.id_tipo) === 7);
-
-        break;
-      case 4:
-        tempData = data.filter((item) => parseInt(item.id_tipo) === 11);
-
-        break;
-      case 5:
-        tempData = data.filter((item) => parseInt(item.id_tipo) === 8);
-
-        break;
-      case 6:
-        tempData = data.filter((item) => parseInt(item.id_tipo) === 10);
-
-        break;
-      default:
-        console.log("Houve algum erro na requisição dos dados.");
-        break;
+    if(typesStorage[i]){
+        tempData = data.filter((item) => parseInt(item.id_tipo) === parseInt(typesStorage[i].id));
+        tempData = [...tempData].sort((a, b) => parseInt(a.nome) - parseInt(b.nome));
+        setFilteredData(tempData);
     }
-    tempData = [...tempData].sort((a, b) => parseInt(a.nome) - parseInt(b.nome));
-    setFilteredData(tempData);
   };
 
   const clickCount = () => {
     if (count < 6) {
-      setCount(count + 1);
-      filterData();
+        const i = count + 1 
+      setCount(i);
+      filterData(i);
     }
   };
 
   const clickCountReduce = () => {
     if (count > 0) {
-      setCount(count - 1);
-      filterData();
+        const i = count - 1 
+      setCount(i);
+      filterData(i);
     }
   };
 
@@ -122,7 +87,6 @@ export default function MiniMe({ title, price, installments, image }: Props) {
 
   useEffect(() => {
     fetchData();
-
     if(installments > 1) {
         const value = price / installments;
         const formatedValue = JSON.stringify(value).replace(/\./g, ',')
@@ -132,9 +96,11 @@ export default function MiniMe({ title, price, installments, image }: Props) {
 
   useEffect(() => {
     if (data.length > 0) {
-      filterData();
+        if(filteredData.length === 0){
+            filterData(0);
+        }
     }
-  }, [data, filteredData]);
+  }, [data, types, count]);
 
   if (!data || !types) return null;
 
@@ -143,7 +109,7 @@ export default function MiniMe({ title, price, installments, image }: Props) {
       <section class="container flex max-w-[1360px] w-full mb-[100px]">
         <section class="mr-[30px] px-[55px] py-[33px] bg-[#fff] border-dashed border-[1px] border-[#FF3800] rounded-[8px] max-w-[557px] h-[735px] w-full">
           <Image
-            src={dollParts.length > 0 && IsSelected === true ? dollParts[dollParts.length - 1] : image}
+            src={dollParts.length > 0 && IsSelected ? dollParts[dollParts.length - 1] : image}
             width={446}
             height={669}
           />
@@ -184,7 +150,7 @@ export default function MiniMe({ title, price, installments, image }: Props) {
             )}
             <div class="flex overflow-x-scroll max-w-[773px] h-[370px] w-full items-center">
               <div class="flex items-center">
-                {filteredData.map((item) => (
+                {count !== types.length -1 && filteredData.map((item) => (
                   <>
                     <div onClick={() => selectPart(item.id)} class={IsSelected && selectedId === item.id ? `flex flex-col items-center w-[138px] h-[237] mr-[4px] bg-[#fff] rounded-[8px] border-[1px] border-[#D6DE23]` : `flex flex-col items-center w-[138px] h-[237] mr-[4px] rounded-[8px]`}>
                       <img class="" src={item.img_frente} alt="" />
