@@ -109,7 +109,7 @@
       "expectedFinalValue": "0",
       "redirects": [],
       "from": "/static/redirects/go-live.csv",
-      "cookieMatcherName": "deco_matcher_809666540",
+      "cookieMatcherName": "deco_matcher_3589352432",
       "cookieMatcherValue": "1",
       "proxyUrl": "secure.alphabeto.com"
     }
@@ -137,7 +137,7 @@
     },
     "name": "Teste AB",
     "matcher": {
-      "__resolveType": "Teste AB"
+      "__resolveType": "Teste AB 2"
     },
     "enabled": true,
     "urlToRunAgainst": "https://secure.alphabeto.com"
