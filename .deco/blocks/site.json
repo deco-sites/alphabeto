@@ -139,7 +139,7 @@
     "matcher": {
       "__resolveType": "Teste AB 2"
     },
-    "enabled": true,
+    "enabled": false,
     "urlToRunAgainst": "https://secure.alphabeto.com"
   },
   "flavor": {

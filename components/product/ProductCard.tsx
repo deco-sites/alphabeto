@@ -38,6 +38,8 @@ const DESKTOP_HEIGHT = 692;
 
 const MOBILE_WIDTH = 500;
 const MOBILE_HEIGHT = 692;
+const ENABLE_VIDEO_ON_SHELF = true;
+const ENABLE_QUICKVIEW = true;
 
 function ProductCard({
   product,
@@ -88,7 +90,6 @@ function ProductCard({
       },
     },
   });
-  const ENABLE_VIDEO_ON_SHELF = false;
 
   //Added it to check the variant name in the SKU Selector later, so it doesn't render the SKU to "shoes size" in the Product Card
   const hasListPrice = listPrice && listPrice > (price ?? 0);
@@ -220,7 +221,7 @@ function ProductCard({
 
       {/* SKU Selector */}
       <ProductShelfColors product={product} colors={settings.colors} />
-      {inStock
+      {inStock && ENABLE_QUICKVIEW
         ? (
           <QuickView
             product={product}
