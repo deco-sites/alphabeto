@@ -8,20 +8,14 @@
       "__resolveType": "site/sections/Images/Carousel.tsx",
       "images": [
         {
-          "desktop": "https://data.decoassets.com/alphabeto/c6fa45a6-01cd-4ab2-8ed6-3eda80c33089/Desktop---2880x-900.jpg",
-          "mobile": "https://data.decoassets.com/alphabeto/777f02bd-91cb-43fe-8b61-683fe0ee2e80/mobile-Deco--750-x-700-px.jpg",
+          "desktop": "https://data.decoassets.com/alphabeto/22cfdaf0-5fff-4786-8e5a-ce91536e16a4/desk.jpg",
+          "mobile": "https://data.decoassets.com/alphabeto/7aa024ea-38d9-44c2-9ccb-ba99dfd1de42/mobile.jpg",
           "title": "Liqui",
-          "clickUrl": "/infantil/liqui-colecao-verao",
+          "clickUrl": "/infantil/bazar",
           "action": {
             "href": "/meninas"
           },
           "alt": "Banner de Demonstração"
-        },
-        {
-          "title": "Carnaval",
-          "desktop": "https://data.decoassets.com/alphabeto/fdd9be4f-7bd2-44cb-bfe9-9a09251561da/deco2880x-900-(2).jpg",
-          "mobile": "https://data.decoassets.com/alphabeto/a68b7138-bbe5-4f02-ab8d-ec5972b6a9ca/deco750-x-700-px-(1).jpg",
-          "clickUrl": "/807?map=productClusterIds"
         }
       ],
       "preload": true
