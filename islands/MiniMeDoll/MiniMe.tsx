@@ -26,8 +26,8 @@ export default function MiniMe({ title, price, installments, image }: Props) {
   const [types, setTypes] = useState<PartType[]>([]);
   const [filteredData, setFilteredData] = useState<CustomPart[]>([]);
 
-  const [dollParts, setDollParts] = useState<string[]>([])
-  const [dollPartsBehind, setDollPartsBehind] = useState<string[]>([])
+  const [idCollection, setIdCollection] = useState<string[] | []>([])
+  const [dollParts, setDollParts] = useState<CustomPart[]>([])
 
   const [IsSelected, setIsSelected] = useState(false)
   const [selectedId, setSelectedId] = useState<string | null>(null)
@@ -53,26 +53,25 @@ export default function MiniMe({ title, price, installments, image }: Props) {
         tempData = data.filter((item) => parseInt(item.id_tipo) === parseInt(typesStorage[i].id));
         tempData = [...tempData].sort((a, b) => parseInt(a.nome) - parseInt(b.nome));
         setFilteredData(tempData);
+        console.log('a função foi executada!')
     }
   };
 
-  const clickCount = () => {
-    if (count < 6) {
-        const i = count + 1 
-      setCount(i);
-      filterData(i);
-    }
-  };
+  const clickCount = (operation: string) => {
+    let i = 0
 
-  const clickCountReduce = () => {
-    if (count > 0) {
-        const i = count - 1 
-      setCount(i);
-      filterData(i);
+    if (operation === 'increment' && count < 6) {
+        i = count + 1 
+    } else if (operation === 'decrement' && count > 0){
+        i = count - 1 
     }
-  };
 
-  const selectPart = (id: string, id_type: string) => {
+    localStorage.setItem('count', JSON.stringify(i))
+    setCount(i);
+    filterData(i);
+  }
+
+    const selectPart = (id: string, id_type: string) => {
 
     const typesStorage: PartType[] = JSON.parse(localStorage.getItem('types') || '[]')
 
@@ -83,39 +82,48 @@ export default function MiniMe({ title, price, installments, image }: Props) {
 
     const index = typeOfIndex[parseInt(id_type)]
 
-    if(dollParts[index] !== id){
+    const parts = JSON.parse(localStorage.getItem('parts') || "[]")
+    const identifications  = JSON.parse(localStorage.getItem('ids') || '[]')
+ 
+    if(parts[index] !== id){
+
+        const ids = [...identifications]
+        const updateParts = [...parts];
+
         if(selectedId === id){
-            const updateParts = [...dollParts];
-            const updateBehindParts = [...dollPartsBehind]
-            updateBehindParts[index] = ""
             updateParts[index] = ""
             setDollParts(updateParts)
-            setDollPartsBehind(updateBehindParts)
-            setSelectedId(null)
+            setIdCollection(ids)
+            setSelectedId(id)
             setIsSelected(false)
         } else {
-        const updateParts = [...dollParts];
-        const updateBehindParts = [...dollPartsBehind]
-        const selectedImage = filteredData.find((item) => item.id === id)
-        if(selectedImage) {
-            updateParts[index] = selectedImage.img_frente;
-            updateBehindParts[index] = selectedImage.img_costas;
-            setDollParts(updateParts)
-            setDollPartsBehind(updateBehindParts)
-            setSelectedId(id)
-            setIsSelected(true)
-            console.log("partes atualizadas: ", dollParts)
-            console.log("partes atualizadas(costas): ", dollPartsBehind)
-        }}
-    } else {
-        console.log("O ID selecionado já está configurado.");
+            const selectedImage = filteredData.find((item) => item.id === id)
+                if(selectedImage) {
+                ids[index] = selectedImage.id;
+                updateParts[index] = selectedImage;
+                setDollParts(updateParts)
+                setIdCollection(ids)
+                setSelectedId(id)
+                setIsSelected(true)
+                }
+            }
+        }
     }
 
-    console.log(id, id_type)
+    const updateDoll = () => {
+        const parts = JSON.parse(localStorage.getItem('parts') || '[]')
+        setDollParts(parts)
+
+        const i = JSON.parse(localStorage.getItem('count') || '')
+        setCount(i)
+
+        const ids = JSON.parse(localStorage.getItem('ids') || '[]')
+        setIdCollection(ids)
     }
 
   useEffect(() => {
     fetchData();
+    updateDoll();
     if(installments > 1) {
         const value = price / installments;
         const formatedValue = JSON.stringify(value).replace(/\./g, ',')
@@ -126,15 +134,13 @@ export default function MiniMe({ title, price, installments, image }: Props) {
   useEffect(() => {
     if (data.length > 0) {
         if(filteredData.length === 0){
-            filterData(0);
+            const i = JSON.parse(localStorage.getItem('count') || '0')
+            filterData(i);
         }
     }
   }, [data, types, count]);
 
   if (!data || !types) return null;
-
-  console.log('Doll parts: ', dollParts)
-  console.log('Doll parts(costas): ', dollPartsBehind)
 
   return (
     <>
@@ -146,17 +152,14 @@ export default function MiniMe({ title, price, installments, image }: Props) {
           (
             <Image
             key={index}
-            src={part}
+            src={part.img_frente}
             width={446}
             height={669}
             class={`absolute 
-                ${part === "https://alphabetoio.vtexassets.com/arquivos/boneco_frente_A01.png" ? '' 
-                : `z-[10]`} ${index > 4 ? 'hidden' : ''}`}
+                ${part.id === "44" ? '' : `z-[10]`} ${part.oculto === true || parseInt(part.id_tipo) === 8 ? 'hidden' : ''}`}
           />
           ) : null
-        )
-    )
-          : (
+        )) : (
             <Image
             src={image}
             width={446}
@@ -202,7 +205,7 @@ export default function MiniMe({ title, price, installments, image }: Props) {
               <div class="flex items-center">
                 {count !== types.length -1 && filteredData.map((item) => (
                   <>
-                    <div onClick={() => selectPart(item.id, item.id_tipo)} class={IsSelected && selectedId === item.id ? `flex flex-col items-center w-[138px] h-[237] mr-[4px] bg-[#fff] rounded-[8px] border-[1px] border-[#D6DE23]` : `flex flex-col items-center w-[138px] h-[237] mr-[4px] rounded-[8px] cursor-pointer hover:rounded-[8px] transition duration-300 hover:border-[0.5px] hover:border-[#D6DE23]`}>
+                    <div onClick={() => selectPart(item.id, item.id_tipo)} class={IsSelected && selectedId === item.id || idCollection.find((id) => id === item.id)? `flex flex-col items-center w-[138px] h-[237] mr-[4px] bg-[#fff] rounded-[8px] border-[1px] border-[#D6DE23]` : `flex flex-col items-center w-[138px] h-[237] mr-[4px] rounded-[8px] cursor-pointer hover:rounded-[8px] transition duration-300 hover:border-[0.5px] hover:border-[#D6DE23]`}>
                       <img class="" src={item.img_frente} />
                       <p class="font-Quicksand text-[#7E7F88] text-[16px]">{item.nome}</p>
                     </div>
@@ -224,13 +227,13 @@ export default function MiniMe({ title, price, installments, image }: Props) {
             </div>
             <div class="flex items-center justify-end w-full">
               <button
-                onClick={clickCountReduce}
+                onClick={() => clickCount('decrement')}
                 class="font-Quicksand text-[#FF8300] mr-[20px] max-w-[198px] w-full h-[44px] bg-[#fff] border-[#FF8300] border-[1px] rounded-[8px]"
               >
                 Voltar
               </button>
               <button
-                onClick={clickCount}
+                onClick={() => clickCount('increment')}
                 class="font-Quicksand text-[#fff] max-w-[198px] w-full h-[44px] bg-[#FF8300] border-[#FF8300] border-[1px] rounded-[8px]"
               >
                 Avançar
