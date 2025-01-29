@@ -44,14 +44,13 @@
           "description": "<p></p>",
           "image": {
             "desktop": {
-              "src": "https://data.decoassets.com/alphabeto/d6ac5ccf-57bb-40b4-9e05-8ad4c475f4d9/Categoria-Deco-(2).jpg",
-              "width": 1000
+              "src": "https://data.decoassets.com/alphabeto/79d985df-4221-4496-a464-6c23bbfd06c1/laranjaDesk.png"
             },
             "mobile": {
-              "src": "https://data.decoassets.com/alphabeto/51da71a3-9cac-45b8-9708-525099e00c37/Categoria-Deco.jpg",
-              "width": 300
+              "src": "https://data.decoassets.com/alphabeto/eb5bbb4b-b9b0-4958-b3fb-19f18b4dd108/laranjaMobile.png"
             }
-          }
+          },
+          "title": "Bazar"
         },
         "breadcrumb": [
           {
