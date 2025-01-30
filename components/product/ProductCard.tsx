@@ -5,6 +5,7 @@ import { ColorItem } from "site/apps/site.ts";
 import ProductRating from "site/components/product/ProductRating.tsx";
 import ProductShelfColors from "site/components/product/ProductShelfColors.tsx";
 import QuickView from "site/components/product/Quickview/QuickView.tsx";
+import Video from "site/components/Video.tsx";
 import VTEXImageTag from "site/components/VTEXImageTag.tsx";
 import WishlistButton from "site/components/wishlist/WishlistButton.tsx";
 import { clx } from "site/sdk/clx.ts";
@@ -13,7 +14,6 @@ import { relative } from "site/sdk/url.ts";
 import { useId } from "site/sdk/useId.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
-import Video from "site/components/Video.tsx";
 
 interface Props {
   product: Product;
@@ -111,7 +111,7 @@ function ProductCard({
         class={clx(
           "relative",
           "rounded-xl",
-          "tablet-large:aspect-[328/466] aspect-[160/260]",
+          "shelf-image-aspect",
         )}
       >
         <a
@@ -147,8 +147,7 @@ function ProductCard({
                   "object-cover",
                   "rounded w-full",
                   "col-span-full row-span-full",
-                  "aspect-[160/260]",
-                  "tablet-large:aspect-[328/466]",
+                  "shelf-image-aspect",
                 )}
                 sizes="(max-width: 640px) 50vw, 20vw"
                 preload={preload}

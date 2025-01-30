@@ -1,9 +1,9 @@
 import { Color, ImageWidget, RichText } from "apps/admin/widgets.ts";
-import Slider from "site/components/ui/Slider.tsx";
-import { useId } from "site/sdk/useId.ts";
-import Section from "site/components/ui/Section.tsx";
 import Image from "apps/website/components/Image.tsx";
+import Section from "site/components/ui/Section.tsx";
+import Slider from "site/components/ui/Slider.tsx";
 import { sanitizeHTMLCode } from "site/sdk/htmlSanitizer.ts";
+import { useId } from "site/sdk/useId.ts";
 
 /** @titleBy title */
 interface BenefitsBarItem {
@@ -31,7 +31,7 @@ function BenefitsBar({ items, interval }: BenefitsBar) {
         style={{
           "--cols": items.length,
         }}
-        class="desk:container grid justify-between grid-cols-[repeat(var(--cols),1fr)] pt-5 pb-[50px] gap-4 mobile:carousel mobile:max-w-[100dvw] mobile:carousel-center mobile:scroll-p-5"
+        class="desk:container grid justify-between grid-cols-[repeat(var(--cols),1fr)] pt-5 pb-[50px] gap-4 mobile:carousel mobile:max-w-[100vw] mobile:carousel-center mobile:scroll-p-5"
       >
         {items.map((item, index) => (
           <Slider.Item

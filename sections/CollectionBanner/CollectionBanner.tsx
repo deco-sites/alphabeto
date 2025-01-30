@@ -2,10 +2,10 @@ import { useDevice } from "@deco/deco/hooks";
 import { ImageWidget } from "apps/admin/widgets.ts";
 import Image from "apps/website/components/Image.tsx";
 import { useId } from "preact/hooks";
+import { SendEventOnClick } from "site/components/Analytics.tsx";
 import Section from "site/components/ui/Section.tsx";
 import Slider from "site/components/ui/Slider.tsx";
 import { clx } from "site/sdk/clx.ts";
-import { SendEventOnClick } from "site/components/Analytics.tsx";
 
 interface CollectionBannerItem {
   /**@title Label for CMS */
@@ -59,8 +59,8 @@ function CollectionBannerDesktop(props: CollectionBannerProps) {
                   name: "mini_banner_click",
                   params: {
                     url: item.categoryLink,
-                    device
-                  }
+                    device,
+                  },
                 }}
               />
             </>
@@ -96,7 +96,7 @@ function CollectionBannerMobile(
               >
                 <a href={item.categoryLink}>
                   <Image
-                    class="rounded-lg w-[calc(100dvw-40px)]"
+                    class="rounded-lg w-[calc(100vw-40px)]"
                     src={item.image.mobile.src}
                     alt={item.image.alt}
                     width={335}
@@ -108,11 +108,11 @@ function CollectionBannerMobile(
               <SendEventOnClick
                 id={itemID}
                 event={{
-                  name: 'mini_banner_click',
+                  name: "mini_banner_click",
                   params: {
                     url: item.categoryLink,
-                    device
-                  }
+                    device,
+                  },
                 }}
               />
             </>
@@ -135,7 +135,7 @@ function CollectionBannerMobile(
         ))}
       </ul>
 
-      <Slider.JS rootId={id}/>
+      <Slider.JS rootId={id} />
     </div>
   );
 }

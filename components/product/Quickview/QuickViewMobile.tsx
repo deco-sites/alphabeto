@@ -104,7 +104,7 @@ function QuickViewMobile({ product, settings, cardId }: QuickViewProps) {
         <div
           id="quickviewProductInfo"
           class={clx(
-            "fixed left-0 bottom-0 z-50 h-full max-h-[656px] overflow-y-auto transition-transform bg-white w-dvw rounded-t-lg",
+            "fixed left-0 bottom-0 z-50 h-full max-h-[656px] overflow-y-auto transition-transform bg-white w-vw rounded-t-lg",
             isOpen ? "translate-y-0" : "translate-y-full",
           )}
         >

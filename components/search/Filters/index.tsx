@@ -3,10 +3,10 @@ import type {
   FilterToggle,
   ProductListingPage,
 } from "apps/commerce/types.ts";
+import { ColorItem } from "site/apps/site.ts";
 import BottomFilterBar from "site/components/search/Filters/BottomFilterBar.tsx";
 import RenderFilterItem from "site/components/search/Filters/RenderFilterItem.tsx";
 import SelectedFilters from "site/components/search/Filters/SelectedFilters.tsx";
-import { ColorItem } from "site/apps/site.ts";
 
 export interface FilterSettings {
   colors: ColorItem[];
@@ -87,7 +87,7 @@ function Filters({ filters, settings, url }: Props) {
 
   return (
     <>
-      <ul class="flex overflow-auto desk:overflow-[unset] flex-col desk:gap-6 px-6 pt-1.5 desk:pt-0 desk:px-0 h-[calc(100dvh_-_50px_-_72px)] desk:h-[unset] bg-base-100 desk:bg-[unset] w-full desk:w-auto">
+      <ul class="flex overflow-auto desk:overflow-[unset] flex-col desk:gap-6 px-6 pt-1.5 desk:pt-0 desk:px-0 custom-h-dvh desk:h-[unset] bg-base-100 desk:bg-[unset] w-full desk:w-auto">
         {selectedFilters.length > 0 && (
           <SelectedFilters filters={selectedFilters} />
         )}

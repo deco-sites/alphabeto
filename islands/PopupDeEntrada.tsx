@@ -102,7 +102,7 @@ export default function PopupDeEntrada(props: Props) {
     <>
       {isOpened.value && (
         <div>
-          <div class="fixed bg-[#000] z-[9998] opacity-40 top-0 w-dvw h-dvh">
+          <div class="fixed bg-[#000] z-[9998] opacity-40 top-0 w-vw h-dvh">
           </div>
           <div class="relative">
             <div class="fixed left-[49%] -translate-x-1/2 flex top-[15%] bg-secondary-content z-[9999] rounded-lg">
@@ -118,7 +118,7 @@ export default function PopupDeEntrada(props: Props) {
                 width={214}
                 height={308}
               />
-              <div class="max-w-[335px] w-[calc(100dvw-_40px)] desk:max-w-[529px] desk:w-full flex flex-col p-5 items-center gap-4 justify-between relative">
+              <div class="max-w-[335px] w-[calc(100vw-_40px)] desk:max-w-[529px] desk:w-full flex flex-col p-5 items-center gap-4 justify-between relative">
                 <div class="flex flex-col desk:grid grid-cols-[256px_223px] w-full items-center justify-between mobile:gap-2.5 ">
                   <h3
                     class="text-[25px] leading-[30px] desk:text-[32px] desk:leading-[38px] text-center desk:text-left font-medium text-accent font-beccaPerry [&>strong]:text-primary [&>strong]:font-medium mobile:max-w-[201px] mobile:mx-auto"

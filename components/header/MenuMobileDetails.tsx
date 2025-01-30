@@ -1,8 +1,8 @@
-import { IconArrowRightDropdown } from "../Icons/IconArrowRightDropdown.tsx";
+import { useDevice } from "@deco/deco/hooks";
 import { SendEventOnClick } from "site/components/Analytics.tsx";
 import { useId } from "site/sdk/useId.ts";
+import { IconArrowRightDropdown } from "../Icons/IconArrowRightDropdown.tsx";
 import { Submenu } from "./Menu.types.ts";
-import { useDevice } from "@deco/deco/hooks";
 
 interface Props {
   submenu: Submenu[] | null | undefined;
@@ -21,9 +21,11 @@ export function MenuMobileDetails({ submenu }: Props) {
             key={index}
             class="collapse rounded-none border-b border-secondary border-dashed group"
           >
-            <summary class="text-xs text-accent py-4 font-bold !flex justify-between items-center">
-              {item.item[0]?.item || "Item"}
-              <IconArrowRightDropdown/>
+            <summary class="text-xs text-accent py-4 font-bold ">
+              <div class="flex justify-between items-center">
+                <span>{item.item[0]?.item || "Item"}</span>
+                <IconArrowRightDropdown />
+              </div>
             </summary>
 
             <div>
@@ -46,12 +48,12 @@ export function MenuMobileDetails({ submenu }: Props) {
                     <SendEventOnClick
                       id={itemID}
                       event={{
-                        name: 'submenu_click',
+                        name: "submenu_click",
                         params: {
                           name: subItem.item,
                           url: subItem.href,
-                          device
-                        }
+                          device,
+                        },
                       }}
                     />
                   </>
@@ -72,12 +74,12 @@ export function MenuMobileDetails({ submenu }: Props) {
                   <SendEventOnClick
                     id={seeAllID}
                     event={{
-                      name: 'submenu_click',
+                      name: "submenu_click",
                       params: {
-                        name: 'Ver mais',
+                        name: "Ver mais",
                         url: item.item[0]?.href,
-                        device
-                      }
+                        device,
+                      },
                     }}
                   />
                 </>

@@ -21,11 +21,11 @@ import {
 } from "site/components/ui/Button.tsx";
 import Drawer from "site/components/ui/Drawer/index.tsx";
 import Icon from "site/components/ui/Icon.tsx";
+import Section from "site/components/ui/Section.tsx";
 import { clx } from "site/sdk/clx.ts";
 import { useId } from "site/sdk/useId.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
-import Section from "site/components/ui/Section.tsx";
 
 const AGE_FILTER_KEY = "tamanho";
 
@@ -219,7 +219,7 @@ function PageResult(props: SectionProps<typeof loader>) {
             product={product}
             preload={index === 0}
             index={offset + index}
-            class="h-full desk:w-[calc((100dvw_-_456px)/3)] max-w-[355px]"
+            class="h-full desk:w-[calc((100vw_-_456px)/3)] max-w-[355px]"
             settings={siteSettings}
             lozad
           />

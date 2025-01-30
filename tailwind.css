@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @layer base {
+
   /* Allow changing font family via CMS */
   html {
     font-family: var(--font-family);
@@ -32,7 +33,11 @@
     padding-left: 40px;
     padding-right: 40px;
 
-    @media (max-width: 1024px) {
+
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .container {
       padding-left: 20px;
       padding-right: 20px;
     }
@@ -84,12 +89,13 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
-.breadcrumbs > ul > li + *:before,
-.breadcrumbs > ol > li + *:before {
+.breadcrumbs>ul>li+*:before,
+.breadcrumbs>ol>li+*:before {
   content: "|";
   height: auto;
   width: auto;
@@ -105,12 +111,14 @@
 .double-range {
   margin-top: 20px;
 }
+
 .double-range .range-slider {
   height: 3px;
   position: relative;
   background-color: #e8e7e5;
   border-radius: 100px;
 }
+
 .double-range .range-fill {
   height: 100%;
   left: 30%;
@@ -119,9 +127,11 @@
   border-radius: 5px;
   background-color: #d6de23;
 }
+
 .double-range .range-input {
   position: relative;
 }
+
 .double-range .range-input input {
   position: absolute;
   width: 100%;
@@ -132,6 +142,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
 }
+
 .double-range .range-input input::-webkit-slider-thumb {
   height: 16px;
   width: 16px;
@@ -142,6 +153,7 @@
   -webkit-appearance: none;
   cursor: pointer;
 }
+
 .double-range .range-input input::-moz-range-thumb {
   height: 16px;
   width: 16px;
@@ -159,7 +171,23 @@
   display: none;
 }
 
-.modal-open, .modal:target, .modal-toggle:checked + .modal, .modal[open] {
+.modal-open,
+.modal:target,
+.modal-toggle:checked+.modal,
+.modal[open] {
   pointer-events: auto;
   display: block;
+}
+
+.custom-max-dvh {
+  max-height: calc(100vw - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+}
+
+.custom-h-dvh {
+  height: calc(100vh - 72px - 50px);
+  max-height: calc(100vh - 72px - 50px);
+  height: calc(100dvh - 72px - 50px);
+  max-height: calc(100dvh - 72px - 50px);
+  height: calc(calc(var(--vh, 1vh) * 100) - 72px - 50px);
+  max-height: calc(calc(var(--vh, 1vh) * 100) - 72px - 50px);
 }

@@ -1,13 +1,13 @@
-import { clx } from "site/sdk/clx.ts";
-import ProductCard from "site/components/product/ProductCard.tsx";
-import Icon from "site/components/ui/Icon.tsx";
-import Slider from "site/components/ui/Slider.tsx";
 import { useDevice } from "@deco/deco/hooks";
+import ProductCard from "site/components/product/ProductCard.tsx";
 import {
   FixReviewIssue,
   FixSellerIssue,
   ProductSliderProps,
 } from "site/components/product/ProductSlider.tsx";
+import Icon from "site/components/ui/Icon.tsx";
+import Slider from "site/components/ui/Slider.tsx";
+import { clx } from "site/sdk/clx.ts";
 
 interface Props extends ProductSliderProps {
   id: string;
@@ -44,7 +44,7 @@ function ProductSlider(props: Props) {
             }),
           }}
         />
-        <div class="relative max-w-[calc(100dvw_-_40px)] tablet-large:max-w-[min(46.11dvw,_712px)]">
+        <div class="relative max-w-[calc(100vw_-_40px)] tablet-large:max-w-[min(46.11vw,_712px)]">
           <Slider
             class="carousel"
             style={{
@@ -62,7 +62,7 @@ function ProductSlider(props: Props) {
                 <ProductCard
                   index={index}
                   product={product}
-                  class="tablet-large:max-w-[348px] tablet-large:w-[calc((100dvw_-_144px)_/_4)] w-[calc((100dvw_-_56px)/2)]"
+                  class="tablet-large:max-w-[348px] tablet-large:w-[calc((100vw_-_144px)_/_4)] w-[calc((100vw_-_56px)/2)]"
                   settings={settings}
                   itemListName={viewItemListName}
                 />

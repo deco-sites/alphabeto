@@ -1,7 +1,7 @@
 import { asset, Head } from "$fresh/runtime.ts";
 import { defineApp } from "$fresh/server.ts";
-import { useScript } from "@deco/deco/hooks";
 import { Context } from "@deco/deco";
+import { useScript } from "@deco/deco/hooks";
 const serviceWorkerScript = () =>
   addEventListener(
     "load",
@@ -25,6 +25,26 @@ export default defineApp(async (_req, ctx) => {
         <style
           dangerouslySetInnerHTML={{
             __html: `@view-transition { navigation: auto; }`,
+          }}
+        />
+
+        <script
+          type="module"
+          dangerouslySetInnerHTML={{
+            __html: useScript(() => {
+              function setDynamicHeight() {
+                document.documentElement.style.setProperty(
+                  "--vh",
+                  `${window.innerHeight / 100}px`,
+                );
+              }
+              setDynamicHeight();
+              globalThis.addEventListener("resize", setDynamicHeight);
+              globalThis.addEventListener(
+                "orientationchange",
+                setDynamicHeight,
+              );
+            }),
           }}
         />
 

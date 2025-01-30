@@ -68,7 +68,7 @@ export default function RotativeText({ text }: Props) {
       : { type: "text", text: text, color };
   });
   return (
-    <div class="max-w-[100dvw] overflow-hidden">
+    <div class="max-w-[100vw] overflow-hidden">
       <div class="whitespace-nowrap  no-scrollbar flex gap-12 my-8" id={id}>
         {items.map((item, index) => {
           if (item.type === "icon") {

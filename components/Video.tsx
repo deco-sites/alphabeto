@@ -1,4 +1,5 @@
 import type { JSX } from "preact";
+import { clx } from "site/sdk/clx.ts";
 type Props =
   & JSX.IntrinsicElements["video"]
   & {
@@ -11,7 +12,11 @@ export default function Video({ lozad, ...props }: Props) {
       <>
         <video
           {...props}
-          class="lozad"
+          class={clx(
+            "lozad",
+            props.class?.toString(),
+            props.className?.toString(),
+          )}
           src={undefined}
           data-src={props.src}
         />
