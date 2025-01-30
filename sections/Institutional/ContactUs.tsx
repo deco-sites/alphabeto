@@ -1,10 +1,10 @@
+import { useSection } from "@deco/deco/hooks";
 import { RichText } from "apps/admin/widgets.ts";
+import { AppContext } from "site/apps/deco/vtex.ts";
 import Button from "site/components/ui/Button.tsx";
 import Input, { TextArea } from "site/components/ui/Input.tsx";
 import { COMMON_HTML_TAGS_TO_ALLOW } from "site/constants.ts";
 import { sanitizeHTMLCode } from "site/sdk/htmlSanitizer.ts";
-import { AppContext } from "site/apps/deco/vtex.ts";
-import { useSection } from "@deco/deco/hooks";
 
 /** @titleBy name	*/
 interface Item {
@@ -55,7 +55,7 @@ export async function action(
 
 export default function ContactUs(props: Props) {
   return (
-    <div class="max-w-[667px] w-[calc(100dvw_-_40px)]">
+    <div class="max-w-[667px] w-[calc(100vw_-_40px)]">
       <h1 class="font-beccaPerry text-[32px] leading-[38px] desk:text-[44px] desk:leading-[52px] text-accent mb-5">
         {props.title}
       </h1>

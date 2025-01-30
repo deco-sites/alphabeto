@@ -1,13 +1,13 @@
 import Image from "apps/website/components/Image.tsx";
-import Button from "site/components/ui/Button.tsx";
 import { useMemo } from "preact/hooks";
 import {
   PlataformProps,
   ProductResumeProps,
 } from "site/components/product/ProductBuyTogether/types.ts";
-import { useOffer } from "site/sdk/useOffer.ts";
-import { formatPrice } from "site/sdk/format.ts";
+import Button from "site/components/ui/Button.tsx";
 import { MINICART_DRAWER_ID } from "site/constants.ts";
+import { formatPrice } from "site/sdk/format.ts";
+import { useOffer } from "site/sdk/useOffer.ts";
 
 export default function ProductResume(props: ProductResumeProps) {
   const principalProduct =
@@ -112,7 +112,7 @@ export default function ProductResume(props: ProductResumeProps) {
           </p>
           <div class="border-2 border-[#D6DE23] rounded w-fit">
             <Image
-              class="rounded max-w-[90px] max-h-[134px] w-full h-full aspect-[90/134]"
+              class="rounded max-w-[90px] min-w-[90px] max-h-[134px] w-full h-full aspect-[90/134]"
               width={90}
               height={134}
               src={principalProductImage ?? ""}
@@ -122,7 +122,7 @@ export default function ProductResume(props: ProductResumeProps) {
         {isSugestionOneEnabled && (
           <div class="border-2 border-transparent w-fit">
             <Image
-              class="rounded max-w-[90px] max-h-[134px] w-full h-full mx-1 aspect-[90/134]"
+              class="rounded max-w-[90px] min-w-[90px] max-h-[134px] w-full h-full mx-1 aspect-[90/134]"
               width={90}
               height={134}
               src={sugestionOneImage ?? ""}
@@ -132,7 +132,7 @@ export default function ProductResume(props: ProductResumeProps) {
         {isSugestionTwoEnabled && (
           <div class="border-2 border-transparent w-fit">
             <Image
-              class="rounded max-w-[90px] max-h-[134px] w-full h-full mx-1 aspect-[90/134]"
+              class="rounded max-w-[90px] min-w-[90px] max-h-[134px] w-full h-full mx-1 aspect-[90/134]"
               width={90}
               height={134}
               src={sugestionTwoImage ?? ""}
@@ -150,6 +150,7 @@ export default function ProductResume(props: ProductResumeProps) {
         {formatPrice(totalPrice)}
       </p>
       <Button
+        type="button"
         onClick={addToCart}
         class="h-11 w-[237px] desk:w-full"
       >

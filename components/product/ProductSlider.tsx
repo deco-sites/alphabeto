@@ -1,11 +1,11 @@
+import { useDevice } from "@deco/deco/hooks";
 import { Product, ProductLeaf, Review } from "apps/commerce/types.ts";
-import { clx } from "site/sdk/clx.ts";
+import { ColorItem } from "site/apps/site.ts";
+import ProductCard from "site/components/product/ProductCard.tsx";
 import Icon from "site/components/ui/Icon.tsx";
 import Slider from "site/components/ui/Slider.tsx";
-import ProductCard from "site/components/product/ProductCard.tsx";
+import { clx } from "site/sdk/clx.ts";
 import { useId } from "site/sdk/useId.ts";
-import { useDevice } from "@deco/deco/hooks";
-import { ColorItem } from "site/apps/site.ts";
 
 export interface ProductSliderProps {
   products: Product[] | null;
@@ -140,7 +140,7 @@ function ProductSlider(
                   index={index}
                   product={product}
                   itemListName={viewItemListName}
-                  class="tablet-large:max-w-[348px] tablet-large:w-[calc((100dvw_-_144px)_/_4)] w-[calc((100dvw_-_56px)/2)]"
+                  class="tablet-large:max-w-[348px] tablet-large:w-[calc((100vw_-_144px)_/_4)] w-[calc((100vw_-_56px)/2)]"
                   settings={settings}
                 />
               </Slider.Item>

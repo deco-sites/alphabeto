@@ -21,11 +21,11 @@ import {
 } from "site/components/ui/Button.tsx";
 import Drawer from "site/components/ui/Drawer/index.tsx";
 import Icon from "site/components/ui/Icon.tsx";
+import Section from "site/components/ui/Section.tsx";
 import { clx } from "site/sdk/clx.ts";
 import { useId } from "site/sdk/useId.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
-import Section from "site/components/ui/Section.tsx";
 
 const AGE_FILTER_KEY = "tamanho";
 
@@ -76,7 +76,6 @@ export const loader = (props: Props, req: Request, app: AppContext) => {
   if (query) {
     emptyRedirect = `/searchNotFound?q=${query}`;
   }
-  console.log("URL", req.url);
   return {
     ...props,
     url: req.url,
@@ -140,6 +139,32 @@ function SearchNotFound(props: SectionProps<typeof loader>) {
   );
 }
 
+declare global {
+  interface LozadOptions {
+    rootMargin?: string;
+    threshold?: number | number[];
+    enableAutoReload?: boolean;
+    loaded?: (el: Element) => void;
+  }
+
+  interface LozadObserver {
+    observe(): void;
+    triggerLoad(element: Element): void;
+    observer: IntersectionObserver;
+  }
+
+  function lozad(selector?: string, options?: LozadOptions): LozadObserver;
+
+  interface Window {
+    lozad: typeof lozad;
+  }
+}
+
+function lazyLoad() {
+  const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+  observer.observe();
+}
+
 function PageResult(props: SectionProps<typeof loader>) {
   const { layout, startingPage = 0, url, partial, siteSettings } = props;
   const page = props.page!;
@@ -194,8 +219,9 @@ function PageResult(props: SectionProps<typeof loader>) {
             product={product}
             preload={index === 0}
             index={offset + index}
-            class="h-full desk:w-[calc((100dvw_-_456px)/3)] max-w-[355px]"
+            class="h-full desk:w-[calc((100vw_-_456px)/3)] max-w-[355px]"
             settings={siteSettings}
+            lozad
           />
         ))}
       </div>
@@ -367,6 +393,12 @@ function Result(props: SectionProps<typeof loader>) {
             </div>
           )}
       </div>
+      <script
+        type="module"
+        dangerouslySetInnerHTML={{
+          __html: useScript(lazyLoad),
+        }}
+      />
 
       <script
         type="module"

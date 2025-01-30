@@ -38,7 +38,7 @@ function CartItem({ item, index, locale, currency }: Props) {
         style={{ aspectRatio: "72 / 102" }}
         width={144}
         height={204}
-        class="h-full object-contain max-w-[72px]"
+        class="h-full object-contain max-w-[72px] max-h-[102px]"
       />
 
       {/* Info */}

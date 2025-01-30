@@ -1,7 +1,7 @@
 import { asset, Head } from "$fresh/runtime.ts";
 import { defineApp } from "$fresh/server.ts";
-import { useScript } from "@deco/deco/hooks";
 import { Context } from "@deco/deco";
+import { useScript } from "@deco/deco/hooks";
 const serviceWorkerScript = () =>
   addEventListener(
     "load",
@@ -28,6 +28,26 @@ export default defineApp(async (_req, ctx) => {
           }}
         />
 
+        <script
+          type="module"
+          dangerouslySetInnerHTML={{
+            __html: useScript(() => {
+              function setDynamicHeight() {
+                document.documentElement.style.setProperty(
+                  "--vh",
+                  `${window.innerHeight / 100}px`,
+                );
+              }
+              setDynamicHeight();
+              globalThis.addEventListener("resize", setDynamicHeight);
+              globalThis.addEventListener(
+                "orientationchange",
+                setDynamicHeight,
+              );
+            }),
+          }}
+        />
+
         {/* Tailwind v3 CSS file */}
         <link
           href={asset(`/styles.css?revision=${revision}`)}
@@ -36,42 +56,6 @@ export default defineApp(async (_req, ctx) => {
 
         {/* Web Manifest */}
         <link rel="manifest" href={asset("/site.webmanifest")} />
-
-        <link
-          rel="preload"
-          type="text/css"
-          href={asset("/fonts/BeccaPerry.ttf")}
-        />
-
-        <link
-          rel="preload"
-          type="text/css"
-          href={asset("/fonts/BeccaPerry.ttf")}
-        />
-
-        <link
-          rel="preload"
-          type="text/css"
-          href={asset("/fonts/Quicksand-Regular.woff")}
-        />
-
-        <link
-          rel="preload"
-          type="text/css"
-          href={asset("/fonts/Quicksand-Medium.woff")}
-        />
-
-        <link
-          rel="preload"
-          type="text/css"
-          href={asset("/fonts/Quicksand-SemiBold.woff")}
-        />
-
-        <link
-          rel="preload"
-          type="text/css"
-          href={asset("/fonts/Quicksand-Bold.woff")}
-        />
 
         <style
           type="text/css"
@@ -127,6 +111,11 @@ export default defineApp(async (_req, ctx) => {
             `,
           }}
         />
+        <script
+          type="text/javascript"
+          src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"
+        >
+        </script>
       </Head>
 
       {/* Rest of Preact tree */}

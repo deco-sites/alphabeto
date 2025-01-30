@@ -69,7 +69,7 @@ export default function GiftShelf({
           {description}
         </p>
       </span>
-      <div class="tablet-large:grid grid-cols-[1fr_min(46.11dvw,_712px)] flex flex-col gap-4 mt-10">
+      <div class="tablet-large:grid grid-cols-[1fr_min(46.11vw,_712px)] flex flex-col gap-4 mt-10">
         <Picture>
           <Source
             media="(max-width: 767px)"

@@ -5,6 +5,7 @@ import { ColorItem } from "site/apps/site.ts";
 import ProductRating from "site/components/product/ProductRating.tsx";
 import ProductShelfColors from "site/components/product/ProductShelfColors.tsx";
 import QuickView from "site/components/product/Quickview/QuickView.tsx";
+import Video from "site/components/Video.tsx";
 import VTEXImageTag from "site/components/VTEXImageTag.tsx";
 import WishlistButton from "site/components/wishlist/WishlistButton.tsx";
 import { clx } from "site/sdk/clx.ts";
@@ -31,6 +32,7 @@ interface Props {
     colors: ColorItem[];
     cashbackPercentage: number;
   };
+  lozad?: boolean;
 }
 
 const DESKTOP_WIDTH = 500;
@@ -38,6 +40,8 @@ const DESKTOP_HEIGHT = 692;
 
 const MOBILE_WIDTH = 500;
 const MOBILE_HEIGHT = 692;
+const ENABLE_VIDEO_ON_SHELF = false;
+const ENABLE_QUICKVIEW = true;
 
 function ProductCard({
   product,
@@ -46,6 +50,7 @@ function ProductCard({
   index,
   class: _class,
   settings,
+  lozad,
 }: Props) {
   const { url, image: images, offers, isVariantOf } = product;
   const title = isVariantOf?.name ?? product.name;
@@ -88,7 +93,6 @@ function ProductCard({
       },
     },
   });
-  const ENABLE_VIDEO_ON_SHELF = false;
 
   //Added it to check the variant name in the SKU Selector later, so it doesn't render the SKU to "shoes size" in the Product Card
   const hasListPrice = listPrice && listPrice > (price ?? 0);
@@ -107,7 +111,7 @@ function ProductCard({
         class={clx(
           "relative",
           "rounded-xl",
-          "tablet-large:aspect-[328/466] aspect-[160/260]",
+          "shelf-image-aspect",
         )}
       >
         <a
@@ -122,7 +126,7 @@ function ProductCard({
           {/* Video or Image */}
           {video && ENABLE_VIDEO_ON_SHELF
             ? (
-              <video
+              <Video
                 src={video}
                 class="object-cover rounded w-full col-span-full row-span-full"
                 controls={false}
@@ -130,6 +134,7 @@ function ProductCard({
                 autoplay
                 muted
                 playsinline
+                lozad={lozad}
               />
             )
             : (
@@ -142,13 +147,13 @@ function ProductCard({
                   "object-cover",
                   "rounded w-full",
                   "col-span-full row-span-full",
-                  "aspect-[160/260]",
-                  "tablet-large:aspect-[328/466]",
+                  "shelf-image-aspect",
                 )}
                 sizes="(max-width: 640px) 50vw, 20vw"
                 preload={preload}
                 loading={preload ? "eager" : "lazy"}
                 decoding="async"
+                lozad={lozad}
               />
             )}
         </a>
@@ -220,7 +225,7 @@ function ProductCard({
 
       {/* SKU Selector */}
       <ProductShelfColors product={product} colors={settings.colors} />
-      {inStock
+      {inStock && ENABLE_QUICKVIEW
         ? (
           <QuickView
             product={product}

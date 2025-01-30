@@ -56,7 +56,6 @@ function getFilterValues(
           const urlAO = new URL(urlA, url);
           const urlBO = new URL(urlB, url);
           const sizeA = urlAO.searchParams.get("filter.tamanho");
-          console.log(urlA, urlB);
           if (selected) {
             const sizeB = urlBO.searchParams.get("filter.tamanho");
             urlBO.searchParams.delete("filter.tamanho", sizeA ?? "");

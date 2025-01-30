@@ -16,23 +16,23 @@ export interface ThemeColors {
    */
   "base-100"?: string;
   /** @format color-input */
-  "primary"?: string;
+  primary?: string;
   /** @format color-input */
-  "secondary"?: string;
+  secondary?: string;
   /**
    * @title Accent
    * @format color-input */
-  "tertiary"?: string;
+  tertiary?: string;
   /** @format color-input */
-  "neutral"?: string;
+  neutral?: string;
   /** @format color-input */
-  "success"?: string;
+  success?: string;
   /** @format color-input */
-  "warning"?: string;
+  warning?: string;
   /** @format color-input */
-  "error"?: string;
+  error?: string;
   /** @format color-input */
-  "info"?: string;
+  info?: string;
 }
 
 export interface ComplementaryColors {
@@ -40,8 +40,6 @@ export interface ComplementaryColors {
   "base-200"?: string;
   /** @format color-input */
   "base-300"?: string;
-  /** @format color-input */
-  "base-400"?: string;
   /** @format color-input */
   "base-content"?: string;
   /** @format color-input */
@@ -140,17 +138,11 @@ export interface Props {
   mode?: "dark" | "light";
 }
 
-type Theme =
-  & ThemeColors
-  & ComplementaryColors
-  & Button
-  & Miscellaneous;
+type Theme = ThemeColors & ComplementaryColors & Button & Miscellaneous;
 
-const darken = (color: string, percentage: number) =>
-  new Color(color).darken(percentage);
+const darken = (color: string, percentage: number) => new Color(color).darken(percentage);
 
-const isDark = (c: Color) =>
-  c.contrast("black", "WCAG21") < c.contrast("white", "WCAG21");
+const isDark = (c: Color) => c.contrast("black", "WCAG21") < c.contrast("white", "WCAG21");
 
 const contrasted = (color: string, percentage = 0.8) => {
   const c = new Color(color);
@@ -158,9 +150,7 @@ const contrasted = (color: string, percentage = 0.8) => {
   return isDark(c) ? c.mix("white", percentage) : c.mix("black", percentage);
 };
 
-const toVariables = (
-  t: Theme & Required<ThemeColors>,
-): [string, string][] => {
+const toVariables = (t: Theme & Required<ThemeColors>): [string, string][] => {
   const toValue = (color: string | ReturnType<typeof darken>) => {
     const [l, c, h] = new Color(color).oklch;
 
@@ -198,6 +188,29 @@ const toVariables = (
     "--inc": t["info-content"] ?? contrasted(t["info"]),
   }).map(([key, color]) => [key, toValue(color)] as [string, string]);
 
+  const fallbackVariables = Object.entries({
+    "--fallback-p": t["primary"],
+    "--fallback-pc": t["primary-content"],
+    "--fallback-s": t["secondary"],
+    "--fallback-sc": t["secondary-content"],
+    "--fallback-a": t["tertiary"],
+    "--fallback-ac": t["tertiary-content"],
+    "--fallback-n": t["neutral"],
+    "--fallback-nc": t["neutral-content"],
+    "--fallback-b1": t["base-100"],
+    "--fallback-b2": t["base-200"],
+    "--fallback-b3": t["base-300"],
+    "--fallback-bc": t["base-content"],
+    "--fallback-in": t["info"],
+    "--fallback-inc": t["info-content"],
+    "--fallback-su": t["success"],
+    "--fallback-suc": t["success-content"],
+    "--fallback-wa": t["warning"],
+    "--fallback-wac": t["warning-content"],
+    "--fallback-er": t["error"],
+    "--fallback-erc": t["error-content"],
+  }).filter((entries): entries is [string, string] => !!entries[1]);
+
   const miscellaneousVariables = Object.entries({
     "--rounded-box": t["--rounded-box"],
     "--rounded-btn": t["--rounded-btn"],
@@ -210,19 +223,19 @@ const toVariables = (
     "--tab-radius": t["--tab-radius"],
   });
 
-  return [...colorVariables, ...miscellaneousVariables];
+  return [...colorVariables, ...fallbackVariables, ...miscellaneousVariables];
 };
 
 const defaultTheme = {
-  "primary": "oklch(1 0 0)",
-  "secondary": "oklch(1 0 0)",
-  "tertiary": "oklch(1 0 0)",
-  "neutral": "oklch(1 0 0)",
+  primary: "oklch(1 0 0)",
+  secondary: "oklch(1 0 0)",
+  tertiary: "oklch(1 0 0)",
+  neutral: "oklch(1 0 0)",
   "base-100": "oklch(1 0 0)",
-  "info": "oklch(1 0 0)",
-  "success": "oklch(0.9054 0.1546 194.7689)",
-  "warning": "oklch(1 0 0)",
-  "error": "oklch(1 0 0)",
+  info: "oklch(1 0 0)",
+  success: "oklch(0.9054 0.1546 194.7689)",
+  warning: "oklch(1 0 0)",
+  error: "oklch(1 0 0)",
 
   "--rounded-box": "1rem", // border radius rounded-box utility class, used in card and other large boxes
   "--rounded-btn": "0.2rem" as const, // border radius rounded-btn utility class, used in buttons and similar element
@@ -244,14 +257,7 @@ const defaultTheme = {
  *   --color-secondary: "#161616"
  * }
  */
-function Section({
-  mainColors,
-  complementaryColors,
-  buttonStyle,
-  otherStyles,
-  font,
-  colorScheme,
-}: Props) {
+function Section({ mainColors, complementaryColors, buttonStyle, otherStyles, font, colorScheme }: Props) {
   const theme = {
     ...defaultTheme,
     ...complementaryColors,
@@ -260,35 +266,19 @@ function Section({
     ...otherStyles,
   };
 
-  const variables = [
-    ...toVariables(theme),
-    [
-      "--font-family",
-      font?.family ||
-      "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
-    ],
-  ]
-    .map(([name, value]) => ({ name, value }));
+  const variables = [...toVariables(theme), ["--font-family", font?.family || "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif"]].map(([name, value]) => ({ name, value }));
 
-  return (
-    <SiteTheme
-      fonts={font ? [font] : undefined}
-      variables={variables}
-      colorScheme={colorScheme === "any" ? undefined : colorScheme}
-    />
-  );
+  return <SiteTheme fonts={font ? [font] : undefined} variables={variables} colorScheme={colorScheme === "any" ? undefined : colorScheme} />;
 }
 
 export function Preview(props: Props) {
   const adminColorMode = props.mode === "dark" ? "dark" : "light";
   return (
     <>
-      {
-        /* This stylesheet is used to simulate the colors from the admin's color schema (admin's light or dark mode), which are not accessible in the site's color schema.
-        * This is a temporary solution until the admin's color schema is accessible.
-        * TODO(@carol): Change this temporary solution.
-       */
-      }
+      {/* This stylesheet is used to simulate the colors from the admin's color schema (admin's light or dark mode), which are not accessible in the site's color schema.
+       * This is a temporary solution until the admin's color schema is accessible.
+       * TODO(@carol): Change this temporary solution.
+       */}
       <style>
         {`
           :root {
@@ -367,41 +357,21 @@ export function Preview(props: Props) {
       <div class={`flex flex-col gap-4 text-base w-full ${adminColorMode}`}>
         <div>Components and styles</div>
         <div class="flex flex-col w-full gap-2">
-          <PreviewContainer
-            title="Text colors"
-            mode={adminColorMode}
-            codeString={snippets.textColors}
-          >
+          <PreviewContainer title="Text colors" mode={adminColorMode} codeString={snippets.textColors}>
             <TextColorsPreview />
           </PreviewContainer>
-          <PreviewContainer
-            title="Button styles"
-            mode={adminColorMode}
-            codeString={snippets.buttonStyles}
-          >
+          <PreviewContainer title="Button styles" mode={adminColorMode} codeString={snippets.buttonStyles}>
             <ButtonStylesPreview />
           </PreviewContainer>
-          <PreviewContainer
-            title="Button colors"
-            mode={adminColorMode}
-            codeString={snippets.buttonColors}
-          >
+          <PreviewContainer title="Button colors" mode={adminColorMode} codeString={snippets.buttonColors}>
             <ButtonColorsPreview />
           </PreviewContainer>
-          <PreviewContainer
-            title="Button sizes"
-            mode={adminColorMode}
-            codeString={snippets.buttonSizes}
-          >
+          <PreviewContainer title="Button sizes" mode={adminColorMode} codeString={snippets.buttonSizes}>
             <ButtonSizesPreview />
           </PreviewContainer>
         </div>
       </div>
-      {props.font?.family && (
-        <div class="text-center py-2">
-          Font: {props.font.family}
-        </div>
-      )}
+      {props.font?.family && <div class="text-center py-2">Font: {props.font.family}</div>}
     </>
   );
 }
@@ -419,48 +389,27 @@ const ButtonSizesPreview = () => {
   const renderButtonRow = (style: string) => (
     <div class="flex flex-row gap-2 items-center">
       {Object.entries(buttonSizes).map(([sizeCode, sizeText]) => (
-        <button
-          class={`btn capitalize btn-${sizeCode} ${
-            style ? `btn-${style}` : ""
-          }`}
-        >
-          {sizeText}
-        </button>
+        <button class={`btn capitalize btn-${sizeCode} ${style ? `btn-${style}` : ""}`}>{sizeText}</button>
       ))}
     </div>
   );
 
-  return (
-    <div class="bg-base-100 overflow-x-auto rounded-lg flex flex-col p-2 gap-2">
-      {buttonStyles.map((style) => renderButtonRow(style))}
-    </div>
-  );
+  return <div class="bg-base-100 overflow-x-auto rounded-lg flex flex-col p-2 gap-2">{buttonStyles.map((style) => renderButtonRow(style))}</div>;
 };
 
 const ButtonColorsPreview = () => {
   const buttonTypesClasses = ["btn", "btn-outline", "btn-ghost", "btn-link"];
-  const buttonColorsClasses = [
-    "",
-    "btn-primary",
-    "btn-secondary",
-    "btn-accent",
-  ];
+  const buttonColorsClasses = ["", "btn-primary", "btn-secondary", "btn-accent"];
 
   const renderButtonRow = (type: string) => (
     <div class="flex flex-row gap-2">
       {buttonColorsClasses.map((color) => (
-        <button class={`btn btn-xs md:btn-sm capitalize ${color} ${type}`}>
-          {color ? color.split("-")[1] : "Button"}
-        </button>
+        <button class={`btn btn-xs md:btn-sm capitalize ${color} ${type}`}>{color ? color.split("-")[1] : "Button"}</button>
       ))}
     </div>
   );
 
-  return (
-    <div class="bg-base-100 overflow-x-auto rounded-lg flex flex-col p-2 gap-2">
-      {buttonTypesClasses.map((type) => renderButtonRow(type))}
-    </div>
-  );
+  return <div class="bg-base-100 overflow-x-auto rounded-lg flex flex-col p-2 gap-2">{buttonTypesClasses.map((type) => renderButtonRow(type))}</div>;
 };
 
 const ButtonStylesPreview = () => {
@@ -469,47 +418,27 @@ const ButtonStylesPreview = () => {
   return (
     <div class="bg-base-100 overflow-x-auto rounded-lg flex flex-row p-2 gap-2">
       {buttonStylesClasses.map((style) => (
-        <button class={`btn btn-xs md:btn-sm capitalize ${style}`}>
-          {style ? style.split("-")[1] : "Button"}
-        </button>
+        <button class={`btn btn-xs md:btn-sm capitalize ${style}`}>{style ? style.split("-")[1] : "Button"}</button>
       ))}
     </div>
   );
 };
 
 const TextColorsPreview = () => {
-  const textColorsClasses = [
-    "",
-    "text-primary",
-    "text-secondary",
-    "text-accent",
-  ];
+  const textColorsClasses = ["", "text-primary", "text-secondary", "text-accent"];
 
   return (
     <div class="bg-base-100 overflow-x-auto rounded-lg flex flex-row p-2 gap-2 text-sm md:text-base">
       {textColorsClasses.map((color) => (
-        <div class={`${color} capitalize`}>
-          {color ? color.split("-")[1] : "Content"}
-        </div>
+        <div class={`${color} capitalize`}>{color ? color.split("-")[1] : "Content"}</div>
       ))}
     </div>
   );
 };
 
-const PreviewContainer = (
-  { mode, title, children, codeString }: {
-    mode: string;
-    title: string;
-    children: ComponentChildren;
-    codeString: string;
-  },
-) => {
-  const borderClass = mode === "dark"
-    ? "border-color-dark"
-    : "border-color-light";
-  const btnOutlineClass = mode === "dark"
-    ? "btn-outline-dark"
-    : "btn-outline-light";
+const PreviewContainer = ({ mode, title, children, codeString }: { mode: string; title: string; children: ComponentChildren; codeString: string }) => {
+  const borderClass = mode === "dark" ? "border-color-dark" : "border-color-light";
+  const btnOutlineClass = mode === "dark" ? "btn-outline-dark" : "btn-outline-light";
   const checkboxId = `show-code-${title.replace(/\s+/g, "-").toLowerCase()}`;
   const codeBlockId = `code-block-${title.replace(/\s+/g, "-").toLowerCase()}`;
 
@@ -528,62 +457,28 @@ const PreviewContainer = (
       display: none;
     }
     #${checkboxId}:checked ~ .hide-label {
-      background-color: ${
-    mode === "dark"
-      ? "var(--admin-hover-bg-color)"
-      : "var(--admin-text-color-light)"
-  };
-      color: ${
-    mode === "dark"
-      ? "var(--admin-text-color-light)"
-      : "var(--admin-hover-bg-color)"
-  };
+      background-color: ${mode === "dark" ? "var(--admin-hover-bg-color)" : "var(--admin-text-color-light)"};
+      color: ${mode === "dark" ? "var(--admin-text-color-light)" : "var(--admin-hover-bg-color)"};
     }
   `;
 
   return (
     <>
       <style>{dynamicStyle}</style>
-      <div
-        class={clx(
-          `border p-4 flex flex-col gap-2 grow relative`,
-          borderClass,
-          `rounded-lg`,
-        )}
-      >
+      <div class={clx(`border p-4 flex flex-col gap-2 grow relative`, borderClass, `rounded-lg`)}>
         <div>
           <div class="my-1">{title}</div>
           <div>
             <input type="checkbox" id={checkboxId} class="sr-only" />
             {/* Label for "Show code" */}
-            <label
-              htmlFor={checkboxId}
-              class={clx(
-                `btn-sm absolute right-4 top-4`,
-                btnOutlineClass,
-                `show-label`,
-              )}
-            >
+            <label htmlFor={checkboxId} class={clx(`btn-sm absolute right-4 top-4`, btnOutlineClass, `show-label`)}>
               Show code
             </label>
             {/* Label for "Hide code" */}
-            <label
-              htmlFor={checkboxId}
-              class={clx(
-                `btn-sm absolute right-4 top-4`,
-                btnOutlineClass,
-                `hide-label`,
-              )}
-            >
+            <label htmlFor={checkboxId} class={clx(`btn-sm absolute right-4 top-4`, btnOutlineClass, `hide-label`)}>
               Hide code
             </label>
-            <div
-              id={codeBlockId}
-              class={clx(
-                "mt-4 mb-2 text-xs md:text-sm",
-                mode === "dark" ? "bg-slate-800" : "bg-slate-100",
-              )}
-            >
+            <div id={codeBlockId} class={clx("mt-4 mb-2 text-xs md:text-sm", mode === "dark" ? "bg-slate-800" : "bg-slate-100")}>
               <pre class="p-4 overflow-x-auto">{codeString}</pre>
             </div>
           </div>

@@ -66,9 +66,9 @@ export default function InteractiveBannerProduct({
   const styles = {
     "--positionX": `${finalXPosition}%`,
     "--positionY": `${finalYPosition}%`,
-    "--mobileImageSize": `calc(100dvw	- 40px)`,
+    "--mobileImageSize": `calc(100vw	- 40px)`,
     "--mobileImageLeftCompensation":
-      `calc((((100dvw - 40px) * ${finalXPosition}) / 100))`,
+      `calc((((100vw - 40px) * ${finalXPosition}) / 100))`,
   };
 
   return (

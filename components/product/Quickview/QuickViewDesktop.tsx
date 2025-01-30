@@ -96,7 +96,7 @@ function QuickViewDesktop({ product, settings, cardId }: QuickViewProps) {
         <Button
           id="quickviewToogleButton"
           class={clx(
-            "hidden group-hover:block absolute w-[calc(100%_-_28px)] mx-auto top-[min(27dvw,_428px)]",
+            "hidden group-hover:block absolute w-[calc(100%_-_28px)] mx-auto top-[min(27vw,_428px)]",
             "h-11 min-h-11",
           )}
           type="button"
