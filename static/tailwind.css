@@ -4056,6 +4056,9 @@ details.collapse summary::-webkit-details-marker {
 .right-\[14px\] {
   right: 14px;
 }
+.right-\[15px\] {
+  right: 15px;
+}
 .right-\[16px\] {
   right: 16px;
 }
@@ -4107,6 +4110,9 @@ details.collapse summary::-webkit-details-marker {
 .top-\[-30px\] {
   top: -30px;
 }
+.top-\[100px\] {
+  top: 100px;
+}
 .top-\[120px\] {
   top: 120px;
 }
@@ -4118,6 +4124,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .top-\[15\%\] {
   top: 15%;
+}
+.top-\[15px\] {
+  top: 15px;
 }
 .top-\[16px\] {
   top: 16px;
@@ -5059,6 +5068,9 @@ details.collapse summary::-webkit-details-marker {
 .w-\[50\%\] {
   width: 50%;
 }
+.w-\[50px\] {
+  width: 50px;
+}
 .w-\[522px\] {
   width: 522px;
 }
@@ -5469,6 +5481,10 @@ details.collapse summary::-webkit-details-marker {
   --tw-rotate: 45deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+.rotate-\[180deg\] {
+  --tw-rotate: 180deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
 .rotate-\[30deg\] {
   --tw-rotate: 30deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -5755,9 +5771,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .overflow-y-auto {
   overflow-y: auto;
-}
-.overflow-x-scroll {
-  overflow-x: scroll;
 }
 .truncate {
   overflow: hidden;
@@ -6079,6 +6092,10 @@ details.collapse summary::-webkit-details-marker {
 .bg-\[\#F6F6F6\] {
   --tw-bg-opacity: 1;
   background-color: rgb(246 246 246 / var(--tw-bg-opacity));
+}
+.bg-\[\#F7E0BF\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(247 224 191 / var(--tw-bg-opacity));
 }
 .bg-\[\#F7F7F7\] {
   --tw-bg-opacity: 1;
@@ -7055,6 +7072,11 @@ details.collapse summary::-webkit-details-marker {
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.shadow-\[0_0_4px_1px_rgba\(0\2c 0\2c 0\2c 0\.5\)\] {
+  --tw-shadow: 0 0 4px 1px rgba(0,0,0,0.5);
+  --tw-shadow-colored: 0 0 4px 1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
 .shadow-\[0px_0px_14\.69px_0px_rgba\(67\2c 67\2c 67\2c 0\.25\)\] {
   --tw-shadow: 0px 0px 14.69px 0px rgba(67,67,67,0.25);
   --tw-shadow-colored: 0px 0px 14.69px 0px var(--tw-shadow-color);
@@ -7936,6 +7958,14 @@ details.collapse summary::-webkit-details-marker {
     bottom: 30px;
   }
 
+  .mobile\:bottom-\[50px\] {
+    bottom: 50px;
+  }
+
+  .mobile\:left-0 {
+    left: 0px;
+  }
+
   .mobile\:left-\[-80px\] {
     left: -80px;
   }
@@ -7956,6 +7986,10 @@ details.collapse summary::-webkit-details-marker {
     right: 0px;
   }
 
+  .mobile\:top-0 {
+    top: 0px;
+  }
+
   .mobile\:top-\[199px\] {
     top: 199px;
   }
@@ -7970,6 +8004,10 @@ details.collapse summary::-webkit-details-marker {
 
   .mobile\:top-\[60px\] {
     top: 60px;
+  }
+
+  .mobile\:top-\[925px\] {
+    top: 925px;
   }
 
   .mobile\:mx-\[8\.5px\] {
@@ -7997,8 +8035,16 @@ details.collapse summary::-webkit-details-marker {
     margin-bottom: 85px;
   }
 
+  .mobile\:mb-\[120px\] {
+    margin-bottom: 120px;
+  }
+
   .mobile\:mb-\[14px\] {
     margin-bottom: 14px;
+  }
+
+  .mobile\:mb-\[20px\] {
+    margin-bottom: 20px;
   }
 
   .mobile\:mb-\[40px\] {
@@ -8069,8 +8115,16 @@ details.collapse summary::-webkit-details-marker {
     height: 100%;
   }
 
+  .mobile\:h-\[149px\] {
+    height: 149px;
+  }
+
   .mobile\:h-\[153px\] {
     height: 153px;
+  }
+
+  .mobile\:h-\[158px\] {
+    height: 158px;
   }
 
   .mobile\:h-\[199px\] {
@@ -8079,6 +8133,10 @@ details.collapse summary::-webkit-details-marker {
 
   .mobile\:h-\[230px\] {
     height: 230px;
+  }
+
+  .mobile\:h-\[232px\] {
+    height: 232px;
   }
 
   .mobile\:h-\[238px\] {
@@ -8107,6 +8165,14 @@ details.collapse summary::-webkit-details-marker {
 
   .mobile\:h-\[449px\] {
     height: 449px;
+  }
+
+  .mobile\:h-\[450px\] {
+    height: 450px;
+  }
+
+  .mobile\:h-\[520px\] {
+    height: 520px;
   }
 
   .mobile\:h-\[850px\] {
@@ -8161,6 +8227,10 @@ details.collapse summary::-webkit-details-marker {
     width: 375px;
   }
 
+  .mobile\:w-\[97px\] {
+    width: 97px;
+  }
+
   .mobile\:w-full {
     width: 100%;
   }
@@ -8175,6 +8245,10 @@ details.collapse summary::-webkit-details-marker {
 
   .mobile\:max-w-\[122px\] {
     max-width: 122px;
+  }
+
+  .mobile\:max-w-\[140px\] {
+    max-width: 140px;
   }
 
   .mobile\:max-w-\[201px\] {
@@ -8261,6 +8335,10 @@ details.collapse summary::-webkit-details-marker {
     gap: 2rem;
   }
 
+  .mobile\:overflow-scroll {
+    overflow: scroll;
+  }
+
   .mobile\:overflow-x-hidden {
     overflow-x: hidden;
   }
@@ -8277,6 +8355,10 @@ details.collapse summary::-webkit-details-marker {
   .mobile\:rounded-r-lg {
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
+  }
+
+  .mobile\:bg-transparent {
+    background-color: transparent;
   }
 
   .mobile\:bg-white {
@@ -8316,6 +8398,16 @@ details.collapse summary::-webkit-details-marker {
     padding-right: 1.25rem;
   }
 
+  .mobile\:px-\[30px\] {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .mobile\:py-\[15px\] {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
   .mobile\:pr-0 {
     padding-right: 0px;
   }
@@ -8340,12 +8432,20 @@ details.collapse summary::-webkit-details-marker {
     font-size: 16px;
   }
 
+  .mobile\:text-\[18px\] {
+    font-size: 18px;
+  }
+
   .mobile\:text-\[22px\] {
     font-size: 22px;
   }
 
   .mobile\:text-\[250px\] {
     font-size: 250px;
+  }
+
+  .mobile\:text-\[25px\] {
+    font-size: 25px;
   }
 
   .mobile\:text-\[28px\] {
@@ -8399,6 +8499,12 @@ details.collapse summary::-webkit-details-marker {
 
   .mobile\:leading-\[38px\] {
     line-height: 38px;
+  }
+
+  .mobile\:shadow-none {
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
   .mobile\:container {
     max-width: 95rem;

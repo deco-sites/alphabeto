@@ -436,5 +436,26 @@
     <path d="M25.5605 28.929L33.1232 30.8873C33.3627 30.9494 33.6133 30.9546 33.8551 30.9029C34.097 30.8511 34.3235 30.7437 34.5167 30.5892C34.7098 30.4347 34.8642 30.2373 34.9679 30.0127C35.0715 29.7881 35.1214 29.5424 35.1134 29.2952V22.3216C35.1214 22.0744 35.0715 21.8287 34.9679 21.6041C34.8642 21.3795 34.7098 21.1821 34.5167 21.0276C34.3235 20.8731 34.097 20.7657 33.8551 20.714C33.6133 20.6622 33.3627 20.6675 33.1232 20.7295L25.5605 22.7515" stroke="#D6DE23" stroke-width="1.71" stroke-linecap="round" stroke-linejoin="round"/>
   </symbol>    
     
+  <symbol id="turn-doll" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_287_28455)">
+    <path d="M1.33203 3.3335V8.3335H6.33203" stroke="#FF8300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M3.4237 12.5C3.96403 14.0337 4.98814 15.3502 6.34174 16.2512C7.69535 17.1522 9.3051 17.5889 10.9285 17.4954C12.5518 17.402 14.1008 16.7835 15.3421 15.7332C16.5834 14.6828 17.4497 13.2575 17.8105 11.672C18.1714 10.0865 18.0071 8.42667 17.3426 6.94262C16.678 5.45857 15.5491 4.2307 14.1261 3.44401C12.703 2.65732 11.0628 2.35442 9.4526 2.58097C7.84241 2.80751 6.34946 3.55122 5.1987 4.70004L1.33203 8.33337" stroke="#FF8300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <defs>
+    <clipPath id="clip0_287_28455">
+    <rect width="20" height="20" fill="white" transform="translate(0.5)"/>
+    </clipPath>
+    </defs>
+  </symbol>
+
+  <symbol id="delete-doll" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.5 5L5.5 15" stroke="#676767" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M5.5 5L15.5 15" stroke="#676767" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+
+  <symbol id="simple-arrow-right" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.5 15L12.5 10L7.5 5" stroke="#FF8300" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+    
     
 </svg>

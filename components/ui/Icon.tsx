@@ -80,7 +80,10 @@ export type AvailableIcons =
   | "minime-step-3"
   | "clock"
   | "product_description_mini-me"
-  | "composition";
+  | "composition"
+  | "turn-doll"
+  | "delete-doll"
+  | "simple-arrow-right";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**
