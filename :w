@@ -1,9 +1,0 @@
-
-import type { JSX } from "preact";
-type Props =
- JSX.IntrinsicElements["img"]:
-  
-  & {
-	 lozad?: boolean;
-	}
-}
