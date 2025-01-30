@@ -40,7 +40,7 @@ const DESKTOP_HEIGHT = 692;
 
 const MOBILE_WIDTH = 500;
 const MOBILE_HEIGHT = 692;
-const ENABLE_VIDEO_ON_SHELF = true;
+const ENABLE_VIDEO_ON_SHELF = false;
 const ENABLE_QUICKVIEW = true;
 
 function ProductCard({

@@ -42,7 +42,7 @@ export default function ProductCard(props: ProductCardProps) {
       };
       target.classList.remove("htmx-request");
     },
-    [props.mode, props.newProductLoaderData],
+    [props],
   );
 
   return (

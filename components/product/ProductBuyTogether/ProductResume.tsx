@@ -63,7 +63,6 @@ export default function ProductResume(props: ProductResumeProps) {
   }, [isSugestionOneEnabled, isSugestionTwoEnabled]);
 
   const addToCart = () => {
-    alert("Adicionando ao carrinho");
     const plataformProps: PlataformProps = {
       allowedOutdatedData: ["paymentData"],
       orderItems: [{
@@ -86,8 +85,6 @@ export default function ProductResume(props: ProductResumeProps) {
         id: sugestionTwo.sku ?? "1",
       });
     }
-    console.log("PlataformProps", plataformProps);
-    alert("Adicionando ao carrinho 2");
     window.STOREFRONT.CART.addToCart({
       item_id: principalProduct.sku ?? "1",
       listPrice: principalProductPrice ?? 0,
@@ -98,7 +95,6 @@ export default function ProductResume(props: ProductResumeProps) {
       quantity: 1,
       item_variant: principalProduct.sku ?? "",
     }, plataformProps);
-    alert("Adicionando ao carrinho 3");
     document
       .querySelector<HTMLInputElement>(`input#${MINICART_DRAWER_ID}`)
       ?.click();

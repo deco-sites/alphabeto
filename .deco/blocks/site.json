@@ -93,6 +93,9 @@
       "includeScriptsToHead": {
         "includes": [
           {
+            "__resolveType": "site/loaders/clientNavigation.ts"
+          },
+          {
             "__resolveType": "analytics/loaders/DecoAnalyticsScript.ts"
           }
         ]
@@ -129,6 +132,9 @@
       "includes": [
         {
           "__resolveType": "analytics/loaders/DecoAnalyticsScript.ts"
+        },
+        {
+          "__resolveType": "site/loaders/clientNavigation.ts"
         }
       ]
     },
@@ -139,7 +145,7 @@
     "matcher": {
       "__resolveType": "Teste AB 2"
     },
-    "enabled": false,
+    "enabled": true,
     "urlToRunAgainst": "https://secure.alphabeto.com"
   },
   "flavor": {

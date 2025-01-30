@@ -57,42 +57,6 @@ export default defineApp(async (_req, ctx) => {
         {/* Web Manifest */}
         <link rel="manifest" href={asset("/site.webmanifest")} />
 
-        <link
-          rel="preload"
-          type="text/css"
-          href={asset("/fonts/BeccaPerry.ttf")}
-        />
-
-        <link
-          rel="preload"
-          type="text/css"
-          href={asset("/fonts/BeccaPerry.ttf")}
-        />
-
-        <link
-          rel="preload"
-          type="text/css"
-          href={asset("/fonts/Quicksand-Regular.woff")}
-        />
-
-        <link
-          rel="preload"
-          type="text/css"
-          href={asset("/fonts/Quicksand-Medium.woff")}
-        />
-
-        <link
-          rel="preload"
-          type="text/css"
-          href={asset("/fonts/Quicksand-SemiBold.woff")}
-        />
-
-        <link
-          rel="preload"
-          type="text/css"
-          href={asset("/fonts/Quicksand-Bold.woff")}
-        />
-
         <style
           type="text/css"
           dangerouslySetInnerHTML={{
