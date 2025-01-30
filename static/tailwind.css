@@ -7011,6 +7011,16 @@ details.collapse summary::-webkit-details-marker {
   display: block;
 }
 
+.shelf-image-aspect {
+  aspect-ratio: 16 / 29;
+}
+
+@media only screen and (min-width: 768px) {
+  .shelf-image-aspect {
+    aspect-ratio: 328 / 466;
+  }
+}
+
 .custom-max-dvh {
   max-height: calc(100vw - env(safe-area-inset-top) - env(safe-area-inset-bottom));
 }
