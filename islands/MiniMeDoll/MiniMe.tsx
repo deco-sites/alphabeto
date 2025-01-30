@@ -9,6 +9,7 @@ import { StateUpdater, useEffect, useRef, useState } from "preact/hooks";
 
 import { ImageWidget } from "apps/admin/widgets.ts";
 import Icon from "site/components/ui/Icon.tsx";
+import PopupMiniMe from "site/islands/MiniMeDoll/PopupMiniMe.tsx";
 
 /**@title Informações da Mini Me*/
 interface Props {
@@ -20,9 +21,11 @@ interface Props {
   installments: number;
   /**@title Imagem de fundo da boneca*/
   image: ImageWidget;
+
+  popupTitle?: string;
 }
 
-export default function MiniMe({ title, price, installments, image }: Props) {
+export default function MiniMe({ title, price, installments, image, popupTitle }: Props) {
   //Estados para coleta de dados (imagens da boneca)
   const [data, setData] = useState<CustomPart[]>([]);
   const [types, setTypes] = useState<PartType[]>([]);
@@ -382,6 +385,7 @@ export default function MiniMe({ title, price, installments, image }: Props) {
             </div>
           </div>
         </div>
+        <PopupMiniMe title={popupTitle} dollParts={dollParts}/>
       </section>
     </>
   );

@@ -7966,6 +7966,10 @@ details.collapse summary::-webkit-details-marker {
     left: 0px;
   }
 
+  .mobile\:left-\[-30px\] {
+    left: -30px;
+  }
+
   .mobile\:left-\[-80px\] {
     left: -80px;
   }
@@ -8193,6 +8197,10 @@ details.collapse summary::-webkit-details-marker {
 
   .mobile\:w-\[100px\] {
     width: 100px;
+  }
+
+  .mobile\:w-\[110px\] {
+    width: 110px;
   }
 
   .mobile\:w-\[174px\] {

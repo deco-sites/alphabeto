@@ -6,6 +6,7 @@ import * as $_app from "./routes/_app.tsx";
 import * as $Map from "./islands/Map.tsx";
 import * as $MenuInstitutionalMobile from "./islands/MenuInstitutionalMobile.tsx";
 import * as $MiniMeDoll_MiniMe from "./islands/MiniMeDoll/MiniMe.tsx";
+import * as $MiniMeDoll_PopupMiniMe from "./islands/MiniMeDoll/PopupMiniMe.tsx";
 import * as $MinicartFooter from "./islands/MinicartFooter.tsx";
 import * as $MultiRangeSlider from "./islands/MultiRangeSlider.tsx";
 import * as $Notify from "./islands/Notify.tsx";
@@ -29,6 +30,7 @@ const manifest = {
     "./islands/Map.tsx": $Map,
     "./islands/MenuInstitutionalMobile.tsx": $MenuInstitutionalMobile,
     "./islands/MiniMeDoll/MiniMe.tsx": $MiniMeDoll_MiniMe,
+    "./islands/MiniMeDoll/PopupMiniMe.tsx": $MiniMeDoll_PopupMiniMe,
     "./islands/MinicartFooter.tsx": $MinicartFooter,
     "./islands/MultiRangeSlider.tsx": $MultiRangeSlider,
     "./islands/Notify.tsx": $Notify,

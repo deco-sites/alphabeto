@@ -34,7 +34,7 @@ export default function InfoMakeYourMiniMe(
 ) {
   return (
     <>
-      <article class="flex bg-[#70D1E8] w-full">
+      <article class="mobile:flex-col-reverse flex bg-[#70D1E8] w-full mb-[100px]">
         <div>
           {image && (
             <Image
@@ -47,7 +47,7 @@ export default function InfoMakeYourMiniMe(
         </div>
         <section class="py-[36px] px-[24px]">
           <div>
-            <h2 class="font-beccaPerry mobile:text-[32px] text-[40px] font-medium text-[#676767]">
+            <h2 class="font-beccaPerry mobile:text-[28px] text-[40px] font-medium text-[#676767]">
               {title}
             </h2>
             <div>
@@ -65,7 +65,7 @@ export default function InfoMakeYourMiniMe(
                   width="50"
                   height="50"
                 />
-                <hr class="absolute top-[80px] left-[-6px] border-dashed border-b-[1px] w-[63px] border-[#F98300] rotate-[90deg]" />
+                <hr class="absolute top-[80px] left-[-6px] mobile:left-[-30px] border-dashed border-b-[1px] w-[63px] mobile:w-[110px] border-[#F98300] rotate-[90deg]" />
               </div>
               <div class="font-Quicksand ml-[14px]">
                 <h3 class="font-bold text-[14px] text-[#676767] mb-[7px]">
@@ -83,7 +83,7 @@ export default function InfoMakeYourMiniMe(
                   width="50"
                   height="50"
                 />
-                <hr class="absolute top-[80px] left-[-6px] border-dashed border-b-[1px] w-[63px] border-[#F98300] rotate-[90deg]" />
+                <hr class="absolute top-[80px] left-[-6px] mobile:left-[-30px] border-dashed border-b-[1px] w-[63px] mobile:w-[110px] border-[#F98300] rotate-[90deg]" />
               </div>
               <div class="font-Quicksand ml-[14px]">
                 <h3 class="font-bold text-[14px] text-[#676767] mb-[7px]">
