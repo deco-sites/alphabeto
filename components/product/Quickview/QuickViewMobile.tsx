@@ -26,7 +26,6 @@ const script = (id: string) => {
   );
   const drawer = card?.querySelector<HTMLDivElement>("#quickviewProductInfo");
   const backdrop = card?.querySelector<HTMLDivElement>("#quickviewBackdrop");
-  console.log({ card, toogleButton, closeDrawerbutton, drawer, backdrop });
   if (
     !toogleButton || !closeDrawerbutton || !drawer ||
     !backdrop

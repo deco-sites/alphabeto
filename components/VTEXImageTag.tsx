@@ -4,6 +4,7 @@
 import { Head } from "$fresh/runtime.ts";
 import type { JSX } from "preact";
 import { forwardRef } from "preact/compat";
+import { clx } from "site/sdk/clx.ts";
 
 type Props =
   & Omit<
@@ -24,6 +25,8 @@ type Props =
     fit?: "contain" | "cover";
     /** @description remove size */
     removeSize?: boolean;
+
+    lozad?: boolean;
   };
 
 interface VtexImg {
@@ -61,7 +64,7 @@ const makeUrlSize = (vtexImg: VtexImg, width: number) => {
     fileName,
   } = vtexImg;
   return `https://${account}.${cdnDomain}/arquivos/ids/${id}-${width}-auto/${
-    changeExtension(fileName, "webp")
+    changeExtension(fileName, "jpg")
   }?aspect=true`;
 };
 
@@ -73,12 +76,12 @@ const makeUrlWithoutSize = (vtexImg: VtexImg) => {
     fileName,
   } = vtexImg;
   return `https://${account}.${cdnDomain}/arquivos/ids/${id}/${
-    changeExtension(fileName, "webp")
+    changeExtension(fileName, "jpg")
   }?aspect=true`;
 };
 
 const VTEXImageTag = forwardRef<HTMLImageElement, Props>((props, ref) => {
-  const { width, src, loading = "lazy", preload, removeSize } = props;
+  const { width, src, loading = "lazy", preload, removeSize, lozad } = props;
   const vtexImg = readVtexImg(src);
   const srcSetOne = removeSize
     ? makeUrlWithoutSize(vtexImg)
@@ -95,6 +98,32 @@ const VTEXImageTag = forwardRef<HTMLImageElement, Props>((props, ref) => {
     fetchpriority: props.fetchPriority,
     media: props.media,
   };
+  if (lozad) {
+    return (
+      <>
+        {preload && (
+          <Head>
+            <link as="image" rel="preload" href={props.src} {...linkProps} />
+          </Head>
+        )}
+        <img
+          {...props}
+          data-fresh-disable-lock={true}
+          preload={undefined}
+          src={undefined}
+          class={clx(
+            props.class?.toString(),
+            props.className?.toString(),
+            "lozad",
+          )}
+          srcSet={undefined}
+          loading={undefined}
+          data-src={src}
+          ref={ref}
+        />
+      </>
+    );
+  }
   return (
     <>
       {preload && (

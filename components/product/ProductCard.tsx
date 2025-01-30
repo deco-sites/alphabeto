@@ -13,6 +13,7 @@ import { relative } from "site/sdk/url.ts";
 import { useId } from "site/sdk/useId.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
+import Video from "site/components/Video.tsx";
 
 interface Props {
   product: Product;
@@ -31,6 +32,7 @@ interface Props {
     colors: ColorItem[];
     cashbackPercentage: number;
   };
+  lozad?: boolean;
 }
 
 const DESKTOP_WIDTH = 500;
@@ -48,6 +50,7 @@ function ProductCard({
   index,
   class: _class,
   settings,
+  lozad,
 }: Props) {
   const { url, image: images, offers, isVariantOf } = product;
   const title = isVariantOf?.name ?? product.name;
@@ -123,7 +126,7 @@ function ProductCard({
           {/* Video or Image */}
           {video && ENABLE_VIDEO_ON_SHELF
             ? (
-              <video
+              <Video
                 src={video}
                 class="object-cover rounded w-full col-span-full row-span-full"
                 controls={false}
@@ -131,6 +134,7 @@ function ProductCard({
                 autoplay
                 muted
                 playsinline
+                lozad={lozad}
               />
             )
             : (
@@ -150,6 +154,7 @@ function ProductCard({
                 preload={preload}
                 loading={preload ? "eager" : "lazy"}
                 decoding="async"
+                lozad={lozad}
               />
             )}
         </a>

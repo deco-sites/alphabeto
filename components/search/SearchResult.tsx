@@ -76,7 +76,6 @@ export const loader = (props: Props, req: Request, app: AppContext) => {
   if (query) {
     emptyRedirect = `/searchNotFound?q=${query}`;
   }
-  console.log("URL", req.url);
   return {
     ...props,
     url: req.url,
@@ -140,6 +139,32 @@ function SearchNotFound(props: SectionProps<typeof loader>) {
   );
 }
 
+declare global {
+  interface LozadOptions {
+    rootMargin?: string;
+    threshold?: number | number[];
+    enableAutoReload?: boolean;
+    loaded?: (el: Element) => void;
+  }
+
+  interface LozadObserver {
+    observe(): void;
+    triggerLoad(element: Element): void;
+    observer: IntersectionObserver;
+  }
+
+  function lozad(selector?: string, options?: LozadOptions): LozadObserver;
+
+  interface Window {
+    lozad: typeof lozad;
+  }
+}
+
+function lazyLoad() {
+  const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+  observer.observe();
+}
+
 function PageResult(props: SectionProps<typeof loader>) {
   const { layout, startingPage = 0, url, partial, siteSettings } = props;
   const page = props.page!;
@@ -196,6 +221,7 @@ function PageResult(props: SectionProps<typeof loader>) {
             index={offset + index}
             class="h-full desk:w-[calc((100dvw_-_456px)/3)] max-w-[355px]"
             settings={siteSettings}
+            lozad
           />
         ))}
       </div>
@@ -367,6 +393,12 @@ function Result(props: SectionProps<typeof loader>) {
             </div>
           )}
       </div>
+      <script
+        type="module"
+        dangerouslySetInnerHTML={{
+          __html: useScript(lazyLoad),
+        }}
+      />
 
       <script
         type="module"

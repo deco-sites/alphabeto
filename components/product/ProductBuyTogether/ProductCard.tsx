@@ -2,6 +2,7 @@ import { asset } from "$fresh/runtime.ts";
 import { useCallback } from "preact/hooks";
 import { JSX } from "preact/jsx-runtime";
 import ProductSkuSelector from "site/components/product/ProductBuyTogether/ProductSkuSelector.tsx";
+import { ProductCardProps } from "site/components/product/ProductBuyTogether/types.ts";
 import ProductRating from "site/components/product/ProductRating.tsx";
 import Icon from "site/components/ui/Icon.tsx";
 import VTEXImageTag from "site/components/VTEXImageTag.tsx";
@@ -9,7 +10,6 @@ import { invoke } from "site/runtime.ts";
 import { clx } from "site/sdk/clx.ts";
 import { formatPrice } from "site/sdk/format.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
-import { ProductCardProps } from "site/components/product/ProductBuyTogether/types.ts";
 
 export default function ProductCard(props: ProductCardProps) {
   const { isVariantOf, name, aggregateRating } = props.signal.value.product;
@@ -32,7 +32,6 @@ export default function ProductCard(props: ProductCardProps) {
       const target = event.currentTarget;
       target.classList.add("htmx-request");
       if (props.mode === "principal") return;
-      console.log(props.newProductLoaderData);
       const newSugestionResult = await invoke.site.loaders.BuyTogether
         .getNewProduct(props.newProductLoaderData);
       if (!newSugestionResult) return;

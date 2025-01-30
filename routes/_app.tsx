@@ -127,6 +127,11 @@ export default defineApp(async (_req, ctx) => {
             `,
           }}
         />
+        <script
+          type="text/javascript"
+          src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"
+        >
+        </script>
       </Head>
 
       {/* Rest of Preact tree */}
