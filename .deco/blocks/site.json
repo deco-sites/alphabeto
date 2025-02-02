@@ -86,7 +86,8 @@
       "extraPathsToProxy": [
         "/faca-parte",
         "/mini-me",
-        "/almofada-boneca-mini-me-55724/p?skuId=80784"
+        "/almofada-boneca-mini-me-55724/p?skuId=80784",
+        "/almofada-boneca-mini-me-55724/p"
       ],
       "includeSiteMap": [],
       "excludePathsFromDecoSiteMap": [],
