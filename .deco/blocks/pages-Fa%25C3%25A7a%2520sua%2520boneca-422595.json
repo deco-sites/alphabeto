@@ -1,6 +1,6 @@
 {
   "name": "Faça sua boneca",
-  "path": "/faca-sua-boneca",
+  "path": "/almofada-boneca-mini-me-55724/p",
   "sections": [
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
@@ -23,7 +23,13 @@
           "title": "Siga os passinhos",
           "image": "https://data.decoassets.com/alphabeto/54b573dd-d6b2-4df7-aed1-ae5afe456828/image-(4).png",
           "price": 189,
-          "installments": 2
+          "installments": 2,
+          "popupTerms": "<p><strong><span style=\"color: rgb(103, 103, 103); font-size: 10pt\">Aceito os</span><span style=\"font-size: 10pt\"> </span><u><span style=\"color: rgb(255, 131, 0); font-size: 10pt\">termos e condições</span></u><span style=\"font-size: 10pt\"> </span><span style=\"color: rgb(103, 103, 103); font-size: 10pt\">de compra, ciente que este produto não possuí troca.</span></strong></p>",
+          "popupTitle": "<p><span style=\"color: #ff8300; font-size: 30pt\">Uaaaau!</span><span style=\"font-size: 30pt\"> </span><span style=\"color: #676767; font-size: 30pt\">Seu(a) mini me ficou incrível!</span></p>",
+          "page": {
+            "__resolveType": "vtex/loaders/intelligentSearch/productDetailsPage.ts",
+            "slug": "almofada-boneca-mini-me-55724"
+          }
         },
         {
           "__resolveType": "site/sections/MiniMe/MakeYourMiniMe/InfoMakeYourMiniMe.tsx",

@@ -7,25 +7,26 @@ import Image from "apps/website/components/Image.tsx";
 
 import { StateUpdater, useEffect, useRef, useState } from "preact/hooks";
 
-import { ImageWidget } from "apps/admin/widgets.ts";
+import { ImageWidget, RichText } from "apps/admin/widgets.ts";
 import Icon from "site/components/ui/Icon.tsx";
 import PopupMiniMe from "site/islands/MiniMeDoll/PopupMiniMe.tsx";
+import { ProductDetailsPage } from "apps/commerce/types.ts";
 
 /**@title Informações da Mini Me*/
 interface Props {
   /**@title Título da Mini Me*/
   title: string;
-  /**@title Preço da boneca (sem R$):*/
-  price: number;
-  /**@title Até quantas vezes o valor pode ser parcelado:*/
-  installments: number;
   /**@title Imagem de fundo da boneca*/
   image: ImageWidget;
+  /**@title Título do Popup*/
+  popupTitle?: RichText;
+  /**@title Texto do Termos e Condições*/
+  popupTerms?: RichText;
 
-  popupTitle?: string;
+  page: ProductDetailsPage | null;
 }
 
-export default function MiniMe({ title, price, installments, image, popupTitle }: Props) {
+export default function MiniMe(props: Props) {
   //Estados para coleta de dados (imagens da boneca)
   const [data, setData] = useState<CustomPart[]>([]);
   const [types, setTypes] = useState<PartType[]>([]);
@@ -43,13 +44,15 @@ export default function MiniMe({ title, price, installments, image, popupTitle }
   const [isSelected, setIsSelected] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
-  // Valor final da Mini Me
-  const [finalValue, setFinalValue] = useState("");
   //contador para saber as etapas
   const [count, setCount] = useState(0);
 
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const scrollQtd = 250;
+
+  const price = props.page?.product.offers?.offers[0].price ? props.page?.product.offers?.offers[0].price : 189.95
+  const formatedPrice = JSON.stringify(price).replace(/\./g, ",");
+  const formatedDividedPrice = JSON.stringify(price / 2).replace(/\./g, ",");
 
   const scrollItems = (side: string) => {
     if (scrollContainerRef.current) {
@@ -200,11 +203,6 @@ export default function MiniMe({ title, price, installments, image, popupTitle }
   useEffect(() => {
     fetchData();
     updateDoll();
-    if (installments > 1) {
-      const value = price / installments;
-      const formatedValue = JSON.stringify(value).replace(/\./g, ",");
-      setFinalValue(formatedValue);
-    }
   }, []);
 
   // Atualiza as informações caso não haja atualização nos arrays utilizados na lógica
@@ -277,7 +275,7 @@ export default function MiniMe({ title, price, installments, image, popupTitle }
             )
             : (
               <Image
-                src={image}
+                src={props.image}
                 width={446}
                 height={669}
               />
@@ -287,7 +285,7 @@ export default function MiniMe({ title, price, installments, image, popupTitle }
         <div class="relative max-w-[773px] w-full h-[735px] mobile:h-[450px]">
           <div>
             <h2 class="font-beccaPerry text-[#676767] text-[44px] mobile:text-[32px] mb-[36px]">
-              {title}
+              {props.title}
             </h2>
           </div>
 
@@ -363,10 +361,10 @@ export default function MiniMe({ title, price, installments, image, popupTitle }
           <div class="mobile:absolute mobile:top-[925px] mt-[80px] flex mobile:flex-col mobile:justify-center items-center justify-between bg-[#FDF6ED] max-w-[773px] w-full h-[96px] mobile:h-[149px] container rounded-[8px]">
             <div class="flex flex-col mobile:items-center justify-start mobile:justify-center w-full mobile:mb-[20px]">
               <h3 class="font-Quicksand font-bold text-[26px] mobile:text-[18px] text-[#676767]">
-                Total: <b class="text-[#FF8300]">R$ {price}</b>
+                Total: <b class="text-[#FF8300]">R$ {formatedPrice}</b>
               </h3>
               <p class="font-Quicksand text-[#7E7F88] mobile:text-[12px]">
-                Em até {installments}x R$ {finalValue} sem juros
+                Em até 2x R$ {formatedDividedPrice} sem juros
               </p>
             </div>
             <div class="flex items-center justify-end w-full">
@@ -385,7 +383,7 @@ export default function MiniMe({ title, price, installments, image, popupTitle }
             </div>
           </div>
         </div>
-        <PopupMiniMe title={popupTitle} dollParts={dollParts}/>
+        <PopupMiniMe {...props} dollParts={dollParts}/>
       </section>
     </>
   );
