@@ -86,7 +86,8 @@
       "extraPathsToProxy": [
         "/faca-parte",
         "/mini-me",
-        "/almofada-boneca-mini-me-55724/p?skuId=80784"
+        "/almofada-boneca-mini-me-55724/p?skuId=80784",
+        "/almofada-boneca-mini-me-55724/p"
       ],
       "includeSiteMap": [],
       "excludePathsFromDecoSiteMap": [],
@@ -112,7 +113,7 @@
       "expectedFinalValue": "0",
       "redirects": [],
       "from": "/static/redirects/go-live.csv",
-      "cookieMatcherName": "deco_matcher_3589352432",
+      "cookieMatcherName": "deco_matcher_1668899795",
       "cookieMatcherValue": "1",
       "proxyUrl": "secure.alphabeto.com"
     }
@@ -143,7 +144,7 @@
     },
     "name": "Teste AB",
     "matcher": {
-      "__resolveType": "Teste AB 2"
+      "__resolveType": "Teste AB 3"
     },
     "enabled": true,
     "urlToRunAgainst": "https://secure.alphabeto.com"
