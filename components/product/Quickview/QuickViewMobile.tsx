@@ -207,6 +207,7 @@ function QuickViewMobile({ product, settings, cardId }: QuickViewProps) {
           </div>
         </div>
         <script
+          async
           type="module"
           dangerouslySetInnerHTML={{
             __html: useScript(script, cardId),
