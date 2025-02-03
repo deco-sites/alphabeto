@@ -104,126 +104,129 @@ function QuickViewMobile(
           Veja Agora
         </Button>
       </div>
-
-      <div id="quickviewContent">
-        <div
-          id="quickviewBackdrop"
-          class={clx(
-            "fixed top-0 left-0	z-50 h-screen w-screen bg-base-content bg-opacity-80",
-            isOpen.value ? "block" : "hidden",
-          )}
-        />
-        {/* Product Info */}
-        <div
-          id="quickviewProductInfo"
-          class={clx(
-            "fixed left-0 bottom-0 z-50 h-full max-h-[656px] overflow-y-auto transition-transform bg-white w-vw rounded-t-lg",
-            isOpen.value ? "translate-y-0" : "translate-y-full",
-          )}
-        >
-          <QuikviewHeader onClick={() => isOpen.value = false} />
-          <div class="py-5 px-6">
-            <div class="flex gap-1.5">
-              <VTEXImageTag
-                src={front?.url ?? ""}
-                alt={productName}
-                width={160}
-                class="aspect-[160/262] rounded-lg max-h-[262px] object-cover"
-                forceSrcWidth={160}
-              />
-              <div class="flex flex-col justify-between">
-                <div>
-                  <ProductAgeRangeIndicator
-                    product={product}
-                    class="!text-xs !leading-[18px]"
+      {isOpen.value
+        ? (
+          <div id="quickviewContent">
+            <div
+              id="quickviewBackdrop"
+              class={clx(
+                "fixed top-0 left-0	z-50 h-screen w-screen bg-base-content bg-opacity-80",
+                "block",
+              )}
+            />
+            {/* Product Info */}
+            <div
+              id="quickviewProductInfo"
+              class={clx(
+                "fixed left-0 bottom-0 z-50 h-full max-h-[656px] overflow-y-auto bg-white w-vw rounded-t-lg",
+                "translate-y-0",
+              )}
+            >
+              <QuikviewHeader onClick={() => isOpen.value = false} />
+              <div class="py-5 px-6">
+                <div class="flex gap-1.5">
+                  <VTEXImageTag
+                    src={front?.url ?? ""}
+                    alt={productName}
+                    width={160}
+                    class="aspect-[160/262] rounded-lg max-h-[262px] object-cover"
+                    forceSrcWidth={160}
                   />
-                  {/* Product Name */}
-                  <p class="text-[14px] font-bold leading-4 text-accent mt-2.5">
-                    {productName}
-                  </p>
-                  {/* Product Rating */}
-                  <div class="mt-3 flex gap-4 items-center">
-                    <ProductRating
-                      averageRating={product.aggregateRating?.ratingValue ??
-                        0}
-                      maxRating={5}
-                      iconSize={8}
-                      class="gap-1"
-                    />
-                    {/* Reference Code */}
-                    <p class="text-accent text-xs leading-[14px] font-medium">
-                      REF: {referenceCode}
-                    </p>
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    {/** Prices */}
-                    <div class="flex gap-1 items-center">
-                      {hasListPrice
-                        ? (
-                          <>
-                            <p class="text-[#C5C5C5] text-[12px] leading-[14px] line-through font-bold">
-                              {formatPrice(
-                                listPrice,
-                                offers?.priceCurrency,
-                              )}
-                            </p>
-                            <span class="text-primary text-sm leading-4 font-semibold">
-                              •
-                            </span>
-                          </>
-                        )
-                        : null}
-                      <strong class="font-bold text-sm text-primary leading-4">
-                        {formatPrice(price, offers?.priceCurrency)}
-                      </strong>
-                    </div>
-                    {/** Installments */}
-                    {installments && (
-                      <p class="text-accent font-medium text-xs mt-1 leading-[18px]">
-                        Em até {installments}
+                  <div class="flex flex-col justify-between">
+                    <div>
+                      <ProductAgeRangeIndicator
+                        product={product}
+                        class="!text-xs !leading-[18px]"
+                      />
+                      {/* Product Name */}
+                      <p class="text-[14px] font-bold leading-4 text-accent mt-2.5">
+                        {productName}
                       </p>
-                    )}
-                    {/* Cashback */}
-                    <ProductCashback
-                      product={product}
-                      percentage={settings.cashbackPercentage}
-                    />
+                      {/* Product Rating */}
+                      <div class="mt-3 flex gap-4 items-center">
+                        <ProductRating
+                          averageRating={product.aggregateRating?.ratingValue ??
+                            0}
+                          maxRating={5}
+                          iconSize={8}
+                          class="gap-1"
+                        />
+                        {/* Reference Code */}
+                        <p class="text-accent text-xs leading-[14px] font-medium">
+                          REF: {referenceCode}
+                        </p>
+                      </div>
+                    </div>
+                    <div>
+                      <div>
+                        {/** Prices */}
+                        <div class="flex gap-1 items-center">
+                          {hasListPrice
+                            ? (
+                              <>
+                                <p class="text-[#C5C5C5] text-[12px] leading-[14px] line-through font-bold">
+                                  {formatPrice(
+                                    listPrice,
+                                    offers?.priceCurrency,
+                                  )}
+                                </p>
+                                <span class="text-primary text-sm leading-4 font-semibold">
+                                  •
+                                </span>
+                              </>
+                            )
+                            : null}
+                          <strong class="font-bold text-sm text-primary leading-4">
+                            {formatPrice(price, offers?.priceCurrency)}
+                          </strong>
+                        </div>
+                        {/** Installments */}
+                        {installments && (
+                          <p class="text-accent font-medium text-xs mt-1 leading-[18px]">
+                            Em até {installments}
+                          </p>
+                        )}
+                        {/* Cashback */}
+                        <ProductCashback
+                          product={product}
+                          percentage={settings.cashbackPercentage}
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
+                {/* Product Description */}
+                <ProductDescription product={product} />
+                <VariantSelector
+                  product={product}
+                  colors={settings.colors}
+                  skuSignal={skuSignal}
+                />
+                {availability === "https://schema.org/InStock"
+                  ? (
+                    <AddToCartButton
+                      closeQuickview={() => isOpen.value = false}
+                      cardId={cardId}
+                      product={isVariantOf ?? product}
+                      seller={seller}
+                      item={item}
+                    />
+                  )
+                  : (
+                    <>
+                      <a
+                        class="text-primary text-[12px] leading-[18px] underline font-bold mt-5 block text-center"
+                        href={relative(url ?? "")}
+                      >
+                        ver detalhes do produto
+                      </a>
+                    </>
+                  )}
               </div>
             </div>
-            {/* Product Description */}
-            <ProductDescription product={product} />
-            <VariantSelector
-              product={product}
-              colors={settings.colors}
-              skuSignal={skuSignal}
-            />
-            {availability === "https://schema.org/InStock"
-              ? (
-                <AddToCartButton
-                  closeQuickview={() => isOpen.value = false}
-                  cardId={cardId}
-                  product={isVariantOf ?? product}
-                  seller={seller}
-                  item={item}
-                />
-              )
-              : (
-                <>
-                  <a
-                    class="text-primary text-[12px] leading-[18px] underline font-bold mt-5 block text-center"
-                    href={relative(url ?? "")}
-                  >
-                    ver detalhes do produto
-                  </a>
-                </>
-              )}
           </div>
-        </div>
-      </div>
+        )
+        : null}
     </div>
   );
 }
