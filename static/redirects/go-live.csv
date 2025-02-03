@@ -5,12 +5,14 @@ from,to,type
 /bebe/menino/body-e-polo-bebe-para-meninos,/infantil/bebe/menino/body-e-polo,temporary
 /bebe/menino/casaco-bebe-para-meninos-alphabeto,/infantil/bebe/menino/casaco,temporary
 /bebe/menino/calca-bebe-para-meninos,/infantil/bebe/menino/calca,temporary
-/meninas/bebê,/infantil/bebe/menina,temporary
+/meninas/beb%C3%AA,/infantil/bebe/menina,temporary
+/meninas/bebe,/infantil/bebe/menina,temporary
 /menino/infantil/pijama-infantil-para-meninos,/infantil/crianca/menino/pijama,temporary
 /menino/infantil/casaco-infantil-para-meninos,/infantil/crianca/menino/casaco,temporary
 /meninas/crianca,/infantil/crianca/menina,temporary
 /menina/infantil/acessorios-para-meninas,/infantil/crianca/menina/acessorio,temporary
-/bebê/menino/bermuda-bebe-para-meninos,/infantil/bebe/menino/bermuda,temporary
+/beb%C3%AA/menino/bermuda-bebe-para-meninos,/infantil/bebe/menino/bermuda,temporary
+/bebe/menino/bermuda-bebe-para-meninos,/infantil/bebe/menino/bermuda,temporary
 /menina/infantil/pijama-e-camisola-para-meninas,/infantil/crianca/menina/pijama-e-camisola,temporary
 /bebe/menino/jardineira-e-macacao-para-bebes-meninos,/infantil/bebe/menino/jardineira-e-macacao,temporary
 /menino/infantil/camiseta-e-regata-para-meninos,/infantil/crianca/menino/camiseta-e-regata,temporary
@@ -32,7 +34,8 @@ from,to,type
 /menino/infantil/moda-praia-infantil-para-meninos,/infantil/crianca/menino/moda-praia,temporary
 /bebe/menina/vestido-e-macaquinho-para-bebes-meninas,/infantil/bebe/menina/vestido-e-macaquinho,temporary
 /meninos/crianca,/infantil/crianca/menino,temporary
-/meninos/bebê,/infantil/bebe/menino,temporary
+/meninos/beb%C3%AA,/infantil/bebe/menino,temporary
+/meninos/bebe,/infantil/bebe/menino,temporary
 /menino/infantil/calca-infantil-para-meninos,/infantil/crianca/menino/calca,temporary
 /menino/infantil/jardineira-infantil-para-meninos,/infantil/crianca/menino/jardineira-e-macacao,temporary
 /hotsite/novidades,/infantil/novidades,temporary
