@@ -12,6 +12,10 @@ import * as $PopupDeEntrada from "./islands/PopupDeEntrada.tsx";
 import * as $PopupLGPD from "./islands/PopupLGPD.tsx";
 import * as $ProductBuyTogether from "./islands/ProductBuyTogether.tsx";
 import * as $ProductTextInfoDiscloujure from "./islands/ProductTextInfoDiscloujure.tsx";
+import * as $Quickview_AddToCartButton from "./islands/Quickview/AddToCartButton.tsx";
+import * as $Quickview_Header from "./islands/Quickview/Header.tsx";
+import * as $Quickview_ProductVariantSelector from "./islands/Quickview/ProductVariantSelector.tsx";
+import * as $Quickview_QuickViewMobile from "./islands/Quickview/QuickViewMobile.tsx";
 import * as $ScrollButton from "./islands/ScrollButton.tsx";
 import * as $Selector from "./islands/Selector.tsx";
 import * as $ShowPriceItem from "./islands/ShowPriceItem.tsx";
@@ -33,6 +37,11 @@ const manifest = {
     "./islands/PopupLGPD.tsx": $PopupLGPD,
     "./islands/ProductBuyTogether.tsx": $ProductBuyTogether,
     "./islands/ProductTextInfoDiscloujure.tsx": $ProductTextInfoDiscloujure,
+    "./islands/Quickview/AddToCartButton.tsx": $Quickview_AddToCartButton,
+    "./islands/Quickview/Header.tsx": $Quickview_Header,
+    "./islands/Quickview/ProductVariantSelector.tsx":
+      $Quickview_ProductVariantSelector,
+    "./islands/Quickview/QuickViewMobile.tsx": $Quickview_QuickViewMobile,
     "./islands/ScrollButton.tsx": $ScrollButton,
     "./islands/Selector.tsx": $Selector,
     "./islands/ShowPriceItem.tsx": $ShowPriceItem,

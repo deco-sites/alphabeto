@@ -1,10 +1,9 @@
-import { Product } from "apps/commerce/types.ts";
-import { ColorItem } from "site/apps/site.ts";
-import { AppContext as SiteAppContext } from "site/apps/site.ts";
-import { AppContext as VtexAppContext } from "apps/vtex/mod.ts";
 import { useDevice } from "@deco/deco/hooks";
+import { Product } from "apps/commerce/types.ts";
+import { AppContext as VtexAppContext } from "apps/vtex/mod.ts";
+import { AppContext as SiteAppContext, ColorItem } from "site/apps/site.ts";
 import QuickViewDesktop from "site/components/product/Quickview/QuickViewDesktop.tsx";
-import QuickViewMobile from "site/components/product/Quickview/QuickViewMobile.tsx";
+import QuickViewMobile from "site/islands/Quickview/QuickViewMobile.tsx";
 
 export interface QuickViewProps {
   product: Product;

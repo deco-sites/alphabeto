@@ -1,13 +1,9 @@
-import { useScript } from "@deco/deco/hooks";
+import { useSignal } from "@preact/signals";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import OutOfStock from "site/components/product/OutOfStock.tsx";
 import ProductAgeRangeIndicator from "site/components/product/ProductAgeRangeIndicator.tsx";
 import ProductRating from "site/components/product/ProductRating.tsx";
-import AddToCartButton from "site/components/product/Quickview/AddToCartButton.tsx";
-import QuikviewHeader from "site/components/product/Quickview/Header.tsx";
 import ProductCashback from "site/components/product/Quickview/ProductCashback.tsx";
 import ProductDescription from "site/components/product/Quickview/ProductDescription.tsx";
-import VariantSelector from "site/components/product/Quickview/ProductVariantSelector.tsx";
 import { QuickViewProps } from "site/components/product/Quickview/QuickView.tsx";
 import Button from "site/components/ui/Button.tsx";
 import VTEXImageTag from "site/components/VTEXImageTag.tsx";
@@ -15,74 +11,90 @@ import { clx } from "site/sdk/clx.ts";
 import { formatPrice } from "site/sdk/format.ts";
 import { relative } from "site/sdk/url.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
+import AddToCartButton from "./AddToCartButton.tsx";
+import QuikviewHeader from "./Header.tsx";
+import VariantSelector from "./ProductVariantSelector.tsx";
 
-const script = (id: string) => {
-  const card = document.getElementById(id);
-  const toogleButton = card?.querySelector<HTMLButtonElement>(
-    "#quickviewToogleButton",
+// const script = (id: string) => {
+//   const card = document.getElementById(id);
+//   const toogleButton = card?.querySelector<HTMLButtonElement>(
+//     "#quickviewToogleButton",
+//   );
+//   const closeDrawerbutton = card?.querySelector<HTMLButtonElement>(
+//     "#closeQuickview",
+//   );
+//   const drawer = card?.querySelector<HTMLDivElement>("#quickviewProductInfo");
+//   const backdrop = card?.querySelector<HTMLDivElement>("#quickviewBackdrop");
+//   if (
+//     !toogleButton || !closeDrawerbutton || !drawer ||
+//     !backdrop
+//   ) {
+//     return;
+//   }
+//   const openDrawer = () => {
+//     drawer?.classList.remove("translate-y-full");
+//     drawer?.classList.add("translate-y-0");
+//     document.body.style.overflow = "hidden";
+
+//     backdrop?.classList.remove("hidden", "opacity-0");
+//     backdrop?.classList.add("block", "opacity-100");
+//   };
+
+//   const closeDrawer = () => {
+//     drawer?.classList.remove("translate-y-0");
+//     drawer?.classList.add("translate-y-full");
+//     document.body.style.overflow = "auto";
+//     backdrop?.classList.remove("block", "opacity-100");
+//     backdrop?.classList.add("hidden", "opacity-0");
+//   };
+
+//   const toggleDrawer = () => {
+//     if (drawer?.classList.contains("translate-y-full")) {
+//       openDrawer();
+//     } else {
+//       closeDrawer();
+//     }
+//   };
+
+//   backdrop?.addEventListener("click", closeDrawer);
+
+//   toogleButton?.addEventListener("click", toggleDrawer);
+
+//   closeDrawerbutton?.addEventListener("click", () => {
+//     closeDrawer();
+//   });
+//   card?.addEventListener("closeQuickview", () => {
+//     closeDrawer();
+//   });
+// };
+
+function QuickViewMobile(
+  { product, settings, cardId }: QuickViewProps,
+) {
+  const { offers, productID, url } = product;
+  const isOpen = useSignal(settings.defaultOpen ?? false);
+  const skuSignal = useSignal(productID);
+  const isVariantOf = product.isVariantOf?.hasVariant.find(
+    (variant) => variant.sku === skuSignal.value,
   );
-  const closeDrawerbutton = card?.querySelector<HTMLButtonElement>(
-    "#closeQuickview",
-  );
-  const drawer = card?.querySelector<HTMLDivElement>("#quickviewProductInfo");
-  const backdrop = card?.querySelector<HTMLDivElement>("#quickviewBackdrop");
-  if (
-    !toogleButton || !closeDrawerbutton || !drawer ||
-    !backdrop
-  ) {
-    return;
-  }
-  const openDrawer = () => {
-    drawer?.classList.remove("translate-y-full");
-    drawer?.classList.add("translate-y-0");
-    document.body.style.overflow = "hidden";
-
-    backdrop?.classList.remove("hidden", "opacity-0");
-    backdrop?.classList.add("block", "opacity-100");
-  };
-
-  const closeDrawer = () => {
-    drawer?.classList.remove("translate-y-0");
-    drawer?.classList.add("translate-y-full");
-    document.body.style.overflow = "auto";
-    backdrop?.classList.remove("block", "opacity-100");
-    backdrop?.classList.add("hidden", "opacity-0");
-  };
-
-  const toggleDrawer = () => {
-    if (drawer?.classList.contains("translate-y-full")) {
-      openDrawer();
-    } else {
-      closeDrawer();
-    }
-  };
-
-  backdrop?.addEventListener("click", closeDrawer);
-
-  toogleButton?.addEventListener("click", toggleDrawer);
-
-  closeDrawerbutton?.addEventListener("click", () => {
-    closeDrawer();
-  });
-  card?.addEventListener("closeQuickview", () => {
-    closeDrawer();
-  });
-};
-
-function QuickViewMobile({ product, settings, cardId }: QuickViewProps) {
-  const { offers, isVariantOf, productID, url, image } = product;
-  const productName = isVariantOf?.name ?? product.name;
+  const { image } = isVariantOf ?? product;
+  const productName = product.isVariantOf?.name ?? product.name;
   const { listPrice, price, seller = "1", installments, availability } =
     useOffer(offers);
-  const referenceCode = isVariantOf?.model;
+  const referenceCode = product.isVariantOf?.model;
   const hasListPrice = listPrice && listPrice > (price ?? 0);
-  const isOpen = settings.defaultOpen ?? false;
-  const item = mapProductToAnalyticsItem({ product, price, listPrice });
+  const item = mapProductToAnalyticsItem({
+    product: isVariantOf ?? product,
+    price,
+    listPrice,
+  });
   const [front] = image ?? [];
+
   return (
     <div class="mt-auto pt-2.5">
       <div className="text-center flex justify-center">
         <Button
+          onClick={() => isOpen.value = !isOpen.value}
           id="quickviewToogleButton"
           class={clx(
             "block w-full h-11 min-h-11",
@@ -92,12 +104,13 @@ function QuickViewMobile({ product, settings, cardId }: QuickViewProps) {
           Veja Agora
         </Button>
       </div>
+
       <div id="quickviewContent">
         <div
           id="quickviewBackdrop"
           class={clx(
             "fixed top-0 left-0	z-50 h-screen w-screen bg-base-content bg-opacity-80 transition-all",
-            isOpen ? "block opacity-100" : "hidden opacity-0",
+            isOpen.value ? "block opacity-100" : "hidden opacity-0",
           )}
         />
         {/* Product Info */}
@@ -105,10 +118,10 @@ function QuickViewMobile({ product, settings, cardId }: QuickViewProps) {
           id="quickviewProductInfo"
           class={clx(
             "fixed left-0 bottom-0 z-50 h-full max-h-[656px] overflow-y-auto transition-transform bg-white w-vw rounded-t-lg",
-            isOpen ? "translate-y-0" : "translate-y-full",
+            isOpen.value ? "translate-y-0" : "translate-y-full",
           )}
         >
-          <QuikviewHeader />
+          <QuikviewHeader onClick={() => isOpen.value = false} />
           <div class="py-5 px-6">
             <div class="flex gap-1.5">
               <VTEXImageTag
@@ -130,7 +143,8 @@ function QuickViewMobile({ product, settings, cardId }: QuickViewProps) {
                   {/* Product Rating */}
                   <div class="mt-3 flex gap-4 items-center">
                     <ProductRating
-                      averageRating={product.aggregateRating?.ratingValue ?? 0}
+                      averageRating={product.aggregateRating?.ratingValue ??
+                        0}
                       maxRating={5}
                       iconSize={8}
                       class="gap-1"
@@ -149,7 +163,10 @@ function QuickViewMobile({ product, settings, cardId }: QuickViewProps) {
                         ? (
                           <>
                             <p class="text-[#C5C5C5] text-[12px] leading-[14px] line-through font-bold">
-                              {formatPrice(listPrice, offers?.priceCurrency)}
+                              {formatPrice(
+                                listPrice,
+                                offers?.priceCurrency,
+                              )}
                             </p>
                             <span class="text-primary text-sm leading-4 font-semibold">
                               •
@@ -181,21 +198,20 @@ function QuickViewMobile({ product, settings, cardId }: QuickViewProps) {
             <VariantSelector
               product={product}
               colors={settings.colors}
-              cardId={cardId}
+              skuSignal={skuSignal}
             />
             {availability === "https://schema.org/InStock"
               ? (
                 <AddToCartButton
+                  closeQuickview={() => isOpen.value = false}
                   cardId={cardId}
-                  product={product}
+                  product={isVariantOf ?? product}
                   seller={seller}
                   item={item}
                 />
               )
               : (
                 <>
-                  <OutOfStock productID={productID} mode="quickview" />
-
                   <a
                     class="text-primary text-[12px] leading-[18px] underline font-bold mt-5 block text-center"
                     href={relative(url ?? "")}
@@ -206,13 +222,6 @@ function QuickViewMobile({ product, settings, cardId }: QuickViewProps) {
               )}
           </div>
         </div>
-        <script
-          async
-          type="module"
-          dangerouslySetInnerHTML={{
-            __html: useScript(script, cardId),
-          }}
-        />
       </div>
     </div>
   );
