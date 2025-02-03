@@ -27,6 +27,8 @@ type Props =
     removeSize?: boolean;
 
     lozad?: boolean;
+
+    forceSrcWidth?: number;
   };
 
 interface VtexImg {
@@ -81,7 +83,13 @@ const makeUrlWithoutSize = (vtexImg: VtexImg) => {
 };
 
 const VTEXImageTag = forwardRef<HTMLImageElement, Props>((props, ref) => {
-  const { width, src, loading = "lazy", preload, removeSize, lozad } = props;
+  const { width, loading = "lazy", preload, removeSize, lozad, forceSrcWidth } =
+    props;
+  let { src } = props;
+
+  if (forceSrcWidth) {
+    src = makeUrlSize(readVtexImg(src), forceSrcWidth);
+  }
   const vtexImg = readVtexImg(src);
   const srcSetOne = removeSize
     ? makeUrlWithoutSize(vtexImg)

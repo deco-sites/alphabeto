@@ -109,8 +109,8 @@ function QuickViewMobile(
         <div
           id="quickviewBackdrop"
           class={clx(
-            "fixed top-0 left-0	z-50 h-screen w-screen bg-base-content bg-opacity-80 transition-all",
-            isOpen.value ? "block opacity-100" : "hidden opacity-0",
+            "fixed top-0 left-0	z-50 h-screen w-screen bg-base-content bg-opacity-80",
+            isOpen.value ? "block" : "hidden",
           )}
         />
         {/* Product Info */}
@@ -129,6 +129,7 @@ function QuickViewMobile(
                 alt={productName}
                 width={160}
                 class="aspect-[160/262] rounded-lg max-h-[262px] object-cover"
+                forceSrcWidth={160}
               />
               <div class="flex flex-col justify-between">
                 <div>

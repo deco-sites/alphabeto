@@ -154,6 +154,7 @@ function ProductCard({
                 loading={preload ? "eager" : "lazy"}
                 decoding="async"
                 lozad={lozad}
+                forceSrcWidth={device === "mobile" ? MOBILE_WIDTH : undefined}
               />
             )}
         </a>
