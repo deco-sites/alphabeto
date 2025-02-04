@@ -8,9 +8,11 @@ export type BuyTogetherNewProductsResponse = {
 export type BuyTogetherInitialProductsResponse = {
   principalProduct: Product;
   sugestions: Product[];
+  enableRefresh: boolean;
   newProductLoaderData: {
     collection: string;
     department: string;
+    category: string;
     term?: string;
   };
 } | null;
@@ -25,6 +27,7 @@ export interface BuyTogetherNewProductsProps {
    */
   collection: string;
   department: string;
+  category: string;
   term?: string;
   notShowProductsIds: string[];
 }

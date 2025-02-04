@@ -90,26 +90,30 @@ export default function ProductCard(props: ProductCardProps) {
         {props.mode === "sugestion"
           ? (
             <div class="absolute top-2.5 right-2.5 desk:top-3.5 desk:right-3.5 flex flex-col gap-2.5 desk:gap-3.5">
-              <button
-                onClick={refresh}
-                class="h-[30px] w-[30px] desk:h-10 desk:w-10 flex items-center justify-center bg-white rounded-full hover:bg-secondary-content text-[#FF859A] shadow-[0px_2px_10px_rgba(59,59,59,0.1)]"
-              >
-                <div class="hidden [.htmx-request_&]:flex items-center justify-center h-[600px]">
-                  <span class="loading loading-spinner"></span>
-                </div>
-                <Icon
-                  class="[.htmx-request_&]:hidden mobile:hidden"
-                  id="refresh"
-                  size={20}
-                  strokeWidth={2}
-                />
-                <Icon
-                  class="[.htmx-request_&]:hidden desk:hidden"
-                  id="refresh"
-                  size={15}
-                  strokeWidth={4}
-                />
-              </button>
+              {props.enableRefresh
+                ? (
+                  <button
+                    onClick={refresh}
+                    class="h-[30px] w-[30px] desk:h-10 desk:w-10 flex items-center justify-center bg-white rounded-full hover:bg-secondary-content text-[#FF859A] shadow-[0px_2px_10px_rgba(59,59,59,0.1)]"
+                  >
+                    <div class="hidden [.htmx-request_&]:flex items-center justify-center h-[600px]">
+                      <span class="loading loading-spinner"></span>
+                    </div>
+                    <Icon
+                      class="[.htmx-request_&]:hidden mobile:hidden"
+                      id="refresh"
+                      size={20}
+                      strokeWidth={2}
+                    />
+                    <Icon
+                      class="[.htmx-request_&]:hidden desk:hidden"
+                      id="refresh"
+                      size={15}
+                      strokeWidth={4}
+                    />
+                  </button>
+                )
+                : null}
               <button
                 onClick={() => {
                   props.signal.value = {

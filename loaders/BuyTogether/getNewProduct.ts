@@ -1,16 +1,17 @@
 import { AppContext } from "site/apps/deco/vtex.ts";
-import { getRandomNumber } from "site/sdk/numberUtils.ts";
-import { pickRandomItem } from "site/sdk/arrayUtils.ts";
+import { EXTENSIONS } from "site/loaders/BuyTogether/constants.ts";
 import {
   BuyTogetherNewProductsProps,
   BuyTogetherNewProductsResponse,
 } from "site/loaders/BuyTogether/types.ts";
-import { EXTENSIONS } from "site/loaders/BuyTogether/constants.ts";
+import { pickRandomItem } from "site/sdk/arrayUtils.ts";
+import { getRandomNumber } from "site/sdk/numberUtils.ts";
 
 async function useCollectionMethod(
   ctx: AppContext,
   collection: string,
   department: string,
+  category: string,
   notShowProductIds: string[],
 ) {
   const results = await ctx.invoke.vtex.loaders.intelligentSearch
@@ -24,14 +25,17 @@ async function useCollectionMethod(
       }, {
         key: "category-1",
         value: department,
+      }, {
+        key: "category-2",
+        value: category,
       }],
     });
   const qtdOfProducts = results?.pageInfo.records ?? 0;
   if (qtdOfProducts < 1) return null;
 
   // This logic to fix max number of pages to 50 is necessary because the VTEX Inteligent Search API has a limit of 50 pages
-  const itensPerPage = Math.ceil(qtdOfProducts / 50);
-  const qtdOfPages = Math.min(Math.ceil(qtdOfProducts / itensPerPage), 50);
+  const qtdOfPages = Math.min(Math.ceil(qtdOfProducts / 50), 50);
+  const itensPerPage = Math.ceil(qtdOfProducts / qtdOfPages);
 
   const randomPage = getRandomNumber(1, qtdOfPages);
   const result = await ctx.invoke.vtex.loaders.intelligentSearch
@@ -46,6 +50,9 @@ async function useCollectionMethod(
       }, {
         key: "category-1",
         value: department,
+      }, {
+        key: "category-2",
+        value: category,
       }],
     });
   if (!result?.products) return null;
@@ -62,6 +69,7 @@ async function useTermMethod(
   ctx: AppContext,
   term: string,
   department: string,
+  category: string,
   notShowProductIds: string[],
 ) {
   const results = await ctx.invoke.vtex.loaders.intelligentSearch
@@ -72,16 +80,19 @@ async function useTermMethod(
       selectedFacets: [{
         key: "category-1",
         value: department,
+      }, {
+        key: "category-2",
+        value: category,
       }],
     });
   const qtdOfProducts = results?.pageInfo.records ?? 0;
   if (qtdOfProducts < 1) return null;
 
   // This logic to fix max number of pages to 50 is necessary because the VTEX Inteligent Search API has a limit of 50 pages
-  const itensPerPage = Math.ceil(qtdOfProducts / 50);
-  const qtdOfPages = Math.min(Math.ceil(qtdOfProducts / itensPerPage), 50);
+  const qtdOfPages = Math.min(Math.ceil(qtdOfProducts / 50), 50);
+  const itensPerPage = Math.ceil(qtdOfProducts / qtdOfPages);
 
-  const randomPage = getRandomNumber(1, qtdOfPages);
+  const randomPage = getRandomNumber(0, qtdOfPages - 1);
   const result = await ctx.invoke.vtex.loaders.intelligentSearch
     .productListingPage({
       count: itensPerPage,
@@ -91,6 +102,9 @@ async function useTermMethod(
       selectedFacets: [{
         key: "category-1",
         value: department,
+      }, {
+        key: "category-2",
+        value: category,
       }],
     });
   if (!result?.products) return null;
@@ -108,14 +122,15 @@ export default async function loader(
   _req: Request,
   ctx: AppContext,
 ): Promise<BuyTogetherNewProductsResponse> {
-  const { collection, department, term, notShowProductsIds } = props;
+  const { collection, department, category, term, notShowProductsIds } = props;
 
   const randomProduct = term
-    ? await useTermMethod(ctx, term, department, notShowProductsIds)
+    ? await useTermMethod(ctx, term, department, category, notShowProductsIds)
     : await useCollectionMethod(
       ctx,
       collection,
       department,
+      category,
       notShowProductsIds,
     );
 

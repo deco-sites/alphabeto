@@ -62,6 +62,7 @@ export default function ProductBuyTogether(
             <ProductCard
               mode="sugestion"
               signal={sugestionOne}
+              enableRefresh={props.enableRefresh}
               newProductLoaderData={{
                 ...props.newProductLoaderData,
                 notShowProductsIds: notReloadThisProducts,
@@ -73,6 +74,7 @@ export default function ProductBuyTogether(
             <ProductCard
               mode="sugestion"
               signal={sugestionTwo}
+              enableRefresh={props.enableRefresh}
               newProductLoaderData={{
                 ...props.newProductLoaderData,
                 notShowProductsIds: notReloadThisProducts,

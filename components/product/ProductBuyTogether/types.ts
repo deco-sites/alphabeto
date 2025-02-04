@@ -1,9 +1,9 @@
+import { Signal } from "@preact/signals";
 import { Product } from "apps/commerce/types.ts";
+import { RequestURLParam } from "apps/website/functions/requestToParam.ts";
 import {
   BuyTogetherInitialProductsResponse,
 } from "site/loaders/BuyTogether/types.ts";
-import { Signal } from "@preact/signals";
-import { RequestURLParam } from "apps/website/functions/requestToParam.ts";
 
 export interface SugestionProductSignal {
   product: Product;
@@ -44,6 +44,7 @@ export type ProductCardProps =
   }
   | {
     mode: "sugestion";
+    enableRefresh: boolean;
     signal: Signal<SugestionProductSignal>;
     newProductLoaderData: {
       collection: string;

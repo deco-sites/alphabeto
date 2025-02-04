@@ -13,6 +13,7 @@ const QTD_SUGESTIONS = 2;
 async function useCollectionMethod(
   collection: string,
   department: string,
+  category: string,
   ctx: AppContext,
   currentProductId: string,
 ) {
@@ -27,6 +28,9 @@ async function useCollectionMethod(
       }, {
         key: "category-1",
         value: department,
+      }, {
+        key: "category-2",
+        value: category,
       }],
     });
   const qtdOfProducts = results?.pageInfo.records ?? 0;
@@ -34,8 +38,8 @@ async function useCollectionMethod(
   const sugestions: Product[] = [];
 
   // This logic to fix max number of pages to 50 is necessary because the VTEX Inteligent Search API has a limit of 50 pages
-  const itensPerPage = Math.ceil(qtdOfProducts / 50);
-  const qtdOfPages = Math.min(Math.ceil(qtdOfProducts / itensPerPage), 50);
+  const qtdOfPages = Math.min(Math.ceil(qtdOfProducts / 50), 50);
+  const itensPerPage = Math.ceil(qtdOfProducts / qtdOfPages);
 
   for (let i = 0; i < QTD_SUGESTIONS; i++) {
     const randomPage = getRandomNumber(1, qtdOfPages);
@@ -51,6 +55,9 @@ async function useCollectionMethod(
         }, {
           key: "category-1",
           value: department,
+        }, {
+          key: "category-2",
+          value: category,
         }],
       });
     if (result?.products) {
@@ -64,11 +71,12 @@ async function useCollectionMethod(
       else sugestions.push(randomProduct);
     }
   }
-  return sugestions;
+  return { sugestions, enableRefresh:  qtdOfProducts > (QTD_SUGESTIONS + 1)  };
 }
 async function useTermMethod(
   term: string,
   department: string,
+  category: string,
   ctx: AppContext,
   currentProductId: string,
 ) {
@@ -80,6 +88,9 @@ async function useTermMethod(
       selectedFacets: [{
         key: "category-1",
         value: department,
+      }, {
+        key: "category-2",
+        value: category,
       }],
     });
   const qtdOfProducts = results?.pageInfo.records ?? 0;
@@ -87,11 +98,11 @@ async function useTermMethod(
   const sugestions: Product[] = [];
 
   // This logic to fix max number of pages to 50 is necessary because the VTEX Inteligent Search API has a limit of 50 pages
-  const itensPerPage = Math.ceil(qtdOfProducts / 50);
-  const qtdOfPages = Math.min(Math.ceil(qtdOfProducts / itensPerPage), 50);
+  const qtdOfPages = Math.min(Math.ceil(qtdOfProducts / 50), 50);
+  const itensPerPage = Math.ceil(qtdOfProducts / qtdOfPages);
 
   for (let i = 0; i < QTD_SUGESTIONS; i++) {
-    const randomPage = getRandomNumber(1, qtdOfPages);
+    const randomPage = getRandomNumber(0, qtdOfPages - 1);
     const result = await ctx.invoke.vtex.loaders.intelligentSearch
       .productListingPage({
         count: itensPerPage,
@@ -101,6 +112,9 @@ async function useTermMethod(
         selectedFacets: [{
           key: "category-1",
           value: department,
+        }, {
+          key: "category-2",
+          value: category,
         }],
       });
     if (result?.products) {
@@ -114,7 +128,8 @@ async function useTermMethod(
       else sugestions.push(randomProduct);
     }
   }
-  return sugestions;
+
+  return { sugestions, enableRefresh: qtdOfProducts > (QTD_SUGESTIONS + 1) };
 }
 
 function findTerm(
@@ -143,23 +158,28 @@ export default async function loader(
     principalProduct.name ?? "";
   const department =
     principalProduct.category?.split(">")[0].trim().toLowerCase() ?? "";
+  const category =
+    principalProduct.category?.split(">")[1].trim().toLowerCase() ?? "";
   const currentProductId = principalProduct.isVariantOf?.productGroupID ?? "";
   const term = findTerm(productName, terms);
-
-  const sugestions = term
+  const result = term
     ? await useTermMethod(
       term,
       department,
+      category,
       ctx,
       currentProductId,
     )
     : await useCollectionMethod(
       collection,
       department,
+      category,
       ctx,
       currentProductId,
     );
-  if (!sugestions) return null;
+
+  if (!result) return null;
+  const { sugestions, enableRefresh } = result;
 
   const allProducts = [principalProduct, ...sugestions];
   const [principalProductWithExtensions, ...sugestionsWithExtensions] =
@@ -167,12 +187,15 @@ export default async function loader(
       products: allProducts,
       ...EXTENSIONS,
     });
+
   return {
     principalProduct: principalProductWithExtensions,
     sugestions: sugestionsWithExtensions,
+    enableRefresh,
     newProductLoaderData: {
       collection,
       department,
+      category,
       term,
     },
   };
