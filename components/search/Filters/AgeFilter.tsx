@@ -98,7 +98,7 @@ interface Props {
 export default function AgeFilter({ filterToogle, url }: Props) {
   const filterValues = getFilterValues(filterToogle, url);
   return (
-    <div class="carousel flex gap-12 w-fit max-w-[calc(100vw_-_40px)] mx-auto">
+    <div class="carousel flex gap-12 w-fit max-w-[calc(100vw_-_40px)] mx-auto customizeScroll ageHorizontal">
       {filterValues.map((value) => (
         <a
           href={value.url}

@@ -4190,6 +4190,10 @@ details.collapse summary::-webkit-details-marker {
   margin-top: 30px;
   margin-bottom: 30px;
 }
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
 .-mt-12 {
   margin-top: -3rem;
 }
@@ -5896,9 +5900,6 @@ details.collapse summary::-webkit-details-marker {
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
-.bg-opacity-80 {
-  --tw-bg-opacity: 0.8;
-}
 .bg-\[url\(https\:\/\/deco-sites-assets\.s3\.sa-east-1\.amazonaws\.com\/alphabeto\/c8bb9397-459e-4c62-a325-ab0147648a3b\/discountBackground\.svg\)\] {
   background-image: url(https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/c8bb9397-459e-4c62-a325-ab0147648a3b/discountBackground.svg);
 }
@@ -6707,6 +6708,9 @@ details.collapse summary::-webkit-details-marker {
 .opacity-70 {
   opacity: 0.7;
 }
+.opacity-80 {
+  opacity: 0.8;
+}
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
@@ -6903,6 +6907,17 @@ details.collapse summary::-webkit-details-marker {
   width: 5px;
 }
 
+.ageHorizontal {
+  padding-bottom: 10px;
+  scrollbar-width: auto !important;
+  scrollbar-gutter: auto;
+}
+
+.ageHorizontal::-webkit-scrollbar {
+  display: block !important;
+  height: 5px !important;
+}
+
 /* Track */
 .customizeScroll::-webkit-scrollbar-track {
   background: #e8e7e5;
@@ -7035,6 +7050,22 @@ details.collapse summary::-webkit-details-marker {
   max-height: calc(100dvh - 72px - 50px);
   height: calc(calc(var(--vh, 1vh) * 100) - 72px - 50px);
   max-height: calc(calc(var(--vh, 1vh) * 100) - 72px - 50px);
+}
+
+.diagonal-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.diagonal-line::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: red;
+  transform: rotate(-45deg);
 }
 
 .invalid\:input-error:invalid {

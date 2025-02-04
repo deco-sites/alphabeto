@@ -41,7 +41,7 @@ const script = (id: string) => {
     document.body.style.overflow = "hidden";
 
     backdrop?.classList.remove("hidden", "opacity-0");
-    backdrop?.classList.add("block", "opacity-100");
+    backdrop?.classList.add("block", "opacity-80");
 
     setTimeout(() => {
       delayedSection?.classList.remove("translate-x-full", "right-0");
@@ -53,7 +53,7 @@ const script = (id: string) => {
     drawer?.classList.remove("translate-x-0");
     drawer?.classList.add("translate-x-full");
     document.body.style.overflow = "auto";
-    backdrop?.classList.remove("block", "opacity-100");
+    backdrop?.classList.remove("block", "opacity-80");
     backdrop?.classList.add("hidden", "opacity-0");
 
     delayedSection?.classList.remove("translate-x-0", "right-[375px]");
@@ -108,8 +108,8 @@ function QuickViewDesktop({ product, settings, cardId }: QuickViewProps) {
         <div
           id="quickviewBackdrop"
           class={clx(
-            "fixed top-0 left-0	z-50 h-screen w-screen bg-base-content bg-opacity-80 transition-all",
-            isOpen ? "block opacity-100" : "hidden opacity-0",
+            "fixed top-0 left-0	z-50 h-screen w-screen bg-base-content transition-all",
+            isOpen ? "block opacity-80" : "hidden opacity-0",
           )}
         />
         {/* Product Info */}

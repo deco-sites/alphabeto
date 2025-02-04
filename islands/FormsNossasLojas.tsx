@@ -1,30 +1,10 @@
 import Icon from "site/components/ui/Icon.tsx";
 
+import { useSignalEffect } from "@preact/signals";
+import { Primitive } from "npm:utility-types@3.10.0";
 import { useState } from "preact/compat";
-import { zoom } from "site/islands/Map.tsx";
+import { currentStoreId } from "site/islands/Map.tsx";
 import { ItemWithWhatsapp } from "site/sections/NossasLojas/types.ts";
-
-interface StoreInfo {
-  name: string;
-  id: string;
-  address: {
-    postalCode: string;
-    city: string;
-    state: string;
-    neighborhood: string;
-    street: string;
-    number: string;
-    location: {
-      latitude: number;
-      longitude: number;
-    };
-  };
-  businessHours: Array<{
-    dayOfWeek: string;
-    openingTime: string;
-    closingTime: string;
-  }>;
-}
 
 interface Stores {
   stores: ItemWithWhatsapp[];
@@ -40,23 +20,46 @@ const days = [
   "Sábado",
 ];
 
+function deepObjectValues(obj: object): Primitive[] {
+  if (obj === null) return [null];
+  return Object.values(obj).flatMap((value) =>
+    typeof value === "object" ? deepObjectValues(value) : value
+  );
+}
+
 export default function FormsNossasLojas({ stores }: Stores) {
   const [queryInput, setQueryInput] = useState("");
   const [filtered, setFiltered] = useState<ItemWithWhatsapp[]>([]);
   const [selectedIndex, setSelectedIndex] = useState<string | null>(null);
 
   const handleClick = (id: string) => {
-    setSelectedIndex(id);
+    currentStoreId.value = id;
   };
 
   const handleFilter = () => {
     const result = stores.filter((store) => {
-      return Object.values(store).some((value) =>
-        value.toString().toLowerCase().includes(queryInput.toLowerCase())
+      return deepObjectValues(store).some((value) =>
+        value?.toString().toLowerCase().includes(queryInput.toLowerCase())
       );
     });
+
     setFiltered(result);
   };
+
+  useSignalEffect(() => {
+    if (currentStoreId.value) {
+      const result = stores.filter((store) =>
+        store.id === currentStoreId.value
+      );
+      if (result.length > 0) {
+        setFiltered(result);
+        setSelectedIndex(currentStoreId.value);
+      }
+    } else {
+      setSelectedIndex(null);
+      setFiltered([]);
+    }
+  });
 
   const content = filtered.length === 0 ? stores : filtered;
 
@@ -100,7 +103,7 @@ export default function FormsNossasLojas({ stores }: Stores) {
                 selectedIndex === store.id
                   ? "border-primary"
                   : "border-primary-content"
-              } rounded-[8px] px-[10px] mb-[16px]`}
+              } rounded-[8px] p-2.5 mb-[16px]`}
             >
               <div>
                 <div class="flex items-center">
@@ -110,12 +113,16 @@ export default function FormsNossasLojas({ stores }: Stores) {
                   </p>
                 </div>
                 <div class="w-[100%] py-[14px] font-regular text-[12px] text-[#7E7F88]">
-                  <p>{store.address.state}</p>
+                  <p>{store.address.city}</p>
                   <p>
                     {store.address.street}, {store.address.number} -{" "}
                     {store.address.neighborhood}
                   </p>
-                  <p>CEP: {store.address.postalCode}</p>
+                  <p>
+                    CEP: {store.address.postalCode} - {store.address.city} -
+                    {" "}
+                    {store.address.state}
+                  </p>
                 </div>
                 <div class="w-[266px] flex items-center justify-between pb-[14px]">
                   <p class="font-regular text-[12px] text-[#7E7F88]">
@@ -139,11 +146,7 @@ export default function FormsNossasLojas({ stores }: Stores) {
                 <div>
                   <button
                     onClick={() => {
-                      zoom.value = {
-                        lat: store.address.location.latitude,
-                        lng: store.address.location.longitude,
-                        zoom: 10,
-                      };
+                      currentStoreId.value = store.id;
                     }}
                     class="font-[12px] text-primary font-bold underline"
                   >

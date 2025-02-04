@@ -71,13 +71,13 @@ import VariantSelector from "./ProductVariantSelector.tsx";
 function QuickViewMobile(
   { product, settings, cardId }: QuickViewProps,
 ) {
-  const { offers, productID, url } = product;
+  const { productID, url } = product;
   const isOpen = useSignal(settings.defaultOpen ?? false);
   const skuSignal = useSignal(productID);
   const isVariantOf = product.isVariantOf?.hasVariant.find(
     (variant) => variant.sku === skuSignal.value,
   );
-  const { image } = isVariantOf ?? product;
+  const { image, offers } = isVariantOf ?? product;
   const productName = product.isVariantOf?.name ?? product.name;
   const { listPrice, price, seller = "1", installments, availability } =
     useOffer(offers);
@@ -110,7 +110,7 @@ function QuickViewMobile(
             <div
               id="quickviewBackdrop"
               class={clx(
-                "fixed top-0 left-0	z-50 h-screen w-screen bg-base-content bg-opacity-80",
+                "fixed top-0 left-0	z-50 h-screen w-screen bg-base-content opacity-80",
                 "block",
               )}
             />

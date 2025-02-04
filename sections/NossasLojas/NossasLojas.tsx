@@ -2,12 +2,12 @@
 import { type RichText } from "apps/admin/widgets.ts";
 import { Secret } from "apps/website/loaders/secret.ts";
 
+import FormsNossasLojas from "site/islands/FormsNossasLojas.tsx";
 import Map from "site/islands/Map.tsx";
-import FormsNossasLojas from "site/islands/formsNossasLojas.tsx";
 
 import { AppContext } from "site/apps/deco/vtex.ts";
 import { query } from "site/sections/NossasLojas/query.ts";
-import { Data } from "./types.ts";
+import { Data } from "site/sections/NossasLojas/types.ts";
 
 /**@title Conteúdo*/
 interface NossasLojasProps {
@@ -28,6 +28,36 @@ interface MasterDataResponse {
   store_id: string;
   whatsapp: string;
 }
+
+const statesToNames = {
+  AC: "Acre",
+  AL: "Alagoas",
+  AP: "Amapá",
+  AM: "Amazonas",
+  BA: "Bahia",
+  CE: "Ceará",
+  DF: "Distrito Federal",
+  ES: "Espírito Santo",
+  GO: "Goiás",
+  MA: "Maranhão",
+  MT: "Mato Grosso",
+  MS: "Mato Grosso do Sul",
+  MG: "Minas Gerais",
+  PA: "Pará",
+  PB: "Paraíba",
+  PR: "Paraná",
+  PE: "Pernambuco",
+  PI: "Piauí",
+  RJ: "Rio de Janeiro",
+  RN: "Rio Grande do Norte",
+  RS: "Rio Grande do Sul",
+  RO: "Rondônia",
+  RR: "Roraima",
+  SC: "Santa Catarina",
+  SP: "São Paulo",
+  SE: "Sergipe",
+  TO: "Tocantins",
+};
 
 export async function loader(
   { items, apiKey }: ContentProps,
@@ -54,6 +84,8 @@ export async function loader(
     );
     return {
       ...item,
+      stateName:
+        statesToNames[item.address.state as keyof typeof statesToNames],
       whatsapp: storeNumber?.whatsapp,
     };
   });

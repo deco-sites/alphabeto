@@ -23,6 +23,7 @@ export interface Item {
 
 export interface ItemWithWhatsapp extends Item {
   whatsapp: string | undefined;
+  stateName: string;
 }
 
 export interface Address {

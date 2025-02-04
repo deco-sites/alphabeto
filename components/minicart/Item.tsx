@@ -25,6 +25,7 @@ function CartItem({ item, index, locale, currency }: Props) {
   const { image, listPrice, price = Infinity, quantity } = item;
   const isGift = price < 0.01;
   const name = item.item_name.replace(item.item_variant, "").trim();
+  const hasListPrice = Boolean(listPrice) && listPrice > price;
 
   return (
     <fieldset
@@ -59,16 +60,18 @@ function CartItem({ item, index, locale, currency }: Props) {
         {/* Price Block  And Quantity Selector*/}
         <div class="flex items-center gap-2 justify-between">
           <div class="flex items-center gap-[5px]">
-            {Boolean(listPrice) && (
-              <>
-                <span class="line-through text-xs leading-[14.4px] font-semibold text-[#c5c5c5]">
-                  {formatPrice(listPrice, currency, locale)}
-                </span>
-                <span class="text-sm leading-[14.4px] font-semibold text-primary">
-                  •
-                </span>
-              </>
-            )}
+            {hasListPrice
+              ? (
+                <>
+                  <span class="line-through text-xs leading-[14.4px] font-semibold text-[#c5c5c5]">
+                    {formatPrice(listPrice, currency, locale)}
+                  </span>
+                  <span class="text-sm leading-[14.4px] font-semibold text-primary">
+                    •
+                  </span>
+                </>
+              )
+              : null}
             <span class="text-sm leading-[16.8px] font-bold text-primary">
               {isGift ? "Grátis" : formatPrice(price, currency, locale)}
             </span>

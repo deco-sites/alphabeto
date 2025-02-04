@@ -37,7 +37,7 @@ export function BenefitBar({ benefits = [], interval }: BenefitBarProps) {
         {benefits.map((benefits, index) => (
           <Slider.Item index={index} class="carousel-item">
             <span
-              class="px-5 w-screen text-center font-bold text-xs"
+              class="px-5 w-screen text-center font-bold text-xs my-auto"
               dangerouslySetInnerHTML={{ __html: benefits }}
             />
           </Slider.Item>
