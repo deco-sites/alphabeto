@@ -61,7 +61,7 @@ export default function AboutMiniMe(
             </div>
           </div>
           <button class="w-[100%] max-w-[197px] h-[44px] bg-[#F98300] mt-[30px] font-Quicksand text-[#FFF] text-[14px] font-bold rounded-[8px]">
-          <a href="/faca-sua-boneca">{label}</a>
+          <a href="/almofada-boneca-mini-me-55724/p">{label}</a>
           </button>
         </div>
       </section>

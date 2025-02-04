@@ -1,5 +1,7 @@
 //import React from "preact/compat";
 
+import { invoke } from "site/runtime.ts";
+
 //const MyContext = React.createContext('')
 
 export type CustomPart = {
@@ -28,31 +30,23 @@ export type PartType = {
 };
 
 export async function LoaderMiniMe() {
-  const response = await fetch(
-    "api/dataentities/PC/search?_fields=nome,id,gender,id_tipo,ativo,img_frente,img_costas,img_frente_alta,img_costas_alta,img_costas_special,img_frente_special,img_frente_special_hand,img_costas_special_hand,oculto&_where=ativo=true",
-    {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        "rest-range": "resources=0-999",
-      },
-    },
-  );
+  const response = await invoke.site.loaders.searchDocuments({
+    acronym: "PC",
+    fields: "nome,id,gender,id_tipo,ativo,img_frente,img_costas,img_frente_alta,img_costas_alta,img_costas_special,img_frente_special,img_frente_special_hand,img_costas_special_hand,oculto&_where=ativo=true",
+    skip: 0,
+    take: 999
+  }) as unknown as CustomPart[];
 
-  return response.json();
+  return response;
 }
 
 export async function LoaderMiniMeTypes() {
-  const typeResponse = await fetch(
-    "/api/dataentities/TP/search?_fields=id,nome,ordem,titulo&_where=ativo=true",
-    {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        "rest-range": "resources=0-999",
-      },
-    },
-  );
+  const typeResponse = await invoke.site.loaders.searchDocuments({
+    acronym: "TP",
+    fields: "id,nome,ordem,titulo&_where=ativo=true",
+    skip: 0,
+    take: 999
+  }) as unknown as PartType[];
 
-  return typeResponse.json();
+  return typeResponse;
 }

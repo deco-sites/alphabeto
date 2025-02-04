@@ -17,11 +17,14 @@ interface Props {
   dollParts: CustomPart[];
 
   page: ProductDetailsPage | null;
+
+  handlePopup: (value: boolean) => void 
 }
 
 export default function PopupMiniMe(
-  { popupTitle, popupTerms, dollParts, page }: Props,
+  { popupTitle, popupTerms, dollParts, page, handlePopup }: Props
 ) {
+
   const [IsChecked, setIsChecked] = useState(false);
   const [doll, setDoll] = useState<CustomPart[]>([]);
   setDoll(dollParts);
@@ -48,6 +51,93 @@ export default function PopupMiniMe(
     const target = event.target as HTMLInputElement;
     setIsChecked(target.checked);
   };
+
+  const buildMiniMe: () => Promise<void> = async () => {
+
+    let minime = ""
+
+      const minimeStructure = {
+        cheirinho: {
+          cheiro: dollParts[5].nome
+        },
+        frente: {
+          cabelo: {
+            cod: dollParts[1].img_frente.replace(/.*_(C\d+)\.png/, "$1"),
+            img_baixa: dollParts[1].img_frente,
+            img_alta: dollParts[1].img_frente_alta,
+          },
+          face: {
+            cod: dollParts[2].img_frente.replace(/.*_(F\d+)\.png/, "$1"),
+            img_baixa: dollParts[2].img_frente,
+            img_alta: dollParts[2].img_frente_alta,
+          },
+          pele: {
+            cod: dollParts[0].img_frente.replace(/.*_(P\d+)\.png/, "$1"),
+            img_baixa: dollParts[0].img_frente,
+            img_alta: dollParts[0].img_frente_alta,
+          },
+          roupa: {
+            cod: dollParts[3].img_frente.replace(/.*_(R\d+)\.png/, "$1"),
+            img_baixa: dollParts[3].img_frente,
+            img_alta: dollParts[3].img_frente_alta,
+          },
+          acessório: {
+            cod: dollParts[4].img_costas.replace(/.*_(A\d+)\.png/, "$1"),
+            img_baixa: dollParts[4].img_frente,
+            img_alta: dollParts[4].img_frente_alta,
+          },
+        },
+        costas: {
+          cabelo: {
+            cod: dollParts[1].img_costas.replace(/.*_(C\d+)\.png/, "$1"),
+            img_baixa: dollParts[1].img_costas,
+            img_alta: dollParts[1].img_costas_alta
+          },
+          pele: {
+            cod: dollParts[0].img_costas.replace(/.*_(P\d+)\.png/, "$1"),
+            img_baixa: dollParts[0].img_costas,
+            img_alta: dollParts[0].img_costas_alta
+          },
+          roupa: {
+            cod: dollParts[3].img_costas.replace(/.*_(R\d+)\.png/, "$1"),
+            img_baixa: dollParts[3].img_costas,
+            img_alta: dollParts[3].img_costas_alta
+          },
+          acessorio: {
+            cod: dollParts[4].img_costas.replace(/.*_(A\d+)\.png/, "$1"),
+            img_baixa: dollParts[4].img_costas,
+            img_alta: dollParts[4].img_costas_alta
+          },
+        }
+      }
+      minime = JSON.stringify(minimeStructure)
+
+      const response = await fetch("/_v/api/service/generateFinalImage", {
+        method: "POST",
+        body: minime,
+        headers: {
+          accept: "application/json, text/java, */*; q=0.01",
+          "accept-language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+          "content-type": "application/json; charset=UTF-8"
+        }
+      });
+
+      let data = await response.json()
+
+      data = {
+        ...data,
+        infos: {
+          cor: dollParts[0].img_frente.replace(/.*_(P\d+)\.png/, "$1"),
+          cabelo: dollParts[1].img_frente.replace(/.*_(C\d+)\.png/, "$1"),
+          olhos: dollParts[2].img_frente.replace(/.*_(F\d+)\.png/, "$1"),
+          vestido: dollParts[3].img_frente.replace(/.*_(R\d+)\.png/, "$1"),
+          acessorio: dollParts[4].img_costas.replace(/.*_(A\d+)\.png/, "$1"),
+          cheirinho: dollParts[5].nome
+        }
+      }
+
+    return data
+  }
 
   const addToCart = () => {
       console.log("page: ", page);
@@ -76,6 +166,7 @@ export default function PopupMiniMe(
     }
 
     const addMiniMe = async () => {
+      const data = await buildMiniMe()
       if(IsChecked === true){
         addToCart();
         const carrinho = await invoke.vtex.loaders.cart();
@@ -87,38 +178,7 @@ export default function PopupMiniMe(
             index: cartIndex,
             attachment: "boneca customizada",
             content: {
-              json: JSON.stringify(
-                {
-                  "frente": {
-                    "cheirinho": "uva",
-                    "cabelo": "C11",
-                    "face": "F08",
-                    "pele": "P00",
-                    "roupa": "R01",
-                    "img_alta":
-                      "https://secure.alphabeto.com/_v/api/service/image/frente_alta_P00C11F08R01.png?v=1",
-                    "img_baixa":
-                      "https://secure.alphabeto.com/_v/api/service/image/frente_baixa_P00C11F08R01.png?v=1",
-                  },
-                  "costas": {
-                    "cabelo": "C11",
-                    "pele": "P00",
-                    "roupa": "R01",
-                    "img_alta":
-                      "https://secure.alphabeto.com/_v/api/service/image/costas_alta_P00C11R01.png?v=1",
-                    "img_baixa":
-                      "https://secure.alphabeto.com/_v/api/service/image/costas_baixa_P00C11R01.png?v=1",
-                  },
-                  "infos": {
-                    "cor": "00",
-                    "cabelo": "02",
-                    "olhos": "curioso 01",
-                    "vestido": "02",
-                    "acessorio": "cadeirinha de rodas",
-                    "cheirinho": "uva",
-                  },
-                },
-              ),
+              json: JSON.stringify(data),
             },
           },
         );
@@ -133,7 +193,7 @@ export default function PopupMiniMe(
       <div class="fixed top-0 left-0 z-[100] bg-[#000] w-full h-full opacity-[25%]" />
       <section class="fixed z-[1000] top-[199px] left-[50%] -translate-x-1/2">
         <section class="relative flex w-[870px] bg-[#fff] rounded-[8px]">
-          <Icon id="close" class="text-[#FF8300] absolute right-0 m-[12px]" />
+          <Icon id="close" onClick={() => handlePopup(false)} class="pointer text-[#FF8300] absolute right-0 m-[12px]" />
           <div class="relative max-w-[259px] w-full bg-[#F7E0BF] h-[420px] rounded-tl-[8px] rounded-bl-[8px]">
             {doll.map((doll, index) => (
               <Image
@@ -147,6 +207,8 @@ export default function PopupMiniMe(
                   doll.oculto === true
                     ? "hidden"
                     : parseInt(doll.id_tipo) === 8
+                    ? "hidden"
+                    : doll.id === "71"
                     ? "hidden"
                     : ""
                 }
@@ -173,7 +235,7 @@ export default function PopupMiniMe(
               <span class="flex items-center">
                 <input
                   type="checkbox"
-                  class="w-[16px] h-[16px] appearance-none border-2 border-[#FF8300] rounded-md checked:bg-[#FF8300] checked:border-[#FF8300] checked:text-white flex items-center justify-center"
+                  class="mr-[8px] w-[16px] h-[16px] appearance-none border-2 border-[#FF8300] rounded-md checked:bg-[#FF8300] checked:border-[#FF8300] checked:text-white flex items-center justify-center"
                   checked={IsChecked}
                   onChange={handleCheck}
                 />

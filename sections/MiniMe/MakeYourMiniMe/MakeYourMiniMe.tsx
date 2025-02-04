@@ -19,10 +19,21 @@ interface Props {
   popupTerms?: RichText;
 
   page: ProductDetailsPage | null;
+  
+  /**@title Textos de conclusão*/
+  finishStep: FinishStep;
+}
+
+interface FinishStep {
+  /**@title Título final*/
+  finalTitle: string;
+  /**@title Mensagem final*/
+  finalMessage: string;
+  /**@title Mensagem de conclusão*/
+  finishText?: string;
 }
 
 export default function MakeYourMiniMe(props: Props) {
-  console.log(props.page)
   return (
     <>
       <MiniMe {...props} />

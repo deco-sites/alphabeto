@@ -24,6 +24,18 @@ interface Props {
   popupTerms?: RichText;
 
   page: ProductDetailsPage | null;
+
+  /**@title Textos de conclusão*/
+  finishStep: FinishStep;
+}
+
+interface FinishStep {
+  /**@title Título final*/
+  finalTitle: string;
+  /**@title Mensagem final*/
+  finalMessage: string;
+  /**@title Mensagem de conclusão*/
+  finishText?: string;
 }
 
 export default function MiniMe(props: Props) {
@@ -47,8 +59,19 @@ export default function MiniMe(props: Props) {
   //contador para saber as etapas
   const [count, setCount] = useState(0);
 
+  const [IsOpen, setIsOpen] = useState(false)
+
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const scrollQtd = 250;
+
+  const steps = [
+    "Corpinho",
+    "Cabelinho",
+    "Rostinho",
+    "Lookinho",
+    "Jeitinho",
+    "Cheirinho",
+  ];
 
   const price = props.page?.product.offers?.offers[0].price ? props.page?.product.offers?.offers[0].price : 189.95
   const formatedPrice = JSON.stringify(price).replace(/\./g, ",");
@@ -78,7 +101,8 @@ export default function MiniMe(props: Props) {
     setData(data);
     const typeSequence = await LoaderMiniMeTypes();
     const typesSorted = [...typeSequence].sort((a, b) => a.ordem - b.ordem);
-    setTypes(typesSorted);
+    const typesOrdered = [...typesSorted].splice(1)
+    setTypes(typesOrdered);
   };
 
   // Função que filtra os dados após determinado passo selecionado, por exemplo:
@@ -107,7 +131,11 @@ export default function MiniMe(props: Props) {
   // Dependendo do botão selecionado, 'voltar' ou 'avançar',
   // a função abaixo determina se sobe ou desce os passos
   const clickCount = (operation: string) => {
-    let i = 0;
+    let i = JSON.parse(localStorage.getItem("count") || "0");
+
+    if(operation === "increment" && count >= 6){
+      setIsOpen(true)
+    }
 
     if (operation === "increment" && count < 6) {
       i = count + 1;
@@ -265,6 +293,8 @@ export default function MiniMe(props: Props) {
                           ? "hidden"
                           : part.img_costas === null && isDollTurned === true
                           ? "hidden"
+                          : part.id === "71"
+                          ? "hidden"
                           : ""
                       }
                       `}
@@ -326,14 +356,14 @@ export default function MiniMe(props: Props) {
               class="flex mobile:overflow-scroll overflow-hidden max-w-[773px] h-[370px] mobile:h-[232px] w-full items-center"
             >
               <div class="flex items-center">
-                {count !== types.length - 1 && filteredData.map((item) => (
+                {count !== types.length - 1 && filteredData.map((item) => item ? (
                   <>
                     <div
                       onClick={() => selectPart(item.id, item.id_tipo)}
                       class={isSelected && selectedId === item.id ||
                           idCollection.find((id) => id === item.id)
-                        ? `flex flex-col items-center w-[138px] h-[237] mr-[4px] bg-[#fff] rounded-[8px] border-[1px] border-[#D6DE23]`
-                        : `flex flex-col items-center w-[138px] h-[237] mr-[4px] rounded-[8px] cursor-pointer hover:rounded-[8px] transition duration-300 hover:border-[0.5px] hover:border-[#D6DE23]`}
+                        ? `flex flex-col items-center w-[138px] h-[237px] mr-[4px] bg-[#fff] rounded-[8px] border-[1px] border-[#D6DE23]`
+                        : `flex flex-col items-center w-[138px] h-[237px] mr-[4px] rounded-[8px] cursor-pointer hover:rounded-[8px] transition duration-300 hover:border-[0.5px] hover:border-[#D6DE23]`}
                     >
                       <img class="mobile:w-[97px] mobile:h-[158px]" src={item.img_frente} />
                       <p class="font-Quicksand text-[#7E7F88] text-[16px] mobile:text-[12px] text-center">
@@ -341,7 +371,22 @@ export default function MiniMe(props: Props) {
                       </p>
                     </div>
                   </>
-                ))}
+                ) : null 
+                )} 
+                { count > types.length - 2 && (
+                  <div class="flex flex-col justify-center ml-[121px]">
+                    <h3 class="font-beccaPerry text-[#FF8300] text-[40px]">{props.finishStep.finalTitle}</h3>
+                  <div class="flex flex-col w-full font-Quicksand mb-[37px]">
+                  {dollParts.map((doll, index) => (
+                    <p key={index} class="text-[#676767]">
+                      <b>{steps[index]}</b>: {doll.nome}
+                    </p>
+                  ))}
+                </div>
+                <p class="font-Quicksand text-[20px] text-[#7E7F88] font-bold text-center">{props.finishStep.finalMessage}</p>
+                <p class="font-Quicksand text-[16px] text-[#7E7F88] font-medium text-center">{props.finishStep.finishText}</p>
+                </div>
+                )}
               </div>
             </div>
             <button
@@ -378,12 +423,14 @@ export default function MiniMe(props: Props) {
                 onClick={() => clickCount("increment")}
                 class="font-Quicksand text-[#fff] max-w-[198px] mobile:max-w-[140px] w-full h-[44px] bg-[#FF8300] border-[#FF8300] border-[1px] rounded-[8px]"
               >
-                Avançar
+                {count > types.length - 2 ? "Concluir boneca" : "Avançar"}
               </button>
             </div>
           </div>
         </div>
-        <PopupMiniMe {...props} dollParts={dollParts}/>
+                {IsOpen && (
+                          <PopupMiniMe {...props} dollParts={dollParts} handlePopup={setIsOpen}/>
+                )}
       </section>
     </>
   );

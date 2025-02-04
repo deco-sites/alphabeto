@@ -29,6 +29,11 @@
           "page": {
             "__resolveType": "vtex/loaders/intelligentSearch/productDetailsPage.ts",
             "slug": "almofada-boneca-mini-me-55724"
+          },
+          "finishStep": {
+            "finalTitle": "Oba, seu (a) mini me está pronto!",
+            "finalMessage": "Você terminou de criar sua Mini me!",
+            "finishText": "Para adicionar à sua comprinha, toque em “concluir”."
           }
         },
         {
