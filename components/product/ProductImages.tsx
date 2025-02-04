@@ -1,8 +1,8 @@
 import { useDevice, useScriptAsDataURI } from "@deco/deco/hooks";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 import Slider from "site/components/ui/Slider.tsx";
-import { useId } from "site/sdk/useId.ts";
 import VTEXImageTag from "site/components/VTEXImageTag.tsx";
+import { useId } from "site/sdk/useId.ts";
 
 export interface Props {
   /** @title Integration */
@@ -59,24 +59,9 @@ export default function ProductImages({ page }: Props) {
   return (
     <div id={id} class="relative">
       <Slider class="mobile:carousel mobile:carousel-center desk:grid grid-cols-2 desk:gap-3 z-10">
-        {video && (
-          <Slider.Item
-            class="mobile:carousel-item mobile:w-full"
-            index={0}
-          >
-            <video
-              src={video}
-              class="desk:max-h-[min(44.68vw,658px)] max-h-[126.67vw] w-full object-cover rounded-lg"
-              controls={false}
-              autoplay
-              muted
-              loop
-            />
-          </Slider.Item>
-        )}
         {images.map((image, index) => (
           <Slider.Item
-            index={video ? index + 1 : index}
+            index={index}
             class="mobile:carousel-item mobile:w-full desk:overflow-hidden"
           >
             <VTEXImageTag
@@ -89,6 +74,21 @@ export default function ProductImages({ page }: Props) {
             />
           </Slider.Item>
         ))}
+        {video && (
+          <Slider.Item
+            class="mobile:carousel-item mobile:w-full"
+            index={images.length}
+          >
+            <video
+              src={video}
+              class="desk:max-h-[min(44.68vw,658px)] max-h-[126.67vw] w-full object-cover rounded-lg"
+              controls={false}
+              autoplay
+              muted
+              loop
+            />
+          </Slider.Item>
+        )}
       </Slider>
       <div class="absolute bottom-2.5 flex gap-1 left-1/2 -translate-x-1/2 desk:hidden">
         {dots}
