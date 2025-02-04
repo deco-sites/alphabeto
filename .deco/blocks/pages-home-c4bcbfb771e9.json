@@ -8,21 +8,21 @@
       "__resolveType": "site/sections/Images/Carousel.tsx",
       "images": [
         {
-          "desktop": "https://data.decoassets.com/alphabeto/83a1fdb4-80f5-4bb8-ac23-8f72a901d91e/2880x-900-(2).png",
-          "mobile": "https://data.decoassets.com/alphabeto/bc1fab77-0366-47cd-b946-827080c74357/750-x-700-px.gif",
-          "title": "Preferidos do Verão",
-          "clickUrl": "/liqui-verao-24-25?initialMap=productClusterIds&initialQuery=797&map=productclusternames&priceRange=29%20TO%20130 ",
-          "alt": "esse banner mostra uma vitrine viva com varios produtos infantis de qualidade alphabeto"
-        },
-        {
+          "desktop": "https://data.decoassets.com/alphabeto/0bf41382-e56d-451b-b2ce-97bc723bfce2/FEV-2880x-900.png",
+          "mobile": "https://data.decoassets.com/alphabeto/8daed3ff-4999-4db8-b4f2-efdc3f4ff1e9/FEV-750-x-700-px.png",
           "title": "Liqui",
-          "desktop": "https://data.decoassets.com/alphabeto/05228dd1-f2f6-4751-8ae6-e3d54e5c1f1e/2880x-(9)-(1).png",
-          "mobile": "https://data.decoassets.com/alphabeto/5846d0ee-2926-47ff-a2a0-54975bf43a7e/750-x-700-px.jpg",
+          "clickUrl": "/799?map=productClusterIds",
           "alt": "Banner de Demonstração",
-          "clickUrl": "/infantil/liqui-colecao-verao",
           "action": {
             "href": "/meninas"
           }
+        },
+        {
+          "title": "Preferidos do Verão",
+          "desktop": "https://data.decoassets.com/alphabeto/83a1fdb4-80f5-4bb8-ac23-8f72a901d91e/2880x-900-(2).png",
+          "mobile": "https://data.decoassets.com/alphabeto/bc1fab77-0366-47cd-b946-827080c74357/750-x-700-px.gif",
+          "alt": "esse banner mostra uma vitrine viva com varios produtos infantis de qualidade alphabeto",
+          "clickUrl": "/liqui-verao-24-25?initialMap=productClusterIds&initialQuery=797&map=productclusternames&priceRange=29%20TO%20130 "
         },
         {
           "title": "Carnval ",
