@@ -14,14 +14,18 @@ export default function ProductAgeRangeIndicator(
   { product, class: className = "" }: Props,
 ) {
   const name = product.isVariantOf?.name ?? product.name;
-  const ageRangeFromNameNotValidated = name?.split("-").map((item) =>
-    item.trim()
-  ).at(-2);
-  const ageRangeFromName =
+  const ageRangeFromNameNotValidated = name?.split("-")
+    .map((item) => item.split("–"))
+    .flat()
+    .map((item) => item.trim()).at(-2);
+  const ageRangeValidation =
     ageRangeFromNameNotValidated?.toLowerCase().includes("anos") ||
-      ageRangeFromNameNotValidated?.toLowerCase().includes("meses")
-      ? ageRangeFromNameNotValidated
-      : null;
+    ageRangeFromNameNotValidated?.toLowerCase().includes("meses") ||
+    ageRangeFromNameNotValidated?.toLowerCase().includes("tam. u");
+
+  const ageRangeFromName = ageRangeValidation
+    ? ageRangeFromNameNotValidated
+    : null;
   const additionalProperties = product.isVariantOf?.additionalProperty ?? [];
 
   const ageRangeFromProperties = additionalProperties.find((property) =>
