@@ -188,7 +188,7 @@ export default function ProductCard(props: ProductCardProps) {
           Em até {installments}
         </p>
         <div class="grid grid-cols-[1fr_98px] gap-1.5 mobile:flex mobile:flex-col mobile:gap-2.5 mt-1 desk:mt-5">
-          <ProductSkuSelector signal={props.signal} />
+          <ProductSkuSelector signal={props.signal} mode={props.mode} />
         </div>
       </div>
     </div>

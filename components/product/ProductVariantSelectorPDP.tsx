@@ -1,12 +1,12 @@
-import { useSection } from "@deco/deco/hooks";
+import { useScript, useSection } from "@deco/deco/hooks";
 import type { Product } from "apps/commerce/types.ts";
+import { ColorItem } from "site/apps/site.ts";
 import { clx } from "site/sdk/clx.ts";
 import { makeBackgroundFromHexadecimals } from "site/sdk/makeBackgroundFromHexadecimals.ts";
 import { uppercaseFirstLetter } from "site/sdk/stringUtils.ts";
 import { relative } from "site/sdk/url.ts";
 import { useId } from "site/sdk/useId.ts";
 import { useVariantPossibilities } from "site/sdk/useVariantPossiblities.ts";
-import { ColorItem } from "site/apps/site.ts";
 
 interface Props {
   product: Product;
@@ -158,6 +158,19 @@ function VariantSelectorPDP({ product, colors }: Props) {
                       class="cursor-pointer grid grid-cols-1 grid-rows-1 place-items-center"
                       hx-get={useSection({ href: relativeLink })}
                       hx-replace-url={relativeLink}
+                      data-sku={`${name}-${value}`}
+                      {...{
+                        "hx-on::before-request": useScript(
+                          (relativeLink: string | undefined) => {
+                            globalThis.dispatchEvent(
+                              new CustomEvent("skuChange", {
+                                detail: { url: relativeLink },
+                              }),
+                            );
+                          },
+                          relativeLink,
+                        ),
+                      }}
                     >
                       {/* Checkbox for radio button on the frontend */}
                       <input

@@ -1,4 +1,5 @@
 import { useSignal } from "@preact/signals";
+import { useEffect } from "preact/hooks";
 import { AppContext } from "site/apps/site.ts";
 import ProductCard from "site/components/product/ProductBuyTogether/ProductCard.tsx";
 import ProductResume from "site/components/product/ProductBuyTogether/ProductResume.tsx";
@@ -16,6 +17,12 @@ export async function loader(
   ctx: AppContext,
 ) {
   return await ctx.invoke.site.loaders.BuyTogether.getInitialProducts(props);
+}
+
+interface EventDetail extends CustomEvent {
+  detail: {
+    url: string;
+  };
 }
 
 export default function ProductBuyTogether(
@@ -41,6 +48,26 @@ export default function ProductBuyTogether(
     sugestionOne.value.product.isVariantOf?.productGroupID ?? "",
     sugestionTwo.value.product.isVariantOf?.productGroupID ?? "",
   ];
+
+  useEffect(() => {
+    const pdpChangeUrl = (event: Event) => {
+      const ev = event as EventDetail;
+      const urlParams = new URL(ev.detail.url, "http://localhost");
+      const sku = urlParams.searchParams.get("skuId");
+
+      if (!sku) return;
+      principalProduct.value = {
+        ...principalProduct.value,
+        selectedVariant: sku,
+      };
+    };
+    globalThis.addEventListener("skuChange", pdpChangeUrl);
+
+    return () => {
+      globalThis.removeEventListener("skuChange", pdpChangeUrl);
+    };
+  }, [principalProduct]);
+
   return (
     <>
       <Spacer />

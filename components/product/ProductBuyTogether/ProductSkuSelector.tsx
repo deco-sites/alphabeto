@@ -11,10 +11,11 @@ const checkAvailability = (variant: Product) => {
 };
 
 export default function ProductSkuSelector(props: ProductSkuSelectorProps) {
-  const { isVariantOf } = props.signal.value.product;
+  const { mode, signal } = props;
+  const { isVariantOf } = signal.value.product;
   const { additionalProperty } = isVariantOf?.hasVariant.find(
-    (variant) => variant.sku === props.signal.value.selectedVariant,
-  ) ?? props.signal.value.product;
+    (variant) => variant.sku === signal.value.selectedVariant,
+  ) ?? signal.value.product;
 
   const currentColor =
     additionalProperty?.find((property) => property.name === "Cor")?.value ??
@@ -58,6 +59,12 @@ export default function ProductSkuSelector(props: ProductSkuSelectorProps) {
     ) ?? [];
   const handleColorChange = useCallback(
     (newColor: string) => {
+      if (mode === "principal") {
+        document.querySelector<HTMLLabelElement>(
+          `label[data-sku='Cor-${newColor}']`,
+        )?.click();
+        return;
+      }
       const variants = isVariantOf?.hasVariant ?? [];
 
       const findedVariant = variants.find((variant) => {
@@ -73,8 +80,8 @@ export default function ProductSkuSelector(props: ProductSkuSelectorProps) {
         return isAvailable;
       });
       if (findedVariant) {
-        props.signal.value = {
-          ...props.signal.value,
+        signal.value = {
+          ...signal.value,
           selectedVariant: findedVariant.sku,
         };
         return;
@@ -91,22 +98,29 @@ export default function ProductSkuSelector(props: ProductSkuSelectorProps) {
         alert(
           "Não temos um produto disponível dessa cor com esse tamanho. Escolhemos um produto de outro tamanho mas com essa cor para você.",
         );
-        props.signal.value = {
-          ...props.signal.value,
+        signal.value = {
+          ...signal.value,
           selectedVariant: findedColorVariant.sku,
         };
         return;
       }
       alert("Não temos produtos disponíveis com essa cor");
-      props.signal.value = {
-        ...props.signal.value,
+      signal.value = {
+        ...signal.value,
       };
     },
-    [isVariantOf, currentSize],
+    [isVariantOf, currentSize, mode],
   );
 
   const handleSizeChange = useCallback(
     (newSize: string) => {
+      if (mode === "principal") {
+        document.querySelector<HTMLLabelElement>(
+          `label[data-sku='Tamanho-${newSize}']`,
+        )?.click();
+        return;
+      }
+
       const variants = isVariantOf?.hasVariant ?? [];
       const findedVariant = variants.find((variant) => {
         const sameColor = variant.additionalProperty?.find(
@@ -120,9 +134,10 @@ export default function ProductSkuSelector(props: ProductSkuSelectorProps) {
         const isAvailable = checkAvailability(variant);
         return isAvailable;
       });
+
       if (findedVariant) {
-        props.signal.value = {
-          ...props.signal.value,
+        signal.value = {
+          ...signal.value,
           selectedVariant: findedVariant.sku,
         };
 
@@ -140,18 +155,18 @@ export default function ProductSkuSelector(props: ProductSkuSelectorProps) {
         alert(
           "Não temos um produto disponível desse tamanho com essa cor. Escolhemos um produto de outra cor com esse tamanho para você.",
         );
-        props.signal.value = {
-          ...props.signal.value,
+        signal.value = {
+          ...signal.value,
           selectedVariant: findedSizeVariant.sku,
         };
         return;
       }
       alert("Não temos produtos disponíveis com esse tamanho");
-      props.signal.value = {
-        ...props.signal.value,
+      signal.value = {
+        ...signal.value,
       };
     },
-    [isVariantOf, currentColor],
+    [isVariantOf, currentColor, mode],
   );
 
   return (

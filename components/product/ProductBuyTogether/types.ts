@@ -36,6 +36,7 @@ export interface BuyTogetherLoaderResponse {
 }
 export interface ProductSkuSelectorProps {
   signal: Signal<PrincipalProductSignal> | Signal<SugestionProductSignal>;
+  mode: "principal" | "sugestion";
 }
 export type ProductCardProps =
   | {
