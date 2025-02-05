@@ -358,6 +358,12 @@
     },
     {
       "__resolveType": "Footer"
+    },
+    {
+      "__resolveType": "site/sections/Product/ProductFixedBar.tsx",
+      "page": {
+        "__resolveType": "PDP Loader"
+      }
     }
   ],
   "__resolveType": "website/pages/Page.tsx",

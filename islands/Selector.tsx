@@ -1,4 +1,5 @@
 import Icon from "site/components/ui/Icon.tsx";
+import { clx } from "site/sdk/clx.ts";
 import { useId } from "site/sdk/useId.ts";
 
 type SelectProps =
@@ -17,6 +18,7 @@ interface Props {
   onChange?: (value: string) => void;
   placeholder: string;
   selectProps?: SelectProps;
+  posTop?: boolean;
 }
 
 export default function Selector({
@@ -24,6 +26,7 @@ export default function Selector({
   placeholder,
   selectProps,
   onChange,
+  posTop = false,
 }: Props) {
   const id = useId();
   const selectedValue = values.find((value) => value.selected);
@@ -76,12 +79,20 @@ export default function Selector({
       </button>
       <div
         id="items-container"
-        class="transition-all bg-white absolute top-8 w-full z-10 overflow-hidden border-x border-primary border-dashed"
+        class={clx(
+          "transition-all bg-white absolute w-full z-10 overflow-hidden border-x border-primary border-dashed",
+          posTop ? "bottom-8" : "top-8",
+        )}
         style={{
           height: "0px",
         }}
       >
-        <div class="border-b border-primary border-dashed mt-2">
+        <div
+          class={clx(
+            "border-primary border-dashed",
+            posTop ? "border-t mb-2" : "border-b mt-2",
+          )}
+        >
           {values.map((value) => (
             <button
               class="h-10 flex items-center hover:bg-secondary-content px-3 cursor-pointer w-full"

@@ -12,6 +12,9 @@ import * as $Notify from "./islands/Notify.tsx";
 import * as $PopupDeEntrada from "./islands/PopupDeEntrada.tsx";
 import * as $PopupLGPD from "./islands/PopupLGPD.tsx";
 import * as $ProductBuyTogether from "./islands/ProductBuyTogether.tsx";
+import * as $ProductFixedBar_AddToCartButton from "./islands/ProductFixedBar/AddToCartButton.tsx";
+import * as $ProductFixedBar_ProductFixedBar from "./islands/ProductFixedBar/ProductFixedBar.tsx";
+import * as $ProductFixedBar_QuantitySelector from "./islands/ProductFixedBar/QuantitySelector.tsx";
 import * as $ProductTextInfoDiscloujure from "./islands/ProductTextInfoDiscloujure.tsx";
 import * as $Quickview_AddToCartButton from "./islands/Quickview/AddToCartButton.tsx";
 import * as $Quickview_Header from "./islands/Quickview/Header.tsx";
@@ -37,6 +40,12 @@ const manifest = {
     "./islands/PopupDeEntrada.tsx": $PopupDeEntrada,
     "./islands/PopupLGPD.tsx": $PopupLGPD,
     "./islands/ProductBuyTogether.tsx": $ProductBuyTogether,
+    "./islands/ProductFixedBar/AddToCartButton.tsx":
+      $ProductFixedBar_AddToCartButton,
+    "./islands/ProductFixedBar/ProductFixedBar.tsx":
+      $ProductFixedBar_ProductFixedBar,
+    "./islands/ProductFixedBar/QuantitySelector.tsx":
+      $ProductFixedBar_QuantitySelector,
     "./islands/ProductTextInfoDiscloujure.tsx": $ProductTextInfoDiscloujure,
     "./islands/Quickview/AddToCartButton.tsx": $Quickview_AddToCartButton,
     "./islands/Quickview/Header.tsx": $Quickview_Header,
