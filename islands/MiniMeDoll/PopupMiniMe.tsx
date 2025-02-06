@@ -9,6 +9,7 @@ import {
 } from "site/components/product/ProductBuyTogether/types.ts";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { MINICART_DRAWER_ID } from "site/constants.ts";
+import generateImageAction from "site/actions/minime/generateImageMiniMe.ts";
 
 interface Props {
   popupTitle?: RichText;
@@ -19,6 +20,12 @@ interface Props {
   page: ProductDetailsPage | null;
 
   handlePopup: (value: boolean) => void 
+}
+
+export const getImageMiniMe = () => {
+  const local = localStorage.getItem('imageMiniMe')
+  console.log('image2: ', local)
+  return local
 }
 
 export default function PopupMiniMe(
@@ -52,7 +59,7 @@ export default function PopupMiniMe(
     setIsChecked(target.checked);
   };
 
-  const buildMiniMe: () => Promise<void> = async () => {
+  const buildMiniMe: () => Promise<Record<string, string> | undefined> = async () => {
 
     let minime = ""
 
@@ -123,6 +130,14 @@ export default function PopupMiniMe(
       });
 
       let data = await response.json()
+      console.log("dataaa: ", data)
+
+      let datasecond = await invoke.site.actions.generateImageMiniMe({
+        body: minime
+      })
+
+      const data2 = datasecond
+      console.log("data2: ", datasecond.body)
 
       data = {
         ...data,
@@ -136,11 +151,49 @@ export default function PopupMiniMe(
         }
       }
 
+      
+
+      if(data.frente){
+        
+      data.frente.img_alta =
+      window.location.protocol +
+      "//" +
+      "alphabeto.com" +
+      data?.frente?.img_alta +
+      "?v=1";
+      data.frente.img_baixa =
+      window.location.protocol +
+      "//" +
+      "alphabeto.com" +
+      data?.frente?.img_baixa +
+      "?v=1";
+
+      const image = JSON.stringify(data.frente.img_baixa) 
+      }
+
+      if(data.costas){
+        
+        data.costas.img_alta =
+        window.location.protocol +
+        "//" +
+        "alphabeto.com" +
+        data?.costas?.img_alta +
+        "?v=1";
+        data.costas.img_baixa =
+        window.location.protocol +
+        "//" +
+        "alphabeto.com" +
+        data?.costas?.img_baixa +
+        "?v=1";
+        }
+
+
     return data
   }
 
   const addToCart = () => {
       console.log("page: ", page);
+      const img = localStorage.getItem('imageMiniMe')
       if (page) {
         const plataformProps: PlataformProps = {
           allowedOutdatedData: ["paymentData"],
@@ -167,6 +220,7 @@ export default function PopupMiniMe(
 
     const addMiniMe = async () => {
       const data = await buildMiniMe()
+      console.log(data)
       if(IsChecked === true){
         addToCart();
         const carrinho = await invoke.vtex.loaders.cart();
@@ -178,8 +232,8 @@ export default function PopupMiniMe(
             index: cartIndex,
             attachment: "boneca customizada",
             content: {
-              json: JSON.stringify(data),
-            },
+              json: JSON.stringify(data)
+            }
           },
         );
       }

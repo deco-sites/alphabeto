@@ -2,8 +2,6 @@
 
 import { invoke } from "site/runtime.ts";
 
-//const MyContext = React.createContext('')
-
 export type CustomPart = {
   id: string;
   // gender: string | undefined | null;

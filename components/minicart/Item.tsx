@@ -34,7 +34,7 @@ function CartItem({ item, index, locale, currency }: Props) {
     >
       <Image
         alt={name}
-        src={changeImageSizeUrl(image, 144, 204)}
+        src={item.item_name === "Almofada Boneca Mini me Almofada Personalizada Avulso Diversos/u" ? "http://alphabeto.com/_v/api/service/image/frente_baixa_P09C14F07R03.png?v=1" : changeImageSizeUrl(image, 144, 204)}
         style={{ aspectRatio: "72 / 102" }}
         width={144}
         height={204}
