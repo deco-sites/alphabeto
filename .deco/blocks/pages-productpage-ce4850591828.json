@@ -298,20 +298,6 @@
       }
     },
     {
-      "__resolveType": "site/sections/Images/BackgroundBanner.tsx",
-      "data": {
-        "__resolveType": "site/loaders/product/backgroundBanner.ts",
-        "page": {
-          "__resolveType": "vtex/loaders/intelligentSearch/productDetailsPage.ts",
-          "slug": {
-            "__resolveType": "website/functions/requestToParam.ts",
-            "param": "slug"
-          }
-        }
-      },
-      "addSpaceBefore": true
-    },
-    {
       "__resolveType": "site/sections/Content/RotativeText.tsx",
       "text": {
         "__resolveType": "site/loaders/product/rotativeText.ts",
@@ -323,9 +309,6 @@
           }
         }
       }
-    },
-    {
-      "__resolveType": "FAQ"
     },
     {
       "__resolveType": "site/sections/Product/ProductReviews.tsx",
@@ -352,6 +335,9 @@
         }
       },
       "title": "Quem viu, viu também"
+    },
+    {
+      "__resolveType": "FAQ"
     },
     {
       "__resolveType": "site/sections/Miscellaneous/Spacer.tsx"
