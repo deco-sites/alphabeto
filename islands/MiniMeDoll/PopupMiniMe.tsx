@@ -9,7 +9,7 @@ import {
 } from "site/components/product/ProductBuyTogether/types.ts";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { MINICART_DRAWER_ID } from "site/constants.ts";
-import generateImageAction from "site/actions/minime/generateImageMiniMe.ts";
+import generateImageMiniMe from "site/actions/minime/generateImageMiniMe.ts";
 
 interface Props {
   popupTitle?: RichText;
@@ -133,11 +133,17 @@ export default function PopupMiniMe(
       console.log("dataaa: ", data)
 
       let datasecond = await invoke.site.actions.generateImageMiniMe({
-        body: minime
+        minime
       })
 
-      const data2 = datasecond
-      console.log("data2: ", datasecond.body)
+      const handleFetch = async (minime: any) => {
+        const response = await invoke.site.actions.generateImageMiniMe(minime);
+
+        return response
+      };
+
+      const data2 = await handleFetch(minime)
+      console.log("data2: ", data2)
 
       data = {
         ...data,

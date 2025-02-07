@@ -2,6 +2,7 @@ import { itemToAnalyticsItem } from "apps/vtex/hooks/useCart.ts";
 import { Minicart } from "../../../../components/minicart/Minicart.tsx";
 import { Cart } from "../types.ts";
 import { SkuInformationData } from "./loadSizes.ts";
+import { changeImageSizeUrl } from "../../../vtexProductImageUrlTambor.ts";
 
 export const cartFrom = (
   form: Cart,
@@ -27,9 +28,19 @@ export const cartFrom = (
       items: items.map((item, index) => {
         const detailUrl = new URL(item.detailUrl, url).href;
         const skuInfo = skuInformation[item.id];
+
+        let imageCustom = ''
+
+        item.attachments.map((product) => {
+          console.log("Produto: ", product)
+          const jsonData = JSON.parse(product.content.json)
+          imageCustom = jsonData.frente.img_baixa
+          console.log("img: ", imageCustom)
+        })
+
         return {
           ...itemToAnalyticsItem({ ...item, detailUrl, coupon }, index),
-          image: item.imageUrl,
+          image: imageCustom ? imageCustom : changeImageSizeUrl(item.imageUrl, 144, 204),
           ...skuInfo,
           listPrice: item.listPrice / 100,
         };

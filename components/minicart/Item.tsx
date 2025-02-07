@@ -2,7 +2,6 @@ import { AnalyticsItem } from "apps/commerce/types.ts";
 import Image from "apps/website/components/Image.tsx";
 import { clx } from "../../sdk/clx.ts";
 import { formatPrice } from "../../sdk/format.ts";
-import { changeImageSizeUrl } from "../../sdk/vtexProductImageUrlTambor.ts";
 import QuantitySelector from "../ui/QuantitySelector.tsx";
 export type Item = AnalyticsItem & {
   size: string;
@@ -34,7 +33,7 @@ function CartItem({ item, index, locale, currency }: Props) {
     >
       <Image
         alt={name}
-        src={item.item_name === "Almofada Boneca Mini me Almofada Personalizada Avulso Diversos/u" ? "http://alphabeto.com/_v/api/service/image/frente_baixa_P09C14F07R03.png?v=1" : changeImageSizeUrl(image, 144, 204)}
+        src={image}
         style={{ aspectRatio: "72 / 102" }}
         width={144}
         height={204}

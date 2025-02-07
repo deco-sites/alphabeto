@@ -246,6 +246,9 @@ export default function MiniMe(props: Props) {
   // Se não houver nenhum tipo de dado é retornado um valor nulo
   if (!data || !types) return null;
 
+  console.log(data)
+  console.log(types)
+
   return (
     <>
       <section class="mobile:relative container flex mobile:flex-col-reverse max-w-[1360px] w-full mb-[100px]">
