@@ -101,6 +101,14 @@ function ProductCard({
     ?.video?.[0].contentUrl ??
     null;
 
+    const showHighlight48h = product?.additionalProperty?.find((
+      item,
+    ) =>
+      (item.propertyID === "778" || item.propertyID === "779") &&
+      item?.description === "highlight"
+    );
+  
+
   return (
     <div
       {...event}
@@ -176,6 +184,19 @@ function ProductCard({
         <div class="absolute top-0 right-0 m-2.5 tablet-large::m-[14px]">
           <WishlistButton mode="productCard" item={item} />
         </div>
+
+        {showHighlight48h && (
+          <div class="absolute bottom-0 left-0 flex items-center justify-between w-full">
+            {/* Flag 48h sale */}
+            <span
+              class={clx(
+                "block  w-full",
+                "bg-[url(https://data.decoassets.com/alphabeto/dce61844-9323-4367-9b84-5b1fba7ea7b1/flag-48h-desk.png)]",
+                "bg-no-repeat bg-contain bg-center bg-[#F98819] h-[30px]",
+              )}
+            />
+          </div>
+        )}
       </figure>
       <ProductRating
         iconSize={device === "desktop" ? 12 : 10}
