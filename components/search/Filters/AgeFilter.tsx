@@ -1,6 +1,9 @@
 import { FilterToggle, FilterToggleValue } from "apps/commerce/types.ts";
+import Icon from "site/components/ui/Icon.tsx";
+import Slider from "site/components/ui/Slider.tsx";
 import { clx } from "site/sdk/clx.ts";
 import { isEvenStringNumber, strToNumber } from "site/sdk/stringUtils.ts";
+import { useId } from "site/sdk/useId.ts";
 
 interface BabyAgeValue extends FilterToggleValue {
   min: number;
@@ -97,20 +100,49 @@ interface Props {
 
 export default function AgeFilter({ filterToogle, url }: Props) {
   const filterValues = getFilterValues(filterToogle, url);
+
+  const rootId = useId();
   return (
-    <div class="carousel flex gap-12 w-fit max-w-[calc(100vw_-_40px)] mx-auto customizeScroll ageHorizontal">
-      {filterValues.map((value) => (
-        <a
-          href={value.url}
-          class={clx(
-            "rounded-full font-bold w-20 h-20 flex items-center justify-center text-primary break-all text-center carousel-item text-[20px] leading-[24px] box-border",
-            value.selected
-              ? "border border-primary bg-secondary"
-              : "bg-secondary-content",
-          )}
-          dangerouslySetInnerHTML={{ __html: value.label }}
+    <div id={rootId} class="mobile:flex items-center">
+      <Slider.PrevButton
+        class="btn btn-neutral btn-outline btn-circle no-animation btn-sm h-10 w-10 bg-white hover:bg-white text-primary hover:text-primary border-none group desk:hidden"
+        disabled={false}
+      >
+        <Icon id="chevron-right" class="rotate-180 group-hover:hidden" />
+        <Icon
+          id="arrow-right"
+          class="rotate-180 hidden group-hover:block"
         />
-      ))}
+      </Slider.PrevButton>
+
+      <Slider class="carousel flex gap-12 w-fit max-w-[calc(100vw_-_40px)] mx-auto">
+        {filterValues.map((value, index) => (
+          <Slider.Item index={index} class="carousel-item w-20 h-20">
+            <a
+              href={value.url}
+              class={clx(
+                "rounded-full font-bold w-20 h-20 flex items-center justify-center text-primary break-all text-center text-[20px] leading-[24px] box-border",
+                value.selected
+                  ? "border border-primary bg-secondary"
+                  : "bg-secondary-content",
+              )}
+              dangerouslySetInnerHTML={{ __html: value.label }}
+            />
+          </Slider.Item>
+        ))}
+      </Slider>
+
+      <Slider.NextButton
+        class="btn btn-neutral btn-outline btn-circle no-animation btn-sm h-10 w-10 bg-white hover:bg-white text-primary hover:text-primary border-none group desk:hidden"
+        disabled={false}
+      >
+        <Icon id="chevron-right" class="group-hover:hidden" />
+        <Icon
+          id="arrow-right"
+          class="hidden group-hover:block"
+        />
+      </Slider.NextButton>
+      <Slider.JS rootId={rootId} />
     </div>
   );
 }
