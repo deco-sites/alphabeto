@@ -8,33 +8,14 @@
       "__resolveType": "site/sections/Images/Carousel.tsx",
       "images": [
         {
-          "desktop": "https://data.decoassets.com/alphabeto/0bf41382-e56d-451b-b2ce-97bc723bfce2/FEV-2880x-900.png",
-          "mobile": "https://data.decoassets.com/alphabeto/8daed3ff-4999-4db8-b4f2-efdc3f4ff1e9/FEV-750-x-700-px.png",
+          "desktop": "https://data.decoassets.com/alphabeto/86f4a390-eade-4b9b-8a87-98f375445fe3/2880x-900-(4).png",
+          "mobile": "https://data.decoassets.com/alphabeto/05113319-0bc1-4524-b254-cbc69fae9c02/FEV-750-x-700-px-(2).png",
           "title": "Liqui",
-          "clickUrl": "/799?map=productClusterIds",
           "alt": "Banner de Demonstração",
           "action": {
             "href": "/meninas"
-          }
-        },
-        {
-          "title": "Combo",
-          "desktop": "https://data.decoassets.com/alphabeto/ead2ca32-0f82-4004-8aa9-bd47979417d9/FEV-2880x-900-(3).png",
-          "mobile": "https://data.decoassets.com/alphabeto/975543f0-9504-4369-b4eb-12428a1dd3ae/FEV-750-x-700-px-(1).png",
-          "clickUrl": "/infantil/combo-de-vestido"
-        },
-        {
-          "title": "Moda Praia",
-          "desktop": "https://data.decoassets.com/alphabeto/8bff800f-587e-4654-b79c-ea3a15a7cb22/banner---deco.jpg",
-          "mobile": "https://data.decoassets.com/alphabeto/9d00f302-231a-46d9-8c61-4656bf632a00/750-x-700-px-(1).jpg",
-          "clickUrl": "/809?map=productClusterIds"
-        },
-        {
-          "title": "Carnval ",
-          "desktop": "https://data.decoassets.com/alphabeto/f5f69c87-746a-4a7a-9079-03545af2a795/deco.png",
-          "mobile": "https://data.decoassets.com/alphabeto/3071fc65-d718-4b39-981a-1a9b19b41a7f/25.png",
-          "clickUrl": "/807?map=productClusterIds",
-          "alt": "Carnaval infantil "
+          },
+          "clickUrl": "/infantil/bazar"
         }
       ],
       "preload": true

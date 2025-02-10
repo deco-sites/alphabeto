@@ -5852,6 +5852,10 @@ details.collapse summary::-webkit-details-marker {
   --tw-bg-opacity: 1;
   background-color: rgb(247 247 247 / var(--tw-bg-opacity));
 }
+.bg-\[\#F98819\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 136 25 / var(--tw-bg-opacity));
+}
 .bg-\[\#FFFFFF\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -5924,6 +5928,9 @@ details.collapse summary::-webkit-details-marker {
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
+.bg-\[url\(https\:\/\/data\.decoassets\.com\/alphabeto\/dce61844-9323-4367-9b84-5b1fba7ea7b1\/flag-48h-desk\.png\)\] {
+  background-image: url(https://data.decoassets.com/alphabeto/dce61844-9323-4367-9b84-5b1fba7ea7b1/flag-48h-desk.png);
+}
 .bg-\[url\(https\:\/\/deco-sites-assets\.s3\.sa-east-1\.amazonaws\.com\/alphabeto\/c8bb9397-459e-4c62-a325-ab0147648a3b\/discountBackground\.svg\)\] {
   background-image: url(https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/c8bb9397-459e-4c62-a325-ab0147648a3b/discountBackground.svg);
 }
@@ -5937,6 +5944,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .to-\[\#141414\] {
   --tw-gradient-to: #141414 var(--tw-gradient-to-position);
+}
+.bg-contain {
+  background-size: contain;
 }
 .bg-cover {
   background-size: cover;
