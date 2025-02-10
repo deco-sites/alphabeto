@@ -39,16 +39,30 @@ const actions: CartSubmitActions<AppContext> = {
     return cartFrom(response, req.url, skuInformation);
   },
   setSellerCode: async ({ sellerCode }, req, ctx) => {
+    const orderForm = await ctx.invoke.vtex.loaders.cart();
+    const marketingData = orderForm.marketingData ?? {};
+    const marketingTags = marketingData.marketingTags ?? [];
     const sellerCodeOnly = sellerCode?.split(" ")[0] ?? "";
     interface MasterDataResponse extends Document {
       name: string;
     }
     if (sellerCodeOnly.length === 0) {
-      const response =
-        (await ctx.invoke("vtex/actions/cart/updateAttachment.ts", {
-          attachment: "openTextField",
-          body: { value: "" },
-        })) as unknown as Cart;
+      const newMarketingTags = marketingTags.filter((tag) =>
+        !tag.startsWith("CodigoVendedor")
+      ).filter((tag) => !tag.startsWith("code_CodigoVendedor"));
+      await ctx.invoke("vtex/actions/cart/updateAttachment.ts", {
+        attachment: "marketingData",
+        body: {
+          ...marketingData,
+          marketingTags: newMarketingTags,
+          utmCampaign: "",
+          utmiCampaign: "",
+        },
+      });
+      const response = (await ctx.invoke("vtex/actions/cart/updateAttachment.ts", {
+        attachment: "openTextField",
+        body: { value: "" },
+      })) as unknown as Cart;
       const skuInformation = await loadSizes(response, ctx);
       return cartFrom(response, req.url, skuInformation);
     }
@@ -61,13 +75,22 @@ const actions: CartSubmitActions<AppContext> = {
     if (masterDataResponseJson.length === 0) {
       throw new Error("SELLER_CODE_NOT_FOUND");
     }
-    const sellerCodeValue = `${sellerCodeOnly} - ${
-      masterDataResponseJson[0].name
-    }`;
+    const sellerName = masterDataResponseJson[0].name;
+    const sellerCodeValue = `${sellerCodeOnly} - ${sellerName}`;
+    await ctx.invoke("vtex/actions/cart/updateAttachment.ts", {
+      attachment: "openTextField",
+      body: { value: sellerCodeValue },
+    });
+    marketingTags.push("CodigoVendedor", `"code_CodigoVendedor=${sellerName}"`);
     const response =
       (await ctx.invoke("vtex/actions/cart/updateAttachment.ts", {
-        attachment: "openTextField",
-        body: { value: sellerCodeValue },
+        attachment: "marketingData",
+        body: {
+          ...marketingData,
+          marketingTags,
+          utmCampaign: "vendedor_alpha",
+          utmiCampaign: "vendedor_alpha",
+        },
       })) as unknown as Cart;
     const skuInformation = await loadSizes(response, ctx);
     return cartFrom(response, req.url, skuInformation);

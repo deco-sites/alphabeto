@@ -4,7 +4,6 @@
 import { AppContext } from "apps/vtex/mod.ts";
 import type { SimulationOrderForm, SKU, Sla } from "apps/vtex/utils/types.ts";
 import { formatPrice } from "../../sdk/format.ts";
-import { ComponentProps } from "../../sections/Component.tsx";
 
 export interface Props {
   items: SKU[];
@@ -42,7 +41,11 @@ const formatShippingName = (method: Sla) => {
   }
 };
 
-export default function Results({ result }: ComponentProps<typeof action>) {
+interface ResultsProps {
+  result: SimulationOrderForm | null;
+}
+
+export default function Results({ result }: ResultsProps) {
   const methods = result?.logisticsInfo?.reduce(
     (initial, { slas }) => [...initial, ...slas],
     [] as Sla[],
