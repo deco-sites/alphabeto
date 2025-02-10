@@ -50,7 +50,7 @@
     },
     {
       "title": "Seja um revendedor",
-      "href": "https://negociosalphabeto.com.br/seja-um-revendedor-alphabeto/"
+      "href": "https://multimarcas.alphabeto.com"
     }
   ],
   "benefits": {
@@ -276,6 +276,6 @@
   "googleMapsApiKey": {
     "__resolveType": "website/loaders/secret.ts",
     "name": "GOOGLE_MAPS_API_KEY",
-    "encrypted": "f7df10623d26f93486cb00c6783f0003b0b5ebe2e861850dd8c3b1f40207a2392e88c16abe6640377a187d0988711077"
+    "encrypted": "a663d13fa1432cace259aab1a243df83"
   }
 }
