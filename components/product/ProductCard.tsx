@@ -101,13 +101,7 @@ function ProductCard({
     ?.video?.[0].contentUrl ??
     null;
 
-    const showHighlight48h = product?.additionalProperty?.find((
-      item,
-    ) =>
-      (item.propertyID === "778" || item.propertyID === "779") &&
-      item?.description === "highlight"
-    );
-  
+    const showHighlight48h = product?.additionalProperty?.find((item) => item.propertyID === "775" && item?.description === "highlight");
 
   return (
     <div
