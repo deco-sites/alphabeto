@@ -18,7 +18,9 @@ import * as $ScrollButton from "./islands/ScrollButton.tsx";
 import * as $Selector from "./islands/Selector.tsx";
 import * as $ShowPriceItem from "./islands/ShowPriceItem.tsx";
 import * as $StarSelector from "./islands/StarSelector.tsx";
-import * as $contextMiniMe_ContextMiniMe from "./islands/contextMiniMe/ContextMiniMe.tsx";
+import * as $components_DollComponents from "./islands/components/DollComponents.tsx";
+import * as $components_DollImage from "./islands/components/DollImage.tsx";
+import * as $components_DollTitle from "./islands/components/DollTitle.tsx";
 import * as $formsNossasLojas from "./islands/formsNossasLojas.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
@@ -42,7 +44,9 @@ const manifest = {
     "./islands/Selector.tsx": $Selector,
     "./islands/ShowPriceItem.tsx": $ShowPriceItem,
     "./islands/StarSelector.tsx": $StarSelector,
-    "./islands/contextMiniMe/ContextMiniMe.tsx": $contextMiniMe_ContextMiniMe,
+    "./islands/components/DollComponents.tsx": $components_DollComponents,
+    "./islands/components/DollImage.tsx": $components_DollImage,
+    "./islands/components/DollTitle.tsx": $components_DollTitle,
     "./islands/formsNossasLojas.tsx": $formsNossasLojas,
   },
   baseUrl: import.meta.url,

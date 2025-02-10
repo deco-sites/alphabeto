@@ -3,14 +3,16 @@ import MiniMe from "site/islands/MiniMeDoll/MiniMe.tsx";
 import { ImageWidget, RichText } from "apps/admin/widgets.ts";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 
+import type { DollTypes } from "../../../loaders/MiniMe/minime.ts";
+
 /**@title Informações da Mini Me*/
 interface Props {
+  dollParts: DollTypes;
+  
+  partSelected: DollTypes[];
+
   /**@title Título da Mini Me*/
   title: string;
-  /**@title Preço da boneca (sem R$):*/
-  price: number;
-  /**@title Até quantas vezes o valor pode ser parcelado:*/
-  installments: number;
   /**@title Imagem de fundo da boneca*/
   image: ImageWidget;
   /**@title Título do Popup*/

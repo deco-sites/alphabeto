@@ -1,4 +1,4 @@
-import { CustomPart } from "site/islands/contextMiniMe/ContextMiniMe.tsx";
+
 import { useState } from "preact/hooks";
 import Image from "apps/website/components/Image.tsx";
 import { RichText } from "apps/admin/widgets.ts";
@@ -15,7 +15,8 @@ interface Props {
   popupTitle?: RichText;
   popupTerms?: RichText;
 
-  dollParts: CustomPart[];
+   // deno-lint-ignore no-explicit-any
+  dollParts: any[];
 
   page: ProductDetailsPage | null;
 
@@ -24,7 +25,6 @@ interface Props {
 
 export const getImageMiniMe = () => {
   const local = localStorage.getItem('imageMiniMe')
-  console.log('image2: ', local)
   return local
 }
 
@@ -33,7 +33,8 @@ export default function PopupMiniMe(
 ) {
 
   const [IsChecked, setIsChecked] = useState(false);
-  const [doll, setDoll] = useState<CustomPart[]>([]);
+  // deno-lint-ignore no-explicit-any
+  const [doll, setDoll] = useState<any[]>([]);
   setDoll(dollParts);
 
   const types = [
@@ -129,21 +130,7 @@ export default function PopupMiniMe(
         }
       });
 
-      let data = await response.json()
-      console.log("dataaa: ", data)
-
-      let datasecond = await invoke.site.actions.generateImageMiniMe({
-        minime
-      })
-
-      const handleFetch = async (minime: any) => {
-        const response = await invoke.site.actions.generateImageMiniMe(minime);
-
-        return response
-      };
-
-      const data2 = await handleFetch(minime)
-      console.log("data2: ", data2)
+      let data = await response.json();
 
       data = {
         ...data,
@@ -198,7 +185,6 @@ export default function PopupMiniMe(
   }
 
   const addToCart = () => {
-      console.log("page: ", page);
       const img = localStorage.getItem('imageMiniMe')
       if (page) {
         const plataformProps: PlataformProps = {
@@ -226,11 +212,9 @@ export default function PopupMiniMe(
 
     const addMiniMe = async () => {
       const data = await buildMiniMe()
-      console.log(data)
       if(IsChecked === true){
         addToCart();
         const carrinho = await invoke.vtex.loaders.cart();
-        console.log(carrinho);
         const cartIndex = carrinho.items.length - 1;
   
         await invoke.vtex.actions.cart.updateItemAttachment(
@@ -243,9 +227,6 @@ export default function PopupMiniMe(
           },
         );
       }
-
-      const carrinho2 = await invoke.vtex.loaders.cart();
-      console.log("2", carrinho2);
   };
 
   return (

@@ -1,10 +1,13 @@
 import { AppContext } from "site/apps/deco/vtex.ts";
-import type { Document } from "apps/vtex/utils/types.ts";
-import { invoke } from "site/runtime.ts";
 
-export type DollParts = {
+export type DollTypes = Record<string, DollParts[]>;
+
+interface DollParts {
     id: string;
-    img: string;
+    id_tipo: string;
+    img_frente: string;
+    img_costas: string;
+    oculto: boolean;
 }
 
 type CustomPart = {
@@ -38,53 +41,96 @@ const ACRONYM_PARTS = `PC`;
 const FIELDS_ORDER = "id,nome,ordem,titulo&_where=ativo=true";
 const ACRONYM_ORDER = `TP`;
 
-const dollParts = {
-    pele: {
-        id: "",
-        img: "",
-    },
-    cabelo: {
-        id: "",
-        img: "",
-    },
-    face: {
-        id: "",
-        img: "",
-    },
-    roupa: {
-        id: "",
-        img: "",
-    },
-    acessórios: {
-        id: "",
-        img: "",
-    },
-    cheirinho: {
-        id: "",
-        img: ""
-    }
-}
 
-const loader = async () => {
-    
-    const customParts = await invoke.site.loaders.searchDocuments({
+const loader = async (
+    _props: DollParts,
+    _req: Request,
+    ctx: AppContext
+): Promise<DollTypes> => {
+    const customParts = await ctx.invoke.site.loaders.searchDocuments({
         acronym: ACRONYM_PARTS,
         fields: FIELDS_PARTS,
         skip: 0,
         take: 999
       }) as unknown as CustomPart[];
     
-    const types = await invoke.site.loaders.searchDocuments({
+    const types = await ctx.invoke.site.loaders.searchDocuments({
         acronym: ACRONYM_ORDER,
         fields: FIELDS_ORDER,
         skip: 0,
         take: 999
       }) as unknown as PartType[];
 
-    const order = types.sort((a, b) => a.ordem - b.ordem);
-    console.log('Ordem: ', order)
+      console.log("types: ", types)
+    const order = [...types].sort((a, b) => a.ordem - b.ordem);
+    const dollParts:Record<string, DollParts[]> = order.reduce((acc, item) => {
+        acc[item.nome] = []
+        return acc
+    }, {} as Record<string, DollParts[]>)
 
-    return order
+    customParts.forEach((part) => {
+        switch(Number(part.id_tipo)){
+            case 5:
+                dollParts["pele"].push({
+                    id: part.id,
+                    id_tipo: part.id_tipo,
+                    img_frente: part.img_frente,
+                    img_costas: part.img_costas,
+                    oculto: part.oculto,
+                })
+            break;
+            case 4:
+                dollParts["cabelo"].push({
+                    id: part.id,
+                    id_tipo: part.id_tipo,
+                    img_frente: part.img_frente,
+                    img_costas: part.img_costas,
+                    oculto: part.oculto,
+                })
+            break;
+            case 6:
+                dollParts["face"].push({
+                    id: part.id,
+                    id_tipo: part.id_tipo,
+                    img_frente: part.img_frente,
+                    img_costas: part.img_costas,
+                    oculto: part.oculto,
+                })
+            break;
+            case 7:
+                dollParts["roupa"].push({
+                    id: part.id,
+                    id_tipo: part.id_tipo,
+                    img_frente: part.img_frente,
+                    img_costas: part.img_costas,
+                    oculto: part.oculto,
+                })
+            break;
+            case 11:
+                dollParts["acessórios"].push({
+                    id: part.id,
+                    id_tipo: part.id_tipo,
+                    img_frente: part.img_frente,
+                    img_costas: part.img_costas,
+                    oculto: part.oculto,
+                })
+            break;
+            case 8:
+                dollParts["cheirinho"].push({
+                    id: part.id,
+                    id_tipo: part.id_tipo,
+                    img_frente: part.img_frente,
+                    img_costas: part.img_costas,
+                    oculto: part.oculto,
+                })
+            break;
+            default:
+        }
+    })
+
+    return Object.fromEntries(
+        Object.entries(dollParts).filter(([key]) => key !== "genero")
+    );
 }
 
 export default loader;

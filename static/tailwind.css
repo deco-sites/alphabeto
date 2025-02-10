@@ -8523,10 +8523,6 @@ details.collapse summary::-webkit-details-marker {
     font-size: 250px;
   }
 
-  .mobile\:text-\[25px\] {
-    font-size: 25px;
-  }
-
   .mobile\:text-\[28px\] {
     font-size: 28px;
   }
