@@ -102,7 +102,7 @@ export default function PopupDeEntrada(props: Props) {
     <>
       {isOpened.value && (
         <div>
-          <div class="fixed bg-[#000] z-[9998] opacity-40 top-0 w-vw h-dvh">
+          <div class="fixed bg-[#000] z-[9998] opacity-40 top-0 w-full h-full">
           </div>
           <div class="relative">
             <div class="fixed left-[49%] -translate-x-1/2 flex top-[15%] bg-secondary-content z-[9999] rounded-lg">
@@ -169,7 +169,7 @@ export default function PopupDeEntrada(props: Props) {
                     <div class="flex flex-col desk:flex-row justify-between gap-9">
                       <div>
                         <span class="text-xs leading-[14.4px] text-base-content font-semibold block">
-                          Tenho Interresse em:
+                          Tenho interesse em roupas de:
                         </span>
                         <div class="flex gap-[14px] pt-[14px] mobile:justify-between">
                           <div class="flex items-center">

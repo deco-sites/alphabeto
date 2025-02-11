@@ -148,7 +148,7 @@ export default function Newsletter(props: Props) {
           <div class="flex flex-col desk:flex-row justify-between gap-9">
             <div>
               <span class="text-xs leading-[14.4px] text-accent font-semibold block">
-                Tenho Interresse em:
+                Tenho interesse em roupas de:
               </span>
               <div class="flex gap-[14px] pt-[14px]">
                 <div class="flex items-center">

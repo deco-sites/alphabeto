@@ -4611,9 +4611,6 @@ details.collapse summary::-webkit-details-marker {
 .h-auto {
   height: auto;
 }
-.h-dvh {
-  height: 100dvh;
-}
 .h-fit {
   height: -moz-fit-content;
   height: fit-content;
