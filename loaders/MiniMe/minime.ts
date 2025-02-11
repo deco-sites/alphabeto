@@ -74,63 +74,16 @@ const loader = async (
   dollParts.order = order;
 
   customParts.forEach((part) => {
-    switch (Number(part.id_tipo)) {
-      case 5:
-        dollParts.parts["pele"].push({
-          id: part.id,
-          id_tipo: part.id_tipo,
-          img_frente: part.img_frente,
-          img_costas: part.img_costas,
-          oculto: part.oculto,
-        });
-        break;
-      case 4:
-        dollParts.parts["cabelo"].push({
-          id: part.id,
-          id_tipo: part.id_tipo,
-          img_frente: part.img_frente,
-          img_costas: part.img_costas,
-          oculto: part.oculto,
-        });
-        break;
-      case 6:
-        dollParts.parts["face"].push({
-          id: part.id,
-          id_tipo: part.id_tipo,
-          img_frente: part.img_frente,
-          img_costas: part.img_costas,
-          oculto: part.oculto,
-        });
-        break;
-      case 7:
-        dollParts.parts["roupa"].push({
-          id: part.id,
-          id_tipo: part.id_tipo,
-          img_frente: part.img_frente,
-          img_costas: part.img_costas,
-          oculto: part.oculto,
-        });
-        break;
-      case 11:
-        dollParts.parts["acessórios"].push({
-          id: part.id,
-          id_tipo: part.id_tipo,
-          img_frente: part.img_frente,
-          img_costas: part.img_costas,
-          oculto: part.oculto,
-        });
-        break;
-      case 8:
-        dollParts.parts["cheirinho"].push({
-          id: part.id,
-          id_tipo: part.id_tipo,
-          img_frente: part.img_frente,
-          img_costas: part.img_costas,
-          oculto: part.oculto,
-        });
-        break;
-      default:
-    }
+    const name = order.find((item) => Number(part.id_tipo) === Number(item.id))
+      ?.nome;
+
+    dollParts.parts[name].push({
+      id: part.id,
+      id_tipo: part.id_tipo,
+      img_frente: part.img_frente,
+      img_costas: part.img_costas,
+      oculto: part.oculto,
+    });
   });
 
   return dollParts;
