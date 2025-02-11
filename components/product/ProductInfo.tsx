@@ -1,3 +1,4 @@
+import { useDevice } from "@deco/deco/hooks";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import { ColorItem } from "site/apps/site.ts";
@@ -32,7 +33,7 @@ interface Props {
 
 function ProductInfo({ page, sizebaySettings, siteSettings }: Props) {
   const id = useId();
-
+  const device = useDevice();
   if (page === null) {
     throw new Error("Missing Product Details Page Info");
   }
@@ -144,6 +145,7 @@ function ProductInfo({ page, sizebaySettings, siteSettings }: Props) {
         <ProductCashback
           product={product}
           percentage={siteSettings.cashbackPercentage}
+          enableClick={device === "mobile"}
         />
       </div>
 

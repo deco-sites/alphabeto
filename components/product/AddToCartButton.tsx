@@ -13,6 +13,7 @@ export interface Props extends JSX.HTMLAttributes<HTMLButtonElement> {
   seller: string;
   item: AnalyticsItem;
 }
+
 // Add To Cart Button Click
 const onClick = (
   qtdInputId: string,
@@ -125,6 +126,7 @@ function AddToCartButton(props: Props) {
         id={inputQtdId}
       />
       <Button
+        data-add-to-cart-btn="true"
         data-item-id={product.productID}
         data-cart-item={encodeURIComponent(
           JSON.stringify({ item, platformProps }),
