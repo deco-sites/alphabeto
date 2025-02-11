@@ -10,12 +10,18 @@
         {
           "desktop": "https://data.decoassets.com/alphabeto/86f4a390-eade-4b9b-8a87-98f375445fe3/2880x-900-(4).png",
           "mobile": "https://data.decoassets.com/alphabeto/05113319-0bc1-4524-b254-cbc69fae9c02/FEV-750-x-700-px-(2).png",
-          "title": "Liqui",
+          "title": "60% OFF",
           "alt": "Banner de Demonstração",
           "action": {
             "href": "/meninas"
           },
           "clickUrl": "/infantil/bazar"
+        },
+        {
+          "title": "Liqui",
+          "desktop": "https://data.decoassets.com/alphabeto/f3cab172-45b1-4c36-aa4e-286d83356800/banner-desktop---Deco.jpg",
+          "mobile": "https://data.decoassets.com/alphabeto/8a703ff1-c148-4d9f-a3ba-e126fbd671b0/Deco-Mobile---750-x-700-px.jpg",
+          "clickUrl": "/infantil/liqui-colecao-verao"
         }
       ],
       "preload": true
