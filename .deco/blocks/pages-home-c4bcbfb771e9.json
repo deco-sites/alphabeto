@@ -220,15 +220,15 @@
         {
           "image": {
             "desktop": {
-              "src": "https://data.decoassets.com/alphabeto/ab5a8ac3-33e3-44be-8ff0-005497535881/11.png"
+              "src": "https://data.decoassets.com/alphabeto/c080109b-d4f7-486e-ae3b-205544b29526/Banner-Menor-Deco---Desk--886x640.jpg"
             },
             "mobile": {
-              "src": "https://data.decoassets.com/alphabeto/148d20e0-6cfa-4fe8-8e15-8425ecbbece0/12-(1).png"
+              "src": "https://data.decoassets.com/alphabeto/11179070-b9b6-41d5-bbf8-9712f7363c54/Banner-Menor-Deco---Mobile-670-x-480-px.jpg"
             },
             "alt": "Alt"
           },
-          "label": "Vestidos a partir de R$89,97",
-          "categoryLink": "https://www.alphabeto.com/infantil/vestidos?filter.price=89.4%3A120&sort=price%3Aasc&page=1"
+          "label": "Combo de vestido",
+          "categoryLink": "/infantil/combo-de-vestido"
         },
         {
           "image": {
