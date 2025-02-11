@@ -1,8 +1,13 @@
 import { AppContext } from "site/apps/deco/vtex.ts";
 
-export type DollTypes = Record<string, DollParts[]>;
+export type DollParts = Record<string, MiniMe[]>;
 
-interface DollParts {
+interface MiniMe {
+    order: PartType[],
+    parts: Record<string, Parts[]>
+}
+
+interface Parts {
     id: string;
     id_tipo: string;
     img_frente: string;
@@ -12,7 +17,6 @@ interface DollParts {
 
 type CustomPart = {
     id: string;
-    // gender: string | undefined | null;
     nome: string;
     id_tipo: string;
     img_frente: string;
@@ -35,7 +39,7 @@ type PartType = {
     ativo: boolean;
 };
 
-const FIELDS_PARTS = `nome,id,gender,id_tipo,ativo,img_frente,img_costas,img_frente_alta,img_costas_alta,img_costas_special,img_frente_special,img_frente_special_hand,img_costas_special_hand,oculto&_where=ativo=true`;
+const FIELDS_PARTS = `nome,id,id_tipo,ativo,img_frente,img_costas,img_frente_alta,img_costas_alta,img_costas_special,img_frente_special,img_frente_special_hand,img_costas_special_hand,oculto&_where=ativo=true`;
 const ACRONYM_PARTS = `PC`;
 
 const FIELDS_ORDER = "id,nome,ordem,titulo&_where=ativo=true";
@@ -43,10 +47,10 @@ const ACRONYM_ORDER = `TP`;
 
 
 const loader = async (
-    _props: DollParts,
+    _props: unknown,
     _req: Request,
     ctx: AppContext
-): Promise<DollTypes> => {
+): Promise<MiniMe> => {
     const customParts = await ctx.invoke.site.loaders.searchDocuments({
         acronym: ACRONYM_PARTS,
         fields: FIELDS_PARTS,
@@ -61,17 +65,18 @@ const loader = async (
         take: 999
       }) as unknown as PartType[];
 
-      console.log("types: ", types)
     const order = [...types].sort((a, b) => a.ordem - b.ordem);
-    const dollParts:Record<string, DollParts[]> = order.reduce((acc, item) => {
-        acc[item.nome] = []
+    const dollParts: MiniMe = order.reduce((acc, item) => {
+        acc.parts[item.nome] = []
         return acc
-    }, {} as Record<string, DollParts[]>)
+    }, { order: [], parts: {} })
+
+    dollParts.order = order;
 
     customParts.forEach((part) => {
         switch(Number(part.id_tipo)){
             case 5:
-                dollParts["pele"].push({
+                dollParts.parts["pele"].push({
                     id: part.id,
                     id_tipo: part.id_tipo,
                     img_frente: part.img_frente,
@@ -80,7 +85,7 @@ const loader = async (
                 })
             break;
             case 4:
-                dollParts["cabelo"].push({
+                dollParts.parts["cabelo"].push({
                     id: part.id,
                     id_tipo: part.id_tipo,
                     img_frente: part.img_frente,
@@ -89,7 +94,7 @@ const loader = async (
                 })
             break;
             case 6:
-                dollParts["face"].push({
+                dollParts.parts["face"].push({
                     id: part.id,
                     id_tipo: part.id_tipo,
                     img_frente: part.img_frente,
@@ -98,7 +103,7 @@ const loader = async (
                 })
             break;
             case 7:
-                dollParts["roupa"].push({
+                dollParts.parts["roupa"].push({
                     id: part.id,
                     id_tipo: part.id_tipo,
                     img_frente: part.img_frente,
@@ -107,7 +112,7 @@ const loader = async (
                 })
             break;
             case 11:
-                dollParts["acessórios"].push({
+                dollParts.parts["acessórios"].push({
                     id: part.id,
                     id_tipo: part.id_tipo,
                     img_frente: part.img_frente,
@@ -116,7 +121,7 @@ const loader = async (
                 })
             break;
             case 8:
-                dollParts["cheirinho"].push({
+                dollParts.parts["cheirinho"].push({
                     id: part.id,
                     id_tipo: part.id_tipo,
                     img_frente: part.img_frente,
@@ -128,9 +133,7 @@ const loader = async (
         }
     })
 
-    return Object.fromEntries(
-        Object.entries(dollParts).filter(([key]) => key !== "genero")
-    );
+    return dollParts;
 }
 
 export default loader;

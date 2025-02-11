@@ -38,6 +38,7 @@ interface FinishStep {
 }
 
 export default function MiniMe(props: Props) {
+  console.log("NewdollParts: ", props.dollParts)
   
   const [IsOpen, setIsOpen] = useState(false)
 

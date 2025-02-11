@@ -1,6 +1,6 @@
 import type { DollTypes } from "../../loaders/MiniMe/minime.ts";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
-import { useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 
 /**@title Informações da Mini Me*/
 interface Props {
@@ -14,44 +14,8 @@ interface Props {
 }
 
 export default function DollTitle(props: Props) {
-    const [stepCount, setStepCount] = useState(Number(localStorage.getItem('step') || "0"));
+    const [stepCount, setStepCount] = useState(Number(localStorage.getItem('step')));
     const [stepSelectedCount, setStepSelectedCount] = useState(localStorage.getItem('selectedStep') || "pele");
-
-    const selectStep = (currentStep: string) => {
-        let selectedStep = localStorage.getItem('selectedStep') || '';
-        switch(Number(currentStep)){
-          case 0: 
-          selectedStep = "pele"
-          setStepSelectedCount(selectedStep)
-            break;
-          case 1: 
-          selectedStep = "cabelo"
-          setStepSelectedCount(selectedStep)
-            break;
-          case 2: 
-          selectedStep = "face"
-          setStepSelectedCount(selectedStep)
-            break;
-          case 3: 
-          selectedStep = "roupa"
-          setStepSelectedCount(selectedStep)
-            break;
-          case 4: 
-          selectedStep = "acessórios"
-          setStepSelectedCount(selectedStep)
-            break;
-          case 5: 
-          selectedStep = "cheirinho"
-          setStepSelectedCount(selectedStep)
-            break;
-          case 6: 
-          selectedStep = "null"
-          setStepSelectedCount(selectedStep)
-            break;
-            default:
-        }
-      }
-
 
   return (
     <>
@@ -61,7 +25,7 @@ export default function DollTitle(props: Props) {
         </h2>
       </div>
       <div class="flex items-center relative mb-[36px] w-full">
-        {props.dollParts[stepSelectedCount].map((i, index) => (
+        {Object.keys(props.dollParts).map((i, index) => (
           <>
             <p
               class={stepCount >= index
@@ -70,7 +34,7 @@ export default function DollTitle(props: Props) {
             >
               {`${index + 1}`}
             </p>
-            {index !== 7 && (
+            {index !== Object.keys(props.dollParts).length - 1 && (
               <hr
                 class={stepCount >= index
                   ? `border-dashed border-b-[1px] w-[80px] border-[#F98300]`
