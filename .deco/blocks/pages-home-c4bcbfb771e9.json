@@ -8,8 +8,8 @@
       "__resolveType": "site/sections/Images/Carousel.tsx",
       "images": [
         {
-          "desktop": "https://data.decoassets.com/alphabeto/86f4a390-eade-4b9b-8a87-98f375445fe3/2880x-900-(4).png",
-          "mobile": "https://data.decoassets.com/alphabeto/05113319-0bc1-4524-b254-cbc69fae9c02/FEV-750-x-700-px-(2).png",
+          "desktop": "https://data.decoassets.com/alphabeto/362b7bb5-10c3-4641-bb36-102d7dd7dc69/Deco-Banner---2880x-900.png",
+          "mobile": "https://data.decoassets.com/alphabeto/1f725c9f-12a5-42d5-b09a-cacf612b5792/Deco-Mobile-750-x-700-px.png",
           "title": "60% OFF",
           "alt": "Banner de Demonstração",
           "action": {
