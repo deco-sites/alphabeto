@@ -3,13 +3,15 @@ import { defineApp } from "$fresh/server.ts";
 import { Context } from "@deco/deco";
 import { useScript } from "@deco/deco/hooks";
 const serviceWorkerScript = () =>
-  addEventListener(
-    "load",
-    () =>
-      navigator &&
-      navigator.serviceWorker &&
-      navigator.serviceWorker.register("/sw.js"),
-  );
+  addEventListener("load", () => {
+    if (navigator && navigator.serviceWorker) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (const registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+  });
 export default defineApp(async (_req, ctx) => {
   const revision = await Context.active().release?.revision();
   return (
