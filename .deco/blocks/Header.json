@@ -65,8 +65,7 @@
   "navItems": [
     {
       "submenu": [],
-      "menuItem": "Carnaval",
-      "href": "/807?map=productClusterIds"
+      "menuItem": "Carnaval"
     },
     {
       "submenu": [],
