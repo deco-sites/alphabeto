@@ -18,8 +18,10 @@ import * as $ScrollButton from "./islands/ScrollButton.tsx";
 import * as $Selector from "./islands/Selector.tsx";
 import * as $ShowPriceItem from "./islands/ShowPriceItem.tsx";
 import * as $StarSelector from "./islands/StarSelector.tsx";
+import * as $components_DollButtons from "./islands/components/DollButtons.tsx";
 import * as $components_DollComponents from "./islands/components/DollComponents.tsx";
 import * as $components_DollImage from "./islands/components/DollImage.tsx";
+import * as $components_DollProgress from "./islands/components/DollProgress.tsx";
 import * as $components_DollTitle from "./islands/components/DollTitle.tsx";
 import * as $formsNossasLojas from "./islands/formsNossasLojas.tsx";
 import type { Manifest } from "$fresh/server.ts";
@@ -44,8 +46,10 @@ const manifest = {
     "./islands/Selector.tsx": $Selector,
     "./islands/ShowPriceItem.tsx": $ShowPriceItem,
     "./islands/StarSelector.tsx": $StarSelector,
+    "./islands/components/DollButtons.tsx": $components_DollButtons,
     "./islands/components/DollComponents.tsx": $components_DollComponents,
     "./islands/components/DollImage.tsx": $components_DollImage,
+    "./islands/components/DollProgress.tsx": $components_DollProgress,
     "./islands/components/DollTitle.tsx": $components_DollTitle,
     "./islands/formsNossasLojas.tsx": $formsNossasLojas,
   },

@@ -18,11 +18,6 @@ export default function DollTitle(props: Props) {
 
   return (
     <>
-      <div>
-        <h2 class="font-beccaPerry text-[#676767] text-[44px] mobile:text-[32px] mb-[36px]">
-          {props.title}
-        </h2>
-      </div>
       <div class="flex items-center relative mb-[36px] w-full">
         {Object.keys(props.dollParts).map((i, index) => (
           <>

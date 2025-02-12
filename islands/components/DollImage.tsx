@@ -1,14 +1,13 @@
 import { ImageWidget } from "apps/admin/widgets.ts";
 import Image from "apps/website/components/Image.tsx";
-import type { DollTypes } from "../../loaders/MiniMe/minime.ts"
+import type { MiniMe } from "../../loaders/MiniMe/minime.ts"
 import Icon from "site/components/ui/Icon.tsx";
 
 interface Props {
-  dollParts: DollTypes;
+  dollParts: MiniMe;
   /**@title Imagem de fundo da boneca*/
   image: ImageWidget;
 
-  partSelected: DollTypes[];
 }
 
 export default function DollImage(props: Props){

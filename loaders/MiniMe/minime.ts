@@ -1,9 +1,7 @@
 import { AppContext } from "site/apps/deco/vtex.ts";
 
-export type DollParts = Record<string, MiniMe[]>;
-
-interface MiniMe {
-  order: PartType[];
+export interface MiniMe {
+  types: PartType[];
   parts: Record<string, Parts[]>;
 }
 
@@ -69,22 +67,25 @@ const loader = async (
   const dollParts: MiniMe = order.reduce((acc, item) => {
     acc.parts[item.nome] = [];
     return acc;
-  }, { order: [], parts: {} });
+  }, { types: [], parts: {} });
 
-  dollParts.order = order;
+  dollParts.types = order;
 
   customParts.forEach((part) => {
     const name = order.find((item) => Number(part.id_tipo) === Number(item.id))
       ?.nome;
 
-    dollParts.parts[name].push({
+    if(name){
+      dollParts.parts[name].push({
       id: part.id,
       id_tipo: part.id_tipo,
       img_frente: part.img_frente,
       img_costas: part.img_costas,
       oculto: part.oculto,
     });
+  }
   });
+
 
   return dollParts;
 };

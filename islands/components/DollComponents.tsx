@@ -1,14 +1,14 @@
-import type { DollTypes } from "../../loaders/MiniMe/minime.ts";
+import type { MiniMe } from "../../loaders/MiniMe/minime.ts";
 import { useRef, useState } from "preact/hooks";
 import Icon from "site/components/ui/Icon.tsx";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
+import { PartiallyEmittedExpression } from "https://deno.land/x/ts_morph@21.0.1/mod.ts";
 
 /**@title Informações da Mini Me*/
 interface Props {
-  dollParts: DollTypes;
-  partSelected: DollTypes[];
+  dollParts: MiniMe;
 
-  page: ProductDetailsPage | null;
+  step: number;
 
   /**@title Textos de conclusão*/
   finishStep: FinishStep;
@@ -24,17 +24,8 @@ interface FinishStep {
 }
 
 export default function DollComponents(props: Props) {
-  const [step, setStep] = useState(Number(localStorage.getItem('step') || "0"));
-  const [stepSelected, setStepSelected] = useState(
-    localStorage.getItem("selectedStep") || "pele",
-  );
-
-  const [IsOpen, setIsOpen] = useState(false);
-
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const scrollQtd = 250;
-
-  console.log(`step: ${step}, stepSelected: ${stepSelected}`);
 
   const scrollItems = (side: string) => {
     if (scrollContainerRef.current) {
@@ -52,56 +43,7 @@ export default function DollComponents(props: Props) {
     }
   };
 
-  // Dependendo do botão selecionado, 'voltar' ou 'avançar',
-  // a função abaixo determina se sobe ou desce os passos
-  const changeStep = (operation: string) => {
-    let i = localStorage.getItem("step") || "0";
-
-    const selectStep = (currentStep: string) => {
-      let selectedStep = localStorage.getItem("selectedStep") || "";
-      switch (Number(currentStep)) {
-        case 0:
-          selectedStep = "pele";
-          break;
-        case 1:
-          selectedStep = "cabelo";
-          break;
-        case 2:
-          selectedStep = "face";
-          break;
-        case 3:
-          selectedStep = "roupa";
-          break;
-        case 4:
-          selectedStep = "acessórios";
-          break;
-        case 5:
-          selectedStep = "cheirinho";
-          break;
-        case 6:
-          selectedStep = "null";
-          break;
-        default:
-      }
-      setStepSelected(selectedStep);
-      localStorage.setItem("selectedStep", selectedStep);
-    };
-
-    if (operation === "increment" && step >= 6) {
-      setIsOpen(true);
-    }
-
-    if (operation === "increment" && step < 6) {
-      i = JSON.stringify(step + 1);
-      selectStep(i);
-    } else if (operation === "decrement" && step > 0) {
-      i = JSON.stringify(step - 1);
-      selectStep(i);
-    }
-
-    localStorage.setItem("step", i);
-    setStep(Number(i));
-  };
+  const name = Object.keys(props.dollParts.parts)[props.step];
 
   return (
     <>
@@ -111,8 +53,8 @@ export default function DollComponents(props: Props) {
           class="flex mobile:overflow-scroll overflow-hidden max-w-[773px] h-[370px] mobile:h-[232px] w-full items-center"
         >
           <div class="flex items-center">
-            {props.dollParts[stepSelected]
-              ? props.dollParts[stepSelected].map((part) => (
+            {name &&
+              props.dollParts.parts[name].map((part) => (
                 <>
                   <div
                     class={props.dollParts
@@ -128,8 +70,7 @@ export default function DollComponents(props: Props) {
                     </p>
                   </div>
                 </>
-              ))
-              : null}
+              ))}
             {stepSelected === "null" && (
               <div class="flex flex-col justify-center ml-[121px]">
                 <h3 class="font-beccaPerry text-[#FF8300] text-[40px]">
@@ -159,30 +100,6 @@ export default function DollComponents(props: Props) {
         >
           <Icon id="simple-arrow-right" />
         </button>
-      </div>
-      <div class="mobile:absolute mobile:top-[925px] mt-[80px] flex mobile:flex-col mobile:justify-center items-center justify-between bg-[#FDF6ED] max-w-[773px] w-full h-[96px] mobile:h-[149px] container rounded-[8px]">
-        <div class="flex flex-col mobile:items-center justify-start mobile:justify-center w-full mobile:mb-[20px]">
-          <h3 class="font-Quicksand font-bold text-[26px] mobile:text-[18px] text-[#676767]">
-            Total: <b class="text-[#FF8300]">R$</b>
-          </h3>
-          <p class="font-Quicksand text-[#7E7F88] mobile:text-[12px]">
-            Em até 2x R$ sem juros
-          </p>
-        </div>
-        <div class="flex items-center justify-end w-full">
-          <button
-            onClick={() => changeStep("decrement")}
-            class="font-Quicksand text-[#FF8300] mr-[20px] max-w-[198px] mobile:max-w-[140px] w-full h-[44px] bg-[#fff] border-[#FF8300] border-[1px] rounded-[8px]"
-          >
-            Voltar
-          </button>
-          <button
-            onClick={() => changeStep("increment")}
-            class="font-Quicksand text-[#fff] max-w-[198px] mobile:max-w-[140px] w-full h-[44px] bg-[#FF8300] border-[#FF8300] border-[1px] rounded-[8px]"
-          >
-            {props.dollParts ? "Concluir boneca" : "Avançar"}
-          </button>
-        </div>
       </div>
     </>
   );
