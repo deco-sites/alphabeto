@@ -1,0 +1,8 @@
+{
+  "redirect": {
+    "from": "/nossas-lojas",
+    "to": "/lojas",
+    "type": "permanent"
+  },
+  "__resolveType": "website/loaders/redirect.ts"
+}
