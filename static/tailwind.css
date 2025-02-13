@@ -4435,9 +4435,6 @@ details.collapse summary::-webkit-details-marker {
 .ml-2 {
   margin-left: 0.5rem;
 }
-.ml-\[121px\] {
-  margin-left: 121px;
-}
 .ml-\[14px\] {
   margin-left: 14px;
 }
@@ -8521,6 +8518,10 @@ details.collapse summary::-webkit-details-marker {
 
   .mobile\:text-\[250px\] {
     font-size: 250px;
+  }
+
+  .mobile\:text-\[25px\] {
+    font-size: 25px;
   }
 
   .mobile\:text-\[28px\] {

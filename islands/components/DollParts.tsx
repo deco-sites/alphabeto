@@ -1,14 +1,12 @@
-import type { MiniMe } from "../../loaders/MiniMe/minime.ts";
-import { useRef, useState } from "preact/hooks";
+import type { MiniMe, PartType } from "../../loaders/MiniMe/minime.ts";
+import { useRef } from "preact/hooks";
 import Icon from "site/components/ui/Icon.tsx";
-import { ProductDetailsPage } from "apps/commerce/types.ts";
-import { PartiallyEmittedExpression } from "https://deno.land/x/ts_morph@21.0.1/mod.ts";
 
 /**@title Informações da Mini Me*/
 interface Props {
   dollParts: MiniMe;
 
-  step: number;
+  type: PartType;
 
   /**@title Textos de conclusão*/
   finishStep: FinishStep;
@@ -23,7 +21,7 @@ interface FinishStep {
   finishText?: string;
 }
 
-export default function DollComponents(props: Props) {
+export default function DollParts(props: Props) {
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const scrollQtd = 250;
 
@@ -43,8 +41,6 @@ export default function DollComponents(props: Props) {
     }
   };
 
-  const name = Object.keys(props.dollParts.parts)[props.step];
-
   return (
     <>
       <div class="mb-[36px]">
@@ -53,8 +49,8 @@ export default function DollComponents(props: Props) {
           class="flex mobile:overflow-scroll overflow-hidden max-w-[773px] h-[370px] mobile:h-[232px] w-full items-center"
         >
           <div class="flex items-center">
-            {name &&
-              props.dollParts.parts[name].map((part) => (
+            {props.type &&
+              props.dollParts.parts[props.type.nome].map((part) => (
                 <>
                   <div
                     class={props.dollParts
@@ -70,22 +66,7 @@ export default function DollComponents(props: Props) {
                     </p>
                   </div>
                 </>
-              ))}
-            {stepSelected === "null" && (
-              <div class="flex flex-col justify-center ml-[121px]">
-                <h3 class="font-beccaPerry text-[#FF8300] text-[40px]">
-                  {props.finishStep.finalTitle}
-                </h3>
-                <div class="flex flex-col w-full font-Quicksand mb-[37px]">
-                </div>
-                <p class="font-Quicksand text-[20px] text-[#7E7F88] font-bold text-center">
-                  {props.finishStep.finalMessage}
-                </p>
-                <p class="font-Quicksand text-[16px] text-[#7E7F88] font-medium text-center">
-                  {props.finishStep.finishText}
-                </p>
-              </div>
-            )}
+              ))} 
           </div>
         </div>
         <button

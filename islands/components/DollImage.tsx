@@ -12,8 +12,6 @@ interface Props {
 
 export default function DollImage(props: Props){
 
-  console.log(props.dollParts)
-
   const deleteDoll = () => {
 
   }

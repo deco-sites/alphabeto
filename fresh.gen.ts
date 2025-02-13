@@ -5,7 +5,7 @@
 import * as $_app from "./routes/_app.tsx";
 import * as $Map from "./islands/Map.tsx";
 import * as $MenuInstitutionalMobile from "./islands/MenuInstitutionalMobile.tsx";
-import * as $MiniMeDoll_MiniMe from "./islands/MiniMeDoll/MiniMe.tsx";
+import * as $MiniMeDoll_MiniMeDoll from "./islands/MiniMeDoll/MiniMeDoll.tsx";
 import * as $MiniMeDoll_PopupMiniMe from "./islands/MiniMeDoll/PopupMiniMe.tsx";
 import * as $MinicartFooter from "./islands/MinicartFooter.tsx";
 import * as $MultiRangeSlider from "./islands/MultiRangeSlider.tsx";
@@ -19,8 +19,8 @@ import * as $Selector from "./islands/Selector.tsx";
 import * as $ShowPriceItem from "./islands/ShowPriceItem.tsx";
 import * as $StarSelector from "./islands/StarSelector.tsx";
 import * as $components_DollButtons from "./islands/components/DollButtons.tsx";
-import * as $components_DollComponents from "./islands/components/DollComponents.tsx";
 import * as $components_DollImage from "./islands/components/DollImage.tsx";
+import * as $components_DollParts from "./islands/components/DollParts.tsx";
 import * as $components_DollProgress from "./islands/components/DollProgress.tsx";
 import * as $components_DollTitle from "./islands/components/DollTitle.tsx";
 import * as $formsNossasLojas from "./islands/formsNossasLojas.tsx";
@@ -33,7 +33,7 @@ const manifest = {
   islands: {
     "./islands/Map.tsx": $Map,
     "./islands/MenuInstitutionalMobile.tsx": $MenuInstitutionalMobile,
-    "./islands/MiniMeDoll/MiniMe.tsx": $MiniMeDoll_MiniMe,
+    "./islands/MiniMeDoll/MiniMeDoll.tsx": $MiniMeDoll_MiniMeDoll,
     "./islands/MiniMeDoll/PopupMiniMe.tsx": $MiniMeDoll_PopupMiniMe,
     "./islands/MinicartFooter.tsx": $MinicartFooter,
     "./islands/MultiRangeSlider.tsx": $MultiRangeSlider,
@@ -47,8 +47,8 @@ const manifest = {
     "./islands/ShowPriceItem.tsx": $ShowPriceItem,
     "./islands/StarSelector.tsx": $StarSelector,
     "./islands/components/DollButtons.tsx": $components_DollButtons,
-    "./islands/components/DollComponents.tsx": $components_DollComponents,
     "./islands/components/DollImage.tsx": $components_DollImage,
+    "./islands/components/DollParts.tsx": $components_DollParts,
     "./islands/components/DollProgress.tsx": $components_DollProgress,
     "./islands/components/DollTitle.tsx": $components_DollTitle,
     "./islands/formsNossasLojas.tsx": $formsNossasLojas,

@@ -1,17 +1,14 @@
 import type { MiniMe } from "../../loaders/MiniMe/minime.ts";
-import { useState } from "preact/hooks";
-import Icon from "site/components/ui/Icon.tsx";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 
 /**@title Informações da Mini Me*/
 interface Props {
+  dollParts: MiniMe;
   step: number;
   changeStep: (operation: string) => void;
 }
 
 export default function DollButtons(props: Props) {
-
-    console.log("step em buttons: ", props.step)
 
     return (
     <>

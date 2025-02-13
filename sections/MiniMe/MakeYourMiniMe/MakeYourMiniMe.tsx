@@ -1,13 +1,13 @@
-import MiniMe from "site/islands/MiniMeDoll/MiniMe.tsx";
+import MiniMeDoll from "site/islands/MiniMeDoll/MiniMeDoll.tsx";
 
 import { ImageWidget, RichText } from "apps/admin/widgets.ts";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 
-import type { DollParts } from "../../../loaders/MiniMe/minime.ts";
+import type { MiniMe } from "../../../loaders/MiniMe/minime.ts";
 
 /**@title Informações da Mini Me*/
 interface Props {
-  dollParts: DollParts;
+  dollParts: MiniMe;
 
   step: number;
 
@@ -38,7 +38,7 @@ interface FinishStep {
 export default function MakeYourMiniMe(props: Props) {
   return (
     <>
-      <MiniMe {...props} />
+      <MiniMeDoll {...props} />
     </>
   );
 }

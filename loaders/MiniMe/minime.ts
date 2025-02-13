@@ -29,7 +29,7 @@ type CustomPart = {
   oculto: boolean;
 };
 
-type PartType = {
+export type PartType = {
   id: string;
   nome: string;
   titulo: string;
@@ -38,10 +38,10 @@ type PartType = {
 };
 
 const FIELDS_PARTS =
-  `nome,id,id_tipo,ativo,img_frente,img_costas,img_frente_alta,img_costas_alta,img_costas_special,img_frente_special,img_frente_special_hand,img_costas_special_hand,oculto&_where=ativo=true`;
+  `nome,id,id_tipo,ativo,img_frente,img_costas,img_frente_alta,img_costas_alta,img_costas_special,img_frente_special,img_frente_special_hand,img_costas_special_hand,oculto`;
 const ACRONYM_PARTS = `PC`;
 
-const FIELDS_ORDER = "id,nome,ordem,titulo&_where=ativo=true";
+const FIELDS_ORDER = "id,nome,ordem,titulo";
 const ACRONYM_ORDER = `TP`;
 
 const loader = async (
@@ -52,6 +52,7 @@ const loader = async (
   const customParts = await ctx.invoke.site.loaders.searchDocuments({
     acronym: ACRONYM_PARTS,
     fields: FIELDS_PARTS,
+    where: "ativo=true",
     skip: 0,
     take: 999,
   }) as unknown as CustomPart[];
@@ -59,6 +60,7 @@ const loader = async (
   const types = await ctx.invoke.site.loaders.searchDocuments({
     acronym: ACRONYM_ORDER,
     fields: FIELDS_ORDER,
+    where: "ativo=true",
     skip: 0,
     take: 999,
   }) as unknown as PartType[];
