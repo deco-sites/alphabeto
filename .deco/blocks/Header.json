@@ -274,8 +274,8 @@
     },
     {
       "submenu": [],
-      "menuItem": "Bazar com até 60%",
-      "href": "/infantil/bazar"
+      "href": "/infantil/bazar",
+      "menuItem": "Todo bazar com 50%"
     }
   ],
   "googleMapsApiKey": {
