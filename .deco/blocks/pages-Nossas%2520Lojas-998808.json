@@ -1,6 +1,6 @@
 {
   "name": "Nossas Lojas",
-  "path": "/nossas-lojas",
+  "path": "/lojas",
   "sections": [
     {
       "__resolveType": "Header"
