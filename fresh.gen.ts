@@ -23,6 +23,7 @@ import * as $Quickview_QuickViewMobile from "./islands/Quickview/QuickViewMobile
 import * as $ScrollButton from "./islands/ScrollButton.tsx";
 import * as $Selector from "./islands/Selector.tsx";
 import * as $ShowPriceItem from "./islands/ShowPriceItem.tsx";
+import * as $SmartBanner from "./islands/SmartBanner.tsx";
 import * as $StarSelector from "./islands/StarSelector.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
@@ -55,6 +56,7 @@ const manifest = {
     "./islands/ScrollButton.tsx": $ScrollButton,
     "./islands/Selector.tsx": $Selector,
     "./islands/ShowPriceItem.tsx": $ShowPriceItem,
+    "./islands/SmartBanner.tsx": $SmartBanner,
     "./islands/StarSelector.tsx": $StarSelector,
   },
   baseUrl: import.meta.url,
