@@ -18,6 +18,11 @@
           "desktop": "https://data.decoassets.com/alphabeto/f5f69c87-746a-4a7a-9079-03545af2a795/deco.png",
           "mobile": "https://data.decoassets.com/alphabeto/3071fc65-d718-4b39-981a-1a9b19b41a7f/25.png",
           "clickUrl": "/807?map=productClusterIds"
+        },
+        {
+          "desktop": "https://data.decoassets.com/alphabeto/63f5aa5a-1ba4-4099-a0c4-f01d1f4b2f4d/BANNER-DECO---2880x-900.jpg",
+          "mobile": "https://data.decoassets.com/alphabeto/bdc63767-04f5-4d91-bba5-ad9b9178e2db/Deco-750-x-700-px-(3).png",
+          "clickUrl": "/liqui-verao-24-25?initialMap=productClusterIds&initialQuery=797&map=productclusternames&order=OrderByPriceASC&priceRange=71%20TO%20162"
         }
       ],
       "preload": true
