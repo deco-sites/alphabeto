@@ -3876,6 +3876,9 @@ details.collapse summary::-webkit-details-marker {
 .bottom-8 {
   bottom: 2rem;
 }
+.bottom-\[203px\] {
+  bottom: 203px;
+}
 .bottom-\[24px\] {
   bottom: 24px;
 }
@@ -5925,6 +5928,9 @@ details.collapse summary::-webkit-details-marker {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
+.bg-opacity-35 {
+  --tw-bg-opacity: 0.35;
+}
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -6024,6 +6030,10 @@ details.collapse summary::-webkit-details-marker {
 .px-0 {
   padding-left: 0px;
   padding-right: 0px;
+}
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 .px-10 {
   padding-left: 2.5rem;
@@ -6814,6 +6824,9 @@ details.collapse summary::-webkit-details-marker {
 .ring-offset-2 {
   --tw-ring-offset-width: 2px;
 }
+.ring-offset-\[0px\] {
+  --tw-ring-offset-width: 0px;
+}
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -7522,6 +7535,11 @@ details.collapse summary::-webkit-details-marker {
   opacity: 0.75;
 }
 
+.hover\:ring-primary:hover {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: var(--fallback-p,oklch(var(--p)/var(--tw-ring-opacity)));
+}
+
 .focus\:border-primary:focus {
   --tw-border-opacity: 1;
   border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity)));
@@ -7617,6 +7635,10 @@ details.collapse summary::-webkit-details-marker {
   pointer-events: auto;
 }
 
+.group\/pcard:hover .group-hover\/pcard\:block {
+  display: block;
+}
+
 .group:hover .group-hover\:block {
   display: block;
 }
@@ -7653,6 +7675,10 @@ details.collapse summary::-webkit-details-marker {
 
 .group:hover .group-hover\:font-bold {
   font-weight: 700;
+}
+
+.group\/pcard:hover .group-hover\/pcard\:opacity-100 {
+  opacity: 1;
 }
 
 .group:hover .group-hover\:opacity-100 {
@@ -8445,6 +8471,10 @@ details.collapse summary::-webkit-details-marker {
 
   .desk\:max-h-\[min\(44\.68vw\2c 658px\)\] {
     max-height: min(44.68vw,658px);
+  }
+
+  .desk\:min-h-\[133px\] {
+    min-height: 133px;
   }
 
   .desk\:min-h-\[230px\] {

@@ -14,8 +14,9 @@ import { relative } from "site/sdk/url.ts";
 import { useId } from "site/sdk/useId.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
+import QuickBuy from "site/components/product/QuikBuy/index.tsx";
 
-interface Props {
+export interface Props {
   product: Product;
   /** Preload card image */
   preload?: boolean;
@@ -40,18 +41,21 @@ const DESKTOP_HEIGHT = 692;
 
 const MOBILE_WIDTH = 500;
 const MOBILE_HEIGHT = 692;
-const ENABLE_VIDEO_ON_SHELF = true;
-const ENABLE_QUICKVIEW = true;
+const ENABLE_VIDEO_ON_SHELF = false;
+const ENABLE_QUICKVIEW = false;
+const ENABLE_QUIKBUY = true;
+const ENABLE_COLOR_LINKS = false;
 
-function ProductCard({
-  product,
-  preload,
-  itemListName,
-  index,
-  class: _class,
-  settings,
-  lozad,
-}: Props) {
+function ProductCard(props: Props) {
+  const {
+    product,
+    preload,
+    itemListName,
+    index,
+    class: _class,
+    settings,
+    lozad,
+  } = props;
   const { url, image: images, offers, isVariantOf } = product;
   const title = isVariantOf?.name ?? product.name;
   const device = useDevice();
@@ -101,12 +105,14 @@ function ProductCard({
     ?.video?.[0].contentUrl ??
     null;
 
-    const showHighlight48h = product?.additionalProperty?.find((item) => item.propertyID === "775" && item?.description === "highlight");
+  const showHighlight48h = product?.additionalProperty?.find((item) =>
+    item.propertyID === "775" && item?.description === "highlight"
+  );
 
   return (
     <div
       {...event}
-      class={clx("card card-compact group text-sm", _class)}
+      class={clx("card card-compact group/pcard text-sm", _class)}
       id={cardId}
     >
       <figure
@@ -157,6 +163,7 @@ function ProductCard({
                 decoding="async"
                 lozad={lozad}
                 forceSrcWidth={device === "mobile" ? MOBILE_WIDTH : undefined}
+                id="preduct-card-image"
               />
             )}
         </a>
@@ -201,7 +208,7 @@ function ProductCard({
 
       <a
         href={relativeUrl}
-        class="pt-1 tablet-large:pt-2.5 pb-7 tablet-large:pb-4"
+        class="pt-1 tablet-large:pt-2.5 pb-7 tablet-large:pb-4 desk:min-h-[133px]"
       >
         {/* Product Name */}
         <span
@@ -240,29 +247,38 @@ function ProductCard({
       </a>
 
       {/* SKU Selector */}
-      <ProductShelfColors product={product} colors={settings.colors} />
-      {inStock && ENABLE_QUICKVIEW
+      {ENABLE_COLOR_LINKS && (
+        <ProductShelfColors product={product} colors={settings.colors} />
+      )}
+      {ENABLE_QUICKVIEW
         ? (
-          <QuickView
-            product={product}
-            cardId={cardId}
-            settings={settings}
-          />
+          inStock
+            ? (
+              <QuickView
+                product={product}
+                cardId={cardId}
+                settings={settings}
+              />
+            )
+            : (
+              <a
+                href={relativeUrl}
+                class={clx(
+                  "btn",
+                  "btn-outline justify-start border-none !text-sm !font-medium px-0 no-animation w-full",
+                  "hover:!bg-transparent",
+                  "disabled:!bg-transparent disabled:!opacity-75",
+                  "btn-error hover:!text-error disabled:!text-error",
+                )}
+              >
+                Indisponível
+              </a>
+            )
         )
-        : (
-          <a
-            href={relativeUrl}
-            class={clx(
-              "btn",
-              "btn-outline justify-start border-none !text-sm !font-medium px-0 no-animation w-full",
-              "hover:!bg-transparent",
-              "disabled:!bg-transparent disabled:!opacity-75",
-              "btn-error hover:!text-error disabled:!text-error",
-            )}
-          >
-            Indisponível
-          </a>
-        )}
+        : null}
+      {ENABLE_QUIKBUY
+        ? <QuickBuy productCardData={props} cardId={cardId} />
+        : null}
     </div>
   );
 }
