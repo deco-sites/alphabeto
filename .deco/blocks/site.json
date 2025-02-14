@@ -67,17 +67,6 @@
         ]
       },
       "freeShippingBarSettings": {}
-    },
-    {
-      "__resolveType": "site/sections/PopupDeEntrada/PopupDeEntrada.tsx",
-      "title": "<p>Cadastre-se e ganhe <strong>10% de desconto!</strong></p>",
-      "description": "<p><strong>Ganhe</strong> um super cupom de <strong>desconto</strong> na sua <strong>primeira compra</strong> na <strong>Alphabeto</strong>!</p>",
-      "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/alphabeto/ad8c11e9-a273-4237-9834-7f9cf34f5672/image-26.png"
-    },
-    {
-      "__resolveType": "site/sections/PopupLGPD/PopupLGPD.tsx",
-      "text": "<p>Se você clicar no botão aceito, consideramos que você aceita o uso de nossos cookies. Verifique nossa <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"/politicas-de-privacidade\">Política de Privacidade.</a></p>",
-      "label": "Aceitar"
     }
   ],
   "routes": [
