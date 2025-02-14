@@ -44,14 +44,12 @@
           "description": "<p></p>",
           "image": {
             "desktop": {
-              "src": "https://data.decoassets.com/alphabeto/4dc5a7bd-3005-4c1b-8811-f8bebe8a30b2/4.png"
+              "src": "https://data.decoassets.com/alphabeto/daf73525-aa0a-4c23-9a26-5297c0d9b805/CATEGORIA-DECO-720x460-.jpg"
             },
             "mobile": {
-              "src": "https://data.decoassets.com/alphabeto/4a82140e-ca59-49a0-b332-ceac9bf47912/4-(1).png"
+              "src": "https://data.decoassets.com/alphabeto/82e22055-a09b-488e-9f9f-18c906d007eb/CATEGORIA-DECO-670-x-400.jpg"
             }
-          },
-          "title": "Liqui",
-          "subtitle": "Verão 2024 / 2025"
+          }
         },
         "breadcrumb": [
           {
