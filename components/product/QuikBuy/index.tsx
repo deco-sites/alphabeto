@@ -140,7 +140,7 @@ export default function QuickBuy(props: Props) {
 
   return (
     <div class="group-hover/pcard:opacity-100 opacity-0">
-      <div class="absolute bottom-[203px] mobile:hidden w-full bg-white bg-opacity-35 p-5">
+      <div class="absolute bottom-[244px] mobile:hidden w-full bg-white bg-opacity-35 p-5">
         <div class="flex gap-2.5 justify-center flex-wrap">
           {colorOptions.map((color) => {
             const styles = useStyles(

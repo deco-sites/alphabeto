@@ -15,6 +15,7 @@ import { useId } from "site/sdk/useId.ts";
 import { useOffer } from "site/sdk/useOffer.ts";
 import { useSendEvent } from "site/sdk/useSendEvent.ts";
 import QuickBuy from "site/components/product/QuikBuy/index.tsx";
+import ProductCashback from "site/components/product/ProductCashback.tsx";
 
 export interface Props {
   product: Product;
@@ -45,6 +46,7 @@ const ENABLE_VIDEO_ON_SHELF = false;
 const ENABLE_QUICKVIEW = false;
 const ENABLE_QUIKBUY = true;
 const ENABLE_COLOR_LINKS = false;
+const ENABLE_CASHBACK_ON_SHELF = true;
 
 function ProductCard(props: Props) {
   const {
@@ -245,6 +247,17 @@ function ProductCard(props: Props) {
           </span>
         </div>
       </a>
+
+      {/* Cashback */}
+      {ENABLE_CASHBACK_ON_SHELF && settings.cashbackPercentage > 0 && (
+        <div class="pb-7 tablet-large:pb-4 flex justify-center">
+          <ProductCashback
+            percentage={settings.cashbackPercentage}
+            product={product}
+            compactMode={device === "mobile"}
+          />
+        </div>
+      )}
 
       {/* SKU Selector */}
       {ENABLE_COLOR_LINKS && (

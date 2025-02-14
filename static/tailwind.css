@@ -3876,8 +3876,8 @@ details.collapse summary::-webkit-details-marker {
 .bottom-8 {
   bottom: 2rem;
 }
-.bottom-\[203px\] {
-  bottom: 203px;
+.bottom-\[244px\] {
+  bottom: 244px;
 }
 .bottom-\[24px\] {
   bottom: 24px;
@@ -7992,6 +7992,11 @@ details.collapse summary::-webkit-details-marker {
     padding: 1.25rem;
   }
 
+  .mobile\:px-1 {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+
   .mobile\:px-2 {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -8018,6 +8023,10 @@ details.collapse summary::-webkit-details-marker {
 
   .mobile\:text-center {
     text-align: center;
+  }
+
+  .mobile\:text-\[11px\] {
+    font-size: 11px;
   }
 
   .mobile\:text-\[12px\] {
