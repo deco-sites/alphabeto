@@ -7,10 +7,12 @@ import { SearchMobile } from "./Search.tsx";
 import { NAVBAR_HEIGHT_MOBILE, SIDEMENU_DRAWER_ID } from "../../constants.ts";
 import { IconMenuDrawerOpen } from "../Icons/IconMenuDrawerOpen.tsx";
 import { MenuMobile } from "./MenuMobile.tsx";
+import SmartBanner from "../../islands/SmartBanner.tsx";
 
 export function Mobile({ logo, searchbar, loading, navItems, links }: Props) {
   return (
     <>
+      <SmartBanner />
       <Drawer
         id={SIDEMENU_DRAWER_ID}
         class="w-full"
