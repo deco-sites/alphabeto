@@ -1,16 +1,11 @@
-import type { MiniMe } from "../../loaders/MiniMe/minime.ts";
+import type { PartType } from "../../loaders/MiniMe/minime.ts";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 
 /**@title Informações da Mini Me*/
 interface Props {
-  dollParts: MiniMe;
+  types: PartType[];
 
   step: number;
-
-  /**@title Título da Mini Me*/
-  title: string;
-
-  page: ProductDetailsPage | null;
 }
 
 export default function DollProgress(props: Props) {
@@ -18,7 +13,7 @@ export default function DollProgress(props: Props) {
   return (
     <>
       <div class="flex items-center relative mb-[36px] w-full">
-        {Object.keys(props.dollParts.types).map((_i, index) => (
+        {Object.keys(props.types).map((_i, index) => (
           <>
             <p
               class={props.step >= index
@@ -27,7 +22,7 @@ export default function DollProgress(props: Props) {
             >
               {`${index + 1}`}
             </p>
-            {index !== Object.keys(props.dollParts.types).length - 1 && (
+            {index !== Object.keys(props.types).length - 1 && (
               <hr
                 class={props.step >= index
                   ? `border-dashed border-b-[1px] w-[80px] border-[#F98300]`
@@ -37,13 +32,13 @@ export default function DollProgress(props: Props) {
           </>
         ))}
       </div>
-      {props.dollParts.types[props.step] && (
+      {props.types[props.step] && (
         <div class="flex items-center">
           <p class="font-beccaPerry text-[32px] mobile:text-[25px] text-[#FF8300]">
-            Passo {props.dollParts.types[props.step].ordem}:
+            Passo {props.types[props.step].ordem}:
           </p>
           <p class="font-Quicksand text-[20px] mobile:text-[16px] text-[#7E7F88] font-bold ml-[4px]">
-            {props.dollParts.types[props.step].titulo}
+            {props.types[props.step].titulo}
           </p>
         </div>
       )}

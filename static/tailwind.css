@@ -6198,6 +6198,10 @@ details.collapse summary::-webkit-details-marker {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
+.bg-gray-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+}
 .bg-neutral-content {
   --tw-bg-opacity: 1;
   background-color: var(--fallback-nc,oklch(var(--nc)/var(--tw-bg-opacity)));
@@ -6743,6 +6747,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .text-\[300px\] {
   font-size: 300px;
+}
+.text-\[30px\] {
+  font-size: 30px;
 }
 .text-\[32px\] {
   font-size: 32px;
@@ -8070,6 +8077,10 @@ details.collapse summary::-webkit-details-marker {
     top: 32px;
   }
 
+  .mobile\:top-\[35px\] {
+    top: 35px;
+  }
+
   .mobile\:top-\[550px\] {
     top: 550px;
   }
@@ -8080,6 +8091,11 @@ details.collapse summary::-webkit-details-marker {
 
   .mobile\:top-\[925px\] {
     top: 925px;
+  }
+
+  .mobile\:mx-\[34px\] {
+    margin-left: 34px;
+    margin-right: 34px;
   }
 
   .mobile\:mx-\[8\.5px\] {
@@ -8135,6 +8151,10 @@ details.collapse summary::-webkit-details-marker {
     margin-left: 0;
   }
 
+  .mobile\:ml-\[18px\] {
+    margin-left: 18px;
+  }
+
   .mobile\:mr-1 {
     margin-right: 0.25rem;
   }
@@ -8149,6 +8169,10 @@ details.collapse summary::-webkit-details-marker {
 
   .mobile\:mt-\[10px\] {
     margin-top: 10px;
+  }
+
+  .mobile\:mt-\[20px\] {
+    margin-top: 20px;
   }
 
   .mobile\:mt-\[30px\] {
@@ -8227,6 +8251,10 @@ details.collapse summary::-webkit-details-marker {
     height: 30px;
   }
 
+  .mobile\:h-\[323px\] {
+    height: 323px;
+  }
+
   .mobile\:h-\[375px\] {
     height: 375px;
   }
@@ -8273,6 +8301,10 @@ details.collapse summary::-webkit-details-marker {
 
   .mobile\:w-\[174px\] {
     width: 174px;
+  }
+
+  .mobile\:w-\[230px\] {
+    width: 230px;
   }
 
   .mobile\:w-\[250px\] {
@@ -8337,6 +8369,14 @@ details.collapse summary::-webkit-details-marker {
 
   .mobile\:max-w-\[262px\] {
     max-width: 262px;
+  }
+
+  .mobile\:max-w-\[265px\] {
+    max-width: 265px;
+  }
+
+  .mobile\:max-w-\[267px\] {
+    max-width: 267px;
   }
 
   .mobile\:max-w-\[286px\] {
@@ -8417,6 +8457,10 @@ details.collapse summary::-webkit-details-marker {
 
   .mobile\:overflow-x-hidden {
     overflow-x: hidden;
+  }
+
+  .mobile\:rounded-\[8px\] {
+    border-radius: 8px;
   }
 
   .mobile\:rounded-none {

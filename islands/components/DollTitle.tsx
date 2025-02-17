@@ -10,7 +10,7 @@ interface Props {
   /**@title Título da Mini Me*/
   title: string;
 
-  page: ProductDetailsPage | null;
+  product: ProductDetailsPage | null;
 }
 
 export default function DollTitle(props: Props) {

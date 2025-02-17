@@ -21,8 +21,13 @@ import * as $StarSelector from "./islands/StarSelector.tsx";
 import * as $components_DollButtons from "./islands/components/DollButtons.tsx";
 import * as $components_DollImage from "./islands/components/DollImage.tsx";
 import * as $components_DollParts from "./islands/components/DollParts.tsx";
+import * as $components_DollPrice from "./islands/components/DollPrice.tsx";
 import * as $components_DollProgress from "./islands/components/DollProgress.tsx";
 import * as $components_DollTitle from "./islands/components/DollTitle.tsx";
+import * as $components_popupComponents_PopupActions from "./islands/components/popupComponents/PopupActions.tsx";
+import * as $components_popupComponents_PopupDescription from "./islands/components/popupComponents/PopupDescription.tsx";
+import * as $components_popupComponents_PopupImage from "./islands/components/popupComponents/PopupImage.tsx";
+import * as $components_popupComponents_PopupTitle from "./islands/components/popupComponents/PopupTitle.tsx";
 import * as $formsNossasLojas from "./islands/formsNossasLojas.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
@@ -49,8 +54,17 @@ const manifest = {
     "./islands/components/DollButtons.tsx": $components_DollButtons,
     "./islands/components/DollImage.tsx": $components_DollImage,
     "./islands/components/DollParts.tsx": $components_DollParts,
+    "./islands/components/DollPrice.tsx": $components_DollPrice,
     "./islands/components/DollProgress.tsx": $components_DollProgress,
     "./islands/components/DollTitle.tsx": $components_DollTitle,
+    "./islands/components/popupComponents/PopupActions.tsx":
+      $components_popupComponents_PopupActions,
+    "./islands/components/popupComponents/PopupDescription.tsx":
+      $components_popupComponents_PopupDescription,
+    "./islands/components/popupComponents/PopupImage.tsx":
+      $components_popupComponents_PopupImage,
+    "./islands/components/popupComponents/PopupTitle.tsx":
+      $components_popupComponents_PopupTitle,
     "./islands/formsNossasLojas.tsx": $formsNossasLojas,
   },
   baseUrl: import.meta.url,

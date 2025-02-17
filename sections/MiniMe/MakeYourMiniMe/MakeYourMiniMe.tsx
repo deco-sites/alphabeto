@@ -16,11 +16,11 @@ interface Props {
   /**@title Imagem de fundo da boneca*/
   image: ImageWidget;
   /**@title Título do Popup*/
-  popupTitle?: RichText;
+  popupTitle: string;
   /**@title Texto do Termos e Condições*/
-  popupTerms?: RichText;
+  popupTerms: RichText;
 
-  page: ProductDetailsPage | null;
+  product: ProductDetailsPage | null;
   
   /**@title Textos de conclusão*/
   finishStep: FinishStep;

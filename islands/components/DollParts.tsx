@@ -1,27 +1,21 @@
 import type { MiniMe, PartType } from "../../loaders/MiniMe/minime.ts";
 import { useRef } from "preact/hooks";
+import { Signal } from "@preact/signals";
 import Icon from "site/components/ui/Icon.tsx";
 
 /**@title Informações da Mini Me*/
 interface Props {
   dollParts: MiniMe;
 
+  selectedParts: Signal<{ [key: string]: string }>;
+
   type: PartType;
-
-  /**@title Textos de conclusão*/
-  finishStep: FinishStep;
-}
-
-interface FinishStep {
-  /**@title Título final*/
-  finalTitle: string;
-  /**@title Mensagem final*/
-  finalMessage: string;
-  /**@title Mensagem de conclusão*/
-  finishText?: string;
 }
 
 export default function DollParts(props: Props) {
+  const storeData = localStorage.getItem('selectedParts')
+  props.selectedParts.value = storeData ? JSON.parse(storeData) : {}
+
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const scrollQtd = 250;
 
@@ -41,6 +35,11 @@ export default function DollParts(props: Props) {
     }
   };
 
+  const selectImage = (id: string) => {
+    props.selectedParts.value = { ...props.selectedParts?.value, [props.type.nome]: id }
+    localStorage.setItem('selectedParts', JSON.stringify(props.selectedParts))
+  }
+
   return (
     <>
       <div class="mb-[36px]">
@@ -53,7 +52,8 @@ export default function DollParts(props: Props) {
               props.dollParts.parts[props.type.nome].map((part) => (
                 <>
                   <div
-                    class={props.dollParts
+                    onClick={() => selectImage(part.id)}
+                    class={Object.values(props.selectedParts.value).includes(part.id)
                       ? `flex flex-col items-center w-[138px] h-[237px] mr-[4px] bg-[#fff] rounded-[8px] border-[1px] border-[#D6DE23]`
                       : `flex flex-col items-center w-[138px] h-[237px] mr-[4px] rounded-[8px] cursor-pointer hover:rounded-[8px] transition duration-300 hover:border-[0.5px] hover:border-[#D6DE23]`}
                   >
